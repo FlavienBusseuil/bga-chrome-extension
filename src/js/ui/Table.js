@@ -10,8 +10,8 @@ export const Table = ({
 }) =>
   Component("li", {
     className: `${
-      isWaitingCurrentPlayer ? "bg-blue-100" : "bg-white"
-    } rounded shadow-md p-3 cursor-pointer border-2 border-transparent hover:border-gray-600`,
+      isWaitingCurrentPlayer ? "border-blue-200" : ""
+    } bg-white rounded shadow-md p-3 cursor-pointer border-2 border-transparent hover:border-gray-600`,
     onclick: () => window.open(link, "_blank"),
     children: [TableHeader({ gameName, tableImg }), children],
   });
