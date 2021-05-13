@@ -7,7 +7,7 @@
     "default_popup": "popup.html"
   },
   "default_locale": "en",
-  "description": "Checks your games in progress on boardgamearena.com",
+  "description": "__MSG_ext_description__",
   "icons": {
     "16": "icon-16.png",
     "48": "icon-48.png",

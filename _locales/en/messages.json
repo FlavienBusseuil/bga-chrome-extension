@@ -1,4 +1,7 @@
 {
+  "ext_description": {
+    "message": "List your current games on boardgamearena.com"
+  },
   "something_wrong": { "message": "Something wrong!" },
   "play_new_game": { "message": "Play a New Game" },
   "please_login": { "message": "Please Login" }

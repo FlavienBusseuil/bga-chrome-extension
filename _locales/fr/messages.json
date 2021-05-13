@@ -1,4 +1,7 @@
 {
+  "ext_description": {
+    "message": "La liste de vos parties en cours sur boardgamearena.com"
+  },
   "something_wrong": { "message": "Quelque chose cloche 🔔 !" },
   "play_new_game": { "message": "Démarrer une partie" },
   "please_login": { "message": "S'authentifier" }
