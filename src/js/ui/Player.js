@@ -2,6 +2,14 @@ import { Component } from "./Component";
 
 export const Player = ({ playerName, isActivePlayer }) =>
   Component("li", {
-    innerText: `${isActivePlayer ? "⏳ " : ""}${playerName}`,
-    className: "w-32 text-green-500 font-bold",
+    className: `${
+      isActivePlayer ? "text-bgaGreen" : "text-bgaBlue-lighter"
+    } font-bold`,
+    children: [
+      Component("span", {
+        className: "mr-1",
+        innerText: `${isActivePlayer ? "⏳" : ""}`,
+      }),
+      Component("span", { innerText: `${playerName}` }),
+    ],
   });

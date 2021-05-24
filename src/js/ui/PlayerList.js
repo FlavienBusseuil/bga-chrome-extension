@@ -2,6 +2,6 @@ import { Component } from "./Component";
 
 export const PlayerList = ({ children }) =>
   Component("ul", {
-    className: "flex flex-wrap",
+    className: "grid gap-x-2 grid-cols-3",
     children,
   });
