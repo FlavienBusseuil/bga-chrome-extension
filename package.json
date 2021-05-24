@@ -17,6 +17,8 @@
     "webpack-dev-server": "3.11.2",
     "write-file-webpack-plugin": "4.5.1",
     "tailwindcss-cli": "0.1.2",
+    "tailwindcss": "2.1.2",
+    "autoprefixer": "10.2.5",
     "postcss": "8.2.14"
   }
 }
