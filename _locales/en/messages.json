@@ -2,7 +2,18 @@
   "ext_description": {
     "message": "List your current games on boardgamearena.com"
   },
-  "something_wrong": { "message": "Something wrong!" },
+  "something_wrong": { "message": "Something wrong! 😭" },
+  "report_error": {
+    "message": "You can report this at <a href=\"$href$\">$email$</a>.",
+    "placeholders": {
+      "email": {
+        "content": "$1"
+      },
+      "href": {
+        "content": "$2"
+      }
+    }
+  },
   "play_new_game": { "message": "Play a New Game" },
   "please_login": { "message": "Please Login" }
 }

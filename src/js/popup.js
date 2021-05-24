@@ -1,4 +1,4 @@
-import { Error } from "./ui/Error";
+import { Error as ErrorComponent } from "./ui/Error";
 import { LoginButton } from "./ui/LoginButton";
 import { Player } from "./ui/Player";
 import { PlayerList } from "./ui/PlayerList";
@@ -141,8 +141,10 @@ async function fetchAndRender() {
     // Set badge
     chrome.action.setBadgeText({ text: `${nbWaitingTables}` });
   } catch (error) {
-    const errorElm = Error({
+    console.log(chrome.i18n.getMessage("something_wrong"));
+    const errorElm = ErrorComponent({
       errorText: chrome.i18n.getMessage("something_wrong"),
+      errorMessage: error.message || error,
     });
     console.error(error);
     bodyElm.appendChild(errorElm);
