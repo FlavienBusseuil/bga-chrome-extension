@@ -72,49 +72,55 @@ async function aggregateTablesAndPlayers({
   );
 }
 
-async function fetchAndRender() {
-  const bodyElm = document.querySelector("body");
-  try {
-    // Fetch global info
-    const {
-      globalUserInfos,
-      assetsUrl,
-      jsBundleVersion,
-    } = await fetchGlobalInfo({
+async function fetchAndAggregateTablesAndPlayers() {
+  // Fetch global info
+  const { globalUserInfos, assetsUrl, jsBundleVersion } = await fetchGlobalInfo(
+    {
       fetchGlobalUserInfos: true,
       fetchAssetsUrl: true,
       fetchJsBundleVersion: true,
-    });
-
-    // Fetch current player info
-    const currentPlayer = await fetchCurrentPlayer();
-    console.log(currentPlayer);
-    const { token: currentPlayerToken, id: currentPlayerId } = currentPlayer;
-
-    // No user logged
-    if (!currentPlayerToken || !currentPlayerId) {
-      bodyElm.appendChild(LoginButton());
-      return;
     }
+  );
 
-    // Fetch number of waiting tables
-    const { nbWaitingTables } = await fetchActivityForPlayer({
-      playerToken: currentPlayerToken,
-      playerId: currentPlayerId,
-    });
+  // Fetch current player info
+  const currentPlayer = await fetchCurrentPlayer();
+  const { token: currentPlayerToken, id: currentPlayerId } = currentPlayer;
 
-    // Fetch global translations
-    const translations = await fetchGlobalTranslations({
-      assetsUrl,
-      jsBundleVersion,
-    });
+  // No user logged
+  if (!currentPlayerToken || !currentPlayerId) {
+    bodyElm.appendChild(LoginButton());
+    return;
+  }
 
-    const tables = await aggregateTablesAndPlayers({
-      currentPlayerId,
-      globalUserInfos,
-      translations,
-      assetsUrl,
-    });
+  // Fetch number of waiting tables
+  const { nbWaitingTables } = await fetchActivityForPlayer({
+    playerToken: currentPlayerToken,
+    playerId: currentPlayerId,
+  });
+
+  // Fetch global translations
+  const translations = await fetchGlobalTranslations({
+    assetsUrl,
+    jsBundleVersion,
+  });
+
+  const tables = await aggregateTablesAndPlayers({
+    currentPlayerId,
+    globalUserInfos,
+    translations,
+    assetsUrl,
+  });
+
+  return { nbWaitingTables, tables };
+}
+
+async function fetchAndRender() {
+  const bodyElm = document.querySelector("body");
+  try {
+    const {
+      nbWaitingTables,
+      tables,
+    } = await fetchAndAggregateTablesAndPlayers();
 
     // Render tables and players
     const tableListElm = TableList({
