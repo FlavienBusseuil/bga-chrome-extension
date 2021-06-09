@@ -6,7 +6,7 @@
     "dev": " NODE_ENV=development yarn tailwind & webpack --watch",
     "build": "NODE_ENV=production yarn tailwind; webpack --env production",
     "tailwind": "tailwindcss-cli build ./src/css/base.css -c ./tailwind.config.js -o ./src/css/tailwind.css --no-autoprefixer",
-    "release": "yarn build & zip build & gren release"
+    "release": "yarn build & zip build & gren changelog & git commit -m 'Update Changelog' & git push & gren release"
   },
   "devDependencies": {
     "clean-webpack-plugin": "3.0.0",
