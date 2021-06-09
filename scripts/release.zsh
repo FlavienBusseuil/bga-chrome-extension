@@ -10,6 +10,9 @@ TAG=v$(node scripts/getVersion.js);
 yarn build;
 # zip
 zip builds/build-$TAG.zip build;
+# Create and push a Github TAG
+git tag $TAG
+git push orgin master --tags
 # commit changes
 git add package.json;
 git add src/manifest.jon;
