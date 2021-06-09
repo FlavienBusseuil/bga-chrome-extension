@@ -9,7 +9,8 @@ yarn build;
 # zip
 zip builds/build-$TAG.zip build;
 # commit changes
-git add package.json manifest.jon;
+git add package.json;
+git add manifest.jon;
 git commit -m 'Update version';
 git push;
 # create a new release
