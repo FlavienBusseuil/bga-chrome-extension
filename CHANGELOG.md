@@ -1,9 +1,15 @@
 # Changelog
 
-## v1.1.0 (26/05/2021)
+## Version 1.1.0 (26/05/2021)
+# New Features
 
-#### Enhancements
+* Styling improvements for idling games
+* Basic email report suggestion on error
 
-- [**enhancement**] Add fixtures [#3](https://github.com/FlavienBusseuil/bga-chrome-extension/issues/3)
-- [**enhancement**] Change styling for idling games [#2](https://github.com/FlavienBusseuil/bga-chrome-extension/issues/2)
-- [**enhancement**] Bubble up error message [#1](https://github.com/FlavienBusseuil/bga-chrome-extension/issues/1)
+# Chore
+
+* Add fixtures data to help testing and screenshooting.
+---
+
+## Version 1.0.0 (17/05/2021)
+Initial release.
