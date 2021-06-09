@@ -12,7 +12,7 @@ yarn build;
 zip builds/build-$TAG.zip build;
 # commit changes
 git add package.json;
-git add manifest.jon;
+git add src/manifest.jon;
 git commit -m 'Update version';
 git push;
 # create a new release
