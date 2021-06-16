@@ -1,5 +1,12 @@
 # Changelog
 
+## v1.1.2 (16/06/2021)
+#### Bug Fixes
+
+- [**bug**] Crash when they are game with pending invites [#5](https://github.com/FlavienBusseuil/bga-chrome-extension/issues/5)
+
+---
+
 ## v1.1.1 (09/06/2021)
 #### Chore
 
