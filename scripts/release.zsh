@@ -1,6 +1,6 @@
 # Previous TAG
 PREVIOUS_TAG=v$(node scripts/getVersion.js);
-# Set a new version number
+# Set a new version number and create a github tag
 yarn version;
 # Update the version number in manifest
 node scripts/updateManifestVersionFromPackage.js;
@@ -15,11 +15,10 @@ git add package.json;
 git add src/manifest.json;
 git commit -m 'Update version';
 git push;
-# Create and push a Github TAG
-git tag $TAG
+# push Github tag
 git push --tags
 # create a new release
-gren release --tags $TAG..$PREVIOUS_TAG;
+gren release --tags $PREVIOUS_TAG..$TAG;
 # create and push a changelog
 gren changelog --override;
 git add CHANGELOG.md;
