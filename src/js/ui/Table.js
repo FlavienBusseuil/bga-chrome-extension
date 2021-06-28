@@ -6,6 +6,7 @@ export const Table = ({
   gameName,
   tableImg,
   link,
+  isOpenForPlayers,
   isWaitingCurrentPlayer,
   children,
 }) =>
@@ -13,7 +14,7 @@ export const Table = ({
     className: `relative bg-white rounded shadow-md p-3 cursor-pointer border-transparent border border-gray-300 hover:border-gray-600 overflow-hidden`,
     onclick: () => window.open(link, "_blank"),
     children: [
-      TableIndicator({ isWaitingCurrentPlayer }),
+      TableIndicator({ isOpenForPlayers, isWaitingCurrentPlayer }),
       TableHeader({ gameName, tableImg }),
       children,
     ],

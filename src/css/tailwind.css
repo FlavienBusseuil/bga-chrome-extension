@@ -568,6 +568,11 @@ video {
   background-color: rgba(25, 156, 151, var(--tw-bg-opacity));
 }
 
+.bg-bgaOrange {
+  --tw-bg-opacity: 1;
+  background-color: rgba(240, 181, 85, var(--tw-bg-opacity));
+}
+
 .hover\:bg-bgaBlue-light:hover {
   --tw-bg-opacity: 1;
   background-color: rgba(72, 113, 182, var(--tw-bg-opacity));

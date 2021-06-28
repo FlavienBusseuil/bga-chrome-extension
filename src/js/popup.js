@@ -14,6 +14,29 @@ import { fetchTableInfo } from "./utils/fetchTableInfo";
 import { fetchTables } from "./utils/fetchTables";
 import { isPlayerActiveOnTableFromGlobalUserInfos } from "./utils/isPlayerActiveOnTableFromGlobalUserInfos";
 
+function sortTables(tables) {
+  return tables.sort(
+    (
+      {
+        isOpenForPlayers: isOpenForPlayers1,
+        isWaitingCurrentPlayer: isWaitingCurrentPlayer1,
+        gameName: gameName1,
+      },
+      {
+        isOpenForPlayers: isOpenForPlayers2,
+        isWaitingCurrentPlayer: isWaitingCurrentPlayer2,
+        gameName: gameName2,
+      }
+    ) =>
+      // Sort by: active tables
+      isWaitingCurrentPlayer2 - isWaitingCurrentPlayer1 ||
+      // open tables
+      isOpenForPlayers2 - isOpenForPlayers1 ||
+      // game names
+      gameName1.localeCompare(gameName2)
+  );
+}
+
 async function aggregateTablesAndPlayers({
   currentPlayerId,
   globalUserInfos,
@@ -32,10 +55,15 @@ async function aggregateTablesAndPlayers({
       }) => {
         const tableInfos = await fetchTableInfo({ tableId });
 
-        const { gameversion: gameVersion } = tableInfos;
+        const {
+          gameversion: gameVersion,
+          status,
+          max_player: nbMaxPlayers,
+        } = tableInfos;
 
         return {
           tableId,
+          isOpenForPlayers: status === "asyncopen",
           gameName: translations[`${gameNameKey}_displayed`],
           tableImg: `${assetsUrl}games/${gameNameKey}/${gameVersion}/img/game_icon.png`,
           link: `${bgaUrl}/${gameServer}/${gameNameKey}?table=${tableId}`,
@@ -44,6 +72,7 @@ async function aggregateTablesAndPlayers({
             tableId,
             globalUserInfos,
           }),
+          nbMaxPlayers,
           players: Object.keys(players).map((playerKey) => {
             const { fullname: playerName, id: playerId } = players[playerKey];
             const isActivePlayer = isPlayerActiveOnTableFromGlobalUserInfos({
@@ -60,16 +89,7 @@ async function aggregateTablesAndPlayers({
     )
   );
 
-  return tablesAndPlayers.sort(
-    (
-      { isWaitingCurrentPlayer: isWaitingCurrentPlayer1, gameName: gameName1 },
-      { isWaitingCurrentPlayer: isWaitingCurrentPlayer2, gameName: gameName2 }
-    ) =>
-      // Firstly: sort by active tables
-      isWaitingCurrentPlayer2 - isWaitingCurrentPlayer1 ||
-      // Secondly: sort by game name
-      gameName1.localeCompare(gameName2)
-  );
+  return tablesAndPlayers;
 }
 
 async function fetchAndAggregateTablesAndPlayers() {
@@ -122,19 +142,40 @@ async function fetchAndRender() {
       tables,
     } = await fetchAndAggregateTablesAndPlayers();
 
+    const sortedTables = sortTables(tables);
+
     // Render tables and players
     const tableListElm = TableList({
-      children: tables.map(
-        ({ players, gameName, link, tableImg, isWaitingCurrentPlayer }) => {
+      children: sortedTables.map(
+        ({
+          players,
+          gameName,
+          link,
+          tableImg,
+          isOpenForPlayers,
+          isWaitingCurrentPlayer,
+          nbMaxPlayers,
+        }) => {
+          const nbMissingPlayers = isOpenForPlayers
+            ? nbMaxPlayers - players.length
+            : 0;
           return Table({
             gameName,
             tableImg,
             link,
+            isOpenForPlayers,
             isWaitingCurrentPlayer,
             children: PlayerList({
-              children: players.map(({ playerName, isActivePlayer }) => {
-                return Player({ playerName, isActivePlayer });
-              }),
+              children: [
+                ...players.map(({ playerName, isActivePlayer }) =>
+                  Player({ playerName, isActivePlayer })
+                ),
+                ...Array(nbMissingPlayers)
+                  .fill()
+                  .map(() =>
+                    Player({ playerName: "🪑 ...", isActivePlayer: false })
+                  ),
+              ],
             }),
           });
         }
