@@ -15,5 +15,15 @@
     }
   },
   "play_new_game": { "message": "Démarrer une partie" },
-  "please_login": { "message": "S'authentifier" }
+  "please_login": { "message": "S'authentifier" },
+  "player_invited_you": {
+    "message": "$player$ vous invite à sa table",
+    "placeholders": {
+      "player": {
+        "content": "$1"
+      }
+    }
+  },
+  "accept": { "message": "Jouons !" },
+  "decline": { "message": "Non merci" }
 }

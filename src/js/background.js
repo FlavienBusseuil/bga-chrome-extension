@@ -1,19 +1,32 @@
 import { fetchActivityForPlayer } from "./utils/fetchActivityForPlayer";
 import { fetchCurrentPlayer } from "./utils/fetchCurrentPlayer";
 
-chrome.action.setBadgeBackgroundColor({ color: "#4871b6" });
-
 async function updateBadge() {
-  // Fetch current player info
-  const { token: playerToken, id: playerId } = await fetchCurrentPlayer();
+  try {
+    // Fetch current player info
+    const { token: playerToken, id: playerId } = await fetchCurrentPlayer();
 
-  // Fetch number of waiting tables
-  const { nbWaitingTables } = await fetchActivityForPlayer({
-    playerToken,
-    playerId,
-  });
+    if (!playerId) {
+      // Set badge
+      chrome.action.setBadgeBackgroundColor({ color: "#757575" });
+      chrome.action.setBadgeText({ text: `-` });
+      return;
+    }
 
-  chrome.action.setBadgeText({ text: `${nbWaitingTables}` });
+    // Fetch number of waiting tables
+    const { nbWaitingTables } = await fetchActivityForPlayer({
+      playerToken,
+      playerId,
+    });
+
+    chrome.action.setBadgeBackgroundColor({ color: "#4871b6" });
+    chrome.action.setBadgeText({ text: `${nbWaitingTables}` });
+  } catch (error) {
+    console.error(error);
+    // Set badge
+    chrome.action.setBadgeBackgroundColor({ color: "#dc2626" });
+    chrome.action.setBadgeText({ text: `x` });
+  }
 }
 
 // Set alarm to run update every minute

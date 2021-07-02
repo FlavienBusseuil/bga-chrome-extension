@@ -1,7 +1,7 @@
-import { Component } from "./Component";
+import { Component } from "./base/Component";
 
 export const TableTitle = ({ gameName }) =>
   Component("h1", {
     innerText: `${gameName}`,
-    className: "text-lg text-bgaBlue-light font-semibold",
+    className: "text-lg text-bgaBlue-light font-semibold mr-1",
   });

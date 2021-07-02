@@ -1,3 +1,5 @@
+const colors = require("tailwindcss/colors");
+
 module.exports = {
   purge: {
     content: ["./src/**/*.html", "./src/**/*.js"],
@@ -13,9 +15,15 @@ module.exports = {
         },
         bgaGreen: {
           DEFAULT: "#199c97",
+          light: "#1db7b1",
         },
         bgaOrange: {
           DEFAULT: "#f0b555",
+          light: "#F5DDBA",
+          lighter: "#fdf2e1",
+        },
+        gray: {
+          350: "#b0b4ba",
         },
       },
       animation: {

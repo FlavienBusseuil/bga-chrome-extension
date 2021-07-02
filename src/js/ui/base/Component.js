@@ -5,13 +5,18 @@ export function Component(tag, props) {
     // children prop
     if (propName === "children") {
       const { children } = props;
-      if (Array.isArray(children)) {
-        children.forEach((child) => element.appendChild(child));
-      } else {
-        element.appendChild(children);
+
+      if (!children) {
+        return;
       }
 
-      return;
+      if (Array.isArray(children)) {
+        return children
+          .filter(Boolean)
+          .forEach((child) => element.appendChild(child));
+      }
+
+      return element.appendChild(children);
     }
 
     // Other props

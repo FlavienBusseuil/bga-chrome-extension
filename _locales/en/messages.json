@@ -15,5 +15,15 @@
     }
   },
   "play_new_game": { "message": "Play a New Game" },
-  "please_login": { "message": "Please Login" }
+  "please_login": { "message": "Please Login" },
+  "player_invited_you": {
+    "message": "$player$ invited you",
+    "placeholders": {
+      "player": {
+        "content": "$1"
+      }
+    }
+  },
+  "accept": { "message": "Accept" },
+  "decline": { "message": "Decline" }
 }

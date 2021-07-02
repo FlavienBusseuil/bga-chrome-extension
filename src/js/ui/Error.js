@@ -1,4 +1,4 @@
-import { Component } from "./Component";
+import { Component } from "./base/Component";
 
 export const Error = ({ errorText, errorMessage }) =>
   Component("div", {
