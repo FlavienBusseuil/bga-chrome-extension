@@ -1,4 +1,4 @@
-import { bgaUrl } from "../constants";
+import { bgaUrl, bgaExtensionUrlSignature } from "../constants";
 import { isPlayerActiveOnTableFromGlobalUserInfos } from "../isPlayerActiveOnTableFromGlobalUserInfos";
 
 export function transform({
@@ -24,7 +24,8 @@ export function transform({
       } = tablesInfos[tableId];
 
       return {
-        acceptInviteLink: `${bgaUrl}/table?table=${tableId}&acceptinvit`,
+        acceptInviteLink: `${bgaUrl}/table/table/joingame.html?table=${tableId}&${bgaExtensionUrlSignature}`,
+        declineInviteLink: `${bgaUrl}/table/table/refuseInvitation.html?table=${tableId}&${bgaExtensionUrlSignature}`,
         gameName: translations[`${gameNameKey}_displayed`],
         isOpenForPlayers: status === "asyncopen",
         link: `${bgaUrl}/${gameServer}/${gameNameKey}?table=${tableId}`,

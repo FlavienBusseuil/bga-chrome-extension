@@ -7,7 +7,7 @@ import {
   sort,
 } from "./utils/init";
 
-import { debug } from "../../marketplace/mock/fixtures";
+// import { debug } from "../../marketplace/mock/fixtures";
 
 async function run() {
   try {
@@ -17,7 +17,7 @@ async function run() {
       return renderLoggedOut();
     }
 
-    const transformedTables = debug.tables; //transform(rest);
+    const transformedTables = transform(rest);
     const sortedTables = sort(transformedTables);
     renderTables({ tables: sortedTables, nbWaitingTables });
   } catch (error) {

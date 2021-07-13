@@ -26,5 +26,10 @@ export const Button = ({
     ]
       .filter(Boolean)
       .join(" "),
-    onclick: url ? () => window.open(url, "_blank") : onClick,
+    onclick: url
+      ? () => window.open(url, "_blank")
+      : (event) => {
+          event.stopPropagation();
+          onClick();
+        },
   });

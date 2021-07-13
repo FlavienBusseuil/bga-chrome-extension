@@ -56,7 +56,13 @@ export const Table = ({
           Button({
             className: "flex-shrink-0",
             text: chrome.i18n.getMessage("decline"),
-            url: "",
+            onClick: async () => {
+              const response = await fetch(declineInviteLink).then((r) =>
+                r.json()
+              );
+              console.log(response);
+              // ...
+            },
             size: 1,
             type: "secondary",
           }),
@@ -64,7 +70,13 @@ export const Table = ({
           Button({
             className: "flex-shrink-0",
             text: chrome.i18n.getMessage("accept"),
-            onClick: () => fetch(acceptInviteLink),
+            onClick: async () => {
+              const response = await fetch(acceptInviteLink).then((r) =>
+                r.json()
+              );
+              console.log(response);
+              // ...
+            },
             size: 1,
             type: "accept",
           }),
