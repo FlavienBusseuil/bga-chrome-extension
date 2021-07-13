@@ -6,15 +6,19 @@ import { TableIndicator } from "./TableIndicator";
 import { Button } from "./base/Button";
 
 export const Table = ({
+  tableId,
   gameName,
   tableCreatorName,
   tableImg,
   link,
   acceptInviteLink,
+  declineInviteLink,
   isInvitePendingForCurrentPlayer,
   isOpenForPlayers,
   isWaitingCurrentPlayer,
   children,
+  onAcceptInvite,
+  onDeclineInvite,
 }) => {
   return Component("li", {
     className: [
@@ -53,33 +57,33 @@ export const Table = ({
             ]),
           }),
 
-          Button({
-            className: "flex-shrink-0",
-            text: chrome.i18n.getMessage("decline"),
-            onClick: async () => {
-              const response = await fetch(declineInviteLink).then((r) =>
-                r.json()
-              );
-              console.log(response);
-              // ...
-            },
-            size: 1,
-            type: "secondary",
-          }),
+          // Button({
+          //   className: "flex-shrink-0",
+          //   text: chrome.i18n.getMessage("decline"),
+          //   onClick: async () => {
+          //     const { status, error } = await fetch(
+          //       declineInviteLink
+          //     ).then((r) => r.json());
+          //     // ... status === 1 ?
+          //     onDeclineInvite({ tableId });
+          //   },
+          //   size: 1,
+          //   type: "secondary",
+          // }),
 
-          Button({
-            className: "flex-shrink-0",
-            text: chrome.i18n.getMessage("accept"),
-            onClick: async () => {
-              const response = await fetch(acceptInviteLink).then((r) =>
-                r.json()
-              );
-              console.log(response);
-              // ...
-            },
-            size: 1,
-            type: "accept",
-          }),
+          // Button({
+          //   className: "flex-shrink-0",
+          //   text: chrome.i18n.getMessage("accept"),
+          //   onClick: async () => {
+          //     const { status, error } = await fetch(
+          //       acceptInviteLink
+          //     ).then((r) => r.json());
+          //     // ... status === 1 ?
+          //     onAcceptInvite({ tableId });
+          //   },
+          //   size: 1,
+          //   type: "accept",
+          // }),
         ],
       }),
     ],

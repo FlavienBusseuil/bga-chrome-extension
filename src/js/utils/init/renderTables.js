@@ -1,10 +1,16 @@
 import { Player } from "../../ui/Player";
 import { PlayerList } from "../../ui/PlayerList";
 import { StartNewGameButton } from "../../ui/StartNewGameButton";
+import { Button } from "../../ui/base/Button";
 import { Table } from "../../ui/Table";
 import { TableList } from "../../ui/TableList";
 
-export function renderTables({ tables, nbWaitingTables }) {
+export function renderTables({
+  tables,
+  nbWaitingTables,
+  onAcceptInvite,
+  onDeclineInvite,
+}) {
   chrome.action.setBadgeBackgroundColor({ color: "#4871b6" });
   const bodyElm = document.querySelector("body");
 
@@ -12,15 +18,16 @@ export function renderTables({ tables, nbWaitingTables }) {
   const tableListElm = TableList({
     children: tables.map(
       ({
-        players,
-        gameName,
-        link,
         acceptInviteLink,
         declineInviteLink,
+        gameName,
+        isOpenForPlayers,
+        link,
+        nbMaxPlayers,
+        players,
         tableCreatorName,
         tableImg,
-        isOpenForPlayers,
-        nbMaxPlayers,
+        tableId,
       }) => {
         const nbMissingPlayers = isOpenForPlayers
           ? nbMaxPlayers - players.length
@@ -35,15 +42,18 @@ export function renderTables({ tables, nbWaitingTables }) {
         );
 
         return Table({
-          gameName,
-          tableCreatorName,
-          tableImg,
-          link,
           acceptInviteLink,
           declineInviteLink,
+          gameName,
           isInvitePendingForCurrentPlayer,
           isOpenForPlayers,
           isWaitingCurrentPlayer,
+          link,
+          onAcceptInvite,
+          onDeclineInvite,
+          tableCreatorName,
+          tableId,
+          tableImg,
           children: PlayerList({
             children: [
               ...players.map(

@@ -3,11 +3,16 @@ import {
   renderError,
   renderLoggedOut,
   renderTables,
-  transform,
+  transformTables,
+  transformTable,
   sort,
 } from "./utils/init";
+import { fetchTableInfo } from "./utils/fetchTableInfo";
 
-// import { debug } from "../../marketplace/mock/fixtures";
+import {
+  debug,
+  acceptedInviteTable,
+} from "../../marketplace/mock/fixtures/debug";
 
 async function run() {
   try {
@@ -17,9 +22,19 @@ async function run() {
       return renderLoggedOut();
     }
 
-    const transformedTables = transform(rest);
+    const transformedTables = debug.tables; // transformTables(rest);
     const sortedTables = sort(transformedTables);
-    renderTables({ tables: sortedTables, nbWaitingTables });
+
+    async function handleAcceptOrDeclineInvite({ tableId }) {
+      console.log(tableId);
+    }
+
+    renderTables({
+      tables: sortedTables,
+      nbWaitingTables,
+      onAcceptInvite: handleAcceptOrDeclineInvite,
+      onDeclineInvite: handleAcceptOrDeclineInvite,
+    });
   } catch (error) {
     // Unexpected error
     console.error(error);
