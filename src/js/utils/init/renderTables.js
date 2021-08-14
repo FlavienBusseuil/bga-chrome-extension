@@ -74,5 +74,16 @@ export function renderTables({
   bodyElm.appendChild(StartNewGameButton());
 
   // Set badge
-  chrome.action.setBadgeText({ text: `${nbWaitingTables}` });
+  const nbPendingInvites = tables.reduce(
+    (total, { players }) =>
+      total +
+      (players.some(
+        ({ isCurrentPlayer, isInvitePending }) =>
+          isCurrentPlayer && isInvitePending
+      )
+        ? 1
+        : 0),
+    0
+  );
+  chrome.action.setBadgeText({ text: `${nbWaitingTables + nbPendingInvites}` });
 }

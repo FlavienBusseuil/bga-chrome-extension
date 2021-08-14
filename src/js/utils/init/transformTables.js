@@ -71,7 +71,7 @@ export function transformTables({
       translations,
       assetsUrl,
       table,
-      tableInfos: tablesInfos[tableId],
+      tableInfos: tablesInfos[table.id],
     })
   );
 }

@@ -1,5 +1,6 @@
 import { fetchActivityForPlayer } from "./utils/fetchActivityForPlayer";
 import { fetchCurrentPlayer } from "./utils/fetchCurrentPlayer";
+import { fetchTables } from "./utils/fetchTables";
 
 async function updateBadge() {
   try {
@@ -19,8 +20,20 @@ async function updateBadge() {
       playerId,
     });
 
+    const tables = await fetchTables();
+    const nbPendingInvites = Object.keys(tables).reduce(
+      (total, tableKey) =>
+        total +
+        (tables[tableKey].players[playerId].table_status === "expected"
+          ? 1
+          : 0),
+      0
+    );
+
     chrome.action.setBadgeBackgroundColor({ color: "#4871b6" });
-    chrome.action.setBadgeText({ text: `${nbWaitingTables}` });
+    chrome.action.setBadgeText({
+      text: `${nbWaitingTables + nbPendingInvites}`,
+    });
   } catch (error) {
     console.error(error);
     // Set badge

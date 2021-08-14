@@ -5,5 +5,5 @@ export async function fetchActivityForPlayer({ playerId, playerToken }) {
     `${bgaUrl}/my?bgarbt&id=${playerId}&s=${playerToken}&${bgaExtensionUrlSignature}`
   )
     .then((response) => response.json())
-    .then(({ t: nbWaitingTables, ...rest }) => ({ nbWaitingTables, ...rest }));
+    .then(({ t, ...rest }) => ({ nbWaitingTables: Number(t), ...rest }));
 }

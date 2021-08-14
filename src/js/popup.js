@@ -22,7 +22,7 @@ async function run() {
       return renderLoggedOut();
     }
 
-    const transformedTables = debug.tables; // transformTables(rest);
+    const transformedTables = transformTables(rest);
     const sortedTables = sort(transformedTables);
 
     async function handleAcceptOrDeclineInvite({ tableId }) {

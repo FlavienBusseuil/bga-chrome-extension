@@ -42,7 +42,7 @@ export async function fetch() {
       tables.map(({ id: tableId }) => fetchTableInfo({ tableId }))
     )
   ).reduce(
-    (prev, tableInfos) => ({ [tableInfos.id]: tableInfos, ...prev }),
+    (prev, tableInfos) => ({ ...prev, [tableInfos.id]: tableInfos }),
     {}
   );
 
