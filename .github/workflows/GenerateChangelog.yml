@@ -13,7 +13,11 @@ jobs:
 
     # Steps represent a sequence of tasks that will be executed as part of the job
     steps:
-      - name: Generate changelog
+      - name: Checkout code
+        uses: actions/checkout@v2
+        with:
+          ref: test
+      - name: Generate Changelog
         # You may pin to the exact commit or the version.
         # uses: heinrichreimer/action-github-changelog-generator@854576bb5274851427527d8199fba0061552dff5
         uses: heinrichreimer/action-github-changelog-generator@v2.2
@@ -134,3 +138,7 @@ jobs:
           # stripHeaders: # optional
           # Strip generator reference.
           # stripGeneratorNotice: # optional
+      - uses: stefanzweifel/git-auto-commit-action@v4
+        with:
+          commit_message: Update Changelog
+          file_pattern: CHANGELOG.md
