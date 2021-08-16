@@ -1,4 +1,4 @@
-name: Generate changelog
+name: Update Changelog
 
 # Controls when the action will run. Workflow runs when manually triggered using the UI
 # or API.
@@ -13,19 +13,23 @@ jobs:
 
     # Steps represent a sequence of tasks that will be executed as part of the job
     steps:
-      - name: Generate changelog
+      - name: Checkout code
+        uses: actions/checkout@v2
+        with:
+          ref: main
+      - name: Generate Changelog
         # You may pin to the exact commit or the version.
         # uses: heinrichreimer/action-github-changelog-generator@854576bb5274851427527d8199fba0061552dff5
         uses: heinrichreimer/action-github-changelog-generator@v2.2
         with:
           # Target GitHub repo in the form of organization/repository.
-          # repo: # optional
+          repo: FlavienBusseuil/bga-chrome-extension
           # Username of the owner of target GitHub repo.
-          # user: # optional
+          user: FlavienBusseuil
           # Name of project on GitHub.
           # project: # optional
           # To make more than 50 requests per hour your GitHub token is required.
-          token: ${{ secrets.CHANGELOG_ACTION }}
+          # token: ${{ secrets.CHANGELOG_ACTION }}
           # Date format.
           # dateFormat: # optional
           # Output file.
@@ -41,9 +45,9 @@ jobs:
           # Add YAML front matter. Formatted as JSON because it's easier to add on the command line.
           # frontMatter: # optional
           # Include closed issues in changelog.
-          # issues: # optional
+          issues: true
           # Include closed issues without labels in changelog.
-          # issuesWoLabels: # optional
+          issuesWoLabels: true
           # Include pull-requests in changelog.
           # pullRequests: # optional
           # Include pull requests without labels in changelog.
@@ -134,3 +138,7 @@ jobs:
           # stripHeaders: # optional
           # Strip generator reference.
           # stripGeneratorNotice: # optional
+      - uses: stefanzweifel/git-auto-commit-action@v4
+        with:
+          commit_message: Update Changelog
+          file_pattern: CHANGELOG.md
