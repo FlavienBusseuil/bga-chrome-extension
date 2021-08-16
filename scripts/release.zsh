@@ -9,7 +9,7 @@ TAG=v$(node scripts/getVersion.js);
 # production build
 yarn build;
 # zip
-zip builds/build-$TAG.zip build;
+zip -r builds/build-$TAG.zip build;
 # commit changes
 git add package.json;
 git add src/manifest.json;
