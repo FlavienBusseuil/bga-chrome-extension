@@ -14,7 +14,7 @@ export function transformTable({
     players,
     game_name: gameNameKey,
     gameserver: gameServer,
-    table_creator: tableCreator,
+    table_creator: tableCreatorPlayerId,
   } = table;
   const {
     gameversion: gameVersion,
@@ -29,7 +29,7 @@ export function transformTable({
     isOpenForPlayers: status === "asyncopen",
     link: `${bgaUrl}/${gameServer}/${gameNameKey}?table=${tableId}`,
     nbMaxPlayers,
-    tableCreatorName: players[tableCreator].fullname,
+    tableCreatorName: players[tableCreatorPlayerId]?.fullname || "?",
     tableId,
     tableImg: `${assetsUrl}games/${gameNameKey}/${gameVersion}/img/game_icon.png`,
     players: Object.keys(players).map((playerKey) => {
