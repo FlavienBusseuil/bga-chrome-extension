@@ -1,4 +1,4 @@
-name: Generate changelog
+name: Update Changelog
 
 # Controls when the action will run. Workflow runs when manually triggered using the UI
 # or API.
@@ -16,7 +16,7 @@ jobs:
       - name: Checkout code
         uses: actions/checkout@v2
         with:
-          ref: test
+          ref: main
       - name: Generate Changelog
         # You may pin to the exact commit or the version.
         # uses: heinrichreimer/action-github-changelog-generator@854576bb5274851427527d8199fba0061552dff5
