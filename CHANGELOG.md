@@ -1,7 +1,5 @@
 # Changelog
 
-# Changelog
-
 ## v1.2.1 (16/08/2021)
 
 #### Bug Fixes
