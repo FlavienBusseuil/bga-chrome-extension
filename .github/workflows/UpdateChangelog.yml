@@ -45,9 +45,9 @@ jobs:
           # Add YAML front matter. Formatted as JSON because it's easier to add on the command line.
           # frontMatter: # optional
           # Include closed issues in changelog.
-          # issues: # optional
+          issues: true
           # Include closed issues without labels in changelog.
-          # issuesWoLabels: # optional
+          issuesWoLabels: true
           # Include pull-requests in changelog.
           # pullRequests: # optional
           # Include pull requests without labels in changelog.
