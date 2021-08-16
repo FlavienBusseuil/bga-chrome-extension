@@ -19,9 +19,9 @@ jobs:
         uses: heinrichreimer/action-github-changelog-generator@v2.2
         with:
           # Target GitHub repo in the form of organization/repository.
-          # repo: # optional
+          repo: FlavienBusseuil/bga-chrome-extension
           # Username of the owner of target GitHub repo.
-          # user: # optional
+          user: FlavienBusseuil
           # Name of project on GitHub.
           # project: # optional
           # To make more than 50 requests per hour your GitHub token is required.
