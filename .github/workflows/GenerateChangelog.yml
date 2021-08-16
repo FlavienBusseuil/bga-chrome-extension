@@ -25,7 +25,7 @@ jobs:
           # Name of project on GitHub.
           # project: # optional
           # To make more than 50 requests per hour your GitHub token is required.
-          token: ${{ secrets.CHANGELOG_ACTION }}
+          # token: ${{ secrets.CHANGELOG_ACTION }}
           # Date format.
           # dateFormat: # optional
           # Output file.
