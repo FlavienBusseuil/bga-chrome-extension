@@ -1,9 +1,10 @@
 name: Update Changelog
 
-# Controls when the action will run. Workflow runs when manually triggered using the UI
-# or API.
+# Controls when the action will run. Workflow runs when pushing a new version tag
 on:
-  workflow_dispatch:
+  push:
+    tags:
+      - v**
 
 # A workflow run is made up of one or more jobs that can run sequentially or in parallel
 jobs:
@@ -61,7 +62,7 @@ jobs:
           # Generate log from unreleased closed issues only.
           # unreleasedOnly: # optional
           # Add to log unreleased closed issues.
-          unreleased: true
+          unreleased: false
           # Set up custom label for unreleased closed issues section.
           # unreleasedLabel: # optional
           # Include compare link (Full Changelog) between older version and newer version.

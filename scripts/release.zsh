@@ -18,9 +18,9 @@ git push;
 # push Github tag
 git push --tags
 # create a new release
-gren release --tags $TAG;
+# gren release --tags $TAG;
 # create and push a changelog
-gren changelog --override;
-git add CHANGELOG.md;
-git commit -m 'Update Changelog';
-git push
+# gren changelog --override;
+# git add CHANGELOG.md;
+# git commit -m 'Update Changelog';
+# git push
