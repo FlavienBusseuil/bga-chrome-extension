@@ -1,5 +1,17 @@
 # Changelog
 
+## [v1.2.2](https://github.com/FlavienBusseuil/bga-chrome-extension/tree/v1.2.2) (2021-09-02)
+
+**Fixed bugs:**
+
+- Fix: Test Issue [\#20](https://github.com/FlavienBusseuil/bga-chrome-extension/issues/20)
+
+**Closed issues:**
+
+- DX improvements [\#21](https://github.com/FlavienBusseuil/bga-chrome-extension/issues/21)
+- TricTrac Post [\#17](https://github.com/FlavienBusseuil/bga-chrome-extension/issues/17)
+- BGG Post [\#16](https://github.com/FlavienBusseuil/bga-chrome-extension/issues/16)
+
 ## v1.2.1 (16/08/2021)
 
 #### Bug Fixes
