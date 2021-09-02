@@ -70,7 +70,7 @@ jobs:
           # Of the labeled issues, only include the ones with the specified labels.
           # includeLabels: # optional
           # Issues with the specified labels will be excluded from changelog.
-          excludeLabels: 'duplicate,question,invalid,wontfix,no release'
+          excludeLabels: duplicate,question,invalid,wontfix,misc
           # The specified labels will be shown in brackets next to each matching issue. Use "ALL" to show all labels.
           # issueLineLabels: # optional
           # Changelog will exclude specified tags.
