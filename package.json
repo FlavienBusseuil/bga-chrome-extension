@@ -23,6 +23,8 @@
 	"devDependencies": {
 		"@parcel/config-webextension": "2.0.0-nightly.2448",
 		"autoprefixer": "10.2.5",
+		"flow-bin": "0.158.0",
+		"flow-remove-types": "2.158.0",
 		"html-loader": "2.1.2",
 		"parcel": "2.0.0-nightly.824",
 		"postcss": "8.2.14",
