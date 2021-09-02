@@ -1,25 +1,32 @@
 {
-  "name": "bga-chrome-extension",
-  "version": "1.2.1",
-  "description": "Checks your games in progress on boardgamearena.com",
-  "scripts": {
-    "dev": " NODE_ENV=development yarn tailwind & webpack --watch",
-    "build": "NODE_ENV=production yarn tailwind; webpack --env production",
-    "tailwind": "tailwindcss-cli build ./src/css/base.css -c ./tailwind.config.js -o ./src/css/tailwind.css --no-autoprefixer",
-    "release": "./scripts/release.zsh"
-  },
-  "devDependencies": {
-    "autoprefixer": "10.2.5",
-    "clean-webpack-plugin": "3.0.0",
-    "copy-webpack-plugin": "8.1.1",
-    "html-loader": "2.1.2",
-    "html-webpack-plugin": "5.3.1",
-    "postcss": "8.2.14",
-    "tailwindcss": "2.1.2",
-    "tailwindcss-cli": "0.1.2",
-    "webpack": "5.36.2",
-    "webpack-cli": "4.7.0",
-    "webpack-dev-server": "3.11.2",
-    "write-file-webpack-plugin": "4.5.1"
-  }
+	"name": "bga-chrome-extension",
+	"version": "1.2.1",
+	"description": "Checks your games in progress on boardgamearena.com",
+	"scripts": {
+		"dev": " NODE_ENV=development yarn tailwind & yarn parcel watch src/manifest.json --target dev --dist-dir ./build",
+		"build": "NODE_ENV=production yarn tailwind; yarn parcel build src/manifest.json --target prod --dist-dir ./build",
+		"tailwind": "tailwindcss-cli build ./src/css/base.css -c ./tailwind.config.js -o ./src/css/tailwind.css --no-autoprefixer",
+		"release": "./scripts/release.zsh"
+	},
+	"browserslist": [
+		"since 2017-06"
+	],
+	"targets": {
+		"dev": {
+			"sourceMap": {
+				"inline": true,
+				"inlineSources": true
+			}
+		},
+		"prod": {}
+	},
+	"devDependencies": {
+		"@parcel/config-webextension": "2.0.0-nightly.2448",
+		"autoprefixer": "10.2.5",
+		"html-loader": "2.1.2",
+		"parcel": "2.0.0-nightly.824",
+		"postcss": "8.2.14",
+		"tailwindcss": "2.1.2",
+		"tailwindcss-cli": "0.1.2"
+	}
 }

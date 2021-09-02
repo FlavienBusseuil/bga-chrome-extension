@@ -6,11 +6,11 @@ import { sort } from "./sort";
 import { transformTables, transformTable } from "./transformTables";
 
 export {
-  fetch,
-  renderError,
-  renderLoggedOut,
-  renderTables,
-  sort,
-  transformTables,
-  transformTable,
+	fetch,
+	renderError,
+	renderLoggedOut,
+	renderTables,
+	sort,
+	transformTables,
+	transformTable,
 };

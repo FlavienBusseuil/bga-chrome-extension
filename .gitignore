@@ -6,3 +6,4 @@ yarn-error*
 .vscode
 .DS_Store
 keys/**
+.parcel-cache
