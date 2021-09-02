@@ -1,5 +1,11 @@
 # Changelog
 
+## [v1.2.2](https://github.com/FlavienBusseuil/bga-chrome-extension/tree/v1.2.2) (2021-09-02)
+
+#### Chore
+
+- DX improvements [\#21](https://github.com/FlavienBusseuil/bga-chrome-extension/issues/21)
+
 ## v1.2.1 (16/08/2021)
 
 #### Bug Fixes
