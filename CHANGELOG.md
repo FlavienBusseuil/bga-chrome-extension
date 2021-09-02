@@ -2,10 +2,6 @@
 
 ## [v1.2.2](https://github.com/FlavienBusseuil/bga-chrome-extension/tree/v1.2.2) (2021-09-02)
 
-**Fixed bugs:**
-
-- Fix: Test Issue [\#20](https://github.com/FlavienBusseuil/bga-chrome-extension/issues/20)
-
 **Closed issues:**
 
 - DX improvements [\#21](https://github.com/FlavienBusseuil/bga-chrome-extension/issues/21)
