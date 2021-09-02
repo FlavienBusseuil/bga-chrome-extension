@@ -1,6 +1,6 @@
 {
 	"name": "bga-chrome-extension",
-	"version": "1.2.2",
+	"version": "1.2.3",
 	"description": "Checks your games in progress on boardgamearena.com",
 	"scripts": {
 		"dev": " NODE_ENV=development yarn tailwind & yarn parcel watch src/manifest.json --target dev --dist-dir ./build",
