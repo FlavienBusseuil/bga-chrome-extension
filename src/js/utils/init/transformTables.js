@@ -25,11 +25,16 @@ export function transformTable({
 	return {
 		acceptInviteLink: `${bgaUrl}/table/table/joingame.html?table=${tableId}&${bgaExtensionUrlSignature}`,
 		declineInviteLink: `${bgaUrl}/table/table/refuseInvitation.html?table=${tableId}&${bgaExtensionUrlSignature}`,
-		gameName: translations[`${gameNameKey}_displayed`],
+		// It seems that sometime some translations doesn't exists for some game [issues/22]
+		// So we fall back on gameNameKey
+		gameName: translations[`${gameNameKey}_displayed`] ?? gameNameKey,
 		isOpenForPlayers: status === "asyncopen",
 		link: `${bgaUrl}/${gameServer}/${gameNameKey}?table=${tableId}`,
 		nbMaxPlayers,
-		tableCreatorName: players[tableCreatorPlayerId]?.fullname || "?",
+		// It seems that sometime players may not have a fullname attribut [issues/18]
+		// So we fall back on tableCreatorPlayerId
+		tableCreatorName:
+			players[tableCreatorPlayerId]?.fullname || tableCreatorPlayerId,
 		tableId,
 		tableImg: `${assetsUrl}games/${gameNameKey}/${gameVersion}/img/game_icon.png`,
 		players: Object.keys(players).map(playerKey => {
