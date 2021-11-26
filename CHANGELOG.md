@@ -1,5 +1,11 @@
 # Changelog
 
+## [v1.2.5](https://github.com/FlavienBusseuil/bga-chrome-extension/tree/v1.2.5) (2021-11-26)
+
+**Chore:**
+
+- Change fixtures to match fetch output instead of transform [\#10](https://github.com/FlavienBusseuil/bga-chrome-extension/issues/10)
+
 ## [v1.2.4](https://github.com/FlavienBusseuil/bga-chrome-extension/tree/v1.2.4) (2021-09-10)
 
 **Fixed bugs:**
