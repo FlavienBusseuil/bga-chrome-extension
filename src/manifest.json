@@ -1,25 +1,29 @@
 {
-	"manifest_version": 3,
-	"name": "BGA Chrome Extension",
-	"version": "1.2.4",
-	"action": {
-		"default_popup": "popup.html"
-	},
-	"default_locale": "en",
-	"description": "__MSG_ext_description__",
-	"icons": {
-		"16": "img/icon-16.png",
-		"48": "img/icon-48.png",
-		"128": "img/icon-128.png"
-	},
-	"author": "Flavien Busseuil",
-	"homepage_url": "https://github.com/FlavienBusseuil/bga-chrome-extension",
-	"background": {
-		"service_worker": "background.js"
-	},
-	"content_security_policy": {
-		"extension_pages": "script-src 'self'; object-src 'self'"
-	},
-	"host_permissions": ["https://*.boardgamearena.com/*/*"],
-	"permissions": ["alarms"]
+  "manifest_version": 3,
+  "name": "BGA Chrome Extension",
+  "version": "1.2.5",
+  "action": {
+    "default_popup": "popup.html"
+  },
+  "default_locale": "en",
+  "description": "__MSG_ext_description__",
+  "icons": {
+    "16": "img/icon-16.png",
+    "48": "img/icon-48.png",
+    "128": "img/icon-128.png"
+  },
+  "author": "Flavien Busseuil",
+  "homepage_url": "https://github.com/FlavienBusseuil/bga-chrome-extension",
+  "background": {
+    "service_worker": "background.js"
+  },
+  "content_security_policy": {
+    "extension_pages": "script-src 'self'; object-src 'self'"
+  },
+  "host_permissions": [
+    "https://*.boardgamearena.com/*/*"
+  ],
+  "permissions": [
+    "alarms"
+  ]
 }
