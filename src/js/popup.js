@@ -7,9 +7,6 @@ import {
 	transformTable,
 	sort,
 } from "./utils/init";
-import { fetchTableInfo } from "./utils/fetchTableInfo";
-
-import { debug, acceptedInviteTable } from "./mock/debug";
 
 async function run() {
 	try {

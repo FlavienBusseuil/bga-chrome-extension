@@ -7,3 +7,4 @@ yarn-error*
 .DS_Store
 keys/**
 .parcel-cache
+/local/

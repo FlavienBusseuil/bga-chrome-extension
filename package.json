@@ -3,8 +3,10 @@
 	"version": "1.2.4",
 	"description": "Checks your games in progress on boardgamearena.com",
 	"scripts": {
-		"dev": " NODE_ENV=development yarn tailwind & yarn parcel watch src/manifest.json --target dev --dist-dir ./build",
-		"build": "NODE_ENV=production yarn tailwind; yarn parcel build src/manifest.json --target prod --dist-dir ./build",
+		"dev": "NODE_ENV=development yarn tailwind & yarn parcel watch src/manifest.json --target dev --dist-dir ./build",
+		"dev-mock": "MOCK=presentation yarn dev",
+		"build": "yarn clean; NODE_ENV=production yarn tailwind; yarn parcel build src/manifest.json --target prod --dist-dir ./build",
+		"clean": "rm -rf .parcel-cache/* build/*",
 		"tailwind": "tailwindcss-cli build ./src/css/base.css -c ./tailwind.config.js -o ./src/css/tailwind.css --no-autoprefixer",
 		"release": "./scripts/release.zsh"
 	},
@@ -23,7 +25,7 @@
 	"devDependencies": {
 		"@parcel/config-webextension": "2.0.0-nightly.2448",
 		"autoprefixer": "10.2.5",
-		"flow-bin": "0.158.0",
+		"flow-bin": "0.164.0",
 		"flow-remove-types": "2.158.0",
 		"html-loader": "2.1.2",
 		"parcel": "2.0.0-nightly.824",

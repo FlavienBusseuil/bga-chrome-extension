@@ -11,5 +11,6 @@ all=warn
 [options]
 include_warnings=true
 exact_by_default=true
+enums=true
 
 [strict]
