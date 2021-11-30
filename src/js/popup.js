@@ -20,7 +20,8 @@ async function run() {
 		const sortedTables = sort(transformedTables);
 
 		async function handleAcceptOrDeclineInvite({ tableId }) {
-			console.log(tableId);
+			// TODO: https://github.com/FlavienBusseuil/bga-chrome-extension/projects/1
+			// console.log(tableId);
 		}
 
 		renderTables({

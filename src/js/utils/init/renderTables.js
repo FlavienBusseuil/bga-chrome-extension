@@ -4,6 +4,7 @@ import { StartNewGameButton } from "../../ui/StartNewGameButton";
 import { Button } from "../../ui/base/Button";
 import { Table } from "../../ui/Table";
 import { TableList } from "../../ui/TableList";
+import { updateBadge } from "../updateBadge";
 
 export function renderTables({
 	tables,
@@ -11,7 +12,6 @@ export function renderTables({
 	onAcceptInvite,
 	onDeclineInvite,
 }) {
-	chrome.action.setBadgeBackgroundColor({ color: "#4871b6" });
 	const bodyElm = document.querySelector("body");
 
 	// Render tables and players
@@ -81,7 +81,6 @@ export function renderTables({
 	bodyElm.appendChild(tableListElm);
 	bodyElm.appendChild(StartNewGameButton());
 
-	// Set badge
 	const nbPendingInvites = tables.reduce(
 		(total, { players }) =>
 			total +
@@ -93,7 +92,6 @@ export function renderTables({
 				: 0),
 		0,
 	);
-	chrome.action.setBadgeText({
-		text: `${nbWaitingTables + nbPendingInvites}`,
-	});
+
+	updateBadge({ nbWaitingTables, nbPendingInvites });
 }

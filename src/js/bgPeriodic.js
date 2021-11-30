@@ -1,16 +1,18 @@
+// @flow
 import { fetchActivityForPlayer } from "./utils/fetch/fetchActivityForPlayer";
 import { fetchCurrentPlayer } from "./utils/fetch/fetchCurrentPlayer";
 import { fetchTablesFromTableManager } from "./utils/fetch/fetchTablesFromTableManager";
+import { setBadge } from "./utils/badge/setBadge";
+import { updateBadge } from "./utils/updateBadge";
+import { castToString } from "./types/bga/Player";
 
-export async function updateBadge() {
+export async function bgPeriodic() {
 	try {
 		// Fetch current player info
 		const { token: playerToken, id: playerId } = await fetchCurrentPlayer();
 
 		if (!playerId) {
-			// Set badge
-			chrome.action.setBadgeBackgroundColor({ color: "#757575" });
-			chrome.action.setBadgeText({ text: `-` });
+			setBadge({ text: "-", color: "#757575" });
 			return;
 		}
 
@@ -19,26 +21,21 @@ export async function updateBadge() {
 			playerToken,
 			playerId,
 		});
-		console.log(nbWaitingTables);
 
 		const tables = await fetchTablesFromTableManager();
-		const nbPendingInvites = Object.keys(tables).reduce(
-			(total, tableKey) =>
+		const nbPendingInvites = tables.reduce(
+			(total, table) =>
 				total +
-				(tables[tableKey].players[playerId].table_status === "expected"
+				(table.players[castToString(playerId)].table_status ===
+				"expected"
 					? 1
 					: 0),
 			0,
 		);
 
-		chrome.action.setBadgeBackgroundColor({ color: "#4871b6" });
-		chrome.action.setBadgeText({
-			text: `${nbWaitingTables + nbPendingInvites}`,
-		});
+		updateBadge({ nbPendingInvites, nbWaitingTables });
 	} catch (error) {
 		console.error(error);
-		// Set badge
-		chrome.action.setBadgeBackgroundColor({ color: "#dc2626" });
-		chrome.action.setBadgeText({ text: `x` });
+		setBadge({ text: "x", color: "#dc2626" });
 	}
 }

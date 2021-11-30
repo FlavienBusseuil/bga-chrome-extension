@@ -1,5 +1,5 @@
-import { updateBadge } from "./js/updateBadge";
+import { bgPeriodic } from "./js/bgPeriodic";
 
 // Set alarm to run update every minute
-chrome.alarms.onAlarm.addListener(updateBadge);
-chrome.alarms.create("updateBadge", { delayInMinutes: 0, periodInMinutes: 1 });
+chrome.alarms.onAlarm.addListener(bgPeriodic);
+chrome.alarms.create("bgPeriodic", { delayInMinutes: 0, periodInMinutes: 1 });
