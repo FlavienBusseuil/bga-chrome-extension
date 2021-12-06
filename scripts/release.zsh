@@ -11,6 +11,7 @@ yarn build;
 # zip
 cd build/prod
 zip -r ../../builds/build-$TAG.zip *;
+cd ../..
 # commit changes
 git add package.json;
 git add src/manifest.json;
