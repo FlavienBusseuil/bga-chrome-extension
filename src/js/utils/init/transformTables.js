@@ -7,7 +7,6 @@ export function transformTable({
 	translations,
 	assetsUrl,
 	table,
-	tableInfo,
 }) {
 	const {
 		id: tableId,
@@ -18,7 +17,6 @@ export function transformTable({
 		status,
 		max_player: nbMaxPlayers,
 	} = table;
-	const { gameversion: gameVersion } = tableInfo;
 
 	return {
 		acceptInviteLink: `${bgaUrl}/table/table/joingame.html?table=${tableId}&${bgaExtensionUrlSignature}`,
@@ -34,7 +32,7 @@ export function transformTable({
 		tableCreatorName:
 			players[tableCreatorPlayerId]?.fullname || tableCreatorPlayerId,
 		tableId,
-		tableImg: `${assetsUrl}games/${gameNameKey}/${gameVersion}/img/game_icon.png`,
+		tableImg: `${assetsUrl}games/${gameNameKey}/current/img/game_icon.png`,
 		players: Object.keys(players).map(playerKey => {
 			const {
 				fullname: playerName,
@@ -67,7 +65,6 @@ export function transformTables({
 	translations,
 	assetsUrl,
 	tables,
-	tablesInfo,
 }) {
 	return tables.map(table =>
 		transformTable({
@@ -76,7 +73,6 @@ export function transformTables({
 			translations,
 			assetsUrl,
 			table,
-			tableInfo: tablesInfo[table.id],
 		}),
 	);
 }

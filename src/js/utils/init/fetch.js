@@ -3,14 +3,12 @@ import type { PlayerId } from "../../types/bga/Player";
 
 import type { GlobalUserInfos } from "../../types/bga/queries/GameInProgress";
 import type { Table } from "../../types/bga/queries/TableManager";
-import type { TableInfo } from "../../types/bga/queries/Table";
 
 import { castToString } from "../../types/bga/Table";
 import { fetchActivityForPlayer } from "../fetch/fetchActivityForPlayer";
 import { fetchCurrentPlayer } from "../fetch/fetchCurrentPlayer";
 import { fetchGlobalInfo } from "../fetch/fetchGlobalInfo";
 import { fetchGlobalTranslations } from "../fetch/fetchGlobalTranslations";
-import { fetchTableInfo } from "../fetch/fetchTableInfo";
 import { fetchTablesFromTableManager } from "../fetch/fetchTablesFromTableManager";
 import type { Translations } from "../../types/bga/Translations";
 
@@ -22,7 +20,6 @@ type Output = Promise<
 			translations: Translations,
 			assetsUrl: string,
 			tables: Array<Table>,
-			tablesInfo: { [string]: TableInfo },
 	  }
 	| { isLoggedOut: true },
 >;
@@ -57,11 +54,6 @@ export async function fetch(): Output {
 	});
 
 	const tables = await fetchTablesFromTableManager();
-	const tablesInfo: { [string]: TableInfo } = {};
-	for (const table of tables) {
-		const { id: tableId } = table;
-		tablesInfo[castToString(tableId)] = await fetchTableInfo({ tableId });
-	}
 
 	return {
 		nbWaitingTables,
@@ -70,6 +62,5 @@ export async function fetch(): Output {
 		translations,
 		assetsUrl,
 		tables,
-		tablesInfo,
 	};
 }
