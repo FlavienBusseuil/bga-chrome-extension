@@ -1,3 +1,5 @@
+// @flow
+
 import {
 	fetch,
 	renderError,
@@ -8,13 +10,15 @@ import {
 	sort,
 } from "./utils/init";
 
-async function run() {
+async function run(): Promise<void> {
 	try {
-		const { isLoggedOut, nbWaitingTables, ...rest } = await fetch();
+		const result = await fetch();
 
-		if (isLoggedOut) {
+		if (result.isLoggedOut) {
 			return renderLoggedOut();
 		}
+
+		const { nbWaitingTables, ...rest } = result;
 
 		const transformedTables = transformTables(rest);
 		const sortedTables = sort(transformedTables);
@@ -39,7 +43,7 @@ async function run() {
 		});
 	} finally {
 		// Remove loading
-		document.querySelector("#loading").remove();
+		document.querySelector("#loading")?.remove();
 	}
 }
 

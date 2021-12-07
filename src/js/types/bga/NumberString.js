@@ -14,3 +14,7 @@ export function castToNumber(string: NumberString): number {
 
 	return Number(string);
 }
+
+export function castToString(string: NumberString): string {
+	return string;
+}

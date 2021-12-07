@@ -4,6 +4,7 @@
 ./src/**
 
 [libs]
+./src/js/types/flow-typed/
 
 [lints]
 all=warn

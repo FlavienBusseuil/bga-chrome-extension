@@ -1,3 +1,4 @@
+// @flow
 import { fetch } from "./fetch";
 import { renderError } from "./renderError";
 import { renderLoggedOut } from "./renderLoggedOut";

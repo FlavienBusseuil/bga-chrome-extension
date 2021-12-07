@@ -11,9 +11,8 @@ type Props = {
 
 export async function animate({ images }: Props): Promise<void> {
 	for (const { path, timeframe } of images) {
-		// $FlowFixMe[cannot-resolve-name]
 		const imgPath = chrome.runtime.getURL(path);
-		chrome.action.setIcon({ path: imgPath });
+		await chrome.action.setIcon({ path: imgPath });
 		await wait(timeframe);
 	}
 }

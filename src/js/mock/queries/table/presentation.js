@@ -3,7 +3,7 @@
 import type { QuerySucceededResult } from "../../../types/bga/queries/Query";
 import type { TableQueryResultData } from "../../../types/bga/queries/Table";
 
-import { castToDate } from "../../../types/bga/Date";
+import { castToDateString } from "../../../types/bga/DateString";
 import { castToGameId } from "../../../types/bga/Game";
 import { castToJoinedLanguages } from "../../../types/bga/Language";
 import { castToNumberString } from "../../../types/bga/NumberString";
@@ -24,7 +24,7 @@ export const presentation: {
 			game_id: castToGameId("1034"),
 			status: "asyncplay",
 			table_creator: null,
-			max_player: "2",
+			max_player: castToNumberString("2"),
 			level_filter: {
 				label: { log: "", args: [] },
 				details: {
@@ -51,8 +51,8 @@ export const presentation: {
 			filter_group_visibility: null,
 			filter_group_type: null,
 			game_name: "dungeontwister",
-			game_max_players: "2",
-			game_min_players: "2",
+			game_max_players: castToNumberString("2"),
+			game_min_players: castToNumberString("2"),
 			game_player_number: { "2": 1 },
 			game_status: "public",
 			game_premium: "0",
@@ -185,7 +185,7 @@ export const presentation: {
 							player: castToPlayerId("85651840"),
 							game: castToGameId("1034"),
 							type_id: castToNumberString("6"),
-							date: castToDate("1635280218"),
+							date: castToDateString("1635280218"),
 							defending: "1",
 							linked_tournament: null,
 							prestige: castToNumberString("720"),
@@ -204,7 +204,7 @@ export const presentation: {
 							player: castToPlayerId("85651840"),
 							game: castToGameId("1034"),
 							type_id: castToNumberString("5"),
-							date: castToDate("1617019625"),
+							date: castToDateString("1617019625"),
 							defending: "1",
 							linked_tournament: null,
 							prestige: castToNumberString("360"),
@@ -223,7 +223,7 @@ export const presentation: {
 							player: castToPlayerId("85651840"),
 							game: castToGameId("1034"),
 							type_id: castToNumberString("17"),
-							date: castToDate("1621941348"),
+							date: castToDateString("1621941348"),
 							defending: "1",
 							linked_tournament: null,
 							prestige: castToNumberString("240"),
@@ -242,7 +242,7 @@ export const presentation: {
 							player: castToPlayerId("85651840"),
 							game: castToGameId("1034"),
 							type_id: castToNumberString("4"),
-							date: castToDate("1608211332"),
+							date: castToDateString("1608211332"),
 							defending: "1",
 							linked_tournament: null,
 							prestige: castToNumberString("180"),
@@ -261,7 +261,7 @@ export const presentation: {
 							player: castToPlayerId("85651840"),
 							game: castToGameId("1034"),
 							type_id: castToNumberString("16"),
-							date: castToDate("1611602497"),
+							date: castToDateString("1611602497"),
 							defending: "1",
 							linked_tournament: null,
 							prestige: castToNumberString("120"),
@@ -280,7 +280,7 @@ export const presentation: {
 							player: castToPlayerId("85651840"),
 							game: castToGameId("1034"),
 							type_id: castToNumberString("3"),
-							date: castToDate("1605216776"),
+							date: castToDateString("1605216776"),
 							defending: "1",
 							linked_tournament: null,
 							prestige: castToNumberString("90"),
@@ -299,7 +299,7 @@ export const presentation: {
 							player: castToPlayerId("85651840"),
 							game: castToGameId("1034"),
 							type_id: castToNumberString("15"),
-							date: castToDate("1607611380"),
+							date: castToDateString("1607611380"),
 							defending: "1",
 							linked_tournament: null,
 							prestige: castToNumberString("60"),
@@ -318,7 +318,7 @@ export const presentation: {
 							player: castToPlayerId("85651840"),
 							game: castToGameId("1034"),
 							type_id: castToNumberString("36"),
-							date: castToDate("1617622025"),
+							date: castToDateString("1617622025"),
 							defending: "1",
 							linked_tournament: null,
 							prestige: castToNumberString("50"),
@@ -337,7 +337,7 @@ export const presentation: {
 							player: castToPlayerId("85651840"),
 							game: castToGameId("1034"),
 							type_id: castToNumberString("148"),
-							date: castToDate("1617087524"),
+							date: castToDateString("1617087524"),
 							defending: "1",
 							linked_tournament: null,
 							prestige: castToNumberString("50"),
@@ -356,7 +356,7 @@ export const presentation: {
 							player: castToPlayerId("85651840"),
 							game: castToGameId("1034"),
 							type_id: castToNumberString("2"),
-							date: castToDate("1603669040"),
+							date: castToDateString("1603669040"),
 							defending: "1",
 							linked_tournament: null,
 							prestige: castToNumberString("45"),
@@ -613,7 +613,7 @@ export const presentation: {
 			game_id: castToGameId("1284"),
 			status: "asyncplay",
 			table_creator: castToPlayerId("84764121"),
-			max_player: "2",
+			max_player: castToNumberString("2"),
 			level_filter: {
 				label: {
 					log: "${low} and below",
@@ -643,8 +643,8 @@ export const presentation: {
 			filter_group_visibility: null,
 			filter_group_type: null,
 			game_name: "dungeonpetz",
-			game_max_players: "4",
-			game_min_players: "2",
+			game_max_players: castToNumberString("4"),
+			game_min_players: castToNumberString("2"),
 			game_player_number: { "2": 1, "3": 1, "4": 1 },
 			game_status: "public",
 			game_premium: "0",

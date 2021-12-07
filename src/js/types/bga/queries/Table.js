@@ -8,7 +8,7 @@ import type { GameId } from "../Game";
 import type { BooleanString } from "../BooleanString";
 import type { LanguageCode, JoinedLanguages, Languages } from "../Language";
 import type { NumberString } from "../NumberString";
-import type { Date } from "../Date";
+import type { DateString } from "../DateString";
 import type { Country, CountryCode } from "../Country";
 
 type Player = {
@@ -19,7 +19,7 @@ type Player = {
 		player: PlayerId,
 		game: GameId,
 		type_id: NumberString, // ?
-		date: Date,
+		date: DateString,
 		defending: BooleanString,
 		linked_tournament: null | TournamentId,
 		prestige: NumberString,
@@ -104,8 +104,8 @@ export type TableInfo = {
 	filter_lang: null | string,
 	game_expansion_premium: BooleanString,
 	game_id: GameId,
-	game_max_players: string,
-	game_min_players: string,
+	game_max_players: NumberString,
+	game_min_players: NumberString,
 	game_name: string,
 	game_player_number: { [string]: number },
 	game_premium: BooleanString,
@@ -116,7 +116,7 @@ export type TableInfo = {
 	id: TableId,
 	level_filter_r: string,
 	level_filter: LevelFilter,
-	max_player: string,
+	max_player: NumberString,
 	min_player: string,
 	options: { [string]: { name: string, ... } },
 	player_display: Array<PlayerId>,
