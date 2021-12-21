@@ -1,5 +1,16 @@
 # Changelog
 
+## [v1.4.2](https://github.com/FlavienBusseuil/bga-chrome-extension/tree/v1.4.2) (2021-12-21)
+
+**Fixed bugs:**
+
+- Remove background errors [\#29](https://github.com/FlavienBusseuil/bga-chrome-extension/issues/29)
+
+**Chore:**
+
+- Update to Tailwind 3 [\#30](https://github.com/FlavienBusseuil/bga-chrome-extension/issues/30)
+- React Integration [\#13](https://github.com/FlavienBusseuil/bga-chrome-extension/issues/13)
+
 ## [v1.4.1](https://github.com/FlavienBusseuil/bga-chrome-extension/tree/v1.4.1) (2021-12-07)
 
 **Implemented enhancements:**
