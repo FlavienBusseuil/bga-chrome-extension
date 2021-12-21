@@ -3,7 +3,7 @@ import { fetchActivityForPlayer } from "./utils/fetch/fetchActivityForPlayer";
 import { fetchCurrentPlayer } from "./utils/fetch/fetchCurrentPlayer";
 import { fetchTablesFromTableManager } from "./utils/fetch/fetchTablesFromTableManager";
 import { setBadge } from "./utils/badge/setBadge";
-import { updateBadge } from "./utils/updateBadge";
+import { updateBadgeAndIcon } from "./utils/updateBadgeAndIcon";
 import { castToString } from "./types/bga/Player";
 
 export async function bgPeriodic() {
@@ -33,7 +33,7 @@ export async function bgPeriodic() {
 			0,
 		);
 
-		updateBadge({ nbPendingInvites, nbWaitingTables });
+		updateBadgeAndIcon({ nbPendingInvites, nbWaitingTables });
 	} catch (error) {
 		console.error(error);
 		setBadge({ text: "x", color: "#dc2626" });

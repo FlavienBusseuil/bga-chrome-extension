@@ -6,7 +6,7 @@ declare type Chrome$ImageData = any;
 
 declare var chrome: {
 	i18n: {
-		getMessage: (key: string) => string,
+		getMessage: (key: string, args?: Array<string>) => string,
 		...
 	},
 	action: {

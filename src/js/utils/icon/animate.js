@@ -1,6 +1,6 @@
 // @flow
 
-import { wait } from "../wait";
+import { wait } from "../misc/wait";
 
 type Props = {
 	images: Array<{

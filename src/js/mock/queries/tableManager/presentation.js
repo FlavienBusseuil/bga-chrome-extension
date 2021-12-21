@@ -499,7 +499,7 @@ export const presentation: QuerySucceededResult<TableManagerQueryResultData> = {
 					},
 					"84802896": {
 						id: castToPlayerId("84802896"),
-						table_status: "playasync",
+						table_status: "expected",
 						fullname: "ESCurvelo",
 						avatar: "5c81411d48",
 						rank: 1445,
@@ -513,7 +513,7 @@ export const presentation: QuerySucceededResult<TableManagerQueryResultData> = {
 					},
 					"84278471": {
 						id: castToPlayerId("84278471"),
-						table_status: "playasync",
+						table_status: "expected",
 						fullname: "anotherFlav",
 						avatar: "_def_0437",
 						rank: 1439,

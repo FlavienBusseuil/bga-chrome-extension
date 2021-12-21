@@ -23,7 +23,7 @@ export const presentation: string = `globalUserInfos=${JSON.stringify({
 			actives: ["84764121"],
 		},
 		"216718684": {
-			actives: ["84902116"],
+			actives: [],
 		},
 	},
 })}`;

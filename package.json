@@ -31,6 +31,7 @@
 		"parcel": "2.0.0-nightly.824",
 		"postcss": "8.2.14",
 		"tailwindcss": "2.1.2",
-		"tailwindcss-cli": "0.1.2"
+		"tailwindcss-cli": "0.1.2",
+		"preact": "10.6.4"
 	}
 }

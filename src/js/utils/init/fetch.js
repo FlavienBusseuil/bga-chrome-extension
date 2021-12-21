@@ -4,7 +4,6 @@ import type { PlayerId } from "../../types/bga/Player";
 import type { GlobalUserInfos } from "../../types/bga/queries/GameInProgress";
 import type { Table } from "../../types/bga/queries/TableManager";
 
-import { castToString } from "../../types/bga/Table";
 import { fetchActivityForPlayer } from "../fetch/fetchActivityForPlayer";
 import { fetchCurrentPlayer } from "../fetch/fetchCurrentPlayer";
 import { fetchGlobalInfo } from "../fetch/fetchGlobalInfo";
@@ -12,17 +11,19 @@ import { fetchGlobalTranslations } from "../fetch/fetchGlobalTranslations";
 import { fetchTablesFromTableManager } from "../fetch/fetchTablesFromTableManager";
 import type { Translations } from "../../types/bga/Translations";
 
-type Output = Promise<
+export type FetchResult =
 	| {
 			nbWaitingTables: number,
+			nbPendingInvites: number,
 			currentPlayerId: PlayerId,
 			globalUserInfos: GlobalUserInfos,
 			translations: Translations,
 			assetsUrl: string,
 			tables: Array<Table>,
 	  }
-	| { isLoggedOut: true },
->;
+	| { isLoggedOut: true };
+
+type Output = Promise<FetchResult>;
 
 export async function fetch(): Output {
 	// Fetch global info
@@ -55,8 +56,18 @@ export async function fetch(): Output {
 
 	const tables = await fetchTablesFromTableManager();
 
+	const nbPendingInvites = tables.reduce(
+		(total, table) =>
+			total +
+			(table.players[String(currentPlayer.id)].table_status === "expected"
+				? 1
+				: 0),
+		0,
+	);
+
 	return {
 		nbWaitingTables,
+		nbPendingInvites,
 		currentPlayerId,
 		globalUserInfos,
 		translations,

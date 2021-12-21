@@ -1,4 +1,4 @@
-import { Component } from "./base/Component";
+// @flow
 
 function getPlayerNamePrefixText({ isActivePlayer, isInvitePending }) {
 	if (isActivePlayer) {
@@ -20,28 +20,34 @@ function getPlayerNameColorClassname({ isActivePlayer, isInvitePending }) {
 	return "text-bgaBlue-lighter";
 }
 
-export const Player = ({
+type Props = {
+	playerName: null | string,
+	isActivePlayer?: boolean,
+	isInvitePending?: boolean,
+};
+
+export function Player({
 	playerName,
 	isActivePlayer = false,
 	isInvitePending = false,
-}) => {
+}: Props): React$Element<"li"> {
 	const hasPrefix = isActivePlayer || isInvitePending;
 
-	return Component("li", {
-		className: `${getPlayerNameColorClassname({
-			isActivePlayer,
-			isInvitePending,
-		})} font-bold`,
-		children: [
-			hasPrefix &&
-				Component("span", {
-					className: "mr-1",
-					innerText: getPlayerNamePrefixText({
+	const playerNameColorClassname = getPlayerNameColorClassname({
+		isActivePlayer,
+		isInvitePending,
+	});
+	return (
+		<li className={`${playerNameColorClassname} font-bold`}>
+			{hasPrefix && (
+				<span className="mr-1">
+					{getPlayerNamePrefixText({
 						isActivePlayer,
 						isInvitePending,
-					}),
-				}),
-			Component("span", { innerText: `${playerName}` }),
-		].filter(Boolean),
-	});
-};
+					})}
+				</span>
+			)}
+			{<span>{playerName}</span>}
+		</li>
+	);
+}

@@ -24,7 +24,7 @@ function getTotalFromBadgeText({ text }: { text: string }): null | number {
 	return null;
 }
 
-export async function updateBadge({
+export async function updateBadgeAndIcon({
 	nbPendingInvites,
 	nbWaitingTables,
 }: Props): Promise<void> {
