@@ -85,7 +85,7 @@ export function Table({
 				)
 
 				// Button({
-				//   className: "flex-shrink-0",
+				//   className: "shrink-0",
 				//   text: chrome.i18n.getMessage("decline"),
 				//   onClick: async () => {
 				//     const { status, error } = await fetch(
@@ -99,7 +99,7 @@ export function Table({
 				// }),
 
 				// Button({
-				//   className: "flex-shrink-0",
+				//   className: "shrink-0",
 				//   text: chrome.i18n.getMessage("accept"),
 				//   onClick: async () => {
 				//     const { status, error } = await fetch(

@@ -3,11 +3,13 @@
 	"version": "1.4.1",
 	"description": "Checks your games in progress on boardgamearena.com",
 	"scripts": {
-		"dev": "NODE_ENV=development yarn tailwind & yarn parcel watch src/manifest.json --target dev --dist-dir ./build",
 		"dev-mock": "MOCK=presentation yarn dev",
+		"dev": "NODE_ENV=development concurrently \"npm:dev:*\" --kill-others",
+		"dev:css": "yarn tailwindcss ./src/css/base.css -c ./tailwind.config.js -o src/css/tailwind.css --watch",
+		"dev:parcel": "yarn parcel watch src/manifest.json --target dev --dist-dir ./build",
 		"build": "yarn clean; NODE_ENV=production yarn tailwind; yarn parcel build src/manifest.json --target prod --dist-dir ./build",
 		"clean": "rm -rf .parcel-cache/* build/*",
-		"tailwind": "tailwindcss-cli build ./src/css/base.css -c ./tailwind.config.js -o ./src/css/tailwind.css --no-autoprefixer",
+		"tailwind": "tailwindcss ./src/css/base.css -c ./tailwind.config.js -o ./src/css/tailwind.css --no-autoprefixer",
 		"release": "./scripts/release.zsh"
 	},
 	"browserslist": [
@@ -23,15 +25,15 @@
 		"prod": {}
 	},
 	"devDependencies": {
-		"@parcel/config-webextension": "2.0.0-nightly.2448",
-		"autoprefixer": "10.2.5",
-		"flow-bin": "0.164.0",
-		"flow-remove-types": "2.158.0",
-		"html-loader": "2.1.2",
-		"parcel": "2.0.0-nightly.824",
-		"postcss": "8.2.14",
-		"tailwindcss": "2.1.2",
+		"@parcel/config-webextension": "2.0.1",
+		"autoprefixer": "10.4.0",
+		"flow-bin": "0.168.0",
+		"flow-remove-types": "2.168.0",
+		"parcel": "2.0.1",
+		"postcss": "8.4.5",
+		"tailwindcss": "3.0.7",
 		"tailwindcss-cli": "0.1.2",
-		"preact": "10.6.4"
+		"preact": "10.6.4",
+		"concurrently": "6.5.1"
 	}
 }
