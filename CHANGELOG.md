@@ -1,5 +1,11 @@
 # Changelog
 
+## [v1.4.1](https://github.com/FlavienBusseuil/bga-chrome-extension/tree/v1.4.1) (2021-12-07)
+
+**Implemented enhancements:**
+
+- Sort tables by creation date [\#28](https://github.com/FlavienBusseuil/bga-chrome-extension/issues/28)
+
 ## [v1.3.1](https://github.com/FlavienBusseuil/bga-chrome-extension/tree/v1.3.1) (2021-12-06)
 
 **Chore:**
