@@ -9,7 +9,7 @@
 		"dev:parcel": "yarn parcel watch src/manifest.json --target dev --dist-dir ./build",
 		"build": "yarn clean; NODE_ENV=production yarn tailwind; yarn parcel build src/manifest.json --target prod --dist-dir ./build",
 		"clean": "rm -rf .parcel-cache/* build/*",
-		"tailwind": "tailwindcss ./src/css/base.css -c ./tailwind.config.js -o ./src/css/tailwind.css --no-autoprefixer",
+		"tailwind": "tailwindcss ./src/css/base.css -c ./tailwind.config.js -o ./src/css/tailwind.css",
 		"release": "./scripts/release.zsh"
 	},
 	"browserslist": [

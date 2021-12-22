@@ -77,7 +77,8 @@ Add the correct text decoration in Chrome, Edge, and Safari.
 */
 
 abbr[title] {
-  text-decoration: underline dotted;
+  -webkit-text-decoration: underline dotted;
+          text-decoration: underline dotted;
 }
 
 /*
@@ -344,6 +345,27 @@ textarea {
 2. Set the default placeholder color to the user's configured gray 400 color.
 */
 
+input::-webkit-input-placeholder, textarea::-webkit-input-placeholder {
+  opacity: 1;
+  /* 1 */
+  color: #9ca3af;
+  /* 2 */
+}
+
+input::-moz-placeholder, textarea::-moz-placeholder {
+  opacity: 1;
+  /* 1 */
+  color: #9ca3af;
+  /* 2 */
+}
+
+input::-ms-input-placeholder, textarea::-ms-input-placeholder {
+  opacity: 1;
+  /* 1 */
+  color: #9ca3af;
+  /* 2 */
+}
+
 input::placeholder,
 textarea::placeholder {
   opacity: 1;
@@ -557,6 +579,12 @@ Ensure the default browser behavior of the `hidden` attribute.
   transform: var(--tw-transform);
 }
 
+@-webkit-keyframes pulse {
+  50% {
+    opacity: .5;
+  }
+}
+
 @keyframes pulse {
   50% {
     opacity: .5;
@@ -564,7 +592,8 @@ Ensure the default browser behavior of the `hidden` attribute.
 }
 
 .animate-pulse-0\.5 {
-  animation: pulse 1.5s cubic-bezier(0.4, 0, 0.6, 1) infinite;;
+  -webkit-animation: pulse 1.5s cubic-bezier(0.4, 0, 0.6, 1) infinite;;
+          animation: pulse 1.5s cubic-bezier(0.4, 0, 0.6, 1) infinite;;
 }
 
 .cursor-pointer {
@@ -600,7 +629,8 @@ Ensure the default browser behavior of the `hidden` attribute.
 }
 
 .gap-x-2 {
-  column-gap: 0.5rem;
+  -moz-column-gap: 0.5rem;
+       column-gap: 0.5rem;
 }
 
 .space-y-2 > :not([hidden]) ~ :not([hidden]) {
@@ -799,7 +829,8 @@ Ensure the default browser behavior of the `hidden` attribute.
 }
 
 .filter {
-  filter: var(--tw-filter);
+  -webkit-filter: var(--tw-filter);
+          filter: var(--tw-filter);
 }
 
 .hover\:border-gray-600:hover {
