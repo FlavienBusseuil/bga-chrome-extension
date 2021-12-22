@@ -443,7 +443,7 @@ export const presentation: QuerySucceededResult<TableManagerQueryResultData> = {
 				id: castToTableId("216718684"),
 				game_id: castToGameId("1439"),
 				status: "asyncplay",
-				table_creator: null,
+				table_creator: castToPlayerId("84902116"),
 				max_player: castToNumberString("4"),
 				level_filter: { log: "", args: [] },
 				filter_group: null,
