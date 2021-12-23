@@ -1,7 +1,7 @@
 const colors = require("tailwindcss/colors");
 
 module.exports = {
-	content: ["./src/popup.html", "./src/js/**/*.js*"],
+	content: ["./src/popup.html", "./src/js/**/*.{js,jsx}"],
 	theme: {
 		extend: {
 			colors: {
@@ -26,6 +26,8 @@ module.exports = {
 			animation: {
 				"pulse-0.5":
 					"pulse 1.5s cubic-bezier(0.4, 0, 0.6, 1) infinite;",
+				"pulse-0.25":
+					"pulse 0.75s cubic-bezier(0.4, 0, 0.6, 1) infinite;",
 			},
 		},
 	},

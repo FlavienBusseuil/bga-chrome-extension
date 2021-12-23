@@ -42,12 +42,14 @@ export function sort(tables: Array<TransformedTable>): Array<TransformedTable> {
 		(
 			{
 				isOpenForPlayers: isOpenForPlayers1,
+				isTurnBased: isTurnBased1,
 				gameName: gameName1,
 				gameStart: gameStart1,
 				players: players1,
 			},
 			{
 				isOpenForPlayers: isOpenForPlayers2,
+				isTurnBased: isTurnBased2,
 				gameName: gameName2,
 				gameStart: gameStart2,
 				players: players2,
@@ -71,6 +73,10 @@ export function sort(tables: Array<TransformedTable>): Array<TransformedTable> {
 					isCurrentPlayer && isInvitePending,
 			);
 
+			const realtimeTableOneOrder: Order = getOrderFromPriority(
+				!isTurnBased1,
+				!isTurnBased2,
+			);
 			const waitingCurrentPlayerOnTableOneOrder: Order = getOrderFromPriority(
 				isWaitingCurrentPlayerOnTable1,
 				isWaitingCurrentPlayerOnTable2,
@@ -90,6 +96,8 @@ export function sort(tables: Array<TransformedTable>): Array<TransformedTable> {
 
 			return (
 				// Sort by:
+				// realtime tables
+				realtimeTableOneOrder ||
 				// active tables for current player
 				waitingCurrentPlayerOnTableOneOrder ||
 				// pending invites for current player

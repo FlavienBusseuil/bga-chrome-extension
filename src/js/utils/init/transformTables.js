@@ -70,6 +70,7 @@ export function transformTable({
 		gameName: translations[`${gameNameKey}_displayed`] ?? gameNameKey,
 		gameStart: gameStart ? castToDate(gameStart) : null,
 		isOpenForPlayers: status === "asyncopen",
+		isTurnBased: ["asyncplay", "asyncopen", "asyncinit"].includes(status),
 		link: `${bgaUrl}/${castNumberStringToString(
 			gameServer,
 		)}/${gameNameKey}?table=${castTableIdToString(tableId)}`,

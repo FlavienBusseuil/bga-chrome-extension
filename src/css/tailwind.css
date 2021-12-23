@@ -591,6 +591,17 @@ Ensure the default browser behavior of the `hidden` attribute.
   }
 }
 
+.animate-pulse-0\.25 {
+  -webkit-animation: pulse 0.75s cubic-bezier(0.4, 0, 0.6, 1) infinite;;
+          animation: pulse 0.75s cubic-bezier(0.4, 0, 0.6, 1) infinite;;
+}
+
+@keyframes pulse {
+  50% {
+    opacity: .5;
+  }
+}
+
 .animate-pulse-0\.5 {
   -webkit-animation: pulse 1.5s cubic-bezier(0.4, 0, 0.6, 1) infinite;;
           animation: pulse 1.5s cubic-bezier(0.4, 0, 0.6, 1) infinite;;
@@ -688,6 +699,11 @@ Ensure the default browser behavior of the `hidden` attribute.
 .bg-bgaOrange-lighter {
   --tw-bg-opacity: 1;
   background-color: rgb(253 242 225 / var(--tw-bg-opacity));
+}
+
+.bg-yellow-300 {
+  --tw-bg-opacity: 1;
+  background-color: rgb(253 224 71 / var(--tw-bg-opacity));
 }
 
 .bg-bgaGreen {

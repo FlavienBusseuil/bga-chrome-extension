@@ -5,8 +5,13 @@ import { cn } from "./utils/cn";
 function getIncatorClassnames({
 	isInvitePendingForCurrentPlayer,
 	isOpenForPlayers,
+	isTurnBased,
 	isWaitingCurrentPlayer,
 }) {
+	if (!isTurnBased) {
+		return "bg-yellow-300 animate-pulse-0.25";
+	}
+
 	if (isWaitingCurrentPlayer) {
 		return "bg-bgaGreen animate-pulse-0.5";
 	}
@@ -25,12 +30,14 @@ function getIncatorClassnames({
 type Props = {
 	isInvitePendingForCurrentPlayer: boolean,
 	isOpenForPlayers: boolean,
+	isTurnBased: boolean,
 	isWaitingCurrentPlayer: boolean,
 };
 
 export function TableIndicator({
 	isInvitePendingForCurrentPlayer,
 	isOpenForPlayers,
+	isTurnBased,
 	isWaitingCurrentPlayer,
 }: Props): React$Element<"div"> {
 	return (
@@ -40,6 +47,7 @@ export function TableIndicator({
 				getIncatorClassnames({
 					isInvitePendingForCurrentPlayer,
 					isOpenForPlayers,
+					isTurnBased,
 					isWaitingCurrentPlayer,
 				}),
 				"h-full",

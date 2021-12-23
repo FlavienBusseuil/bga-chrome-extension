@@ -19,6 +19,7 @@ type Props = {
 	declineInviteLink: string,
 	isInvitePendingForCurrentPlayer: boolean,
 	isOpenForPlayers: boolean,
+	isTurnBased: boolean,
 	isWaitingCurrentPlayer: boolean,
 	children: React$Element<typeof PlayerList>,
 	onAcceptInvite: TableId => Promise<void>,
@@ -35,6 +36,7 @@ export function Table({
 	declineInviteLink,
 	isInvitePendingForCurrentPlayer,
 	isOpenForPlayers,
+	isTurnBased,
 	isWaitingCurrentPlayer,
 	children,
 	onAcceptInvite,
@@ -64,6 +66,7 @@ export function Table({
 				{...{
 					isInvitePendingForCurrentPlayer,
 					isOpenForPlayers,
+					isTurnBased,
 					isWaitingCurrentPlayer,
 				}}
 			/>

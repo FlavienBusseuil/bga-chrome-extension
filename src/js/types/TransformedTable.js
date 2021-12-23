@@ -9,6 +9,7 @@ export type TransformedTable = {
 	gameName: string,
 	gameStart: null | Date,
 	isOpenForPlayers: boolean,
+	isTurnBased: boolean,
 	link: string,
 	nbMaxPlayers: number,
 	players: Array<{
