@@ -7,9 +7,10 @@
 		"dev": "NODE_ENV=development concurrently \"npm:dev:*\" --kill-others",
 		"dev:css": "yarn tailwindcss ./src/css/base.css -c ./tailwind.config.js -o src/css/tailwind.css --watch",
 		"dev:parcel": "yarn parcel watch src/manifest.json --target dev --dist-dir ./build",
-		"build": "yarn clean; NODE_ENV=production yarn tailwind; yarn parcel build src/manifest.json --target prod --dist-dir ./build",
+		"build": "yarn clean; NODE_ENV=production yarn prod:css; yarn prod:parcel",
 		"clean": "rm -rf .parcel-cache/* build/*",
-		"tailwind": "tailwindcss ./src/css/base.css -c ./tailwind.config.js -o ./src/css/tailwind.css",
+		"prod:css": "yarn tailwindcss ./src/css/base.css -c ./tailwind.config.js -o ./src/css/tailwind.css --minify",
+		"prod:parcel": "yarn parcel build src/manifest.json --target prod --dist-dir ./build",
 		"release": "./scripts/release.zsh"
 	},
 	"browserslist": [
