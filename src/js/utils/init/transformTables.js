@@ -18,6 +18,7 @@ import { bgaUrl, bgaExtensionUrlSignature } from "../constants";
 import { isPlayerActiveOnTableFromGlobalUserInfos } from "../isPlayerActiveOnTableFromGlobalUserInfos";
 import type { TransformedTable } from "../../types/TransformedTable";
 import { castToDate } from "../../types/bga/DateString";
+import { castToBoolean } from "../../types/bga/BooleanString";
 
 type InputTransformTable = {
 	assetsUrl: string,
@@ -53,9 +54,11 @@ export function transformTable({
 		game_name: gameNameKey,
 		gamestart: gameStart,
 		gameserver: gameServer,
+		options,
 		table_creator: tableCreatorPlayerId,
 		status,
 		max_player: nbMaxPlayers,
+		has_tournament,
 	} = table;
 
 	return {
@@ -69,8 +72,10 @@ export function transformTable({
 		// So we fall back on gameNameKey
 		gameName: translations[`${gameNameKey}_displayed`] ?? gameNameKey,
 		gameStart: gameStart ? castToDate(gameStart) : null,
+		hasArenaMode: castToBoolean(options["201"]),
 		isOpenForPlayers: status === "asyncopen",
 		isTurnBased: ["asyncplay", "asyncopen", "asyncinit"].includes(status),
+		isPartOfTournament: castToBoolean(has_tournament),
 		link: `${bgaUrl}/${castNumberStringToString(
 			gameServer,
 		)}/${gameNameKey}?table=${castTableIdToString(tableId)}`,

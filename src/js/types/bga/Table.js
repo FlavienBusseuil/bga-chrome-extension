@@ -1,5 +1,7 @@
 // @flow
 
+import type { BooleanString } from "./BooleanString";
+
 export opaque type TableId = string;
 
 export type TableStatus =
@@ -12,6 +14,7 @@ export type TableStatus =
 	| "archive";
 
 export type BasicTableOptions = {
+	"201": BooleanString,
 	[string]: string,
 };
 

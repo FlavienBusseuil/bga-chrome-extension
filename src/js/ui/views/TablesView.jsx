@@ -25,17 +25,13 @@ export function TablesView({
 			<TableList>
 				{tables.map(
 					({
-						acceptInviteLink,
-						declineInviteLink,
-						gameName,
-						isOpenForPlayers,
-						isTurnBased,
-						link,
 						nbMaxPlayers,
 						players,
-						tableCreatorName,
-						tableImg,
+						hasArenaMode,
+						isOpenForPlayers,
 						tableId,
+						gameStart,
+						...restTable
 					}) => {
 						const nbMissingPlayers = isOpenForPlayers
 							? nbMaxPlayers - players.length
@@ -53,19 +49,14 @@ export function TablesView({
 							<Table
 								key={String(tableId)}
 								{...{
-									acceptInviteLink,
-									declineInviteLink,
-									gameName,
-									isInvitePendingForCurrentPlayer,
-									isOpenForPlayers,
-									isTurnBased,
-									isWaitingCurrentPlayer,
-									link,
 									onAcceptInvite,
 									onDeclineInvite,
-									tableCreatorName,
 									tableId,
-									tableImg,
+									hasArenaMode,
+									isInvitePendingForCurrentPlayer,
+									isOpenForPlayers,
+									isWaitingCurrentPlayer,
+									...restTable,
 								}}
 							>
 								<PlayerList>

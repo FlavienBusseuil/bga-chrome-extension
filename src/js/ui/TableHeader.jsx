@@ -13,7 +13,7 @@ export function TableHeader({
 	tableImg,
 }: Props): React$Element<"div"> {
 	return (
-		<div className="flex items-center px-2 pt-2">
+		<div className="flex items-center px-2 pt-2 gap-2">
 			<TableImg tableImg={tableImg} />
 			<TableTitle gameName={gameName} />
 		</div>

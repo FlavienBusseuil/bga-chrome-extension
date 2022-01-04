@@ -24,6 +24,10 @@
 			}
 		}
 	},
+	"realtime": { "message": "Realtime" },
+	"turn_based": { "message": "Turn Based" },
+	"tournament": { "message": "Tournament" },
+	"arena": { "message": "Arena" },
 	"accept": { "message": "Accept" },
 	"decline": { "message": "Decline" }
 }

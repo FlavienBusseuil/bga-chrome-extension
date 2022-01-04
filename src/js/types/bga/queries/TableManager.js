@@ -48,6 +48,7 @@ export type Table = {
 	game_status: "public",
 	gameserver: NumberString,
 	gamestart: ?DateString,
+	has_tournament: BooleanString,
 	id: TableId,
 	level_filter_r: string,
 	level_filter: LevelFilter,
