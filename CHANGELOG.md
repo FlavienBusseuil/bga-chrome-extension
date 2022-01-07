@@ -1,5 +1,21 @@
 # Changelog
 
+## [v1.5.0](https://github.com/FlavienBusseuil/bga-chrome-extension/tree/v1.5.0) (2022-01-07)
+
+**Implemented enhancements:**
+
+- Add icons for the different playing modes [\#35](https://github.com/FlavienBusseuil/bga-chrome-extension/issues/35)
+- Realtime tables highlight [\#34](https://github.com/FlavienBusseuil/bga-chrome-extension/issues/34)
+- Translate game names [\#26](https://github.com/FlavienBusseuil/bga-chrome-extension/issues/26)
+
+**Fixed bugs:**
+
+- Missing footer for pending invite on current player [\#31](https://github.com/FlavienBusseuil/bga-chrome-extension/issues/31)
+
+**Chore:**
+
+- Support old browser styling rules with auto-prefixer [\#32](https://github.com/FlavienBusseuil/bga-chrome-extension/issues/32)
+
 ## [v1.4.2](https://github.com/FlavienBusseuil/bga-chrome-extension/tree/v1.4.2) (2021-12-21)
 
 **Fixed bugs:**
