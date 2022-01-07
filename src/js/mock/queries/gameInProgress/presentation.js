@@ -3,6 +3,7 @@
 import type { GlobalUserInfos } from "../../../types/bga/queries/GameInProgress";
 
 export const presentation: string = `globalUserInfos=${JSON.stringify({
+	lang: "fr",
 	async_status: {
 		"215482515": {
 			actives: ["84278471"],

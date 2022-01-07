@@ -7,7 +7,7 @@ import type { Table } from "../../types/bga/queries/TableManager";
 import { fetchActivityForPlayer } from "../fetch/fetchActivityForPlayer";
 import { fetchCurrentPlayer } from "../fetch/fetchCurrentPlayer";
 import { fetchGlobalInfo } from "../fetch/fetchGlobalInfo";
-import { fetchGlobalTranslations } from "../fetch/fetchGlobalTranslations";
+import { fetchTranslations } from "../fetch/fetchTranslations";
 import { fetchTablesFromTableManager } from "../fetch/fetchTablesFromTableManager";
 import type { Translations } from "../../types/bga/Translations";
 
@@ -32,6 +32,7 @@ export async function fetch(): Output {
 		assetsUrl,
 		jsBundleVersion,
 	} = await fetchGlobalInfo();
+	const { lang } = globalUserInfos;
 
 	// Fetch current player info
 	const currentPlayer = await fetchCurrentPlayer();
@@ -49,9 +50,10 @@ export async function fetch(): Output {
 	});
 
 	// Fetch global translations
-	const translations = await fetchGlobalTranslations({
+	const translations = await fetchTranslations({
 		assetsUrl,
 		jsBundleVersion,
+		lang,
 	});
 
 	const tables = await fetchTablesFromTableManager();
