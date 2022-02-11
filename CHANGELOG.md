@@ -1,5 +1,11 @@
 # Changelog
 
+## [v1.6.0](https://github.com/FlavienBusseuil/bga-chrome-extension/tree/v1.6.0) (2022-02-11)
+
+**Implemented enhancements:**
+
+- Add a tournament tab [\#36](https://github.com/FlavienBusseuil/bga-chrome-extension/issues/36)
+
 ## [v1.5.0](https://github.com/FlavienBusseuil/bga-chrome-extension/tree/v1.5.0) (2022-01-07)
 
 **Implemented enhancements:**
