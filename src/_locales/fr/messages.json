@@ -26,8 +26,12 @@
 	},
 	"realtime": { "message": "Temps réel" },
 	"turn_based": { "message": "Tour par tour" },
-	"tournament": { "message": "Tournois" },
+	"tournament": { "message": "Tournoi" },
 	"arena": { "message": "Arène" },
 	"accept": { "message": "Jouons !" },
-	"decline": { "message": "Non merci" }
+	"decline": { "message": "Non merci" },
+	"play_tournament": { "message": "S'inscrire à un tournoi" },
+	"tables": { "message": "Tables" },
+	"tournaments": { "message": "Tournois" },
+	"no_tournaments": { "message": "Aucun tournois en cours ou à venir" }
 }

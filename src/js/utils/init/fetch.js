@@ -10,6 +10,8 @@ import { fetchGlobalInfo } from "../fetch/fetchGlobalInfo";
 import { fetchTranslations } from "../fetch/fetchTranslations";
 import { fetchTablesFromTableManager } from "../fetch/fetchTablesFromTableManager";
 import type { Translations } from "../../types/bga/Translations";
+import { fetchTournaments } from "../fetch/fetchTournaments";
+import type { Tournament } from "../../types/bga/queries/TournamentList";
 
 export type FetchResult =
 	| {
@@ -18,6 +20,7 @@ export type FetchResult =
 			currentPlayerId: PlayerId,
 			globalUserInfos: GlobalUserInfos,
 			translations: Translations,
+			tournaments: Array<Tournament>,
 			assetsUrl: string,
 			tables: Array<Table>,
 	  }
@@ -67,11 +70,14 @@ export async function fetch(): Output {
 		0,
 	);
 
+	const tournaments = await fetchTournaments();
+
 	return {
 		nbWaitingTables,
 		nbPendingInvites,
 		currentPlayerId,
 		globalUserInfos,
+		tournaments,
 		translations,
 		assetsUrl,
 		tables,

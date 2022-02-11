@@ -29,5 +29,9 @@
 	"tournament": { "message": "Tournament" },
 	"arena": { "message": "Arena" },
 	"accept": { "message": "Accept" },
-	"decline": { "message": "Decline" }
+	"decline": { "message": "Decline" },
+	"play_tournament": { "message": "Register for a Tournament" },
+	"tables": { "message": "Tables" },
+	"tournaments": { "message": "Tournaments" },
+	"no_tournaments": { "message": "No tournaments" }
 }

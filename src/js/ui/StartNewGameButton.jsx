@@ -8,7 +8,7 @@ export function StartNewGameButton(): React$Element<typeof Button> {
 		<Button
 			{...{
 				text: chrome.i18n.getMessage("play_new_game"),
-				className: "m-2",
+				className: "",
 				url: `${bgaUrl}/lobby`,
 			}}
 		/>

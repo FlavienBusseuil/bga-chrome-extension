@@ -4,7 +4,7 @@ export type QueryStatusSuccess = 1;
 export type QueryStatusError = 0;
 export type QueryStatus = QueryStatusError | QueryStatusSuccess;
 
-export type QuerySucceededResult<Data: { ... }> = {
+export type QuerySucceededResult<Data> = {
 	status: QueryStatusSuccess,
 	data: Data,
 };
@@ -19,6 +19,4 @@ export type QueryFailedResult = {
 	code: ErrorCode,
 };
 
-export type QueryResult<Data: { ... }> =
-	| QuerySucceededResult<Data>
-	| QueryFailedResult;
+export type QueryResult<Data> = QuerySucceededResult<Data> | QueryFailedResult;

@@ -36,5 +36,6 @@
 		"preact": "10.6.4",
 		"tailwindcss": "3.0.7",
 		"tailwindcss-cli": "0.1.2"
-	}
+	},
+	"dependencies": {}
 }

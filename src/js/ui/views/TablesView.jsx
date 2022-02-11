@@ -6,23 +6,26 @@ import { PlayerList } from "../PlayerList";
 import { Player } from "../Player";
 import { StartNewGameButton } from "../StartNewGameButton";
 import { Table } from "../Table";
-import { TableList } from "../TableList";
 import type { TableId } from "../../types/bga/Table";
+import { CardList } from "../base/CardList";
+import { cn } from "../utils/cn";
 
 type Props = {
+	className?: string,
 	tables: Array<TransformedTable>,
 	onAcceptInvite: TableId => Promise<void>,
 	onDeclineInvite: TableId => Promise<void>,
 };
 
 export function TablesView({
+	className,
 	tables,
 	onAcceptInvite,
 	onDeclineInvite,
 }: Props): React$Node {
 	return (
-		<>
-			<TableList>
+		<div className={cn(["flex flex-col gap-2", className])}>
+			<CardList>
 				{tables.map(
 					({
 						nbMaxPlayers,
@@ -91,8 +94,8 @@ export function TablesView({
 						);
 					},
 				)}
-			</TableList>
+			</CardList>
 			<StartNewGameButton />
-		</>
+		</div>
 	);
 }

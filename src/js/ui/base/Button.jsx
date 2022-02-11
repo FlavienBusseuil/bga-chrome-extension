@@ -4,8 +4,8 @@ import { cn } from "../utils/cn";
 
 type Props = {
 	...{ onClick: () => void } | { url: string },
-	text: string,
-	className: string,
+	text: React$Node,
+	className?: string,
 	size?: 1 | 2,
 	type?: "primary" | "secondary" | "accept",
 };
@@ -45,6 +45,7 @@ export function Button({
 			role="button"
 			className={cn([
 				"text-white",
+				"text-center",
 				"shadow",
 				"border",
 				styleFromSize,

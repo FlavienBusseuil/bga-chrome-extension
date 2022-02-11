@@ -5,10 +5,11 @@ import type { MyWhoQueryResultData } from "../../types/bga/queries/MyWho";
 import type { QuerySucceededResult } from "../../types/bga/queries/Query";
 import type { TableQueryResultData } from "../../types/bga/queries/Table";
 import type { TableManagerQueryResultData } from "../../types/bga/queries/TableManager";
+import type { TournamentListQueryResultData } from "../../types/bga/queries/TournamentList";
 
 export type MockResolver =
 	| { path: "myWho" | "tableManager" }
-	| { path: "table" | "myBgaRbt", key: string };
+	| { path: "table" | "myBgaRbt" | "tournamentList", key: string };
 
 export async function resolveFromMock(
 	props: MockResolver,
@@ -16,6 +17,7 @@ export async function resolveFromMock(
 	| MyWhoQueryResultData
 	| QuerySucceededResult<TableQueryResultData>
 	| QuerySucceededResult<TableManagerQueryResultData>
+	| QuerySucceededResult<TournamentListQueryResultData>
 	| MyBgaRbtQueryResultData,
 > {
 	if (process.env.MOCK === "presentation") {
@@ -43,6 +45,13 @@ export async function resolveFromMock(
 		if (props.path === "myBgaRbt") {
 			const { presentation } = await import(
 				"../../mock/queries/myBgaRbt/presentation"
+			);
+			return presentation[props.key];
+		}
+
+		if (props.path === "tournamentList") {
+			const { presentation } = await import(
+				"../../mock/queries/tournamentList/presentation"
 			);
 			return presentation[props.key];
 		}

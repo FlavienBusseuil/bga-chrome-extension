@@ -10,6 +10,7 @@ import { TableIcon } from "./TableIcon.jsx";
 import { TableIcons } from "./TableIcons.jsx";
 import { TableIndicator } from "./TableIndicator";
 import { Button } from "./base/Button";
+import { Card } from "./base/Card";
 import { cn } from "./utils/cn";
 
 type Props = {
@@ -48,7 +49,7 @@ export function Table({
 	children,
 	onAcceptInvite,
 	onDeclineInvite,
-}: Props): React$Element<"li"> {
+}: Props): React$Element<typeof Card> {
 	const renderIcons: Array<React$Element<typeof TableIcon>> = [
 		isPartOfTournament ? (
 			<TableIcon title={tr("tournament")}>🏆</TableIcon>
@@ -60,25 +61,7 @@ export function Table({
 	].filter(Boolean);
 
 	return (
-		<li
-			className={cn([
-				"flex",
-				"flex-col",
-				"gap-2",
-				"pl-2",
-				"relative",
-				"bg-white",
-				"rounded",
-				"shadow-md",
-				"cursor-pointer",
-				"border-transparent",
-				"border",
-				"border-gray-300",
-				"hover:border-gray-600",
-				"overflow-hidden",
-			])}
-			onclick={() => window.open(link, "_blank")}
-		>
+		<Card onClick={() => window.open(link, "_blank")}>
 			<TableIndicator
 				{...{
 					isInvitePendingForCurrentPlayer,
@@ -131,6 +114,6 @@ export function Table({
 				// }),
 				}
 			</TableFooter>
-		</li>
+		</Card>
 	);
 }

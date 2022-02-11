@@ -1,6 +1,7 @@
 // @flow
 
 import type { TransformedTable } from "../../types/TransformedTable";
+import type { TransformedTournament } from "../../types/TransformedTournament";
 
 const order = {
 	before: -1,
@@ -37,7 +38,9 @@ function getChronologicalOrderFromDate(date1: Date, date2: Date): Order {
 	return order.equal;
 }
 
-export function sort(tables: Array<TransformedTable>): Array<TransformedTable> {
+export function sortTables(
+	tables: Array<TransformedTable>,
+): Array<TransformedTable> {
 	return tables.sort(
 		(
 			{
@@ -111,4 +114,26 @@ export function sort(tables: Array<TransformedTable>): Array<TransformedTable> {
 			);
 		},
 	);
+}
+
+export function sortTournaments(
+	tournaments: Array<TransformedTournament>,
+): Array<TransformedTournament> {
+	return tournaments.sort((t1, t2) => {
+		const progressTournamentOneOrder: Order = getOrderFromPriority(
+			t1.status === "progress",
+			t2.status === "progress",
+		);
+
+		const dateTournamentOneOrder = getChronologicalOrderFromDate(
+			t1.date,
+			t2.date,
+		);
+
+		return (
+			progressTournamentOneOrder ||
+			dateTournamentOneOrder ||
+			t1.name.localeCompare(t2.name)
+		);
+	});
 }
