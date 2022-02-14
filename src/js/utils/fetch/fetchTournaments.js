@@ -13,7 +13,7 @@ import { resolveQuery } from "./resolveQuery";
 async function resolveQueryFromStatus(status: string) {
 	return resolveQuery<QueryResult<TournamentListQueryResultData>>({
 		fromMock: { path: "tournamentList", key: status },
-		fromUrl: `${bgaUrl}/tournamentlist/tournamentlist/getTournaments.html?tournament_i_registered=1&status=${status}&${bgaExtensionUrlSignature}`,
+		fromUrl: `${bgaUrl}/tournamentlist/tournamentlist/getTournaments.html?tournament_i_registered=1&status=${status}&${bgaExtensionUrlSignature}&full=true`,
 	});
 }
 
