@@ -12,6 +12,7 @@ import { fetchTablesFromTableManager } from "../fetch/fetchTablesFromTableManage
 import type { Translations } from "../../types/bga/Translations";
 import { fetchTournaments } from "../fetch/fetchTournaments";
 import type { Tournament } from "../../types/bga/queries/TournamentList";
+import { fetchRequestToken } from "../fetch/fetchRequestToken";
 
 export type FetchResult =
 	| {
@@ -37,8 +38,10 @@ export async function fetch(): Output {
 	} = await fetchGlobalInfo();
 	const { lang } = globalUserInfos;
 
+	const requestToken = await fetchRequestToken();
+
 	// Fetch current player info
-	const currentPlayer = await fetchCurrentPlayer();
+	const currentPlayer = await fetchCurrentPlayer({ requestToken });
 	const { token: currentPlayerToken, id: currentPlayerId } = currentPlayer;
 
 	// No user logged
@@ -47,10 +50,13 @@ export async function fetch(): Output {
 	}
 
 	// Fetch number of waiting tables
-	const { nbWaitingTables } = await fetchActivityForPlayer({
-		playerToken: currentPlayerToken,
-		playerId: currentPlayerId,
-	});
+	const { nbWaitingTables } = await fetchActivityForPlayer(
+		{
+			playerToken: currentPlayerToken,
+			playerId: currentPlayerId,
+		},
+		{ requestToken },
+	);
 
 	// Fetch global translations
 	const translations = await fetchTranslations({
@@ -59,7 +65,7 @@ export async function fetch(): Output {
 		lang,
 	});
 
-	const tables = await fetchTablesFromTableManager();
+	const tables = await fetchTablesFromTableManager({ requestToken });
 
 	const nbPendingInvites = tables.reduce(
 		(total, table) =>
@@ -70,7 +76,7 @@ export async function fetch(): Output {
 		0,
 	);
 
-	const tournaments = await fetchTournaments();
+	const tournaments = await fetchTournaments({ requestToken });
 
 	return {
 		nbWaitingTables,

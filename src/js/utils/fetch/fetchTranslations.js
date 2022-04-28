@@ -3,8 +3,6 @@
 import type { LanguageKey } from "../../types/bga/Language";
 import type { Translations } from "../../types/bga/Translations";
 
-import { bgaExtensionUrlSignature } from "../constants";
-
 type Props = {
 	assetsUrl: string,
 	jsBundleVersion: string,
@@ -16,7 +14,7 @@ async function fetchGlobalTranslations({
 	jsBundleVersion,
 }): Promise<Translations> {
 	return fetch(
-		`${assetsUrl}/js/modules/nls/lang_mainsite-${jsBundleVersion}.js?${bgaExtensionUrlSignature}`,
+		`${assetsUrl}/js/modules/nls/lang_mainsite-${jsBundleVersion}.js`,
 	)
 		.then(response => response.text())
 		.then(text => {
@@ -37,7 +35,7 @@ async function fetchLocalizedTranslations({
 	lang,
 }): Promise<Translations> {
 	return fetch(
-		`${assetsUrl}js/modules/nls/${lang}/lang_mainsite-${jsBundleVersion}.js?${bgaExtensionUrlSignature}`,
+		`${assetsUrl}js/modules/nls/${lang}/lang_mainsite-${jsBundleVersion}.js`,
 	)
 		.then(response => response.text())
 		.then(text => {

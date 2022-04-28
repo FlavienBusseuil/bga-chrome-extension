@@ -1,5 +1,6 @@
 // @flow
 
+import type { RequestToken } from "../../types/RequestToken";
 import type { MyWhoQueryResultData } from "../../types/bga/queries/MyWho";
 import type { QueryResult } from "../../types/bga/queries/Query";
 
@@ -13,15 +14,15 @@ import { resolveFromMock } from "./resolveFromMock";
 
 export async function resolveQuery<T>({
 	fromMock,
-	fromUrl,
+	fromUrl: { url, requestToken },
 }: {
 	fromMock: MockResolver,
-	fromUrl: string,
+	fromUrl: { url: string, requestToken: RequestToken },
 }): Promise<T> {
 	if (isDataMocked) {
 		// $FlowFixMe[incompatible-return] ?
 		return resolveFromMock(fromMock);
 	}
 
-	return fetchFromUrl<T>(fromUrl);
+	return fetchFromUrl<T>(url, { requestToken });
 }

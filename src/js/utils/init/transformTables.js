@@ -14,7 +14,7 @@ import {
 	castToString as castNumberStringToString,
 	castToNumber,
 } from "../../types/bga/NumberString";
-import { bgaUrl, bgaExtensionUrlSignature } from "../constants";
+import { bgaUrl } from "../constants";
 import { isPlayerActiveOnTableFromGlobalUserInfos } from "../isPlayerActiveOnTableFromGlobalUserInfos";
 import type { TransformedTable } from "../../types/TransformedTable";
 import { castToDate } from "../../types/bga/DateString";
@@ -64,10 +64,10 @@ export function transformTable({
 	return {
 		acceptInviteLink: `${bgaUrl}/table/table/joingame.html?table=${castTableIdToString(
 			tableId,
-		)}&${bgaExtensionUrlSignature}`,
+		)}`,
 		declineInviteLink: `${bgaUrl}/table/table/refuseInvitation.html?table=${castTableIdToString(
 			tableId,
-		)}&${bgaExtensionUrlSignature}`,
+		)}`,
 		// It seems that sometime some translations doesn't exists for some game [issues/22]
 		// So we fall back on gameNameKey
 		gameName: translations[`${gameNameKey}_displayed`] ?? gameNameKey,

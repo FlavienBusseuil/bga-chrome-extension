@@ -2,14 +2,14 @@
 import type { GlobalUserInfos } from "../../types/bga/queries/GameInProgress";
 
 import { presentation } from "../../mock/queries/gameInProgress/presentation";
-import { bgaUrl, bgaExtensionUrlSignature, isDataMocked } from "../constants";
+import { bgaUrl, isDataMocked } from "../constants";
 
 export async function fetchGlobalInfo(): Promise<{
 	assetsUrl: string,
 	globalUserInfos: GlobalUserInfos,
 	jsBundleVersion: string,
 }> {
-	return fetch(`${bgaUrl}/gameinprogress?${bgaExtensionUrlSignature}`)
+	return fetch(`${bgaUrl}/gameinprogress`)
 		.then(response => response.text())
 		.then(text => {
 			const [, assetsUrl] = text.match(/g_themeurl\s?=\s?'(.*)'/) ?? [];
