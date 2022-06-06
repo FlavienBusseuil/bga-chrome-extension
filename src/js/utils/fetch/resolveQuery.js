@@ -1,27 +1,68 @@
 // @flow
 
+import type { RequestToken } from "../../types/RequestToken";
+import type { MyBgaRbtQueryResultData } from "../../types/bga/queries/MyBgaRbt";
 import type { MyWhoQueryResultData } from "../../types/bga/queries/MyWho";
-import type { QueryResult } from "../../types/bga/queries/Query";
+import type {
+	Query,
+	QueryResult,
+	QuerySucceededResult,
+} from "../../types/bga/queries/Query";
 
 import type { TableQueryResultData } from "../../types/bga/queries/Table";
 
+import type { TableManagerQueryResultData } from "../../types/bga/queries/TableManager";
+import type { TournamentListQueryResultData } from "../../types/bga/queries/TournamentList";
 import type { MockResolver } from "./resolveFromMock";
 
 import { isDataMocked } from "../constants";
 import { fetchFromUrl } from "../fetch/fetchFromUrl";
+import { fetchRequestToken } from "./fetchRequestToken";
 import { resolveFromMock } from "./resolveFromMock";
 
-export async function resolveQuery<T>({
-	fromMock,
-	fromUrl,
-}: {
+type Input = {
 	fromMock: MockResolver,
-	fromUrl: string,
-}): Promise<T> {
+	fromUrl: { url: string, requestToken: RequestToken },
+};
+
+function runQuery<T: Query>({
+	fromMock,
+	fromUrl: { url, requestToken },
+}: Input): Promise<T> {
 	if (isDataMocked) {
-		// $FlowFixMe[incompatible-return] ?
-		return resolveFromMock(fromMock);
+		return resolveFromMock<T>(fromMock);
 	}
 
-	return fetchFromUrl<T>(fromUrl);
+	return fetchFromUrl<T>(url, { requestToken });
+}
+
+export async function resolveQuery<T: Query>({
+	fromMock,
+	fromUrl: { url, requestToken },
+	isRetrying = false,
+}: {
+	...Input,
+	isRetrying?: boolean,
+}): Promise<T> {
+	const result = await runQuery<T>({
+		fromMock,
+		fromUrl: { url, requestToken },
+	});
+
+	// Session problem
+	if (result.code && result.code === 806) {
+		if (isRetrying) {
+			throw new Error(result.error);
+		}
+
+		// Retry strategy
+		const newRequestToken = await fetchRequestToken();
+		return resolveQuery({
+			fromMock,
+			fromUrl: { url, requestToken: newRequestToken },
+			isRetrying: true,
+		});
+	}
+
+	return result;
 }

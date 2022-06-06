@@ -18,7 +18,7 @@ import { castToTournamentId } from "../../../types/bga/Tournament";
 
 // Basic example with a mix of async and sync tables
 export const progress: QuerySucceededResult<TournamentListQueryResultData> = {
-	status: 1,
+	status: "1",
 	data: [
 		{
 			id: castToTournamentId("117157"),
@@ -55,7 +55,7 @@ export const progress: QuerySucceededResult<TournamentListQueryResultData> = {
 
 // Basic example with a mix of async and sync tables
 export const future: QuerySucceededResult<TournamentListQueryResultData> = {
-	status: 1,
+	status: "1",
 	data: [
 		{
 			id: castToTournamentId("117157"),

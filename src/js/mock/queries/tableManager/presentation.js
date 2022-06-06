@@ -17,7 +17,7 @@ import { castToTableId } from "../../../types/bga/Table";
 
 // Basic example with a mix of async and sync tables
 export const presentation: QuerySucceededResult<TableManagerQueryResultData> = {
-	status: 1,
+	status: "1",
 	data: {
 		tables: {
 			"216248100": {
