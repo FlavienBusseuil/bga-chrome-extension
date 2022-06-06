@@ -1,4 +1,4 @@
-const { bgPeriodic } = importScripts(location.origin + "/js/bgPeriodic.js");
+import { bgPeriodic } from "./js/bgPeriodic";
 
 // Set alarm to run update every minute
 chrome.alarms.onAlarm.addListener(bgPeriodic);
