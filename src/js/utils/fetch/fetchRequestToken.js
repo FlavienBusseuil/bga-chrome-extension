@@ -13,7 +13,7 @@ export async function fetchRequestToken(): Promise<RequestToken> {
 		QueryResult<{ request_token: RequestToken }>,
 	>(url);
 
-	if (result.status === 0) {
+	if (result.status === "0") {
 		const { code, error } = result;
 		throw new Error(`Fetching request token failed (${code}: ${error})`);
 	}

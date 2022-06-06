@@ -34,7 +34,7 @@ export async function fetchTournaments({
 	return results
 		.flat()
 		.map(result => {
-			if (result.status === 0) {
+			if (result.status === "0") {
 				const { code, error } = result;
 				throw new Error(
 					`Fetching tournamens failed (${code}: ${error})`,

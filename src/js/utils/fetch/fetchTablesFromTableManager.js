@@ -26,7 +26,7 @@ export async function fetchTablesFromTableManager({
 		},
 	);
 
-	if (result.status === 0) {
+	if (result.status === "0") {
 		const { code, error } = result;
 		throw new Error(`Fetching tables failed (${code}: ${error})`);
 	}

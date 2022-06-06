@@ -1,59 +1,48 @@
 // @flow
 
-import type { MyBgaRbtQueryResultData } from "../../types/bga/queries/MyBgaRbt";
-import type { MyWhoQueryResultData } from "../../types/bga/queries/MyWho";
-import type { QuerySucceededResult } from "../../types/bga/queries/Query";
-import type { TableQueryResultData } from "../../types/bga/queries/Table";
-import type { TableManagerQueryResultData } from "../../types/bga/queries/TableManager";
-import type { TournamentListQueryResultData } from "../../types/bga/queries/TournamentList";
+import type { Query } from "../../types/bga/queries/Query";
 
 export type MockResolver =
 	| { path: "myWho" | "tableManager" }
 	| { path: "table" | "myBgaRbt" | "tournamentList", key: string };
 
-export async function resolveFromMock(
+export async function resolveFromMock<T: Query>(
 	props: MockResolver,
-): Promise<
-	| MyWhoQueryResultData
-	| QuerySucceededResult<TableQueryResultData>
-	| QuerySucceededResult<TableManagerQueryResultData>
-	| QuerySucceededResult<TournamentListQueryResultData>
-	| MyBgaRbtQueryResultData,
-> {
+): Promise<T> {
 	if (process.env.MOCK === "presentation") {
 		if (props.path === "myWho") {
 			const { presentation } = await import(
 				"../../mock/queries/myWho/presentation"
 			);
-			return presentation;
+			return new Promise<T>(() => presentation);
 		}
 
 		if (props.path === "table") {
 			const { presentation } = await import(
 				"../../mock/queries/table/presentation"
 			);
-			return presentation[props.key];
+			return new Promise<T>(() => presentation[props.key]);
 		}
 
 		if (props.path === "tableManager") {
 			const { presentation } = await import(
 				"../../mock/queries/tableManager/presentation"
 			);
-			return presentation;
+			return new Promise<T>(() => presentation);
 		}
 
 		if (props.path === "myBgaRbt") {
 			const { presentation } = await import(
 				"../../mock/queries/myBgaRbt/presentation"
 			);
-			return presentation[props.key];
+			return new Promise<T>(() => presentation[props.key]);
 		}
 
 		if (props.path === "tournamentList") {
 			const { presentation } = await import(
 				"../../mock/queries/tournamentList/presentation"
 			);
-			return presentation[props.key];
+			return new Promise<T>(() => presentation[props.key]);
 		}
 	}
 

@@ -9,7 +9,7 @@ import type {
 } from "../../types/bga/queries/Table";
 
 import { castToString } from "../../types/bga/Table";
-import { bgaUrl, bgaExtensionUrlSignature } from "../constants";
+import { bgaUrl } from "../constants";
 import { fetchFromUrl } from "./fetchFromUrl";
 import { resolveQuery } from "./resolveQuery";
 
@@ -23,14 +23,14 @@ export async function fetchTableInfo(
 ): Promise<TableInfo> {
 	const url: string = `${bgaUrl}/table/table/tableinfos.html?id=${castToString(
 		tableId,
-	)}&${bgaExtensionUrlSignature}`;
+	)}`;
 
 	const result = await resolveQuery<QueryResult<TableQueryResultData>>({
 		fromMock: { path: "table", key: castToString(tableId) },
 		fromUrl: { url, requestToken },
 	});
 
-	if (result.status === 0) {
+	if (result.status && result.status === "0") {
 		const { code, error } = result;
 		throw new Error(`Fetching table info failed (${code}: ${error})`);
 	}

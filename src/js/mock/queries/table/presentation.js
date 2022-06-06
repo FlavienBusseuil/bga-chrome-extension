@@ -18,7 +18,7 @@ export const presentation: {
 	[string]: QuerySucceededResult<TableQueryResultData>,
 } = {
 	"216248100": {
-		status: 1,
+		status: "1",
 		data: {
 			id: castToTableId("216248100"),
 			game_id: castToGameId("1034"),
@@ -607,7 +607,7 @@ export const presentation: {
 		},
 	},
 	"216521592": {
-		status: 1,
+		status: "1",
 		data: {
 			id: castToTableId("216521592"),
 			game_id: castToGameId("1284"),
@@ -996,7 +996,7 @@ export const presentation: {
 		},
 	},
 	"215482515": {
-		status: 1,
+		status: "1",
 		// $FlowFixMe[prop-missing]
 		data: {
 			id: castToTableId("215482515"),
@@ -1004,7 +1004,7 @@ export const presentation: {
 		},
 	},
 	"216492395": {
-		status: 1,
+		status: "1",
 		// $FlowFixMe[prop-missing]
 		data: {
 			id: castToTableId("216492395"),
@@ -1012,7 +1012,7 @@ export const presentation: {
 		},
 	},
 	"216506914": {
-		status: 1,
+		status: "1",
 		// $FlowFixMe[prop-missing]
 		data: {
 			id: castToTableId("216506914"),
@@ -1020,7 +1020,7 @@ export const presentation: {
 		},
 	},
 	"216509857": {
-		status: 1,
+		status: "1",
 		// $FlowFixMe[prop-missing]
 		data: {
 			id: castToTableId("216509857"),
@@ -1028,7 +1028,7 @@ export const presentation: {
 		},
 	},
 	"216718684": {
-		status: 1,
+		status: "1",
 		// $FlowFixMe[prop-missing]
 		data: {
 			id: castToTableId("216718684"),
