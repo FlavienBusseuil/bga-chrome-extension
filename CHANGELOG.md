@@ -1,5 +1,11 @@
 # Changelog
 
+## [v1.6.2](https://github.com/FlavienBusseuil/bga-chrome-extension/tree/v1.6.2) (2022-06-06)
+
+**Chore:**
+
+- Use API token auth [\#43](https://github.com/FlavienBusseuil/bga-chrome-extension/issues/43)
+
 ## [v1.6.1](https://github.com/FlavienBusseuil/bga-chrome-extension/tree/v1.6.1) (2022-02-14)
 
 **Fixed bugs:**
@@ -74,10 +80,13 @@
 
 **Chore:**
 
-- DX improvements [\#21](https://github.com/FlavienBusseuil/bga-chrome-extension/issues/21)
 - Add types [\#11](https://github.com/FlavienBusseuil/bga-chrome-extension/issues/11)
 
 ## [v1.2.2](https://github.com/FlavienBusseuil/bga-chrome-extension/tree/v1.2.2) (2021-09-02)
+
+**Chore:**
+
+- DX improvements [\#21](https://github.com/FlavienBusseuil/bga-chrome-extension/issues/21)
 
 ## v1.2.1 (16/08/2021)
 
