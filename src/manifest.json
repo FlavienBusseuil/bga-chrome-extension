@@ -1,7 +1,7 @@
 {
   "manifest_version": 3,
   "name": "BGA Chrome Extension",
-  "version": "1.6.2",
+  "version": "1.6.3",
   "action": {
     "default_popup": "popup.html"
   },
@@ -38,7 +38,7 @@
         "img/anim-5.png",
         "img/anim-6.png",
         "img/loading.gif",
-		"img/icon-48.png"
+        "img/icon-48.png"
       ],
       "matches": []
     }
