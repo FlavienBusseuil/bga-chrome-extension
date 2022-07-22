@@ -40,9 +40,11 @@ export async function resolveQuery<T: Query>({
 	fromMock,
 	fromUrl: { url, requestToken },
 	isRetrying = false,
+	onRefreshRequestToken,
 }: {
 	...Input,
 	isRetrying?: boolean,
+	onRefreshRequestToken?: (requestToken: RequestToken) => void,
 }): Promise<T> {
 	const result = await runQuery<T>({
 		fromMock,
@@ -57,6 +59,10 @@ export async function resolveQuery<T: Query>({
 
 		// Retry strategy
 		const newRequestToken = await fetchRequestToken();
+		if (onRefreshRequestToken) {
+			onRefreshRequestToken(newRequestToken);
+		}
+
 		return resolveQuery({
 			fromMock,
 			fromUrl: { url, requestToken: newRequestToken },

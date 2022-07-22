@@ -7,13 +7,18 @@ import { updateBadgeAndIcon } from "./utils/updateBadgeAndIcon";
 import { castToString } from "./types/bga/Player";
 import { fetchRequestToken } from "./utils/fetch/fetchRequestToken";
 
+let cachedRequestToken = fetchRequestToken();
+
 export async function bgPeriodic() {
 	try {
-		const requestToken = await fetchRequestToken();
+		const requestToken = await cachedRequestToken;
 
 		// Fetch current player info
 		const { token: playerToken, id: playerId } = await fetchCurrentPlayer({
 			requestToken,
+			onRefreshRequestToken: newRequestToken => {
+				cachedRequestToken = newRequestToken;
+			},
 		});
 
 		if (!playerId) {
