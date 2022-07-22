@@ -1,5 +1,11 @@
 # Changelog
 
+## [v1.6.4](https://github.com/FlavienBusseuil/bga-chrome-extension/tree/v1.6.4) (2022-07-22)
+
+**Chore:**
+
+- Cache bgPeriodic Token [\#48](https://github.com/FlavienBusseuil/bga-chrome-extension/issues/48)
+
 ## [v1.6.3](https://github.com/FlavienBusseuil/bga-chrome-extension/tree/v1.6.3) (2022-06-09)
 
 **Fixed bugs:**
@@ -42,10 +48,6 @@
 
 ## [v1.4.2](https://github.com/FlavienBusseuil/bga-chrome-extension/tree/v1.4.2) (2021-12-21)
 
-**Implemented enhancements:**
-
-- Sort tables by creation date [\#28](https://github.com/FlavienBusseuil/bga-chrome-extension/issues/28)
-
 **Fixed bugs:**
 
 - Remove background errors [\#29](https://github.com/FlavienBusseuil/bga-chrome-extension/issues/29)
@@ -57,6 +59,10 @@
 
 ## [v1.4.1](https://github.com/FlavienBusseuil/bga-chrome-extension/tree/v1.4.1) (2021-12-07)
 
+**Implemented enhancements:**
+
+- Sort tables by creation date [\#28](https://github.com/FlavienBusseuil/bga-chrome-extension/issues/28)
+
 ## [v1.3.1](https://github.com/FlavienBusseuil/bga-chrome-extension/tree/v1.3.1) (2021-12-06)
 
 **Chore:**
@@ -67,7 +73,7 @@
 
 **Implemented enhancements:**
 
-- New: Icon animation when a new tables awaits [\#25](https://github.com/FlavienBusseuil/bga-chrome-extension/issues/25)
+- New: Hide badge when 0 tables awaits [\#24](https://github.com/FlavienBusseuil/bga-chrome-extension/issues/24)
 
 ## [v1.2.5](https://github.com/FlavienBusseuil/bga-chrome-extension/tree/v1.2.5) (2021-11-26)
 
