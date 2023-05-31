@@ -11,7 +11,7 @@ jobs:
   generate:
     # The type of runner that the job will run on
     runs-on: ubuntu-latest
-
+    
     # Steps represent a sequence of tasks that will be executed as part of the job
     steps:
       - name: Checkout code
@@ -23,6 +23,7 @@ jobs:
         # uses: heinrichreimer/action-github-changelog-generator@854576bb5274851427527d8199fba0061552dff5
         uses: heinrichreimer/action-github-changelog-generator@v2.2
         with:
+          repo-token: ${{ secrets.GITHUB_TOKEN }}
           # Target GitHub repo in the form of organization/repository.
           repo: FlavienBusseuil/bga-chrome-extension
           # Username of the owner of target GitHub repo.
@@ -141,5 +142,6 @@ jobs:
           # stripGeneratorNotice: # optional
       - uses: stefanzweifel/git-auto-commit-action@v4
         with:
+          repo-token: ${{ secrets.GITHUB_TOKEN }}
           commit_message: Update Changelog
           file_pattern: CHANGELOG.md
