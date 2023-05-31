@@ -4,7 +4,7 @@ import type { RequestToken } from "../../types/RequestToken";
 import type { MyBgaRbtQueryResultData } from "../../types/bga/queries/MyBgaRbt";
 import type { MyWhoQueryResultData } from "../../types/bga/queries/MyWho";
 import type {
-	Query,
+	QueryResultData,
 	QueryResult,
 	QuerySucceededResult,
 } from "../../types/bga/queries/Query";
@@ -25,7 +25,7 @@ type Input = {
 	fromUrl: { url: string, requestToken: RequestToken },
 };
 
-function runQuery<T: Query>({
+async function runQuery<T: QueryResultData>({
 	fromMock,
 	fromUrl: { url, requestToken },
 }: Input): Promise<T> {
@@ -36,7 +36,7 @@ function runQuery<T: Query>({
 	return fetchFromUrl<T>(url, { requestToken });
 }
 
-export async function resolveQuery<T: Query>({
+export async function resolveQuery<T: QueryResultData>({
 	fromMock,
 	fromUrl: { url, requestToken },
 	isRetrying = false,

@@ -27,7 +27,7 @@ export type QueryFailedResult = {
 
 export type QueryResult<Data> = QuerySucceededResult<Data> | QueryFailedResult;
 
-export type Query =
+export type QueryResultData =
 	| MyWhoQueryResultData
 	| QuerySucceededResult<TableQueryResultData>
 	| QuerySucceededResult<TableManagerQueryResultData>

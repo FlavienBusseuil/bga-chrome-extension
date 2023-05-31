@@ -35,4 +35,7 @@ export type Tournament = {
 	// type_formatted: "Syst\u00e8me suisse",
 };
 
-export type TournamentListQueryResultData = Array<Tournament>;
+export type TournamentListQueryResultData = {
+	total: number,
+	list: Array<Tournament>,
+};

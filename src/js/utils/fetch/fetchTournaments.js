@@ -33,7 +33,7 @@ export async function fetchTournaments({
 
 	return results
 		.flat()
-		.map(result => {
+		.map((result) => {
 			if (result.status === "0") {
 				const { code, error } = result;
 				throw new Error(
@@ -41,7 +41,7 @@ export async function fetchTournaments({
 				);
 			}
 
-			return result.data;
+			return result.data.list;
 		})
 		.flat();
 }

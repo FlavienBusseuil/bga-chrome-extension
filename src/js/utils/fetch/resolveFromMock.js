@@ -1,12 +1,12 @@
 // @flow
 
-import type { Query } from "../../types/bga/queries/Query";
+import type { QueryResultData } from "../../types/bga/queries/Query";
 
 export type MockResolver =
 	| { path: "myWho" | "tableManager" }
 	| { path: "table" | "myBgaRbt" | "tournamentList", key: string };
 
-export async function resolveFromMock<T: Query>(
+export async function resolveFromMock<T: QueryResultData>(
 	props: MockResolver,
 ): Promise<T> {
 	if (process.env.MOCK === "presentation") {
