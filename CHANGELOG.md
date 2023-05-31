@@ -1,5 +1,11 @@
 # Changelog
 
+## [v1.6.5](https://github.com/FlavienBusseuil/bga-chrome-extension/tree/v1.6.5) (2023-05-31)
+
+**Fixed bugs:**
+
+- Does not work anymore [\#50](https://github.com/FlavienBusseuil/bga-chrome-extension/issues/50)
+
 ## [v1.6.4](https://github.com/FlavienBusseuil/bga-chrome-extension/tree/v1.6.4) (2022-07-22)
 
 **Chore:**
@@ -73,6 +79,7 @@
 
 **Implemented enhancements:**
 
+- New: Icon animation when a new tables awaits [\#25](https://github.com/FlavienBusseuil/bga-chrome-extension/issues/25)
 - New: Hide badge when 0 tables awaits [\#24](https://github.com/FlavienBusseuil/bga-chrome-extension/issues/24)
 
 ## [v1.2.5](https://github.com/FlavienBusseuil/bga-chrome-extension/tree/v1.2.5) (2021-11-26)
