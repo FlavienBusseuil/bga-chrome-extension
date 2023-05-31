@@ -623,12 +623,6 @@ Ensure the default browser behavior of the `hidden` attribute.
   transform: var(--tw-transform);
 }
 
-@-webkit-keyframes pulse {
-  50% {
-    opacity: .5;
-  }
-}
-
 @keyframes pulse {
   50% {
     opacity: .5;
@@ -636,8 +630,7 @@ Ensure the default browser behavior of the `hidden` attribute.
 }
 
 .animate-pulse-0\.25 {
-  -webkit-animation: pulse 0.75s cubic-bezier(0.4, 0, 0.6, 1) infinite;;
-          animation: pulse 0.75s cubic-bezier(0.4, 0, 0.6, 1) infinite;;
+  animation: pulse 0.75s cubic-bezier(0.4, 0, 0.6, 1) infinite;;
 }
 
 @keyframes pulse {
@@ -647,8 +640,7 @@ Ensure the default browser behavior of the `hidden` attribute.
 }
 
 .animate-pulse-0\.5 {
-  -webkit-animation: pulse 1.5s cubic-bezier(0.4, 0, 0.6, 1) infinite;;
-          animation: pulse 1.5s cubic-bezier(0.4, 0, 0.6, 1) infinite;;
+  animation: pulse 1.5s cubic-bezier(0.4, 0, 0.6, 1) infinite;;
 }
 
 .cursor-default {
