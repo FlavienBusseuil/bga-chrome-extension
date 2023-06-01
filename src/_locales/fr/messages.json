@@ -28,6 +28,7 @@
 	"turn_based": { "message": "Tour par tour" },
 	"tournament": { "message": "Tournoi" },
 	"arena": { "message": "Arène" },
+	"training": { "message": "Entrainement" },
 	"accept": { "message": "Jouons !" },
 	"decline": { "message": "Non merci" },
 	"play_tournament": { "message": "S'inscrire à un tournoi" },

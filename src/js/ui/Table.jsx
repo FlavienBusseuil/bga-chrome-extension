@@ -22,14 +22,15 @@ type Props = {
 	acceptInviteLink: string,
 	declineInviteLink: string,
 	hasArenaMode: boolean,
+	hasTrainingMode: boolean,
 	isInvitePendingForCurrentPlayer: boolean,
 	isOpenForPlayers: boolean,
 	isPartOfTournament: boolean,
 	isTurnBased: boolean,
 	isWaitingCurrentPlayer: boolean,
 	children: React$Element<typeof PlayerList>,
-	onAcceptInvite: TableId => Promise<void>,
-	onDeclineInvite: TableId => Promise<void>,
+	onAcceptInvite: (TableId) => Promise<void>,
+	onDeclineInvite: (TableId) => Promise<void>,
 };
 
 export function Table({
@@ -41,6 +42,7 @@ export function Table({
 	acceptInviteLink,
 	declineInviteLink,
 	hasArenaMode,
+	hasTrainingMode,
 	isInvitePendingForCurrentPlayer,
 	isOpenForPlayers,
 	isPartOfTournament,
@@ -55,6 +57,9 @@ export function Table({
 			<TableIcon title={tr("tournament")}>🏆</TableIcon>
 		) : null,
 		hasArenaMode ? <TableIcon title={tr("arena")}>🏟</TableIcon> : null,
+		hasTrainingMode ? (
+			<TableIcon title={tr("training")}>🤸</TableIcon>
+		) : null,
 		isTurnBased ? null : ( // <TableIcon title={tr("turn_based")}>🕰</TableIcon>
 			<TableIcon title={tr("realtime")}>⚡️</TableIcon>
 		),
@@ -74,44 +79,46 @@ export function Table({
 			<TableHeader {...{ gameName, tableImg }} />
 			<TableContent>{children}</TableContent>
 			<TableFooter className="flex gap-1 items-center justify-end bg-bgaOrange-lighter">
-				{isInvitePendingForCurrentPlayer && tableCreatorName !== null && (
-					<span
-						className="flex-grow text-gray-600 text-sm leading none"
-						dangerouslySetInnerHTML={{
-							__html: tr("player_invited_you", [
-								`<a class="text-bgaBlue-lighter">${tableCreatorName}</a>`,
-							]),
-						}}
-					></span>
-				)
+				{
+					isInvitePendingForCurrentPlayer &&
+						tableCreatorName !== null && (
+							<span
+								className="flex-grow text-gray-600 text-sm leading none"
+								dangerouslySetInnerHTML={{
+									__html: tr("player_invited_you", [
+										`<a class="text-bgaBlue-lighter">${tableCreatorName}</a>`,
+									]),
+								}}
+							></span>
+						)
 
-				// Button({
-				//   className: "shrink-0",
-				//   text: tr("decline"),
-				//   onClick: async () => {
-				//     const { status, error } = await fetch(
-				//       declineInviteLink
-				//     ).then((r) => r.json());
-				//     // ... status === 1 ?
-				//     onDeclineInvite({ tableId });
-				//   },
-				//   size: 1,
-				//   type: "secondary",
-				// }),
+					// Button({
+					//   className: "shrink-0",
+					//   text: tr("decline"),
+					//   onClick: async () => {
+					//     const { status, error } = await fetch(
+					//       declineInviteLink
+					//     ).then((r) => r.json());
+					//     // ... status === 1 ?
+					//     onDeclineInvite({ tableId });
+					//   },
+					//   size: 1,
+					//   type: "secondary",
+					// }),
 
-				// Button({
-				//   className: "shrink-0",
-				//   text: tr("accept"),
-				//   onClick: async () => {
-				//     const { status, error } = await fetch(
-				//       acceptInviteLink
-				//     ).then((r) => r.json());
-				//     // ... status === 1 ?
-				//     onAcceptInvite({ tableId });
-				//   },
-				//   size: 1,
-				//   type: "accept",
-				// }),
+					// Button({
+					//   className: "shrink-0",
+					//   text: tr("accept"),
+					//   onClick: async () => {
+					//     const { status, error } = await fetch(
+					//       acceptInviteLink
+					//     ).then((r) => r.json());
+					//     // ... status === 1 ?
+					//     onAcceptInvite({ tableId });
+					//   },
+					//   size: 1,
+					//   type: "accept",
+					// }),
 				}
 			</TableFooter>
 		</Card>

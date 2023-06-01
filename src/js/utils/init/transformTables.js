@@ -70,7 +70,8 @@ export function transformTable({
 		// So we fall back on gameNameKey
 		gameName: translations[`${gameNameKey}_displayed`] ?? gameNameKey,
 		gameStart: gameStart ? castToDate(gameStart) : null,
-		hasArenaMode: castToBoolean(options["201"]),
+		hasArenaMode: options["201"] === "2",
+		hasTrainingMode: options["201"] === "1",
 		isOpenForPlayers: status === "asyncopen",
 		isTurnBased: ["asyncplay", "asyncopen", "asyncinit"].includes(status),
 		isPartOfTournament: castToBoolean(has_tournament),
