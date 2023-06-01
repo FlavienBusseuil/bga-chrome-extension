@@ -2,12 +2,11 @@
 import type { TournamentId } from "../../types/bga/Tournament";
 import type { Tournament } from "../../types/bga/queries/TournamentList";
 import type { TransformedTournament } from "../../types/TransformedTournament";
-import { bgaUrl } from "../constants";
+import { bgaGameMediaUrl, bgaUrl } from "../constants";
 import { castToString } from "../../types/bga/Tournament";
 import { castToDate } from "../../types/bga/DateString";
 
 function transformTournament({
-	assetsUrl,
 	tournament: {
 		id,
 		championship_name,
@@ -22,7 +21,6 @@ function transformTournament({
 		...rest
 	},
 }: {
-	assetsUrl: string,
 	tournament: Tournament,
 }): TransformedTournament {
 	return {
@@ -36,22 +34,18 @@ function transformTournament({
 		playersPerMatch: players_per_match,
 		playersPerMatchMin: players_per_match_min,
 		avatarImage: avatar_image,
-		gameImg: `${assetsUrl}games/${game_name}/current/img/game_icon.png`,
+		gameImg: `${bgaGameMediaUrl}${game_name}/icon/default.png`,
 		link: `${bgaUrl}/tournament?id=${castToString(id)}`,
 		...rest,
 	};
 }
 
 type Input = {
-	assetsUrl: string,
 	tournaments: Array<Tournament>,
 };
 
 export function transformTournaments({
-	assetsUrl,
 	tournaments,
 }: Input): Array<TransformedTournament> {
-	return tournaments.map(tournament =>
-		transformTournament({ assetsUrl, tournament }),
-	);
+	return tournaments.map((tournament) => transformTournament({ tournament }));
 }

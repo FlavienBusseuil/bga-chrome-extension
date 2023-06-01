@@ -22,7 +22,6 @@ export type FetchResult =
 			globalUserInfos: GlobalUserInfos,
 			translations: Translations,
 			tournaments: Array<Tournament>,
-			assetsUrl: string,
 			tables: Array<Table>,
 	  }
 	| { isLoggedOut: true };
@@ -31,11 +30,8 @@ type Output = Promise<FetchResult>;
 
 export async function fetch(): Output {
 	// Fetch global info
-	const {
-		globalUserInfos,
-		assetsUrl,
-		jsBundleVersion,
-	} = await fetchGlobalInfo();
+	const { globalUserInfos, assetsUrl, jsBundleVersion } =
+		await fetchGlobalInfo();
 	const { lang } = globalUserInfos;
 
 	const requestToken = await fetchRequestToken();
@@ -85,7 +81,6 @@ export async function fetch(): Output {
 		globalUserInfos,
 		tournaments,
 		translations,
-		assetsUrl,
 		tables,
 	};
 }

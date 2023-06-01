@@ -30,7 +30,7 @@ export function useFetch(): Output {
 	const handleFetch = () => {
 		fetch()
 			.catch(setError)
-			.then(response => {
+			.then((response) => {
 				if (response) {
 					if (response.isLoggedOut) {
 						setResult({ isLoggedOut: response.isLoggedOut });
@@ -45,7 +45,6 @@ export function useFetch(): Output {
 					} = response;
 					const transformedTables = transformTables(rest);
 					const transformedTournaments = transformTournaments({
-						assetsUrl: rest.assetsUrl,
 						tournaments,
 					});
 					setResult({

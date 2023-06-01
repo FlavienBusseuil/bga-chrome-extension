@@ -14,14 +14,13 @@ import {
 	castToString as castNumberStringToString,
 	castToNumber,
 } from "../../types/bga/NumberString";
-import { bgaUrl } from "../constants";
+import { bgaGameMediaUrl, bgaUrl } from "../constants";
 import { isPlayerActiveOnTableFromGlobalUserInfos } from "../isPlayerActiveOnTableFromGlobalUserInfos";
 import type { TransformedTable } from "../../types/TransformedTable";
 import { castToDate } from "../../types/bga/DateString";
 import { castToBoolean } from "../../types/bga/BooleanString";
 
 type InputTransformTable = {
-	assetsUrl: string,
 	currentPlayerId: PlayerId,
 	globalUserInfos: GlobalUserInfos,
 	table: Table,
@@ -45,7 +44,6 @@ export function transformTable({
 	currentPlayerId,
 	globalUserInfos,
 	translations,
-	assetsUrl,
 	table,
 }: InputTransformTable): TransformedTable {
 	const {
@@ -85,8 +83,8 @@ export function transformTable({
 			players,
 		}),
 		tableId,
-		tableImg: `${assetsUrl}games/${gameNameKey}/current/img/game_icon.png`,
-		players: Object.keys(players).map(playerKey => {
+		tableImg: `${bgaGameMediaUrl}${gameNameKey}/icon/default.png`,
+		players: Object.keys(players).map((playerKey) => {
 			const {
 				fullname: playerName = null,
 				id: playerId,
@@ -113,7 +111,6 @@ export function transformTable({
 }
 
 type Input = {
-	assetsUrl: string,
 	currentPlayerId: PlayerId,
 	globalUserInfos: GlobalUserInfos,
 	tables: Array<Table>,
@@ -121,15 +118,13 @@ type Input = {
 };
 
 export function transformTables({
-	assetsUrl,
 	currentPlayerId,
 	globalUserInfos,
 	tables,
 	translations,
 }: Input): Array<TransformedTable> {
-	return tables.map(table =>
+	return tables.map((table) =>
 		transformTable({
-			assetsUrl,
 			currentPlayerId,
 			globalUserInfos,
 			table,
