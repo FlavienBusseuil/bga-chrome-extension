@@ -12,6 +12,37 @@
     "48": "img/icon-48.png",
     "128": "img/icon-128.png"
   },
+  "content_scripts": [
+    {
+      "matches": [
+        "https://boardgamearena.com/1/*",
+        "https://boardgamearena.com/2/*",
+        "https://boardgamearena.com/3/*",
+        "https://boardgamearena.com/4/*",
+        "https://boardgamearena.com/5/*",
+        "https://boardgamearena.com/6/*",
+        "https://boardgamearena.com/7/*",
+        "https://boardgamearena.com/8/*",
+        "https://boardgamearena.com/9/*",
+        "https://boardgamearena.com/10/*",
+        "https://boardgamearena.com/11/*",
+        "https://boardgamearena.com/12/*",
+        "https://boardgamearena.com/13/*",
+        "https://boardgamearena.com/14/*",
+        "https://boardgamearena.com/15/*",
+        "https://boardgamearena.com/16/*",
+        "https://boardgamearena.com/17/*",
+        "https://boardgamearena.com/18/*",
+        "https://boardgamearena.com/19/*",
+        "https://boardgamearena.com/20/*",
+        "https://boardgamearena.com/bug*"
+      ],
+      "run_at": "document_idle",
+      "js": [
+        "content.js"
+      ]
+    }
+  ],
   "author": "Flavien Busseuil",
   "homepage_url": "https://github.com/FlavienBusseuil/bga-chrome-extension",
   "background": {
@@ -25,7 +56,8 @@
     "https://*.boardgamearena.com/*/*"
   ],
   "permissions": [
-    "alarms"
+    "alarms",
+    "storage"
   ],
   "web_accessible_resources": [
     {

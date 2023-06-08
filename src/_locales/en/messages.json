@@ -2,7 +2,9 @@
 	"ext_description": {
 		"message": "List your current games on boardgamearena.com"
 	},
-	"something_wrong": { "message": "Something wrong! 😭" },
+	"something_wrong": {
+		"message": "Something wrong! 😭"
+	},
 	"report_error": {
 		"message": "You can report this at <a href=\"$href$\">$email$</a>.",
 		"placeholders": {
@@ -14,8 +16,12 @@
 			}
 		}
 	},
-	"play_new_game": { "message": "Play a New Game" },
-	"please_login": { "message": "Please Login" },
+	"play_new_game": {
+		"message": "Play a New Game"
+	},
+	"please_login": {
+		"message": "Please Login"
+	},
 	"player_invited_you": {
 		"message": "$player$ invited you",
 		"placeholders": {
@@ -24,15 +30,49 @@
 			}
 		}
 	},
-	"realtime": { "message": "Realtime" },
-	"turn_based": { "message": "Turn Based" },
-	"tournament": { "message": "Tournament" },
-	"arena": { "message": "Arena" },
-	"training": { "message": "Training" },
-	"accept": { "message": "Accept" },
-	"decline": { "message": "Decline" },
-	"play_tournament": { "message": "Register for a Tournament" },
-	"tables": { "message": "Tables" },
-	"tournaments": { "message": "Tournaments" },
-	"no_tournaments": { "message": "No tournaments" }
+	"realtime": {
+		"message": "Realtime"
+	},
+	"turn_based": {
+		"message": "Turn Based"
+	},
+	"tournament": {
+		"message": "Tournament"
+	},
+	"arena": {
+		"message": "Arena"
+	},
+	"training": {
+		"message": "Training"
+	},
+	"accept": {
+		"message": "Accept"
+	},
+	"decline": {
+		"message": "Decline"
+	},
+	"play_tournament": {
+		"message": "Register for a Tournament"
+	},
+	"tables": {
+		"message": "Tables"
+	},
+	"tournaments": {
+		"message": "Tournaments"
+	},
+	"no_tournaments": {
+		"message": "No tournaments"
+	},
+	"optionFriendsActivity": {
+		"message": "Friends' activity in the game log"
+	},
+	"optionLeftMenu": {
+		"message": "Navigate between players' boards"
+	},
+	"optionFloatingGame": {
+		"message": "In a floating menu (only for this game)"
+	},
+	"optionFloatingAlways": {
+		"message": "In a floating menu (for all games)"
+	}
 }
