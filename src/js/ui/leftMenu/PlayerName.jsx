@@ -9,8 +9,6 @@ interface PlayerNameProps {
 }
 
 const PlayerName = (props: PlayerNameProps) => {
-  console.log(props.hover);
-
   const style = {
     backgroundColor: props.backColor,
     border: `3px solid ${props.borderColor}`,

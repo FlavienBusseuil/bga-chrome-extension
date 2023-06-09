@@ -286,6 +286,7 @@ if (pageInfo[0].startsWith('bug')) {
     gameConfig = config.getGameConfig(gameName);
 
     const style = document.createElement('style');
+    style.id = "cde_bga_ext";
     style.innerHTML = "#lrf-bga-extension { display: none; }";
     document.head.appendChild(style);
 

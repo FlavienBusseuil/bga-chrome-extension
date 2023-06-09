@@ -47,8 +47,6 @@ const Options = (props: { config: Configuration }) => {
   const couldReset = changed || (isCustomized && isDefault);
   const couldDelete = isCustomized && !isDefault;
 
-  console.log(text);
-
   return (
     <div className="bgext_options_main">
       <div className="bgext_options_config_area">
