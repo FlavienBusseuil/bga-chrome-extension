@@ -194,6 +194,8 @@ const defaultGames: Game[] = [
     "position": "top",
     "positionTop": "40vh",
     "left": "0.5em",
+    "boardPanel": "ea-area-common",
+    "boardPanelOffset": 5,
     "playerPanel": "ea-area-player-{{player_id}}",
     "playerPanelOffset": 0,
     "iconBackground": "#ebd5bd",

@@ -9,7 +9,7 @@ div.bgext_options_config_area {
   border: 1px solid #aaaaaa;
   border-radius: 8px;
   width: 860px;
-  height: 560px;
+  height: 540px;
   display: flex;
   flex-flow: column;
   gap: 1em;
@@ -46,7 +46,7 @@ div.bgext_options_row_container {
 
 div.bgext_options_gamelist_container {
   width: 200px;
-  height: 400px;
+  height: 380px;
   border: 1px solid #aaaaaa;
   overflow: auto;
 }
@@ -56,15 +56,20 @@ div.bgext_options_gamelist {
   flex-flow: column;
 }
 
-div.bgext_options_gameitem {
+div.bgext_options_gameitem,
+div.bgext_options_gameitem_selected {
   line-height: 24px;
   padding-left: 1em;
   cursor: pointer;
 }
 
+div.bgext_options_gameitem_selected {
+  background: #c0c4d1;
+}
+
 div.bgext_options_gameconfig_container {
   width: 600px;
-  height: 400px;
+  height: 380px;
   border: 1px solid #aaaaaa;
   box-sizing: border-box;
   overflow: hidden;

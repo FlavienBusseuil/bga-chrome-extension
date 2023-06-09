@@ -3,8 +3,8 @@ import { render } from "preact";
 import Configuration from './js/config/configuration';
 import shouldFilter from './js/config/filteredLogs';
 import { isNumber } from './js/utils/misc/isNumber';
-import SideMenu from './js/ui/leftMenu/SideMenu';
-import RightMenu from './js/ui/rightMenu/RightMenu';
+import SideMenu from './js/ui/leftMenu';
+import RightMenu from './js/ui/rightMenu';
 
 const pageInfo = window.location.pathname.substring(1).split('/');
 let gameConfig;

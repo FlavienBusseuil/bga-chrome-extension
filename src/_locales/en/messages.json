@@ -74,5 +74,8 @@
 	},
 	"optionFloatingAlways": {
 		"message": "In a floating menu (for all games)"
+	},
+	"sideMenuMainBoard": {
+		"message": "Main board"
 	}
 }

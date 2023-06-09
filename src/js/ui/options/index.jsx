@@ -4,61 +4,6 @@ import { useEffect, useState } from "preact/hooks";
 import Configuration, { Game } from "../../config/configuration";
 import '../../../css/options.css';
 
-const ColContainer = styled.div`
-  display: flex;
-  flex-flow: column;
-  align-items: flex-end;
-  gap: 0.5em;
-`;
-
-const RowContainer = styled.div`
-  display: flex;
-  flex-flow: row;
-  gap: 0.5em;
-`;
-
-const GameListContainer = styled.div`
-  width: 200px;
-  height: 400px;
-  border: 1px solid #aaaaaa;
-  overflow: auto;
-`;
-
-const GameList = styled.div`
-  display: flex;
-  flex-flow: column;
-`;
-
-const GameItem = styled.div < { selected: boolean } > `
-  line-height: 24px;
-  padding-left: 1em;
-  cursor: pointer;
-  ${(props) => props.selected ? 'background: #c0c4d1;' : ''}
-`;
-
-const GameConfigContainer = styled.div`
-  width: 600px;
-  height: 400px;
-  border: 1px solid #aaaaaa;
-  box-sizing: border-box;
-  overflow: hidden;
-  padding: 1em;
-`;
-
-const TextArea = styled.textarea`
-  width: 100%;
-  height: 100%;
-  border: none;
-  resize: none;
-  box-shadow: none !important;
-  outline: none !important;
-`;
-
-const Warning = styled.div`
-  padding-right: 2em;
-  text-align: right;
-`;
-
 const Options = (props: { config: Configuration }) => {
   const { config } = props;
   const [list, setList] = useState < Game[] > (config.getGamesList());
@@ -102,6 +47,8 @@ const Options = (props: { config: Configuration }) => {
   const couldReset = changed || (isCustomized && isDefault);
   const couldDelete = isCustomized && !isDefault;
 
+  console.log(text);
+
   return (
     <div className="bgext_options_main">
       <div className="bgext_options_config_area">
@@ -109,12 +56,15 @@ const Options = (props: { config: Configuration }) => {
         <div className="bgext_options_container">
           <div className="bgext_options_gamelist_container">
             <div className="bgext_options_gamelist">
-              {list.map((g, i) => <GameItem key={`game_${i}`} selected={selected.name === g.name} onClick={() => setSelected(g)}>{g.name}</GameItem>)}
+              {list.map((g, i) => {
+                const className = selected.name === g.name ? "bgext_options_gameitem_selected" : "bgext_options_gameitem";
+                return <div className={className} key={`game_${i}`} onClick={() => setSelected(g)}>{g.name}</div>;
+              })}
             </div>
           </div>
           <div className="bgext_options_col_container">
             <div className="bgext_options_gameconfig_container">
-              <text className="bgext_options_input" value={text} onChange={(evt) => setText(evt.target.value)} />
+              <textarea className="bgext_options_input" value={text} onChange={(evt) => setText(evt.target.value)} />
             </div>
             <div className="bgext_options_row_container">
               <button style={{ width: '100px' }} onClick={duplicate}>Duplicate</button>

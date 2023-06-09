@@ -8,6 +8,7 @@ import Avatar from "./Avatar";
 import SideMenuItem from "./SideMenuItem";
 import PlayerName from "./PlayerName";
 import { Player } from "./player";
+import BoardIcon from "./icons/BoardIcon";
 
 interface PlayerIconProps {
   player: Player,
@@ -19,7 +20,7 @@ const PlayerIcon = (props: PlayerIconProps) => {
   const { player, gameConfig } = props;
 
   const scrollToPlayer = () => {
-    const id = gameConfig.playerPanel.replace('{{player_id}}', player.id);
+    const id = player.fake ? player.id : gameConfig.playerPanel.replace('{{player_id}}', player.id);
     const element = document.getElementById(id);
     const titleBar = document.getElementById("page-title");
     const topBar = document.getElementById("topbar");
@@ -49,9 +50,11 @@ const PlayerIcon = (props: PlayerIconProps) => {
       setTimeout(scrollToPlayer, 500);
     }
 
+    const offset = player.fake ? gameConfig.boardPanelOffset : gameConfig.playerPanelOffset;
+
     window.scrollTo({
       behavior: 'smooth',
-      top: (((element.getBoundingClientRect().top - titleBar.getBoundingClientRect().height) * customZoom) - (gameConfig.playerPanelOffset / customZoom)) * zoom - document.body.getBoundingClientRect().top,
+      top: (((element.getBoundingClientRect().top - titleBar.getBoundingClientRect().height) * customZoom) - (offset / customZoom)) * zoom - document.body.getBoundingClientRect().top,
     });
   };
 
@@ -68,7 +71,7 @@ const PlayerIcon = (props: PlayerIconProps) => {
   return (
     <SideMenuItem onClick={scrollToPlayer}>
       <Avatar backColor={gameConfig.iconBackground} borderColor={gameConfig.iconBorder} shadowColor={gameConfig.iconShadow} onMouseOver={() => setOver(true)} onMouseOut={() => setOver(false)}>
-        <img src={`${player.avatar}`} alt={player.name} />
+        {player.fake ? <BoardIcon /> : <img src={`${player.avatar}`} alt={player.name} />}
       </Avatar>
       <PlayerName backColor={player.color} borderColor={gameConfig.iconBorder} shadowColor={gameConfig.iconShadow} textColor={getTextColor(player.color)} hover={over}>{player.name}</PlayerName>
     </SideMenuItem >
