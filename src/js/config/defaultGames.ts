@@ -7,7 +7,7 @@ const defaultGames: Game[] = [
     "positionBottom": "auto",
     "left": "0.5em",
     "playerPanel": "cty_board_{{player_id}}",
-    "playerPanelOffset": 5,
+    "playerPanelOffset": -10,
     "iconBackground": "#ebd5bd",
     "iconBorder": "#222222",
     "iconColor": "#222222",

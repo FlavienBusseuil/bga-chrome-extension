@@ -3,7 +3,7 @@ import { useState } from "preact/hooks";
 import fontColorContrast from "font-color-contrast";
 import rgbHex from "rgb-hex";
 
-import { Game } from "../../config/configuration";
+import { Game } from "../../../config/configuration";
 import Avatar from "./Avatar";
 import SideMenuItem from "./SideMenuItem";
 import PlayerName from "./PlayerName";

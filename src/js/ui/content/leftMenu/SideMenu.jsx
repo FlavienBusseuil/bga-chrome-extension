@@ -1,7 +1,7 @@
 // @flow
 import { useState, useEffect } from "preact/hooks";
 
-import { Game } from "../../config/configuration";
+import { Game } from "../../../config/configuration";
 import SideMenuItem from "./SideMenuItem";
 import PlayerIcon from "./PlayerIcon";
 import CloseIcon from "./icons/CloseIcon";
@@ -10,7 +10,7 @@ import SandwichIcon from "./icons/SandwichIcon";
 import Avatar from "./Avatar";
 import { Player } from "./player";
 
-import '../../../css/leftMenu.css';
+import '../../../../css/leftMenu.css';
 
 interface SideMenuProps {
   players: [Player],
@@ -39,6 +39,7 @@ const SideMenu = (props: SideMenuProps) => {
     setMenuPosition();
     window.addEventListener('resize', setMenuPosition);
     const timer = setInterval(getButtonsOrder, 1000);
+    getButtonsOrder();
     return () => {
       window.removeEventListener('resize', setMenuPosition);
       clearInterval(timer);

@@ -1,6 +1,6 @@
 // @flow
 import { useEffect, useState } from "preact/hooks";
-import '../../../css/rightMenu.css';
+import '../../../../css/rightMenu.css';
 
 const RightMenu = () => {
   const [logVisible, setLogVisible] = useState(true);
