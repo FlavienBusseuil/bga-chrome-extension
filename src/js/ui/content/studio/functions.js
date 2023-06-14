@@ -27,11 +27,11 @@ export const initDevelopperUI = () => {
 
     const reportName = document.getElementById('report_game_table').firstChild.innerText;
     const pos = reportName.lastIndexOf('#');
-    const gameName = reportName.substring(0, pos - 1).split();
+    const gameName = reportName.substring(0, pos - 1).trim();
 
     console.log(`[bga extension] this is a report for '${gameName}'`);
 
-    render(<Templates game={gameName} />, container);
+    render(<Templates gameName={gameName} />, container);
   }
 
   setTimeout(initDevelopperUI, 500);

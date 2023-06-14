@@ -12,7 +12,10 @@ interface TemplatesProps {
 
 const Templates = (props: TemplatesProps) => {
   const [configMode, setConfigMode] = useState(false);
-  const [templates, setTemplates] = useState();
+  const [plainMode, setPlainMode] = useState(false);
+  const [templates, setTemplates] = useState < Template[] > ();
+  const [jsonTemplates, setJsonTemplates] = useState < string > ();
+  const [jsonError, setJsonError] = useState(false);
 
   useEffect(() => {
     try {
@@ -23,8 +26,19 @@ const Templates = (props: TemplatesProps) => {
     catch (error) { }
   }, []);
 
-  const toggleConfig = () => setConfigMode(!configMode);
-  const getTemplates = () => templates ? templates.filter(t => [props.gameName, 'all'].includes(t.game)) : [];
+  useEffect(() => setJsonTemplates(JSON.stringify(templates, ['name', 'text', 'game'], 2)), [templates]);
+
+  const toggleConfig = () => {
+    if (plainMode) {
+      if (jsonTemplates) {
+        const updatedTemplates = JSON.parse(jsonTemplates);
+        setTemplates(config.saveTemplates(updatedTemplates));
+      }
+      setPlainMode(false);
+    }
+    setConfigMode(!configMode);
+  }
+  const getTemplates = () => templates ? templates.filter(t => [props.gameName, 'all', undefined].includes(t.game)) : [];
 
   const addTemplate = () => {
     setTemplates(config.addTemplate({ name: 'my sentence name', text: 'my sentence text', game: props.gameName }));
@@ -79,7 +93,7 @@ const Templates = (props: TemplatesProps) => {
             <textarea value={t.text} onChange={(evt) => updateTemplate(t.name, evt.target.value, t.game)} />
           </div>
           <div className='bgext_studio_sentence_game'>
-            <input type='checkbox' checked={t.game === 'all'} id={checkId} onChange={(evt) => updateTemplate(t.name, t.text, evt.target.checked ? 'all' : props.gameName)} />
+            <input type='checkbox' checked={t.game === 'all' || t.game === undefined} id={checkId} onChange={(evt) => updateTemplate(t.name, t.text, evt.target.checked ? 'all' : props.gameName)} />
             <label htmlFor={checkId}>all games</label>
           </div>
           <div className='bgext_studio_sentence_action'>
@@ -93,11 +107,40 @@ const Templates = (props: TemplatesProps) => {
   const existsTemplates = getTemplates().length > 0;
 
   if (configMode) {
+    const updateJsonTemplates = (val: string) => {
+      setJsonTemplates(val);
+      try {
+        const updatedTemplates = JSON.parse(val);
+        config.saveTemplates(updatedTemplates);
+        setJsonError(false);
+      }
+      catch (error) {
+        setJsonError(true);
+      }
+    }
+
+    const togglePlainMode = () => {
+      if (plainMode) {
+        try {
+          if (jsonTemplates) {
+            const updatedTemplates = JSON.parse(jsonTemplates);
+            setTemplates(config.saveTemplates(updatedTemplates));
+          }
+        }
+        catch (error) {
+          setJsonTemplates(JSON.stringify(templates, ['name', 'text', 'game'], 2));
+        }
+      }
+
+      setJsonError(false);
+      setPlainMode(!plainMode);
+    };
+
     return (
       <div className='bgext_studio_row'>
         <h3 className="pagesection__title" style={{ paddingLeft: '2em' }}>Template messages</h3>
         <div className='bgext_studio_big_container'>
-          {existsTemplates && <div className='bgext_studio_sentences'>
+          {!plainMode && existsTemplates && <div className='bgext_studio_sentences'>
             <div className='bgext_studio_sentence'>
               <div className='bgext_studio_sentence_name'>
                 <div className='bgext_studio_sentence_col_title'>Name</div>
@@ -110,10 +153,13 @@ const Templates = (props: TemplatesProps) => {
             </div>
             {getSentences()}
           </div>}
-          {!existsTemplates && <span>No templates found</span>}
+          {!plainMode && !existsTemplates && <span>No templates found</span>}
+          {plainMode && <textarea value={jsonTemplates} onChange={(evt) => updateJsonTemplates(evt.target.value)} />}
         </div>
         <div className='bgext_studio_sentence_hor_buts'>
-          <a className="bgabutton bgabutton_blue" onClick={addTemplate}>add new template</a>
+          {jsonError && <span style={{ color: 'red', padding: '16px 4px' }}>JSON Error!</span>}
+          {!plainMode && <a className="bgabutton bgabutton_blue" onClick={addTemplate}>add new template</a>}
+          <a className="bgabutton bgabutton_blue" onClick={togglePlainMode}>{plainMode ? 'normal display' : 'json display'}</a>
           <a className="bgabutton bgabutton_blue" onClick={toggleConfig}>close</a>
         </div>
       </div>

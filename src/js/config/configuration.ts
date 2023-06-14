@@ -154,6 +154,12 @@ class Configuration {
     return [...(this._customConfig.devTemplates || [])];
   }
 
+  saveTemplates(templates: Template[]) {
+    this._customConfig.devTemplates = [...templates];
+    storageSet({ devTemplates: this._customConfig.devTemplates });
+    return this.listTemplates();
+  }
+
   addTemplate(template: Template) {
     this._customConfig.devTemplates = [...(this._customConfig.devTemplates || []), template];
     storageSet({ devTemplates: this._customConfig.devTemplates });
