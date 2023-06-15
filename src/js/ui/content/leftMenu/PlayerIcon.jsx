@@ -7,21 +7,22 @@ import { Game } from "../../../config/configuration";
 import Avatar from "./Avatar";
 import SideMenuItem from "./SideMenuItem";
 import PlayerName from "./PlayerName";
-import { Player } from "./player";
+import { Player, getPlayerPanelId } from "./player";
 import BoardIcon from "./icons/BoardIcon";
 
 interface PlayerIconProps {
   player: Player,
-  gameConfig: Game
+  gameConfig: Game,
+  index: number
 }
 
 const PlayerIcon = (props: PlayerIconProps) => {
   const [over, setOver] = useState(false);
-  const { player, gameConfig } = props;
+  const { player, gameConfig, index } = props;
+  const eltId = player.fake ? player.id : getPlayerPanelId(gameConfig, player, index);
 
   const scrollToPlayer = () => {
-    const id = player.fake ? player.id : gameConfig.playerPanel.replace('{{player_id}}', player.id);
-    const element = document.getElementById(id);
+    const element = document.getElementById(eltId);
     const titleBar = document.getElementById("page-title");
     const topBar = document.getElementById("topbar");
     let zoom = (document.getElementById('page-content')?.style).zoom || 1;

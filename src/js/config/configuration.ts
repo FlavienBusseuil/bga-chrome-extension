@@ -40,7 +40,22 @@ class Configuration {
   _config: { games: Game[] };
 
   constructor() {
-    this._defConfig = { games: defaultGames };
+    this._defConfig = {
+      games: defaultGames.map(game => {
+        return {
+          iconBackground: '#ebd5bd',
+          iconBorder: '#222222',
+          iconColor: '#222222',
+          iconShadow: '#000000',
+          position: 'auto',
+          positionTop: '75px',
+          positionBottom: 'auto',
+          playerPanelOffset: 5,
+          left: '0.5em',
+          ...game
+        }
+      }) as Game[]
+    };
     this._customConfig = { games: [], disabled: [], floating: [] };
     this._config = { games: [] };
   }

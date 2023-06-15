@@ -17,6 +17,9 @@ export const setFloatingRightMenu = (val) => {
   if (style && container && !val) {
     style.parentNode.removeChild(style);
     container.parentNode.removeChild(container);
+
+    document.getElementById('right-side-first-part').style.maxHeight = 'initial';
+    document.getElementById('right-side-second-part').style.maxHeight = 'initial';
   }
 
   if (!style && !container && val) {

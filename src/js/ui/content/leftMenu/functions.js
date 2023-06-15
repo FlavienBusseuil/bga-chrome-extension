@@ -20,6 +20,8 @@ export const initLeftMenu = (gameConfig, leftMenuEnable) => {
       };
     });
 
+    console.log('[bga extension] players data', playersData);
+
     buildLeftMenuCss(gameConfig, leftMenuEnable);
     buildLeftMenu(gameConfig, leftMenuEnable);
   } else {
@@ -36,7 +38,7 @@ export const buildLeftMenu = (gameConfig, enable) => {
     container.style.position = 'fixed';
     container.style.left = gameConfig.left;
     container.style.userSelect = 'none';
-    container.style.zIndex = 5;
+    container.style.zIndex = 1000;
     document.body.appendChild(container);
 
     render(<SideMenu players={playersData} panel={gameConfig.playerPanel} gameConfig={gameConfig} />, container);

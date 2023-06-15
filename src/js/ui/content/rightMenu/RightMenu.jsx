@@ -90,14 +90,14 @@ const RightMenu = () => {
   return (
     <>
       <div id='cde-floating-menu-log' className='bgext_right_menu bgabutton bgabutton_gray' active={logVisible}>
-        <i className="fa fa-book"></i>
-        {logVisible && <i className="fa fa-caret-up"></i>}
-        {!logVisible && <i className="fa fa-caret-down"></i>}
+        <i className="fa fa-book" style={{ color: '#000000' }}></i>
+        {logVisible && <i className="fa fa-caret-up" style={{ color: '#000000' }}></i>}
+        {!logVisible && <i className="fa fa-caret-down" style={{ color: '#000000' }}></i>}
       </div>
       <div id='cde-floating-menu-score' className='bgext_right_menu bgabutton bgabutton_gray' active={scoreVisible}>
         <i className="fa fa-star"></i>
-        {scoreVisible && <i className="fa fa-caret-up"></i>}
-        {!scoreVisible && <i className="fa fa-caret-down"></i>}
+        {scoreVisible && <i className="fa fa-caret-up" style={{ color: '#000000' }}></i>}
+        {!scoreVisible && <i className="fa fa-caret-down" style={{ color: '#000000' }}></i>}
       </div>
     </>
   );

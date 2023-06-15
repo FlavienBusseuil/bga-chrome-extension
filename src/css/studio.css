@@ -73,6 +73,13 @@ div.bgext_studio_sentence_text>textarea {
   height: 100px;
 }
 
+div.bgext_studio_big_container>textarea {
+  width: 100%;
+  padding: 0.5em;
+  resize: none;
+  height: 400px;
+}
+
 div.bgext_studio_sentence_game {
   position: relative;
   display: flex;
