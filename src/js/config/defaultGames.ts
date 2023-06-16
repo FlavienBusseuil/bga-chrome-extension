@@ -62,7 +62,6 @@ const defaultGames: Partial<Game>[] = [
     "positionTop": "150px",
     "left": "6px",
     "playerPanel": "player-board-resizable-{{player_id}}",
-
     "css": ".desktop_version #position-wrapper { padding-left: 52px; }"
   },
   {
@@ -255,6 +254,55 @@ const defaultGames: Partial<Game>[] = [
     "playerPanel": "playerArea-{{player_id}}",
     "playerPanelOffset": 10,
     "css": ".desktop_version #game_play_area { padding-left: 50px; }"
+  },
+  {
+    "name": "beyondthesun",
+    "playerPanel": "bts-playerArea{{player_id}}",
+    "iconBackground": "#a4bdd5",
+    "iconShadow": "#ffffff",
+    "css": ".desktop_version #game_play_area { padding-left: 50px; }"
+  },
+  {
+    "name": "elawa",
+    "playerPanel": "player-table-{{player_id}}",
+    "css": "#bga-jump-to_controls { display: none; } .desktop_version #tables { padding-left: 45px; }"
+  },
+  {
+    "name": "locomomo",
+    "playerPanel": "loc_player-board-{{player_id}}",
+    "css": ".desktop_version #game_play_area { padding-left: 50px; }"
+  },
+  {
+    "name": "caverna",
+    "position": "top",
+    "playerPanel": "resources-bar-holder-{{player_id}}",
+    "css": "#game_play_area { padding-left: 50px; } #position-wrapper { padding-left: 10px; }"
+  },
+  {
+    "name": "marcopolo",
+    "playerPanel": "playerMat-{{player_id}}",
+    "css": "#game_play_area { padding-left: 50px; }"
+  },
+  {
+    "name": "nidavellir",
+    "position": "top",
+    "playerPanel": ".player-board-name",
+    "iconShadow": "#ffffff",
+    "css": "#game_play_area { border-left: 50px solid #1e1e20; padding-left: 2px; } #tabs-container { min-width: 200px; overflow: hidden; } @media (min-width: 850px) { #tabs-container { margin-right: 0px !important; } }"
+  },
+  {
+    "name": "bloodrage",
+    "position": "top",
+    "playerPanel": ".br-clan-wrapper > h2",
+    "css": "#game_play_area { padding-left: 50px; }"
+  },
+  {
+    "name": "parks",
+    "position": "top",
+    "boardPanel": "pks-board",
+    "boardPanelOffset": 5,
+    "playerPanel": "pks-playerBoard{{player_id}}",
+    "css": "#game_play_area { padding-left: 50px; }"
   },
 ];
 
