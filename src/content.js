@@ -19,7 +19,7 @@ if (pageInfo[0].startsWith('bug')) {
 
     setTimeout(() => initlogObserver(config), 1000);
     if (config.isGlobalFloatingMenu() || config.isGameFloatingMenu(gameName)) {
-      setFloatingRightMenu(true);
+      setFloatingRightMenu(gameConfig, true);
     }
 
     buildOptions(config, gameName, gameConfig);

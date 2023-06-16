@@ -13,12 +13,15 @@ export interface Game {
   boardPanelOffset?: number;
   playerPanel: string,
   playerPanelOffset: number,
+  bottomPanel?: string,
+  bottomPanelOffset?: number,
   iconBackground: string,
   iconBorder: string,
   iconColor: string,
   iconShadow: string,
   customZoomContainer?: string,
-  css?: string
+  css?: string,
+  menuCss?: string,
 };
 
 export interface Template {

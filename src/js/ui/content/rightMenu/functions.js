@@ -1,13 +1,13 @@
 import { render } from "preact";
 import RightMenu from './RightMenu';
 
-export const setFloatingRightMenu = (val) => {
+export const setFloatingRightMenu = (gameConfig, val) => {
   const pageTitle = document.getElementById('gotonexttable_wrap');
   const menuContainerId = 'cde-floating-menu';
   const menuStyleId = 'cde-floating-menu-style';
 
   if (!pageTitle) {
-    setTimeout(() => setFloatingRightMenu(val), 100);
+    setTimeout(() => setFloatingRightMenu(gameConfig, val), 100);
     return;
   }
 
@@ -34,6 +34,7 @@ export const setFloatingRightMenu = (val) => {
       '#seemorelogs { display: none !important; }',
       '#go_to_next_table_inactive_player { margin-left: 5px }',
       '.mobile_version #cde-floating-menu-log { display: none; }',
+      gameConfig?.menuCss || '',
     ].join(' ');
     document.head.appendChild(style);
 

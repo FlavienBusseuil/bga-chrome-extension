@@ -91,15 +91,15 @@ const buildOptions = (config, gameName, gameConfig) => {
   const optionFloatingAlways = '<option value="3"' + optionFloatingAlwaysSelected + '>' + chrome.i18n.getMessage("optionFloatingAlways") + '</option>'
   const checkFloating = (evt) => {
     if (evt.target.value === '3') {
-      setFloatingRightMenu(true);
+      setFloatingRightMenu(gameConfig, true);
       config.setGameFloatingMenu(gameName, false);
       config.setGlobalFloatingMenu(true);
     } else if (evt.target.value === '2') {
-      setFloatingRightMenu(true);
+      setFloatingRightMenu(gameConfig, true);
       config.setGameFloatingMenu(gameName, true);
       config.setGlobalFloatingMenu(false);
     } else {
-      setFloatingRightMenu(false);
+      setFloatingRightMenu(gameConfig, false);
       config.setGameFloatingMenu(gameName, false);
       config.setGlobalFloatingMenu(false);
     }

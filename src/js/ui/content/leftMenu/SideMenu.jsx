@@ -64,10 +64,9 @@ const SideMenu = (props: SideMenuProps) => {
   }, [position, zoomVisible, gameConfig.positionTop, gameConfig.positionBottom]);
 
   const scrollToTop = () => {
-    const element = document.getElementById("page-content");
     const topBar = document.getElementById("topbar");
 
-    element && topBar && window.scrollTo({
+    topBar && window.scrollTo({
       behavior: 'smooth',
       top: topBar.getBoundingClientRect().height + 2,
     });
@@ -80,7 +79,7 @@ const SideMenu = (props: SideMenuProps) => {
     if (gameConfig.playerPanel.indexOf('{{') < 0) {
       const panels = Array.from(document.querySelectorAll(gameConfig.playerPanel));
       players.forEach((p, index) => {
-        const playerPanel = panels.find(panel => panel.innerHTML === p.name);
+        const playerPanel = panels.find(panel => panel.innerHTML.indexOf(p.name) >= 0);
         if (playerPanel) {
           if (!playerPanel.id) {
             playerPanel.id = `bgaext_panel_${index}`;
@@ -111,6 +110,14 @@ const SideMenu = (props: SideMenuProps) => {
       });
     }
 
+    if (gameConfig.bottomPanel) {
+      toSort.push({
+        id: gameConfig.bottomPanel,
+        index: 100,
+        pos: document.getElementById(gameConfig.bottomPanel)?.getBoundingClientRect().top || 0
+      });
+    }
+
     toSort.sort((a, b) => a.pos === b.pos ? (a.index < b.index ? -1 : 1) : (a.pos < b.pos ? -1 : 1));
     setButtonsOrder(toSort.map(a => a.id).join('|'))
   };
@@ -133,6 +140,18 @@ const SideMenu = (props: SideMenuProps) => {
       }
 
       elements[gameConfig.boardPanel] = <PlayerIcon key={gameConfig.boardPanel} player={fakePlayer} index={-1} gameConfig={gameConfig} />;
+    }
+
+    if (gameConfig.bottomPanel) {
+      const fakePlayer = {
+        fake: true,
+        id: gameConfig.bottomPanel,
+        name: '',
+        avatar: 'bottom',
+        color: '#ffffff'
+      }
+
+      elements[gameConfig.bottomPanel] = <PlayerIcon key={gameConfig.bottomPanel} player={fakePlayer} index={-1} gameConfig={gameConfig} />;
     }
 
     return buttonsOrder.split('|').map(id => elements[id]);

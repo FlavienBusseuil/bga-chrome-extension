@@ -3,7 +3,7 @@ import { Game } from "./Configuration";
 const defaultGames: Partial<Game>[] = [
   {
     "name": "mycity",
-    "position": "bottom",
+    "position": "top",
     "playerPanel": "cty_board_{{player_id}}",
     "playerPanelOffset": -10,
     "iconShadow": "#ffffff"
@@ -160,8 +160,12 @@ const defaultGames: Partial<Game>[] = [
   },
   {
     "name": "tapestry",
+    "positionTop": "90px",
     "playerPanel": "playerArea_{{player_id}}",
-    "css": ".desktop_version #page-content { padding-left: 50px; } #player_board_config { background-color: rgb(218, 211, 193); }"
+    "bottomPanel": "game_wrapper_bottom",
+    "bottomPanelOffset": 5,
+    "css": ".desktop_version #page-content { padding-left: 50px; }",
+    "menuCss": "#player_board_config { background-color: rgb(218, 211, 193); }"
   },
   {
     "name": "resarcana",
@@ -193,7 +197,8 @@ const defaultGames: Partial<Game>[] = [
   {
     "name": "gogoa",
     "playerPanel": "goa-holder-{{player_id}}",
-    "css": "#page-title { width: 100% !important } .desktop_version #page-content { padding-left: 50px; }"
+    "css": ".desktop_version #page-content { padding-left: 50px; }",
+    "menuCss": "#page-title { width: 100% !important }"
   },
   {
     "name": "anachrony",
@@ -303,6 +308,63 @@ const defaultGames: Partial<Game>[] = [
     "boardPanelOffset": 5,
     "playerPanel": "pks-playerBoard{{player_id}}",
     "css": "#game_play_area { padding-left: 50px; }"
+  },
+  {
+    "name": "rollforthegalaxy",
+    "position": "top",
+    "playerPanel": "tableau_panel_{{player_id}}",
+    "css": ".tableau_panel, #roll_infos { padding-left: 50px; }"
+  },
+  {
+    "name": "sushigo",
+    "position": "top",
+    "playerPanel": "row_{{player_id}}",
+    "css": "#game_play_area { padding-left: 50px; }"
+  },
+  {
+    "name": "sushigoparty",
+    "position": "top",
+    "playerPanel": "row_{{player_id}}",
+    "css": "#game_play_area { padding-left: 50px; }"
+  },
+  {
+    "name": "barenpark",
+    "position": "top",
+    "playerPanel": "bp-player-area-{{player_id}}",
+    "css": "#game_play_area { padding-left: 50px; }"
+  },
+  {
+    "name": "clansofcaledonia",
+    "position": "top",
+    "playerPanel": "playerboard_row_{{player_id}}",
+    "css": "#game_play_area { padding-left: 50px; }"
+  },
+  {
+    "name": "clansofcaledonia",
+    "position": "top",
+    "playerPanel": "playerboard_row_{{player_id}}",
+    "css": "#game_play_area { padding-left: 50px; }"
+  },
+  {
+    "name": "tokaido",
+    "position": "top",
+    "playerPanel": "#tkd_game_area > #collections > div > h3",
+    "playerPanelOffset": 20,
+    "css": "#game_play_area { padding-left: 50px; }"
+  },
+  {
+    "name": "myshelfie",
+    "position": "top",
+    "playerPanel": "shelf_{{player_id}}",
+    "css": "#game_play_area { padding-left: 50px; }"
+  },
+  {
+    "name": "carnegie",
+    "position": "top",
+    "playerPanel": "company_block_{{player_id}}",
+    "iconShadow": "#ffffff",
+    "css": ".cng_topbutton { display: none; } #game_play_area { padding-left: 50px; }",
+    "menuCss": "#cde-floating-menu-score > .fa-star { background-image: none; } #cde-floating-menu-score > .fa-star:before { content: \"\\f005\" !important; }",
   },
 ];
 
