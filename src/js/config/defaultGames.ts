@@ -3,16 +3,14 @@ import { Game } from "./Configuration";
 const defaultGames: Partial<Game>[] = [
   {
     "name": "mycity",
-    "position": "top",
     "playerPanel": "cty_board_{{player_id}}",
     "playerPanelOffset": -10,
-    "iconShadow": "#ffffff"
+    "css": " "
   },
   {
     "name": "abyss",
-    "position": "bottom",
+    "iconBackground": "#7ab1c5",
     "playerPanel": "player-panel-{{player_id}}",
-    "iconShadow": "#ffffff",
     "css": ".desktop_version #centered-table { margin-left: 46px; }"
   },
   {
@@ -39,11 +37,12 @@ const defaultGames: Partial<Game>[] = [
     "name": "azul",
     "position": "bottom",
     "playerPanel": "player-hand-{{player_id}}",
-    "iconShadow": "#000000"
+    "iconShadow": "#000000",
+    "css": " "
   },
   {
     "name": "wingspan",
-    "positionTop": "150px",
+    "position": "auto",
     "playerPanel": "aviary_{{player_id}}",
     "css": ".desktop_version #wsp_opponent_board_area { padding-left: 40px; }"
   },
@@ -59,15 +58,12 @@ const defaultGames: Partial<Game>[] = [
   },
   {
     "name": "agricola",
-    "positionTop": "150px",
-    "left": "6px",
     "playerPanel": "player-board-resizable-{{player_id}}",
-    "css": ".desktop_version #position-wrapper { padding-left: 52px; }"
+    "css": "#position-wrapper { padding-left: 52px; }"
   },
   {
     "name": "akropolis",
-    "position": "top",
-    "positionTop": "40vh",
+    "positionTop": "100px",
     "playerPanel": "player-table-{{player_id}}",
     "css": "#jump-controls { display: none; }"
   },
@@ -89,10 +85,8 @@ const defaultGames: Partial<Game>[] = [
   },
   {
     "name": "earth",
-    "position": "top",
     "positionTop": "40vh",
     "boardPanel": "ea-area-common",
-    "boardPanelOffset": 5,
     "playerPanel": "ea-area-player-{{player_id}}",
     "playerPanelOffset": 0,
     "iconShadow": "#ffffff",
@@ -101,98 +95,96 @@ const defaultGames: Partial<Game>[] = [
   {
     "name": "gizmos",
     "playerPanel": "gizmo_track_{{player_id}}",
-    "css": ".desktop_version #gizmos_board { margin-left: 50px; }"
+    "css": "#gizmos_board { margin-left: 50px; }"
   },
   {
     "name": "potionexplosion",
     "playerPanel": "playerArea_{{player_id}}",
-    "css": ".desktop_version #game_play_area { margin-left: 50px; }"
+    "css": "#game_play_area { margin-left: 50px; }"
   },
   {
     "name": "spacebase",
     "playerPanel": "playerTable_{{player_id}}",
     "playerPanelOffset": 45,
+    "iconBackground": "#b9b5b8",
     "iconShadow": "#ffffff",
-    "css": ".desktop_version #game_play_area { margin-left: 50px; }"
+    "css": "#game_play_area { margin-left: 50px; }"
   },
   {
     "name": "raceforthegalaxy",
     "playerPanel": "tableau_panel_{{player_id}}",
     "iconBackground": "#a3adb7",
     "iconShadow": "#ffffff",
-    "css": ".desktop_version #game_play_area { padding-left: 50px; }"
+    "css": "#game_play_area { padding-left: 50px; }"
   },
   {
     "name": "greatwesterntrail",
-    "positionTop": "150px",
-    "left": "6px",
+    "positionTop": "100px",
     "playerPanel": "player_area_{{player_id}}",
-    "css": ".desktop_version #game_play_area_wrap { padding-left: 50px; }"
+    "css": "#game_play_area_wrap { padding-left: 50px; }"
   },
   {
     "name": "throughtheagesnewstory",
     "playerPanel": "player_tableau_wrap_{{player_id}}",
     "playerPanelOffset": 45,
-    "css": ".desktop_version #game_play_area { padding-left: 50px; }"
+    "css": "#game_play_area { padding-left: 50px; }"
   },
   {
     "name": "throughtheages",
     "playerPanel": "player_tableau_{{player_id}}",
     "playerPanelOffset": 45,
-    "css": ".desktop_version #game_play_area { padding-left: 50px; }"
+    "css": "#game_play_area { padding-left: 50px; }"
   },
   {
     "name": "getonboard",
-    "position": "top",
-    "positionTop": "40vh",
     "playerPanel": "player-table-{{player_id}}",
     "css": "#jump-controls { display: none; }"
   },
   {
     "name": "lumen",
     "playerPanel": "player-table-{{player_id}}",
-    "css": ".desktop_version #page-content { padding-left: 50px; }"
+    "css": "#page-content { padding-left: 50px; }"
   },
   {
     "name": "gardennation",
     "playerPanel": "player-table-{{player_id}}",
-    "css": ".desktop_version #page-content { padding-left: 50px; }"
+    "css": "#page-content { padding-left: 50px; }"
   },
   {
     "name": "tapestry",
     "positionTop": "90px",
     "playerPanel": "playerArea_{{player_id}}",
     "bottomPanel": "game_wrapper_bottom",
-    "bottomPanelOffset": 5,
-    "css": ".desktop_version #page-content { padding-left: 50px; }",
+    "css": "#page-content { padding-left: 50px; }",
     "menuCss": "#player_board_config { background-color: rgb(218, 211, 193); }"
   },
   {
     "name": "resarcana",
     "playerPanel": "player_area_{{player_id}}",
-    "css": ".desktop_version #page-content { padding-left: 50px; }"
+    "css": "#page-content { padding-left: 50px; }"
   },
   {
     "name": "innovation",
     "playerPanel": "player_{{player_id}}",
-    "css": ".desktop_version .player { margin-left: 50px; }"
+    "css": ".player { margin-left: 50px; }"
   },
   {
     "name": "railroadink",
+    "iconBackground": "#bfdef9",
     "playerPanel": "player-area-{{player_id}}",
-    "css": ".desktop_version #all-players { padding-left: 50px; }"
+    "css": "#all-players { padding-left: 50px; }"
   },
   {
     "name": "viticulture",
     "playerPanel": "playerboard_row_{{player_id}}",
-    "css": ".desktop_version #vit_game { padding-left: 50px; }"
+    "css": "#vit_game { padding-left: 50px; }"
   },
   {
     "name": "hadara",
     "playerPanel": "game_board_{{player_id}}",
     "playerPanelOffset": 10,
     "customZoomContainer": "pagesection_gameview",
-    "css": ".desktop_version #page-content { padding-left: 50px; }"
+    "css": "#page-content { padding-left: 50px; }"
   },
   {
     "name": "gogoa",
@@ -203,83 +195,92 @@ const defaultGames: Partial<Game>[] = [
   {
     "name": "anachrony",
     "playerPanel": "player{{player_id}}",
-    "css": "div.playeroverall > div:last-child { display: none; } .desktop_version #game_play_area { padding-left: 50px; }"
+    "css": "div.playeroverall > div:last-child { display: none; } #game_play_area { padding-left: 50px; }"
   },
   {
     "name": "crypt",
     "playerPanel": "player-area-{{player_id}}",
-    "css": ".desktop_version #game_play_area { padding-left: 50px; }"
+    "css": "#game_play_area { padding-left: 50px; }"
   },
   {
     "name": "evergreen",
+    "iconBackground": "#ffffff",
     "playerPanel": "grid-{{player_id}}",
-    "css": ".desktop_version #game_play_area { padding-left: 50px; }"
+    "css": "#game_play_area { padding-left: 50px; }"
   },
   {
     "name": "getonboardparisrome",
+    "iconBackground": "#ffffff",
     "playerPanel": "player-table-{{player_id}}",
     "playerPanelOffset": 10,
-    "css": "#jump-controls { display: none; } .desktop_version #game_play_area { padding-left: 50px; }"
+    "css": "#jump-controls { display: none; } #game_play_area { padding-left: 50px; }"
   },
   {
     "name": "oasis",
     "playerPanel": "board_{{player_id}}",
     "playerPanelOffset": 10,
-    "css": ".desktop_version #game_play_area { padding-left: 50px; }"
+    "css": "#game_play_area { padding-left: 50px; }"
   },
   {
     "name": "vaalbara",
+    "iconBackground": "#ffffff",
     "playerPanel": ".vlb_zone_title > h2 > span:last-child",
     "playerPanelOffset": 0,
-    "css": ".desktop_version #game_play_area { padding-left: 50px; }"
+    "css": "#game_play_area { padding-left: 50px; }"
   },
   {
     "name": "ultimaterailroads",
+    "iconBackground": "#e5d6d1",
     "playerPanel": ".nameslot > h3",
     "playerPanelOffset": 20,
-    "css": ".button_top { display: none; } .desktop_version #game_play_area { padding-left: 50px; }"
+    "bottomPanel": "limbo",
+    "bottomPanelOffset": 10,
+    "css": ".button_top { display: none; } #game_play_area { padding-left: 50px; }"
   },
   {
     "name": "russianrailroads",
     "positionTop": "100px",
     "playerPanel": ".nameslot > h3",
     "playerPanelOffset": 20,
+    "bottomPanel": "limbo",
+    "bottomPanelOffset": 10,
     "css": ".button_top { display: none; }"
   },
   {
     "name": "saintpetersburg",
     "playerPanel": "stp_playertable_{{player_id}}_wrap",
     "playerPanelOffset": 10,
-    "css": ".desktop_version #game_play_area { padding-left: 50px; }"
+    "css": "#game_play_area { padding-left: 50px; }"
   },
   {
     "name": "obsession",
     "boardPanel": "builderMarket",
-    "boardPanelOffset": 5,
     "playerPanel": "playerArea-{{player_id}}",
     "playerPanelOffset": 10,
-    "css": ".desktop_version #game_play_area { padding-left: 50px; }"
+    "css": "#game_play_area { padding-left: 50px; }"
   },
   {
     "name": "beyondthesun",
     "playerPanel": "bts-playerArea{{player_id}}",
     "iconBackground": "#a4bdd5",
     "iconShadow": "#ffffff",
-    "css": ".desktop_version #game_play_area { padding-left: 50px; }"
+    "css": "#game_play_area { padding-left: 50px; }"
   },
   {
     "name": "elawa",
     "playerPanel": "player-table-{{player_id}}",
-    "css": "#bga-jump-to_controls { display: none; } .desktop_version #tables { padding-left: 45px; }"
+    "css": "#bga-jump-to_controls { display: none; } #tables { padding-left: 45px; }"
   },
   {
     "name": "locomomo",
+    "iconBackground": "#a3c268",
     "playerPanel": "loc_player-board-{{player_id}}",
-    "css": ".desktop_version #game_play_area { padding-left: 50px; }"
+    "css": "#game_play_area { padding-left: 50px; }"
   },
   {
     "name": "caverna",
-    "position": "top",
+    "positionTop": "90px",
+    "iconBackground": "#c7cccd",
     "playerPanel": "resources-bar-holder-{{player_id}}",
     "css": "#game_play_area { padding-left: 50px; } #position-wrapper { padding-left: 10px; }"
   },
@@ -289,82 +290,145 @@ const defaultGames: Partial<Game>[] = [
     "css": "#game_play_area { padding-left: 50px; }"
   },
   {
+    "name": "marcopolotwo",
+    "playerPanel": "playerMat-{{player_id}}",
+    "css": "#game_play_area { padding-left: 50px; }"
+  },
+  {
     "name": "nidavellir",
-    "position": "top",
+    "iconBackground": "#cfd1d0",
+    "iconShadow": "transparent",
     "playerPanel": ".player-board-name",
-    "iconShadow": "#ffffff",
     "css": "#game_play_area { border-left: 50px solid #1e1e20; padding-left: 2px; } #tabs-container { min-width: 200px; overflow: hidden; } @media (min-width: 850px) { #tabs-container { margin-right: 0px !important; } }"
   },
   {
     "name": "bloodrage",
-    "position": "top",
+    "iconShadow": "#ffffff",
     "playerPanel": ".br-clan-wrapper > h2",
     "css": "#game_play_area { padding-left: 50px; }"
   },
   {
     "name": "parks",
-    "position": "top",
     "boardPanel": "pks-board",
-    "boardPanelOffset": 5,
     "playerPanel": "pks-playerBoard{{player_id}}",
     "css": "#game_play_area { padding-left: 50px; }"
   },
   {
     "name": "rollforthegalaxy",
-    "position": "top",
     "playerPanel": "tableau_panel_{{player_id}}",
     "css": ".tableau_panel, #roll_infos { padding-left: 50px; }"
   },
   {
     "name": "sushigo",
-    "position": "top",
     "playerPanel": "row_{{player_id}}",
     "css": "#game_play_area { padding-left: 50px; }"
   },
   {
     "name": "sushigoparty",
-    "position": "top",
     "playerPanel": "row_{{player_id}}",
     "css": "#game_play_area { padding-left: 50px; }"
   },
   {
     "name": "barenpark",
-    "position": "top",
     "playerPanel": "bp-player-area-{{player_id}}",
     "css": "#game_play_area { padding-left: 50px; }"
   },
   {
     "name": "clansofcaledonia",
-    "position": "top",
-    "playerPanel": "playerboard_row_{{player_id}}",
-    "css": "#game_play_area { padding-left: 50px; }"
-  },
-  {
-    "name": "clansofcaledonia",
-    "position": "top",
     "playerPanel": "playerboard_row_{{player_id}}",
     "css": "#game_play_area { padding-left: 50px; }"
   },
   {
     "name": "tokaido",
-    "position": "top",
     "playerPanel": "#tkd_game_area > #collections > div > h3",
     "playerPanelOffset": 20,
     "css": "#game_play_area { padding-left: 50px; }"
   },
   {
     "name": "myshelfie",
-    "position": "top",
     "playerPanel": "shelf_{{player_id}}",
     "css": "#game_play_area { padding-left: 50px; }"
   },
   {
     "name": "carnegie",
-    "position": "top",
     "playerPanel": "company_block_{{player_id}}",
-    "iconShadow": "#ffffff",
+    "iconBackground": "#97a09b",
+    "iconShadow": "transparent",
     "css": ".cng_topbutton { display: none; } #game_play_area { padding-left: 50px; }",
-    "menuCss": "#cde-floating-menu-score > .fa-star { background-image: none; } #cde-floating-menu-score > .fa-star:before { content: \"\\f005\" !important; }",
+    "menuCss": "#cde-floating-menu-score > .fa-star { background-image: none; } #cde-floating-menu-score > .fa-star:before { content: \"\\f005\" !important; } .player-board { background-color: #97a09b; }",
+  },
+  {
+    "name": "dicehospital",
+    "playerPanel": "dhi-board_{{player_id}}",
+    "css": " "
+  },
+  {
+    "name": "dicehospitaler",
+    "playerPanel": "sheet_{{player_id}}",
+    "boardPanel": "game",
+    "css": " "
+  },
+  {
+    "name": "sagani",
+    "playerPanel": "map-container-{{player_id}}",
+    "bottomPanel": "sag-intermezzo-spaces",
+    "css": "#game_play_area { padding-left: 50px; }"
+  },
+  {
+    "name": "hardback",
+    "playerPanel": "area_{{player_id}}",
+    "playerPanelOffset": -70,
+    "css": "#game_play_area { padding-left: 50px; }"
+  },
+  {
+    "name": "rollandbump",
+    "iconBackground": "#d7d0cd",
+    "playerPanel": "#rnb_players > div > h2 > span",
+    "playerPanelOffset": 15,
+    "bottomPanel": "rnb_rewards",
+    "css": "#game_play_area { padding-left: 40px; }",
+  },
+  {
+    "name": "lagranja",
+    "playerPanel": "playerContainer-{{player_id}}",
+  },
+  {
+    "name": "draftosaurus",
+    "playerPanel": "board-{{player_id}}",
+    "playerPanelOffset": 35,
+  },
+  {
+    "name": "rauha",
+    "iconBackground": "#e7e1da",
+    "playerPanel": "board-{{player_id}}",
+  },
+  {
+    "name": "lostseas",
+    "iconBackground": "#8ddefc",
+    "playerPanel": "ls_playertitle_{{player_index_1}}",
+    "playerPanelOffset": 50,
+  },
+  {
+    "name": "gonutsfordonuts",
+    "playerPanel": ".gnfd_playertable > .gnfd_playertablename",
+    "playerPanelOffset": 10,
+  },
+  {
+    "name": "oriflamme",
+    "iconBackground": "#8aafc5",
+    "playerPanel": "discard-{{player_id}}",
+    "playerPanelOffset": 45,
+    "css": "#game_play_area { padding-left: 35px; }",
+  },
+  {
+    "name": "happycity",
+    "iconBackground": "#b1dcf5",
+    "playerPanel": "playerArea_{{player_id}}",
+  },
+  {
+    "name": "doglover",
+    "playerPanel": ".DOG-player-name",
+    "css": " "
   },
 ];
 

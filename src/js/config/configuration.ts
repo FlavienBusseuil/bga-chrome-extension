@@ -47,14 +47,17 @@ class Configuration {
       games: defaultGames.map(game => {
         return {
           iconBackground: '#ebd5bd',
-          iconBorder: '#222222',
+          iconBorder: 'transparent',
           iconColor: '#222222',
           iconShadow: '#000000',
-          position: 'auto',
+          position: 'top',
           positionTop: '75px',
           positionBottom: 'auto',
+          boardPanelOffset: 5,
           playerPanelOffset: 5,
+          bottomPanelOffset: 5,
           left: '0.5em',
+          css: '#game_play_area { padding-left: 50px; }',
           ...game
         }
       }) as Game[]
