@@ -51,17 +51,17 @@ const SideMenu = (props: SideMenuProps) => {
 
     if (barContainer) {
       if (position === 'top') {
-        barContainer.style.top = gameConfig.positionTop || '150px';
+        barContainer.style.top = gameConfig.top || '150px';
         barContainer.style.bottom = '';
-      } else if (gameConfig.positionBottom === 'auto') {
+      } else if (gameConfig.bottom === 'auto') {
         barContainer.style.top = '';
         barContainer.style.bottom = zoomVisible ? '70px' : '10px';
       } else {
         barContainer.style.top = '';
-        barContainer.style.bottom = gameConfig.positionBottom || '70px';
+        barContainer.style.bottom = gameConfig.bottom || '70px';
       }
     }
-  }, [position, zoomVisible, gameConfig.positionTop, gameConfig.positionBottom]);
+  }, [position, zoomVisible, gameConfig.top, gameConfig.bottom]);
 
   const scrollToTop = () => {
     const topBar = document.getElementById("topbar");
@@ -84,6 +84,7 @@ const SideMenu = (props: SideMenuProps) => {
           if (!playerPanel.id) {
             playerPanel.id = `bgaext_panel_${index}`;
           }
+          p.panelId = playerPanel.id;
         }
       });
     }
@@ -131,10 +132,11 @@ const SideMenu = (props: SideMenuProps) => {
     });
 
     if (gameConfig.boardPanel) {
+      const boardName = gameConfig.boardPanelText ? document.querySelector(gameConfig.boardPanelText)?.innerHTML : undefined;
       const fakePlayer = {
         fake: true,
         id: gameConfig.boardPanel,
-        name: chrome.i18n.getMessage('sideMenuMainBoard'),
+        name: boardName || chrome.i18n.getMessage('sideMenuMainBoard'),
         avatar: 'board',
         color: '#ffffff'
       }

@@ -16,7 +16,7 @@ const defaultGames: Partial<Game>[] = [
   {
     "name": "conspiracy",
     "position": "bottom",
-    "positionBottom": "140px",
+    "bottom": "140px",
     "left": "12px",
     "playerPanel": "player-table-{{player_id}}",
     "iconShadow": "#ffffff",
@@ -63,7 +63,7 @@ const defaultGames: Partial<Game>[] = [
   },
   {
     "name": "akropolis",
-    "positionTop": "100px",
+    "top": "100px",
     "playerPanel": "player-table-{{player_id}}",
     "css": "#jump-controls { display: none; }"
   },
@@ -85,7 +85,7 @@ const defaultGames: Partial<Game>[] = [
   },
   {
     "name": "earth",
-    "positionTop": "40vh",
+    "top": "40vh",
     "boardPanel": "ea-area-common",
     "playerPanel": "ea-area-player-{{player_id}}",
     "playerPanelOffset": 0,
@@ -119,7 +119,7 @@ const defaultGames: Partial<Game>[] = [
   },
   {
     "name": "greatwesterntrail",
-    "positionTop": "100px",
+    "top": "100px",
     "playerPanel": "player_area_{{player_id}}",
     "css": "#game_play_area_wrap { padding-left: 50px; }"
   },
@@ -152,7 +152,7 @@ const defaultGames: Partial<Game>[] = [
   },
   {
     "name": "tapestry",
-    "positionTop": "90px",
+    "top": "90px",
     "playerPanel": "playerArea_{{player_id}}",
     "bottomPanel": "game_wrapper_bottom",
     "css": "#page-content { padding-left: 50px; }",
@@ -239,7 +239,7 @@ const defaultGames: Partial<Game>[] = [
   },
   {
     "name": "russianrailroads",
-    "positionTop": "100px",
+    "top": "100px",
     "playerPanel": ".nameslot > h3",
     "playerPanelOffset": 20,
     "bottomPanel": "limbo",
@@ -279,7 +279,7 @@ const defaultGames: Partial<Game>[] = [
   },
   {
     "name": "caverna",
-    "positionTop": "90px",
+    "top": "90px",
     "iconBackground": "#c7cccd",
     "playerPanel": "resources-bar-holder-{{player_id}}",
     "css": "#game_play_area { padding-left: 50px; } #position-wrapper { padding-left: 10px; }"
@@ -429,6 +429,173 @@ const defaultGames: Partial<Game>[] = [
     "name": "doglover",
     "playerPanel": ".DOG-player-name",
     "css": " "
+  },
+  {
+    "name": "automobiles",
+    "top": "40vh",
+    "left": "1em",
+    "iconBorder": "#ffffff",
+    "playerPanel": "AMBPlayArea_{{player_id}}",
+    "css": "#AMBOtherPlayersLayout { padding-left: 65px; }"
+  },
+  {
+    "name": "viamagica",
+    "iconBackground": "#e6e6fa",
+    "playerPanelOffset": 15,
+    "playerPanel": "vmg_playername_{{player_id}}",
+    "css": "#game_play_area { padding-left: 40px; }"
+  },
+  {
+    "name": "trektwelve",
+    "playerPanel": "board_{{player_id}}",
+    "iconBackground": "#efd6a1",
+    "css": "#upback { display: none; }",
+    "menuCss": "#upback { display: none; }"
+  },
+  {
+    "name": "troyesdice",
+    "playerPanel": "td_player_board_{{player_id}}",
+    "iconBackground": "#eddac5",
+    "playerPanelOffset": 10
+  },
+  {
+    "name": "kingsguild",
+    "playerPanel": "playerboardwrap_{{player_id}}",
+    "playerPanelOffset": -5
+  },
+  {
+    "name": "cubosaurs",
+    "playerPanel": "cbsr_playername_{{player_id}}",
+  },
+  {
+    "name": "newfrontiers",
+    "iconBackground": "#afafaf",
+    "iconBorder": "#000000",
+    "iconShadow": "#ffffff",
+    "playerPanel": "empire_{{player_id}}",
+    "boardPanel": "smalldev",
+    "boardPanelText": "#choose_action_label > span",
+    "css": ".nft_topbutton { display: none; }",
+    "menuCss": "html.nft_background_space .player-board { background-color: #333333 !important; } #goto_wrap { top: -5px; } "
+  },
+  {
+    "name": "jumpdrive",
+    "iconBackground": "#888888",
+    "iconBorder": "#000000",
+    "iconShadow": "#ffffff",
+    "playerPanel": "jdr-tableau-{{player_id}}",
+  },
+  {
+    "name": "cityofthebigshoulders",
+    "playerPanel": "player_{{player_id}}",
+    "bottomPanel": "available_shares_wrapper"
+  },
+  {
+    "name": "thebuilders",
+    "playerPanel": "playercoinicon_{{player_id}}",
+    "playerPanelOffset": 20
+  },
+  {
+    "name": "thebuildersantiquity",
+    "playerPanel": "playercoinicon_{{player_id}}",
+    "playerPanelOffset": 20
+  },
+  {
+    "name": "ageofcivilization",
+    "playerPanel": "playertable_{{player_id}}",
+    "boardPanel": "my_expandable",
+    "boardPanelText": "#specttechtitle",
+  },
+  {
+    "name": "crusadersthywillbedone",
+    "playerPanel": "CRUPlayerTWBDBoard_{{player_id}}",
+    "playerPanelOffset": 100
+  },
+  {
+    "name": "numberdrop",
+    "playerPanel": "sheet-{{player_id}}",
+    "iconBackground": "#ffffff"
+  },
+  {
+    "name": "eminentdomain",
+    "iconBackground": "#dadada",
+    "iconBorder": "#000000",
+    "iconShadow": "#ffffff",
+    "playerPanel": ".side_title > span",
+    "playerPanelOffset": 20,
+    "menuCss": "#player-board { background-color: #3c4249; }"
+  },
+  {
+    "name": "glow",
+    "iconBackground": "#ffffff",
+    "playerPanel": "player-table-{{player_id}}",
+  },
+  {
+    "name": "lookatthestars",
+    "iconBackground": "#ffffff",
+    "playerPanel": "player-table-{{player_id}}",
+    "css": "#jump-controls { display: none; } #game_play_area { padding-left: 50px; }"
+  },
+  {
+    "name": "dungeonpetz",
+    "boardPanel": "progress_board",
+    "playerPanel": ".player-board-dp > .shopping-cart-wrapper > .side_title",
+    "playerPanelOffset": 20,
+    "bottomPanel": "happyland"
+  },
+  {
+    "name": "myfirstcastlepanic",
+    "iconBackground": "#edd9c1",
+    "playerPanel": "playername_{{player_index_1}}",
+    "playerPanelOffset": 15,
+    "css": "#game_play_area { padding-left: 30px; }"
+  },
+  {
+    "name": "eriantys",
+    "iconBackground": "#ffffff",
+    "playerPanel": "school_{{player_id}}",
+    "css": "#players_school { max-height: initial !important; } #game_play_area { padding-left: 50px; }",
+    "menuCss": ".player-board { background-color: #b0d1e9; }"
+  },
+  {
+    "name": "theisleofcats",
+    "playerPanel": "tioc-player-board-{{player_id}}",
+  },
+  {
+    "name": "tucano",
+    "iconBackground": "#a5cdbf",
+    "playerPanel": "player-{{player_id}}-tableau",
+    "playerPanelOffset": 30
+  },
+  {
+    "name": "steamworks",
+    "boardPanel": "supply_sources",
+    "playerPanel": "areaForPlayer_{{player_id}}",
+  },
+  {
+    "name": "nippon",
+    "playerPanel": "player_space_{{player_id}}",
+    "bottomPanel": "sideboard_anchor",
+  },
+  {
+    "name": "rainforest",
+    "playerPanel": "playerPanel_{{player_id}}",
+  },
+  {
+    "name": "homesteaders",
+    "playerPanel": ".boardheader",
+    "playerPanelOffset": 30,
+    "bottomPanel": "bottom",
+  },
+  {
+    "name": "chocolatefactory",
+    "playerPanel": "playerMat_{{player_id}}",
+    "playerPanelOffset": 50,
+  },
+  {
+    "name": "dicedtomatoes",
+    "top": "140px",
+    "playerPanel": "player_mat_{{player_id}}",
   },
 ];
 

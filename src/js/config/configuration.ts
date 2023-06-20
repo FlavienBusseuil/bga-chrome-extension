@@ -6,11 +6,12 @@ import { storageSet } from "../utils/storage/set";
 export interface Game {
   name: string,
   position: 'top' | 'bottom' | 'auto',
-  positionTop?: string,
-  positionBottom?: string,
+  top?: string,
+  bottom?: string,
   left: string,
   boardPanel?: string;
   boardPanelOffset?: number;
+  boardPanelText?: string,
   playerPanel: string,
   playerPanelOffset: number,
   bottomPanel?: string,
@@ -51,8 +52,8 @@ class Configuration {
           iconColor: '#222222',
           iconShadow: '#000000',
           position: 'top',
-          positionTop: '75px',
-          positionBottom: 'auto',
+          top: '75px',
+          bottom: 'auto',
           boardPanelOffset: 5,
           playerPanelOffset: 5,
           bottomPanelOffset: 5,
