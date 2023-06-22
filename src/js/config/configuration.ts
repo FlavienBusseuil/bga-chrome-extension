@@ -1,7 +1,6 @@
 import equal from "fast-deep-equal";
 import defaultGames from "./defaultGames";
-import { storageGet } from "../utils/storage/get";
-import { storageSet } from "../utils/storage/set";
+import { storageClear, storageGet, storageSet } from "../utils/storage";
 
 export interface Game {
   name: string,
@@ -31,16 +30,19 @@ export interface Template {
   game: string
 };
 
+interface CustomConfig {
+  games: Game[],
+  disabled: string[],
+  hidden: string[],
+  floating: string[],
+  onlineMessages?: boolean,
+  floatingRightMenu?: boolean,
+  devTemplates?: Template[]
+};
+
 class Configuration {
   _defConfig: { games: Game[] };
-  _customConfig: {
-    games: Game[],
-    disabled: string[],
-    floating: string[],
-    onlineMessages?: boolean,
-    floatingRightMenu?: boolean,
-    devTemplates?: Template[]
-  };
+  _customConfig: CustomConfig;
   _config: { games: Game[] };
 
   constructor() {
@@ -63,7 +65,7 @@ class Configuration {
         }
       }) as Game[]
     };
-    this._customConfig = { games: [], disabled: [], floating: [] };
+    this._customConfig = { games: [], disabled: [], floating: [], hidden: [] };
     this._config = { games: [] };
   }
 
@@ -74,6 +76,9 @@ class Configuration {
     }
     if (!this._customConfig.disabled) {
       this._customConfig.disabled = [];
+    }
+    if (!this._customConfig.hidden) {
+      this._customConfig.hidden = [];
     }
     if (!this._customConfig.floating) {
       this._customConfig.floating = [];
@@ -86,6 +91,20 @@ class Configuration {
     const defGames = this._defConfig.games.filter(g => !customNames.includes(g.name));
 
     this._config.games = [...defGames, ...this._customConfig.games];
+  }
+
+  isEmpty() {
+    return this._customConfig.floatingRightMenu === undefined
+      && this._customConfig.devTemplates === undefined
+      && this._customConfig.onlineMessages === undefined
+      && !this._customConfig.disabled.length
+      && !this._customConfig.games.length
+      && !this._customConfig.floating.length;
+  }
+
+  import(customConfig: CustomConfig) {
+    this._customConfig = customConfig;
+    storageSet(customConfig);
   }
 
   getGameConfig(game: string): Game | undefined {
@@ -210,6 +229,30 @@ class Configuration {
       storageSet({ devTemplates: this._customConfig.devTemplates });
     }
     return this.listTemplates();
+  }
+
+  hideGame(name: string) {
+    this._customConfig.hidden = [...this._customConfig.hidden.filter(g => g !== name), name];
+    storageSet({ hidden: this._customConfig.hidden });
+    return this.getHiddenGames();
+  }
+
+  displayGame(name: string) {
+    this._customConfig.hidden = [...this._customConfig.hidden.filter(g => g !== name)];
+    storageSet({ hidden: this._customConfig.hidden });
+    return this.getHiddenGames();
+  }
+
+  getHiddenGames() {
+    return this._customConfig.hidden.sort();
+  }
+
+  getHiddenGamesListStyle() {
+    return this._customConfig.hidden.map(name => `div:has(> a[href="/gamepanel?game=${name}"]), div.bga-game-browser-carousel__block:has(> div > a[href="/gamepanel?game=${name}"]) { display: none; }`).join(' ');
+  }
+
+  getHiddenGamesLobbyStyle() {
+    return this._customConfig.hidden.map(name => `div.game_box_wrap:has(> div > div > div > a[href="/gamepanel?game=${name}"]) { display: none; }`).join(' ');
   }
 }
 

@@ -75,6 +75,39 @@
 	"optionFloatingAlways": {
 		"message": "Dans un menu flottant (pour tous les jeux)"
 	},
+	"optionHiddenTab": {
+		"message": "Jeux cachés"
+	},
+	"optionNavigationTab": {
+		"message": "Navigation entre les plateaux des joueurs"
+	},
+	"optionHiddenTitle": {
+		"message": "Liste des jeux cachés"
+	},
+	"optionNavigationTitle": {
+		"message": "Liste des jeux gérés"
+	},
+	"optionNoHiddenGames": {
+		"message": "Aucun jeu caché"
+	},
+	"optionHiddenGamesWarning": {
+		"message": "Retirez un jeu de cette liste pour l'afficher sur Board Game Arena. (Vous devez recharger la page pour que les changements soient effectifs)"
+	},
+	"optionNavigationWarning": {
+		"message": "Attention : ne modifiez la configuration sur cet écran que si vous savez vraiment ce que vous faites ;)"
+	},
+	"optionDuplicate": {
+		"message": "Dupliquer"
+	},
+	"optionReset": {
+		"message": "Réinitialiser"
+	},
+	"optionDelete": {
+		"message": "Supprimer"
+	},
+	"optionSave": {
+		"message": "Sauvegarder"
+	},
 	"sideMenuMainBoard": {
 		"message": "Plateau principal"
 	}

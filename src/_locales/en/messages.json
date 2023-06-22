@@ -75,6 +75,39 @@
 	"optionFloatingAlways": {
 		"message": "In a floating menu (for all games)"
 	},
+	"optionHiddenTab": {
+		"message": "Hidden games"
+	},
+	"optionNavigationTab": {
+		"message": "Navigation between players' boards"
+	},
+	"optionHiddenTitle": {
+		"message": "Hidden games list"
+	},
+	"optionNavigationTitle": {
+		"message": "Managed games list"
+	},
+	"optionNoHiddenGames": {
+		"message": "No hidden games"
+	},
+	"optionHiddenGamesWarning": {
+		"message": "Remove a game from this list to display it on Board Game Arena. (You must reload the page for the changes to be effective)"
+	},
+	"optionNavigationWarning": {
+		"message": "Warning: only change the configuration on this screen if you really know what you're doing ;)"
+	},
+	"optionDuplicate": {
+		"message": "Duplicate"
+	},
+	"optionReset": {
+		"message": "Reset"
+	},
+	"optionDelete": {
+		"message": "Delete"
+	},
+	"optionSave": {
+		"message": "Save"
+	},
 	"sideMenuMainBoard": {
 		"message": "Main board"
 	}

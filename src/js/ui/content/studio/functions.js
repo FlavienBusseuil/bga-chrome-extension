@@ -1,10 +1,9 @@
 import { render } from "preact";
 import Templates from './Templates';
 
-export const initDevelopperUI = () => {
+export const initDevelopperUI = (config) => {
   if (document.getElementById('last_reports') || document.getElementById('ext_templates')) {
     // display of reports list, or templates list already displayed, nothing to do
-    setTimeout(initDevelopperUI, 500);
     return;
   }
 
@@ -13,7 +12,7 @@ export const initDevelopperUI = () => {
 
   if (!butStatus || !reportArea || !reportArea.getBoundingClientRect().x) {
     console.log('[bga extension] page is loading...');
-    setTimeout(initDevelopperUI, 100);
+    setTimeout(() => initDevelopperUI(config), 100);
     return;
   }
 
@@ -31,8 +30,6 @@ export const initDevelopperUI = () => {
 
     console.log(`[bga extension] this is a report for '${gameName}'`);
 
-    render(<Templates gameName={gameName} />, container);
+    render(<Templates config={config} gameName={gameName} />, container);
   }
-
-  setTimeout(initDevelopperUI, 500);
 };

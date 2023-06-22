@@ -1,6 +1,7 @@
 import { initLeftMenu, buildLeftMenu, buildLeftMenuCss } from './leftMenu/functions';
 import { setFloatingRightMenu } from './rightMenu/functions';
 import { initDevelopperUI } from './studio/functions';
+import { initGameLobby, initGameListObserver } from './gameList/functions';
 import shouldFilter from '../../config/filteredLogs';
 
 const buildMainCss = () => {
@@ -140,4 +141,4 @@ const buildOptions = (config, gameName, gameConfig) => {
   buildOption(secondPrefTitle, displayActivityText, 'cde_activity_2', displayActivity, infobulleInput[0].text, infobulleInput[1].text, toggleFriendsActivity);
 };
 
-export { buildMainCss, initlogObserver, initLeftMenu, setFloatingRightMenu, initDevelopperUI, buildOptions };
+export { buildMainCss, initlogObserver, initLeftMenu, setFloatingRightMenu, initDevelopperUI, buildOptions, initGameLobby, initGameListObserver };

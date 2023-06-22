@@ -4,10 +4,9 @@ import { useEffect, useState } from "preact/hooks";
 import Configuration from "../../../config/configuration";
 import '../../../../css/studio.css';
 
-const config = new Configuration();
-
 interface TemplatesProps {
   gameName: string,
+  config: Configuration;
 }
 
 const Templates = (props: TemplatesProps) => {
@@ -16,12 +15,11 @@ const Templates = (props: TemplatesProps) => {
   const [templates, setTemplates] = useState < Template[] > ();
   const [jsonTemplates, setJsonTemplates] = useState < string > ();
   const [jsonError, setJsonError] = useState(false);
+  const { config, gameName } = props;
 
   useEffect(() => {
     try {
-      config.init().then(() => {
-        setTemplates(config.listTemplates());
-      });
+      setTemplates(config.listTemplates());
     }
     catch (error) { }
   }, []);
@@ -38,10 +36,10 @@ const Templates = (props: TemplatesProps) => {
     }
     setConfigMode(!configMode);
   }
-  const getTemplates = () => templates ? templates.filter(t => [props.gameName, 'all', undefined].includes(t.game)) : [];
+  const getTemplates = () => templates ? templates.filter(t => [gameName, 'all', undefined].includes(t.game)) : [];
 
   const addTemplate = () => {
-    setTemplates(config.addTemplate({ name: 'my sentence name', text: 'my sentence text', game: props.gameName }));
+    setTemplates(config.addTemplate({ name: 'my sentence name', text: 'my sentence text', game: gameName }));
   };
 
   const useTemplate = () => {
@@ -93,7 +91,7 @@ const Templates = (props: TemplatesProps) => {
             <textarea value={t.text} onChange={(evt) => updateTemplate(t.name, evt.target.value, t.game)} />
           </div>
           <div className='bgext_studio_sentence_game'>
-            <input type='checkbox' checked={t.game === 'all' || t.game === undefined} id={checkId} onChange={(evt) => updateTemplate(t.name, t.text, evt.target.checked ? 'all' : props.gameName)} />
+            <input type='checkbox' checked={t.game === 'all' || t.game === undefined} id={checkId} onChange={(evt) => updateTemplate(t.name, t.text, evt.target.checked ? 'all' : gameName)} />
             <label htmlFor={checkId}>all games</label>
           </div>
           <div className='bgext_studio_sentence_action'>

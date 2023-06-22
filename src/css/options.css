@@ -15,13 +15,76 @@ div.bgext_options_config_area {
   gap: 1em;
 }
 
+div.bgext_links_area {
+  display: flex;
+  flex-flow: row;
+  gap: 1em;
+  padding: 0.5em 0em 0em 2em;
+}
+
+div.bgext_link,
+div.bgext_link_selected {
+  line-height: 24px;
+  text-decoration: none;
+  padding: 0px 10px;
+  font-size: 0.875rem;
+  cursor: pointer;
+}
+
+div.bgext_link {
+  border-bottom: 3px solid transparent;
+  color: rgb(96, 107, 133);
+}
+
+div.bgext_link_selected {
+  border-bottom: 3px solid #0263e0;
+  color: #0263e0;
+}
+
 div.bgext_options_title {
-  width: 100%;
-  font-size: 2rem;
+  font-size: 1.5rem;
+  font-weight: bold;
   display: flex;
   align-items: center;
   justify-content: center;
-  padding-top: 1em;
+  border: 1px solid #aaaaaa;
+  box-sizing: border-box;
+  margin: 0em 1em;
+  line-height: 36px;
+}
+
+div.bgext_hidden_games_container {
+  max-height: 400px;
+  box-sizing: border-box;
+  border: 1px solid #aaaaaa;
+  margin: 0em 2em;
+  display: flex;
+  flex-flow: row wrap;
+  justify-content: start;
+  padding: 1em;
+}
+
+div.bgext_hidden_game {
+  position: relative;
+  margin-right: 5px;
+  margin-top: 5px;
+  font-size: 13px;
+  border: 1px solid #bcd1e1;
+  border-radius: 4px;
+  line-height: 30px;
+  color: #666666;
+  background: #cee7f9;
+  padding-left: 1em;
+  padding-right: 0.5em;
+  cursor: default;
+  height: 32px;
+  gap: 0.5em;
+  display: flex;
+}
+
+div.bgext_hidden_game_close {
+  font-weight: bold;
+  cursor: pointer;
 }
 
 div.bgext_options_container {
@@ -64,7 +127,7 @@ div.bgext_options_gameitem_selected {
 }
 
 div.bgext_options_gameitem_selected {
-  background: #c0c4d1;
+  background: #cee7f9;
 }
 
 div.bgext_options_gameconfig_container {
