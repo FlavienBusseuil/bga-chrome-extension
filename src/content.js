@@ -1,23 +1,36 @@
 import Configuration from './js/config/configuration';
 import { isNumber } from './js/utils/misc/isNumber';
 import { addLocationChangeListener } from './js/utils/misc/addLocationChangeListener';
-import { buildMainCss, initlogObserver, initLeftMenu, setFloatingRightMenu, initDevelopperUI, buildOptions, initGameLobby, initGameListObserver } from './js/ui/content/functions';
+import { buildMainCss, initlogObserver, initLeftMenu, setFloatingRightMenu, initDevelopperUI, buildOptions, initGameListObserver } from './js/ui/content/functions';
 
-const pageInfo = window.location.pathname.substring(1).split('/');
 const config = new Configuration();
+let currentObserver = null;
 
 buildMainCss();
+
+const initObserver = (page) => {
+  currentObserver = (page === 'game') ? initlogObserver(config) : initGameListObserver(config, page);
+  if (!currentObserver) {
+    setTimeout(() => initObserver(page), 500);
+  }
+}
 
 const manageLocationChange = (pathname) => {
   console.log('[bga extension] load path', pathname);
 
   const pageInfo = pathname.substring(1).split('/');
 
+  if (currentObserver) {
+    currentObserver.disconnect();
+    currentObserver = null;
+  }
+
   if (pageInfo.length >= 2 && isNumber(pageInfo[0])) {
+    initObserver('game');
+
     const gameName = pageInfo[1];
     const gameConfig = config.getGameConfig(gameName);
 
-    setTimeout(() => initlogObserver(config), 1000);
     if (config.isGlobalFloatingMenu() || config.isGameFloatingMenu(gameName)) {
       setFloatingRightMenu(gameConfig, true);
     }
@@ -31,11 +44,14 @@ const manageLocationChange = (pathname) => {
 
     initLeftMenu(gameConfig, config.isLeftMenuEnabled(gameName));
   } else if (pageInfo[0].startsWith('gamelist')) {
-    initGameListObserver(config);
+    initObserver('gamelist');
   } else if (pageInfo[0].startsWith('lobby')) {
-    initGameLobby(config);
+    initObserver('lobby');
   } else if (pageInfo[0].startsWith('bug')) {
+    initObserver('other');
     initDevelopperUI(config);
+  } else {
+    initObserver('other');
   }
 };
 

@@ -234,25 +234,26 @@ class Configuration {
   hideGame(name: string) {
     this._customConfig.hidden = [...this._customConfig.hidden.filter(g => g !== name), name];
     storageSet({ hidden: this._customConfig.hidden });
-    return this.getHiddenGames();
   }
 
   displayGame(name: string) {
     this._customConfig.hidden = [...this._customConfig.hidden.filter(g => g !== name)];
     storageSet({ hidden: this._customConfig.hidden });
-    return this.getHiddenGames();
   }
 
   getHiddenGames() {
     return this._customConfig.hidden.sort();
   }
 
-  getHiddenGamesListStyle() {
-    return this._customConfig.hidden.map(name => `div:has(> a[href="/gamepanel?game=${name}"]), div.bga-game-browser-carousel__block:has(> div > a[href="/gamepanel?game=${name}"]) { display: none; }`).join(' ');
-  }
-
-  getHiddenGamesLobbyStyle() {
-    return this._customConfig.hidden.map(name => `div.game_box_wrap:has(> div > div > div > a[href="/gamepanel?game=${name}"]) { display: none; }`).join(' ');
+  getHiddenGamesStyle(page: string) {
+    switch (page) {
+      case 'gamelist':
+        return this._customConfig.hidden.map(name => `div:has(> a[href="/gamepanel?game=${name}"]), div.bga-game-browser-carousel__block:has(> div > a[href="/gamepanel?game=${name}"]) { display: none; }`).join(' ');
+      case 'lobby':
+        return this._customConfig.hidden.map(name => `div:has(> a[href="/gamepanel?game=${name}"]), div.game_box_wrap:has(> div > div > div > a[href="/gamepanel?game=${name}"]) { display: none; }`).join(' ');
+      default:
+        return this._customConfig.hidden.map(name => `div:has(> a[href="/gamepanel?game=${name}"]) { display: none; }`).join(' ');
+    }
   }
 }
 

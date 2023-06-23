@@ -1,7 +1,7 @@
 import { initLeftMenu, buildLeftMenu, buildLeftMenuCss } from './leftMenu/functions';
 import { setFloatingRightMenu } from './rightMenu/functions';
 import { initDevelopperUI } from './studio/functions';
-import { initGameLobby, initGameListObserver } from './gameList/functions';
+import { initGameListObserver } from './gameList/functions';
 import shouldFilter from '../../config/filteredLogs';
 
 const buildMainCss = () => {
@@ -15,8 +15,7 @@ const initlogObserver = (config) => {
   const logsContainer = document.querySelector('#logs');
 
   if (!logsContainer) {
-    setTimeout(() => initlogObserver(config), 100);
-    return;
+    return null;
   }
 
   const observer = new MutationObserver(() => {
@@ -34,6 +33,8 @@ const initlogObserver = (config) => {
   });
 
   observer.observe(logsContainer, { childList: true, subtree: true });
+
+  return observer;
 };
 
 const buildOption = (title, text, inputId, inputValue, option1, option2, toggleFunc) => {
@@ -141,4 +142,4 @@ const buildOptions = (config, gameName, gameConfig) => {
   buildOption(secondPrefTitle, displayActivityText, 'cde_activity_2', displayActivity, infobulleInput[0].text, infobulleInput[1].text, toggleFriendsActivity);
 };
 
-export { buildMainCss, initlogObserver, initLeftMenu, setFloatingRightMenu, initDevelopperUI, buildOptions, initGameLobby, initGameListObserver };
+export { buildMainCss, initlogObserver, initLeftMenu, setFloatingRightMenu, initDevelopperUI, buildOptions, initGameListObserver };

@@ -13,27 +13,15 @@ const createHiddenGameStyle = (content) => {
   return style;
 };
 
-export const initGameLobby = (config) => {
-  const mainElt = document.querySelector('#main-content');
+export const initGameListObserver = (config, page) => {
+  const mainElt = document.querySelector('#overall-content');
 
   if (!mainElt) {
-    setTimeout(initGameLobby, 100);
-    return;
+    return null;
   }
 
-  createHiddenGameStyle(config.getHiddenGamesLobbyStyle());
-};
-
-export const initGameListObserver = (config) => {
-  const mainElt = document.querySelector('#main-content');
-
-  if (!mainElt) {
-    setTimeout(initGameListObserver, 100);
-    return;
-  }
-
-  const style = createHiddenGameStyle(config.getHiddenGamesListStyle());
-  const updateHiddenGameStyle = () => style.innerHTML = config.getHiddenGamesListStyle();
+  const style = createHiddenGameStyle(config.getHiddenGamesStyle(page));
+  const updateHiddenGameStyle = () => style.innerHTML = config.getHiddenGamesStyle(page);
 
   const hideGame = (name) => {
     config.hideGame(name);
@@ -63,4 +51,6 @@ export const initGameListObserver = (config) => {
   });
 
   observer.observe(mainElt, { childList: true, subtree: true });
+
+  return observer;
 };
