@@ -16,8 +16,8 @@ async function fetchGlobalTranslations({
 	return fetch(
 		`${assetsUrl}/js/modules/nls/lang_mainsite-${jsBundleVersion}.js`,
 	)
-		.then(response => response.text())
-		.then(text => {
+		.then((response) => response.text())
+		.then((text) => {
 			const [, translations] =
 				text
 					// Remove \ followed with a linebreak
@@ -37,8 +37,8 @@ async function fetchLocalizedTranslations({
 	return fetch(
 		`${assetsUrl}js/modules/nls/${lang}/lang_mainsite-${jsBundleVersion}.js`,
 	)
-		.then(response => response.text())
-		.then(text => {
+		.then((response) => response.text())
+		.then((text) => {
 			const [, translations] =
 				text
 					// Remove \ followed with a linebreak

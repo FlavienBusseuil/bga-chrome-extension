@@ -1,29 +1,29 @@
 div.bgext_avatar {
-  width: 32px;
-  height: 32px;
-  border-radius: 25px;
-  overflow: hidden;
-  box-sizing: content-box;
-  z-index: 2;
+	width: 32px;
+	height: 32px;
+	border-radius: 25px;
+	overflow: hidden;
+	box-sizing: content-box;
+	z-index: 2;
 }
 
 div.bgext_player_name {
-  border-radius: 25px;
-  height: 32px;
-  line-height: 32px;
-  font-weight: bold;
-  position: relative;
-  left: -32px;
-  z-index: 1;
-  box-sizing: content-box;
-  overflow: hidden;
-  transition: all .3s linear;
+	border-radius: 25px;
+	height: 32px;
+	line-height: 32px;
+	font-weight: bold;
+	position: relative;
+	left: -32px;
+	z-index: 1;
+	box-sizing: content-box;
+	overflow: hidden;
+	transition: all 0.3s linear;
 }
 
 div.bgext_side_menu_item {
-  height: 36px;
-  overflow: visible;
-  cursor: pointer;
-  display: flex;
-  flex-flow: row;
+	height: 36px;
+	overflow: visible;
+	cursor: pointer;
+	display: flex;
+	flex-flow: row;
 }

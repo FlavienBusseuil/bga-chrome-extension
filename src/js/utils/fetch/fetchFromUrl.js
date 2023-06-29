@@ -16,10 +16,10 @@ export async function fetchFromUrl<D>(
 	}
 
 	return fetch(url, { headers })
-		.catch(error => {
+		.catch((error) => {
 			throw new Error(
 				`Fetching ${url} failed. Please try again. (${error})`,
 			);
 		})
-		.then(response => response.json());
+		.then((response) => response.json());
 }

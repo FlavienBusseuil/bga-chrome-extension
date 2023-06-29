@@ -2,7 +2,7 @@
 
 #### Bug Fixes
 
-- [**bug**] Handle missing creator user in players [#18](https://github.com/FlavienBusseuil/bga-chrome-extension/issues/18)
+-   [**bug**] Handle missing creator user in players [#18](https://github.com/FlavienBusseuil/bga-chrome-extension/issues/18)
 
 ---
 
@@ -10,7 +10,7 @@
 
 #### Enhancements
 
-- [**enhancement**] Highlight tables that are open and waiting players [#6](https://github.com/FlavienBusseuil/bga-chrome-extension/issues/6)
+-   [**enhancement**] Highlight tables that are open and waiting players [#6](https://github.com/FlavienBusseuil/bga-chrome-extension/issues/6)
 
 ---
 
@@ -18,7 +18,7 @@
 
 #### Bug Fixes
 
-- [**bug**] Crash when they are game with pending invites [#5](https://github.com/FlavienBusseuil/bga-chrome-extension/issues/5)
+-   [**bug**] Crash when they are game with pending invites [#5](https://github.com/FlavienBusseuil/bga-chrome-extension/issues/5)
 
 ---
 
@@ -26,7 +26,7 @@
 
 #### Chore
 
-- [**chore**] Automate release build package, tags and notes [#4](https://github.com/FlavienBusseuil/bga-chrome-extension/issues/4)
+-   [**chore**] Automate release build package, tags and notes [#4](https://github.com/FlavienBusseuil/bga-chrome-extension/issues/4)
 
 ---
 
@@ -34,9 +34,9 @@
 
 #### Enhancements
 
-- [**enhancement**] Add fixtures [#3](https://github.com/FlavienBusseuil/bga-chrome-extension/issues/3)
-- [**enhancement**] Change styling for idling games [#2](https://github.com/FlavienBusseuil/bga-chrome-extension/issues/2)
-- [**enhancement**] Bubble up error message [#1](https://github.com/FlavienBusseuil/bga-chrome-extension/issues/1)
+-   [**enhancement**] Add fixtures [#3](https://github.com/FlavienBusseuil/bga-chrome-extension/issues/3)
+-   [**enhancement**] Change styling for idling games [#2](https://github.com/FlavienBusseuil/bga-chrome-extension/issues/2)
+-   [**enhancement**] Bubble up error message [#1](https://github.com/FlavienBusseuil/bga-chrome-extension/issues/1)
 
 ---
 

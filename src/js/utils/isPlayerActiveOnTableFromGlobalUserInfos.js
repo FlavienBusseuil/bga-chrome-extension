@@ -16,6 +16,6 @@ export function isPlayerActiveOnTableFromGlobalUserInfos({
 	globalUserInfos,
 }: Input): boolean {
 	return !!globalUserInfos.async_status[String(tableId)]?.actives?.find(
-		id => id === playerId,
+		(id) => id === playerId,
 	);
 }

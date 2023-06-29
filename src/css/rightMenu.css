@@ -1,9 +1,9 @@
 div.bgext_right_menu {
-  display: flex;
-  flex-flow: row;
-  gap: 0.3em;
-  margin-left: 10px;
-  float: right;
-  position: relative;
-  top: 2px;
+	display: flex;
+	flex-flow: row;
+	gap: 0.3em;
+	margin-left: 10px;
+	float: right;
+	position: relative;
+	top: 2px;
 }

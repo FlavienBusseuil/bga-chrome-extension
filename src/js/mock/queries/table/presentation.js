@@ -408,33 +408,28 @@ export const presentation: {
 							shortname: "Temps r\u00e9el \u2022 Lent",
 						},
 						"5": {
-							name:
-								"Temps r\u00e9el \u2022 Limit\u00e9 dans le temps",
+							name: "Temps r\u00e9el \u2022 Limit\u00e9 dans le temps",
 							no_player_selection: true,
 							shortname: "Temps r\u00e9el",
 						},
 						"9": {
-							name:
-								"Sans limite de temps \u2022 recommand\u00e9 uniquement entre amis",
+							name: "Sans limite de temps \u2022 recommand\u00e9 uniquement entre amis",
 							no_player_selection: true,
 							shortname:
 								"Sans limite de temps \u2022 recommand\u00e9 uniquement entre amis",
 						},
 						"10": {
-							name:
-								"Tour par tour rapide \u2022 24 coups par jour",
+							name: "Tour par tour rapide \u2022 24 coups par jour",
 							shortname:
 								"Tour par tour rapide \u2022 24 coups par jour",
 						},
 						"11": {
-							name:
-								"Tour par tour rapide \u2022 12 coups par jour",
+							name: "Tour par tour rapide \u2022 12 coups par jour",
 							shortname:
 								"Tour par tour rapide \u2022 12 coups par jour",
 						},
 						"12": {
-							name:
-								"Tour par tour rapide \u2022 8 coups par jour",
+							name: "Tour par tour rapide \u2022 8 coups par jour",
 							shortname:
 								"Tour par tour rapide \u2022 8 coups par jour",
 						},
@@ -455,20 +450,17 @@ export const presentation: {
 							shortname: "Tour par tour \u2022 1 coup par jour",
 						},
 						"19": {
-							name:
-								"Tour par tour \u2022 1 coup tous les deux jours",
+							name: "Tour par tour \u2022 1 coup tous les deux jours",
 							shortname:
 								"Tour par tour \u2022 1 coup tous les deux jours",
 						},
 						"20": {
-							name:
-								"Sans limite de temps \u2022 recommand\u00e9 uniquement entre amis",
+							name: "Sans limite de temps \u2022 recommand\u00e9 uniquement entre amis",
 							shortname:
 								"Sans limite de temps \u2022 recommand\u00e9 uniquement entre amis",
 						},
 						"21": {
-							name:
-								"Tour par tour \u2022 Temps limit\u00e9 fix\u00e9",
+							name: "Tour par tour \u2022 Temps limit\u00e9 fix\u00e9",
 							no_player_selection: true,
 							shortname: "Tour par tour",
 						},
@@ -812,33 +804,28 @@ export const presentation: {
 							shortname: "Temps r\u00e9el \u2022 Lent",
 						},
 						"5": {
-							name:
-								"Temps r\u00e9el \u2022 Limit\u00e9 dans le temps",
+							name: "Temps r\u00e9el \u2022 Limit\u00e9 dans le temps",
 							no_player_selection: true,
 							shortname: "Temps r\u00e9el",
 						},
 						"9": {
-							name:
-								"Sans limite de temps \u2022 recommand\u00e9 uniquement entre amis",
+							name: "Sans limite de temps \u2022 recommand\u00e9 uniquement entre amis",
 							no_player_selection: true,
 							shortname:
 								"Sans limite de temps \u2022 recommand\u00e9 uniquement entre amis",
 						},
 						"10": {
-							name:
-								"Tour par tour rapide \u2022 24 coups par jour",
+							name: "Tour par tour rapide \u2022 24 coups par jour",
 							shortname:
 								"Tour par tour rapide \u2022 24 coups par jour",
 						},
 						"11": {
-							name:
-								"Tour par tour rapide \u2022 12 coups par jour",
+							name: "Tour par tour rapide \u2022 12 coups par jour",
 							shortname:
 								"Tour par tour rapide \u2022 12 coups par jour",
 						},
 						"12": {
-							name:
-								"Tour par tour rapide \u2022 8 coups par jour",
+							name: "Tour par tour rapide \u2022 8 coups par jour",
 							shortname:
 								"Tour par tour rapide \u2022 8 coups par jour",
 						},
@@ -859,20 +846,17 @@ export const presentation: {
 							shortname: "Tour par tour \u2022 1 coup par jour",
 						},
 						"19": {
-							name:
-								"Tour par tour \u2022 1 coup tous les deux jours",
+							name: "Tour par tour \u2022 1 coup tous les deux jours",
 							shortname:
 								"Tour par tour \u2022 1 coup tous les deux jours",
 						},
 						"20": {
-							name:
-								"Sans limite de temps \u2022 recommand\u00e9 uniquement entre amis",
+							name: "Sans limite de temps \u2022 recommand\u00e9 uniquement entre amis",
 							shortname:
 								"Sans limite de temps \u2022 recommand\u00e9 uniquement entre amis",
 						},
 						"21": {
-							name:
-								"Tour par tour \u2022 Temps limit\u00e9 fix\u00e9",
+							name: "Tour par tour \u2022 Temps limit\u00e9 fix\u00e9",
 							no_player_selection: true,
 							shortname: "Tour par tour",
 						},

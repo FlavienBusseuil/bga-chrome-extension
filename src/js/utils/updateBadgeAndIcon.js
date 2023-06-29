@@ -45,7 +45,7 @@ export async function updateBadgeAndIcon({
 			"img/anim-5.png",
 			"img/anim-6.png",
 			"img/icon-48.png",
-		].map(path => ({ path, timeframe: 75 }));
+		].map((path) => ({ path, timeframe: 75 }));
 		await animate({ images });
 	}
 

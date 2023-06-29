@@ -69,7 +69,7 @@ export function App(): React$Node {
 				<Tab
 					k="tables"
 					isActive={activeTab === "tables"}
-					onClick={k => setActiveTab(k)}
+					onClick={(k) => setActiveTab(k)}
 				>
 					<span className="mr-2">🎲</span>
 					{chrome.i18n.getMessage("tables")} ({sortedTables.length})
@@ -77,7 +77,7 @@ export function App(): React$Node {
 				<Tab
 					k="tournaments"
 					isActive={activeTab === "tournaments"}
-					onClick={k => setActiveTab(k)}
+					onClick={(k) => setActiveTab(k)}
 				>
 					<span className="mr-2">🏆</span>
 					{chrome.i18n.getMessage("tournaments")} (
