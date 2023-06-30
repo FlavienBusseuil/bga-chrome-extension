@@ -1,4 +1,4 @@
-// @flow
+import React from "preact";
 import { useState } from "preact/hooks";
 import fontColorContrast from "font-color-contrast";
 import rgbHex from "rgb-hex";
@@ -9,7 +9,7 @@ import SideMenuItem from "./SideMenuItem";
 import PlayerName from "./PlayerName";
 import { Player, getPlayerPanelId } from "./player";
 import BoardIcon from "./icons/BoardIcon";
-import BottomArrowIcon from "./Icons/BottomArrowIcon";
+import BottomArrowIcon from "./icons/BottomArrowIcon";
 
 interface PlayerIconProps {
 	player: Player;
@@ -32,11 +32,16 @@ const PlayerIcon = (props: PlayerIconProps) => {
 		return gameConfig.bottomPanelOffset || 0;
 	};
 
+	const isTouchEnabled = () => {
+		return ('ontouchstart' in window) || (navigator.maxTouchPoints > 0) || ((navigator as any).msMaxTouchPoints > 0);
+	}
+
 	const scrollToPlayer = () => {
 		const element = document.getElementById(eltId);
 		const titleBar = document.getElementById("page-title");
 		const topBar = document.getElementById("topbar");
-		let zoom = (document.getElementById("page-content")?.style).zoom || 1;
+		const pageContent = document.getElementById("page-content");
+		let zoom = pageContent ? (getComputedStyle(pageContent) as any).zoom || 1 : 1;
 		let customZoom = 1;
 
 		if (!Number(zoom)) {
@@ -45,10 +50,11 @@ const PlayerIcon = (props: PlayerIconProps) => {
 
 		try {
 			if (gameConfig.customZoomContainer) {
-				customZoom =
-					getComputedStyle(
-						document.getElementById(gameConfig.customZoomContainer),
-					).zoom || 1;
+				const customZoomDiv = document.getElementById(gameConfig.customZoomContainer);
+
+				if (customZoomDiv) {
+					customZoom = (getComputedStyle(customZoomDiv) as any).zoom || 1;
+				}
 			}
 		} catch (error) {
 			console.error("[bga extension] Error getting custom zoom", error);
@@ -60,10 +66,9 @@ const PlayerIcon = (props: PlayerIconProps) => {
 
 		const currentPos = window.scrollY;
 		const minTop = topBar.getBoundingClientRect().height + 20;
+
 		if (currentPos < minTop) {
-			window.scrollTo({
-				top: topBar.getBoundingClientRect().height + 20,
-			});
+			window.scrollTo({ top: minTop + 10 });
 			setTimeout(scrollToPlayer, 50);
 			return;
 		}
@@ -79,16 +84,20 @@ const PlayerIcon = (props: PlayerIconProps) => {
 				((element.getBoundingClientRect().top - decTitleBar) *
 					customZoom -
 					getOffset() / customZoom) *
-					zoom -
+				zoom -
 				document.body.getBoundingClientRect().top,
 		});
+
+		if (isTouchEnabled()) {
+			setTimeout(() => setOver(false), 2000);
+		}
 	};
 
 	const getTextColor = (playerColor: string | undefined) => {
 		if (playerColor) {
 			try {
 				return fontColorContrast(rgbHex(playerColor));
-			} catch (error) {}
+			} catch (error) { }
 		}
 
 		return "#000000";
@@ -120,7 +129,7 @@ const PlayerIcon = (props: PlayerIconProps) => {
 				borderColor={gameConfig.iconBorder}
 				shadowColor={gameConfig.iconShadow}
 				textColor={getTextColor(player.color)}
-				hover={player.name && over}
+				hover={!!player.name && over}
 			>
 				{player.name}
 			</PlayerName>

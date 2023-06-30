@@ -37,7 +37,7 @@ export const initGameListObserver = (config, page) => {
 		buttons.forEach((but) => {
 			const container = but.parentNode;
 
-			if (!container.lastChild.classList.contains("bgabutton_red")) {
+			if (!but.classList.contains('bgabutton_medium') && !container.lastChild.classList.contains('bgabutton_red')) {
 				but.style.minWidth = "100px";
 				container.style.boxShadow = "none";
 

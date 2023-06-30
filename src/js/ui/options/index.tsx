@@ -1,4 +1,4 @@
-// @flow
+import React from "preact";
 import { useEffect, useState } from "preact/hooks";
 
 import Configuration, { Game } from "../../config/configuration";

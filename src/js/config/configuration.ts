@@ -1,6 +1,6 @@
 import equal from "fast-deep-equal";
 import defaultGames from "./defaultGames";
-import { storageClear, storageGet, storageSet } from "../utils/storage";
+import { addChangeListener, storageClear, storageGet, storageSet } from "../utils/storage";
 
 export interface Game {
 	name: string;
@@ -38,7 +38,8 @@ interface CustomConfig {
 	onlineMessages?: boolean;
 	floatingRightMenu?: boolean;
 	devTemplates?: Template[];
-}
+	hideGeneralChat?: boolean;
+};
 
 class Configuration {
 	_defConfig: { games: Game[] };
@@ -89,6 +90,13 @@ class Configuration {
 			this._customConfig.floating = [];
 		}
 		this.merge();
+
+		addChangeListener((changes: any) => {
+			for (let [key, { newValue }] of Object.entries(changes) as any) {
+				this._customConfig[key] = newValue;
+				document.dispatchEvent(new CustomEvent('bga_ext_update_config', { detail: { key } }));
+			}
+		});
 	}
 
 	private merge() {
@@ -300,6 +308,26 @@ class Configuration {
 					)
 					.join(" ");
 		}
+	}
+
+	isGeneralChatHidden() {
+		return !!this._customConfig.hideGeneralChat;
+	}
+
+	setGeneralChatHidden(val: boolean) {
+		this._customConfig.hideGeneralChat = val;
+		storageSet({ hideGeneralChat: val });
+	}
+
+	toggleGeneralChatHidden() {
+		this.setGeneralChatHidden(!this._customConfig.hideGeneralChat);
+	}
+
+	getChatStyle() {
+		if (this._customConfig.hideGeneralChat) {
+			return '#bga_extension_chat_icon { color: #c4c4c4; } #chatwindow_general { display: none !important; }';
+		}
+		return '#bga_extension_chat_icon { color: #01c4ca; } #chatwindow_general { display: inline-block !important; }';
 	}
 }
 

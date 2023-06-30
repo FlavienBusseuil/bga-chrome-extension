@@ -9,3 +9,7 @@ export const storageSet = async (val) => {
 export const storageClear = async () => {
 	await chrome.storage.sync.clear();
 };
+
+export const addChangeListener = (func) => {
+	chrome.storage.onChanged.addListener(func);
+}

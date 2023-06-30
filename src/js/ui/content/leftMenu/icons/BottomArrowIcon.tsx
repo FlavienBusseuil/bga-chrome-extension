@@ -1,9 +1,9 @@
-// @flow
+import React from "preact";
 
 const TopArrowIcon = () => {
 	return (
 		<svg width="32" height="32" viewBox="-60 0 640 540">
-			<g transform="translate(0,-540.3622)">
+			<g transform="rotate(180) translate(-520,-1080)">
 				<path
 					fill="#222222"
 					stroke="#222222"

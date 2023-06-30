@@ -1,4 +1,4 @@
-// @flow
+import React from "preact";
 import { useState, useEffect } from "preact/hooks";
 
 import { Game } from "../../../config/configuration";
@@ -117,14 +117,18 @@ const SideMenu = (props: SideMenuProps) => {
 		});
 
 		if (gameConfig.boardPanel) {
-			toSort.push({
-				id: gameConfig.boardPanel,
-				index: -1,
-				pos:
-					document
-						.getElementById(gameConfig.boardPanel)
-						?.getBoundingClientRect().top || 0,
-			});
+			const boardPos = document.getElementById(gameConfig.boardPanel)?.getBoundingClientRect().top || 0;
+
+			if (window.scrollY + boardPos > 200) {
+				toSort.push({
+					id: gameConfig.boardPanel,
+					index: -1,
+					pos:
+						document
+							.getElementById(gameConfig.boardPanel)
+							?.getBoundingClientRect().top || 0,
+				});
+			}
 		}
 
 		if (gameConfig.bottomPanel) {
@@ -144,8 +148,8 @@ const SideMenu = (props: SideMenuProps) => {
 					? -1
 					: 1
 				: a.pos < b.pos
-				? -1
-				: 1,
+					? -1
+					: 1,
 		);
 		setButtonsOrder(toSort.map((a) => a.id).join("|"));
 	};

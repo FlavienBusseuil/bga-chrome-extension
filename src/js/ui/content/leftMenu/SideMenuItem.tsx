@@ -1,7 +1,9 @@
-// @flow
+
+import React from "preact";
+
 interface SideMenuItemProps {
 	onClick: () => void;
-	children: React$Element;
+	children: React.ComponentChildren;
 }
 
 const SideMenuItem = (props: SideMenuItemProps) => {

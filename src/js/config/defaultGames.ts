@@ -54,7 +54,7 @@ const defaultGames: Partial<Game>[] = [
 	{
 		name: "amerigo",
 		playerPanel: "playersection_{{player_id}}",
-		css: "#playersections { padding-left: 50px; }",
+		boardPanel: "tower_storageboard",
 	},
 	{
 		name: "agricola",

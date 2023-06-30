@@ -1,4 +1,4 @@
-// @flow
+import React from "preact";
 import { useEffect, useState } from "preact/hooks";
 
 import Configuration from "../../../config/configuration";
@@ -20,7 +20,7 @@ const Templates = (props: TemplatesProps) => {
 	useEffect(() => {
 		try {
 			setTemplates(config.listTemplates());
-		} catch (error) {}
+		} catch (error) { }
 	}, []);
 
 	useEffect(
@@ -44,8 +44,8 @@ const Templates = (props: TemplatesProps) => {
 	const getTemplates = () =>
 		templates
 			? templates.filter((t) =>
-					[gameName, "all", undefined].includes(t.game),
-			  )
+				[gameName, "all", undefined].includes(t.game),
+			)
 			: [];
 
 	const addTemplate = () => {
@@ -67,9 +67,8 @@ const Templates = (props: TemplatesProps) => {
 			const selectionEnd = textArea.selectionEnd;
 			const text = textArea.value;
 
-			const newText = `${text.substring(0, selectionStart)}${
-				templateInput.value
-			}${text.substring(selectionEnd)}`;
+			const newText = `${text.substring(0, selectionStart)}${templateInput.value
+				}${text.substring(selectionEnd)}`;
 			textArea.value = newText;
 		}
 	};

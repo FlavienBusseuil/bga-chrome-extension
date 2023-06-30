@@ -1,4 +1,4 @@
-import { render } from "preact";
+import React, { render } from "preact";
 import RightMenu from "./RightMenu";
 
 export const setFloatingRightMenu = (gameConfig, val) => {

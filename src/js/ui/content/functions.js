@@ -219,6 +219,46 @@ const buildOptions = (config, gameName, gameConfig) => {
 	);
 };
 
+const initChatIcon = (config) => {
+	const chatIconId = 'bga_extension_chat_icon';
+	const friendsElt = document.querySelector('.bga-friends-icon');
+
+	if (!friendsElt) {
+		setTimeout(() => initChatIcon(config), 100);
+		return;
+	}
+
+	const container = friendsElt.parentNode;
+
+	if (!document.getElementById(chatIconId)) {
+		const chatElt = document.createElement('div');
+		chatElt.id = chatIconId;
+		chatElt.innerHTML = '<i class="fa fa-comments" style="font-size: 32px; cursor: pointer;"></i>';
+		chatElt.onclick = () => config.toggleGeneralChatHidden();
+		container.parentNode.insertBefore(chatElt, container);
+
+		const sepElt = document.createElement('div');
+		sepElt.className = 'ml-1 tablet:ml-6';
+		container.parentNode.insertBefore(sepElt, container);
+
+		setChatStyle(config);
+	}
+};
+
+const setChatStyle = (config) => {
+	const chatStyleId = 'cde-chat-style';
+
+	let style = document.getElementById(chatStyleId);
+
+	if (!style) {
+		style = document.createElement('style');
+		style.id = chatStyleId;
+		document.head.appendChild(style);
+	}
+
+	style.innerHTML = config.getChatStyle();
+};
+
 export {
 	buildMainCss,
 	initlogObserver,
@@ -227,4 +267,6 @@ export {
 	initDevelopperUI,
 	buildOptions,
 	initGameListObserver,
+	initChatIcon,
+	setChatStyle
 };

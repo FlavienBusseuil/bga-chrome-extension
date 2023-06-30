@@ -1,4 +1,4 @@
-import { render } from "preact";
+import React, { render } from "preact";
 import Templates from "./Templates";
 
 export const initDevelopperUI = (config) => {

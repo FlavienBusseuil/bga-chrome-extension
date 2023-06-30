@@ -1,4 +1,4 @@
-// @flow
+import React from "preact";
 
 const BoardIcon = () => {
 	return (

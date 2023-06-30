@@ -9,6 +9,8 @@ import {
 	initDevelopperUI,
 	buildOptions,
 	initGameListObserver,
+	initChatIcon,
+	setChatStyle
 } from "./js/ui/content/functions";
 
 const config = new Configuration();
@@ -59,15 +61,19 @@ const manageLocationChange = (pathname) => {
 		}
 
 		initLeftMenu(gameConfig, config.isLeftMenuEnabled(gameName));
-	} else if (pageInfo[0].startsWith("gamelist")) {
-		initObserver("gamelist");
-	} else if (pageInfo[0].startsWith("lobby")) {
-		initObserver("lobby");
-	} else if (pageInfo[0].startsWith("bug")) {
-		initObserver("other");
-		initDevelopperUI(config);
 	} else {
-		initObserver("other");
+		initChatIcon(config);
+
+		if (pageInfo[0].startsWith("gamelist")) {
+			initObserver("gamelist");
+		} else if (pageInfo[0].startsWith("lobby")) {
+			initObserver("lobby");
+		} else if (pageInfo[0].startsWith("bug")) {
+			initObserver("other");
+			initDevelopperUI(config);
+		} else {
+			initObserver("other");
+		}
 	}
 };
 
@@ -89,4 +95,10 @@ document.addEventListener("bga_ext_set_config", function (e) {
 	);
 	config.import(JSON.parse(jsonData));
 	!config.isEmpty() && location.reload();
+});
+
+document.addEventListener("bga_ext_update_config", (data) => {
+	if (data.detail.key === "hideGeneralChat") {
+		setChatStyle(config);
+	}
 });

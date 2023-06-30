@@ -1,6 +1,4 @@
-// @flow
-
-import { render } from "preact";
+import React, { render } from "preact";
 import Options from "./ui/options";
 import Configuration from "./config/configuration";
 

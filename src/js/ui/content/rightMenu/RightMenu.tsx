@@ -1,4 +1,4 @@
-// @flow
+import React from "preact";
 import { useEffect, useState } from "preact/hooks";
 import "../../../../css/rightMenu.css";
 
@@ -35,7 +35,7 @@ const RightMenu = () => {
 			} else if (eltId === "cde-floating-menu-score") {
 				toggleScoreVisible();
 			}
-		} catch (error) {}
+		} catch (error) { }
 	};
 
 	useEffect(() => {

@@ -1,6 +1,4 @@
-// @flow
-
-import { render } from "preact";
+import React, { render } from "preact";
 import { App } from "./ui/App";
 
 document.addEventListener("DOMContentLoaded", () => {

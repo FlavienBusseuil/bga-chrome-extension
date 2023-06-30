@@ -1,11 +1,12 @@
-// @flow
+import React from "preact";
+
 interface AvatarProps {
 	backColor: string;
 	borderColor: string;
 	shadowColor: string;
 	onMouseOver?: () => void;
 	onMouseOut?: () => void;
-	children: React$Element;
+	children: React.ComponentChildren;
 }
 
 const Avatar = (props: AvatarProps) => {

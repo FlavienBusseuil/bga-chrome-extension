@@ -1,11 +1,12 @@
-// @flow
+import React from "preact";
+
 interface PlayerNameProps {
 	backColor: string;
 	borderColor: string;
 	shadowColor: string;
 	textColor: string;
 	hover: boolean;
-	children: React$Element;
+	children: React.ComponentChildren;
 }
 
 const PlayerName = (props: PlayerNameProps) => {
