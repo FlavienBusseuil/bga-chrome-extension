@@ -3,8 +3,8 @@ const colors = require("tailwindcss/colors");
 module.exports = {
 	content: [
 		"./src/popup.html",
-		"./src/options.html",
 		"./src/js/**/*.{js,jsx}",
+		"!./src/js/ui/content/**/*.{js,jsx}",
 	],
 	theme: {
 		extend: {
