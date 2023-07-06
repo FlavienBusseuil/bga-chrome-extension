@@ -1,46 +1,52 @@
 {
-  "manifest_version": 3,
-  "name": "BGA Chrome Extension",
-  "version": "1.6.6",
-  "action": {
-    "default_popup": "popup.html"
-  },
-  "default_locale": "en",
-  "description": "__MSG_ext_description__",
-  "icons": {
-    "16": "img/icon-16.png",
-    "48": "img/icon-48.png",
-    "128": "img/icon-128.png"
-  },
-  "author": "Flavien Busseuil",
-  "homepage_url": "https://github.com/FlavienBusseuil/bga-chrome-extension",
-  "background": {
-    "service_worker": "background.js",
-    "type": "module"
-  },
-  "content_security_policy": {
-    "extension_pages": "script-src 'self'; object-src 'self'"
-  },
-  "host_permissions": [
-    "https://*.boardgamearena.com/*/*"
-  ],
-  "permissions": [
-    "alarms"
-  ],
-  "web_accessible_resources": [
-    {
-      "resources": [
-        "img/anim-0.png",
-        "img/anim-1.png",
-        "img/anim-2.png",
-        "img/anim-3.png",
-        "img/anim-4.png",
-        "img/anim-5.png",
-        "img/anim-6.png",
-        "img/loading.gif",
-        "img/icon-48.png"
-      ],
-      "matches": []
-    }
-  ]
+	"manifest_version": 3,
+	"name": "BGA Chrome Extension",
+	"version": "1.6.6",
+	"action": {
+		"default_popup": "popup.html"
+	},
+	"options_ui": {
+		"page": "options.html"
+	},
+	"default_locale": "en",
+	"description": "__MSG_ext_description__",
+	"icons": {
+		"16": "img/icon-16.png",
+		"48": "img/icon-48.png",
+		"128": "img/icon-128.png"
+	},
+	"content_scripts": [
+		{
+			"matches": ["https://boardgamearena.com/*"],
+			"run_at": "document_idle",
+			"js": ["content.js"]
+		}
+	],
+	"author": "Flavien Busseuil",
+	"homepage_url": "https://github.com/FlavienBusseuil/bga-chrome-extension",
+	"background": {
+		"service_worker": "background.js",
+		"type": "module"
+	},
+	"content_security_policy": {
+		"extension_pages": "script-src 'self'; object-src 'self'"
+	},
+	"host_permissions": ["https://*.boardgamearena.com/*/*"],
+	"permissions": ["alarms", "storage"],
+	"web_accessible_resources": [
+		{
+			"resources": [
+				"img/anim-0.png",
+				"img/anim-1.png",
+				"img/anim-2.png",
+				"img/anim-3.png",
+				"img/anim-4.png",
+				"img/anim-5.png",
+				"img/anim-6.png",
+				"img/loading.gif",
+				"img/icon-48.png"
+			],
+			"matches": []
+		}
+	]
 }

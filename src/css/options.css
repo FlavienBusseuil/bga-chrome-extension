@@ -1,0 +1,154 @@
+div.bgext_options_main {
+	width: 100%;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+}
+
+div.bgext_options_config_area {
+	border: 1px solid #aaaaaa;
+	border-radius: 8px;
+	width: 860px;
+	height: 540px;
+	display: flex;
+	flex-flow: column;
+	gap: 1em;
+}
+
+div.bgext_links_area {
+	display: flex;
+	flex-flow: row;
+	gap: 1em;
+	padding: 0.5em 0em 0em 2em;
+}
+
+div.bgext_link,
+div.bgext_link_selected {
+	line-height: 24px;
+	text-decoration: none;
+	padding: 0px 10px;
+	font-size: 0.875rem;
+	cursor: pointer;
+}
+
+div.bgext_link {
+	border-bottom: 3px solid transparent;
+	color: rgb(96, 107, 133);
+}
+
+div.bgext_link_selected {
+	border-bottom: 3px solid #0263e0;
+	color: #0263e0;
+}
+
+div.bgext_options_title {
+	font-size: 1.5rem;
+	font-weight: bold;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	border: 1px solid #aaaaaa;
+	box-sizing: border-box;
+	margin: 0em 1em;
+	line-height: 36px;
+}
+
+div.bgext_hidden_games_container {
+	max-height: 400px;
+	box-sizing: border-box;
+	border: 1px solid #aaaaaa;
+	margin: 0em 2em;
+	display: flex;
+	flex-flow: row wrap;
+	justify-content: start;
+	padding: 1em;
+}
+
+div.bgext_hidden_game {
+	position: relative;
+	margin-right: 5px;
+	margin-top: 5px;
+	font-size: 13px;
+	border: 1px solid #bcd1e1;
+	border-radius: 4px;
+	line-height: 30px;
+	color: #666666;
+	background: #cee7f9;
+	padding-left: 1em;
+	padding-right: 0.5em;
+	cursor: default;
+	height: 32px;
+	gap: 0.5em;
+	display: flex;
+}
+
+div.bgext_hidden_game_close {
+	font-weight: bold;
+	cursor: pointer;
+}
+
+div.bgext_options_container {
+	display: flex;
+	flex-flow: row;
+	gap: 1em;
+	justify-content: center;
+}
+
+div.bgext_options_col_container {
+	display: flex;
+	flex-flow: column;
+	align-items: flex-end;
+	gap: 0.5em;
+}
+
+div.bgext_options_row_container {
+	display: flex;
+	flex-flow: row;
+	gap: 0.5em;
+}
+
+div.bgext_options_gamelist_container {
+	width: 200px;
+	height: 380px;
+	border: 1px solid #aaaaaa;
+	overflow: auto;
+}
+
+div.bgext_options_gamelist {
+	display: flex;
+	flex-flow: column;
+}
+
+div.bgext_options_gameitem,
+div.bgext_options_gameitem_selected {
+	line-height: 24px;
+	padding-left: 1em;
+	cursor: pointer;
+}
+
+div.bgext_options_gameitem_selected {
+	background: #cee7f9;
+}
+
+div.bgext_options_gameconfig_container {
+	width: 600px;
+	height: 380px;
+	border: 1px solid #aaaaaa;
+	box-sizing: border-box;
+	overflow: hidden;
+	padding: 1em;
+}
+
+textarea.bgext_options_input {
+	width: 100%;
+	height: 100%;
+	border: none;
+	resize: none;
+	box-shadow: none !important;
+	outline: none !important;
+}
+
+div.bgext_options_warning {
+	padding-right: 2em;
+	text-align: right;
+}

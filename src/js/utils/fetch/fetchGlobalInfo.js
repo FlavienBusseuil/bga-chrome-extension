@@ -10,8 +10,8 @@ export async function fetchGlobalInfo(): Promise<{
 	jsBundleVersion: string,
 }> {
 	return fetch(`${bgaUrl}/gameinprogress`)
-		.then(response => response.text())
-		.then(text => {
+		.then((response) => response.text())
+		.then((text) => {
 			const [, assetsUrl] = text.match(/g_themeurl\s?=\s?'(.*)'/) ?? [];
 			const [, globalUserInfos] =
 				(isDataMocked ? presentation : text).match(

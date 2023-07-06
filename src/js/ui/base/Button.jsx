@@ -34,7 +34,7 @@ export function Button({
 		}
 
 		const { onClick } = rest;
-		return event => {
+		return (event) => {
 			event.stopPropagation();
 			onClick();
 		};

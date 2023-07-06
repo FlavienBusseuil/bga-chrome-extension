@@ -33,5 +33,5 @@ export async function fetchTablesFromTableManager({
 
 	const { tables } = result.data;
 
-	return Object.keys(tables).map(tableKey => tables[tableKey]);
+	return Object.keys(tables).map((tableKey) => tables[tableKey]);
 }

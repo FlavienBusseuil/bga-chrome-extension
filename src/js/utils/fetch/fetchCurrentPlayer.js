@@ -21,7 +21,11 @@ export async function fetchCurrentPlayer({
 	name: string,
 	token: Token,
 }> {
-	const { id, n: name, s: token } = await resolveQuery<MyWhoQueryResultData>({
+	const {
+		id,
+		n: name,
+		s: token,
+	} = await resolveQuery<MyWhoQueryResultData>({
 		fromMock: { path: "myWho" },
 		fromUrl: {
 			url: `${bgaUrl}/my?who`,

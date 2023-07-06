@@ -2,7 +2,9 @@
 	"ext_description": {
 		"message": "La liste de vos parties en cours sur boardgamearena.com"
 	},
-	"something_wrong": { "message": "Quelque chose cloche 🔔" },
+	"something_wrong": {
+		"message": "Quelque chose cloche 🔔"
+	},
 	"report_error": {
 		"message": "Vous pouvez faire parvenir cette erreur à <a href=\"$href$\">$email$</a>.",
 		"placeholders": {
@@ -14,8 +16,12 @@
 			}
 		}
 	},
-	"play_new_game": { "message": "Démarrer une partie" },
-	"please_login": { "message": "S'authentifier" },
+	"play_new_game": {
+		"message": "Démarrer une partie"
+	},
+	"please_login": {
+		"message": "S'authentifier"
+	},
 	"player_invited_you": {
 		"message": "$player$ vous invite à sa table",
 		"placeholders": {
@@ -24,15 +30,85 @@
 			}
 		}
 	},
-	"realtime": { "message": "Temps réel" },
-	"turn_based": { "message": "Tour par tour" },
-	"tournament": { "message": "Tournoi" },
-	"arena": { "message": "Arène" },
-	"training": { "message": "Entrainement" },
-	"accept": { "message": "Jouons !" },
-	"decline": { "message": "Non merci" },
-	"play_tournament": { "message": "S'inscrire à un tournoi" },
-	"tables": { "message": "Tables" },
-	"tournaments": { "message": "Tournois" },
-	"no_tournaments": { "message": "Aucun tournois en cours ou à venir" }
+	"realtime": {
+		"message": "Temps réel"
+	},
+	"turn_based": {
+		"message": "Tour par tour"
+	},
+	"tournament": {
+		"message": "Tournoi"
+	},
+	"arena": {
+		"message": "Arène"
+	},
+	"training": {
+		"message": "Entrainement"
+	},
+	"accept": {
+		"message": "Jouons !"
+	},
+	"decline": {
+		"message": "Non merci"
+	},
+	"play_tournament": {
+		"message": "S'inscrire à un tournoi"
+	},
+	"tables": {
+		"message": "Tables"
+	},
+	"tournaments": {
+		"message": "Tournois"
+	},
+	"no_tournaments": {
+		"message": "Aucun tournois en cours ou à venir"
+	},
+	"optionFriendsActivity": {
+		"message": "Activité des amis dans le journal de jeu"
+	},
+	"optionLeftMenu": {
+		"message": "Naviguer entre les plateaux des joueurs"
+	},
+	"optionFloatingGame": {
+		"message": "Dans un menu flottant (uniquement pour ce jeu)"
+	},
+	"optionFloatingAlways": {
+		"message": "Dans un menu flottant (pour tous les jeux)"
+	},
+	"optionHiddenTab": {
+		"message": "Jeux cachés"
+	},
+	"optionNavigationTab": {
+		"message": "Navigation entre les plateaux des joueurs"
+	},
+	"optionHiddenTitle": {
+		"message": "Liste des jeux cachés"
+	},
+	"optionNavigationTitle": {
+		"message": "Liste des jeux gérés"
+	},
+	"optionNoHiddenGames": {
+		"message": "Aucun jeu caché"
+	},
+	"optionHiddenGamesWarning": {
+		"message": "Retirez un jeu de cette liste pour l'afficher sur Board Game Arena. (Vous devez recharger la page pour que les changements soient effectifs)"
+	},
+	"optionNavigationWarning": {
+		"message": "Attention : ne modifiez la configuration sur cet écran que si vous savez vraiment ce que vous faites ;)"
+	},
+	"optionDuplicate": {
+		"message": "Dupliquer"
+	},
+	"optionReset": {
+		"message": "Réinitialiser"
+	},
+	"optionDelete": {
+		"message": "Supprimer"
+	},
+	"optionSave": {
+		"message": "Sauvegarder"
+	},
+	"sideMenuMainBoard": {
+		"message": "Plateau principal"
+	}
 }

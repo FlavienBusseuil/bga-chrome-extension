@@ -5,11 +5,11 @@ const package = require("../package.json");
 manifest.version = package.version;
 
 fs.writeFile(
-  "./src/manifest.json",
-  JSON.stringify(manifest, null, 2),
-  (err) => {
-    if (err) {
-      throw err;
-    }
-  }
+	"./src/manifest.json",
+	JSON.stringify(manifest, null, 2),
+	(err) => {
+		if (err) {
+			throw err;
+		}
+	},
 );

@@ -2,3 +2,4 @@ build
 builds
 node_modules
 .*/
+src/css/tailwind.css

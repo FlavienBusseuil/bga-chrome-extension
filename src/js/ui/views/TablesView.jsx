@@ -13,8 +13,8 @@ import { cn } from "../utils/cn";
 type Props = {
 	className?: string,
 	tables: Array<TransformedTable>,
-	onAcceptInvite: TableId => Promise<void>,
-	onDeclineInvite: TableId => Promise<void>,
+	onAcceptInvite: (TableId) => Promise<void>,
+	onDeclineInvite: (TableId) => Promise<void>,
 };
 
 export function TablesView({

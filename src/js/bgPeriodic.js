@@ -16,7 +16,7 @@ export async function bgPeriodic() {
 		// Fetch current player info
 		const { token: playerToken, id: playerId } = await fetchCurrentPlayer({
 			requestToken,
-			onRefreshRequestToken: newRequestToken => {
+			onRefreshRequestToken: (newRequestToken) => {
 				cachedRequestToken = newRequestToken;
 			},
 		});

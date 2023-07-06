@@ -80,22 +80,25 @@ export function sortTables(
 				!isTurnBased1,
 				!isTurnBased2,
 			);
-			const waitingCurrentPlayerOnTableOneOrder: Order = getOrderFromPriority(
-				isWaitingCurrentPlayerOnTable1,
-				isWaitingCurrentPlayerOnTable2,
-			);
-			const invitePendingForCurrentPlayerOnTableOneOrder: Order = getOrderFromPriority(
-				isInvitePendingForCurrentPlayer1,
-				isInvitePendingForCurrentPlayer2,
-			);
+			const waitingCurrentPlayerOnTableOneOrder: Order =
+				getOrderFromPriority(
+					isWaitingCurrentPlayerOnTable1,
+					isWaitingCurrentPlayerOnTable2,
+				);
+			const invitePendingForCurrentPlayerOnTableOneOrder: Order =
+				getOrderFromPriority(
+					isInvitePendingForCurrentPlayer1,
+					isInvitePendingForCurrentPlayer2,
+				);
 			const openForPlayersOnTableOneOrder: Order = getOrderFromPriority(
 				isOpenForPlayers1,
 				isOpenForPlayers2,
 			);
-			const gameStartOnTableOneOrder: Order = getChronologicalOrderFromDate(
-				gameStart1 ?? new Date(0),
-				gameStart2 ?? new Date(0),
-			);
+			const gameStartOnTableOneOrder: Order =
+				getChronologicalOrderFromDate(
+					gameStart1 ?? new Date(0),
+					gameStart2 ?? new Date(0),
+				);
 
 			return (
 				// Sort by:

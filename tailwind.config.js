@@ -1,7 +1,11 @@
 const colors = require("tailwindcss/colors");
 
 module.exports = {
-	content: ["./src/popup.html", "./src/js/**/*.{js,jsx}"],
+	content: [
+		"./src/popup.html",
+		"./src/js/**/*.{js,jsx}",
+		"!./src/js/ui/content/**/*.{js,jsx}",
+	],
 	theme: {
 		extend: {
 			colors: {
