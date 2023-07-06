@@ -278,6 +278,7 @@ class Configuration {
 			...this._customConfig.hidden.filter((g) => g !== name),
 		];
 		storageSet({ hidden: this._customConfig.hidden });
+		return this.getHiddenGames();
 	}
 
 	getHiddenGames() {

@@ -1,4 +1,4 @@
-import { Game } from "./Configuration";
+import { Game } from "./configuration";
 
 const defaultGames: Partial<Game>[] = [
 	{
@@ -600,6 +600,13 @@ const defaultGames: Partial<Game>[] = [
 		top: "140px",
 		playerPanel: "player_mat_{{player_id}}",
 	},
+	{
+		name: "bunnykingdom",
+		top: "160px",
+		iconBackground: "#d3f8fc",
+		playerPanel: ".BK-player-tableux-name",
+		playerPanelOffset: 60,
+	}
 ];
 
 export default defaultGames;

@@ -43,7 +43,10 @@ const Options = (props: { config: Configuration }) => {
 	};
 
 	useEffect(() => setText(serialize(selected)), [selected]);
-	useEffect(() => setChanged(serialize(selected) !== text), [selected, text]);
+	useEffect(() => {
+		debugger;
+		setChanged(serialize(selected) !== text);
+	}, [selected, text]);
 	useEffect(() => {
 		const newSelected = list.find((g) => g.name === selected.name);
 		if (newSelected) {
@@ -140,9 +143,11 @@ const Options = (props: { config: Configuration }) => {
 					<div className="bgext_options_col_container">
 						<div className="bgext_options_gameconfig_container">
 							<textarea
+								id="game_config"
 								className="bgext_options_input"
 								value={text}
-								onChange={(evt) => setText(evt.target.value)}
+								onChange={(evt) => setText((evt.target as any).value)}
+								onKeyUp={() => setText((document.getElementById("game_config") as any).value)}
 							/>
 						</div>
 						<div className="bgext_options_row_container">
