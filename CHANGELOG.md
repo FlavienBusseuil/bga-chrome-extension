@@ -1,5 +1,13 @@
 # Changelog
 
+## [v1.7.1](https://github.com/FlavienBusseuil/bga-chrome-extension/tree/v1.7.1) (2023-07-08)
+
+[Full Changelog](https://github.com/FlavienBusseuil/bga-chrome-extension/compare/v1.7.0...v1.7.1)
+
+**Closed issues:**
+
+- 1.7.0 bundle fails [\#54](https://github.com/FlavienBusseuil/bga-chrome-extension/issues/54)
+
 ## [v1.7.0](https://github.com/FlavienBusseuil/bga-chrome-extension/tree/v1.7.0) (2023-07-06)
 
 [Full Changelog](https://github.com/FlavienBusseuil/bga-chrome-extension/compare/v1.6.6...v1.7.0)
