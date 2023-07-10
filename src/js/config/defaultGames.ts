@@ -606,6 +606,12 @@ const defaultGames: Partial<Game>[] = [
 		iconBackground: "#d3f8fc",
 		playerPanel: ".BK-player-tableux-name",
 		playerPanelOffset: 60,
+	},
+	{
+		name: "isleoftrainsallaboard",
+		myPanel: "#mycards_name",
+		playerPanel: ".container1 > .board5 > .board6",
+		playerPanelOffset: 20,
 	}
 ];
 

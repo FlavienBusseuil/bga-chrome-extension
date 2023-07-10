@@ -90,9 +90,12 @@ const SideMenu = (props: SideMenuProps) => {
 				document.querySelectorAll(gameConfig.playerPanel),
 			);
 			players.forEach((p, index) => {
-				const playerPanel = panels.find(
+				let playerPanel = panels.find(
 					(panel) => panel.innerHTML.indexOf(p.name) >= 0,
 				);
+				if (!playerPanel && gameConfig.myPanel) {
+					playerPanel = document.querySelector(gameConfig.myPanel) || undefined;
+				}
 				if (playerPanel) {
 					if (!playerPanel.id) {
 						playerPanel.id = `bgaext_panel_${index}`;

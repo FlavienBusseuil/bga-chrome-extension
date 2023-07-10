@@ -11,6 +11,7 @@ export interface Game {
 	boardPanel?: string;
 	boardPanelOffset?: number;
 	boardPanelText?: string;
+	myPanel?: string;
 	playerPanel: string;
 	playerPanelOffset: number;
 	bottomPanel?: string;
@@ -271,6 +272,7 @@ class Configuration {
 			name,
 		];
 		storageSet({ hidden: this._customConfig.hidden });
+		return this.getHiddenGames();
 	}
 
 	displayGame(name: string) {

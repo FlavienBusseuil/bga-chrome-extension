@@ -26,6 +26,8 @@ const Options = (props: { config: Configuration }) => {
 				"left",
 				"boardPanel",
 				"boardPanelOffset",
+				"boardPanelText",
+				"myPanel",
 				"playerPanel",
 				"playerPanelOffset",
 				"bottomPanel",
