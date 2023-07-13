@@ -1,5 +1,17 @@
 # Changelog
 
+## [v1.7.2](https://github.com/FlavienBusseuil/bga-chrome-extension/tree/v1.7.2) (2023-07-13)
+
+[Full Changelog](https://github.com/FlavienBusseuil/bga-chrome-extension/compare/v1.7.1...v1.7.2)
+
+**Implemented enhancements:**
+
+- Add game configuration for "Isle of trains" [\#56](https://github.com/FlavienBusseuil/bga-chrome-extension/issues/56)
+
+**Chore:**
+
+- 1.7.0 build problem [\#55](https://github.com/FlavienBusseuil/bga-chrome-extension/issues/55)
+
 ## [v1.7.1](https://github.com/FlavienBusseuil/bga-chrome-extension/tree/v1.7.1) (2023-07-08)
 
 [Full Changelog](https://github.com/FlavienBusseuil/bga-chrome-extension/compare/v1.7.0...v1.7.1)
