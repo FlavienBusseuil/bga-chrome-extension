@@ -10,7 +10,7 @@
 		"build": "yarn clean; NODE_ENV=production yarn prod:css; yarn prod:parcel",
 		"clean": "rm -rf .parcel-cache/* build/*",
 		"prod:css": "yarn tailwindcss -i ./src/css/base.css -c ./tailwind.config.js -o ./src/css/tailwind.css",
-		"prod:parcel": "yarn parcel build src/manifest.json --target prod --dist-dir ./build",
+		"prod:parcel": "yarn parcel build src/manifest.json --target prod --dist-dir ./build --no-source-maps",
 		"release": "./scripts/release.zsh"
 	},
 	"browserslist": [
@@ -28,12 +28,12 @@
 	"devDependencies": {
 		"@babel/core": "^7.12.0",
 		"@babel/plugin-transform-flow-strip-types": "^7.0.0",
-		"@parcel/config-webextension": "2.6.1",
+		"@parcel/config-webextension": "2.9.3",
 		"autoprefixer": "10.4.0",
 		"concurrently": "6.5.1",
 		"flow-bin": "0.179.0",
 		"flow-remove-types": "2.179.0",
-		"parcel": "2.6.1",
+		"parcel": "2.9.3",
 		"postcss": "8.4.5",
 		"preact": "10.6.4",
 		"prettier": "^2.8.8",
