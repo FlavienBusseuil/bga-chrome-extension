@@ -6,6 +6,7 @@ import {
 import { setFloatingRightMenu } from "./rightMenu/functions";
 import { initDevelopperUI } from "./studio/functions";
 import { initGameListObserver } from "./gameList/functions";
+import { initDarkMode } from "./darkMode/functions";
 import shouldFilter from "../../config/filteredLogs";
 
 const buildMainCss = () => {
@@ -221,16 +222,17 @@ const buildOptions = (config, gameName, gameConfig) => {
 
 const initChatIcon = (config) => {
 	const chatIconId = 'bga_extension_chat_icon';
-	const friendsElt = document.querySelector('.bga-friends-icon');
-
-	if (!friendsElt) {
-		setTimeout(() => initChatIcon(config), 100);
-		return;
-	}
-
-	const container = friendsElt.parentNode;
 
 	if (!document.getElementById(chatIconId)) {
+		const friendsElt = document.querySelector('.bga-friends-icon');
+
+		if (!friendsElt) {
+			setTimeout(() => initChatIcon(config), 100);
+			return;
+		}
+
+		const container = friendsElt.parentNode;
+
 		const chatElt = document.createElement('div');
 		chatElt.id = chatIconId;
 		chatElt.innerHTML = '<i class="fa fa-comments" style="font-size: 32px; cursor: pointer;"></i>';
@@ -268,5 +270,6 @@ export {
 	buildOptions,
 	initGameListObserver,
 	initChatIcon,
-	setChatStyle
+	setChatStyle,
+	initDarkMode
 };

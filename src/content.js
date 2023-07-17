@@ -10,7 +10,8 @@ import {
 	buildOptions,
 	initGameListObserver,
 	initChatIcon,
-	setChatStyle
+	setChatStyle,
+	initDarkMode
 } from "./js/ui/content/functions";
 
 const config = new Configuration();
@@ -53,16 +54,16 @@ const manageLocationChange = (pathname) => {
 
 		buildOptions(config, gameName, gameConfig);
 
-		if (!gameConfig) {
-			console.log(
-				`[bga extension] No configuration found for game ${gameName}`,
-			);
-			return;
+		if (gameConfig) {
+			initLeftMenu(gameConfig, config.isLeftMenuEnabled(gameName));
+		} else {
+			console.log(`[bga extension] No configuration found for game ${gameName}`);
 		}
 
-		initLeftMenu(gameConfig, config.isLeftMenuEnabled(gameName));
+		initDarkMode(config, gameName);
 	} else {
 		initChatIcon(config);
+		initDarkMode(config, 'general');
 
 		if (pageInfo[0].startsWith("gamelist")) {
 			initObserver("gamelist");

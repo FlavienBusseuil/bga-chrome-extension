@@ -40,6 +40,7 @@ interface CustomConfig {
 	floatingRightMenu?: boolean;
 	devTemplates?: Template[];
 	hideGeneralChat?: boolean;
+	darkMode?: boolean;
 };
 
 class Configuration {
@@ -331,6 +332,15 @@ class Configuration {
 			return '#bga_extension_chat_icon { color: #c4c4c4; } #chatwindow_general { display: none !important; }';
 		}
 		return '#bga_extension_chat_icon { color: #01c4ca; } #chatwindow_general { display: inline-block !important; }';
+	}
+
+	isDarkMode() {
+		return !!this._customConfig.darkMode;
+	}
+
+	setDarkMode(val: boolean) {
+		this._customConfig.darkMode = val;
+		storageSet({ darkMode: val });
 	}
 }
 
