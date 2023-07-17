@@ -2,7 +2,8 @@ import React from "preact";
 import { useState, useEffect } from "preact/hooks";
 
 import Configuration from "../../../config/configuration";
-import { darkStyleForGame, darkStyleGame } from "./darkStyleGame";
+import { darkStyleForGame, darkStyleGame, gamesWithCustomBackground } from "./darkStyleGame";
+import { darkStyleBackground } from "./darkStyleBackground";
 import { darkStyleChat } from "./darkStyleChat";
 import { darkStyleGeneral } from "./darkStyleGeneral";
 
@@ -18,9 +19,11 @@ const setDarkStyle = (gameName: string, val: boolean) => {
   }
 
   if (gameName === "general") {
-    styleComponent.innerHTML = (val) ? `${darkStyleGeneral}${darkStyleChat}` : "";
+    styleComponent.innerHTML = (val) ? `${darkStyleBackground}${darkStyleGeneral}${darkStyleChat}` : "";
   } else {
-    styleComponent.innerHTML = (val) ? `${darkStyleGame}${darkStyleChat}${darkStyleForGame[gameName] || ''}` : "";
+    const backgroundStyle = gamesWithCustomBackground.includes(gameName) ? "" : darkStyleBackground;
+    const gameStyle = darkStyleForGame[gameName] || '';
+    styleComponent.innerHTML = (val) ? `${backgroundStyle}${darkStyleGame}${darkStyleChat}${gameStyle}` : "";
   }
 };
 

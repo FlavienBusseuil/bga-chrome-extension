@@ -49,7 +49,7 @@ const manageLocationChange = (pathname) => {
 			config.isGlobalFloatingMenu() ||
 			config.isGameFloatingMenu(gameName)
 		) {
-			setFloatingRightMenu(gameConfig, true);
+			setFloatingRightMenu(config, gameConfig, true);
 		}
 
 		buildOptions(config, gameName, gameConfig);

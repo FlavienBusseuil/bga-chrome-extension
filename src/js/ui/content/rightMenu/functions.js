@@ -1,13 +1,13 @@
 import React, { render } from "preact";
 import RightMenu from "./RightMenu";
 
-export const setFloatingRightMenu = (gameConfig, val) => {
+export const setFloatingRightMenu = (config, gameConfig, val) => {
 	const pageTitle = document.getElementById("gotonexttable_wrap");
 	const menuContainerId = "cde-floating-menu";
 	const menuStyleId = "cde-floating-menu-style";
 
 	if (!pageTitle) {
-		setTimeout(() => setFloatingRightMenu(gameConfig, val), 100);
+		setTimeout(() => setFloatingRightMenu(config, gameConfig, val), 100);
 		return;
 	}
 
@@ -43,6 +43,6 @@ export const setFloatingRightMenu = (gameConfig, val) => {
 		container = document.createElement("span");
 		container.id = menuContainerId;
 		pageTitle.parentNode.appendChild(container);
-		render(<RightMenu />, container);
+		render(<RightMenu config={config} />, container);
 	}
 };

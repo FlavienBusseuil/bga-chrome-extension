@@ -4,10 +4,6 @@ export const darkStyleGeneral = `
   * src : https://framagit.org/games/hanabi/-/raw/main/bga_black_theme.css
   */
 
-body {
-  background: url(https://cdn.discordapp.com/attachments/334713796193026049/710093648561176606/bgadark.jpg);
-}
-
 :root {
   --dark-0: #000000;
   --dark-10: #1d2023;
@@ -731,5 +727,19 @@ input {
 #preferences-module textarea {
   background: var(--dark-20);
   color: var(--light-80);
+}
+
+/* Control panel */
+.pagesection__content > img, .top_right_bigimage {
+  filter: invert(70%);
+}
+.pagesection__content .subtitle {
+  color: var(--light-80);
+}
+.newbgatable th, .newbgatable td {
+  color: var(--light-80);
+}
+.notouch-device .newbgatable tbody tr:hover td {
+  color: var(--violet-80);
 }
 `;

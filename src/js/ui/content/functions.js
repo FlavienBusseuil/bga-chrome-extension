@@ -139,15 +139,15 @@ const buildOptions = (config, gameName, gameConfig) => {
 		"</option>";
 	const checkFloating = (evt) => {
 		if (evt.target.value === "3") {
-			setFloatingRightMenu(gameConfig, true);
+			setFloatingRightMenu(config, gameConfig, true);
 			config.setGameFloatingMenu(gameName, false);
 			config.setGlobalFloatingMenu(true);
 		} else if (evt.target.value === "2") {
-			setFloatingRightMenu(gameConfig, true);
+			setFloatingRightMenu(config, gameConfig, true);
 			config.setGameFloatingMenu(gameName, true);
 			config.setGlobalFloatingMenu(false);
 		} else {
-			setFloatingRightMenu(gameConfig, false);
+			setFloatingRightMenu(config, gameConfig, false);
 			config.setGameFloatingMenu(gameName, false);
 			config.setGlobalFloatingMenu(false);
 		}
