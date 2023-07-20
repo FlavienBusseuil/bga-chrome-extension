@@ -6,6 +6,7 @@ import { darkStyleForGame, darkStyleGame, gamesWithCustomBackground } from "./da
 import { darkStyleBackground } from "./darkStyleBackground";
 import { darkStyleChat } from "./darkStyleChat";
 import { darkStyleGeneral } from "./darkStyleGeneral";
+import { darkStyleCommon } from "./darkStyleCommon";
 
 const themeStyleId = "cde-theme-style";
 
@@ -19,11 +20,11 @@ const setDarkStyle = (gameName: string, val: boolean) => {
   }
 
   if (gameName === "general") {
-    styleComponent.innerHTML = (val) ? `${darkStyleBackground}${darkStyleGeneral}${darkStyleChat}` : "";
+    styleComponent.innerHTML = (val) ? `${darkStyleCommon}${darkStyleBackground}${darkStyleGeneral}${darkStyleChat}` : "";
   } else {
     const backgroundStyle = gamesWithCustomBackground.includes(gameName) ? "" : darkStyleBackground;
     const gameStyle = darkStyleForGame[gameName] || '';
-    styleComponent.innerHTML = (val) ? `${backgroundStyle}${darkStyleGame}${darkStyleChat}${gameStyle}` : "";
+    styleComponent.innerHTML = (val) ? `${darkStyleCommon}${backgroundStyle}${darkStyleGame}${darkStyleChat}${gameStyle}` : "";
   }
 };
 

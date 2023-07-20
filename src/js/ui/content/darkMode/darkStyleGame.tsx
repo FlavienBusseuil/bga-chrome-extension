@@ -1,30 +1,4 @@
 export const darkStyleGame = `
-:root {
-  --dark-0: #000000;
-  --dark-10: #1d2023;
-  --dark-20: #272a2f;
-  --dark-30: #35373c;
-  --dark-40: #404347;
-
-  --blue-10: #003b85;
-  --blue-50: #7289da;
-  --blue-80: #11a9bb;
-
-  --red-10: #993333;
-  --red-50: #ff0000;
-
-  --green-10: #01663a;
-  --green-30: #009e0a;
-  --green-50: #00ff00;
-
-  --violet-80: #8f5fbd;
-
-  --orange-10: #383b1b;
-
-  --light-80: #dcddde;
-  --light-100: #ffffff;
-}
-
 /* En jeu */
 .gamestart_overlay {
   background: none var(--dark-20);
@@ -151,12 +125,20 @@ span.playername, #pagemaintitletext > span:first-child {
   background: transparent !important;
 }
 
-.icon32_replaylastmoves, .ingame_menu_item .icon64, #maingameview_menuheader, .winpoints > img {
+.icon32_replaylastmoves, .ingame_menu_item .icon64, .winpoints > img {
   filter: invert(70%);
 }
 .notouch-device .ingame_menu_item:hover {
   background-color: transparent;
   color: var(--violet-80) !important;
+}
+
+#maingameview_menuheader, #maingameview_menufooter {
+  filter: invert(70%);
+}
+
+.avatar_active {
+  filter: invert(100%);
 }
 
 /*
@@ -208,6 +190,16 @@ _darkStyleForGame['challengers'] = `
   color: var(--light-80);
 }
 `
+
+_darkStyleForGame['agricola'] = `
+#central-board .turn-action-container .turn-number {
+  filter: invert(100%) grayscale(100%);
+}
+#player_boards > div {
+  background-color: #00000090!important;
+}
+`
+
 
 
 
