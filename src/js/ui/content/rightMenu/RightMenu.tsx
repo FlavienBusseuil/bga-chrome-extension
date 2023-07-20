@@ -92,7 +92,6 @@ const RightMenu = () => {
 			<div
 				id="cde-floating-menu-log"
 				className="bgext_right_menu bgabutton bgabutton_gray"
-				active={logVisible}
 			>
 				<i className="fa fa-book" style={{ color: "#000000" }}></i>
 				{logVisible && (
@@ -111,7 +110,6 @@ const RightMenu = () => {
 			<div
 				id="cde-floating-menu-score"
 				className="bgext_right_menu bgabutton bgabutton_gray"
-				active={scoreVisible}
 			>
 				<i
 					className="fa fa-star"
