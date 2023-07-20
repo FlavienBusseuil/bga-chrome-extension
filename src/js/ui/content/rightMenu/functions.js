@@ -18,10 +18,12 @@ export const setFloatingRightMenu = (config, gameConfig, val) => {
 		style.parentNode.removeChild(style);
 		container.parentNode.removeChild(container);
 
-		document.getElementById("right-side-first-part").style.maxHeight =
-			"initial";
-		document.getElementById("right-side-second-part").style.maxHeight =
-			"initial";
+		const firstPart = document.getElementById("right-side-first-part");
+		const secondPart = document.getElementById("right-side-second-part");
+
+		firstPart.style.maxHeight = "initial";
+		firstPart.style.width = "240px";
+		secondPart.style.maxHeight = "initial";
 	}
 
 	if (!style && !container && val) {
