@@ -1,0 +1,4 @@
+html,
+body {
+  background: url('chrome-extension://__MSG_@@extension_id__/img/dark_theme/background/bgadark.jpg');
+}

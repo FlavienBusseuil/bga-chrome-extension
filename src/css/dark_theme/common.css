@@ -1,9 +1,3 @@
-/**
-  * @version: 2.2.4
-  * src : https://framagit.org/games/hanabi/-/raw/main/bga_black_theme.css
-  */
-
-export const darkStyleCommon = `
 :root {
   --dark-0: #000000;
   --dark-10: #1d2023;
@@ -29,4 +23,3 @@ export const darkStyleCommon = `
   --light-80: #dcddde;
   --light-100: #ffffff;
 }
-`;

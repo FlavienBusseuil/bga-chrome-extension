@@ -1,5 +1,3 @@
-export const darkStyleGame = `
-/* En jeu */
 .gamestart_overlay {
   background: none var(--dark-20);
   color: var(--light-80);
@@ -101,39 +99,66 @@ export const darkStyleGame = `
   background: var(--dark-40);
 }
 
-span[style="font-weight:bold;color:#000000;"], span[style="color:#000000;"], span[style="color:#000000"], a[style="color: #000000"] {
+span[style="font-weight:bold;color:#000000;"],
+span[style="color:#000000;"],
+span[style="color:#000000"],
+a[style="color: #000000"] {
   text-shadow: -1px 0 white, 0 1px white, 1px 0 white, 0 -1px white;
 }
-span[style="font-weight:bold;color:#0000ff;"], span[style="color:#0000ff;"], span[style="color:#0000ff"], a[style="color: #0000ff"] {
+
+span[style="font-weight:bold;color:#0000ff;"],
+span[style="color:#0000ff;"],
+span[style="color:#0000ff"],
+a[style="color: #0000ff"] {
   color: #8080ff !important;
 }
-span[style="font-weight:bold;color:#982fff;"], span[style="color:#982fff;"], span[style="color:#982fff"], a[style="color: #982fff"] {
+
+span[style="font-weight:bold;color:#982fff;"],
+span[style="color:#982fff;"],
+span[style="color:#982fff"],
+a[style="color: #982fff"] {
   color: #bf80ff !important;
 }
-span[style="font-weight:bold;color:#1863a5;"], span[style="color:#1863a5;"], span[style="color:#1863a5"], a[style="color: #1863a5"] {
+
+span[style="font-weight:bold;color:#1863a5;"],
+span[style="color:#1863a5;"],
+span[style="color:#1863a5"],
+a[style="color: #1863a5"] {
   color: #8fc2ef !important;
 }
-span[style="font-weight:bold;color:#0000dd;"], span[style="color:#0000dd;"], span[style="color:#0000dd"], a[style="color: #0000dd"] {
+
+span[style="font-weight:bold;color:#0000dd;"],
+span[style="color:#0000dd;"],
+span[style="color:#0000dd"],
+a[style="color: #0000dd"] {
   color: #8080ff !important;
 }
-span[style="font-weight:bold;color:#442df0;"], span[style="color:#442df0;"], span[style="color:#442df0"], a[style="color: #442df0"] {
+
+span[style="font-weight:bold;color:#442df0;"],
+span[style="color:#442df0;"],
+span[style="color:#442df0"],
+a[style="color: #442df0"] {
   color: #9588f7 !important;
 }
 
-
-span.playername, #pagemaintitletext > span:first-child {
+span.playername,
+#pagemaintitletext>span:first-child {
   background: transparent !important;
 }
 
-.icon32_replaylastmoves, .ingame_menu_item .icon64, .winpoints > img {
+.icon32_replaylastmoves,
+.ingame_menu_item .icon64,
+.winpoints>img {
   filter: invert(70%);
 }
+
 .notouch-device .ingame_menu_item:hover {
   background-color: transparent;
   color: var(--violet-80) !important;
 }
 
-#maingameview_menuheader, #maingameview_menufooter {
+#maingameview_menuheader,
+#maingameview_menufooter {
   filter: invert(70%);
 }
 
@@ -150,58 +175,3 @@ span.playername, #pagemaintitletext > span:first-child {
 #right-side-second-part {
   background: black !important;
 }
-`;
-
-export const gamesWithCustomBackground = ['abyss', 'conspiracy'];
-
-const _darkStyleForGame = {};
-
-_darkStyleForGame['hanabi'] = `
-.bgagame-hanabi #hanabi_prefs .bgabutton_gray {
-  background: var(--dark-10);
-  color: var(--light-80);
-}
-.bgagame-hanabi #hanabi_prefs .bgabutton_gray:hover {
-  background: var(--dark-30);
-}
-`;
-
-_darkStyleForGame['arknova'] = `
-.player-name > svg, .slider, #help-mode-switch {
-  filter: invert(70%);
-}
-`;
-
-_darkStyleForGame['catan'] = `
-.cat_panel_prim_icons, #player_boards .cat_panel_prim_icons .cat_panel_score {
-  filter: invert(100%) !important;
-}
-`;
-
-_darkStyleForGame['carcassonne'] = `
-.partisan_000000 {
-  filter: invert(20%) !important;
-}
-`;
-
-_darkStyleForGame['challengers'] = `
-.cha-log-holder {
-  background: var(--dark-20);
-  color: var(--light-80);
-}
-`
-
-_darkStyleForGame['agricola'] = `
-#central-board .turn-action-container .turn-number {
-  filter: invert(100%) grayscale(100%);
-}
-#player_boards > div {
-  background-color: #00000090!important;
-}
-`
-
-
-
-
-
-export const darkStyleForGame = _darkStyleForGame;

@@ -20,10 +20,20 @@
       "matches": [
         "https://boardgamearena.com/*"
       ],
-      "run_at": "document_idle",
+      "run_at": "document_start",
       "js": [
         "content.js"
       ]
+    },
+    {
+      "matches": [
+        "https://forum.boardgamearena.com/*"
+      ],
+      "run_at": "document_start",
+      "js": [
+        "contentForum.js"
+      ],
+      "all_frames": true
     }
   ],
   "author": "Flavien Busseuil",
@@ -40,22 +50,28 @@
   ],
   "permissions": [
     "alarms",
-    "storage"
+    "storage",
+    "declarativeNetRequest"
   ],
   "web_accessible_resources": [
     {
       "resources": [
-        "img/anim-0.png",
-        "img/anim-1.png",
-        "img/anim-2.png",
-        "img/anim-3.png",
-        "img/anim-4.png",
-        "img/anim-5.png",
-        "img/anim-6.png",
+        "img/anim-*.png",
         "img/loading.gif",
-        "img/icon-48.png"
+        "img/icon-48.png",
+        "img/bgadark.jpg",
+        "css/dark_theme/*.css",
+        "img/dark_theme/background/*.jpg",
+        "img/dark_theme/forum/*.png",
+        "img/dark_theme/forum/*.gif",
+        "img/dark_theme/forum/plupload/*.gif"
       ],
-      "matches": []
+      "extension_ids": [
+        "*"
+      ],
+      "matches": [
+        "*://*/*"
+      ]
     }
   ]
 }

@@ -1,6 +1,6 @@
 import equal from "fast-deep-equal";
 import defaultGames from "./defaultGames";
-import { addChangeListener, storageClear, storageGet, storageSet } from "../utils/storage";
+import { addChangeListener, storageGet, storageSet } from "../utils/chrome";
 
 export interface Game {
 	name: string;
@@ -94,10 +94,12 @@ class Configuration {
 		this.merge();
 
 		addChangeListener((changes: any) => {
-			for (let [key, { newValue }] of Object.entries(changes) as any) {
-				this._customConfig[key] = newValue;
-				document.dispatchEvent(new CustomEvent('bga_ext_update_config', { detail: { key } }));
-			}
+			try {
+				for (let [key, { newValue }] of Object.entries(changes) as any) {
+					this._customConfig[key] = newValue;
+					document.dispatchEvent(new CustomEvent('bga_ext_update_config', { detail: { key } }));
+				}
+			} catch (error) { } // not a big deal
 		});
 	}
 

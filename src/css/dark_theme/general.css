@@ -1,10 +1,15 @@
-export const darkStyleGeneral = `
+.loading_icon,
+#overall_loading {
+  filter: invert(70%) grayscale(100%);
+}
+
 /* Formulaires */
 input {
   background: var(--dark-40);
 }
 
 /* Boutons */
+/*
 .bgabutton_gray {
   background: var(--dark-10);
   color: var(--light-80);
@@ -12,7 +17,7 @@ input {
 
 .bgabutton_gray:hover {
   background: var(--dark-40);
-}
+}*/
 
 /* Liens */
 .bga-link {
@@ -409,16 +414,20 @@ input {
 }
 
 .bga-game-filter-tags {
-  padding: 15px;
-  background: var(--dark-10) !important;
+  filter: invert(100%);
   color: var(--light-80) !important;
+}
+
+.bga-filter-tag--type-theme {
+  filter: invert(100%);
 }
 
 .icon_arena {
   filter: invert(100%);
 }
 
-.dijitInputInner, .dijitInputField  {
+.dijitInputInner,
+.dijitInputField {
   background: var(--dark-40) !important;
   color: var(--light-80) !important;
   border-color: var(--dark-30) !important;
@@ -709,16 +718,45 @@ input {
 }
 
 /* Control panel */
-.pagesection__content > img, .top_right_bigimage {
-  filter: invert(70%);
+#controlpanel-module .pagesection__content>img,
+#contribute-module .pagesection__content>img,
+.top_right_bigimage {
+  filter: invert(70%) grayscale(100%);
 }
+
 .pagesection__content .subtitle {
   color: var(--light-80);
 }
-.newbgatable th, .newbgatable td {
+
+.newbgatable th,
+.newbgatable td {
   color: var(--light-80);
 }
+
 .notouch-device .newbgatable tbody tr:hover td {
   color: var(--violet-80);
 }
-`;
+
+.palmares_details .icon20 {
+  filter: invert(70%);
+}
+
+.whypremium_icon,
+.panelmenuicon {
+  filter: invert(70%);
+}
+
+/* page loading */
+.roundedbox_topleft,
+.roundedbox_topmain,
+.roundedbox_topright,
+.roundedbox_main,
+.roundedbox_bottomleft,
+.roundedbox_bottommain,
+.roundedbox_bottomright {
+  background-color: var(--dark-40);
+}
+
+#connect_status_text {
+  color: var(--light-80);
+}

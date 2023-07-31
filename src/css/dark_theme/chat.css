@@ -1,5 +1,3 @@
-export const darkStyleChat = `
-/* Chat */
 #chatbar .chatwindowcollapsed {
   background: var(--dark-10);
   color: var(--light-80);
@@ -63,4 +61,8 @@ export const darkStyleChat = `
   background: var(--dark-20);
   color: var(--light-80);
 }
-`;
+
+.chatbarbelowinput i,
+.chatbarbelowinput .icon20_meeple_wb {
+  filter: invert(70%);
+}

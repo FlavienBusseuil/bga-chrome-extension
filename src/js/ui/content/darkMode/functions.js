@@ -1,5 +1,5 @@
 import React, { render } from "preact";
-import ModeIcon from "./ModeIcon";
+import ModeSelector from "./ModeSelector";
 
 const getContainer = (gameName) => {
   if (gameName === "general") {
@@ -44,7 +44,7 @@ const initDarkMode = (config, gameName) => {
     }
 
     render(
-      <ModeIcon
+      <ModeSelector
         config={config}
         gameName={gameName}
       />,

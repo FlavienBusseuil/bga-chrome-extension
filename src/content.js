@@ -17,8 +17,6 @@ import {
 const config = new Configuration();
 let currentObserver = null;
 
-buildMainCss();
-
 const initObserver = (page) => {
 	currentObserver =
 		page === "game"
@@ -79,9 +77,9 @@ const manageLocationChange = (pathname) => {
 };
 
 const initPage = () => {
-	config.isEmpty() &&
-		document.dispatchEvent(new CustomEvent("bga_ext_get_config", {}));
+	config.isEmpty() && document.dispatchEvent(new CustomEvent("bga_ext_get_config", {}));
 
+	buildMainCss();
 	addLocationChangeListener(manageLocationChange);
 	manageLocationChange(window.location.pathname);
 };
