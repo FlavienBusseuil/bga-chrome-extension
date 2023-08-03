@@ -1,4 +1,4 @@
-export const gamesWithCustomBackground = ['abyss', 'agricola', 'conspiracy', 'spacebase', 'splendor'];
+export const gamesWithCustomBackground = ['abyss', 'agricola', 'conspiracy', 'raceforthegalaxy', 'spacebase', 'splendor'];
 
 const _darkStyleForGame = {};
 
@@ -71,9 +71,6 @@ _darkStyleForGame['itsawonderfulworld'] = `
 `;
 
 _darkStyleForGame['kingoftokyo'] = `
-.player-board .player-hand-card  {
-  filter: invert(0.7);
-}
 .whiteblock {
   background: hsla(0,0%,100%,.3);
 }

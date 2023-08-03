@@ -90,6 +90,10 @@
   color: var(--violet-80);
 }
 
+.game_interface .pagesection .icon20_stat {
+  filter: invert(0.7);
+}
+
 .game_interface .preference_control {
   background: var(--dark-40);
   color: var(--light-80);
@@ -167,7 +171,7 @@ span.playername,
 
 #maingameview_menuheader,
 #maingameview_menufooter {
-  filter: invert(0.7);
+  filter: invert(0.9);
 }
 
 .avatar_active,
@@ -178,4 +182,8 @@ span.playername,
 /* Menu flottant */
 #right-side-second-part {
   background: black !important;
+}
+
+.player-board .player-hand-card {
+  filter: invert(0.7);
 }
