@@ -17,23 +17,28 @@ const setUrlFilters = (isDarkMode) => {
       console.log("[bga extension] Add filters to prevent default backgrounds");
 
       chrome.declarativeNetRequest.updateDynamicRules({
-        removeRuleIds: [1, 2],
+        removeRuleIds: [1, 2, 3],
         addRules: [{
           id: 1,
-          action: { type: "redirect", "redirect": { "extensionPath": "/img/dark_theme/background/bgadark.jpg" } },
+          action: { type: "block" },
           condition: { urlFilter: "https://x.boardgamearena.net/data/themereleases/*/img/layout/back-main.jpg" },
         },
         {
           id: 2,
           action: { type: "redirect", "redirect": { "extensionPath": "/img/dark_theme/background/bgadark.jpg" } },
           condition: { urlFilter: "https://forum.boardgamearena.com/styles/prosilver/theme/images/bga/back-main.jpg" },
+        },
+        {
+          id: 3,
+          action: { type: "redirect", "redirect": { "regexSubstitution": `chrome-extension://${chrome.runtime.id}/img/dark_theme/forum/smilies/\\1.gif` } },
+          condition: { regexFilter: "^https://forum.boardgamearena.com/images/smilies/(.*).gif" },
         }]
       });
     } else {
       console.log("[bga extension] Remove filters");
 
       chrome.declarativeNetRequest.updateDynamicRules({
-        removeRuleIds: [1, 2]
+        removeRuleIds: [1, 2, 3]
       });
     }
   }

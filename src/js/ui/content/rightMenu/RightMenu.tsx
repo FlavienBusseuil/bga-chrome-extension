@@ -27,8 +27,7 @@ const RightMenu = (props: RightMenuProps) => {
 			logContent.style.maxHeight = `${maxHeight}px`;
 			scoreContent.style.top = logContent.style.top;
 			scoreContent.style.maxHeight = logContent.style.maxHeight;
-			scoreContent.style.width =
-				scoreContent.scrollHeight > maxHeight ? "260px" : "240px";
+			scoreContent.style.width = scoreContent.scrollHeight > maxHeight ? "260px" : "240px";
 		} else {
 			setTimeout(setMenuPosition, 100);
 		}

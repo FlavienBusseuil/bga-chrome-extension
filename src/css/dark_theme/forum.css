@@ -994,7 +994,7 @@ ul.cplist {
   filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#303030', endColorstr='#070707', GradientType=0);
   /* IE6-9 */
   border-color: #000000;
-  color: #B20304;
+  color: #B20304 !important;
 }
 
 .tabs .tab>a:hover {
@@ -1427,4 +1427,25 @@ li.notification-disapproved strong {
 
 .phpbb_iframed a:visited {
   color: #92aad3;
+}
+
+/* Custom */
+#tabs .tab>a {
+  background-color: #a7a7a7;
+}
+
+.tabs .activetab>a,
+.tabs .activetab>a:hover {
+  box-shadow: none;
+  background-color: #cbd2d7 !important;
+}
+
+#tabs .tab>a:hover {
+  color: black ! important;
+}
+
+.message-box textarea,
+input.inputbox {
+  background: black;
+  color: #f9f9f9 !important;
 }

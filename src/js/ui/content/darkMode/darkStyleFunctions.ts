@@ -1,6 +1,6 @@
 import { getUrl } from "../../../utils/chrome";
 import { isNumber } from "../../../utils/misc/isNumber";
-import { gamesWithCustomBackground, darkStyleForGame } from "./darkStyleGame";
+import { darkStyleForGame, gamesWithCustomBackground } from "./darkStyleGame";
 
 const themeStyleId = "ext-theme-style";
 const cookieName = "ext_dark_theme";
@@ -13,7 +13,7 @@ const { cssList, mode } = (() => {
 
   const pageInfo = window.location.pathname.substring(1).split("/");
   if (pageInfo.length >= 2 && isNumber(pageInfo[0])) {
-    return { mode: pageInfo[0], cssList: ["background.css", "common.css", "chat.css", "game.css"] };
+    return { mode: pageInfo[1], cssList: ["background.css", "common.css", "chat.css", "game.css"] };
   }
 
   return { mode: "general", cssList: ["background.css", "common.css", "chat.css", "general.css"] };
@@ -53,12 +53,17 @@ const _setDarkStyle = (mode: string) => {
       styleComponent.innerHTML = `${cssContents["background.css"]}${cssContents["common.css"]}${cssContents["chat.css"]}${cssContents["general.css"]}`;
     } else {
       const gameStyle = darkStyleForGame[mode] || "";
-      const backStyle = gamesWithCustomBackground[mode] ? "" : cssContents["background.css"];
-
+      const backStyle = gamesWithCustomBackground.includes(mode) ? "" : cssContents["background.css"];
       styleComponent.innerHTML = `${backStyle}${cssContents["common.css"]}${cssContents["chat.css"]}${cssContents["game.css"]}${gameStyle}`;
     }
   }
-}
+};
+
+const _setLightStyle = (mode: string) => {
+  if (styleComponent) {
+    styleComponent.innerHTML = "";
+  }
+};
 
 export const setDarkStyle = (mode: string, val: boolean) => {
   if (isDarkStyle() === val) {
@@ -70,6 +75,6 @@ export const setDarkStyle = (mode: string, val: boolean) => {
   if (val) {
     _setDarkStyle(mode);
   } else {
-    styleComponent.innerHTML = "";
+    _setLightStyle(mode);
   }
 };

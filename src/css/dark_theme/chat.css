@@ -64,5 +64,5 @@
 
 .chatbarbelowinput i,
 .chatbarbelowinput .icon20_meeple_wb {
-  filter: invert(70%);
+  filter: invert(0.7);
 }

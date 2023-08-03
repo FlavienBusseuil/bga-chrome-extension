@@ -1,11 +1,20 @@
 .loading_icon,
+#loading,
 #overall_loading {
-  filter: invert(70%) grayscale(100%);
+  filter: invert(0.7) grayscale(1);
 }
 
 /* Formulaires */
-input {
+input,
+textarea,
+select {
   background: var(--dark-40);
+  color: var(--light-80);
+  color-scheme: dark;
+}
+
+select.colorselector {
+  color: var(--dark-40);
 }
 
 /* Boutons */
@@ -283,6 +292,10 @@ input {
   color: var(--light-80);
 }
 
+.more_infos[style="color: black"] {
+  color: var(--light-80) !important;
+}
+
 /* Invitations */
 #expected_table_banners .expected_banner,
 #tournament_inprogress_banners .expected_banner {
@@ -414,21 +427,26 @@ input {
 }
 
 .bga-game-filter-tags {
-  filter: invert(100%);
+  filter: invert(1);
   color: var(--light-80) !important;
 }
 
 .bga-filter-tag--type-theme {
-  filter: invert(100%);
+  filter: invert(1);
 }
 
 .icon_arena {
-  filter: invert(100%);
+  filter: invert(1);
+}
+
+.dijitButtonContents,
+.dijitButtonNode {
+  background: var(--dark-40) !important;
 }
 
 .dijitInputInner,
 .dijitInputField {
-  background: var(--dark-40) !important;
+  background-color: var(--dark-40) !important;
   color: var(--light-80) !important;
   border-color: var(--dark-30) !important;
 }
@@ -721,7 +739,7 @@ input {
 #controlpanel-module .pagesection__content>img,
 #contribute-module .pagesection__content>img,
 .top_right_bigimage {
-  filter: invert(70%) grayscale(100%);
+  filter: invert(0.7) grayscale(1);
 }
 
 .pagesection__content .subtitle {
@@ -738,12 +756,12 @@ input {
 }
 
 .palmares_details .icon20 {
-  filter: invert(70%);
+  filter: invert(0.7);
 }
 
 .whypremium_icon,
 .panelmenuicon {
-  filter: invert(70%);
+  filter: invert(0.7);
 }
 
 /* page loading */
@@ -759,4 +777,14 @@ input {
 
 #connect_status_text {
   color: var(--light-80);
+}
+
+.bga_big_input {
+  background-color: var(--dark-0);
+  color: var(--light-100);
+}
+
+#achievement-module .achievement.even .achievement_container.bottom,
+#achievement-module .achievement.odd .achievement_container.top {
+  display: none;
 }

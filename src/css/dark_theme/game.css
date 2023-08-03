@@ -13,11 +13,19 @@
 
 .game_interface #ingame_menu_content {
   background: var(--dark-30);
-  color: var(--light-80);
+  color: var(--light-100);
 }
 
 .game_interface #ingame_menu_content a {
-  color: var(--light-80);
+  color: var(--light-100);
+}
+
+.ingame_menu_item {
+  color: var(--light-100) !important;
+}
+
+.ingame_menu_item:hover {
+  color: var(--violet-80) !important;
 }
 
 .game_interface .player-board,
@@ -149,7 +157,7 @@ span.playername,
 .icon32_replaylastmoves,
 .ingame_menu_item .icon64,
 .winpoints>img {
-  filter: invert(70%);
+  filter: invert(0.7);
 }
 
 .notouch-device .ingame_menu_item:hover {
@@ -159,17 +167,13 @@ span.playername,
 
 #maingameview_menuheader,
 #maingameview_menufooter {
-  filter: invert(70%);
+  filter: invert(0.7);
 }
 
-.avatar_active {
-  filter: invert(100%);
+.avatar_active,
+#active_player_statusbar_icon {
+  filter: invert(1) grayscale(1);
 }
-
-/*
-.player-name > a, .roundedbox > .playername, #pagemaintitletext > span:first-child {
-  text-shadow: -1px 0 white, 0 1px white, 1px 0 white, 0 -1px white;
-}*/
 
 /* Menu flottant */
 #right-side-second-part {

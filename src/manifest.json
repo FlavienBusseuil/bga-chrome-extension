@@ -46,7 +46,8 @@
     "extension_pages": "script-src 'self'; object-src 'self'"
   },
   "host_permissions": [
-    "https://*.boardgamearena.com/*/*"
+    "https://*.boardgamearena.com/*/*",
+    "https://*.boardgamearena.net/*/*"
   ],
   "permissions": [
     "alarms",
@@ -63,7 +64,7 @@
         "img/dark_theme/background/*.jpg",
         "img/dark_theme/forum/*.png",
         "img/dark_theme/forum/*.gif",
-        "img/dark_theme/forum/plupload/*.gif"
+        "img/dark_theme/forum/smilies/*.gif"
       ],
       "extension_ids": [
         "*"
