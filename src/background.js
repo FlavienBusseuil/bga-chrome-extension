@@ -1,6 +1,6 @@
 import { bgPeriodic } from "./js/bgPeriodic";
 import Configuration from "./js/config/configuration";
-import { addChangeListener, getUrl } from "./js/utils/chrome";
+import { addChangeListener } from "./js/utils/chrome";
 
 const config = new Configuration();
 let darkModeConfigured = undefined;

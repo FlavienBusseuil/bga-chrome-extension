@@ -1,5 +1,5 @@
 import React from "preact";
-import { useState } from "preact/hooks";
+import { useEffect, useState } from "preact/hooks";
 import fontColorContrast from "font-color-contrast";
 import rgbHex from "rgb-hex";
 

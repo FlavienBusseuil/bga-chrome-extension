@@ -13,16 +13,16 @@ const { cssList, mode } = (() => {
 
   const pageInfo = window.location.pathname.substring(1).split("/");
   if (pageInfo.length >= 2 && isNumber(pageInfo[0])) {
-    return { mode: pageInfo[1], cssList: ["background.css", "common.css", "chat.css", "game.css"] };
+    return { mode: pageInfo[1], cssList: ["dark_theme/background.css", "dark_theme/common.css", "dark_theme/chat.css", "dark_theme/game.css"] };
   }
 
-  return { mode: "general", cssList: ["background.css", "common.css", "chat.css", "general.css"] };
+  return { mode: "general", cssList: ["light_theme/background.css", "dark_theme/background.css", "dark_theme/common.css", "dark_theme/chat.css", "dark_theme/general.css"] };
 })();
 
 const cssContents = {};
 
 const getFile = async (file: string) => {
-  const url = getUrl(`css/dark_theme/${file}`);
+  const url = getUrl(`css/${file}`);
   const response = await fetch(url);
   const content = await response.text();
   return { file, content };
@@ -48,20 +48,24 @@ Promise.all(cssList.map(getFile)).then(fileContents => {
 const _setDarkStyle = (mode: string) => {
   if (styleComponent) {
     if (mode === "forum") {
-      styleComponent.innerHTML = `${cssContents["background.css"]}${cssContents["forum.css"]}`;
+      styleComponent.innerHTML = `${cssContents["dark_theme/background.css"]}${cssContents["dark_theme/forum.css"]}`;
     } else if (mode === "general") {
-      styleComponent.innerHTML = `${cssContents["background.css"]}${cssContents["common.css"]}${cssContents["chat.css"]}${cssContents["general.css"]}`;
+      styleComponent.innerHTML = `${cssContents["dark_theme/background.css"]}${cssContents["dark_theme/common.css"]}${cssContents["dark_theme/chat.css"]}${cssContents["dark_theme/general.css"]}`;
     } else {
       const gameStyle = darkStyleForGame[mode] || "";
-      const backStyle = gamesWithCustomBackground.includes(mode) ? "" : cssContents["background.css"];
-      styleComponent.innerHTML = `${backStyle}${cssContents["common.css"]}${cssContents["chat.css"]}${cssContents["game.css"]}${gameStyle}`;
+      const backStyle = gamesWithCustomBackground.includes(mode) ? "" : cssContents["dark_theme/background.css"];
+      styleComponent.innerHTML = `${backStyle}${cssContents["dark_theme/common.css"]}${cssContents["dark_theme/chat.css"]}${cssContents["dark_theme/game.css"]}${gameStyle}`;
     }
   }
 };
 
 const _setLightStyle = (mode: string) => {
   if (styleComponent) {
-    styleComponent.innerHTML = "";
+    if (mode === "general") {
+      styleComponent.innerHTML = cssContents["light_theme/background.css"];
+    } else {
+      styleComponent.innerHTML = "";
+    }
   }
 };
 

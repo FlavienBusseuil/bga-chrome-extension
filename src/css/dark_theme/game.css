@@ -118,6 +118,13 @@ a[style="color: #000000"] {
   text-shadow: -1px 0 white, 0 1px white, 1px 0 white, 0 -1px white;
 }
 
+span[style="font-weight:bold;color:#101820;"],
+span[style="color:#101820;"],
+span[style="color:#101820"],
+a[style="color: #101820"] {
+  text-shadow: -1px 0 white, 0 1px white, 1px 0 white, 0 -1px white;
+}
+
 span[style="font-weight:bold;color:#0000ff;"],
 span[style="color:#0000ff;"],
 span[style="color:#0000ff"],
@@ -186,4 +193,8 @@ span.playername,
 
 .player-board .player-hand-card {
   filter: invert(0.7);
+}
+
+#seemorelogs {
+  filter: grayscale(1);
 }

@@ -61,10 +61,12 @@
         "img/loading.gif",
         "img/icon-48.png",
         "css/dark_theme/*.css",
-        "img/dark_theme/background/*.jpg",
+        "img/dark_theme/background.jpg",
         "img/dark_theme/forum/*.png",
         "img/dark_theme/forum/*.gif",
-        "img/dark_theme/forum/smilies/*.gif"
+        "img/dark_theme/forum/smilies/*.gif",
+        "css/light_theme/*.css",
+        "img/light_theme/background.jpg"
       ],
       "extension_ids": [
         "*"

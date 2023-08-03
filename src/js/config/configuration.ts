@@ -47,6 +47,7 @@ class Configuration {
 	_defConfig: { games: Game[] };
 	_customConfig: CustomConfig;
 	_config: { games: Game[] };
+	_currentGame: Game | undefined;
 
 	constructor() {
 		this._defConfig = {
@@ -91,7 +92,7 @@ class Configuration {
 		if (!this._customConfig.floating) {
 			this._customConfig.floating = [];
 		}
-		this.merge();
+		this._merge();
 
 		addChangeListener((changes: any) => {
 			try {
@@ -100,10 +101,26 @@ class Configuration {
 					document.dispatchEvent(new CustomEvent('bga_ext_update_config', { detail: { key } }));
 				}
 			} catch (error) { } // not a big deal
+
+			this._checkCurrentGame();
 		});
 	}
 
-	private merge() {
+	private _checkCurrentGame() {
+		if (this._currentGame) {
+			if (this._customConfig.darkMode) {
+				if (this._currentGame.iconBackground === "#ebd5bd") {
+					this._currentGame.iconBackground = "#b9b9b9";
+				}
+			} else {
+				if (this._currentGame.iconBackground === "#b9b9b9") {
+					this._currentGame.iconBackground = "#ebd5bd";
+				}
+			}
+		}
+	}
+
+	private _merge() {
 		const customNames = this._customConfig.games.map((g) => g.name);
 		const defGames = this._defConfig.games.filter(
 			(g) => !customNames.includes(g.name),
@@ -129,7 +146,9 @@ class Configuration {
 	}
 
 	getGameConfig(game: string): Game | undefined {
-		return this._config.games.find((c: any) => c.name === game);
+		this._currentGame = this._config.games.find((c: any) => c.name === game);
+		this._checkCurrentGame();
+		return this._currentGame;
 	}
 
 	getGamesList(): Game[] {
@@ -148,7 +167,7 @@ class Configuration {
 			game,
 		];
 		storageSet({ games: this._customConfig.games });
-		this.merge();
+		this._merge();
 		return this.getGamesList();
 	}
 
@@ -157,7 +176,7 @@ class Configuration {
 			(g) => g.name !== name,
 		);
 		storageSet({ games: this._customConfig.games });
-		this.merge();
+		this._merge();
 		return this.getGamesList();
 	}
 
@@ -338,6 +357,13 @@ class Configuration {
 
 	isDarkMode() {
 		return !!this._customConfig.darkMode;
+	}
+
+	getLeftMenuBackground(gameConfig: Game) {
+		if (this._customConfig.darkMode && gameConfig.iconBackground === "#ebd5bd") {
+			return "#b9b9b9";
+		}
+		return gameConfig.iconBackground;
 	}
 
 	setDarkMode(val: boolean) {
