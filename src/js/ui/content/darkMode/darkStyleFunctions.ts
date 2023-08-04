@@ -8,7 +8,7 @@ const isDarkStyle = () => localStorage.getItem(cookieName) === "on";
 
 const { cssList, mode } = (() => {
   if (window.location.host === "forum.boardgamearena.com") {
-    return { mode: "forum", cssList: ["background.css", "forum.css"] };
+    return { mode: "forum", cssList: ["dark_theme/background.css", "dark_theme/forum.css"] };
   }
 
   const pageInfo = window.location.pathname.substring(1).split("/");
