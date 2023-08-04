@@ -1,6 +1,6 @@
 import { getUrl } from "../../../utils/chrome";
 import { isNumber } from "../../../utils/misc/isNumber";
-import { darkStyleForGame, gamesWithCustomBackground } from "./darkStyleGame";
+import { darkStyleForGame, gamesWithCustomBackground } from "../../../config/darkThemeGames";
 
 const themeStyleId = "ext-theme-style";
 const cookieName = "ext_dark_theme";

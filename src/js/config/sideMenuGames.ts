@@ -613,7 +613,12 @@ const defaultGames: Partial<Game>[] = [
 		playerPanel: ".container1 > .board5 > .board6",
 		playerPanelOffset: 20,
 		css: "#zoom-controls { right: 0px; justify-content: flex-end; } #game_play_area { padding-left: 50px; }",
-	}
+	},
+	{
+		name: "alhambra",
+		playerPanel: "alhambra-wrapper-{{player_id}}",
+	},
+
 ];
 
 export default defaultGames;

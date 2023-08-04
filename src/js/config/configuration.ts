@@ -1,5 +1,5 @@
 import equal from "fast-deep-equal";
-import defaultGames from "./defaultGames";
+import defaultGames from "./sideMenuGames";
 import { addChangeListener, storageGet, storageSet } from "../utils/chrome";
 
 export interface Game {

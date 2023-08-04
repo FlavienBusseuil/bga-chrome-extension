@@ -3,20 +3,20 @@
   color: var(--light-80);
 }
 
-.game_interface #topbar,
-.game_interface #page-title,
-.game_interface .current_player_is_active #page-title,
-.game_interface .gamestate_gameEnd #page-title {
-  background: var(--dark-10);
+#topbar,
+#page-title,
+.current_player_is_active #page-title,
+.gamestate_gameEnd #page-title {
+  background: var(--dark-10) !important;
   color: var(--light-80);
 }
 
-.game_interface #ingame_menu_content {
+#ingame_menu_content {
   background: var(--dark-30);
   color: var(--light-100);
 }
 
-.game_interface #ingame_menu_content a {
+#ingame_menu_content a {
   color: var(--light-100);
 }
 
@@ -28,82 +28,86 @@
   color: var(--violet-80) !important;
 }
 
-.game_interface .player-board,
-.game_interface .player-board .roundedbox_main,
-.game_interface .player-board .roundedbox_topleft,
-.game_interface .player-board .roundedbox_topmain,
-.game_interface .player-board .roundedbox_topright,
-.game_interface .player-board .roundedbox_bottomleft,
-.game_interface .player-board .roundedbox_bottommain,
-.game_interface .player-board .roundedbox_bottomright {
-  background: var(--dark-20);
+.player-board,
+.player-board .roundedbox_main,
+.player-board .roundedbox_topleft,
+.player-board .roundedbox_topmain,
+.player-board .roundedbox_topright,
+.player-board .roundedbox_bottomleft,
+.player-board .roundedbox_bottommain,
+.player-board .roundedbox_bottomright {
+  background: var(--dark-20) !important;
   color: var(--light-80);
 }
 
-.game_interface .log .roundedbox .playername {
+.log .roundedbox .playername {
   display: inline !important;
 }
 
-.game_interface #logs .log .roundedbox {
+#logs .log .roundedbox {
   background: var(--dark-10);
   color: var(--light-80);
 }
 
-.game_interface #logs .log .timestamp {
+#logs .log .timestamp {
   color: var(--light-80);
 }
 
-.game_interface #logs .log:hover .timestamp {
+#logs .log:hover .timestamp {
   background: var(--dark-40);
 }
 
-.game_interface .bgabutton_gray {
+.bgabutton_gray {
   background: var(--dark-40);
   color: var(--light-80);
 }
 
-.game_interface .bgabutton_gray:hover {
+.bgabutton_gray:hover {
   background: var(--dark-40);
   color: var(--violet-80);
 }
 
-.game_interface .pagesection {
+.pagesection {
   background: var(--dark-20);
   color: var(--light-80);
 }
 
-.game_interface .pagesection .whiteblock {
+.pagesection .whiteblock {
   background: none var(--dark-40);
 }
 
-.game_interface .pagesection h2,
-.game_interface .pagesection h3 {
+#pagesection_gameview .whiteblock {
+  background: #ffffff33;
+}
+
+.pagesection h2,
+.pagesection h3 {
   background: var(--dark-10);
   color: var(--light-80);
 }
 
-.game_interface .pagesection .bga-link {
+.pagesection .bga-link {
   color: var(--blue-80);
 }
 
-.game_interface .pagesection .bga-link:hover {
+.pagesection .bga-link:hover {
   color: var(--violet-80);
 }
 
-.game_interface .pagesection .icon20_stat {
+.pagesection .icon20_stat {
   filter: invert(0.7);
 }
 
-.game_interface .preference_control {
+.preference_control {
   background: var(--dark-40);
   color: var(--light-80);
 }
 
-.game_interface .chatwindowtype_table .chatbarbelowinput_item {
+.chatwindowtype_table .chatbarbelowinput_item {
   color: var(--light-80);
 }
 
-.game_interface .chatwindowtype_table .chatbarbelowinput_item:hover {
+.chatwindowtype_table .chatbarbelowinput_item:hover {
   color: var(--violet-80);
 }
 
@@ -114,49 +118,64 @@
 span[style="font-weight:bold;color:#000000;"],
 span[style="color:#000000;"],
 span[style="color:#000000"],
-a[style="color: #000000"] {
+a[style="color: #000000"],
+div.player-name[style="color: #000000"] {
   text-shadow: -1px 0 white, 0 1px white, 1px 0 white, 0 -1px white;
 }
 
 span[style="font-weight:bold;color:#101820;"],
 span[style="color:#101820;"],
 span[style="color:#101820"],
-a[style="color: #101820"] {
+a[style="color: #101820"],
+div.player-name[style="color: #101820"] {
+  text-shadow: -1px 0 white, 0 1px white, 1px 0 white, 0 -1px white;
+}
+
+span[style="font-weight:bold;color:#123888;"],
+span[style="color:#123888;"],
+span[style="color:#123888"],
+a[style="color: #123888"],
+div.player-name[style="color: #123888"] {
   text-shadow: -1px 0 white, 0 1px white, 1px 0 white, 0 -1px white;
 }
 
 span[style="font-weight:bold;color:#0000ff;"],
 span[style="color:#0000ff;"],
 span[style="color:#0000ff"],
-a[style="color: #0000ff"] {
+a[style="color: #0000ff"],
+h2[style="color:#0000ff"] {
   color: #8080ff !important;
 }
 
 span[style="font-weight:bold;color:#982fff;"],
 span[style="color:#982fff;"],
 span[style="color:#982fff"],
-a[style="color: #982fff"] {
+a[style="color: #982fff"],
+h2[style="color:#982fff"] {
   color: #bf80ff !important;
 }
 
 span[style="font-weight:bold;color:#1863a5;"],
 span[style="color:#1863a5;"],
 span[style="color:#1863a5"],
-a[style="color: #1863a5"] {
+a[style="color: #1863a5"],
+h2[style="color:#1863a5"] {
   color: #8fc2ef !important;
 }
 
 span[style="font-weight:bold;color:#0000dd;"],
 span[style="color:#0000dd;"],
 span[style="color:#0000dd"],
-a[style="color: #0000dd"] {
+a[style="color: #0000dd"],
+h2[style="color:#0000dd"] {
   color: #8080ff !important;
 }
 
 span[style="font-weight:bold;color:#442df0;"],
 span[style="color:#442df0;"],
 span[style="color:#442df0"],
-a[style="color: #442df0"] {
+a[style="color: #442df0"],
+h2[style="color:#442df0"] {
   color: #9588f7 !important;
 }
 
