@@ -15,6 +15,11 @@ const setUrlFilters = (isDarkMode) => {
 
     if (darkModeConfigured) {
       console.log("[bga extension] Add filters to prevent default backgrounds");
+      // rule 1 : prevent display default background just before dark background in dark mode
+      // (could not be replaced because the whole page is NOT reloaded each time we change from dark to light)
+      // rule 2 : replace forum default background in dark mode
+      // (could be replaced because the whole page is reloaded each time we change from dark to light)
+      // rule 3 : replace forum's smileys in dark mode
 
       chrome.declarativeNetRequest.updateDynamicRules({
         removeRuleIds: [1, 2, 3],
