@@ -618,6 +618,10 @@ const defaultGames: Partial<Game>[] = [
 		name: "alhambra",
 		playerPanel: "alhambra-wrapper-{{player_id}}",
 	},
+	{
+		name: "applejack",
+		playerPanel: "wrapper_player_{{player_id}}",
+	},
 
 ];
 

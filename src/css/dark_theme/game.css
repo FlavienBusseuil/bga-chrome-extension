@@ -58,12 +58,12 @@
 }
 
 .bgabutton_gray {
-  background: var(--dark-40);
+  background-color: var(--dark-40);
   color: var(--light-80);
 }
 
 .bgabutton_gray:hover {
-  background: var(--dark-40);
+  background-color: var(--dark-40);
   color: var(--violet-80);
 }
 
@@ -113,6 +113,14 @@
 
 #loader_mask {
   background: var(--dark-40);
+}
+
+a.replay_last_move_button {
+  color: var(--light-80) !important;
+}
+
+a.replay_last_move_button:hover {
+  color: var(--dark-20) !important;
 }
 
 span[style="font-weight:bold;color:#000000;"],
