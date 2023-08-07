@@ -1,10 +1,17 @@
 import React from "preact";
 import { useEffect, useState } from "preact/hooks";
-import "../../../../css/rightMenu.css";
 
-const RightMenu = () => {
+import "../../../../css/rightMenu.css";
+import Configuration from "../../../config/configuration";
+
+interface RightMenuProps {
+	config: Configuration;
+}
+
+const RightMenu = (props: RightMenuProps) => {
 	const [logVisible, setLogVisible] = useState(true);
 	const [scoreVisible, setScoreVisible] = useState(true);
+	const [darkMode, setDarkMode] = useState(props.config.isDarkMode());
 
 	const scoreContent = document.getElementById("right-side-first-part");
 	const logContent = document.getElementById("right-side-second-part");
@@ -20,8 +27,7 @@ const RightMenu = () => {
 			logContent.style.maxHeight = `${maxHeight}px`;
 			scoreContent.style.top = logContent.style.top;
 			scoreContent.style.maxHeight = logContent.style.maxHeight;
-			scoreContent.style.width =
-				scoreContent.scrollHeight > maxHeight ? "260px" : "240px";
+			scoreContent.style.width = scoreContent.scrollHeight > maxHeight ? "260px" : "240px";
 		} else {
 			setTimeout(setMenuPosition, 100);
 		}
@@ -60,12 +66,16 @@ const RightMenu = () => {
 		window.addEventListener("resize", setMenuPosition);
 		window.addEventListener("scroll", setMenuPosition);
 		document.addEventListener("click", onClick);
+		document.addEventListener("bga_ext_update_config", onUpdateConfig);
 		return () => {
 			window.removeEventListener("resize", setMenuPosition);
 			window.removeEventListener("scroll", setMenuPosition);
 			document.removeEventListener("click", onClick);
+			document.removeEventListener("bga_ext_update_config", onUpdateConfig);
 		};
 	});
+
+	const onUpdateConfig = () => setDarkMode(props.config.isDarkMode());
 
 	const toggleLogVisible = () => {
 		if (logVisible) {
@@ -87,23 +97,25 @@ const RightMenu = () => {
 		}
 	};
 
+	const textColor = darkMode ? "#c1c1c1" : "#000000";
+
 	return (
 		<>
 			<div
 				id="cde-floating-menu-log"
 				className="bgext_right_menu bgabutton bgabutton_gray"
 			>
-				<i className="fa fa-book" style={{ color: "#000000" }}></i>
+				<i className="fa fa-book" style={{ color: textColor }}></i>
 				{logVisible && (
 					<i
 						className="fa fa-caret-up"
-						style={{ color: "#000000" }}
+						style={{ color: textColor }}
 					></i>
 				)}
 				{!logVisible && (
 					<i
 						className="fa fa-caret-down"
-						style={{ color: "#000000" }}
+						style={{ color: textColor }}
 					></i>
 				)}
 			</div>
@@ -118,13 +130,13 @@ const RightMenu = () => {
 				{scoreVisible && (
 					<i
 						className="fa fa-caret-up"
-						style={{ color: "#000000" }}
+						style={{ color: textColor }}
 					></i>
 				)}
 				{!scoreVisible && (
 					<i
 						className="fa fa-caret-down"
-						style={{ color: "#000000" }}
+						style={{ color: textColor }}
 					></i>
 				)}
 			</div>

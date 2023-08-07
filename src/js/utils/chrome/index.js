@@ -12,4 +12,8 @@ export const storageClear = async () => {
 
 export const addChangeListener = (func) => {
 	chrome.storage.onChanged.addListener(func);
-}
+};
+
+export const getUrl = (localUrl) => {
+	return chrome.runtime.getURL(localUrl);
+};

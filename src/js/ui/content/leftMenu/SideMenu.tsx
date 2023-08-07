@@ -19,7 +19,8 @@ interface SideMenuProps {
 }
 
 const SideMenu = (props: SideMenuProps) => {
-	const { players, gameConfig } = props;
+	const { players } = props;
+	const [gameConfig, setGameConfig] = useState({ ...props.gameConfig });
 	const [visible, setVisible] = useState(true);
 	const [position, setPosition] = useState(
 		gameConfig.position === "bottom" ? "bottom" : "top",
@@ -108,6 +109,10 @@ const SideMenu = (props: SideMenuProps) => {
 
 	const getButtonsOrder = () => {
 		checkPlayerPanels();
+
+		if (props.gameConfig.iconBackground !== gameConfig.iconBackground) {
+			setGameConfig({ ...props.gameConfig });
+		}
 
 		const toSort = players.map((p, index) => {
 			const id = getPlayerPanelId(gameConfig, p, index);

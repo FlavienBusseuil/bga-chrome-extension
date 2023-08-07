@@ -6,6 +6,8 @@ import {
 import { setFloatingRightMenu } from "./rightMenu/functions";
 import { initDevelopperUI } from "./studio/functions";
 import { initGameListObserver } from "./gameList/functions";
+import { initDarkMode } from "./darkMode/functions";
+import { initDarkStyle } from "./darkMode/darkStyleFunctions";
 import shouldFilter from "../../config/filteredLogs";
 
 const buildMainCss = () => {
@@ -15,7 +17,7 @@ const buildMainCss = () => {
 	document.head.appendChild(style);
 };
 
-const initlogObserver = (config) => {
+const initLogObserver = (config) => {
 	const logsContainer = document.querySelector("#logs");
 
 	if (!logsContainer) {
@@ -138,15 +140,15 @@ const buildOptions = (config, gameName, gameConfig) => {
 		"</option>";
 	const checkFloating = (evt) => {
 		if (evt.target.value === "3") {
-			setFloatingRightMenu(gameConfig, true);
+			setFloatingRightMenu(config, gameConfig, true);
 			config.setGameFloatingMenu(gameName, false);
 			config.setGlobalFloatingMenu(true);
 		} else if (evt.target.value === "2") {
-			setFloatingRightMenu(gameConfig, true);
+			setFloatingRightMenu(config, gameConfig, true);
 			config.setGameFloatingMenu(gameName, true);
 			config.setGlobalFloatingMenu(false);
 		} else {
-			setFloatingRightMenu(gameConfig, false);
+			setFloatingRightMenu(config, gameConfig, false);
 			config.setGameFloatingMenu(gameName, false);
 			config.setGlobalFloatingMenu(false);
 		}
@@ -221,16 +223,17 @@ const buildOptions = (config, gameName, gameConfig) => {
 
 const initChatIcon = (config) => {
 	const chatIconId = 'bga_extension_chat_icon';
-	const friendsElt = document.querySelector('.bga-friends-icon');
-
-	if (!friendsElt) {
-		setTimeout(() => initChatIcon(config), 100);
-		return;
-	}
-
-	const container = friendsElt.parentNode;
 
 	if (!document.getElementById(chatIconId)) {
+		const friendsElt = document.querySelector('.bga-friends-icon');
+
+		if (!friendsElt) {
+			setTimeout(() => initChatIcon(config), 100);
+			return;
+		}
+
+		const container = friendsElt.parentNode;
+
 		const chatElt = document.createElement('div');
 		chatElt.id = chatIconId;
 		chatElt.innerHTML = '<i class="fa fa-comments" style="font-size: 32px; cursor: pointer;"></i>';
@@ -261,12 +264,13 @@ const setChatStyle = (config) => {
 
 export {
 	buildMainCss,
-	initlogObserver,
+	initLogObserver as initlogObserver,
 	initLeftMenu,
 	setFloatingRightMenu,
 	initDevelopperUI,
 	buildOptions,
 	initGameListObserver,
 	initChatIcon,
-	setChatStyle
+	setChatStyle,
+	initDarkMode
 };

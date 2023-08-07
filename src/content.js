@@ -10,13 +10,12 @@ import {
 	buildOptions,
 	initGameListObserver,
 	initChatIcon,
-	setChatStyle
+	setChatStyle,
+	initDarkMode
 } from "./js/ui/content/functions";
 
 const config = new Configuration();
 let currentObserver = null;
-
-buildMainCss();
 
 const initObserver = (page) => {
 	currentObserver =
@@ -48,21 +47,21 @@ const manageLocationChange = (pathname) => {
 			config.isGlobalFloatingMenu() ||
 			config.isGameFloatingMenu(gameName)
 		) {
-			setFloatingRightMenu(gameConfig, true);
+			setFloatingRightMenu(config, gameConfig, true);
 		}
 
 		buildOptions(config, gameName, gameConfig);
 
-		if (!gameConfig) {
-			console.log(
-				`[bga extension] No configuration found for game ${gameName}`,
-			);
-			return;
+		if (gameConfig) {
+			initLeftMenu(gameConfig, config.isLeftMenuEnabled(gameName));
+		} else {
+			console.log(`[bga extension] No configuration found for game ${gameName}`);
 		}
 
-		initLeftMenu(gameConfig, config.isLeftMenuEnabled(gameName));
+		initDarkMode(config, gameName);
 	} else {
 		initChatIcon(config);
+		initDarkMode(config, 'general');
 
 		if (pageInfo[0].startsWith("gamelist")) {
 			initObserver("gamelist");
@@ -78,9 +77,9 @@ const manageLocationChange = (pathname) => {
 };
 
 const initPage = () => {
-	config.isEmpty() &&
-		document.dispatchEvent(new CustomEvent("bga_ext_get_config", {}));
+	config.isEmpty() && document.dispatchEvent(new CustomEvent("bga_ext_get_config", {}));
 
+	buildMainCss();
 	addLocationChangeListener(manageLocationChange);
 	manageLocationChange(window.location.pathname);
 };

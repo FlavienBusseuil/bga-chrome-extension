@@ -1,0 +1,227 @@
+.gamestart_overlay {
+  background: none var(--dark-20);
+  color: var(--light-80);
+}
+
+#topbar,
+#page-title,
+.current_player_is_active #page-title,
+.gamestate_gameEnd #page-title {
+  background: var(--dark-10) !important;
+  color: var(--light-80);
+}
+
+#ingame_menu_content {
+  background: var(--dark-30);
+  color: var(--light-100);
+}
+
+#ingame_menu_content a {
+  color: var(--light-100);
+}
+
+.ingame_menu_item {
+  color: var(--light-100) !important;
+}
+
+.ingame_menu_item:hover {
+  color: var(--violet-80) !important;
+}
+
+.player-board,
+.player-board .roundedbox_main,
+.player-board .roundedbox_topleft,
+.player-board .roundedbox_topmain,
+.player-board .roundedbox_topright,
+.player-board .roundedbox_bottomleft,
+.player-board .roundedbox_bottommain,
+.player-board .roundedbox_bottomright {
+  background: var(--dark-20) !important;
+  color: var(--light-80);
+}
+
+.log .roundedbox .playername {
+  display: inline !important;
+}
+
+#logs .log .roundedbox {
+  background: var(--dark-10);
+  color: var(--light-80);
+}
+
+#logs .log .timestamp {
+  color: var(--light-80);
+}
+
+#logs .log:hover .timestamp {
+  background: var(--dark-40);
+}
+
+.bgabutton_gray {
+  background-color: var(--dark-40);
+  color: var(--light-80);
+}
+
+.bgabutton_gray:hover {
+  background-color: var(--dark-40);
+  color: var(--violet-80);
+}
+
+.pagesection {
+  background: var(--dark-20);
+  color: var(--light-80);
+}
+
+.pagesection .whiteblock {
+  background: none var(--dark-40);
+}
+
+#pagesection_gameview .whiteblock {
+  background: #ffffff33;
+}
+
+.pagesection h2,
+.pagesection h3 {
+  background: var(--dark-10);
+  color: var(--light-80);
+}
+
+.pagesection .bga-link {
+  color: var(--blue-80);
+}
+
+.pagesection .bga-link:hover {
+  color: var(--violet-80);
+}
+
+.pagesection .icon20_stat {
+  filter: invert(0.7);
+}
+
+.preference_control {
+  background: var(--dark-40);
+  color: var(--light-80);
+}
+
+.chatwindowtype_table .chatbarbelowinput_item {
+  color: var(--light-80);
+}
+
+.chatwindowtype_table .chatbarbelowinput_item:hover {
+  color: var(--violet-80);
+}
+
+#loader_mask {
+  background: var(--dark-40);
+}
+
+a.replay_last_move_button {
+  color: var(--light-80) !important;
+}
+
+a.replay_last_move_button:hover {
+  color: var(--dark-20) !important;
+}
+
+span[style="font-weight:bold;color:#000000;"],
+span[style="color:#000000;"],
+span[style="color:#000000"],
+a[style="color: #000000"],
+div.player-name[style="color: #000000"] {
+  text-shadow: -1px 0 white, 0 1px white, 1px 0 white, 0 -1px white;
+}
+
+span[style="font-weight:bold;color:#101820;"],
+span[style="color:#101820;"],
+span[style="color:#101820"],
+a[style="color: #101820"],
+div.player-name[style="color: #101820"] {
+  text-shadow: -1px 0 white, 0 1px white, 1px 0 white, 0 -1px white;
+}
+
+span[style="font-weight:bold;color:#123888;"],
+span[style="color:#123888;"],
+span[style="color:#123888"],
+a[style="color: #123888"],
+div.player-name[style="color: #123888"] {
+  text-shadow: -1px 0 white, 0 1px white, 1px 0 white, 0 -1px white;
+}
+
+span[style="font-weight:bold;color:#0000ff;"],
+span[style="color:#0000ff;"],
+span[style="color:#0000ff"],
+a[style="color: #0000ff"],
+h2[style="color:#0000ff"] {
+  color: #8080ff !important;
+}
+
+span[style="font-weight:bold;color:#982fff;"],
+span[style="color:#982fff;"],
+span[style="color:#982fff"],
+a[style="color: #982fff"],
+h2[style="color:#982fff"] {
+  color: #bf80ff !important;
+}
+
+span[style="font-weight:bold;color:#1863a5;"],
+span[style="color:#1863a5;"],
+span[style="color:#1863a5"],
+a[style="color: #1863a5"],
+h2[style="color:#1863a5"] {
+  color: #8fc2ef !important;
+}
+
+span[style="font-weight:bold;color:#0000dd;"],
+span[style="color:#0000dd;"],
+span[style="color:#0000dd"],
+a[style="color: #0000dd"],
+h2[style="color:#0000dd"] {
+  color: #8080ff !important;
+}
+
+span[style="font-weight:bold;color:#442df0;"],
+span[style="color:#442df0;"],
+span[style="color:#442df0"],
+a[style="color: #442df0"],
+h2[style="color:#442df0"] {
+  color: #9588f7 !important;
+}
+
+span.playername,
+#pagemaintitletext>span:first-child {
+  background: transparent !important;
+}
+
+.icon32_replaylastmoves,
+.ingame_menu_item .icon64,
+.winpoints>img {
+  filter: invert(0.7);
+}
+
+.notouch-device .ingame_menu_item:hover {
+  background-color: transparent;
+  color: var(--violet-80) !important;
+}
+
+#maingameview_menuheader,
+#maingameview_menufooter {
+  filter: invert(0.9);
+}
+
+.avatar_active,
+#active_player_statusbar_icon {
+  filter: invert(1) grayscale(1);
+}
+
+/* Menu flottant */
+#right-side-second-part {
+  background: black !important;
+}
+
+.player-board .player-hand-card {
+  filter: invert(0.7);
+}
+
+#seemorelogs {
+  filter: grayscale(1);
+}

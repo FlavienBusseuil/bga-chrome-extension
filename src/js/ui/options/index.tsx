@@ -46,7 +46,6 @@ const Options = (props: { config: Configuration }) => {
 
 	useEffect(() => setText(serialize(selected)), [selected]);
 	useEffect(() => {
-		debugger;
 		setChanged(serialize(selected) !== text);
 	}, [selected, text]);
 	useEffect(() => {

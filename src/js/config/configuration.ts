@@ -1,6 +1,6 @@
 import equal from "fast-deep-equal";
-import defaultGames from "./defaultGames";
-import { addChangeListener, storageClear, storageGet, storageSet } from "../utils/storage";
+import defaultGames from "./sideMenuGames";
+import { addChangeListener, storageGet, storageSet } from "../utils/chrome";
 
 export interface Game {
 	name: string;
@@ -40,12 +40,14 @@ interface CustomConfig {
 	floatingRightMenu?: boolean;
 	devTemplates?: Template[];
 	hideGeneralChat?: boolean;
+	darkMode?: boolean;
 };
 
 class Configuration {
 	_defConfig: { games: Game[] };
 	_customConfig: CustomConfig;
 	_config: { games: Game[] };
+	_currentGame: Game | undefined;
 
 	constructor() {
 		this._defConfig = {
@@ -90,17 +92,35 @@ class Configuration {
 		if (!this._customConfig.floating) {
 			this._customConfig.floating = [];
 		}
-		this.merge();
+		this._merge();
 
 		addChangeListener((changes: any) => {
-			for (let [key, { newValue }] of Object.entries(changes) as any) {
-				this._customConfig[key] = newValue;
-				document.dispatchEvent(new CustomEvent('bga_ext_update_config', { detail: { key } }));
-			}
+			try {
+				for (let [key, { newValue }] of Object.entries(changes) as any) {
+					this._customConfig[key] = newValue;
+					document.dispatchEvent(new CustomEvent('bga_ext_update_config', { detail: { key } }));
+				}
+			} catch (error) { } // not a big deal
+
+			this._checkCurrentGame();
 		});
 	}
 
-	private merge() {
+	private _checkCurrentGame() {
+		if (this._currentGame) {
+			if (this._customConfig.darkMode) {
+				if (this._currentGame.iconBackground === "#ebd5bd") {
+					this._currentGame.iconBackground = "#b9b9b9";
+				}
+			} else {
+				if (this._currentGame.iconBackground === "#b9b9b9") {
+					this._currentGame.iconBackground = "#ebd5bd";
+				}
+			}
+		}
+	}
+
+	private _merge() {
 		const customNames = this._customConfig.games.map((g) => g.name);
 		const defGames = this._defConfig.games.filter(
 			(g) => !customNames.includes(g.name),
@@ -126,7 +146,9 @@ class Configuration {
 	}
 
 	getGameConfig(game: string): Game | undefined {
-		return this._config.games.find((c: any) => c.name === game);
+		this._currentGame = this._config.games.find((c: any) => c.name === game);
+		this._checkCurrentGame();
+		return this._currentGame;
 	}
 
 	getGamesList(): Game[] {
@@ -145,7 +167,7 @@ class Configuration {
 			game,
 		];
 		storageSet({ games: this._customConfig.games });
-		this.merge();
+		this._merge();
 		return this.getGamesList();
 	}
 
@@ -154,7 +176,7 @@ class Configuration {
 			(g) => g.name !== name,
 		);
 		storageSet({ games: this._customConfig.games });
-		this.merge();
+		this._merge();
 		return this.getGamesList();
 	}
 
@@ -331,6 +353,22 @@ class Configuration {
 			return '#bga_extension_chat_icon { color: #c4c4c4; } #chatwindow_general { display: none !important; }';
 		}
 		return '#bga_extension_chat_icon { color: #01c4ca; } #chatwindow_general { display: inline-block !important; }';
+	}
+
+	isDarkMode() {
+		return !!this._customConfig.darkMode;
+	}
+
+	getLeftMenuBackground(gameConfig: Game) {
+		if (this._customConfig.darkMode && gameConfig.iconBackground === "#ebd5bd") {
+			return "#b9b9b9";
+		}
+		return gameConfig.iconBackground;
+	}
+
+	setDarkMode(val: boolean) {
+		this._customConfig.darkMode = val;
+		storageSet({ darkMode: val });
 	}
 }
 
