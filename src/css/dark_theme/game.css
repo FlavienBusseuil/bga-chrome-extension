@@ -57,14 +57,18 @@
   background: var(--dark-40);
 }
 
+#logs span[style="color:black"] {
+  text-shadow: -1px 0 white, 0 1px white, 1px 0 white, 0 -1px white;
+}
+
 .bgabutton_gray {
-  background-color: var(--dark-40);
-  color: var(--light-80);
+  background-color: var(--dark-40) !important;
+  color: var(--light-80) !important;
 }
 
 .bgabutton_gray:hover {
-  background-color: var(--dark-40);
-  color: var(--violet-80);
+  background-color: var(--dark-40) !important;
+  color: var(--violet-80) !important;
 }
 
 .pagesection {
@@ -78,6 +82,7 @@
 
 #pagesection_gameview .whiteblock {
   background: #ffffff33;
+  color: white;
 }
 
 .pagesection h2,
@@ -123,67 +128,75 @@ a.replay_last_move_button:hover {
   color: var(--dark-20) !important;
 }
 
-span[style="font-weight:bold;color:#000000;"],
-span[style="color:#000000;"],
-span[style="color:#000000"],
-a[style="color: #000000"],
-div.player-name[style="color: #000000"] {
+[style="font-weight:bold;color:#000000;"],
+[style="color:#000000;"],
+[style="color:#000000"],
+[style="color: #000000;"],
+[style="color: #000000"] {
   text-shadow: -1px 0 white, 0 1px white, 1px 0 white, 0 -1px white;
 }
 
-span[style="font-weight:bold;color:#101820;"],
-span[style="color:#101820;"],
-span[style="color:#101820"],
-a[style="color: #101820"],
-div.player-name[style="color: #101820"] {
+[style="font-weight:bold;color:#101820;"],
+[style="color:#101820;"],
+[style="color:#101820"],
+[style="color: #101820;"],
+[style="color: #101820"] {
   text-shadow: -1px 0 white, 0 1px white, 1px 0 white, 0 -1px white;
 }
 
-span[style="font-weight:bold;color:#123888;"],
-span[style="color:#123888;"],
-span[style="color:#123888"],
-a[style="color: #123888"],
-div.player-name[style="color: #123888"] {
+[style="font-weight:bold;color:#123888;"],
+[style="color:#123888;"],
+[style="color:#123888"],
+[style="color: #123888;"],
+[style="color: #123888"] {
   text-shadow: -1px 0 white, 0 1px white, 1px 0 white, 0 -1px white;
 }
 
-span[style="font-weight:bold;color:#0000ff;"],
-span[style="color:#0000ff;"],
-span[style="color:#0000ff"],
-a[style="color: #0000ff"],
-h2[style="color:#0000ff"] {
+[style="font-weight:bold;color:#1e2e3d;"],
+[style="color:#1e2e3d;"],
+[style="color:#1e2e3d"],
+[style="color: #1e2e3d;"],
+[style="color: #1e2e3d"] {
+  text-shadow: -1px 0 white, 0 1px white, 1px 0 white, 0 -1px white;
+}
+
+[style="font-weight:bold;color:#0000ff;"],
+[style="color:#0000ff;"],
+[style="color:#0000ff"],
+[style="color: #0000ff;"],
+[style="color: #0000ff"] {
   color: #8080ff !important;
 }
 
-span[style="font-weight:bold;color:#982fff;"],
-span[style="color:#982fff;"],
-span[style="color:#982fff"],
-a[style="color: #982fff"],
-h2[style="color:#982fff"] {
+[style="font-weight:bold;color:#982fff;"],
+[style="color:#982fff;"],
+[style="color:#982fff"],
+[style="color: #982fff;"],
+[style="color: #982fff"] {
   color: #bf80ff !important;
 }
 
-span[style="font-weight:bold;color:#1863a5;"],
-span[style="color:#1863a5;"],
-span[style="color:#1863a5"],
-a[style="color: #1863a5"],
-h2[style="color:#1863a5"] {
+[style="font-weight:bold;color:#1863a5;"],
+[style="color:#1863a5;"],
+[style="color:#1863a5"],
+[style="color: #1863a5;"],
+[style="color: #1863a5"] {
   color: #8fc2ef !important;
 }
 
-span[style="font-weight:bold;color:#0000dd;"],
-span[style="color:#0000dd;"],
-span[style="color:#0000dd"],
-a[style="color: #0000dd"],
-h2[style="color:#0000dd"] {
+[style="font-weight:bold;color:#0000dd;"],
+[style="color:#0000dd;"],
+[style="color:#0000dd"],
+[style="color: #0000dd;"],
+[style="color: #0000dd"] {
   color: #8080ff !important;
 }
 
-span[style="font-weight:bold;color:#442df0;"],
-span[style="color:#442df0;"],
-span[style="color:#442df0"],
-a[style="color: #442df0"],
-h2[style="color:#442df0"] {
+[style="font-weight:bold;color:#442df0;"],
+[style="color:#442df0;"],
+[style="color:#442df0"],
+[style="color: #442df0;"],
+[style="color: #442df0"] {
   color: #9588f7 !important;
 }
 
@@ -224,4 +237,10 @@ span.playername,
 
 #seemorelogs {
   filter: grayscale(1);
+}
+
+/* tournament (to complete) */
+
+#tournament-module {
+  color: var(--light-80);
 }

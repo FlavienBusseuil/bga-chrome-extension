@@ -1,12 +1,14 @@
 export const gamesWithCustomBackground = [
   'abyss',
   'agricola',
+  'beyondthesun',
   'conspiracy',
   'earth',
   'kingoftokyo',
   'memoir',
   'pandemic',
   'raceforthegalaxy',
+  'skull',
   'spacebase',
   'splendor'
 ];
@@ -34,8 +36,14 @@ _darkStyleForGame['bandido'] = `
 .cp_board_hand, #resize { filter: invert(1); }
 `;
 
-_darkStyleForGame['burglebros'] = `
-.floor_container.whiteblock { color: white; }
+_darkStyleForGame['beyondthesun'] = `
+#player_boards .bts-icon, #logs .bts-icon { filter: invert(0.7); }
+.bts-faction { text-shadow: -1px 0 white, 0 1px white, 1px 0 white, 0 -1px white; }
+`;
+
+_darkStyleForGame['bloodrage'] = `
+.br_board { text-shadow: -1px 0 white, 0 1px white, 1px 0 white, 0 -1px white; }
+.br_board_button { text-shadow: none; filter: invert(1); }
 `;
 
 _darkStyleForGame['carcassonne'] = `
@@ -63,7 +71,7 @@ _darkStyleForGame['challengers'] = `
 `;
 
 _darkStyleForGame['diceforge'] = `
-#pagesection_gameview .whiteblock, #nb-turns-container { color: white; }
+#nb-turns-container { color: white; }
 `;
 
 _darkStyleForGame['earth'] = `
@@ -75,7 +83,6 @@ _darkStyleForGame['earth'] = `
 
 _darkStyleForGame['evergreen'] = `
 .eve_inline-block { color: black; }
-#pagesection_gameview .whiteblock { color: white; }
 #pagesection_gameview h5 { background: var(--dark-20); padding-left: 1em; border-radius: 8px; }
 `;
 
@@ -127,8 +134,22 @@ _darkStyleForGame['kingoftokyo'] = `
 #active-expansions-button { background: #737373; }
 `;
 
+_darkStyleForGame['locomomo'] = `
+#ebd-body { background-image: inherit; }
+`;
+
 _darkStyleForGame['lostcities'] = `
 #round_count, #deck_count { color: white !important; }
+`;
+
+_darkStyleForGame['marcopolotwo'] = `
+#characterSelectionDescription { background-color: var(--dark-20) !important; }
+#pagesection_gameview .whiteblock > div:first-child { padding: 0.5em 0em 1em 0em; }
+#pagesection_gameview .whiteblock > div:first-child > span:first-child { background: var(--dark-20); padding: 0.5em 1em; border-radius: 8px; margin-bottom: 0.5em; }
+`;
+
+_darkStyleForGame['martiandice'] = `
+.turn-order { text-shadow: none; }
 `;
 
 _darkStyleForGame['memoir'] = `
@@ -139,12 +160,14 @@ _darkStyleForGame['novaluna'] = `
 .disc { color: black; }
 `;
 
-_darkStyleForGame['pandemic'] = `
-.player-board-pandemic__title, .player-name { text-shadow: -1px 0 white, 0 1px white, 1px 0 white, 0 -1px white; }
+_darkStyleForGame['obsession'] = `
+#zoomIn, #zoomOut { filter: invert(1); }
+#pagesection_gameview { color: white; }
+#pagesection_gameview .playerName { background: var(--dark-20); padding: 0.5em 1em; border-radius: 8px; margin-bottom: 0.5em; }
 `;
 
-_darkStyleForGame['piratenkapern'] = `
-#pagesection_gameview .whiteblock { color: white; }
+_darkStyleForGame['pandemic'] = `
+.player-board-pandemic__title, .player-name { text-shadow: -1px 0 white, 0 1px white, 1px 0 white, 0 -1px white; }
 `;
 
 _darkStyleForGame['potionexplosion'] = `
@@ -156,18 +179,17 @@ _darkStyleForGame['railroadink'] = `
 #all-players h2 { background: var(--dark-20); padding-left: 1em; border-radius: 8px; }
 `;
 
-_darkStyleForGame['saboteur'] = `
-#pagesection_gameview .whiteblock { color: white; }
+_darkStyleForGame['regicide'] = `
+.hand_card_icon.empty { filter: invert(1); }
 `;
 
 _darkStyleForGame['sagani'] = `
-#pagesection_gameview .whiteblock { color: white; }
 .sag_goto { filter: invert(1); }
 `;
 
 _darkStyleForGame['saintpetersburg'] = `
 .stp_icon_ruble { filter: invert(1); }
-#pagesection_gameview .whiteblock h3 { background: var(--dark-20); padding-left: 1em; border-radius: 8px; }
+#pagesection_gameview .whiteblock h3 { background: var(--dark-20); padding: 0.5em 1em; border-radius: 8px; }
 `;
 
 _darkStyleForGame['sevenwonders'] = `
@@ -184,8 +206,8 @@ _darkStyleForGame['solo'] = `
 #howto2, #helptext2 { color: var(--light-80); }
 `;
 
-_darkStyleForGame['takenoko'] = `
-#pagesection_gameview .whiteblock { color: white; }
+_darkStyleForGame['spades'] = `
+.card-name-color--1, .card-name-color--3 { text-shadow: -1px 0 white, 0 1px white, 1px 0 white, 0 -1px white; }
 `;
 
 _darkStyleForGame['tapestry'] = `
@@ -204,14 +226,16 @@ _darkStyleForGame['thecrewdeepsea'] = `
 `;
 
 _darkStyleForGame['tichu'] = `
-#pagesection_gameview .whiteblock { color: white; }
 #pagesection_gameview .whiteblock .playertablename[style="color:#000000"] { text-shadow: -1px 0 white, 0 1px white, 1px 0 white, 0 -1px white; }
 `;
 
 _darkStyleForGame['toc'] = `
 #icon_first_player { filter: invert(1); }
-#pagesection_gameview .whiteblock { color: white; }
 .field { border-color: #c9ab69; }
+`;
+
+_darkStyleForGame['tzolkin'] = `
+#pagesection_gameview .whiteblock h3 { background: var(--dark-20); padding-left: 1em; border-radius: 8px; }
 `;
 
 _darkStyleForGame['welcometo'] = `
@@ -220,6 +244,10 @@ _darkStyleForGame['welcometo'] = `
 
 _darkStyleForGame['wizard'] = `
 .wizLogColor { color: black; }
+`;
+
+_darkStyleForGame['warchest'] = `
+#team_board_id { background-color: var(--dark-20) !important; }
 `;
 
 export const darkStyleForGame = _darkStyleForGame;
