@@ -57,6 +57,8 @@ const _setDarkStyle = (mode: string) => {
       styleComponent.innerHTML = `${backStyle}${cssContents["dark_theme/common.css"]}${cssContents["dark_theme/chat.css"]}${cssContents["dark_theme/game.css"]}${gameStyle}`;
     }
   }
+
+  document.body.classList.add("dark_mode");
 };
 
 const _setLightStyle = (mode: string) => {
@@ -67,6 +69,8 @@ const _setLightStyle = (mode: string) => {
       styleComponent.innerHTML = "";
     }
   }
+
+  document.body.classList.remove("dark_mode");
 };
 
 export const setDarkStyle = (mode: string, val: boolean) => {

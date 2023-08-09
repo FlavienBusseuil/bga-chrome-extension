@@ -19,6 +19,10 @@ _darkStyleForGame['agricola'] = `
 #player_boards > div { background-color: #000000CC !important; }
 `;
 
+_darkStyleForGame['anachrony'] = `
+.pname { background: var(--dark-20); padding: 0.3em 1em; border-radius: 8px; margin-bottom: -0.1em; }
+`;
+
 _darkStyleForGame['applejack'] = `
 #zoomplus, #zoomminus { color: white; }
 `;
@@ -36,6 +40,10 @@ _darkStyleForGame['bandido'] = `
 .cp_board_hand, #resize { filter: invert(1); }
 `;
 
+_darkStyleForGame['barenpark'] = `
+.bp-player-area-title > h3 { background: var(--dark-20); padding: 0.3em 1em; border-radius: 8px; }
+`;
+
 _darkStyleForGame['beyondthesun'] = `
 #player_boards .bts-icon, #logs .bts-icon { filter: invert(0.7); }
 .bts-faction { text-shadow: -1px 0 white, 0 1px white, 1px 0 white, 0 -1px white; }
@@ -50,8 +58,18 @@ _darkStyleForGame['carcassonne'] = `
 .partisan_000000 { filter: invert(0.2) !important; }
 `;
 
+_darkStyleForGame['carnegie'] = `
+ .cng_firstplayer, .cng_playerboard_counter { filter: invert(1); }
+`;
+
+
 _darkStyleForGame['catan'] = `
 .cat_panel_prim_icons, #player_boards .cat_panel_prim_icons .cat_panel_score { filter: invert(1) !important; }
+`;
+
+_darkStyleForGame['caverna'] = `
+#central-board .turn-action-container .turn-number, #help-mode-switch > label, #show-expedition { filter: invert(1); }
+#player_config #round-counter-wrapper { background-color: black; }
 `;
 
 _darkStyleForGame['century'] = `
@@ -88,6 +106,10 @@ _darkStyleForGame['evergreen'] = `
 
 _darkStyleForGame['feastforodin'] = `
 .ffo-icon-eye { filter: invert(0.7); }
+`;
+
+_darkStyleForGame['forsale'] = `
+.player_bid_zone > div:first-child { background: var(--dark-20); padding: 0.3em 1em; border-radius: 8px; }
 `;
 
 _darkStyleForGame['frenchtarot'] = `
@@ -156,6 +178,13 @@ _darkStyleForGame['memoir'] = `
 #clipboard-button { filter: invert(0.7); }
 `;
 
+_darkStyleForGame['nidavellir'] = `
+#turn-counter-holder, #layout-mode { filter: invert(0.7); }
+.card-class-ranks, .card-class-score, .rank { filter: invert(1); }
+#player-boards > div { background: var(--dark-20); border-radius: 8px; }
+.player-board-name { background-color: var(--dark-30) !important; }
+`;
+
 _darkStyleForGame['novaluna'] = `
 .disc { color: black; }
 `;
@@ -202,12 +231,24 @@ _darkStyleForGame['sevenwondersarchitects'] = `
 .stw_name { color: white; }
 `;
 
+_darkStyleForGame['shiftingstones'] = `
+.doubleempty, .empty, #deck, #disc, #mycard { color: white !important; }
+`;
+
 _darkStyleForGame['solo'] = `
 #howto2, #helptext2 { color: var(--light-80); }
 `;
 
 _darkStyleForGame['spades'] = `
 .card-name-color--1, .card-name-color--3 { text-shadow: -1px 0 white, 0 1px white, 1px 0 white, 0 -1px white; }
+`;
+
+_darkStyleForGame['sushigo'] = `
+.block_title { background-image: none; background-color: var(--dark-20); }
+`;
+
+_darkStyleForGame['sushigoparty'] = `
+.block_title { background-image: none; background-color: var(--dark-20); }
 `;
 
 _darkStyleForGame['tapestry'] = `
