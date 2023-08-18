@@ -1,5 +1,13 @@
 # Changelog
 
+## [v1.8.0](https://github.com/FlavienBusseuil/bga-chrome-extension/tree/v1.8.0) (2023-08-07)
+
+[Full Changelog](https://github.com/FlavienBusseuil/bga-chrome-extension/compare/v1.7.2...v1.8.0)
+
+**Implemented enhancements:**
+
+- Add dark mode [\#57](https://github.com/FlavienBusseuil/bga-chrome-extension/issues/57)
+
 ## [v1.7.2](https://github.com/FlavienBusseuil/bga-chrome-extension/tree/v1.7.2) (2023-07-13)
 
 [Full Changelog](https://github.com/FlavienBusseuil/bga-chrome-extension/compare/v1.7.1...v1.7.2)
