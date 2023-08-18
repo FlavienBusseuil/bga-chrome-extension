@@ -622,7 +622,16 @@ const defaultGames: Partial<Game>[] = [
 		name: "applejack",
 		playerPanel: "wrapper_player_{{player_id}}",
 	},
-
+	{
+		name: "rollintotown",
+		playerPanel: "rt-holder-{{player_id}}",
+	},
+	{
+		name: "riftvalleyreserve",
+		playerPanel: "rvr-map-index-{{player_index}}",
+		playerPanelOffset: 20,
+		menuCss: "#page-title { width: 100% !important }",
+	},
 ];
 
 export default defaultGames;

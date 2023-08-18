@@ -62,7 +62,6 @@ _darkStyleForGame['carnegie'] = `
  .cng_firstplayer, .cng_playerboard_counter { filter: invert(1); }
 `;
 
-
 _darkStyleForGame['catan'] = `
 .cat_panel_prim_icons, #player_boards .cat_panel_prim_icons .cat_panel_score { filter: invert(1) !important; }
 `;
@@ -99,6 +98,10 @@ _darkStyleForGame['earth'] = `
 .ea-icon-sprout, .ea-icon-soil, .ea-icon-growth { filter: invert(1); }
 `;
 
+_darkStyleForGame['ekonos'] = `
+.player-name > a, .ekonos-scoreboard-label { color: white !important; }
+`;
+
 _darkStyleForGame['evergreen'] = `
 .eve_inline-block { color: black; }
 #pagesection_gameview h5 { background: var(--dark-20); padding-left: 1em; border-radius: 8px; }
@@ -115,6 +118,13 @@ _darkStyleForGame['forsale'] = `
 _darkStyleForGame['frenchtarot'] = `
 #icon_first_player_in_panel { filter: invert(1); }
 .black { text-shadow: -1px 0 white, 0 1px white, 1px 0 white, 0 -1px white; }
+`;
+
+_darkStyleForGame['ghostathome'] = `
+.ghostathome-name-000000, [style="color: rgb(0, 0, 0); background-color: rgba(255, 255, 255, 0.376);"] { text-shadow: -1px 0 white, 0 1px white, 1px 0 white, 0 -1px white; }
+.ghostathome-name-0000ff, [style="color: rgb(0, 0, 255); background-color: rgba(0, 0, 0, 0.125);"] { color: #8080ff !important; }
+.ghostathome-deck, .ghostathome-player-label { background-color: var(--dark-20) !important; }
+#hand-label, #deck-label { color: white; }
 `;
 
 _darkStyleForGame['greatwesterntrail'] = `
@@ -158,6 +168,11 @@ _darkStyleForGame['kingoftokyo'] = `
 
 _darkStyleForGame['locomomo'] = `
 #ebd-body { background-image: inherit; }
+`;
+
+_darkStyleForGame['lielow'] = `
+.lielow-name-with-bg-000000  { text-shadow: -1px 0 white, 0 1px white, 1px 0 white, 0 -1px white; }
+.lielow-name-with-bg-ffffff { background-color: transparent; }
 `;
 
 _darkStyleForGame['lostcities'] = `
@@ -212,6 +227,11 @@ _darkStyleForGame['regicide'] = `
 .hand_card_icon.empty { filter: invert(1); }
 `;
 
+_darkStyleForGame['riftvalleyreserve'] = `
+.riftvalleyreserve-name-272c29 { text-shadow: -1px 0 white, 0 1px white, 1px 0 white, 0 -1px white; }
+.rvr-icon-element[data-color="272c29"][data-type=stop] { background-color: white; border-radius: 18px; }
+`;
+
 _darkStyleForGame['sagani'] = `
 .sag_goto { filter: invert(1); }
 `;
@@ -241,6 +261,11 @@ _darkStyleForGame['solo'] = `
 
 _darkStyleForGame['spades'] = `
 .card-name-color--1, .card-name-color--3 { text-shadow: -1px 0 white, 0 1px white, 1px 0 white, 0 -1px white; }
+`;
+
+_darkStyleForGame['strands'] = `
+.strands-name-000000, .strands-num-1, .strands-num-2, .strands-num-3, .strands-num-4, .strands-num-5, .strands-num-6 { text-shadow: -1px 0 white, 0 1px white, 1px 0 white, 0 -1px white; }
+.hex-alt-colors .hex-tile[data-hex="6"] { filter: contrast(0); }
 `;
 
 _darkStyleForGame['sushigo'] = `

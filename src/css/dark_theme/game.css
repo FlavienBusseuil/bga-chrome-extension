@@ -160,6 +160,22 @@ a.replay_last_move_button:hover {
   text-shadow: -1px 0 white, 0 1px white, 1px 0 white, 0 -1px white;
 }
 
+[style="font-weight:bold;color:#404040;"],
+[style="color:#404040;"],
+[style="color:#404040"],
+[style="color: #404040;"],
+[style="color: #404040"] {
+  text-shadow: -1px 0 white, 0 1px white, 1px 0 white, 0 -1px white;
+}
+
+[style="font-weight:bold;color:#272c29;"],
+[style="color:#272c29;"],
+[style="color:#272c29"],
+[style="color: #272c29;"],
+[style="color: #272c29"] {
+  text-shadow: -1px 0 white, 0 1px white, 1px 0 white, 0 -1px white;
+}
+
 [style="font-weight:bold;color:#0000ff;"],
 [style="color:#0000ff;"],
 [style="color:#0000ff"],

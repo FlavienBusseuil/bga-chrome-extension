@@ -788,3 +788,7 @@ select.colorselector {
 #achievement-module .achievement.odd .achievement_container.top {
   display: none;
 }
+
+.score-entry .winpoints img {
+  filter: invert(1);
+}
