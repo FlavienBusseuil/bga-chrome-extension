@@ -361,7 +361,7 @@ const defaultGames: Partial<Game>[] = [
 	},
 	{
 		name: "dicehospital",
-		playerPanel: "dhi-board_{{player_id}}",
+		playerPanel: "dhi-player_{{player_id}}",
 		css: " ",
 	},
 	{
@@ -632,6 +632,16 @@ const defaultGames: Partial<Game>[] = [
 		playerPanelOffset: 20,
 		menuCss: "#page-title { width: 100% !important }",
 	},
+	{
+		name: "afterus",
+		playerPanel: "player-table-{{player_id}}-deck",
+		css: "#bga-jump-to_controls { display: none; } #game_play_area { padding-left: 50px; }",
+	},
+	{
+		name: "cantstopexpress",
+		playerPanel: ".containermepad",
+	},
+
 ];
 
 export default defaultGames;

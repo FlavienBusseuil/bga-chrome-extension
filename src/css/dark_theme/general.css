@@ -566,6 +566,11 @@ select.colorselector {
   background: var(--dark-20) !important
 }
 
+/* image par défaut des tournois */
+[style="background-image: url(https://x.boardgamearena.net/data/grouparms/noimage_tournament_50.png)"] {
+  filter: invert(1);
+}
+
 /* Page Qui sommes-nous */
 #premiums .teamember,
 #translators .teamember,
@@ -635,6 +640,10 @@ select.colorselector {
 #moderation-module #last_reports .statstable [bgcolor] a,
 #moderation-module #last_reports .statstable th .bga-link {
   color: var(--dark-10);
+}
+
+.upper_back_button>.icon16_backgray {
+  filter: invert(1);
 }
 
 /* Page Traduction */

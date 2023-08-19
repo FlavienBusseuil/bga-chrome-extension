@@ -256,9 +256,21 @@ a.replay_last_move_button:hover {
   color: #446ebb !important;
 }
 
+[style="font-weight:bold;color:#044396;"],
+[style="color:#044396;"],
+[style="color:#044396"],
+[style="color: #044396;"],
+[style="color: #044396"] {
+  color: #066ff9 !important;
+}
 
-
-
+[style="font-weight:bold;color:#003377;"],
+[style="color:#003377;"],
+[style="color:#003377"],
+[style="color: #003377;"],
+[style="color: #003377"] {
+  color: #006eff !important;
+}
 
 span.playername,
 #pagemaintitletext>span:first-child {

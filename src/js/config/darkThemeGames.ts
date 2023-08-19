@@ -1,7 +1,10 @@
+import { getUrl } from "../utils/chrome";
+
 export const gamesWithCustomBackground = [
   'abyss',
   'agricola',
   'beyondthesun',
+  'chromino',
   'conspiracy',
   'earth',
   'kingoftokyo',
@@ -10,7 +13,8 @@ export const gamesWithCustomBackground = [
   'raceforthegalaxy',
   'skull',
   'spacebase',
-  'splendor'
+  'splendor',
+  'stella'
 ];
 
 const _darkStyleForGame = {};
@@ -54,6 +58,16 @@ _darkStyleForGame['bloodrage'] = `
 .br_board_button { text-shadow: none; filter: invert(1); }
 `;
 
+_darkStyleForGame['cantstop'] = `
+.diceactions, .dicechoice_plus { color: white; }
+`;
+
+_darkStyleForGame['cantstopexpress'] = `
+h5 { color: white; }
+.pad { filter: invert(0.8) grayscale(1); }
+.containermepad > h1 { background: var(--dark-20); margin-top: 0.5em; padding: 0.3em 1em !important; border-radius: 8px; text-shadow: -1px 0 white, 0 1px white, 1px 0 white, 0 -1px white; }
+`;
+
 _darkStyleForGame['carcassonne'] = `
 .partisan_000000 { filter: invert(0.2) !important; }
 `;
@@ -78,17 +92,36 @@ html.century_theme.spice #logs .log_replayable .roundedbox { background: #272a2f
 .logitem.gcard_forlog { background-color: #040404; color: #e59480; }
 `;
 
+_darkStyleForGame['challengers'] = `
+.cha-log-holder { background: var(--dark-20); color: var(--light-80); }
+`;
+
+_darkStyleForGame['chromino'] = `
+#btn_user_prefs { filter: invert(1); }
+.block-user-pref-radio label { background-color: #111; }
+#map_container { background-image: url(${getUrl('img/dark_theme/background.jpg')}); }
+`;
+
+_darkStyleForGame['clansofcaledonia'] = `
+.auction-bidding-item, .cc_counter { background: var(--dark-20); }
+.playerboard_row > h3 > span:first-child { background: var(--dark-20); padding: 0.3em 1em; border-radius: 8px; }
+`;
+
+_darkStyleForGame['connectfour'] = `
+#logs span[style="color:#ff0000; font-weight:bold; background-color:#bbbbbb"], #logs span[style="color:#ffff00; font-weight:bold; background-color:#bbbbbb"] { background-color: transparent !important; }
+`;
+
 _darkStyleForGame['cribbage'] = `
 .club, .spade { text-shadow: -1px 0 white, 0 1px white, 1px 0 white, 0 -1px white; }
 #cutCardSpace { color: white; }
 `;
 
-_darkStyleForGame['challengers'] = `
-.cha-log-holder { background: var(--dark-20); color: var(--light-80); }
-`;
-
 _darkStyleForGame['diceforge'] = `
 #nb-turns-container { color: white; }
+`;
+
+_darkStyleForGame['dicehospital'] = `
+.dhc-board_panel > h3 { background: var(--dark-20); padding: 0.5em 1em; border-radius: 8px; margin-bottom: 1em; }
 `;
 
 _darkStyleForGame['earth'] = `
@@ -142,6 +175,11 @@ _darkStyleForGame['handandfoot'] = `
 .card_type_icon { background-color: white; }
 `;
 
+_darkStyleForGame['incangold'] = `
+#pagesection_gameview .whiteblock { background: var(--dark-10); }
+#decksizetext { color: white; }
+`;
+
 _darkStyleForGame['innovation'] = `
 .card_name { text-shadow: -1px 0 white, 0 1px white, 1px 0 white, 0 -1px white; }
 #main_area .bgabutton { color: black; }
@@ -193,6 +231,12 @@ _darkStyleForGame['memoir'] = `
 #clipboard-button { filter: invert(0.7); }
 `;
 
+_darkStyleForGame['myshelfie'] = `
+#settings-icon { filter: invert(1); }
+#board-scale { filter: grayscale(1); }
+select { color-scheme: dark; }
+`;
+
 _darkStyleForGame['nidavellir'] = `
 #turn-counter-holder, #layout-mode { filter: invert(0.7); }
 .card-class-ranks, .card-class-score, .rank { filter: invert(1); }
@@ -221,6 +265,10 @@ _darkStyleForGame['potionexplosion'] = `
 _darkStyleForGame['railroadink'] = `
 #infrastructure { color: white; }
 #all-players h2 { background: var(--dark-20); padding-left: 1em; border-radius: 8px; }
+`;
+
+_darkStyleForGame['rallymangt'] = `
+.warningCounterIcon { filter: invert(1); }
 `;
 
 _darkStyleForGame['regicide'] = `
@@ -282,6 +330,11 @@ _darkStyleForGame['tapestry'] = `
 #settings-controls-container .row-data .row-label { color: white; }
 #player_config #player_config_row { filter: invert(1); }
 .playerArea { background-color: #2d2d2d80; }
+`;
+
+_darkStyleForGame['targi'] = `
+h3 > span[style="color:#0000ff; background-color: #;"] { color: #8080ff !important; background-color: var(--dark-20); padding: 0.5em 1em; border-radius: 8px; }
+h3 > span[style="color:#ffffff; background-color: #bbbbbb;"] { background-color: var(--dark-20) !important; padding: 0.5em 1em; border-radius: 8px; }
 `;
 
 _darkStyleForGame['thecrewdeepsea'] = `
