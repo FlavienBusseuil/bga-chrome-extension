@@ -641,7 +641,6 @@ const defaultGames: Partial<Game>[] = [
 		name: "cantstopexpress",
 		playerPanel: ".containermepad",
 	},
-
 ];
 
 export default defaultGames;
