@@ -10,6 +10,24 @@ export const initDevelopperUI = (config) => {
 		return;
 	}
 
+	if (window.location.search === "?id=0") {
+		// creation of a bug report
+		const firstComment = document.querySelector(".pagesection__content > p");
+		if (!firstComment) {
+			setTimeout(() => initDevelopperUI(config), 100);
+			return;
+		}
+
+		console.log("[bga extension] creation of a bug report");
+
+		const extensionComment = document.createElement("p");
+		const warningSymbol = '<span style="color: red; font-size: 32px;">⚠</span>';
+		const forumLink = `<a href="https://boardgamearena.com/forum/viewtopic.php?t=30509" class="bga-link">>> ${chrome.i18n.getMessage("reportCreationWarningLink")} <<</a>`;
+		extensionComment.innerHTML = `${warningSymbol} ${chrome.i18n.getMessage("reportCreationWarning")} ${forumLink} `;
+		firstComment.parentNode.insertBefore(extensionComment, firstComment.nextSibling);
+		return;
+	}
+
 	const butStatus =
 		document.getElementById("change_bug_status_awaiting") ||
 		document.getElementById("change_bug_status_open");

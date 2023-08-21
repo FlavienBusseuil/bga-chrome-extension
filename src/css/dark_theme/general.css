@@ -633,12 +633,14 @@ select.colorselector {
   background: var(--dark-40);
 }
 
-#moderation-module #last_reports .statstable a {
+#moderation-module #last_reports .statstable a,
+#buglist_inner a {
   color: var(--light-80);
 }
 
 #moderation-module #last_reports .statstable [bgcolor] a,
-#moderation-module #last_reports .statstable th .bga-link {
+#moderation-module #last_reports .statstable th .bga-link,
+#buglist_inner [bgcolor] a {
   color: var(--dark-10);
 }
 
