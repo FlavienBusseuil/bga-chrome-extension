@@ -1,5 +1,9 @@
 # Changelog
 
+## [v1.8.1](https://github.com/FlavienBusseuil/bga-chrome-extension/tree/v1.8.1) (2023-08-19)
+
+[Full Changelog](https://github.com/FlavienBusseuil/bga-chrome-extension/compare/v1.8.0...v1.8.1)
+
 ## [v1.8.0](https://github.com/FlavienBusseuil/bga-chrome-extension/tree/v1.8.0) (2023-08-07)
 
 [Full Changelog](https://github.com/FlavienBusseuil/bga-chrome-extension/compare/v1.7.2...v1.8.0)
