@@ -1,6 +1,6 @@
 import { getUrl } from "../../../utils/chrome";
 import { isNumber } from "../../../utils/misc/isNumber";
-import { darkStyleForGame, gamesWithCustomBackground } from "../../../config/darkThemeGames";
+import { darkStyleForGame, gamesWithCustomBackground, styleForGame } from "../../../config/darkThemeGames";
 
 const themeStyleId = "ext-theme-style";
 const cookieName = "ext_dark_theme";
@@ -43,6 +43,7 @@ Promise.all(cssList.map(getFile)).then(fileContents => {
   if (isDarkStyle()) {
     _setDarkStyle(mode);
   }
+  initClassObserver(mode);
 });
 
 const _setDarkStyle = (mode: string) => {
@@ -52,25 +53,27 @@ const _setDarkStyle = (mode: string) => {
     } else if (mode === "general") {
       styleComponent.innerHTML = `${cssContents["dark_theme/background.css"]}${cssContents["dark_theme/common.css"]}${cssContents["dark_theme/chat.css"]}${cssContents["dark_theme/general.css"]}`;
     } else {
-      const gameStyle = darkStyleForGame[mode] || "";
+      const gameStyle = styleForGame[mode] || "";
+      const gameDarkStyle = darkStyleForGame[mode] || "";
       const backStyle = gamesWithCustomBackground.includes(mode) ? "" : cssContents["dark_theme/background.css"];
-      styleComponent.innerHTML = `${backStyle}${cssContents["dark_theme/common.css"]}${cssContents["dark_theme/chat.css"]}${cssContents["dark_theme/game.css"]}${gameStyle}`;
+      styleComponent.innerHTML = `${backStyle}${cssContents["dark_theme/common.css"]}${cssContents["dark_theme/chat.css"]}${cssContents["dark_theme/game.css"]}${gameDarkStyle}${gameStyle}`;
     }
   }
-
-  document.body.classList.add("dark_mode");
+  document.documentElement.classList.add("darkmode");
 };
 
 const _setLightStyle = (mode: string) => {
   if (styleComponent) {
     if (mode === "general") {
       styleComponent.innerHTML = cssContents["light_theme/background.css"];
-    } else {
+    } else if (mode === "forum") {
       styleComponent.innerHTML = "";
+    } else {
+      styleComponent.innerHTML = styleForGame[mode] || "";
     }
   }
 
-  document.body.classList.remove("dark_mode");
+  document.documentElement.classList.remove("darkmode");
 };
 
 export const setDarkStyle = (mode: string, val: boolean) => {
@@ -85,4 +88,22 @@ export const setDarkStyle = (mode: string, val: boolean) => {
   } else {
     _setLightStyle(mode);
   }
+};
+
+const initClassObserver = (mode: string) => {
+  if (mode === "general" || mode === "forum") {
+    return;
+  }
+
+  // ensure that the "darkmode" class is well placed for games that used to manage their own dark mode like "Concept"
+  // if the game try to remove the class "darkmode", it put it back immediately
+  const observer = new MutationObserver(() => {
+    if (isDarkStyle() && !document.documentElement.classList.contains("darkmode")) {
+      document.documentElement.classList.add("darkmode");
+    }
+  });
+
+  observer.observe(document.documentElement, { attributes: true });
+
+  return observer;
 };

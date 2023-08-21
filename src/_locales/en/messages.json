@@ -110,5 +110,11 @@
 	},
 	"sideMenuMainBoard": {
 		"message": "Main board"
+	},
+	"reportCreationWarning": {
+		"message": "You're using a browser extension that significantly alters the visuals of the site and certain games. If you have a problem with the dark mode, don't create a report, come and talk about it on the forum!"
+	},
+	"reportCreationWarningLink": {
+		"message": "HERE"
 	}
 }

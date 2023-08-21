@@ -110,5 +110,11 @@
 	},
 	"sideMenuMainBoard": {
 		"message": "Plateau principal"
+	},
+	"reportCreationWarning": {
+		"message": "Vous utilisez une extension de navigateur qui modifie sensiblement le visuel du site et de certains jeux. Si vous avez un problème avec le mode sombre, ne créez pas un rapport, venez plutôt en parler sur le forum !"
+	},
+	"reportCreationWarningLink": {
+		"message": "ICI"
 	}
 }
