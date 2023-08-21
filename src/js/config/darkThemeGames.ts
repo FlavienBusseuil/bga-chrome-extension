@@ -274,6 +274,8 @@ _darkStyleForGame['novaluna'] = `
 
 _darkStyleForGame['notalone'] = `
 .player-board { background: transparent !important; }
+.player-board.selectable .player_board_inner { border-color: green !important; }
+.player-board.selectable .player_board_inner:hover { border-color: lime !important; }
 `;
 
 _darkStyleForGame['obsession'] = `
@@ -305,6 +307,10 @@ _darkStyleForGame['rallymangt'] = `
 
 _darkStyleForGame['regicide'] = `
 .hand_card_icon.empty { filter: invert(1); }
+.player-board.transparent { background-color: #272a2fcc !important; }
+.player-board.highlight_panel { background-color: rgba(80,80,80,.6) !important; }
+.player-board.unselectable_panel { background-color: rgba(255,0,0,.3) !important; }
+.player-board.selected_panel { background-color: #0033004d !important; }
 `;
 
 _darkStyleForGame['riftvalleyreserve'] = `

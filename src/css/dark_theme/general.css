@@ -29,11 +29,13 @@ select.colorselector {
 }*/
 
 /* Liens */
-.bga-link {
+.bga-link,
+a.gamename {
   color: var(--blue-80);
 }
 
-.bga-link:hover {
+.bga-link:hover,
+a.gamename:hover {
   color: var(--violet-80);
 }
 
@@ -336,6 +338,38 @@ select.colorselector {
 
 #mostwanted_games .gamename {
   color: var(--blue-50);
+}
+
+.bga-quick-play-widget__item {
+  background: var(--dark-10) !important;
+}
+
+.bga-quick-play-widget__item:hover {
+  background: var(--dark-20) !important;
+}
+
+.bga-dropdown__options .bg-bga-gray-244 .items-center {
+  background: var(--dark-20) !important;
+}
+
+.bga-dropdown__options .bg-bga-gray-244 .items-center>span {
+  color: white;
+}
+
+.bg-bga-gray-211 {
+  background: var(--dark-20);
+}
+
+.bg-bga-gray-211 .text-gray-600 {
+  color: var(--light-80);
+}
+
+.place-self-stretch {
+  background-image: none !important;
+}
+
+.bga-game-filter-tags .bga-filter-tag--active {
+  filter: invert(1);
 }
 
 /* Page Jouer - Lobby */

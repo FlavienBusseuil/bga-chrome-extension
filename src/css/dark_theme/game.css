@@ -186,6 +186,11 @@ a.replay_last_move_button:hover {
   color: #ff3333 !important;
 }
 
+[style*="color:#800000"],
+[style*="color: #800000"] {
+  color: #cc0000 !important;
+}
+
 [style*="color:#1a355e"],
 [style*="color: #1a355e"] {
   color: #3771c8 !important;
@@ -244,7 +249,7 @@ span.playername,
 
 .avatar_active,
 #active_player_statusbar_icon {
-  filter: invert(1) grayscale(1);
+  filter: drop-shadow(0px 0px 2px white);
 }
 
 /* Menu flottant */

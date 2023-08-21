@@ -2,3 +2,8 @@ html,
 body {
   background: url('chrome-extension://__MSG_@@extension_id__/img/dark_theme/background.jpg');
 }
+
+html.bga-white-background,
+html.bga-white-background body {
+  background: #0A0A0A !important;
+}
