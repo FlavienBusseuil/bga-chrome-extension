@@ -641,6 +641,15 @@ const defaultGames: Partial<Game>[] = [
 		name: "cantstopexpress",
 		playerPanel: ".containermepad",
 	},
+	{
+		name: "livingforest",
+		playerPanel: "lvf_playerboard_{{player_id}}",
+	},
+	{
+		name: "pandemic",
+		myPanel: "#pdm-myhand",
+		playerPanel: "#o-otherhands .pdm-hand",
+	},
 ];
 
 export default defaultGames;
