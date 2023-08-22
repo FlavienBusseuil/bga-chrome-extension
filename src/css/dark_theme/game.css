@@ -28,7 +28,11 @@
   color: var(--violet-80) !important;
 }
 
-.player-board,
+.player-board {
+  color: var(--light-80);
+}
+
+html.darkpanel .player-board,
 .player-board .roundedbox_main,
 .player-board .roundedbox_topleft,
 .player-board .roundedbox_topmain,
@@ -37,7 +41,6 @@
 .player-board .roundedbox_bottommain,
 .player-board .roundedbox_bottomright {
   background: var(--dark-20) !important;
-  color: var(--light-80);
 }
 
 .log .roundedbox .playername {
@@ -214,6 +217,11 @@ a.replay_last_move_button:hover {
 [style*="color:#003377"],
 [style*="color: #003377"] {
   color: #006eff !important;
+}
+
+[style*="color:#0000aa"],
+[style*="color: #0000aa"] {
+  color: #006eaa !important;
 }
 
 [style*="color:#773300"],

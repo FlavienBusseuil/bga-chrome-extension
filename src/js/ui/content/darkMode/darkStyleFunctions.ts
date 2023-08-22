@@ -1,6 +1,6 @@
 import { getUrl } from "../../../utils/chrome";
 import { isNumber } from "../../../utils/misc/isNumber";
-import { darkStyleForGame, gamesWithCustomBackground, styleForGame } from "../../../config/darkThemeGames";
+import { darkStyleForGame, gamesWithCustomBackground, gamesWithCustomPanel, styleForGame } from "../../../config/darkThemeGames";
 
 const themeStyleId = "ext-theme-style";
 const cookieName = "ext_dark_theme";
@@ -57,8 +57,13 @@ const _setDarkStyle = (mode: string) => {
       const gameDarkStyle = darkStyleForGame[mode] || "";
       const backStyle = gamesWithCustomBackground.includes(mode) ? "" : cssContents["dark_theme/background.css"];
       styleComponent.innerHTML = `${backStyle}${cssContents["dark_theme/common.css"]}${cssContents["dark_theme/chat.css"]}${cssContents["dark_theme/game.css"]}${gameDarkStyle}${gameStyle}`;
+
+      if (!gamesWithCustomPanel.includes(mode)) {
+        document.documentElement.classList.add("darkpanel");
+      }
     }
   }
+
   document.documentElement.classList.add("darkmode");
 };
 
@@ -74,6 +79,7 @@ const _setLightStyle = (mode: string) => {
   }
 
   document.documentElement.classList.remove("darkmode");
+  document.documentElement.classList.remove("darkpanel");
 };
 
 export const setDarkStyle = (mode: string, val: boolean) => {

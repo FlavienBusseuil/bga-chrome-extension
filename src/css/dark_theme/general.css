@@ -13,28 +13,51 @@ select {
   color-scheme: dark;
 }
 
+.bga-popup-modal__content .bga-textfield {
+  background-color: var(--dark-40) !important;
+}
+
 select.colorselector {
   color: var(--dark-40);
 }
 
-/* Boutons */
-/*
-.bgabutton_gray {
-  background: var(--dark-10);
-  color: var(--light-80);
+.bga-lobby-table-item__bg {
+  filter: invert(1);
 }
 
-.bgabutton_gray:hover {
-  background: var(--dark-40);
-}*/
+.bga-lobby-table-item-wrap>div:last-child {
+  background: none !important;
+}
+
+.bga-lobby-table-item__pointer {
+  filter: drop-shadow(0px 0px 6px #00000077) invert(1) !important;
+}
+
+.bga-invite-player-modal__content {
+  background: linear-gradient(180deg, var(--dark-20) 0px, var(--dark-20) 7px) !important;
+}
+
+.bga-invite-player-modal__table-link {
+  background: linear-gradient(to top, var(--dark-30) 0%, var(--dark-30) 100%) !important;
+}
+
+.bga-invite-player-modal__content .bga-hover-for-list:hover {
+  background: linear-gradient(180deg, var(--dark-30) 20%, var(--dark-30) 80%) !important;
+}
+
+.bga-invite-player-modal__content .icon32_hotseat {
+  filter: invert(1);
+}
 
 /* Liens */
 .bga-link,
+.bga-link .pagesection__content,
 a.gamename {
   color: var(--blue-80);
 }
 
 .bga-link:hover,
+.bga-link:hover .pagesection__content,
 a.gamename:hover {
   color: var(--violet-80);
 }
@@ -368,10 +391,6 @@ a.gamename:hover {
   background-image: none !important;
 }
 
-.bga-game-filter-tags .bga-filter-tag--active {
-  filter: invert(1);
-}
-
 /* Page Jouer - Lobby */
 #gamelobby-module #pageheaderlobby {
   background: var(--dark-10);
@@ -437,6 +456,10 @@ a.gamename:hover {
   color: var(--light-80);
 }
 
+.panel-block--buttons__play-wrapper--glow {
+  background-image: linear-gradient(180deg, var(--dark-20) calc(100% - 45px), var(--dark-20) 100%) !important;
+}
+
 /* Page Table */
 #table-module .players .whiteblock {
   background: var(--dark-30);
@@ -461,12 +484,15 @@ a.gamename:hover {
 }
 
 .bga-game-filter-tags {
-  filter: invert(1);
   color: var(--light-80) !important;
 }
 
-.bga-filter-tag--type-theme {
-  filter: invert(1);
+.bga-filter-tag--type-specific {
+  color: #235990 !important;
+}
+
+.bga-filter-tag--active.bga-filter-tag--type-specific {
+  color: #f0f0f0 !important;
 }
 
 .icon_arena {
@@ -809,6 +835,15 @@ a.gamename:hover {
   filter: invert(0.7);
 }
 
+/* studio */
+#resultDlgFrame {
+  filter: invert(1);
+}
+
+#popin_resultDlg_close>i {
+  color: white;
+}
+
 /* page loading */
 .roundedbox_topleft,
 .roundedbox_topmain,
@@ -836,4 +871,10 @@ a.gamename:hover {
 
 .score-entry .winpoints img {
   filter: invert(1);
+}
+
+/* rating */
+
+.pagesection__content>div>div>div[style*="background-color:#ececec"] {
+  background-color: var(--dark-10) !important;
 }
