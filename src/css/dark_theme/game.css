@@ -131,106 +131,206 @@ a.replay_last_move_button:hover {
   color: var(--dark-20) !important;
 }
 
-[style*="color:#000000"],
-[style*="color: #000000"],
-[style*="color:#101820"],
-[style*="color: #101820"],
-[style*="color:#123888"],
-[style*="color: #123888"],
-[style*="color:#1e2e3d"],
-[style*="color: #1e2e3d"],
-[style*="color:#404040"],
-[style*="color: #404040"],
-[style*="color:#272c29"],
-[style*="color: #272c29"],
-[style*="color:#3d1303"],
-[style*="color: #3d1303"],
-[style*="color:#2D2926"],
-[style*="color: #2D2926"],
-[style*="color:#3b3232"],
-[style*="color: #3b3232"] {
+[style*=";color:#000000"],
+[style*=";color: #000000"],
+[style*="; color:#000000"],
+[style*="; color: #000000"],
+[style^="color:#000000"],
+[style^="color: #000000"],
+[style*=";color:#101820"],
+[style*=";color: #101820"],
+[style*="; color:#101820"],
+[style*="; color: #101820"],
+[style^="color:#101820"],
+[style^="color: #101820"],
+[style*=";color:#123888"],
+[style*=";color: #123888"],
+[style*="; color:#123888"],
+[style*="; color: #123888"],
+[style^="color:#123888"],
+[style^="color: #123888"],
+[style*=";color:#1e2e3d"],
+[style*=";color: #1e2e3d"],
+[style*="; color:#1e2e3d"],
+[style*="; color: #1e2e3d"],
+[style^="color:#1e2e3d"],
+[style^="color: #1e2e3d"],
+[style*=";color:#404040"],
+[style*=";color: #404040"],
+[style*="; color:#404040"],
+[style*="; color: #404040"],
+[style^="color:#404040"],
+[style^="color: #404040"],
+[style*=";color:#272c29"],
+[style*=";color: #272c29"],
+[style*="; color:#272c29"],
+[style*="; color: #272c29"],
+[style^="color:#272c29"],
+[style^="color: #272c29"],
+[style*=";color:#3d1303"],
+[style*=";color: #3d1303"],
+[style*="; color:#3d1303"],
+[style*="; color: #3d1303"],
+[style^="color:#3d1303"],
+[style^="color: #3d1303"],
+[style*=";color:#2D2926"],
+[style*=";color: #2D2926"],
+[style*="; color:#2D2926"],
+[style*="; color: #2D2926"],
+[style^="color:#2D2926"],
+[style^="color: #2D2926"],
+[style*=";color:#3b3232"],
+[style*=";color: #3b3232"],
+[style*="; color:#3b3232"],
+[style*="; color: #3b3232"],
+[style^="color:#3b3232"],
+[style^="color: #3b3232"] {
   text-shadow: -1px 0 white, 0 1px white, 1px 0 white, 0 -1px white;
 }
 
-[style*="color:#0000ff"],
-[style*="color: #0000ff"],
+[style*=";color:#0000ff"],
+[style*=";color: #0000ff"],
+[style*="; color:#0000ff"],
+[style*="; color: #0000ff"],
+[style^="color:#0000ff"],
+[style^="color: #0000ff"],
 [style="color: rgb(0, 0, 255);"] {
   color: #8080ff !important;
 }
 
-[style*="color:#982fff"],
-[style*="color: #982fff"] {
+[style*=";color:#982fff"],
+[style*=";color: #982fff"],
+[style*="; color:#982fff"],
+[style*="; color: #982fff"],
+[style^="color:#982fff"],
+[style^="color: #982fff"] {
   color: #bf80ff !important;
 }
 
-[style*="color:#1863a5"],
-[style*="color: #1863a5"] {
+[style*=";color:#1863a5"],
+[style*=";color: #1863a5"],
+[style*="; color:#1863a5"],
+[style*="; color: #1863a5"],
+[style^="color:#1863a5"],
+[style^="color: #1863a5"] {
   color: #8fc2ef !important;
 }
 
-[style*="color:#0000dd"],
-[style*="color: #0000dd"] {
+[style*=";color:#0000dd"],
+[style*=";color: #0000dd"],
+[style*="; color:#0000dd"],
+[style*="; color: #0000dd"],
+[style^="color:#0000dd"],
+[style^="color: #0000dd"] {
   color: #8080ff !important;
 }
 
-[style*="color:#442df0"],
-[style*="color: #442df0"] {
+[style*=";color:#442df0"],
+[style*=";color: #442df0"],
+[style*="; color:#442df0"],
+[style*="; color: #442df0"],
+[style^="color:#442df0"],
+[style^="color: #442df0"] {
   color: #9588f7 !important;
 }
 
-[style*="color:#2a05df"],
-[style*="color: #2a05df"] {
+[style*=";color:#2a05df"],
+[style*=";color: #2a05df"],
+[style*="; color:#2a05df"],
+[style*="; color: #2a05df"],
+[style^="color:#2a05df"],
+[style^="color: #2a05df"] {
   color: #5837fb !important;
 }
 
-[style*="color:#ff0000"],
-[style*="color: #ff0000"],
+[style*=";color:#ff0000"],
+[style*=";color: #ff0000"],
+[style*="; color:#ff0000"],
+[style*="; color: #ff0000"],
+[style^="color:#ff0000"],
+[style^="color: #ff0000"],
 [style="color: rgb(255, 0, 0);"] {
   color: #ff3333 !important;
 }
 
-[style*="color:#800000"],
-[style*="color: #800000"] {
+[style*=";color:#800000"],
+[style*=";color: #800000"],
+[style*="; color:#800000"],
+[style*="; color: #800000"],
+[style^="color:#800000"],
+[style^="color: #800000"] {
   color: #cc0000 !important;
 }
 
-[style*="color:#1a355e"],
-[style*="color: #1a355e"] {
+[style*=";color:#1a355e"],
+[style*=";color: #1a355e"],
+[style*="; color:#1a355e"],
+[style*="; color: #1a355e"],
+[style^="color:#1a355e"],
+[style^="color: #1a355e"] {
   color: #3771c8 !important;
 }
 
-[style*="color:#4e186f"],
-[style*="color: #4e186f"] {
+[style*=";color:#4e186f"],
+[style*=";color: #4e186f"],
+[style*="; color:#4e186f"],
+[style*="; color: #4e186f"],
+[style^="color:#4e186f"],
+[style^="color: #4e186f"] {
   color: #932ed1 !important;
 }
 
-[style*="color:#325089"],
-[style*="color: #325089"] {
+[style*=";color:#325089"],
+[style*=";color: #325089"],
+[style*="; color:#325089"],
+[style*="; color: #325089"],
+[style^="color:#325089"],
+[style^="color: #325089"] {
   color: #446ebb !important;
 }
 
-[style*="color:#044396"],
-[style*="color: #044396"] {
+[style*=";color:#044396"],
+[style*=";color: #044396"],
+[style*="; color:#044396"],
+[style*="; color: #044396"],
+[style^="color:#044396"],
+[style^="color: #044396"] {
   color: #066ff9 !important;
 }
 
-[style*="color:#003377"],
-[style*="color: #003377"] {
+[style*=";color:#003377"],
+[style*=";color: #003377"],
+[style*="; color:#003377"],
+[style*="; color: #003377"],
+[style^="color:#003377"],
+[style^="color: #003377"] {
   color: #006eff !important;
 }
 
-[style*="color:#0000aa"],
-[style*="color: #0000aa"] {
+[style*=";color:#0000aa"],
+[style*=";color: #0000aa"],
+[style*="; color:#0000aa"],
+[style*="; color: #0000aa"],
+[style^="color:#0000aa"],
+[style^="color: #0000aa"] {
   color: #006eaa !important;
 }
 
-[style*="color:#773300"],
-[style*="color: #773300"] {
+[style*=";color:#773300"],
+[style*=";color: #773300"],
+[style*="; color:#773300"],
+[style*="; color: #773300"],
+[style^="color:#773300"],
+[style^="color: #773300"] {
   color: #b34d00 !important;
 }
 
-[style*="color:#5D0075"],
-[style*="color: #5D0075"] {
+[style*=";color:#5D0075"],
+[style*=";color: #5D0075"],
+[style*="; color:#5D0075"],
+[style*="; color: #5D0075"],
+[style^="color:#5D0075"],
+[style^="color: #5D0075"] {
   color: #8f00b3 !important;
 }
 
