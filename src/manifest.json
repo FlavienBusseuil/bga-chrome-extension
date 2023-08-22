@@ -1,7 +1,7 @@
 {
   "manifest_version": 3,
   "name": "BGA Chrome Extension",
-  "version": "1.8.2",
+  "version": "1.8.3",
   "action": {
     "default_popup": "popup.html"
   },
@@ -18,7 +18,8 @@
   "content_scripts": [
     {
       "matches": [
-        "https://boardgamearena.com/*"
+        "https://boardgamearena.com/*",
+        "https://studio.boardgamearena.com/*"
       ],
       "run_at": "document_start",
       "js": [
