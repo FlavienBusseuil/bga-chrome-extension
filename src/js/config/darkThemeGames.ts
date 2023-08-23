@@ -12,6 +12,7 @@ export const gamesWithCustomBackground = [
   'jumpdrive',
   'kingoftokyo',
   'memoir',
+  'newfrontiers',
   'notalone',
   'nowboarding',
   'pandemic',
@@ -28,12 +29,27 @@ export const gamesWithCustomPanel = [
   'nowboarding',
   'sevenwondersarchitects',
   'tickettoride',
-  'viticulture'
+  'viticulture',
+  'wingspan'
 ];
 
-export const gamesWithCustomDarkMode = [
-  'hardback'
-];
+export const gamesWithCustomDarkMode = {
+  hardback: 'dark',
+};
+
+export const gamesWithCustomActions = {
+  newfrontiers: {
+    setDarkMode: (darkMode: string) => {
+      const input = document.getElementById('preference_control_101') as any;
+      input.value = (darkMode) ? "1" : "2";
+      input.dispatchEvent(new Event("change"));
+    },
+    isDarkMode: () => {
+      const input = document.getElementById('preference_control_101') as any;
+      return input.value == "1";
+    }
+  }
+};
 
 const _darkStyleForGame = {};
 const _styleForGame = {};
@@ -569,6 +585,12 @@ _darkStyleForGame['wizard'] = `
 _darkStyleForGame['warchest'] = `
 #team_board_id { background-color: var(--dark-20) !important; }
 `;
+
+_darkStyleForGame['wingspan'] = `
+#spectatorbox { background-color: var(--dark-20) !important; }
+.player_board_content, .wsp_playerboard_card_icon { color: black; }
+#feeder_outside, #feeder_outside > div { filter: invert(1); }
+ `;
 
 _darkStyleForGame['yatzy'] = `
 .PointLine > th, .PointLine > td { color: white; }

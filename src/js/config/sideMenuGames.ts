@@ -379,7 +379,6 @@ const defaultGames: Partial<Game>[] = [
 	{
 		name: "hardback",
 		playerPanel: "area_{{player_id}}",
-		playerPanelOffset: -70,
 		css: "#game_play_area { padding-left: 50px; }",
 	},
 	{
