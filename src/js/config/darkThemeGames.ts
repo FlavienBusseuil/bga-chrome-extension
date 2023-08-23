@@ -3,6 +3,7 @@ import { getUrl } from "../utils/chrome";
 export const gamesWithCustomBackground = [
   'abyss',
   'agricola',
+  'azul',
   'beyondthesun',
   'chromino',
   'concept',
@@ -12,9 +13,11 @@ export const gamesWithCustomBackground = [
   'kingoftokyo',
   'memoir',
   'notalone',
+  'nowboarding',
   'pandemic',
   'patchwork',
   'raceforthegalaxy',
+  'santorini',
   'skull',
   'spacebase',
   'splendor',
@@ -22,8 +25,14 @@ export const gamesWithCustomBackground = [
 ];
 
 export const gamesWithCustomPanel = [
+  'nowboarding',
   'sevenwondersarchitects',
-  'tickettoride'
+  'tickettoride',
+  'viticulture'
+];
+
+export const gamesWithCustomDarkMode = [
+  'hardback'
 ];
 
 const _darkStyleForGame = {};
@@ -134,8 +143,8 @@ _darkStyleForGame['concept'] = `
 h2#word-display[data-lvl="2"] { text-shadow: -1px 0 white, 0 1px white, 1px 0 white, 0 -1px white; }
 div.preference_choice:has(> div > div > select#preference_control_100) { display: none; }
 div.preference_choice:has(> div > div > select#preference_fontrol_100) { display: none; }
-
 `;
+
 _styleForGame['concept'] = `
 #darkmode-switch { display: none; }
 `;
@@ -215,6 +224,11 @@ _darkStyleForGame['hanabi'] = `
 
 _darkStyleForGame['handandfoot'] = `
 .card_type_icon { background-color: white; }
+`;
+
+_styleForGame['hardback'] = `
+div.preference_choice:has(> div > div > select#preference_control_101) { display: none; }
+div.preference_choice:has(> div > div > select#preference_fontrol_101) { display: none; }
 `;
 
 _darkStyleForGame['incangold'] = `
@@ -526,6 +540,16 @@ _darkStyleForGame['toc'] = `
 
 _darkStyleForGame['ultimaterailroads'] = `
 .player-name, .player_board_inner, .player_score { background-color: transparent; }
+`;
+
+_darkStyleForGame['viticulture'] = `
+#player_boards .cc_counter, .playerboard_row_header .cc_counter { color: black; }
+#turn_header { background-color: var(--dark-20); color: white; }
+#pagesection_gameview #board-row .whiteblock { color: black; }
+.player-board { background: var(--dark-20) !important; }
+.player-board.vit_passed,.playerboard_row.vit_passed { background: var(--dark-40) !important; }
+.expandabletoggle:active, .expandabletoggle:hover, .expandabletoggle:link, .expandabletoggle:visited { color: #fff!important; }
+.player_last_turn { background-color: transparent !important; }
 `;
 
 _darkStyleForGame['welcometo'] = `

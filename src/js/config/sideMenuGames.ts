@@ -178,7 +178,7 @@ const defaultGames: Partial<Game>[] = [
 	{
 		name: "viticulture",
 		playerPanel: "playerboard_row_{{player_id}}",
-		css: "#vit_game { padding-left: 50px; }",
+		css: " ",
 	},
 	{
 		name: "hadara",

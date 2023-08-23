@@ -59,7 +59,7 @@ const manageLocationChange = (pathname) => {
 		}
 
 		initDarkMode(config, gameName);
-	} else {
+	} else if (pageInfo[0] !== "archive" && pageInfo[0] !== "tutorial") {
 		initChatIcon(config);
 		initDarkMode(config, 'general');
 

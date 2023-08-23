@@ -1,6 +1,6 @@
 import { getUrl } from "../../../utils/chrome";
 import { isNumber } from "../../../utils/misc/isNumber";
-import { darkStyleForGame, gamesWithCustomBackground, gamesWithCustomPanel, styleForGame } from "../../../config/darkThemeGames";
+import { darkStyleForGame, gamesWithCustomBackground, gamesWithCustomDarkMode, gamesWithCustomPanel, styleForGame } from "../../../config/darkThemeGames";
 
 const themeStyleId = "ext-theme-style";
 const cookieName = "ext_dark_theme";
@@ -14,6 +14,10 @@ const { cssList, mode } = (() => {
   const pageInfo = window.location.pathname.substring(1).split("/");
   if (pageInfo.length >= 2 && isNumber(pageInfo[0])) {
     return { mode: pageInfo[1], cssList: ["dark_theme/background.css", "dark_theme/common.css", "dark_theme/chat.css", "dark_theme/game.css"] };
+  }
+
+  if (pageInfo[0] === "archive" || pageInfo[0] === "tutorial") {
+    return { mode: "archive", cssList: [] };
   }
 
   return { mode: "general", cssList: ["light_theme/background.css", "dark_theme/background.css", "dark_theme/common.css", "dark_theme/chat.css", "dark_theme/general.css"] };
@@ -48,11 +52,16 @@ Promise.all(cssList.map(getFile)).then(fileContents => {
 
 const _setDarkStyle = (mode: string) => {
   if (styleComponent) {
+    if (mode === "archive") {
+      styleComponent.innerHTML = "";
+      return;
+    }
+
     if (mode === "forum") {
       styleComponent.innerHTML = `${cssContents["dark_theme/background.css"]}${cssContents["dark_theme/forum.css"]}`;
     } else if (mode === "general") {
       styleComponent.innerHTML = `${cssContents["dark_theme/background.css"]}${cssContents["dark_theme/common.css"]}${cssContents["dark_theme/chat.css"]}${cssContents["dark_theme/general.css"]}`;
-    } else {
+    } else if (!gamesWithCustomDarkMode.includes(mode)) {
       const gameStyle = styleForGame[mode] || "";
       const gameDarkStyle = darkStyleForGame[mode] || "";
       const backStyle = gamesWithCustomBackground.includes(mode) ? "" : cssContents["dark_theme/background.css"];
@@ -61,14 +70,22 @@ const _setDarkStyle = (mode: string) => {
       if (!gamesWithCustomPanel.includes(mode)) {
         document.documentElement.classList.add("darkpanel");
       }
+    } else {
+      styleComponent.innerHTML = styleForGame[mode] || "";
     }
   }
 
   document.documentElement.classList.add("darkmode");
+  document.documentElement.classList.add("dark");
 };
 
 const _setLightStyle = (mode: string) => {
   if (styleComponent) {
+    if (mode === "archive") {
+      styleComponent.innerHTML = "";
+      return;
+    }
+
     if (mode === "general") {
       styleComponent.innerHTML = cssContents["light_theme/background.css"];
     } else if (mode === "forum") {
@@ -79,6 +96,7 @@ const _setLightStyle = (mode: string) => {
   }
 
   document.documentElement.classList.remove("darkmode");
+  document.documentElement.classList.remove("dark");
   document.documentElement.classList.remove("darkpanel");
 };
 
@@ -104,8 +122,13 @@ const initClassObserver = (mode: string) => {
   // ensure that the "darkmode" class is well placed for games that used to manage their own dark mode like "Concept"
   // if the game try to remove the class "darkmode", it put it back immediately
   const observer = new MutationObserver(() => {
-    if (isDarkStyle() && !document.documentElement.classList.contains("darkmode")) {
-      document.documentElement.classList.add("darkmode");
+    if (isDarkStyle()) {
+      if (!document.documentElement.classList.contains("darkmode")) {
+        document.documentElement.classList.add("darkmode");
+      }
+      if (!document.documentElement.classList.contains("dark")) {
+        document.documentElement.classList.add("dark");
+      }
     }
   });
 
