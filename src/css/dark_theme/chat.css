@@ -1,10 +1,18 @@
-#chatbar .chatwindowcollapsed {
+body.desktop_version #chatbar .chatwindowcollapsed {
   background: var(--dark-10);
   color: var(--light-80);
 }
 
+body.mobile_version #chatbar .chatwindowcollapsed {
+  background: transparent;
+}
+
 #chatbar .chatwindowcollapsed .chatwindowcollapsedtitle {
   color: var(--light-80);
+}
+
+.chatwindowavatar {
+  color: black;
 }
 
 #chatbar .chatwindowlogs_zone {

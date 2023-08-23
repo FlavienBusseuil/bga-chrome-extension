@@ -649,6 +649,14 @@ const defaultGames: Partial<Game>[] = [
 		myPanel: "#pdm-myhand",
 		playerPanel: "#o-otherhands .pdm-hand",
 	},
+	{
+		name: "canvas",
+		boardPanel: "canvas-board",
+		boardPanelText: "#bga-jump-to_canvas-board > span",
+		playerPanel: "player-table-{{player_id}}",
+		css: "#bga-jump-to_controls { display: none; }",
+	},
+
 ];
 
 export default defaultGames;

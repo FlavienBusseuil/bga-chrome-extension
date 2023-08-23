@@ -13,6 +13,14 @@ select {
   color-scheme: dark;
 }
 
+.board_fake_input {
+  filter: invert(1);
+}
+
+.extended_message_hidden:after {
+  background: linear-gradient(180deg, hsla(0, 0%, 95%, 0), var(--dark-10));
+}
+
 .bga-popup-modal__content .bga-textfield {
   background-color: var(--dark-40) !important;
 }

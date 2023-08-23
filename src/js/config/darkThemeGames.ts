@@ -22,7 +22,8 @@ export const gamesWithCustomBackground = [
   'skull',
   'spacebase',
   'splendor',
-  'stella'
+  'stella',
+  'thecrew'
 ];
 
 export const gamesWithCustomPanel = [
@@ -64,6 +65,10 @@ _darkStyleForGame['agricola'] = `
 #player_boards > div { background-color: #000000CC !important; }
 `;
 
+_darkStyleForGame['akropolis'] = `
+.player-table .name-wrapper { background: #272a2fbf; }
+`;
+
 _darkStyleForGame['anachrony'] = `
 .playeroverall { background: #272a2fbf; color: white; }
 `;
@@ -83,6 +88,7 @@ _darkStyleForGame['arnak'] = `
 
 _darkStyleForGame['bandido'] = `
 .cp_board_hand, #resize { filter: invert(1); }
+body { background: none; }
 `;
 
 _darkStyleForGame['barenpark'] = `
@@ -106,6 +112,10 @@ _darkStyleForGame['bloodrage'] = `
 
 _darkStyleForGame['cantstop'] = `
 .diceactions, .dicechoice_plus { color: white; }
+`;
+
+_darkStyleForGame['canvas'] = `
+#bga-zoom-controls { filter: invert(0.7); }
 `;
 
 _darkStyleForGame['cantstopexpress'] = `
@@ -183,6 +193,7 @@ _darkStyleForGame['diceforge'] = `
 #nb-turns-container { color: white; }
 .action-bar { border: 1px solid rgb(255 255 255 / 20%); }
 .header-action { background-color: rgba(255,255,255,.1); }
+.cards-pile { box-shadow: 0 0 2px 0 #9f9393; }
 `;
 
 _darkStyleForGame['draftosaurus'] = `
@@ -208,6 +219,9 @@ _darkStyleForGame['evergreen'] = `
 
 _darkStyleForGame['feastforodin'] = `
 .ffo-icon-eye { filter: invert(0.7); }
+#ffo-modal #ffo-modal-content { background-color: #00000066; }
+.ffo-player-board-main .ffo-player-name { background-color: #00000080; }
+.ffo-player-name > span:first-child, .ffo-player-name > span:last-child { color: white !important; }
 `;
 
 _darkStyleForGame['fluxx'] = `
@@ -268,6 +282,8 @@ _darkStyleForGame['itsawonderfulworld'] = `
 
 _darkStyleForGame['justone'] = `
 #overall-content, #left-side-wrapper { background: inherit !important; }
+#card-mystery-header, #card-guess-header { color: white; }
+.left-name, .right-name { background: var(--dark-20); border-radius: 8px; padding: 0.3em 0.5em; }
 `;
 
 _darkStyleForGame['kingdombuilder'] = `
@@ -330,6 +346,10 @@ _darkStyleForGame['myshelfie'] = `
 #settings-icon { filter: invert(1); }
 #board-scale { filter: grayscale(1); }
 select { color-scheme: dark; }
+`;
+
+_darkStyleForGame['nextstationtokyo'] = `
+#ebd-body { background-image: none !important; }
 `;
 
 _darkStyleForGame['nidavellir'] = `
@@ -523,6 +543,12 @@ h3 > span[style="color:#0000ff; background-color: #;"] { color: #8080ff !importa
 h3 > span[style="color:#ffffff; background-color: #bbbbbb;"] { background-color: var(--dark-20) !important; padding: 0.5em 1em; border-radius: 8px; }
 `;
 
+_darkStyleForGame['thecrew'] = `
+#logs span.card-value.black { text-shadow: -1px 0 white, 0 1px white, 1px 0 white, 0 -1px white; }
+#logs span.card-value { padding-right: 0.2em; }
+#logs span.logicon.black { filter: invert(1); }
+`;
+
 _darkStyleForGame['thecrewdeepsea'] = `
 #help-mode-switch > label { filter: invert(0.7); }
 #logs .notif_startNewMission > div { color: black !important; }
@@ -549,6 +575,11 @@ _darkStyleForGame['teotihuacan'] = `
 
 _darkStyleForGame['tichu'] = `
 #pagesection_gameview .whiteblock .playertablename[style="color:#000000"] { text-shadow: -1px 0 white, 0 1px white, 1px 0 white, 0 -1px white; }
+#currentTrickDiv { background: #272a2fbf; padding: 0.3em 0.5em; border-radius: 6px; }
+#pagesection_gameview .whiteblock.lastComboPlayer { background-color: rgb(183 183 87 / 70%); }
+#pagesection_gameview .whiteblock.disabled:not(.lastComboPlayer) { background-color: hsla(0,0%,45%,.7); }
+.grandtichublack, .tichublack { filter: drop-shadow(0px 0px 8px white); }
+#buttons { background: #272a2fbf; color: white; }
 `;
 
 _darkStyleForGame['toc'] = `
