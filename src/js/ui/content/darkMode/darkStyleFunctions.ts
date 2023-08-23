@@ -139,19 +139,21 @@ const initClassObserver = (mode: string) => {
   // ensure that the "darkmode" class is well placed for games that used to manage their own dark mode like "Concept"
   // if the game try to remove the class "darkmode", it put it back immediately
   const observer = new MutationObserver(() => {
+    const customDarkClass = gamesWithCustomDarkMode[mode];
+
     if (isDarkStyle(mode)) {
       if (!document.documentElement.classList.contains("darkmode")) {
         document.documentElement.classList.add("darkmode");
       }
-      if (!document.documentElement.classList.contains("dark")) {
-        document.documentElement.classList.add("dark");
+      if (customDarkClass && !document.documentElement.classList.contains(customDarkClass)) {
+        document.documentElement.classList.add(customDarkClass);
       }
     } else {
       if (document.documentElement.classList.contains("darkmode")) {
         document.documentElement.classList.remove("darkmode");
       }
-      if (document.documentElement.classList.contains("dark")) {
-        document.documentElement.classList.remove("dark");
+      if (customDarkClass && document.documentElement.classList.contains(customDarkClass)) {
+        document.documentElement.classList.remove(customDarkClass);
       }
     }
   });

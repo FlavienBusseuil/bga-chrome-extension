@@ -181,6 +181,8 @@ _darkStyleForGame['cubirds'] = `
 
 _darkStyleForGame['diceforge'] = `
 #nb-turns-container { color: white; }
+.action-bar { border: 1px solid rgb(255 255 255 / 20%); }
+.header-action { background-color: rgba(255,255,255,.1); }
 `;
 
 _darkStyleForGame['draftosaurus'] = `
