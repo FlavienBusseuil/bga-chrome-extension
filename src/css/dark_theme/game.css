@@ -347,6 +347,15 @@ a.replay_last_move_button:hover {
   color: #9e478e !important;
 }
 
+[style*=";color:#483d8b"],
+[style*=";color: #483d8b"],
+[style*="; color:#483d8b"],
+[style*="; color: #483d8b"],
+[style^="color:#483d8b"],
+[style^="color: #483d8b"] {
+  color: #7c71c1 !important;
+}
+
 span.playername,
 #pagemaintitletext>span:first-child {
   background: transparent !important;

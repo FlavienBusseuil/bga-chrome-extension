@@ -294,6 +294,7 @@ const defaultGames: Partial<Game>[] = [
 		name: "marcopolotwo",
 		playerPanel: "playerMat-{{player_id}}",
 		css: "#game_play_area { padding-left: 50px; }",
+		menuCss: '#cde-floating-menu-score > .fa-star { background-image: none !important; } #cde-floating-menu-score > .fa-star:before { content: "\\f005" !important; }',
 	},
 	{
 		name: "nidavellir_buggy",
@@ -356,8 +357,7 @@ const defaultGames: Partial<Game>[] = [
 		iconBackground: "#97a09b",
 		iconShadow: "transparent",
 		css: ".cng_topbutton { display: none; } #game_play_area { padding-left: 50px; }",
-		menuCss:
-			'#cde-floating-menu-score > .fa-star { background-image: none; } #cde-floating-menu-score > .fa-star:before { content: "\\f005" !important; } .player-board { background-color: #97a09b; }',
+		menuCss: '#cde-floating-menu-score > .fa-star { background-image: none !important; } #cde-floating-menu-score > .fa-star:before { content: "\\f005" !important; } .player-board { background-color: #97a09b; }',
 	},
 	{
 		name: "dicehospital",

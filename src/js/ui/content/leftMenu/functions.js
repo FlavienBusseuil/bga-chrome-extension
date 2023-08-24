@@ -24,6 +24,11 @@ export const initLeftMenu = (gameConfig, leftMenuEnable) => {
 			};
 		});
 
+		if (!playersData.length) {
+			setTimeout(() => initLeftMenu(gameConfig, leftMenuEnable), 100);
+			return;
+		}
+
 		console.log("[bga extension] players data", playersData);
 
 		buildLeftMenuCss(gameConfig, leftMenuEnable);
