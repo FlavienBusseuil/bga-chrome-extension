@@ -1,6 +1,6 @@
 import { getUrl } from "../../../utils/chrome";
 import { isNumber } from "../../../utils/misc/isNumber";
-import { darkStyleForGame, gamesWithCustomActions, gamesWithCustomBackground, gamesWithCustomDarkMode, gamesWithCustomPanel, styleForGame } from "../../../config/darkThemeGames";
+import { darkStyleForGame, gamesWithCustomActions, gamesWithCustomBackground, gamesWithCustomDarkMode, gamesWithCustomPanel, gamesWithDarkPopup, styleForGame } from "../../../config/darkThemeGames";
 
 const themeStyleId = "ext-theme-style";
 const cookieName = "ext_dark_theme";
@@ -148,12 +148,18 @@ const initClassObserver = (mode: string) => {
       if (customDarkClass && !document.documentElement.classList.contains(customDarkClass)) {
         document.documentElement.classList.add(customDarkClass);
       }
+      if (gamesWithDarkPopup.includes(mode) && !document.documentElement.classList.contains("dj_webkit_dark")) {
+        document.documentElement.classList.add("dj_webkit_dark");
+      }
     } else {
       if (document.documentElement.classList.contains("darkmode")) {
         document.documentElement.classList.remove("darkmode");
       }
       if (customDarkClass && document.documentElement.classList.contains(customDarkClass)) {
         document.documentElement.classList.remove(customDarkClass);
+      }
+      if (document.documentElement.classList.contains("dj_webkit_dark")) {
+        document.documentElement.classList.remove("dj_webkit_dark");
       }
     }
   });

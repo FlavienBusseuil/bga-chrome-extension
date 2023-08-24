@@ -188,7 +188,13 @@ a.replay_last_move_button:hover {
 [style*="; color:#3b3232"],
 [style*="; color: #3b3232"],
 [style^="color:#3b3232"],
-[style^="color: #3b3232"] {
+[style^="color: #3b3232"],
+[style*=";color:#010203"],
+[style*=";color: #010203"],
+[style*="; color:#010203"],
+[style*="; color: #010203"],
+[style^="color:#010203"],
+[style^="color: #010203"] {
   text-shadow: -1px 0 white, 0 1px white, 1px 0 white, 0 -1px white !important;
 }
 
@@ -356,6 +362,15 @@ a.replay_last_move_button:hover {
   color: #7c71c1 !important;
 }
 
+[style*=";color:#2b4d9c"],
+[style*=";color: #2b4d9c"],
+[style*="; color:#2b4d9c"],
+[style*="; color: #2b4d9c"],
+[style^="color:#2b4d9c"],
+[style^="color: #2b4d9c"] {
+  color: #4b72ce !important;
+}
+
 span.playername,
 #pagemaintitletext>span:first-child {
   background: transparent !important;
@@ -399,4 +414,13 @@ span.playername,
 
 #tournament-module {
   color: var(--light-80);
+}
+
+.dj_webkit_dark .tundra .dijitTooltipContainer {
+  background: var(--dark-20);
+  box-shadow: 0 5px 10px #797979;
+}
+
+.dj_webkit_dark .active_player_small_infos_block {
+  color: white;
 }

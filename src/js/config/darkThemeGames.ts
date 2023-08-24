@@ -43,6 +43,12 @@ export const gamesWithCustomDarkMode = {
   hardback: 'dark',
 };
 
+export const gamesWithDarkPopup = [
+];
+
+// games using popups :
+// schroedingerscats, gonutsfordonuts
+
 export const gamesWithCustomActions = {
   newfrontiers: {
     setDarkMode: (darkMode: string) => {
@@ -302,6 +308,11 @@ _darkStyleForGame['ekonos'] = `
 .player-name > a, .ekonos-scoreboard-label { color: white !important; }
 `;
 
+_darkStyleForGame['elawa'] = `
+div[id^="player-table"] { text-shadow: -2px 0 white, 0 2px white, 2px 0 white, 0 -2px white !important; }
+#bga-zoom-controls { filter: invert(0.7); }
+`;
+
 _darkStyleForGame['evergreen'] = `
 .eve_inline-block { color: black; }
 `;
@@ -334,6 +345,7 @@ _darkStyleForGame['ghostathome'] = `
 .ghostathome-name-0000ff, [style="color: rgb(0, 0, 255); background-color: rgba(0, 0, 0, 0.125);"] { color: #8080ff !important; }
 .ghostathome-deck, .ghostathome-player-label { background-color: var(--dark-20) !important; }
 #hand-label, #deck-label { color: white; }
+#zoom-holder { filter: invert(0.7); }
 `;
 
 _darkStyleForGame['greatwesterntrail'] = `
@@ -346,6 +358,11 @@ _darkStyleForGame['greatwesterntrail'] = `
 _darkStyleForGame['goodcopbadcop'] = `
 #board_area div[class^="player_name"] { background: var(--dark-30); border-radius: 8px; text-align: center; padding: 0.3em 0.5em; }
 #board_area div[style^="color:#{PLAYER"] { display: none; }
+`;
+
+_darkStyleForGame['gonutsfordonuts'] = `
+.gnfd_tooltip-text { color: white; }
+.gnfd_tooltip-score { border: 1px solid white; border-radius: 12px; }
 `;
 
 _darkStyleForGame['hadara'] = `
@@ -532,6 +549,15 @@ _darkStyleForGame['patchwork'] = `
 #player_boards .micon { filter: invert(1); }
 `;
 
+_darkStyleForGame['pi'] = `
+.whiteblock h3, .whiteblock h4, .whiteblock h5 { color: white; text-shadow: none; }
+.token, .sp_marker { filter: var(--highlight); }
+.disc30_yellow { background-position: -170px 0px; }
+.disc30_purple {background-position: -228px 0px; }
+.disc30_red { background-position: -152px 0px; }
+`;
+
+
 _darkStyleForGame['potionexplosion'] = `
 .area_label, .player-name { text-shadow: none; }
 `;
@@ -617,6 +643,7 @@ _darkStyleForGame['russianrailroads'] = `
 .player-name, .player_score { background-color: var(--dark-20); }
 .nameslot { width: auto; }
 .nameslot > h3 { background-color: var(--dark-20); padding: 0.5em 1em; border-radius: 8px; }
+.meepleable, .industrymarker, .lock, .rail, .advantage, .ruble { filter: var(--highlight); }
 `;
 
 _darkStyleForGame['saboteur'] = `
