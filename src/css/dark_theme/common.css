@@ -22,4 +22,8 @@
 
   --light-80: #dcddde;
   --light-100: #ffffff;
+
+  --highlight-max: drop-shadow(0px 0px 8px #fff);
+  --highlight: drop-shadow(0px 0px 4px #fff);
+  --highlight-min: drop-shadow(0px 0px 1px #fff);
 }

@@ -504,7 +504,7 @@ a.gamename:hover {
 }
 
 .icon_arena {
-  filter: invert(1);
+  filter: var(--highlight);
 }
 
 .dijitButtonContents,

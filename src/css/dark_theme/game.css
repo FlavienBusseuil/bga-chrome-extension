@@ -1,3 +1,7 @@
+:root {
+  --dark-back: #272a2fbf;
+}
+
 .gamestart_overlay {
   background: none var(--dark-20);
   color: var(--light-80);
@@ -84,7 +88,7 @@ html.darkpanel .player-board,
 }
 
 #pagesection_gameview .whiteblock {
-  background: #272a2fbf;
+  background: var(--dark-back);
   color: white;
 }
 
@@ -185,7 +189,7 @@ a.replay_last_move_button:hover {
 [style*="; color: #3b3232"],
 [style^="color:#3b3232"],
 [style^="color: #3b3232"] {
-  text-shadow: -1px 0 white, 0 1px white, 1px 0 white, 0 -1px white;
+  text-shadow: -1px 0 white, 0 1px white, 1px 0 white, 0 -1px white !important;
 }
 
 [style*=";color:#0000ff"],
@@ -332,6 +336,15 @@ a.replay_last_move_button:hover {
 [style^="color:#5D0075"],
 [style^="color: #5D0075"] {
   color: #8f00b3 !important;
+}
+
+[style*=";color:#6c3161"],
+[style*=";color: #6c3161"],
+[style*="; color:#6c3161"],
+[style*="; color: #6c3161"],
+[style^="color:#6c3161"],
+[style^="color: #6c3161"] {
+  color: #9e478e !important;
 }
 
 span.playername,

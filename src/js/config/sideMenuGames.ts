@@ -296,11 +296,11 @@ const defaultGames: Partial<Game>[] = [
 		css: "#game_play_area { padding-left: 50px; }",
 	},
 	{
-		name: "nidavellir",
+		name: "nidavellir_buggy",
 		iconBackground: "#cfd1d0",
 		iconShadow: "transparent",
 		playerPanel: ".player-board-name",
-		css: "#game_play_area { border-left: 50px solid #1e1e20; padding-left: 2px; } #tabs-container { min-width: 200px; overflow: hidden; } @media (min-width: 850px) { #tabs-container { margin-right: 0px !important; } }",
+		css: "#game_play_area { border-left: 50px solid #1e1e20; padding-left: 2px; } #tabs-container { min-width: 200px; overflow: hidden; } @media (min-width: 850px) { .lockedInterface #tabs-container { margin-right: 0px !important; } }",
 	},
 	{
 		name: "bloodrage",
