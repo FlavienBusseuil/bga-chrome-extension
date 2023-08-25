@@ -18,6 +18,7 @@ export const gamesWithCustomBackground = [
   'newfrontiers',
   'notalone',
   'nowboarding',
+  'oriflamme',
   'pandemic',
   'patchwork',
   'raceforthegalaxy',
@@ -48,6 +49,8 @@ export const gamesWithDarkPopup = [
 
 // games using popups :
 // schroedingerscats, gonutsfordonuts
+
+// review Settings from Tisaac games
 
 export const gamesWithCustomActions = {
   newfrontiers: {
@@ -226,6 +229,10 @@ _darkStyleForGame['clansofcaledonia'] = `
 .token24 { filter: var(--highlight-min); }
 `;
 
+_darkStyleForGame['codexnaturalis'] = `
+#overall-content, body { background: none! important; }
+`;
+
 _darkStyleForGame['coinche'] = `
 .currentBidInfo__player, .bid-value { color: var(--light-80); }
 .card-color-icon { filter: grayscale(1) invert(1); }
@@ -313,6 +320,10 @@ div[id^="player-table"] { text-shadow: -2px 0 white, 0 2px white, 2px 0 white, 0
 #bga-zoom-controls { filter: invert(0.7); }
 `;
 
+_darkStyleForGame['elgrande'] = `
+.eg_panel .cab, .log .cab, .selectMoveContainer .cab { filter: var(--highlight-min); }
+`;
+
 _darkStyleForGame['evergreen'] = `
 .eve_inline-block { color: black; }
 `;
@@ -322,6 +333,11 @@ _darkStyleForGame['feastforodin'] = `
 #ffo-modal #ffo-modal-content { background-color: #00000066; }
 .ffo-player-board-main .ffo-player-name { background-color: #00000080; }
 .ffo-player-name > span:first-child, .ffo-player-name > span:last-child { color: white !important; }
+`;
+
+_darkStyleForGame['flamingpyramids'] = `
+.py_fire_mode, .py_curse_mode { filter: var(--highlight); }
+#py_fire_mode_txt, #py_curse_mode_txt { color: white; }
 `;
 
 _darkStyleForGame['fluxx'] = `
@@ -391,6 +407,10 @@ _darkStyleForGame['hive'] = `
 body { background: none !important; }
 `;
 
+_darkStyleForGame['illustori'] = `
+.to_translate { color: white; }
+`;
+
 _darkStyleForGame['incangold'] = `
 #pagesection_gameview .whiteblock { background: var(--dark-10); }
 #decksizetext { color: white; }
@@ -455,6 +475,13 @@ _darkStyleForGame['lineit'] = `
 .player-scored-card, .jackpot-icon { filter: var(--highlight-min); }
 `;
 
+_darkStyleForGame['liverpoolrummy'] = `
+#handNumber { color: white !important; }
+#redTarget, .prepbox, .prepjoker, .downWhite { color: var(--light-70) !important; }
+html.darkpanel .player-board.playerBoardBuyer { background: #381e1e !important; }
+html.darkpanel .player-board.playerWentDown { background: #1a3d22 !important; }
+`;
+
 _darkStyleForGame['livingforest'] = `
 .icon_fragment { filter: invert(1); }
 `;
@@ -509,6 +536,12 @@ _darkStyleForGame['nidavellir'] = `
 .player-board-name { background-color: var(--dark-30) !important; }
 `;
 
+_darkStyleForGame['ninetynine'] = `
+#decrev_player_name, .bgann_dealerindicator { color: white !important; }
+.bgann_firstplayer { border: 2px dashed var(--light-80); }
+.bgann_icon { filter: var(--highlight-min); }
+`;
+
 _darkStyleForGame['noneshallpass'] = `
 #zoomin, #zoomout { background-color: transparent; box-shadow: none; filter: invert(0.7); }
 `;
@@ -549,6 +582,14 @@ _darkStyleForGame['patchwork'] = `
 #player_boards .micon { filter: invert(1); }
 `;
 
+_darkStyleForGame['photosynthesis'] = `
+.psy_toolbtn, .psy_overlay_button { color: white; background: var(--dark-20); box-shadow: none; filter: drop-shadow(2px 2px 3px white); }
+.psy_suncounter, .psy_token { color: black; box-shadow: none; filter: drop-shadow(2px 2px 3px white); }
+#psy_turnindicator { color: white; }
+.psy_log_icon, .player_score .fa-leaf { filter: var(--highlight-min); }
+div[id^="psy_playerboard_"] .psy_playerboard_playername { background: var(--dark-20); text-shadow: none; }
+`;
+
 _darkStyleForGame['pi'] = `
 .whiteblock h3, .whiteblock h4, .whiteblock h5 { color: white; text-shadow: none; }
 .token, .sp_marker { filter: var(--highlight); }
@@ -556,7 +597,6 @@ _darkStyleForGame['pi'] = `
 .disc30_purple {background-position: -228px 0px; }
 .disc30_red { background-position: -152px 0px; }
 `;
-
 
 _darkStyleForGame['potionexplosion'] = `
 .area_label, .player-name { text-shadow: none; }
@@ -606,6 +646,15 @@ _darkStyleForGame['rainforest'] = `
 
 _darkStyleForGame['rallymangt'] = `
 .warningCounterIcon { filter: invert(1); }
+`;
+
+_darkStyleForGame['rauha'] = `
+#help-mode-switch { filter: invert(1); }
+#round-counter-wrapper { color: white !important; }
+#player_config #round-counter-wrapper { background: var(--dark-20); font-weight: normal; }
+#player_config #round-phase { background: var(--dark-30); color: white; }
+g.fa-group { color: black; }
+.rauha-board .player-name { background: var(--dark-20); border: none; font-weight: normal; }
 `;
 
 _darkStyleForGame['regicide'] = `
@@ -744,6 +793,15 @@ h3 > span[style="color:#0000ff; background-color: #;"] { color: #8080ff !importa
 h3 > span[style="color:#ffffff; background-color: #bbbbbb;"] { background-color: var(--dark-20) !important; padding: 0.5em 1em; border-radius: 8px; }
 .tar_ware_board { filter: var(--highlight-min); }
 `;
+
+_darkStyleForGame['terramystica'] = `
+.tmlogs_icon div, .tm_panel_icon, .tm_panel_icon2 { filter: var(--highlight-min); }
+.priests_collection { filter: var(--highlight); }
+#player_boards .priest { background-image: none; }
+.faction_selection_item, .player_faction { text-shadow: none; color: white; }
+`;
+
+
 
 _darkStyleForGame['thecrew'] = `
 #logs span.card-value.black { text-shadow: -1px 0 white, 0 1px white, 1px 0 white, 0 -1px white; }

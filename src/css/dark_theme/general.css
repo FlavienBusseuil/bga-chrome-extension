@@ -634,6 +634,10 @@ a.gamename:hover {
   background: var(--dark-20) !important
 }
 
+.game-info__value .icon16 {
+  filter: var(--highlight-min);
+}
+
 /* image par défaut des tournois */
 [style="background-image: url(https://x.boardgamearena.net/data/grouparms/noimage_tournament_50.png)"] {
   filter: invert(1);

@@ -194,7 +194,13 @@ a.replay_last_move_button:hover {
 [style*="; color:#010203"],
 [style*="; color: #010203"],
 [style^="color:#010203"],
-[style^="color: #010203"] {
+[style^="color: #010203"],
+[style*=";color:#1a2126"],
+[style*=";color: #1a2126"],
+[style*="; color:#1a2126"],
+[style*="; color: #1a2126"],
+[style^="color:#1a2126"],
+[style^="color: #1a2126"] {
   text-shadow: -1px 0 white, 0 1px white, 1px 0 white, 0 -1px white !important;
 }
 
