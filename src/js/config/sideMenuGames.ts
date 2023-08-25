@@ -656,6 +656,11 @@ const defaultGames: Partial<Game>[] = [
 		playerPanel: "player-table-{{player_id}}",
 		css: "#bga-jump-to_controls { display: none; }",
 	},
+	{
+		name: "forbiddenisland",
+		playerPanel: "player_adventurer_{{player_id}}",
+		bottomPanel: "flood_deck_area",
+	},
 
 ];
 

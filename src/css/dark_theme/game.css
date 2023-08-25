@@ -430,3 +430,7 @@ span.playername,
 .dj_webkit_dark .active_player_small_infos_block {
   color: white;
 }
+
+select {
+  color-scheme: dark;
+}

@@ -203,6 +203,7 @@ a.gamename:hover {
 /* Barre personnelle */
 .bga-player-menu {
   color: var(--light-80);
+  background-color: var(--dark-40) !important;
 }
 
 .bga-player-menu .bg-bga-whitebg {
@@ -210,8 +211,9 @@ a.gamename:hover {
   color: var(--light-80);
 }
 
-.bga-player-menu .bga-hover-for-list:hover {
-  background: none var(--orange-10);
+.bga-player-menu .bga-hover-for-list:hover,
+.bga-player-menu .bga-matchmaking-list-item:hover {
+  background: none var(--orange-10) !important;
 }
 
 .bga-player-menu .bga-hover-for-list:hover .playername:hover,
@@ -230,7 +232,15 @@ a.gamename:hover {
 }
 
 .bga-player-menu .notification-unread {
-  background: var(--violet-80) !important;
+  background: var(--violet-60) !important;
+}
+
+.bga-player-menu .notification-unread .notification-time {
+  color: var(--light-80) !important;
+}
+
+.bga-table-list-item--searching {
+  background: none var(--dark-10) !important;
 }
 
 /* Barres d’informations */
@@ -777,6 +787,14 @@ a.gamename:hover {
   background-color: var(--dark-30);
 }
 
+.darkmode .standard_popin_closeicon {
+  color: var(--light-80) !important;
+}
+
+.darkmode .standard_popin_closeicon:hover {
+  color: var(--light-100) !important;
+}
+
 /* Page News */
 #follow_us_portlet.portlet .portlet__content {
   background: var(--dark-10);
@@ -889,4 +907,15 @@ a.gamename:hover {
 
 .pagesection__content>div>div>div[style*="background-color:#ececec"] {
   background-color: var(--dark-10) !important;
+}
+
+/* control panel games */
+
+.bgaext_controlpanelgames .game-line {
+  background-color: var(--dark-20) !important;
+}
+
+.bgaext_controlpanelgames .fa-book,
+.bgaext_controlpanelgames .items-center {
+  color: white;
 }

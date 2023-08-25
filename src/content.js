@@ -63,6 +63,8 @@ const manageLocationChange = (pathname) => {
 		initChatIcon(config);
 		initDarkMode(config, 'general');
 
+		setHtmlClass(pageInfo[0]);
+
 		if (pageInfo[0].startsWith("gamelist")) {
 			initObserver("gamelist");
 		} else if (pageInfo[0].startsWith("lobby")) {
@@ -74,6 +76,16 @@ const manageLocationChange = (pathname) => {
 			initObserver("other");
 		}
 	}
+};
+
+const setHtmlClass = (mode) => {
+	const oldClass = Array.from(document.documentElement.classList).find(c => c.startsWith("bgaext"));
+
+	if (oldClass) {
+		document.documentElement.classList.remove(oldClass);
+	}
+
+	document.documentElement.classList.add(`bgaext_${mode}`);
 };
 
 const initPage = () => {
