@@ -52,6 +52,9 @@ Promise.all(cssList.map(getFile)).then(fileContents => {
 
 const _setDarkStyleIfActivated = () => {
   try {
+    const customActions = gamesWithCustomActions[mode];
+    customActions && customActions.init();
+
     if (isDarkStyle(mode)) {
       _setDarkStyle(mode);
     }
@@ -148,18 +151,12 @@ const initClassObserver = (mode: string) => {
       if (customDarkClass && !document.documentElement.classList.contains(customDarkClass)) {
         document.documentElement.classList.add(customDarkClass);
       }
-      if (gamesWithDarkPopup.includes(mode) && !document.documentElement.classList.contains("dj_webkit_dark")) {
-        document.documentElement.classList.add("dj_webkit_dark");
-      }
     } else {
       if (document.documentElement.classList.contains("darkmode")) {
         document.documentElement.classList.remove("darkmode");
       }
       if (customDarkClass && document.documentElement.classList.contains(customDarkClass)) {
         document.documentElement.classList.remove(customDarkClass);
-      }
-      if (document.documentElement.classList.contains("dj_webkit_dark")) {
-        document.documentElement.classList.remove("dj_webkit_dark");
       }
     }
   });

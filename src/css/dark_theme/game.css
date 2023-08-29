@@ -200,7 +200,19 @@ a.replay_last_move_button:hover {
 [style*="; color:#1a2126"],
 [style*="; color: #1a2126"],
 [style^="color:#1a2126"],
-[style^="color: #1a2126"] {
+[style^="color: #1a2126"],
+[style*=";color:#302c2b"],
+[style*=";color: #302c2b"],
+[style*="; color:#302c2b"],
+[style*="; color: #302c2b"],
+[style^="color:#302c2b"],
+[style^="color: #302c2b"],
+[style*=";color:#321500"],
+[style*=";color: #321500"],
+[style*="; color:#321500"],
+[style*="; color: #321500"],
+[style^="color:#321500"],
+[style^="color: #321500"] {
   text-shadow: -1px 0 white, 0 1px white, 1px 0 white, 0 -1px white !important;
 }
 
@@ -377,6 +389,15 @@ a.replay_last_move_button:hover {
   color: #4b72ce !important;
 }
 
+[style*=";color:#4c1b5b"],
+[style*=";color: #4c1b5b"],
+[style*="; color:#4c1b5b"],
+[style*="; color: #4c1b5b"],
+[style^="color:#4c1b5b"],
+[style^="color: #4c1b5b"] {
+  color: #732989 !important;
+}
+
 span.playername,
 #pagemaintitletext>span:first-child {
   background: transparent !important;
@@ -401,6 +422,17 @@ span.playername,
 .avatar_active,
 #active_player_statusbar_icon {
   filter: drop-shadow(0px 0px 2px white);
+}
+
+.standard_popin_underlay {
+  background-color: #000;
+}
+
+:root,
+select,
+input,
+textarea {
+  color-scheme: dark;
 }
 
 /* Menu flottant */
@@ -429,8 +461,4 @@ span.playername,
 
 .dj_webkit_dark .active_player_small_infos_block {
   color: white;
-}
-
-select {
-  color-scheme: dark;
 }

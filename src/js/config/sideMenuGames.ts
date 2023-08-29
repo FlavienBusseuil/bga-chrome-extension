@@ -450,8 +450,7 @@ const defaultGames: Partial<Game>[] = [
 		name: "trektwelve",
 		playerPanel: "board_{{player_id}}",
 		iconBackground: "#efd6a1",
-		css: "#upback { display: none; }",
-		menuCss: "#upback { display: none; }",
+		css: "#upback, .show-sheet-button { display: none; }",
 	},
 	{
 		name: "troyesdice",
@@ -505,8 +504,6 @@ const defaultGames: Partial<Game>[] = [
 	{
 		name: "ageofcivilization",
 		playerPanel: "playertable_{{player_id}}",
-		boardPanel: "my_expandable",
-		boardPanelText: "#specttechtitle",
 	},
 	{
 		name: "crusadersthywillbedone",
@@ -661,7 +658,28 @@ const defaultGames: Partial<Game>[] = [
 		playerPanel: "player_adventurer_{{player_id}}",
 		bottomPanel: "flood_deck_area",
 	},
-
+	{
+		name: "forestshuffle",
+		playerPanel: "FOStable_{{player_id}}",
+	},
+	{
+		name: "ontour",
+		playerPanel: "player_name_{{player_id}}",
+		customZoomContainer: "game_area",
+	},
+	{
+		name: "knarr",
+		playerPanel: "player-table-{{player_id}}",
+		css: "#bga-jump-to_controls { display: none; }",
+	},
+	{
+		name: "legendraiders",
+		playerPanel: "pl{{player_id}}_area",
+	},
+	{
+		name: "sixtyone",
+		playerPanel: "sxt_player_area_{{player_id}}",
+	},
 ];
 
 export default defaultGames;

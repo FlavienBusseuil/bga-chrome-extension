@@ -70,6 +70,16 @@ a.gamename:hover {
   color: var(--violet-80);
 }
 
+.bgaext_ratingdetails a {
+  color: var(--blue-80);
+  text-decoration: none;
+}
+
+.bgaext_ratingdetails a:hover {
+  color: var(--violet-80);
+  text-decoration: underline;
+}
+
 .bga-link-inside a:not(.playername, .gamename, .bgabutton) {
   color: var(--blue-80);
 }
