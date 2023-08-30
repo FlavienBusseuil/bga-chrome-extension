@@ -1,7 +1,6 @@
 import React from "preact";
-import { useEffect, useState } from "preact/hooks";
+import { useState } from "preact/hooks";
 import fontColorContrast from "font-color-contrast";
-import rgbHex from "rgb-hex";
 
 import { Game } from "../../../config/configuration";
 import Avatar from "./Avatar";
@@ -96,7 +95,7 @@ const PlayerIcon = (props: PlayerIconProps) => {
 	const getTextColor = (playerColor: string | undefined) => {
 		if (playerColor) {
 			try {
-				return fontColorContrast(rgbHex(playerColor));
+				return fontColorContrast(playerColor);
 			} catch (error) { }
 		}
 

@@ -921,11 +921,29 @@ a.gamename:hover {
 
 /* control panel games */
 
-.bgaext_controlpanelgames .game-line {
+.bgaext_controlpanelgames .game-line,
+.bgaext_controlpanelgames .bg-white {
   background-color: var(--dark-20) !important;
 }
 
 .bgaext_controlpanelgames .fa-book,
-.bgaext_controlpanelgames .items-center {
+.bgaext_controlpanelgames .items-center,
+.bgaext_controlpanelgames #main-content {
   color: white;
+}
+
+.bgaext_controlpanelgames a {
+  color: var(--blue-80);
+}
+
+.bgaext_controlpanelgames a:hover {
+  color: var(--violet-80);
+}
+
+.bgaext_controlpanelgames .bga-dropdown-option {
+  background-color: var(--dark-20);
+}
+
+.bgaext_controlpanelgames .bga-dropdown-option:hover {
+  background-color: var(--dark-40);
 }

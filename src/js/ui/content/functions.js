@@ -7,7 +7,6 @@ import { setFloatingRightMenu } from "./rightMenu/functions";
 import { initDevelopperUI } from "./studio/functions";
 import { initGameListObserver } from "./gameList/functions";
 import { initDarkMode } from "./darkMode/functions";
-import { initDarkStyle } from "./darkMode/darkStyleFunctions";
 import shouldFilter from "../../config/filteredLogs";
 
 const buildMainCss = () => {

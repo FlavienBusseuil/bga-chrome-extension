@@ -680,6 +680,10 @@ const defaultGames: Partial<Game>[] = [
 		name: "sixtyone",
 		playerPanel: "sxt_player_area_{{player_id}}",
 	},
+	{
+		name: "mindup",
+		playerPanel: "player-table-{{player_id}}",
+	},
 ];
 
 export default defaultGames;

@@ -1,41 +1,17 @@
 import React, { render } from "preact";
 import SideMenu from "./SideMenu";
+import { getPlayersData } from "../players"
 
 let playersData;
 
 export const initLeftMenu = (gameConfig, leftMenuEnable) => {
-	const elements = document.querySelectorAll("div.player-name");
+	getPlayersData().then((data) => {
+		console.log("[bga extension] players data", data);
 
-	if (elements && elements.length) {
-		const playersIdList = Object.values(elements)
-			.filter((d) => d.id)
-			.map((d) => parseInt(d.id.substring(12), 10))
-			.filter((id) => !isNaN(id));
-
-		playersData = playersIdList.map((id) => {
-			const userLink = document.getElementById(`player_name_${id}`)
-				.childNodes[1];
-
-			return {
-				id,
-				name: userLink.innerText,
-				avatar: document.getElementById(`avatar_${id}`).src,
-				color: getComputedStyle(userLink).color,
-			};
-		});
-
-		if (!playersData.length) {
-			setTimeout(() => initLeftMenu(gameConfig, leftMenuEnable), 100);
-			return;
-		}
-
-		console.log("[bga extension] players data", playersData);
-
+		playersData = data;
 		buildLeftMenuCss(gameConfig, leftMenuEnable);
 		buildLeftMenu(gameConfig, leftMenuEnable);
-	} else {
-		setTimeout(() => initLeftMenu(gameConfig, leftMenuEnable), 100);
-	}
+	});
 };
 
 export const buildLeftMenu = (gameConfig, enable) => {

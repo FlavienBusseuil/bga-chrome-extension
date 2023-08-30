@@ -54,6 +54,10 @@ export const gamesWithCustomDarkMode = {
   hardback: 'dark'
 };
 
+export const gamesWithCustomPlayerStyle = {
+  mindup: '.player-table .name-wrapper'
+};
+
 // games using popups :
 // schroedingerscats, gonutsfordonuts, via magica, superfantasybrawl
 
@@ -427,6 +431,10 @@ _darkStyleForGame['evergreen'] = `
 .eve_inline-block { color: black; }
 `;
 
+_darkStyleForGame['farkle'] = `
+#accumulated_score_wrap, #score_meter, #score_chart { background-color: var(--dark-back); color: var(--light-80); }
+`;
+
 _darkStyleForGame['feastforodin'] = `
 .ffo-icon-eye { filter: invert(0.7); }
 #ffo-modal #ffo-modal-content { background-color: #00000066; }
@@ -456,6 +464,7 @@ _darkStyleForGame['forestshuffle'] = `
 _darkStyleForGame['frenchtarot'] = `
 #icon_first_player_in_panel { filter: invert(1); }
 .black { text-shadow: -1px 0 white, 0 1px white, 1px 0 white, 0 -1px white; }
+#score_table thead th, #score_table tfoot th, #score_table tfoot td, #score_table tbody tr:nth-of-type(2n)>* { background-color: var(--dark-20) !important; }
 `;
 
 _darkStyleForGame['gangsta'] = `
@@ -590,8 +599,6 @@ _darkStyleForGame['legendraiders'] = `
 #tiles_stack_counter { color: var(--light-100); }
 `;
 
-
-
 _darkStyleForGame['lettertycoon'] = `
 .lettertycoon_area { background: var(--dark-back); }
 .lettertycoon_area .to_translate, .lettertycoon_deck_info { color: white !important; }
@@ -663,6 +670,12 @@ _darkStyleForGame['memoir'] = `
 
 _darkStyleForGame['microdojo'] = `
 .doubleempty { color: white; }
+`;
+
+_darkStyleForGame['mindup'] = `
+.darkmode .spectator-mode * { background: transparent !important; }
+#round-counter-row #round-counter-block { background: var(--dark-20); text-shadow: none; }
+.player-table, .player-table .name-wrapper { background-color: var(--dark-20); }
 `;
 
 _darkStyleForGame['myshelfie'] = `

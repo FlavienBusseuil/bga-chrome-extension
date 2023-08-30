@@ -18,6 +18,7 @@ div.bgext_player_name {
 	box-sizing: content-box;
 	overflow: hidden;
 	transition: all 0.3s linear;
+	text-shadow: none !important;
 }
 
 div.bgext_side_menu_item {
