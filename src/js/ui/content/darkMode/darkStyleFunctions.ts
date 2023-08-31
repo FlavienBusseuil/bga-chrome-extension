@@ -56,33 +56,6 @@ const hexToRgb = (hex: string) => {
   return result ? `rgb(${parseInt(result[1], 16)}, ${parseInt(result[2], 16)}, ${parseInt(result[3], 16)})` : hex;
 };
 
-const colorsMap = [
-  { light: "#0000ff", dark: "#8080ff" },
-  { light: "#982fff", dark: "#bf80ff" },
-  { light: "#1863a5", dark: "#8fc2ef" },
-  { light: "#0000dd", dark: "#8080ff" },
-  { light: "#442df0", dark: "#9588f7" },
-  { light: "#2a05df", dark: "#5837fb" },
-  { light: "#ff0000", dark: "#ff3333" },
-  { light: "#800000", dark: "#cc0000" },
-  { light: "#1a355e", dark: "#3771c8" },
-  { light: "#4e186f", dark: "#932ed1" },
-  { light: "#325089", dark: "#446ebb" },
-  { light: "#044396", dark: "#066ff9" },
-  { light: "#003377", dark: "#006eff" },
-  { light: "#0000aa", dark: "#006eaa" },
-  { light: "#773300", dark: "#b34d00" },
-  { light: "#5D0075", dark: "#8f00b3" },
-  { light: "#6c3161", dark: "#9e478e" },
-  { light: "#483d8b", dark: "#7c71c1" },
-  { light: "#2b4d9c", dark: "#4b72ce" },
-  { light: "#4c1b5b", dark: "#732989" },
-];
-
-const colorsToEnlight = [
-  '#000000', '#101820', '#123888', '#1e2e3d', '#404040', '#272c29', '#3d1303', '#2d2926', '#3b3232', '#010203', '#1a2126', '#302c2b', '#321500'
-];
-
 const getDarkColorsStyle = (playersData: PlayerData[]) => {
   const getDeclaration = (color: string) => {
     return `[style*=";color:${color}"], [style*=";color: ${color}"], [style*="; color:${color}"], [style*="; color: ${color}"], [style^="color:${color}"], [style^="color: ${color}"]`
@@ -100,14 +73,14 @@ const getDarkColorsStyle = (playersData: PlayerData[]) => {
     return declaration.join(', ');
   };
 
-  const colorsMapFiltered = colorsMap.filter(c => playersData.find(p => p.color === c.light));
-  const mappingStyle = colorsMapFiltered.length ? colorsMapFiltered.map(c => {
-    return `${getDeclarations(c.light)} { color: ${c.dark} !important; }`;
+  const colorsMapFiltered = playersData.filter(p => p.darkColor);
+  const mappingStyle = colorsMapFiltered.length ? colorsMapFiltered.map(p => {
+    return `${getDeclarations(p.color)} { color: ${p.darkColor} !important; }`;
   }).join(" ") : "";
 
-  const colorsToEnlightFiltered = colorsToEnlight.filter(c => playersData.find(p => p.color === c));
+  const colorsToEnlightFiltered = playersData.filter(p => p.darkEnlight);
   const enlightStyle = colorsToEnlightFiltered.length
-    ? `${colorsToEnlightFiltered.map(getDeclarations).join(', ')} { text-shadow: -1px 0 white, 0 1px white, 1px 0 white, 0 -1px white !important; }`
+    ? `${colorsToEnlightFiltered.map((p) => getDeclarations(p.color)).join(', ')} { text-shadow: -1px 0 white, 0 1px white, 1px 0 white, 0 -1px white !important; }`
     : "";
 
   return `${mappingStyle} ${enlightStyle}`;

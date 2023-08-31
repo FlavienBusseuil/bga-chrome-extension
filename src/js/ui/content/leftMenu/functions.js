@@ -4,17 +4,17 @@ import { getPlayersData } from "../players"
 
 let playersData;
 
-export const initLeftMenu = (gameConfig, leftMenuEnable) => {
+export const initLeftMenu = (config, gameConfig, leftMenuEnable) => {
 	getPlayersData().then((data) => {
 		console.log("[bga extension] players data", data);
 
 		playersData = data;
 		buildLeftMenuCss(gameConfig, leftMenuEnable);
-		buildLeftMenu(gameConfig, leftMenuEnable);
+		buildLeftMenu(config, gameConfig, leftMenuEnable);
 	});
 };
 
-export const buildLeftMenu = (gameConfig, enable) => {
+export const buildLeftMenu = (config, gameConfig, enable) => {
 	const menuContainerId = "bga_extension_sidebar";
 
 	if (enable) {
@@ -31,6 +31,7 @@ export const buildLeftMenu = (gameConfig, enable) => {
 				players={playersData}
 				panel={gameConfig.playerPanel}
 				gameConfig={gameConfig}
+				config={config}
 			/>,
 			container,
 		);

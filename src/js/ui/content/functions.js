@@ -165,7 +165,7 @@ const buildOptions = (config, gameName, gameConfig) => {
 		const toggleDisplayMenu = () => {
 			const enable = !config.isLeftMenuEnabled(gameName);
 			config.setLeftMenuEnabled(gameName, enable);
-			buildLeftMenu(gameConfig, enable);
+			buildLeftMenu(config, gameConfig, enable);
 			buildLeftMenuCss(gameConfig, enable);
 			document.getElementById("cde_menu_1").value = enable ? "1" : "0";
 			document.getElementById("cde_menu_2").value = enable ? "1" : "0";

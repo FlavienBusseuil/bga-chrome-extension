@@ -37,6 +37,8 @@
 }
 
 html.darkpanel .player-board,
+html.darkpanel .player-board .roundedboxinner,
+html.darkpanel .player-board .roundedboxinner b,
 .player-board .roundedbox_main,
 .player-board .roundedbox_topleft,
 .player-board .roundedbox_topmain,
@@ -54,6 +56,7 @@ html.darkpanel .player-board,
 #logs .log .roundedbox {
   background: var(--dark-10);
   color: var(--light-80);
+  text-shadow: none;
 }
 
 #logs .log .timestamp {
@@ -66,10 +69,6 @@ html.darkpanel .player-board,
 
 #logs span[style="color:black"] {
   text-shadow: -1px 0 white, 0 1px white, 1px 0 white, 0 -1px white;
-}
-
-#log_0 {
-  text-shadow: none !important;
 }
 
 .bgabutton_gray {

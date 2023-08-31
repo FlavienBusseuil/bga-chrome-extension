@@ -17,6 +17,7 @@ export interface Game {
 	bottomPanel?: string;
 	bottomPanelOffset?: number;
 	iconBackground: string;
+	iconBackgroundDark: string;
 	iconBorder: string;
 	iconColor: string;
 	iconShadow: string;
@@ -47,13 +48,13 @@ class Configuration {
 	_defConfig: { games: Game[] };
 	_customConfig: CustomConfig;
 	_config: { games: Game[] };
-	_currentGame: Game | undefined;
 
 	constructor() {
 		this._defConfig = {
 			games: defaultGames.map((game) => {
 				return {
 					iconBackground: "#ebd5bd",
+					iconBackgroundDark: "#b9b9b9",
 					iconBorder: "transparent",
 					iconColor: "#222222",
 					iconShadow: "#000000",
@@ -101,23 +102,7 @@ class Configuration {
 					document.dispatchEvent(new CustomEvent('bga_ext_update_config', { detail: { key } }));
 				}
 			} catch (error) { } // not a big deal
-
-			this._checkCurrentGame();
 		});
-	}
-
-	private _checkCurrentGame() {
-		if (this._currentGame) {
-			if (this._customConfig.darkMode) {
-				if (this._currentGame.iconBackground === "#ebd5bd") {
-					this._currentGame.iconBackground = "#b9b9b9";
-				}
-			} else {
-				if (this._currentGame.iconBackground === "#b9b9b9") {
-					this._currentGame.iconBackground = "#ebd5bd";
-				}
-			}
-		}
 	}
 
 	private _merge() {
@@ -146,9 +131,7 @@ class Configuration {
 	}
 
 	getGameConfig(game: string): Game | undefined {
-		this._currentGame = this._config.games.find((c: any) => c.name === game);
-		this._checkCurrentGame();
-		return this._currentGame;
+		return this._config.games.find((c: any) => c.name === game);
 	}
 
 	getGamesList(): Game[] {
@@ -357,13 +340,6 @@ class Configuration {
 
 	isDarkMode() {
 		return !!this._customConfig.darkMode;
-	}
-
-	getLeftMenuBackground(gameConfig: Game) {
-		if (this._customConfig.darkMode && gameConfig.iconBackground === "#ebd5bd") {
-			return "#b9b9b9";
-		}
-		return gameConfig.iconBackground;
 	}
 
 	setDarkMode(val: boolean) {

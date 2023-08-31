@@ -684,6 +684,11 @@ const defaultGames: Partial<Game>[] = [
 		name: "mindup",
 		playerPanel: "player-table-{{player_id}}",
 	},
+	{
+		name: "seasaltpaper",
+		playerPanel: "player-table-{{player_id}}",
+	},
+
 ];
 
 export default defaultGames;

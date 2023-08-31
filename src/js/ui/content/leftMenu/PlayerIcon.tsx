@@ -14,11 +14,12 @@ interface PlayerIconProps {
 	player: Player;
 	gameConfig: Game;
 	index: number;
+	darkMode: boolean;
 }
 
 const PlayerIcon = (props: PlayerIconProps) => {
 	const [over, setOver] = useState(false);
-	const { player, gameConfig, index } = props;
+	const { player, gameConfig, index, darkMode } = props;
 	const eltId = getPlayerPanelId(gameConfig, player, index);
 
 	const getOffset = () => {
@@ -112,10 +113,13 @@ const PlayerIcon = (props: PlayerIconProps) => {
 		return <BottomArrowIcon />;
 	};
 
+	const iconBackground = darkMode ? gameConfig.iconBackgroundDark : gameConfig.iconBackground;
+	//const playerColor = darkMode ? player.color : player.
+
 	return (
 		<SideMenuItem onClick={scrollToPlayer}>
 			<Avatar
-				backColor={gameConfig.iconBackground}
+				backColor={iconBackground}
 				borderColor={gameConfig.iconBorder}
 				shadowColor={gameConfig.iconShadow}
 				onMouseOver={() => setOver(true)}

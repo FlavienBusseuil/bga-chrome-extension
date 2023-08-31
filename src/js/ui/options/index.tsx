@@ -33,6 +33,7 @@ const Options = (props: { config: Configuration }) => {
 				"bottomPanel",
 				"bottomPanelOffset",
 				"iconBackground",
+				"iconBackgroundDark",
 				"iconBorder",
 				"iconColor",
 				"iconShadow",

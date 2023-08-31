@@ -1,7 +1,7 @@
 import React from "preact";
 import { useState, useEffect } from "preact/hooks";
 
-import { Game } from "../../../config/configuration";
+import Configuration, { Game } from "../../../config/configuration";
 import SideMenuItem from "./SideMenuItem";
 import PlayerIcon from "./PlayerIcon";
 import CloseIcon from "./icons/CloseIcon";
@@ -16,11 +16,12 @@ interface SideMenuProps {
 	players: [Player];
 	panel: string;
 	gameConfig: Game;
+	config: Configuration;
 }
 
 const SideMenu = (props: SideMenuProps) => {
-	const { players } = props;
-	const [gameConfig, setGameConfig] = useState({ ...props.gameConfig });
+	const { players, gameConfig, config } = props;
+	const [darkMode, setDarkMode] = useState(config.isDarkMode());
 	const [visible, setVisible] = useState(true);
 	const [position, setPosition] = useState(
 		gameConfig.position === "bottom" ? "bottom" : "top",
@@ -110,8 +111,8 @@ const SideMenu = (props: SideMenuProps) => {
 	const getButtonsOrder = () => {
 		checkPlayerPanels();
 
-		if (props.gameConfig.iconBackground !== gameConfig.iconBackground) {
-			setGameConfig({ ...props.gameConfig });
+		if (config.isDarkMode() !== darkMode) {
+			setDarkMode(!darkMode);
 		}
 
 		const toSort = players.map((p, index) => {
@@ -173,6 +174,7 @@ const SideMenu = (props: SideMenuProps) => {
 					player={p}
 					index={index}
 					gameConfig={gameConfig}
+					darkMode={darkMode}
 				/>
 			);
 		});
@@ -186,7 +188,7 @@ const SideMenu = (props: SideMenuProps) => {
 				id: gameConfig.boardPanel,
 				name: boardName || chrome.i18n.getMessage("sideMenuMainBoard"),
 				avatar: "board",
-				color: "#ffffff",
+				color: darkMode ? "#272a2f" : "#ffffff",
 			};
 
 			elements[gameConfig.boardPanel] = (
@@ -195,6 +197,7 @@ const SideMenu = (props: SideMenuProps) => {
 					player={fakePlayer}
 					index={-1}
 					gameConfig={gameConfig}
+					darkMode={darkMode}
 				/>
 			);
 		}
@@ -214,6 +217,7 @@ const SideMenu = (props: SideMenuProps) => {
 					player={fakePlayer}
 					index={-1}
 					gameConfig={gameConfig}
+					darkMode={darkMode}
 				/>
 			);
 		}
@@ -221,12 +225,14 @@ const SideMenu = (props: SideMenuProps) => {
 		return buttonsOrder.split("|").map((id) => elements[id]);
 	};
 
+	const iconBackground = darkMode ? gameConfig.iconBackgroundDark : gameConfig.iconBackground;
+
 	return (
 		<div style={containerStyle}>
 			{position === "top" && (
 				<SideMenuItem onClick={toggleMenu}>
 					<Avatar
-						backColor={gameConfig.iconBackground}
+						backColor={iconBackground}
 						borderColor={gameConfig.iconBorder}
 						shadowColor={gameConfig.iconShadow}
 					>
@@ -238,7 +244,7 @@ const SideMenu = (props: SideMenuProps) => {
 			{visible && (
 				<SideMenuItem onClick={scrollToTop}>
 					<Avatar
-						backColor={gameConfig.iconBackground}
+						backColor={iconBackground}
 						borderColor={gameConfig.iconBorder}
 						shadowColor={gameConfig.iconShadow}
 					>
@@ -250,7 +256,7 @@ const SideMenu = (props: SideMenuProps) => {
 			{position === "bottom" && (
 				<SideMenuItem onClick={toggleMenu}>
 					<Avatar
-						backColor={gameConfig.iconBackground}
+						backColor={iconBackground}
 						borderColor={gameConfig.iconBorder}
 						shadowColor={gameConfig.iconShadow}
 					>
