@@ -188,7 +188,8 @@ const SideMenu = (props: SideMenuProps) => {
 				id: gameConfig.boardPanel,
 				name: boardName || chrome.i18n.getMessage("sideMenuMainBoard"),
 				avatar: "board",
-				color: darkMode ? "#272a2f" : "#ffffff",
+				color: "#ffffff",
+				darkColor: "#272a2f"
 			};
 
 			elements[gameConfig.boardPanel] = (
@@ -209,6 +210,7 @@ const SideMenu = (props: SideMenuProps) => {
 				name: "",
 				avatar: "bottom",
 				color: "#ffffff",
+				darkColor: "#272a2f"
 			};
 
 			elements[gameConfig.bottomPanel] = (

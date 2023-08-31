@@ -1163,6 +1163,12 @@ _darkStyleForGame['troyes'] = `
 .t_icon { filter: var(--highlight-min); }
 `;
 
+_darkStyleForGame['troyesdice'] = `
+.counter_icon.influence_icon, .log_resource_icon.influence_icon, .counter_icon.denier_icon,
+.counter_icon.deniers_icon, .log_resource_icon.denier_icon, .log_resource_icon.deniers_icon,
+.counter_icon.knowledge_icon, .log_resource_icon.knowledge_icon { filter: var(--highlight-min); }
+`;
+
 _darkStyleForGame['turingmachine'] = `
 #notepad { background: var(--dark-20); color: white }
 #guessnb { background: var(--dark-20); color: white }

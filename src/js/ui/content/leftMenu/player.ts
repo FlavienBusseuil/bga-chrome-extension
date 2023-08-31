@@ -5,6 +5,7 @@ export interface Player {
 	name: string;
 	avatar: string;
 	color: string;
+	darkColor: string | undefined;
 	fake?: boolean;
 	panelId?: string;
 }

@@ -232,6 +232,7 @@ const defaultGames: Partial<Game>[] = [
 	{
 		name: "ultimaterailroads",
 		iconBackground: "#e5d6d1",
+		iconBackgroundDark: "#b5552b",
 		playerPanel: ".nameslot > h3",
 		playerPanelOffset: 20,
 		bottomPanel: "limbo",
@@ -264,6 +265,7 @@ const defaultGames: Partial<Game>[] = [
 		name: "beyondthesun",
 		playerPanel: "bts-playerArea{{player_id}}",
 		iconBackground: "#a4bdd5",
+		iconBackgroundDark: "#a4bdd5",
 		iconShadow: "#ffffff",
 		css: "#game_play_area { padding-left: 50px; }",
 	},
@@ -275,6 +277,7 @@ const defaultGames: Partial<Game>[] = [
 	{
 		name: "locomomo",
 		iconBackground: "#a3c268",
+		iconBackgroundDark: "#a3c268",
 		playerPanel: "loc_player-board-{{player_id}}",
 		css: "#game_play_area { padding-left: 50px; }",
 	},
@@ -417,6 +420,7 @@ const defaultGames: Partial<Game>[] = [
 	{
 		name: "oriflamme",
 		iconBackground: "#8aafc5",
+		iconBackgroundDark: "#8aafc5",
 		playerPanel: "discard-{{player_id}}",
 		playerPanelOffset: 45,
 		css: "#game_play_area { padding-left: 35px; }",
@@ -450,6 +454,7 @@ const defaultGames: Partial<Game>[] = [
 		name: "trektwelve",
 		playerPanel: "board_{{player_id}}",
 		iconBackground: "#efd6a1",
+		iconBackgroundDark: "#efd6a1",
 		css: "#upback, .show-sheet-button { display: none; }",
 	},
 	{

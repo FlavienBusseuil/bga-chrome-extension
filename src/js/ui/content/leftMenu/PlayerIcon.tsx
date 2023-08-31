@@ -114,7 +114,7 @@ const PlayerIcon = (props: PlayerIconProps) => {
 	};
 
 	const iconBackground = darkMode ? gameConfig.iconBackgroundDark : gameConfig.iconBackground;
-	//const playerColor = darkMode ? player.color : player.
+	const playerColor = darkMode ? player.darkColor || player.color : player.color;
 
 	return (
 		<SideMenuItem onClick={scrollToPlayer}>
@@ -128,10 +128,10 @@ const PlayerIcon = (props: PlayerIconProps) => {
 				{getIcon()}
 			</Avatar>
 			<PlayerName
-				backColor={player.color}
+				backColor={playerColor}
 				borderColor={gameConfig.iconBorder}
 				shadowColor={gameConfig.iconShadow}
-				textColor={getTextColor(player.color)}
+				textColor={getTextColor(playerColor)}
 				hover={!!player.name && over}
 			>
 				{player.name}
