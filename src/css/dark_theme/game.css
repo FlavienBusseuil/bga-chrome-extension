@@ -71,6 +71,10 @@ html.darkpanel .player-board .roundedboxinner b,
   text-shadow: -1px 0 white, 0 1px white, 1px 0 white, 0 -1px white;
 }
 
+#logs .timestamp {
+  text-shadow: none;
+}
+
 .bgabutton_gray {
   background-color: var(--dark-40) !important;
   color: var(--light-80) !important;
@@ -90,9 +94,28 @@ html.darkpanel .player-board .roundedboxinner b,
   background: none var(--dark-40);
 }
 
-#pagesection_gameview .whiteblock {
+#pagesection_gameview .whiteblock,
+#table-decision,
+#neutralized_game_panel {
   background: var(--dark-back);
   color: white;
+}
+
+#log_history_status {
+  background-color: var(--dark-20);
+}
+
+#log_history_status div[class^="roundedbox"] {
+  background-color: transparent;
+}
+
+#log_history_status .ui-progress {
+  background-color: #3b7920;
+  background-image: repeating-linear-gradient(-45deg, transparent, transparent 1rem, hsl(0deg 0% 100% / 10%) 0, hsl(0deg 0% 100% / 10%) 2rem);
+}
+
+#log_history_status_text {
+  color: var(--light-70);
 }
 
 .pagesection h2,

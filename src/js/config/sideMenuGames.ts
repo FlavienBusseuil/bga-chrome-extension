@@ -693,7 +693,18 @@ const defaultGames: Partial<Game>[] = [
 		name: "seasaltpaper",
 		playerPanel: "player-table-{{player_id}}",
 	},
-
+	{
+		name: "goldblivion",
+		iconBackground: "#537955",
+		iconBackgroundDark: "#537955",
+		playerPanel: "gb-area-player-{{player_id}}",
+		bottomPanel: "gb-discarded-help",
+		css: "#gb-shortcut-area { display: none; } #gb-area-full { padding-left: 50px; }",
+	},
+	{
+		name: "colorado",
+		playerPanel: "board_{{player_id}}",
+	},
 ];
 
 export default defaultGames;

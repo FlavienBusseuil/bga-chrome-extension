@@ -75,7 +75,7 @@ const buildOption = (
 	input.id = inputId;
 	input.className = "preference_control";
 	input.addEventListener("click", (evt) => evt.stopPropagation());
-	input.addEventListener("change", toggleFunc);
+	input.addEventListener("change", (evt) => evt.isTrusted && toggleFunc(evt));
 	val.appendChild(input);
 
 	if (inputValue === "1") {
