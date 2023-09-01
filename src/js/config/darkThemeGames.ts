@@ -508,6 +508,11 @@ _darkStyleForGame['gardennation'] = `
 .standard_popin_closeicon { filter: invert(1); }
 `;
 
+_darkStyleForGame['geekoutmasters'] = `
+.counter { color: white; }
+.counter_value[style^="color: rgb(0, 0, 0)"] { color: white !important; }
+`;
+
 _darkStyleForGame['getonboard'] = `
 #zoom-controls { filter: invert(0.7); }
 `;
