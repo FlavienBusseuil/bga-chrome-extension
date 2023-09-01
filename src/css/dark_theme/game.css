@@ -109,6 +109,10 @@ html.darkpanel .player-board .roundedboxinner b,
   background-color: transparent;
 }
 
+#log_history_status .ui-progress-bar {
+  background-color: var(--dark-40);
+}
+
 #log_history_status .ui-progress {
   background-color: #3b7920;
   background-image: repeating-linear-gradient(-45deg, transparent, transparent 1rem, hsl(0deg 0% 100% / 10%) 0, hsl(0deg 0% 100% / 10%) 2rem);

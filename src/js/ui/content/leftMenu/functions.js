@@ -5,12 +5,14 @@ import { getPlayersData } from "../players"
 let playersData;
 
 export const initLeftMenu = (config, gameConfig, leftMenuEnable) => {
-	getPlayersData().then((data) => {
-		console.log("[bga extension] players data", data);
+	document.addEventListener("DOMContentLoaded", () => {
+		getPlayersData().then((data) => {
+			console.log("[bga extension] players data", data);
 
-		playersData = data;
-		buildLeftMenuCss(gameConfig, leftMenuEnable);
-		buildLeftMenu(config, gameConfig, leftMenuEnable);
+			playersData = data;
+			buildLeftMenuCss(gameConfig, leftMenuEnable);
+			buildLeftMenu(config, gameConfig, leftMenuEnable);
+		});
 	});
 };
 

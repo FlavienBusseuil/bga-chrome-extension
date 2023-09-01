@@ -705,6 +705,12 @@ const defaultGames: Partial<Game>[] = [
 		name: "colorado",
 		playerPanel: "board_{{player_id}}",
 	},
+	{
+		name: "zuuli",
+		playerPanel: "div[id^=\"inside\"]",
+		myPanel: "#inside-me",
+		top: "140px",
+	},
 ];
 
 export default defaultGames;

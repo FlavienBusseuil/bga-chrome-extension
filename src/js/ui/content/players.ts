@@ -52,7 +52,7 @@ const _getPlayersData = (returnFunc: (data: PlayerData[]) => void) => {
 };
 
 const colorsMap = [
-  { light: "#0000ff", dark: "#8080ff" },
+  { light: "#0000ff", dark: "#6666ff" },
   { light: "#982fff", dark: "#bf80ff" },
   { light: "#1863a5", dark: "#8fc2ef" },
   { light: "#0000dd", dark: "#8080ff" },
@@ -75,8 +75,10 @@ const colorsMap = [
   { light: "#0b2ac9", dark: "#3d5cf5" },
   { light: "#041e42", dark: "#0a4ca9" },
   { light: "#fbff00", dark: "#c9cc00" },
+  { light: "#632179", dark: "#9331b4" },
+  { light: "#00008b", dark: "#4d4dff" },
 ];
 
 const colorsToEnlight = [
-  '#000000', '#101820', '#123888', '#1e2e3d', '#404040', '#272c29', '#3d1303', '#2d2926', '#3b3232', '#010203', '#1a2126', '#302c2b', '#321500'
+  '#000000', '#101820', '#123888', '#1e2e3d', '#404040', '#272c29', '#3d1303', '#2d2926', '#3b3232', '#010203', '#1a2126', '#302c2b', '#321500', '#080d10'
 ];

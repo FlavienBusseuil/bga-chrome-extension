@@ -83,23 +83,27 @@ const getDarkColorsStyle = (playersData: PlayerData[]) => {
     ? `${colorsToEnlightFiltered.map((p) => getDeclarations(p.color)).join(', ')} { text-shadow: -1px 0 white, 0 1px white, 1px 0 white, 0 -1px white !important; }`
     : "";
 
-  return `${mappingStyle} ${enlightStyle}`;
+  const playerColorsCss = playersData.map(p => `.ext_player_${p.id} { color: ${p.darkColor || p.color} !important; }`).join(" ");
+
+  return `${mappingStyle} ${enlightStyle} ${playerColorsCss}`;
 };
 
 const _setPlayersColor = (query: string, playersData: PlayerData[]) => {
   const elements = document.querySelectorAll(query);
 
-  if (!elements.length) {
+  let ok = false;
+  elements.forEach((elt: any) => {
+    const data = playersData.find(p => elt.innerText.startsWith(p.name));
+    if (data) {
+      elt.classList.add(`ext_player_${data.id}`);
+      ok = true;
+    }
+  });
+
+  if (!ok) {
     setTimeout(() => _setPlayersColor(query, playersData), 100);
     return;
   }
-
-  elements.forEach((elt: any) => {
-    const data = playersData.find(p => p.name === elt.innerText);
-    if (data) {
-      elt.style.color = data.color;
-    }
-  });
 };
 
 const _setDarkStyleIfActivated = () => {
@@ -135,6 +139,8 @@ const _setDarkStyle = (mode: string) => {
       document.documentElement.classList.add(gamesWithCustomDarkMode[mode]);
     } else {
       getPlayersData().then(playersData => {
+        console.log("[bga extension] players data", playersData);
+
         const gameStyle = styleForGame[mode] || "";
         const gameDarkStyle = darkStyleForGame[mode] || "";
         const backStyle = gamesWithCustomBackground.includes(mode) ? "" : cssContents["dark_theme/background.css"];
