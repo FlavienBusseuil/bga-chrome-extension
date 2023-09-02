@@ -16,6 +16,7 @@ export const gamesWithCustomBackground = [
   'emdomicrocosm',
   'gangsta',
   'goldblivion',
+  'jekyllvshide',
   'jumpdrive',
   'kingoftokyo',
   'lielow',
@@ -30,6 +31,7 @@ export const gamesWithCustomBackground = [
   'pandemic',
   'patchwork',
   'pingimus',
+  'quirkyquarks',
   'raceforthegalaxy',
   'santorini',
   'skull',
@@ -42,6 +44,7 @@ export const gamesWithCustomBackground = [
   'starfluxx',
   'thecrew',
   'talon',
+  'trio',
   'wizardsgrimoire'
 ];
 
@@ -186,6 +189,10 @@ _darkStyleForGame['applejack'] = `
 _darkStyleForGame['architectsofthewestkingdom'] = `
 .playeroveroverall { background-color: var(--dark-back); }
 #logs .arcicon, #player_boards .arcicon { filter: var(--highlight-min); }
+`;
+
+_darkStyleForGame['arcticscavengers'] = `
+.scv-pile-count { color: #fff; }
 `;
 
 _darkStyleForGame['arknova'] = `
@@ -462,6 +469,10 @@ _darkStyleForGame['draftosaurus'] = `
 .dino-number { color: black; }
 `;
 
+_darkStyleForGame['dungeonpetz'] = `
+.side_title { text-shadow: -1px 0 #000, 0 1px #000, 1px 0 #000, 0 -1px #000; }
+`;
+
 _darkStyleForGame['dungeonroll'] = `
 .navigation>li { filter: invert(0.7); }
 .navigation>li.selected { background-color: #7dff00; }
@@ -506,6 +517,10 @@ body { background: none !important; }
 
 _darkStyleForGame['farkle'] = `
 #accumulated_score_wrap, #score_meter, #score_chart { background-color: var(--dark-back); color: var(--light-80); }
+`;
+
+_darkStyleForGame['farmclub'] = `
+.fc_animal { filter: var(--highlight-min); }
 `;
 
 _darkStyleForGame['feastforodin'] = `
@@ -685,6 +700,10 @@ _darkStyleForGame['itsawonderfulworld'] = `
 .iww-resources, .player_score { color: black; }
 `;
 
+_darkStyleForGame['jekyllvshide'] = `
+span[style*="color:#161614"] { color: #868679 !important; }
+`;
+
 _darkStyleForGame['jumpdrive'] = `
 .jdr-icon, .jdr-resource { filter: var(--highlight-min); }
 `;
@@ -693,6 +712,15 @@ _darkStyleForGame['justone'] = `
 #overall-content, #left-side-wrapper { background: inherit !important; }
 #card-mystery-header, #card-guess-header { color: #fff; }
 .left-name, .right-name { background: var(--dark-20); border-radius: 8px; padding: 0.3em 0.5em; }
+`;
+
+_darkStyleForGame['k2'] = `
+#k2_right_column .whiteblock h3 { color: #fff; }
+.climber_icon { filter: var(--highlight-min); }
+`;
+
+_darkStyleForGame['kahuna'] = `
+#round, #card_pool_wrapper { color: #fff; }
 `;
 
 _darkStyleForGame['keyflower'] = `
@@ -719,6 +747,11 @@ _darkStyleForGame['knarr'] = `
 #popin_bgaHelpDialog_close { filter: invert(1); }
 .bga-help_unfolded-content { background: var(--dark-20); }
 .color-help-unfolded-content .label, .player-board.spectator-mode { color: #fff; }
+`;
+
+_darkStyleForGame['krosmasterarena'] = `
+.pageheader { background-color: var(--dark-20); }
+.minidieface { filter: invert(1); }
 `;
 
 _darkStyleForGame['lagranja'] = `
@@ -971,6 +1004,15 @@ _darkStyleForGame['quantum'] = `
 #mapName { color: #fff; }
 `;
 
+_darkStyleForGame['quibbles'] = `
+.quibbles #quibbles-ui-row-2 .whiteblock { background-color: #471e48; }
+#bga-zoom-controls { filter: invert(0.7); }
+`;
+
+_darkStyleForGame['quirkyquarks'] = `
+.QQ-Phase, .QQ-Round { color: #ebb073; background-color: transparent; }
+`;
+
 _darkStyleForGame['quoridor'] = `
 .objective { filter: var(--highlight); }
 `;
@@ -1013,6 +1055,11 @@ _darkStyleForGame['regicide'] = `
 .player-board.highlight_panel { background-color: rgba(80,80,80,.6) !important; }
 .player-board.unselectable_panel { background-color: rgba(255,0,0,.3) !important; }
 .player-board.selected_panel { background-color: #0033004d !important; }
+`;
+
+_darkStyleForGame['rolltothetopjourneys'] = `
+.dice_area_active, .dice_area_inactive { background-color: var(--dark-back); color: #fff; }
+.first_player { filter: var(--highlight-min); }
 `;
 
 _darkStyleForGame['seasaltpaper'] = `
@@ -1084,6 +1131,11 @@ _darkStyleForGame['seasons'] = `
 
 _darkStyleForGame['sechsnimmt'] = `
 .card_played { background: none var(--dark-40); }
+`;
+
+_darkStyleForGame['seikatsu'] = `
+.table_bordered { border: 3px ridge #999; }
+.flower_line_icon, .rotate_icon { filter: invert(0.7); }
 `;
 
 _darkStyleForGame['sevenwonders'] = `
@@ -1215,6 +1267,14 @@ _darkStyleForGame['terramystica'] = `
 .faction_selection_item, .player_faction { text-shadow: none; color: #fff; }
 `;
 
+_darkStyleForGame['thattimeyoukilledme'] = `
+.tty-pawn-000000 { filter: var(--highlight-min); }
+`;
+
+_darkStyleForGame['theboss'] = `
+.stockitem { filter: var(--highlight-min); }
+`;
+
 _darkStyleForGame['thecrew'] = `
 #logs span.card-value.black { text-shadow: -1px 0 #fff, 0 1px #fff, 1px 0 #fff, 0 -1px #fff; }
 #logs span.card-value { padding-right: 0.2em; }
@@ -1258,6 +1318,12 @@ _darkStyleForGame['thebuildersantiquity'] = `
 _darkStyleForGame['thegnomesofzavandor'] = `
 .alchemister, .gnomunculus, .gold, .miningjolly, .hoovermatic3, .hoovermatic4, .diamond, .emeromobile5,
 .ruby, .miningsapphire, .sapphire, .emerald, .miningemerald, .miningdiamondn, .miningruby  { filter: var(--highlight-min); }
+`;
+
+_darkStyleForGame['throneandthegrail'] = `
+span[style^="color:#3a371e"] { text-shadow: -1px 0 #fff, 0 1px #fff, 1px 0 #fff, 0 -1px #fff !important; }
+.player_can_take_cards, .player_cannot_take_cards { background-color: transparent; }
+.sprite-first_player_marker { border-radius: 48px; }
 `;
 
 _darkStyleForGame['tichu'] = `
@@ -1307,6 +1373,15 @@ _darkStyleForGame['tranquility'] = `
 
 _darkStyleForGame['tranquilitytheascent'] = `
 #overall-content { background: none !important; }
+`;
+
+_darkStyleForGame['trio'] = `
+.handPlayerName {
+  background: var(--dark-20); padding: 0.3em 2em; border-radius: 8px; color: #fff;
+  margin-top: 10px; width: auto; flex-grow: 0; height: 22px;
+}
+.playerLabelContainer { justify-content: space-between; }
+.playerLabelContainer .bgabutton[style="display: none;"] { display: block !important; visibility: hidden; }
 `;
 
 _darkStyleForGame['troyes'] = `

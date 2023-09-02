@@ -14,18 +14,18 @@ export const getPlayersData = async (): Promise<PlayerData[]> => {
 };
 
 const _getPlayersData = (returnFunc: (data: PlayerData[]) => void) => {
-  const elements = document.querySelectorAll("#player_boards div.player-name");
+  const playerContainers = document.querySelectorAll("#player_boards div.player-name");
+  const playerlinks = document.querySelectorAll("#player_boards div.player-name a");
   let result: PlayerData[] | undefined = undefined;
 
-  if (elements && elements.length) {
-    const playersIdList = Object.values(elements)
+  if (playerContainers && playerlinks && playerContainers.length && playerContainers.length === playerlinks.length) {
+    const playersIdList = Object.values(playerContainers)
       .filter((d) => d.id)
       .map((d) => parseInt(d.id.substring(12), 10))
       .filter((id) => !isNaN(id));
 
-    const playersData = playersIdList.map((id) => {
-      const userContainer = document.getElementById(`player_name_${id}`) as any;
-      const userLink = userContainer.childNodes[1];
+    const playersData = playersIdList.map((id, index) => {
+      const userLink = playerlinks[index] as any;
       const avatar = document.getElementById(`avatar_${id}`) as any;
       const color = `#${rgbHex(getComputedStyle(userLink).color)}`;
       const darkColor = colorsMap.find(c => c.light === color)?.dark;
@@ -77,6 +77,7 @@ const colorsMap = [
   { light: "#fbff00", dark: "#c9cc00" },
   { light: "#632179", dark: "#9331b4" },
   { light: "#00008b", dark: "#4d4dff" },
+  { light: "#000083", dark: "#a013bc" },
 ];
 
 const colorsToEnlight = [

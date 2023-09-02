@@ -122,6 +122,10 @@ html.darkpanel .player-board .roundedboxinner b,
   color: var(--light-70);
 }
 
+#logs span[style*="color:#000000"] {
+  text-shadow: -1px 0 #fff, 0 1px #fff, 1px 0 #fff, 0 -1px #fff;
+}
+
 .pagesection h2,
 .pagesection h3 {
   background: var(--dark-10);

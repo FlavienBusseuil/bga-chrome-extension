@@ -711,6 +711,21 @@ const defaultGames: Partial<Game>[] = [
 		myPanel: "#inside-me",
 		top: "140px",
 	},
+	{
+		name: "rolltothetopjourneys",
+		playerPanel: "player_map_{{player_id}}",
+	},
+	{
+		name: "quibbles",
+		iconBackground: "#99639c",
+		iconBackgroundDark: "#895a8c",
+		playerPanel: "player-area-{{player_id}}",
+	},
+	{
+		name: "farmclub",
+		playerPanel: "player-board-wrapper-{{player_id}}",
+	},
+
 ];
 
 export default defaultGames;
