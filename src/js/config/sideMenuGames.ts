@@ -725,6 +725,10 @@ const defaultGames: Partial<Game>[] = [
 		name: "farmclub",
 		playerPanel: "player-board-wrapper-{{player_id}}",
 	},
+	{
+		name: "ginkgopolis",
+		playerPanel: "#visiblePlayerBoards > .whiteblock",
+	},
 
 ];
 
