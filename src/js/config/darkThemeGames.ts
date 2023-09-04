@@ -22,6 +22,7 @@ export const gamesWithCustomBackground = [
   'lielow',
   'memoir',
   'mrjack',
+  'mycity',
   'newfrontiers',
   'notalone',
   'nowboarding',
@@ -925,6 +926,19 @@ _darkStyleForGame['mow'] = `
 .counters .counter-icon.card, .counters .counter-icon.farmer-card { filter: var(--highlight-min); }
 `;
 
+_darkStyleForGame['mycity'] = `
+.cty_header_extra { background-color: var(--dark-back); color: #fff; }
+.cty_intro_header { filter: invert(1); }
+.cty_header_extra h2, .cty_header_extra h3, .cty_header_extra h4 { color: #fff; }
+.cty_intro { background-color: #000; color: #e87a9a; }
+.cty_intro_rankings { border: 2px solid #e87a9a; }
+.cty_intro_button { background-color: #e87a9a; border: 2px solid #e87a9a; }
+.cty_intro_button:hover { background-color: #fff; color: #e87a9a; }
+.cty_header_warning { background-color: var(--dark-20); color: #fff; }
+.cty_extra_button a { color: #fff; }
+.cty_extra_button a:hover { color: var(--violet-80); }
+`;
+
 _darkStyleForGame['myshelfie'] = `
 #settings-icon { filter: invert(1); }
 #board-scale { filter: grayscale(1); }
@@ -1264,6 +1278,14 @@ _darkStyleForGame['starfluxx'] = `
 #pagesection_gameview .whiteblock { color: #000; }
 .flx-table .flx-deck .flx-deck-wrap .flx-toggle, .flx-table .flx-deck .flx-deck-wrap .flx-card-count
 { color: #fff; background: var(--dark-back); }
+`;
+
+_darkStyleForGame['stockpile'] = `
+#zoom-out, #zoom-in { filter: invert(0.7); }
+#card_marketback_val { color: #fff; }
+.containerbackground { background-color: var(--dark-20); }
+.portfolioval { color: #fff; }
+.titleicon { filter: var(--highlight); }
 `;
 
 _darkStyleForGame['stoneage'] = `

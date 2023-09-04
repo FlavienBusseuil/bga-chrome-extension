@@ -3,6 +3,8 @@ import { Game } from "./configuration";
 const defaultGames: Partial<Game>[] = [
 	{
 		name: "mycity",
+		iconBackground: "#d8ba7f",
+		iconBackgroundDark: "#d8ba7f",
 		playerPanel: "cty_board_{{player_id}}",
 		playerPanelOffset: -10,
 		css: " ",

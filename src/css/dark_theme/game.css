@@ -219,6 +219,11 @@ textarea {
   filter: grayscale(1);
 }
 
+/* Hide the "You may note something for next time..." popup that would appear during round end, hiding the score and animation. */
+#turnBasedNotesIncent {
+  display: none;
+}
+
 /* tournament (to complete) */
 
 #tournament-module {
