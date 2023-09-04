@@ -744,6 +744,19 @@ const defaultGames: Partial<Game>[] = [
 		name: "sapiens",
 		playerPanel: "playerArea_{{player_id}}",
 	},
+	{
+		name: "thenumber",
+		playerPanel: ".tn_player_board",
+	},
+	{
+		name: "uptown",
+		playerPanel: ".uptown_player_area ",
+		myPanel: "#uptown_mytiles_wrap",
+	},
+	{
+		name: "dragoncastle",
+		playerPanel: ".playerTable",
+	},
 
 ];
 

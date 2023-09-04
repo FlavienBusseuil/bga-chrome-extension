@@ -93,7 +93,7 @@ const _setPlayersColor = (query: string, playersData: PlayerData[]) => {
 
   let ok = false;
   elements.forEach((elt: any) => {
-    const data = playersData.find(p => elt.innerText.startsWith(p.name));
+    const data = playersData.find(p => elt.innerText.trim().toLowerCase().startsWith(p.name.toLowerCase()));
     if (data) {
       elt.classList.add(`ext_player_${data.id}`);
       ok = true;

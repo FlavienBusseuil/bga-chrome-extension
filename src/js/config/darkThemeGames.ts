@@ -16,6 +16,7 @@ export const gamesWithCustomBackground = [
   'emdomicrocosm',
   'gangsta',
   'goldblivion',
+  'iwari',
   'jekyllvshide',
   'jumpdrive',
   'kingoftokyo',
@@ -74,6 +75,7 @@ export const gamesWithCustomPlayerStyle = {
   elawa: '.player-table .name-wrapper',
   butterfly: '.playerHand h3',
   homesteaders: '#main_container div[id^="player_name_"]',
+  tucano: '.tuc_header',
 };
 
 // games using popups :
@@ -218,6 +220,11 @@ _darkStyleForGame['astra'] = `
 _darkStyleForGame['automobiles'] = `
 #AMBDisplayOptionsToggle { filter: invert(0.7); }
 .amb-rank-icon, .amb-inner-icon { filter: var(--highlight-min); }
+`;
+
+_darkStyleForGame['babydinosaurrescue'] = `
+.card { color: black; }
+.selected_card { box-shadow: none; filter: var(--highlight-max); }
 `;
 
 _darkStyleForGame['bandido'] = `
@@ -517,6 +524,10 @@ _darkStyleForGame['dragonbridge'] = `
 .cardCountIcon, .nestCounterIcon, .deckCounterIcon { filter: var(--highlight-min); }
 `;
 
+_darkStyleForGame['dragoncastle'] = `
+.playerTable > div:first-child { background: var(--dark-20) !important; }
+`;
+
 _darkStyleForGame['dragonheart'] = `
 #ship_stack_count { color: #fff; }
 `;
@@ -783,6 +794,12 @@ _darkStyleForGame['isleoftrainsallaboard'] = `
 _darkStyleForGame['itsawonderfulworld'] = `
 .avatar_active { filter: none; }
 .iww-resources, .player_score { color: black; }
+.iww-tab { background-color: var(--dark-20); color: var(--light-80); }
+.iww-tab.iww-tab-selected, .iww-tab:not(.iww-tab-selected):hover { background-color: #000; color: #fff; }
+`;
+
+_darkStyleForGame['iwari'] = `
+.player-name { text-shadow: none; }
 `;
 
 _darkStyleForGame['jekyllvshide'] = `
@@ -1409,6 +1426,11 @@ _darkStyleForGame['thattimeyoukilledme'] = `
 .tty-pawn-000000 { filter: var(--highlight-min); }
 `;
 
+_darkStyleForGame['thatslife'] = `
+#player_stacks, #own_tiles_container { background-color: var(--dark-back); }
+#own_tiles_0 { background-color: var(--dark-20); color: #fff; }
+`;
+
 _darkStyleForGame['theboss'] = `
 .stockitem { filter: var(--highlight-min); }
 `;
@@ -1424,6 +1446,11 @@ _darkStyleForGame['thecrewdeepsea'] = `
 #logs .notif_startNewMission > div { color: black !important; }
 #logs span.card-value.black { text-shadow: -1px 0 #fff, 0 1px #fff, 1px 0 #fff, 0 -1px #fff; }
 #logs span.logicon.black { background-color: #fff; }
+`;
+
+_darkStyleForGame['thenumber'] = `
+.tn-miniboard-digit { background: var(--dark-40); }
+.tn-miniboard-digit-closed { background: #000; color: #000; }
 `;
 
 _darkStyleForGame['thirteenclues'] = `
@@ -1536,6 +1563,12 @@ _darkStyleForGame['troyesdice'] = `
 .counter_icon.knowledge_icon, .log_resource_icon.knowledge_icon { filter: var(--highlight-min); }
 `;
 
+
+_darkStyleForGame['tucano'] = `
+.tuc_header { background-color: #000 !important; }
+.tuc_linenblock { background-color: var(--dark-back); }
+`;
+
 _darkStyleForGame['turingmachine'] = `
 #notepad { background: var(--dark-20); color: #fff }
 #guessnb { background: var(--dark-20); color: #fff }
@@ -1548,6 +1581,10 @@ text { fill: #fff; }
 
 _darkStyleForGame['ultimaterailroads'] = `
 .player-name, .player_board_inner, .player_score { background-color: transparent; }
+`;
+
+_darkStyleForGame['uptown'] = `
+.uptown_player_name {color: #000; }
 `;
 
 _darkStyleForGame['vektorace'] = `
