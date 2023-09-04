@@ -735,6 +735,15 @@ const defaultGames: Partial<Game>[] = [
 		name: "catcafe",
 		playerPanel: "ctc_player_board_{{player_id}}",
 	},
+	{
+		name: "zooloretto",
+		playerPanel: "playercards_{{player_index_1}}",
+		bottomPanel: "playeraid",
+	},
+	{
+		name: "sapiens",
+		playerPanel: "playerArea_{{player_id}}",
+	},
 
 ];
 

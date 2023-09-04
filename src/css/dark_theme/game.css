@@ -2,6 +2,13 @@
   --dark-back: #272a2fbf;
 }
 
+:root,
+select,
+input,
+textarea {
+  color-scheme: dark;
+}
+
 .gamestart_overlay {
   background: none var(--dark-20);
   color: var(--light-80);
@@ -73,6 +80,10 @@ html.darkpanel .player-board .roundedboxinner b,
 
 #logs .timestamp {
   text-shadow: none;
+}
+
+.log_replayable:hover {
+  background-color: #130d06
 }
 
 .bgabutton_gray {
@@ -195,15 +206,23 @@ span.playername,
   filter: drop-shadow(0px 0px 2px white);
 }
 
+/* popups */
+
 .standard_popin_underlay {
   background-color: #000;
 }
 
-:root,
-select,
-input,
-textarea {
-  color-scheme: dark;
+.tableWindow td {
+  border-bottom: 1px solid #ccc;
+  color: var(--light-70);
+}
+
+.tableWindow tbody tr:hover td {
+  color: var(--light-100);
+}
+
+.tableWindow th {
+  border-bottom: 2px solid #cccccc;
 }
 
 /* Menu flottant */
