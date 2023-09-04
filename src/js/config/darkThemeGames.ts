@@ -200,10 +200,7 @@ _darkStyleForGame['arcticscavengers'] = `
 _darkStyleForGame['arknova'] = `
 .player-name > svg, .slider, #help-mode-switch { filter: invert(0.7); }
 .ark-log-card-name { color: #fffafb; }
-.icon-container.icon-container-strength .icon-strength { filter: var(--highlight); }
-.player-info .icon-appeal, .player-info .icon-conservation, .player-info .icon-money, .player-info .icon-reputation,
-.player-info .player-handCount, .player-info .player-xtoken,
-.icons-summary .icons-summary-row .icon-counter .badge-icon { filter: var(--highlight-min); }
+#player_boards .arknova-icon, #logs .arknova-icon, #maintitlebar_content .arknova-icon { filter: var(--highlight-min); }
 `;
 
 _darkStyleForGame['arnak'] = `
@@ -297,6 +294,10 @@ h5 { color: #fff; }
 .containermepad > h1 { background: var(--dark-20); margin-top: 0.5em; padding: 0.3em 1em !important; border-radius: 8px; text-shadow: -1px 0 #fff, 0 1px #fff, 1px 0 #fff, 0 -1px #fff; }
 `;
 
+_darkStyleForGame['capereurope'] = `
+.tbp-cardSlot { box-shadow: 0 3px 1px #cc6600b3; }
+`;
+
 _darkStyleForGame['carcassonne'] = `
 #player_boards .partisan { filter: var(--highlight-min); }
 body { background: none !important; }
@@ -320,6 +321,10 @@ _darkStyleForGame['castlesofcaleira'] = `
 
 _darkStyleForGame['catan'] = `
 .cat_panel_prim_icons, #player_boards .cat_panel_prim_icons .cat_panel_score { filter: invert(1) !important; }
+`;
+
+_darkStyleForGame['catcafe'] = `
+.ctc_psb_footprint, .ctc_log_shape { filter: var(--highlight); }
 `;
 
 _darkStyleForGame['caverna'] = `
@@ -422,6 +427,11 @@ _darkStyleForGame['cribbage'] = `
 #cutCardSpace { color: #fff; }
 `;
 
+_darkStyleForGame['crimezoom'] = `
+#tab-bar li { background-color: var(--dark-back); }
+#tab-bar li.active,#tab-bar li:hover, #main-content { background-color: var(--dark-20); color: #fff; }
+`;
+
 _darkStyleForGame['crusadersthywillbedone'] = `
 #CRUOptionsToggle { filter: invert(0.7) }
 `;
@@ -452,7 +462,6 @@ _darkStyleForGame['diceforge'] = `
 _darkStyleForGame['dinnerinparis'] = `
 h3 { color: #fff; }
 `;
-
 
 _darkStyleForGame['dobble'] = `
 #game_play_area div[id^="player_name_"], .pile-description div:not(.dbl_sleep) { background-color: var(--dark-20); }
@@ -600,7 +609,6 @@ _darkStyleForGame['gardennation'] = `
 #zoom-controls { filter: invert(0.7); }
 #popin_gardennationHelpDialog { background-color: var(--dark-20); color: #fff; }
 #help-popin h1 { color: #fff; }
-.standard_popin_closeicon { filter: invert(1); }
 `;
 
 _darkStyleForGame['geekoutmasters'] = `
@@ -731,6 +739,10 @@ _darkStyleForGame['innovation'] = `
 .score_container, .achievement_container, #available_achievements_container, #available_special_achievements_container, #decks_and_title { color: #fff; }
 `;
 
+_darkStyleForGame['insert'] = `
+.ring_set { background-color: transparent; }
+`;
+
 _darkStyleForGame['isleoftrainsallaboard'] = `
 .passengersbag, .coaltype3, .oiltype3, .mypassengers, .mypassengersloaded { filter: drop-shadow(0.1vw 0.1vw 0.1vw #fff) !important; }
 .mypassengerslog, .coaltype2, .oiltype2 { filter: var(--highlight-min); }
@@ -783,11 +795,16 @@ _darkStyleForGame['kingoftokyo'] = `
 #active-expansions-button { background: #737373; }
 `;
 
+_darkStyleForGame['klaverjassen'] = `
+.playerTables__roemScoredValue { color: #6666ff; }
+.infobutton, .infotitle { color: #999999; }
+table.tableScore td, .quickRefNote { color: #b3b3b3; }
+`;
+
 _darkStyleForGame['knarr'] = `
 .player-table { background: var(--dark-back); }
 .player-crew-cards, #bga-zoom-controls { filter: invert(0.7); }
 #popin_bgaHelpDialog { background: var(--dark-20); color: #fff; }
-#popin_bgaHelpDialog_close { filter: invert(1); }
 .bga-help_unfolded-content { background: var(--dark-20); }
 .color-help-unfolded-content .label, .player-board.spectator-mode { color: #fff; }
 `;
@@ -853,7 +870,6 @@ _darkStyleForGame['lookatthestars'] = `
 #cards #shapes .pile-wrapper .pile:empty { border: 1px dashed #ccc; }
 #zoom-controls { filter: invert(0.7); }
 #popin_lookatthestarsHelpDialog { background: var(--dark-20); color: #fff; }
-.standard_popin_closeicon { filter: invert(1); }
 `;
 
 _darkStyleForGame['lostcities'] = `
@@ -871,17 +887,12 @@ _darkStyleForGame['lumen'] = `
 #zoom-wrapper #map-controls button.active { background-color: #fff !important; border-color: #4871b6; }
 #popin_lumenHelpDialog { background-color: var(--dark-20); color: #fff; }
 #help-popin h1 { color: #fff; }
-.standard_popin_closeicon { filter: invert(1); }
 `;
 
 _darkStyleForGame['machiavelli'] = `
 font[color="blue"] { color: #8080ff !important; }
 font[color="black"] { text-shadow: -1px 0 #fff, 0 1px #fff, 1px 0 #fff, 0 -1px #fff; }
 font[color="red"] { color: #ff3333 !important; }
-`;
-
-_darkStyleForGame['mapsofmisterra'] = `
-.standard_popin { background: var(--dark-20); color: #fff; }
 `;
 
 _darkStyleForGame['marcopolo'] = `
@@ -965,7 +976,6 @@ _darkStyleForGame['noah'] = `
 #zoom-controls { filter: invert(0.7); }
 .table-counter-wrapper, #help-popin h1 { color: #fff; }
 #popin_noahHelpDialog { background: #0b2e41; color: #fff; }
-.standard_popin_closeicon { filter: invert(1); }
 `;
 
 _darkStyleForGame['noirkvi'] = `
@@ -1135,7 +1145,6 @@ _darkStyleForGame['seasaltpaper'] = `
 #discard-pick, .player-table { background: var(--dark-back); }
 .player-table .name-wrapper { background: var(--dark-20); }
 #popin_seasaltpaperHelpDialog { background: var(--dark-20); color: #fff; }
-.standard_popin_closeicon { filter: invert(1); }
 `;
 
 _darkStyleForGame['resarcana'] = `

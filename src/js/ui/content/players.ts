@@ -14,8 +14,8 @@ export const getPlayersData = async (): Promise<PlayerData[]> => {
 };
 
 const _getPlayersData = (returnFunc: (data: PlayerData[]) => void) => {
-  const playerContainers = document.querySelectorAll("#player_boards div.player-name");
-  const playerlinks = document.querySelectorAll("#player_boards div.player-name a[href*=\"/player?id\"]");
+  const playerContainers = document.querySelectorAll("#player_boards div.player-name[id^=\"player_name_\"]");
+  const playerlinks = document.querySelectorAll("#player_boards div.player-name[id^=\"player_name_\"] a[href*=\"/player?id\"]");
   let result: PlayerData[] | undefined = undefined;
 
   if (playerContainers && playerlinks && playerContainers.length && playerContainers.length === playerlinks.length) {

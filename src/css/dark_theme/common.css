@@ -29,3 +29,40 @@
   --highlight: drop-shadow(0px 0px 4px #fff);
   --highlight-min: drop-shadow(0px 0px 1px #fff);
 }
+
+/* Modales et popin */
+.standard_popin,
+.bga-popup-modal__content,
+.bga-popup-modal__content [class*=bg-bga-graybg],
+.bga-popup-modal__content [class*=text-bga-gray] {
+  background: var(--dark-10);
+  color: var(--light-80);
+}
+
+.bga-popup-modal [class*=bg-bga-gray] {
+  background-color: transparent;
+}
+
+.bga-popup-modal .bga-popup-modal__content {
+  padding: 10px;
+}
+
+.bga-popup-modal__content [class*=bg-bga-graybg] .whiteblock {
+  background: var(--dark-40);
+}
+
+.bga-popup-modal__content .bga-checkbox__label [slot=label] {
+  color: var(--light-80);
+}
+
+.bga-popup-modal__content .bga-checkbox--checked .bga-checkbox .bga-checkbox__checkmark * {
+  color: var(--light-80);
+}
+
+.standard_popin_underlay {
+  background: var(--dark-40);
+}
+
+.standard_popin_closeicon {
+  filter: invert(1);
+}

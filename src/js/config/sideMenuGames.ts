@@ -731,6 +731,10 @@ const defaultGames: Partial<Game>[] = [
 		name: "ginkgopolis",
 		playerPanel: "#visiblePlayerBoards > .whiteblock",
 	},
+	{
+		name: "catcafe",
+		playerPanel: "ctc_player_board_{{player_id}}",
+	},
 
 ];
 
