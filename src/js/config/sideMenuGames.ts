@@ -117,7 +117,6 @@ const defaultGames: Partial<Game>[] = [
 		playerPanel: "tableau_panel_{{player_id}}",
 		iconBackground: "#a3adb7",
 		iconShadow: "#ffffff",
-		css: "#game_play_area { padding-left: 50px; }",
 	},
 	{
 		name: "greatwesterntrail",
@@ -129,13 +128,11 @@ const defaultGames: Partial<Game>[] = [
 		name: "throughtheagesnewstory",
 		playerPanel: "player_tableau_wrap_{{player_id}}",
 		playerPanelOffset: 45,
-		css: "#game_play_area { padding-left: 50px; }",
 	},
 	{
 		name: "throughtheages",
 		playerPanel: "player_tableau_{{player_id}}",
 		playerPanelOffset: 45,
-		css: "#game_play_area { padding-left: 50px; }",
 	},
 	{
 		name: "getonboard",
@@ -203,13 +200,11 @@ const defaultGames: Partial<Game>[] = [
 	{
 		name: "crypt",
 		playerPanel: "player-area-{{player_id}}",
-		css: "#game_play_area { padding-left: 50px; }",
 	},
 	{
 		name: "evergreen",
 		iconBackground: "#ffffff",
 		playerPanel: "grid-{{player_id}}",
-		css: "#game_play_area { padding-left: 50px; }",
 	},
 	{
 		name: "getonboardparisrome",
@@ -222,14 +217,12 @@ const defaultGames: Partial<Game>[] = [
 		name: "oasis",
 		playerPanel: "board_{{player_id}}",
 		playerPanelOffset: 10,
-		css: "#game_play_area { padding-left: 50px; }",
 	},
 	{
 		name: "vaalbara",
 		iconBackground: "#ffffff",
 		playerPanel: ".vlb_zone_title > h2 > span:last-child",
 		playerPanelOffset: 0,
-		css: "#game_play_area { padding-left: 50px; }",
 	},
 	{
 		name: "ultimaterailroads",
@@ -254,14 +247,12 @@ const defaultGames: Partial<Game>[] = [
 		name: "saintpetersburg",
 		playerPanel: "stp_playertable_{{player_id}}_wrap",
 		playerPanelOffset: 10,
-		css: "#game_play_area { padding-left: 50px; }",
 	},
 	{
 		name: "obsession",
 		boardPanel: "builderMarket",
 		playerPanel: "playerArea-{{player_id}}",
 		playerPanelOffset: 10,
-		css: "#game_play_area { padding-left: 50px; }",
 	},
 	{
 		name: "beyondthesun",
@@ -269,7 +260,6 @@ const defaultGames: Partial<Game>[] = [
 		iconBackground: "#a4bdd5",
 		iconBackgroundDark: "#a4bdd5",
 		iconShadow: "#ffffff",
-		css: "#game_play_area { padding-left: 50px; }",
 	},
 	{
 		name: "elawa",
@@ -281,7 +271,6 @@ const defaultGames: Partial<Game>[] = [
 		iconBackground: "#a3c268",
 		iconBackgroundDark: "#a3c268",
 		playerPanel: "loc_player-board-{{player_id}}",
-		css: "#game_play_area { padding-left: 50px; }",
 	},
 	{
 		name: "caverna",
@@ -293,12 +282,10 @@ const defaultGames: Partial<Game>[] = [
 	{
 		name: "marcopolo",
 		playerPanel: "playerMat-{{player_id}}",
-		css: "#game_play_area { padding-left: 50px; }",
 	},
 	{
 		name: "marcopolotwo",
 		playerPanel: "playerMat-{{player_id}}",
-		css: "#game_play_area { padding-left: 50px; }",
 		menuCss: '#cde-floating-menu-score > .fa-star { background-image: none !important; } #cde-floating-menu-score > .fa-star:before { content: "\\f005" !important; }',
 	},
 	{
@@ -312,13 +299,11 @@ const defaultGames: Partial<Game>[] = [
 		name: "bloodrage",
 		iconShadow: "#ffffff",
 		playerPanel: ".br-clan-wrapper > h2",
-		css: "#game_play_area { padding-left: 50px; }",
 	},
 	{
 		name: "parks",
 		boardPanel: "pks-board",
 		playerPanel: "pks-playerBoard{{player_id}}",
-		css: "#game_play_area { padding-left: 50px; }",
 	},
 	{
 		name: "rollforthegalaxy",
@@ -328,33 +313,27 @@ const defaultGames: Partial<Game>[] = [
 	{
 		name: "sushigo",
 		playerPanel: "row_{{player_id}}",
-		css: "#game_play_area { padding-left: 50px; }",
 	},
 	{
 		name: "sushigoparty",
 		playerPanel: "row_{{player_id}}",
-		css: "#game_play_area { padding-left: 50px; }",
 	},
 	{
 		name: "barenpark",
 		playerPanel: "bp-player-area-{{player_id}}",
-		css: "#game_play_area { padding-left: 50px; }",
 	},
 	{
 		name: "clansofcaledonia",
 		playerPanel: "playerboard_row_{{player_id}}",
-		css: "#game_play_area { padding-left: 50px; }",
 	},
 	{
 		name: "tokaido",
 		playerPanel: "#tkd_game_area > #collections > div > h3",
 		playerPanelOffset: 20,
-		css: "#game_play_area { padding-left: 50px; }",
 	},
 	{
 		name: "myshelfie",
 		playerPanel: "shelf_{{player_id}}",
-		css: "#game_play_area { padding-left: 50px; }",
 	},
 	{
 		name: "carnegie",
@@ -379,12 +358,10 @@ const defaultGames: Partial<Game>[] = [
 		name: "sagani",
 		playerPanel: "map-container-{{player_id}}",
 		bottomPanel: "sag-intermezzo-spaces",
-		css: "#game_play_area { padding-left: 50px; }",
 	},
 	{
 		name: "hardback",
 		playerPanel: "area_{{player_id}}",
-		css: "#game_play_area { padding-left: 50px; }",
 	},
 	{
 		name: "rollandbump",
@@ -757,7 +734,32 @@ const defaultGames: Partial<Game>[] = [
 		name: "dragoncastle",
 		playerPanel: ".playerTable",
 	},
-
+	{
+		name: "sahwari",
+		playerPanel: "leaderBoardZone_{{player_id}}",
+	},
+	{
+		name: "quetzal",
+		playerPanel: "player-area-{{player_id}}",
+	},
+	{
+		name: "boomerangaustralia",
+		playerPanel: "playertable_{{player_id}}",
+	},
+	{
+		name: "boomerangeurope",
+		playerPanel: "playertable_{{player_id}}",
+	},
+	{
+		name: "boomerangusa",
+		playerPanel: "playertable_{{player_id}}",
+	},
+	{
+		name: "scriptoria",
+		playerPanel: ".pupitrePlayerContainer",
+		myPanel: "#pupitreCurrentPlayer",
+		css: "#zoneboard { position: relative; } #game_play_area { padding-left: 50px; }",
+	},
 ];
 
 export default defaultGames;
