@@ -83,7 +83,12 @@ const getDarkColorsStyle = (playersData: PlayerData[]) => {
     ? `${colorsToEnlightFiltered.map((p) => getDeclarations(p.color)).join(', ')} { text-shadow: -1px 0 white, 0 1px white, 1px 0 white, 0 -1px white !important; }`
     : "";
 
-  const playerColorsCss = playersData.map(p => `.ext_player_${p.id} { color: ${p.darkColor || p.color} !important; }`).join(" ");
+  const playerColorsCss = playersData.map(p => {
+    if (p.darkEnlight) {
+      return `.ext_player_${p.id} { color: ${p.color} !important; text-shadow: var(--text-w-shadow); }`;
+    }
+    return `.ext_player_${p.id} { color: ${p.darkColor || p.color} !important; }`;
+  }).join(" ");
 
   return `${mappingStyle} ${enlightStyle} ${playerColorsCss}`;
 };

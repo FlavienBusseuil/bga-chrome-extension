@@ -1,6 +1,7 @@
 :root {
   --dark-back: #272a2fbf;
   --drop-shadow: drop-shadow(2px 2px 1px #000) drop-shadow(0 0 2px #fff);
+  --text-w-shadow: -1px 0 #fff, 0 1px #fff, 1px 0 #fff, 0 -1px #fff;
 }
 
 :root,
@@ -134,7 +135,9 @@ html.darkpanel .player-board .roundedboxinner b,
   color: var(--light-70);
 }
 
-#logs [style*="color:#000000"] {
+#logs [style^="color:#000000"],
+#logs [style="color:#000"],
+#logs [style$=";color:#000"] {
   text-shadow: -1px 0 #fff, 0 1px #fff, 1px 0 #fff, 0 -1px #fff;
 }
 
@@ -208,6 +211,10 @@ span.playername,
 }
 
 /* popups */
+
+.standard_popin {
+  background: var(--dark-20);
+}
 
 .standard_popin_underlay {
   background-color: #000;

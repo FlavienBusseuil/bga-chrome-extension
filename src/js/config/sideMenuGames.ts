@@ -760,6 +760,46 @@ const defaultGames: Partial<Game>[] = [
 		myPanel: "#pupitreCurrentPlayer",
 		css: "#zoneboard { position: relative; } #game_play_area { padding-left: 50px; }",
 	},
+	{
+		name: "mechadream",
+		playerPanel: "mad_playerboard_{{player_id}}",
+		boardPanel: "mad_mainboard",
+	},
+	{
+		name: "dicesummoners",
+		playerPanel: "#pagesection_gameview .playertable.whiteblock",
+		boardPanel: "community_basic",
+		bottomPanel: "community_spell",
+	},
+	{
+		name: "carrara",
+		playerPanel: "player_board_wrap_{{player_id}}",
+	},
+	{
+		name: "fleet",
+		playerPanel: "playertable_{{player_id}}_wrap",
+	},
+	{
+		name: "faraway",
+		playerPanel: ".fa_zone.fa_zone_title",
+	},
+	{
+		name: "humanity",
+		playerPanel: "player-table-{{player_id}}",
+		boardPanel: "research-board",
+		boardPanelText: "#bga-jump-to_board-1 > span",
+		css: "#bga-jump-to_controls { display: none; } #game_play_area { padding-left: 50px; }",
+	},
+	{
+		name: "skatelegend",
+		playerPanel: "player-table-{{player_id}}",
+		css: "#bga-jump-to_controls { display: none; } #game_play_area { padding-left: 50px; }",
+	},
+	{
+		name: "almadi",
+		myPanel: "#playgroundCurrentPlayer",
+		playerPanel: ".playgroundContainer",
+	},
 ];
 
 export default defaultGames;
