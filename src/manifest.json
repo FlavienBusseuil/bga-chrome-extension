@@ -66,6 +66,7 @@
         "img/dark_theme/forum/*.png",
         "img/dark_theme/forum/*.gif",
         "img/dark_theme/forum/smilies/*.gif",
+        "img/dark_theme/tooltip/*.png",
         "css/light_theme/*.css",
         "img/light_theme/background.jpg"
       ],

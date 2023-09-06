@@ -157,7 +157,13 @@ _darkStyleForGame['ageofcivilization'] = `
 `;
 
 _darkStyleForGame['agricola'] = `
+.player-name > svg, .slider, #help-mode-switch { filter: invert(0.7); }
 #player_boards > div { background-color: #000000CC !important; }
+.dijitTooltipContainer .action-header, .dijitTooltipContainer .action-desc { color: #000 !important; }
+.meeple-container { filter: var(--drop-shadow); }
+#popin_showHelpsheet_underlay { background-color: black !important; }
+#layout-control-player-board-size, #layout-control-central-board-size, #layout-control-card-size, #layout-control-card-animation-speed { filter: invert(0.7); }
+.player-card .player-card-resizable .player-card-inner { color: #000; }
 `;
 
 _darkStyleForGame['akeruption'] = `
@@ -228,6 +234,8 @@ _darkStyleForGame['arknova'] = `
 .player-name > svg, .slider, #help-mode-switch { filter: invert(0.7); }
 .ark-log-card-name { color: #fffafb; }
 #player_boards .arknova-icon, #logs .arknova-icon, #maintitlebar_content .arknova-icon { filter: var(--highlight-min); }
+.dijitTooltipContainer .arknova-icon { filter: var(--highlight); }
+.dijitTooltipContainer .ark-card-bottom, .dijitTooltipContainer .arknova-bonus { color: #000; }
 `;
 
 _darkStyleForGame['arnak'] = `
@@ -259,6 +267,13 @@ _darkStyleForGame['bamboozle'] = `
 _darkStyleForGame['bandido'] = `
 .cp_board_hand, #resize { filter: invert(1); }
 body { background: none; }
+`;
+
+_darkStyleForGame['bang'] = `
+.player-character-name, .player-character-powers { color: #000; }
+.bang-player .bang-player-container { background-color: var(--dark-back); }
+.player-role { filter: var(--highlight); }
+.card-copy-color[data-color=C]:before, .card-copy-color[data-color=S]:before { text-shadow: var(--text-w-shadow); }
 `;
 
 _darkStyleForGame['barenpark'] = `
@@ -388,8 +403,14 @@ _darkStyleForGame['castlesofcaleira'] = `
 #zoom-controls, .coc_scroll_arrow { filter: invert(0.7); }
 `;
 
+_darkStyleForGame['castlesofburgundy'] = `
+.cob_player_block { color: #000 !important; }
+`;
+
 _darkStyleForGame['catan'] = `
 .cat_panel_prim_icons, #player_boards .cat_panel_prim_icons .cat_panel_score { filter: invert(1) !important; }
+#replaylogs .cat_log_token, .log .cat_log_token, .tooltiptext .cat_log_token { filter: var(--drop-shadow); }
+#player_boards .cat_panel_sec_icons .cat_panel_icon { filter: var(--highlight-min); }
 `;
 
 _darkStyleForGame['catcafe'] = `
@@ -652,8 +673,6 @@ _styleForGame['equinox'] = `
 `;
 
 _darkStyleForGame['equinox'] = `
-#help-mode-switch > label, .player_config_row > div:last-child > svg { filter: invert(0.7); }
-#settings-controls-container .row-data .row-label { color: #fff; }
 .noUi-target { filter: invert(0.7); }
 `;
 
@@ -716,10 +735,6 @@ _darkStyleForGame['fluxx'] = `
 
 _darkStyleForGame['forbiddenisland'] = `
 .side_title_wrapper { background: var(--dark-20); }
-`;
-
-_darkStyleForGame['forestshuffle'] = `
-#help-mode-switch > label, .player_config_row > div:last-child > svg { filter: invert(0.7); }
 `;
 
 _darkStyleForGame['frenchtarot'] = `
@@ -1474,6 +1489,18 @@ _darkStyleForGame['sevenwondersduel'] = `
 .end_game_green, .end_game_progresstokens { color: #00b35cab; }
 .end_game_purple { color: #9c82b0ab; }
 .end_game_military { color: #db2433ab; }
+.mythology_token, .mythology_token_outline, .offering_token, .offering_token_outline { filter: invert(1); }
+.offering_token_tooltip span[style="color: #58585a"] { color: #aaa !important; }
+.cardinfos [style$="color: #db5824"] { color: #702c12 !important; }
+.cardinfos [style$="color: #41499a"] { color: #6f76c3 !important; }
+.cardinfos [style$="color: #702c12"] { color: #db5824 !important; }
+.cardinfos [style$="color: #b7110e"] { color: #ef2d2a !important; }
+.cardinfos [style$="color: #000000"] { color: #fff !important; }
+.cardinfos [style$="color: #0275aa"] { color: #1cb5fd !important; }
+.cardinfos [style$="color: #58585a"] { color: #aaa !important; }
+.cardinfos [style$="color: #027234"] { color: #03c95c !important; }
+#mythology_decks_container>div:nth-of-type(4) h3 span { color: #aaa; }
+.swd_title { color: #000; }
 `;
 
 _darkStyleForGame['shiftingstones'] = `
@@ -1589,8 +1616,6 @@ _darkStyleForGame['talon'] = `
 _darkStyleForGame['tapestry'] = `
 #breadcrumbs { color: #fff; background: #1d2023; }
 #player_board_config { background-color: #272a2f !important; }
-#settings-controls-container .row-data .row-label { color: #fff; }
-#player_config #player_config_row { filter: invert(1); }
 .playerArea { background-color: #2d2d2d80; }
 `;
 
@@ -1703,7 +1728,7 @@ _darkStyleForGame['tichu'] = `
 
 _darkStyleForGame['tictacmatch'] = `
 .card--empty { box-shadow: inset 0 0 10px #d79781; }
-#settings-controls-container .row-data .row-label { color: #fff; }
+#layout-control-card-size { filter: invert(0.7); }
 `;
 
 _darkStyleForGame['tigriseuphrates'] = `
@@ -1842,6 +1867,7 @@ _darkStyleForGame['wingspan'] = `
 #spectatorbox { background-color: var(--dark-20) !important; }
 .player_board_content, .wsp_playerboard_card_icon { color: #000; }
 #feeder_outside, #feeder_outside > div { filter: invert(1); }
+.wsp_tooltip_header span[style$="color: #666666"] { color: #ccc !important; }
 `;
 
 _darkStyleForGame['wizardsgrimoire'] = `

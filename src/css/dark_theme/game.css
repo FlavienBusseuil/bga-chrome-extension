@@ -251,6 +251,43 @@ span.playername,
   display: none;
 }
 
+/* tooltips */
+
+.dijitTooltipContainer {
+  background-image: none !important;
+  background-color: #373737 !important;
+  border: 1px solid #7c7c7c !important;
+  color: var(--light-80);
+}
+
+.dijitTooltipConnector {
+  filter: invert(0.8) grayscale(1);
+}
+
+.dijitTooltipContainer .imgtext {
+  filter: var(--highlight);
+}
+
+.dijitTooltipContainer .imgtext[src$="/img/layout/help_info.png"] {
+  content: url("chrome-extension://__MSG_@@extension_id__/img/dark_theme/tooltip/help_info.png");
+  filter: none;
+}
+
+.help-marker {
+  color: #000;
+}
+
+/* settings used by many games */
+
+#help-mode-switch>label,
+.player_config_row>div:last-child>svg {
+  filter: invert(0.7);
+}
+
+#settings-controls-container .row-data .row-label {
+  color: #fff;
+}
+
 /* tournament (to complete) */
 
 #tournament-module {

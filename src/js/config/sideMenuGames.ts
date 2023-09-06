@@ -800,6 +800,13 @@ const defaultGames: Partial<Game>[] = [
 		myPanel: "#playgroundCurrentPlayer",
 		playerPanel: ".playgroundContainer",
 	},
+	{
+		name: "castlesofburgundy",
+		playerPanel: "player_block_{{player_id}}",
+		boardPanel: "help_noTooltip_wrap",
+		boardPanelText: "#help_noTooltip_title > span",
+		bottomPanel: "discardedTiles_display_wrap",
+	},
 ];
 
 export default defaultGames;
