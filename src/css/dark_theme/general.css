@@ -1,3 +1,7 @@
+:root {
+  color-scheme: dark;
+}
+
 .loading_icon,
 #loading,
 #overall_loading {
@@ -6,11 +10,69 @@
 
 /* Formulaires */
 input,
+input:focus,
 textarea,
 select {
+  color-scheme: dark;
   background: var(--dark-40);
   color: var(--light-80);
-  color-scheme: dark;
+  border: 1px solid #b3b3b3;
+}
+
+textarea:focus,
+input:focus,
+select:focus {
+  outline: none;
+  border: 1px solid #fff;
+}
+
+.tundra .dijitSelectFocused,
+.tundra .dijitTextBoxFocused,
+.tundra .dijitSelectFocused TD,
+.tundra .dijitTextBoxFocused .dijitButtonNode,
+.tundra .dijitDialog,
+.tundra .dijitTooltipContainer,
+.tundra .dijitMenu,
+.tundra .dijitMenuBar,
+.tundra .dijitSelectFocused TD,
+.tundra .dijitTextBoxFocused .dijitButtonNode,
+.tundra .dijitButtonActive .dijitButtonNode,
+.tundra .dijitButtonContentsActive,
+.tundra .dijitDownArrowButtonActive,
+.tundra .dijitDropDownButtonActive .dijitButtonNode,
+.tundra .dijitStackController .dijitToggleButtonChecked .dijitButtonNode,
+.tundra .dijitToggleButtonActive .dijitButtonNode,
+.tundra .dijitUpArrowButtonActive .dijitColorPalette {
+  border-color: #fff;
+}
+
+.tundra .dijitButtonHover .dijitButtonNode,
+.tundra .dijitButtonNodeHover,
+.tundra .dijitComboButton .dijitButtonContentsHover,
+.tundra .dijitComboButton .dijitDownArrowButtonHover,
+.tundra .dijitDropDownButtonHover .dijitButtonNode,
+.tundra .dijitToggleButtonHover .dijitButtonNode,
+.tundra .dijitSelectHover,
+.tundra .dijitSelectHover TD,
+.tundra .dijitComboBoxHighlightMatch {
+  border-color: #fff;
+}
+
+.tundra .dijitSelectHover,
+.tundra .dijitSelectHover TD {
+  background: none;
+  border-color: #fff !important;
+}
+
+.tundra .dijitSelectActive,
+.tundra .dijitSelectActive TD,
+.tundra .dijitSelectOpened,
+.tundra .dijitSelectOpened TD {
+  border-color: #fff !important;
+}
+
+.tundra .dijitComboBoxHighlightMatch {
+  background-color: var(--dark-40);
 }
 
 .board_fake_input {
@@ -27,6 +89,16 @@ select {
 
 select.colorselector {
   color: var(--dark-40);
+}
+
+.dijitSelect input.dijitInputField {
+  filter: invert(1);
+  background-color: transparent !important;
+}
+
+.dijitMenuItem {
+  background-color: var(--dark-10);
+  color: var(--light-80);
 }
 
 .bga-lobby-table-item__bg {
@@ -273,10 +345,19 @@ a.gamename:hover {
 
 /* Erreurs */
 #bga_fatal_error {
+  color: #fff;
   width: 95%;
   margin: auto;
   padding: 10px;
   background-color: var(--red-10);
+}
+
+#bga_fatal_error a {
+  color: var(--blue-50);
+}
+
+#bga_fatal_error a:hover {
+  color: var(--violet-80);
 }
 
 /* Amitiés */
@@ -711,9 +792,58 @@ a.gamename:hover {
   filter: invert(1);
 }
 
+.bgaext_bugs .statstable th a.bga-link {
+  color: #fff !important;
+}
+
 /* Page Traduction */
-#translation-module #translationwarning {
-  color: var(--dark-40);
+
+.statstable th {
+  background-color: #8c4a0d;
+}
+
+.bgaext_translationhq .statstable td,
+.bgaext_translationhq .statstable th,
+.bgaext_translation .statstable td,
+.bgaext_translation .statstable th {
+  border: 1px solid #888
+}
+
+.bgaext_translation .whiteblock {
+  background-image: none;
+  background-color: var(--dark-20);
+}
+
+.bgaext_translation #translationwarning {
+  background-color: #662900 !important;
+  color: #fff;
+}
+
+.bgaext_translation tr[style="background-color: #cceecc;"] {
+  background-color: #133913 !important;
+}
+
+.bgaext_translation .readonly_textarea {
+  background-color: #55595e;
+}
+
+.bgaext_translation .textarea_status_empty {
+  background-color: #404347;
+}
+
+.bgaext_translation .textarea_status_validated {
+  background-color: #996300;
+}
+
+.bgaext_translation .textarea_status_recorded {
+  background-color: #2b552b;
+}
+
+.bgaext_translation .status_empty,
+.bgaext_translation .status_machine,
+.bgaext_translation .status_validated,
+.bgaext_translation .status_recorded {
+  filter: var(--highlight-min);
 }
 
 /* Page Liste des tournois */
