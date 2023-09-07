@@ -265,6 +265,11 @@ span.playername,
   color: var(--light-80);
 }
 
+.dijitTooltipContainer>div,
+.dijitTooltipContainer>div>div {
+  background-color: #373737 !important;
+}
+
 .tooltipcontainer,
 .tundra .dijitTooltipContainer {
   color: var(--light-80);
@@ -296,7 +301,8 @@ span.playername,
   padding-bottom: 3px;
 }
 
-.dijitTooltipContainer .icon.help {
+.dijitTooltipContainer .icon.help,
+.dijitTooltipContainer .icon_help {
   background-color: transparent;
   background-image: url("chrome-extension://__MSG_@@extension_id__/img/dark_theme/tooltip/help_info.png");
 }

@@ -796,6 +796,18 @@ a.gamename:hover {
   color: #fff !important;
 }
 
+.bga-game-selector .bg-white {
+  background-color: var(--dark-40);
+}
+
+.bga-game-selector .bg-white .text-gray-500 {
+  color: #fff;
+}
+
+.bga-game-selector .bg-white .text-gray-500:hover {
+  background-color: #7ba1cd;
+}
+
 /* Page Traduction */
 
 .statstable th {

@@ -74,3 +74,12 @@ body.mobile_version #chatbar .chatwindowcollapsed {
 .chatbarbelowinput .icon20_meeple_wb {
   filter: invert(0.7);
 }
+
+.chatbar_startchat {
+  background-color: var(--dark-40);
+}
+
+.chatwindowpreviewmsg {
+  background-color: var(--dark-10);
+  color: #fff;
+}
