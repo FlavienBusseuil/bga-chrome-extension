@@ -807,6 +807,11 @@ const defaultGames: Partial<Game>[] = [
 		boardPanelText: "#help_noTooltip_title > span",
 		bottomPanel: "discardedTiles_display_wrap",
 	},
+	{
+		name: "patchwork",
+		playerPanel: "#central > .tableau",
+		boardPanel: "mainboard",
+	},
 ];
 
 export default defaultGames;

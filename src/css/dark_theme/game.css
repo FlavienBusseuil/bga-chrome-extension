@@ -225,12 +225,17 @@ span.playername,
   color: var(--light-70);
 }
 
+.tableWindow td [style="color:black"] {
+  text-shadow: var(--text-w-shadow);
+}
+
 .tableWindow tbody tr:hover td {
   color: var(--light-100);
 }
 
 .tableWindow th {
   border-bottom: 2px solid #cccccc;
+  color: #3377ff;
 }
 
 /* Menu flottant */
@@ -260,8 +265,25 @@ span.playername,
   color: var(--light-80);
 }
 
+.tooltipcontainer,
+.tundra .dijitTooltipContainer {
+  color: var(--light-80);
+}
+
 .dijitTooltipConnector {
   filter: invert(0.8) grayscale(1);
+}
+
+.dijitTooltipContainer .black {
+  text-shadow: var(--text-w-shadow);
+}
+
+.dijitTooltipContainer .blue {
+  color: #6666ff !important;
+}
+
+.dijitTooltipContainer .red {
+  color: #ff3333 !important;
 }
 
 .dijitTooltipContainer .imgtext {
@@ -271,6 +293,12 @@ span.playername,
 .dijitTooltipContainer .imgtext[src$="/img/layout/help_info.png"] {
   content: url("chrome-extension://__MSG_@@extension_id__/img/dark_theme/tooltip/help_info.png");
   filter: none;
+  padding-bottom: 3px;
+}
+
+.dijitTooltipContainer .icon.help {
+  background-color: transparent;
+  background-image: url("chrome-extension://__MSG_@@extension_id__/img/dark_theme/tooltip/help_info.png");
 }
 
 .help-marker {

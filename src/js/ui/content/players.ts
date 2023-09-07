@@ -67,7 +67,7 @@ const colorsMap = [
   { light: "#003377", dark: "#006eff" },
   { light: "#0000aa", dark: "#006eaa" },
   { light: "#773300", dark: "#b34d00" },
-  { light: "#5d0075", dark: "#8f00b3" },
+  { light: "#5d0075", dark: "#cc00ff" },
   { light: "#6c3161", dark: "#9e478e" },
   { light: "#483d8b", dark: "#7c71c1" },
   { light: "#2b4d9c", dark: "#4b72ce" },

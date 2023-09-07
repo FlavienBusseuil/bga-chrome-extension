@@ -86,6 +86,16 @@ const SideMenu = (props: SideMenuProps) => {
 		gap: "0.8em",
 	};
 
+	const checkPlayerName = (elt: Element, name: string) => {
+		if (elt.innerHTML.indexOf(name) >= 0) {
+			return true;
+		}
+		if (elt.attributes && elt.attributes['data-title'] && elt.attributes['data-title'].value === name) {
+			return true;
+		}
+		return false;
+	};
+
 	const checkPlayerPanels = () => {
 		if (gameConfig.playerPanel.indexOf("{{") < 0) {
 			const panels = Array.from(
@@ -93,7 +103,7 @@ const SideMenu = (props: SideMenuProps) => {
 			);
 			players.forEach((p, index) => {
 				let playerPanel = panels.find(
-					(panel) => panel.innerHTML.indexOf(p.name) >= 0,
+					(panel) => checkPlayerName(panel, p.name),
 				);
 				if (!playerPanel && gameConfig.myPanel) {
 					playerPanel = document.querySelector(gameConfig.myPanel) || undefined;

@@ -32,7 +32,6 @@ export const gamesWithCustomBackground = [
   'ontour',
   'oriflamme',
   'pandemic',
-  'patchwork',
   'pingimus',
   'quirkyquarks',
   'raceforthegalaxy',
@@ -241,6 +240,10 @@ _darkStyleForGame['arknova'] = `
 _darkStyleForGame['arnak'] = `
 .hand-amt { background: var(--dark-20); padding: 0.3em 0.5em; border-radius: 8px; color: #fff; top: -40px; }
 .hand-amt .player-name { background: transparent; }
+.counter-wrap { background-color: var(--dark-30); }
+.display-deck, .display-discard { background: #000; border: 3px solid #9e6464; }
+.display-deck:hover { background: var(--dark-30); }
+.display-deck:active { background: var(--dark-40); }
 `;
 
 _darkStyleForGame['astra'] = `
@@ -360,14 +363,14 @@ _darkStyleForGame['cantstop'] = `
 .diceactions, .dicechoice_plus { color: #fff; }
 `;
 
-_darkStyleForGame['canvas'] = `
-#bga-zoom-controls { filter: invert(0.7); }
-`;
-
 _darkStyleForGame['cantstopexpress'] = `
 h5 { color: #fff; }
 .pad { filter: invert(0.8) grayscale(1); }
-.containermepad > h1 { background: var(--dark-20); margin-top: 0.5em; padding: 0.3em 1em !important; border-radius: 8px; text-shadow: var(--text-w-shadow); }
+.containermepad > h1 { background: var(--dark-20); margin-top: 0.5em; padding: 0.3em 1em !important; border-radius: 8px; }
+`;
+
+_darkStyleForGame['canvas'] = `
+#bga-zoom-controls { filter: invert(0.7); }
 `;
 
 _darkStyleForGame['capereurope'] = `
@@ -443,6 +446,12 @@ _darkStyleForGame['challengers'] = `
 .cha-log-holder { background: var(--dark-20); color: var(--light-80); }
 .cha-matchup-name-inner { background: var(--dark-20); padding: 0.3em 0.5em; border-radius: 8px; }
 .cha-name-404040 { text-shadow: var(--text-w-shadow); }
+.cha-name-0000dd { fill: #8080ff; color: #8080ff; }
+.cha-img-tooltip-wrapper, .cha-match-tooltip-wrapper { background-color: var(--dark-30); }
+.cha-tooltip-close-icon, .cha-set-icon { filter: invert(0.7); }
+.cha-matchup-num-fans { color: #fff; }
+.cha-name-79a394,.cha-name-ff5420, .cha-name-7468a5,.cha-name-404040, .cha-name-68bdf7,
+.cha-name-a12b76, .cha-name-0000dd,.cha-name-f951a0 { background-color: transparent; }
 `;
 
 _darkStyleForGame['chicagoexpress'] = `
@@ -741,6 +750,9 @@ _darkStyleForGame['frenchtarot'] = `
 #icon_first_player_in_panel { filter: invert(1); }
 .#000 { text-shadow: var(--text-w-shadow); }
 #score_table thead th, #score_table tfoot th, #score_table tfoot td, #score_table tbody tr:nth-of-type(2n)>* { background-color: var(--dark-20) !important; }
+.black { text-shadow: var(--text-w-shadow); }
+.blue { color: #6666ff !important; }
+.red { color: #ff3333 !important; }
 `;
 
 _darkStyleForGame['fruitpicking'] = `
@@ -790,6 +802,10 @@ body { background: none !important; }
 .zoneWrapper { background: var(--dark-20); }
 `;
 
+_darkStyleForGame['gizmos'] = `
+#logs .gzs_log_token, .dijitTooltipContainer .gzs_tooltip_token { filter: var(--drop-shadow); }
+`;
+
 _darkStyleForGame['glow'] = `
 #zoom-controls, .icon.footprint { filter: invert(0.7); }
 .player-board #firstPlayerToken { filter: var(--highlight); }
@@ -799,8 +815,10 @@ _darkStyleForGame['glow'] = `
 _darkStyleForGame['greatwesterntrail'] = `
 #gwt_markets { color: #fff; }
 .player-area { background: #00000066; padding: 1em; }
+.player-area h2 { text-shadow: none !important; }
 .player-board-button-wrapper { top: 0.5em; }
 #gwt_boards_area { gap: 0.5em; }
+.pref-group { background-color: #000; }
 `;
 
 _darkStyleForGame['gofish'] = `
@@ -864,6 +882,11 @@ div#overall-content:not([style^="back"]) { color: #fff; }
 
 _darkStyleForGame['handandfoot'] = `
 .card_type_icon { background-color: #fff; }
+`;
+
+_darkStyleForGame['hearts'] = `
+.table_color { background-color: var(--dark-20); color: var(--light-70); }
+.table_cell [style="color:black"] { text-shadow: var(--text-w-shadow); }
 `;
 
 _darkStyleForGame['hex'] = `
@@ -971,6 +994,10 @@ _darkStyleForGame['keyflower'] = `
 
 _darkStyleForGame['kingdombuilder'] = `
 .player-panel .player-settlements .player-settlements-counter { color: #fff !important; }
+`;
+
+_darkStyleForGame['kingdomino'] = `
+.player_view, #info { background: var(--dark-back); color: #fff; }
 `;
 
 _darkStyleForGame['kingsguild'] = `
@@ -1288,6 +1315,10 @@ _darkStyleForGame['pingimus'] = `
 
 _darkStyleForGame['potionexplosion'] = `
 .area_label, .player-name { text-shadow: none; }
+.marble_pool { border: 1px dashed #fff; }
+.potion, .stockitem { filter: var(--drop-shadow); }
+.reward_icon, .help_icon, .starter_token { filter: var(--highlight-min); }
+.potion_tooltip, .potion_tooltip_small { background-color: var(--dark-30); }
 `;
 
 _darkStyleForGame['president'] = `
@@ -1298,6 +1329,8 @@ _darkStyleForGame['puertorico'] = `
 #buildings, #plantations { background: var(--dark-back); color: #fff; }
 .tiles_label { color: #fff; }
 .small_building_placeholder, .big_building_placeholder { background-color: #e6d49c; }
+#player_boards .pr_icon_resource, #player_boards .pr_icon { filter: var(--drop-shadow); }
+.buildingtt, .plantationtt { background-color: var(--dark-40); }
 `;
 
 _darkStyleForGame['pugsinmugs'] = `
@@ -1331,6 +1364,10 @@ _darkStyleForGame['quirkyquarks'] = `
 
 _darkStyleForGame['quoridor'] = `
 .objective { filter: var(--highlight); }
+`;
+
+_darkStyleForGame['raceforthegalaxy'] = `
+#vp_nbr_remain_img { filter: var(--highlight-min); }
 `;
 
 _darkStyleForGame['railroadink'] = `
@@ -1458,6 +1495,8 @@ _darkStyleForGame['seasaltpaper'] = `
 _darkStyleForGame['seasons'] = `
 #player_boards .icon_cristal { filter: invert(0.7); }
 #player_boards .invocation_level, #player_boards .hand, #help-mode-switch  { filter: invert(0.7); }
+.cardtooltip .energy0, .cardtooltip .icon_active, .cardtooltip .icon_permanent { filter: var(--highlight); }
+#settings-controls-container { background-color: var(--dark-20); }
 `;
 
 _darkStyleForGame['sechsnimmt'] = `
@@ -1473,6 +1512,9 @@ _darkStyleForGame['sevenwonders'] = `
 .player_board_wrap { background: #00000090; }
 span.tcoin { color: var(--light-80); }
 #discard_count, #trees h3 { color: var(--light-80); }
+.cardinfos [style*="color:#723216"] { color: #e28d69 !important; }
+.cardinfos [style*="color:#0276b1"] { color: #03a9fc !important; }
+.cardinfos [style*="color:#d6040f"] { color: #fc6970 !important; }
 `;
 
 _darkStyleForGame['sevenwondersarchitects'] = `
@@ -1480,6 +1522,7 @@ body { background: none !important; }
 .player-board { background: var(--dark-30) !important; }
 .player-board.stw_activepl { background: var(--dark-40) !important; }
 #centralaround.stw_emptypile { background: #80808099; }
+.stw_log_icon { filter: var(--drop-shadow); }
 `;
 
 _darkStyleForGame['sevenwondersduel'] = `
@@ -1534,6 +1577,14 @@ _darkStyleForGame['solo'] = `
 #howto2, #helptext2 { color: var(--light-80); }
 `;
 
+_darkStyleForGame['spacebase'] = `
+.whitebkg { background-color: var(--dark-back); }
+.cardToolTip { background-color: transparent !important; }
+.cardToolTip [style*="color:blue"] { color: #6666ff !important; }
+.cardToolTip [style*="color:red"] { color: #ff3333 !important; }
+#logs .icon-small { filter: var(--highlight-min); }
+`;
+
 _darkStyleForGame['spaceempires'] = `
 #pagemaintitletext { background: none !important; }
 #right-side-second-part { background: transparent !important; }
@@ -1581,6 +1632,7 @@ _darkStyleForGame['stoneage'] = `
 .sta_boardBuildingCounter, .sta_boardCardCounter { color: #fff; }
 #sta_adjustZoom,#sta_zoomIn,#sta_zoomOut { filter: invert(0.7) !important; }
 #sta_adjustZoom:hover,#sta_zoomIn:hover,#sta_zoomOut:hover { filter: invert(1) drop-shadow(0 0 3px #fff) !important; }
+.inactive_area, .workerplace, .zone, #player_boards .sa_icon { filter: var(--drop-shadow); }
 `;
 
 _darkStyleForGame['strands'] = `
@@ -1848,7 +1900,9 @@ _darkStyleForGame['vultureculture'] = `
 _darkStyleForGame['welcometo'] = `
 #player_boards .houses-status > svg { filter: invert(1); }
 #player_boards .houses-status > div, #player_boards .refusal-status > div { color: #fff; }
+#layout-control-ratios-range, #layout-control-scoresheet-zoom-range { filter: invert(0.7); }
 #plan-cards-container, #construction-cards-container { background: var(--dark-back); }
+#popin_showHelpSheet_underlay, #popin_showOverview_underlay { background-color: #000 !important; opacity: 0.8 !important; }
 `;
 
 _darkStyleForGame['welcometonewlasvegas'] = `
