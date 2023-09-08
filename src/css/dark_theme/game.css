@@ -320,7 +320,7 @@ span.playername,
   color: #ff33a0;
 }
 
-/* settings used by many games */
+/* Tisaac games settings */
 
 #help-mode-switch>label,
 .player_config_row>div:last-child>svg {
@@ -329,6 +329,23 @@ span.playername,
 
 #settings-controls-container .row-data .row-label {
   color: #fff;
+}
+
+#popin_showSettings {
+  background-color: #4e3418;
+}
+
+#popin_showSettings h2 {
+  background: #33271a;
+  color: #fff;
+}
+
+#settings-controls-container .noUi-target {
+  filter: invert(0.8);
+}
+
+#popin_showSettings_close {
+  background-color: #4e3418;
 }
 
 /* tournament (to complete) */

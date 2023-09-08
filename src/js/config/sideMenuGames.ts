@@ -388,7 +388,7 @@ const defaultGames: Partial<Game>[] = [
 	{
 		name: "lostseas",
 		iconBackground: "#8ddefc",
-		playerPanel: "ls_playertitle_{{player_index_1}}",
+		playerPanel: "#ls_main .ls_playertitle",
 		playerPanelOffset: 50,
 	},
 	{
@@ -815,6 +815,15 @@ const defaultGames: Partial<Game>[] = [
 	{
 		name: "gangsta",
 		playerPanel: "playertitle_{{player_id}}",
+	},
+	{
+		name: "railwaysoftheworld",
+		playerPanel: "rotw_playertable_{{player_id}}_wrap",
+		boardPanel: "hideShowOpCards",
+	},
+	{
+		name: "wizardsgrimoire",
+		playerPanel: "player-table-{{player_id}}",
 	},
 ];
 
