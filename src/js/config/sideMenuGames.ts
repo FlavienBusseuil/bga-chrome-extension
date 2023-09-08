@@ -812,6 +812,10 @@ const defaultGames: Partial<Game>[] = [
 		playerPanel: "#central > .tableau",
 		boardPanel: "mainboard",
 	},
+	{
+		name: "gangsta",
+		playerPanel: "playertitle_{{player_id}}",
+	},
 ];
 
 export default defaultGames;

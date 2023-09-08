@@ -1,6 +1,7 @@
 :root {
   --dark-back: #272a2fbf;
   --drop-shadow: drop-shadow(2px 2px 1px #000) drop-shadow(0 0 2px #fff);
+  --drop-shadow-min: drop-shadow(1px 1px 1px #000) drop-shadow(0 0 1px #fff);
   --text-w-shadow: -1px 0 #fff, 0 1px #fff, 1px 0 #fff, 0 -1px #fff;
 }
 
@@ -267,7 +268,7 @@ span.playername,
 
 .dijitTooltipContainer>div,
 .dijitTooltipContainer>div>div {
-  background-color: #373737 !important;
+  background-color: transparent !important;
 }
 
 .tooltipcontainer,
@@ -309,6 +310,14 @@ span.playername,
 
 .help-marker {
   color: #000;
+}
+
+.male {
+  color: #6666ff;
+}
+
+.female {
+  color: #ff33a0;
 }
 
 /* settings used by many games */

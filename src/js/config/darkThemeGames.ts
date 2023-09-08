@@ -143,6 +143,7 @@ _darkStyleForGame['abyss'] = `
 
 _darkStyleForGame['afterus'] = `
 .icon { filter: var(--highlight-min); }
+.object-tooltip .label, .object-tooltip .title { color: #75b9d7; }
 `;
 
 _darkStyleForGame['ageofchampagne'] = `
@@ -405,9 +406,12 @@ body { background: none !important; }
 
 _darkStyleForGame['carnegie'] = `
  .cng_firstplayer { filter: var(--highlight); }
- .cng_token,  .player_score > i { filter: var(--highlight-min); }
+ .cng_token,  .player_score > i { filter: var(--drop-shadow); }
  .cng_playerboard_counter { filter: invert(1); }
  #pagemaintitletext > span { background-color: transparent !important; }
+ #timeline_block, #deptboard, .cng_company_block { background-color: #0a292980; color: #fff; }
+ .cng_company_label { background: var(--dark-20); color: #fff; border-top-right-radius: 8px; border-bottom-right-radius: 8px; }
+ .cng_companyboard_counter { color: var(--light-70); text-shadow: none; }
 `;
 
 _darkStyleForGame['carrara'] = `
@@ -810,6 +814,8 @@ _darkStyleForGame['fruitpicking'] = `
 _darkStyleForGame['gangsta'] = `
 #twodecks > div { background: none !important; }
 .team { filter: var(--highlight-min); }
+.darkmode .current_player .whiteblock, .darkmode .opposing_player .whiteblock { background: var(--dark-back) !important; }
+.dijitTooltipConnector { filter: none; }
 `;
 
 _darkStyleForGame['gardennation'] = `
@@ -907,7 +913,13 @@ _darkStyleForGame['goodcopbadcop'] = `
 `;
 
 _darkStyleForGame['hadara'] = `
-.had_player_p_icon, .had_coins { filter: var(--highlight-min); }
+.had_player_p_icon, .had_cards, .had_coins { filter: var(--drop-shadow-min); }
+.had_player_p_icon_1, .had_player_p_icon_2, .had_player_p_icon_3, .had_player_p_icon_0 { filter: none; }
+.dijitTooltipContainer:has( > div > div.had_colony_tile),
+.dijitTooltipContainer:has( > div > div.had_colony_tile) > div,
+.dijitTooltipContainer:has( > div > div.had_colony_tile) > div > div
+{ background-color: transparent !important; border: none !important; box-shadow: none !important; }
+.dijitTooltip:has( > div > div > div.had_colony_tile) > div:first-child { display: none; }
 `;
 
 _darkStyleForGame['haggis'] = `
@@ -1081,6 +1093,7 @@ _darkStyleForGame['krosmasterarena'] = `
 
 _darkStyleForGame['lagranja'] = `
 .playerFarm > div:first-child > span:first-child { background-color: transparent !important; }
+.card, .drawDeck { color: #000; }
 `;
 
 _darkStyleForGame['lama'] = `
@@ -1155,14 +1168,16 @@ _darkStyleForGame['lumen'] = `
 #help-popin h1 { color: #fff; }
 `;
 
+_darkStyleForGame['luxor'] = `
+#popin_chooseLayout { background-color: #4b3901; }
+#popin_chooseLayout_contents .layout-prompt { background-color: #7e5d01; }
+#popin_chooseLayout_contents .layout-prompt:hover { background-color: #c59207; }
+`;
+
 _darkStyleForGame['machiavelli'] = `
 font[color="blue"] { color: #8080ff !important; }
 font[color="#000"] { text-shadow: var(--text-w-shadow); }
 font[color="red"] { color: #ff3333 !important; }
-`;
-
-_darkStyleForGame['marcopolo'] = `
-.piece { filter: var(--drop-shadow); }
 `;
 
 _darkStyleForGame['madeira'] = `
@@ -1170,14 +1185,17 @@ _darkStyleForGame['madeira'] = `
 `;
 
 _darkStyleForGame['marcopolo'] = `
-.piece { filter: var(--highlight); }
-.small_piece { filter: var(--highlight-min); }
+#characterSelectionDescription { background-color: var(--dark-20) !important; }
+.mp_playeraid { color: #000; }
+.piece { filter: var(--drop-shadow); }
+.piece.panel_hourglass { filter: var(--highlight); }
 `;
 
 _darkStyleForGame['marcopolotwo'] = `
 #characterSelectionDescription { background-color: var(--dark-20) !important; }
-.piece { filter: var(--highlight); }
-.small_piece { filter: var(--highlight-min); }
+.mp_playeraid { color: #000; }
+.piece { filter: var(--drop-shadow); }
+.piece.panel_hourglass { filter: var(--highlight); }
 `;
 
 _darkStyleForGame['martiandice'] = `
@@ -1252,6 +1270,7 @@ _darkStyleForGame['mycity'] = `
 _darkStyleForGame['myshelfie'] = `
 #settings-icon { filter: invert(1); }
 #board-scale { filter: grayscale(1); }
+#first_player_seat { filter: var(--drop-shadow); }
 `;
 
 _darkStyleForGame['nextstationtokyo'] = `
@@ -1263,6 +1282,7 @@ _darkStyleForGame['nidavellir'] = `
 .card-class-ranks, .card-class-score, .rank { filter: invert(1); }
 #player-boards > div { background: var(--dark-20); border-radius: 8px; }
 .player-board-name { background-color: var(--dark-30) !important; }
+.nidavellir_popin_underlay { background-color: #000 !important; }
 `;
 
 _darkStyleForGame['ninetynine'] = `
@@ -1289,6 +1309,7 @@ _darkStyleForGame['notalone'] = `
 .player-board { background: transparent !important; }
 .player-board.selectable .player_board_inner { border-color: green !important; }
 .player-board.selectable .player_board_inner:hover { border-color: lime !important; }
+.placeCard .description, .placeCard h3, .huntCard p.phase, .huntCard p.description span, .huntCard h3 { color: #000; }
 `;
 
 _darkStyleForGame['novaluna'] = `
@@ -1536,19 +1557,23 @@ body { background: none; }
 #zoomminus, #zoomplus, #recenter, #change-layout, #increase-height, #decrease-height { background-color: var(--light-80) !important; }
 `;
 
+_darkStyleForGame['sahwari'] = `
+.playerCaravanZone { background-color: #3d3229; }
+.playerCamelZone:not(:empty) { background-color: #2a0f09; }
+.player_board_content .token { filter: var(--drop-shadow); }
+`;
+
 _darkStyleForGame['saintpetersburg'] = `
 .stp_icon_ruble { filter: invert(1); }
+`;
+
+_darkStyleForGame['santorini'] = `
+.power-ext { color: #000; }
 `;
 
 _darkStyleForGame['sapiens'] = `
 .player-name { text-shadow: none; }
 #startplayer { filter: var(--highlight); }
-`;
-
-_darkStyleForGame['sahwari'] = `
-.playerCaravanZone { background-color: #3d3229; }
-.playerCamelZone:not(:empty) { background-color: #2a0f09; }
-.player_board_content .token { filter: var(--drop-shadow); }
 `;
 
 _darkStyleForGame['scriptoria'] = `
@@ -1760,6 +1785,8 @@ _darkStyleForGame['targi'] = `
 h3 > span[style="color:#0000ff; background-color: #;"] { color: #8080ff !important; background-color: var(--dark-20); padding: 0.5em 1em; border-radius: 8px; }
 h3 > span[style="color:#ffffff; background-color: #bbbbbb;"] { background-color: var(--dark-20) !important; padding: 0.5em 1em; border-radius: 8px; }
 .tar_ware_board { filter: var(--highlight-min); }
+.card_txt { color: #000; }
+.tar_meeple, .tar_tribu { filter: var(--drop-shadow); }
 `;
 
 _darkStyleForGame['teotihuacan'] = `
@@ -1913,6 +1940,10 @@ _darkStyleForGame['tobago'] = `
 _darkStyleForGame['toc'] = `
 #icon_first_player, #checkmark { filter: invert(1); }
 .field { border-color: #c9ab69; }
+`;
+
+_darkStyleForGame['tokaido'] = `
+body { background: none; }
 `;
 
 _darkStyleForGame['tranquility'] = `
