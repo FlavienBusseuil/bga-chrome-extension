@@ -473,7 +473,8 @@ const defaultGames: Partial<Game>[] = [
 	{
 		name: "cityofthebigshoulders",
 		playerPanel: "player_{{player_id}}",
-		bottomPanel: "available_shares_wrapper",
+		boardPanel: "available_companies_wrapper",
+		bottomPanel: "board_bottom"
 	},
 	{
 		name: "thebuilders",
@@ -488,6 +489,7 @@ const defaultGames: Partial<Game>[] = [
 	{
 		name: "ageofcivilization",
 		playerPanel: "playertable_{{player_id}}",
+		boardPanel: "rivers",
 	},
 	{
 		name: "crusadersthywillbedone",
@@ -506,6 +508,7 @@ const defaultGames: Partial<Game>[] = [
 		iconShadow: "#ffffff",
 		playerPanel: ".side_title > span",
 		playerPanelOffset: 20,
+		bottomPanel: "common_space",
 		menuCss: "#player-board { background-color: #3c4249; }",
 	},
 	{

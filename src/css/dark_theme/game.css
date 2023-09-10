@@ -96,7 +96,17 @@ html.darkpanel .player-board .roundedboxinner b,
 
 .bgabutton_gray:hover {
   background-color: var(--dark-40) !important;
-  color: var(--violet-80) !important;
+  color: var(--light-70) !important;
+}
+
+.bgabutton_red,
+.notouch-device .bgabutton_red:hover {
+  background: #db661f;
+}
+
+.bgabutton_blue,
+.notouch-device .bgabutton_blue:hover {
+  background: #39838a;
 }
 
 .pagesection {
@@ -322,30 +332,96 @@ span.playername,
 
 /* Tisaac games settings */
 
-#help-mode-switch>label,
-.player_config_row>div:last-child>svg {
-  filter: invert(0.7);
+#player_config #help-mode-switch .label,
+.player_config_row #help-mode-switch .label {
+  background-color: #697061;
 }
 
-#settings-controls-container .row-data .row-label {
+#player_config #help-mode-switch svg,
+#player_config #help-mode-switch svg *,
+.player_config_row #help-mode-switch svg {
+  /* question mark icon */
+  width: 27px;
   color: #fff;
 }
 
-#popin_showSettings {
-  background-color: #4e3418;
-}
-
-#popin_showSettings h2 {
-  background: #33271a;
+#player_config #show-settings svg {
   color: #fff;
 }
 
-#settings-controls-container .noUi-target {
-  filter: invert(0.8);
+#settings-controls-container #settings-controls-header div {
+  background: #4e3b27;
+  color: var(--light-80);
 }
 
-#popin_showSettings_close {
-  background-color: #4e3418;
+#settings-controls-container .row-data .row-label,
+#layout-controls-container .row-data .row-label {
+  color: #fff;
+}
+
+#settings-controls-container .row-data label.switch .slider {
+  background-color: #697061;
+}
+
+#settings-controls-container .row-data label.switch input:checked+.slider {
+  background-color: #39838a;
+}
+
+#popin_showSettings,
+#popin_showTour {
+  background-color: #62411e;
+}
+
+#popin_showSettings h2,
+#popin_showTour h2 {
+  background: #433423;
+  color: #fff;
+}
+
+.noUi-target {
+  background: #444;
+  border: 1px solid #aaa;
+  box-shadow: inset 0 1px 1px #444, 0 3px 6px -5px #aaa;
+}
+
+.noUi-handle {
+  background: #444;
+  border: 1px solid #d9d9d9;
+  box-shadow: inset 0 0 1px #000, inset 0 1px 7px #aaa, 0 3px 6px -3px #333;
+}
+
+#popin_showSettings_close,
+#popin_showTour_close {
+  background-color: #62411e !important;
+}
+
+#popin_showTour #tour-slider-container .slide .bubble,
+#popin_showTour #tour-slider-container .slide .bubble-tour {
+  background: #433423;
+  color: var(--light-80);
+}
+
+#popin_showTour #tour-slider-container .slide .bubble:before,
+#popin_showTour #tour-slider-container .slide .bubble-tour:before {
+  filter: var(--drop-shadow);
+}
+
+#popin_showTour #tour-slide-footer {
+  background-color: #433423;
+  color: var(--light-80);
+}
+
+#popin_showTour #tour-slider-container .slide {
+  color: var(--light-80);
+}
+
+#popin_showTour #tour-slider-container .slide .tour-remark {
+  background: #00000066;
+  color: var(--light-80);
+}
+
+div[id*="popin"][id$="underlay"] {
+  background-color: #000 !important;
 }
 
 /* tournament (to complete) */
