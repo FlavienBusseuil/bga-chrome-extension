@@ -710,6 +710,10 @@ a.gamename:hover {
   background-color: #660000;
 }
 
+#gamestart_warnings_first {
+  color: var(--light-80);
+}
+
 /* image par défaut des tournois */
 [style="background-image: url(https://x.boardgamearena.net/data/grouparms/noimage_tournament_50.png)"] {
   filter: invert(1);

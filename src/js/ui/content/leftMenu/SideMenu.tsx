@@ -128,36 +128,32 @@ const SideMenu = (props: SideMenuProps) => {
 		const toSort = players.map((p, index) => {
 			const id = getPlayerPanelId(gameConfig, p, index);
 			const element = document.getElementById(id);
-			return {
-				id,
-				index,
-				pos: element?.getBoundingClientRect().top || 0,
-			};
-		});
+			const pos = element && getComputedStyle(element).display !== "none"
+				? element.getBoundingClientRect().top
+				: undefined;
+
+			return { id, index, pos };
+		}).filter(a => a.pos !== undefined);
 
 		if (gameConfig.boardPanel) {
 			const boardPos = document.getElementById(gameConfig.boardPanel)?.getBoundingClientRect().top || 0;
 
 			if (window.scrollY + boardPos > 200) {
-				toSort.push({
+				const pos = document.getElementById(gameConfig.boardPanel)?.getBoundingClientRect().top;
+				pos !== undefined && toSort.push({
 					id: gameConfig.boardPanel,
 					index: -1,
-					pos:
-						document
-							.getElementById(gameConfig.boardPanel)
-							?.getBoundingClientRect().top || 0,
+					pos
 				});
 			}
 		}
 
 		if (gameConfig.bottomPanel) {
-			toSort.push({
+			const pos = document.getElementById(gameConfig.bottomPanel)?.getBoundingClientRect().top;
+			pos !== undefined && toSort.push({
 				id: gameConfig.bottomPanel,
 				index: 100,
-				pos:
-					document
-						.getElementById(gameConfig.bottomPanel)
-						?.getBoundingClientRect().top || 0,
+				pos
 			});
 		}
 
@@ -166,11 +162,12 @@ const SideMenu = (props: SideMenuProps) => {
 				? a.index < b.index
 					? -1
 					: 1
-				: a.pos < b.pos
+				: (a.pos || 0) < (b.pos || 0)
 					? -1
 					: 1,
 		);
-		setButtonsOrder(toSort.map((a) => a.id).join("|"));
+
+		setButtonsOrder(toSort.map(a => a.id).join("|"));
 	};
 
 	const getButtons = () => {
@@ -178,6 +175,7 @@ const SideMenu = (props: SideMenuProps) => {
 
 		players.forEach((p, index) => {
 			const id = getPlayerPanelId(gameConfig, p, index);
+
 			elements[id] = (
 				<PlayerIcon
 					key={`item_${p.id}`}

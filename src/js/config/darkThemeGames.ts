@@ -232,6 +232,9 @@ _darkStyleForGame['architectsofthewestkingdom'] = `
 
 _darkStyleForGame['arcticscavengers'] = `
 .scv-pile-count { color: #fff; }
+.dijitTooltipContents,.standard_popin { filter: none; color: var(--light-80); }
+.dijitTooltipContents .scv-icon, .standard_popin .scv-icon, .scv-card-stats .scv-card-stat.scv-card-stat-add .scv-card-stat-value { filter: none; }
+.dijitTooltipContents h3:before, .standard_popin h3:before { background-color: #fff; border: 2px solid #fff; color: #000; }
 `;
 
 _darkStyleForGame['artdecko'] = `
@@ -494,6 +497,14 @@ _darkStyleForGame['chicagoexpress'] = `
 #ce-end-game-tracker { background: rgb(39 42 47 / 90%); color: #fff; }
 `;
 
+_darkStyleForGame['chocolatefactory'] = `
+.playerMat { background-color: var(--dark-30); color: var(--light-80); border: 3px solid var(--dark-10); }
+.playerChocolateFactoryNameWrapper { background-color: var(--dark-10); border-left: 3px solid var(--dark-10); border-right: 3px solid var(--dark-10); border-top: 3px solid var(--dark-10); }
+.playerChocolateFactoryName { background-color: var(--dark-10) !important; }
+#logs .chocolate { filter: var(--drop-shadow); }
+.rightOfFactory > div:last-child { background: #777; border-radius: 8px; }
+`;
+
 _darkStyleForGame['chromino'] = `
 #btn_user_prefs { filter: invert(1); }
 .block-user-pref-radio label { background-color: #111; }
@@ -646,6 +657,7 @@ _darkStyleForGame['dicedtomatoes'] = `
 #available_dice, .rolled_dice_container, .dice_hand_container { background-color: var(--dark-back); }
 .whiteboard { background-color: #000; }
 .dc_black { text-shadow: var(--text-w-shadow); }
+.log_dice { filter: var(--drop-shadow); }
 `;
 
 _darkStyleForGame['digupadventure'] = `
@@ -715,6 +727,7 @@ _darkStyleForGame['dragonwood'] = `
 .roll_dice_button[style="background-color: rgb(0, 255, 0);"] { background-color: #006600 !important; }
 .roll_dice_button { background-color: #006600; }
 .ac_icon, .c_icon { filter: var(--highlight-min); }
+.sidehead-tooltip, .summary-tooltip { color: var(--light-80); }
 `;
 
 _darkStyleForGame['dungeonpetz'] = `
@@ -725,6 +738,10 @@ _darkStyleForGame['dungeonroll'] = `
 .navigation>li { filter: invert(0.7); }
 .navigation>li.selected { background-color: #7dff00; }
 .dijitTooltipContainer .novice, .dijitTooltipContainer .master { color: #000; }
+`;
+
+_darkStyleForGame['dungeontwister'] = `
+.tooltip_title { color: #000; text-shadow: var(--text-w-shadow); }
 `;
 
 _darkStyleForGame['durak'] = `
@@ -741,9 +758,11 @@ _darkStyleForGame['earth'] = `
 .ea-icon-habitat-sunny, .ea-icon-habitat-wet, .ea-icon-habitat-rocky, .ea-icon-habitat-cold { filter: invert(1); }
 .ea-mini-card { border: 2px solid var(--light-70); }
 .player-name a { background-color: transparent !important; }
-.custom_popin { background: var(--dark-10); color: #fff; }
-.custom_popin_closeicon { filter: invert(0.7); }
+.custom_popin { background: var(--dark-10); color: var(--light-80); }
+.custom_popin_closeicon { color: #aaa !important; }
+.notouch-device .custom_popin_closeicon:hover { color: #fff !important; }
 .ea-dialog-card-detail-grid .ea-dialog-card-detail-jumper .ea-dialog-card-detail-jump-selected { border-bottom: 1px solid #fff; border-top: 1px solid #fff; }
+#ea-area-card-hand .ea-card-bottom, .ea-area-player-tableau .ea-card-bottom { background-color: var(--dark-40); }
 `;
 
 _darkStyleForGame['ekonos'] = `
@@ -765,6 +784,13 @@ _darkStyleForGame['eminentdomain'] = `
 
 _darkStyleForGame['emdomicrocosm'] = `
 .card_tooltipcontainer .tooltiptext { background-color: #000; }
+`;
+
+_darkStyleForGame['envelopesofcash'] = `
+.eoc-diceDish { background-color: var(--dark-back); }
+.dijitTooltipContents h4, .standard_popin h4 { var(--light-80); }
+.dijitTooltipContents .eoc-icon-end, .dijitTooltipContents .eoc-icon-env, .dijitTooltipContents .eoc-icon-funds,
+.dijitTooltipContents .eoc-icon-type1, .dijitTooltipContents .eoc-icon-type2, .dijitTooltipContents .eoc-icon-type3 { filter: none; }
 `;
 
 _styleForGame['equinox'] = `
@@ -879,6 +905,7 @@ _darkStyleForGame['geekoutmasters'] = `
 
 _darkStyleForGame['getonboard'] = `
 #zoom-controls { filter: invert(0.7); }
+.player-table .name { background: #000; height: 36px; left: 60px; top: 97px; width: 137px; }
 `;
 
 _darkStyleForGame['getonboardparisrome'] = `
@@ -935,6 +962,9 @@ _darkStyleForGame['goldblivion'] = `
 html.darkmode .player-board.gb-player-panel-passed { background-color: #404347 !important; }
 html.darkmode #player_boards .player-name a, html.darkmode .gb-area-player-title .player-name { background-color: transparent !important; }
 html.darkmode .gb-area-player, html.darkmode .gb-detail-list { background-color: #272a2fa6; }
+.custom_popin { background: var(--dark-10); color: var(--light-80); }
+.custom_popin_closeicon { color: #aaa !important; }
+.notouch-device .custom_popin_closeicon:hover { color: #fff !important; }
 `;
 
 _darkStyleForGame['golf'] = `
@@ -1144,6 +1174,7 @@ _darkStyleForGame['knarr'] = `
 #popin_bgaHelpDialog { background: var(--dark-20); color: #fff; }
 .bga-help_unfolded-content { background: var(--dark-20); }
 .color-help-unfolded-content .label, .player-board.spectator-mode { color: #fff; }
+.player-table .hand-wrapper { background: var(--dark-20); }
 `;
 
 _darkStyleForGame['krosmasterarena'] = `
@@ -1412,7 +1443,7 @@ _styleForGame['ohseven'] = `
 `;
 
 _styleForGame['offtherails'] = `
-#jewel_bag, .otr_cart_button, .otr_cart_ready { filter: var(--highlight); }
+#jewel_bag, .otr_cart_button, .otr_cart_ready { filter: var(--drop-shadow); }
 .otr_mission_counter_icon { filter: var(--highlight-min); }
 `;
 
@@ -1659,7 +1690,8 @@ _darkStyleForGame['scriptoria'] = `
 _darkStyleForGame['seasaltpaper'] = `
 #discard-pick, .player-table { background: var(--dark-back); }
 .player-table .name-wrapper { background: var(--dark-20); }
-#popin_seasaltpaperHelpDialog { background: var(--dark-20); color: #fff; }
+#popin_seasaltpaperHelpDialog { background: var(--dark-10); color: #fff; }
+#help-popin .help-section { background-color: #30919c; }
 `;
 
 _darkStyleForGame['seasons'] = `
@@ -1675,7 +1707,8 @@ _darkStyleForGame['sechsnimmt'] = `
 
 _darkStyleForGame['seikatsu'] = `
 .table_bordered { border: 3px ridge #999; }
-.flower_line_icon, .rotate_icon { filter: invert(0.7); }
+.flower_line_icon, .rotate_icon { filter: var(--drop-shadow); }
+#flower_score_table { background: var(--dark-back); color: var(--light-80); }
 `;
 
 _darkStyleForGame['setup'] = `
@@ -2068,6 +2101,10 @@ _darkStyleForGame['tranquilitytheascent'] = `
 #overall-content { background: none !important; }
 `;
 
+_darkStyleForGame['trekkingtheworld'] = `
+.riverCard { color: var(--dark-10); }
+`;
+
 _darkStyleForGame['trio'] = `
 .handPlayerName {
   background: var(--dark-20); padding: 0.3em 2em; border-radius: 8px; color: #fff;
@@ -2169,6 +2206,8 @@ _darkStyleForGame['welcometo'] = `
 
 _darkStyleForGame['welcometonewlasvegas'] = `
 #page-content h3 { color: #fff; }
+.modal-content { background-color: var(--dark-20); }
+.close:focus,.close:hover { color: #fff; }
 `;
 
 _darkStyleForGame['wizard'] = `
@@ -2208,6 +2247,7 @@ body { background: none; }
 _darkStyleForGame['yokaiseptet'] = `
 #overall-content { background: none !important; }
 .playertablename { text-shadow: none; }
+.tooltiptext [style="color:#000000;"] { color: #fff !important; }
 `;
 
 _darkStyleForGame['yokohama'] = `

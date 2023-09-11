@@ -148,7 +148,8 @@ html.darkpanel .player-board .roundedboxinner b,
 
 #logs [style^="color:#000000"],
 #logs [style="color:#000"],
-#logs [style$=";color:#000"] {
+#logs [style$=";color:#000"],
+#logs [style$=";color:#000000"] {
   text-shadow: -1px 0 #fff, 0 1px #fff, 1px 0 #fff, 0 -1px #fff;
 }
 
@@ -269,7 +270,8 @@ span.playername,
 
 /* tooltips */
 
-.dijitTooltipContainer {
+.dijitTooltipContainer,
+.tundra .dijitTooltipContainer {
   background-image: none !important;
   background-color: #373737 !important;
   border: 1px solid #7c7c7c !important;

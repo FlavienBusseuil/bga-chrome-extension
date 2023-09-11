@@ -703,6 +703,7 @@ const defaultGames: Partial<Game>[] = [
 		iconBackground: "#99639c",
 		iconBackgroundDark: "#895a8c",
 		playerPanel: "player-area-{{player_id}}",
+		bottomPanel: "quibbles-ui-row-1"
 	},
 	{
 		name: "farmclub",
@@ -834,7 +835,21 @@ const defaultGames: Partial<Game>[] = [
 		playerPanel: "deus_playerboard_{{player_id}}",
 		bottomPanel: "deus_common_components"
 	},
-
+	{
+		name: "envelopesofcash",
+		position: "bottom",
+		playerPanel: "eoc-played{{player_id}}-outer",
+		boardPanel: "eoc-map-container",
+		boardPanelText: "#eoc-nav0",
+		bottomPanel: "eoc-discardPool-outer",
+		css: "#eoc-nav { display: none; }",
+	},
+	{
+		name: "quirkyquarks",
+		position: "bottom",
+		playerPanel: "QQ-questsZone-{{player_id}}",
+		css: " "
+	},
 ];
 
 export default defaultGames;

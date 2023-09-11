@@ -63,6 +63,12 @@
   background: var(--dark-40);
 }
 
-.standard_popin_closeicon {
-  filter: invert(1);
+.standard_popin_closeicon,
+.standard_popin_helpicon {
+  color: #aaa !important;
+}
+
+.notouch-device .standard_popin_closeicon:hover,
+.notouch-device .standard_popin_helpicon:hover {
+  color: #fff !important;
 }
