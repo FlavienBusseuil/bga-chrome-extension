@@ -81,6 +81,7 @@ export const gamesWithCustomPlayerStyle = {
   skatelegend: '.player-table .name-wrapper',
   tucano: '.tuc_header',
   wizardsgrimoire: '.wg-title',
+  zuuli: '.writes.lg'
 };
 
 export const gamesWithCustomActions = {
@@ -259,9 +260,11 @@ _darkStyleForGame['arnak'] = `
 `;
 
 _darkStyleForGame['astra'] = `
-.tbp-icon.tbp-icon-bag, .tbp-icon.tbp-icon-dust, .tbp-icon.tbp-icon-telescope, .tbp-icon.tbp-icon-wisdom { filter: invert(0.7); }
+.tbp-icon.tbp-icon-bag, .tbp-icon.tbp-icon-dust, .tbp-icon.tbp-icon-telescope, .tbp-icon.tbp-icon-wisdom { filter: var(--drop-shadow); }
 .player_board_inner .player_score_value { filter: invert(1); }
 .tbp-startPlayer { filter: var(--highlight); }
+#page-title .bgabutton_boon, .tbp-boon { background: #faf7ef; }
+.tooltiptext .tbp-icon-vp { filter: invert(0.9); }
 `;
 
 _darkStyleForGame['automobiles'] = `
@@ -365,7 +368,7 @@ _darkStyleForGame['butterfly'] = `
 .captures, #draw { margin-top: 0px !important; }
 #drawWrap { background-color: transparent !important; }
 #commonArea { color: #fff; }
-.Bee, .Bfly, .Crick, .Dfly, .Flower, .Lbug, .Wasp { filter: var(--highlight); }
+.Bee, .Bfly, .Crick, .Dfly, .Flower, .Lbug, .Wasp { filter: var(--drop-shadow); }
 `;
 
 _darkStyleForGame['buttons'] = `
@@ -596,6 +599,8 @@ _darkStyleForGame['crimezoom'] = `
 
 _darkStyleForGame['crusadersthywillbedone'] = `
 #CRUOptionsToggle { filter: invert(0.7); }
+.cru-knightorder-name>div:first-child, .cru-knightorder-description { color: #aaa; }*
+#CRUPlayerAreas, .cru-player-area { filter: invert(1); }
 `;
 
 _darkStyleForGame['cubirds'] = `
@@ -617,6 +622,7 @@ _darkStyleForGame['cucco'] = `
 
 _darkStyleForGame['deus'] = `
 .deus_player_display .deus_resource_indicator, .deus_log_resource { filter: var(--highlight-min); }
+.deus_repeat_counter_section { background-color: var(--dark-40); }
 `;
 
 _styleForGame['diceathlon'] = `
@@ -1010,6 +1016,7 @@ _darkStyleForGame['homesteaders'] = `
 .log_train, .log_bid, .log_trade { filter: var(--highlight-min); }
 .border_blue { border-color: #6666ff; }
 .border_red { border-color: #ff3333; }
+.tt_break span, .tt_dot span { background-color: #373737 ; }
 `;
 
 _darkStyleForGame['humanity'] = `
@@ -1741,6 +1748,7 @@ _darkStyleForGame['skatelegend'] = `
 .player-played-card, .player-scored-card, .bga-zoom-out-icon, .bga-zoom-in-icon { filter: invert(0.7); }
 .player-helmets { filter: var(--drop-shadow); }
 #popin_bgaHelpDialog { background: var(--dark-20); }
+.dijitTooltipContainer [style="color: darkred"] { color: #ff3333 !important; }
 `;
 
 _darkStyleForGame['sobek'] = `
@@ -1776,6 +1784,7 @@ _darkStyleForGame['spades'] = `
 `;
 
 _darkStyleForGame['splashdown'] = `
+body { background: none; }
 .sd_playerinfo_icon, #resetzoom, #zoomplus, #zoomminus, #zoomfocus { filter: var(--highlight-min); }
 #nav_container { background-color: var(--dark-20); color: var(--light-70); }
 `;
@@ -1971,8 +1980,10 @@ _darkStyleForGame['thebuildersantiquity'] = `
 `;
 
 _darkStyleForGame['thegnomesofzavandor'] = `
-.alchemister, .gnomunculus, .gold, .miningjolly, .hoovermatic3, .hoovermatic4, .diamond, .emeromobile5,
-.ruby, .miningsapphire, .sapphire, .emerald, .miningemerald, .miningdiamondn, .miningruby  { filter: var(--highlight-min); }
+.gnomunculus { filter: invert(0.9); }
+.alchemister { filter: var(--drop-shadow); }
+.tooltip_card_text { background-color: #232a24; }
+.helpertext { color: #000; }
 `;
 
 _darkStyleForGame['thirtyone'] = `
@@ -2031,6 +2042,9 @@ _darkStyleForGame['tiwanaku'] = `
 .playerPawnsStack { background-color: var(--dark-back); }
 .offering_icon { border: 1px solid #fff; border-radius: 20px; }
 #externalBoard { margin-top: 1em; }
+#failedCropWindow, #offeringWindow, #possibleActionsWindow, #selectCropWindow, #successCropWindow {
+  background: var(--dark-back); color: var(--light-80);
+}
 `;
 
 _darkStyleForGame['tobago'] = `
@@ -2099,6 +2113,10 @@ _darkStyleForGame['ultimaterailroads'] = `
 
 _darkStyleForGame['uptown'] = `
 .uptown_player_name {color: #000; }
+`;
+
+_darkStyleForGame['vaalbara'] = `
+.vlb_zone_title { background-color: var(--dark-20) !important; }
 `;
 
 _darkStyleForGame['vektorace'] = `
@@ -2205,6 +2223,9 @@ div[id^="plname"]:not(:empty) { background-color: var(--dark-back); }
 
 _darkStyleForGame['zuuli'] = `
 .doubleempty { color: #fff; }
+#inside-me > div[style*="background-color: white;"] { background: var(--dark-back) !important; }
+.writes.lg { background: var(--dark-back); color: var(--light-80); }
+#inside-me > div:first-child, #inside-me .writes.wh { background: var(--dark-20) !important; color: #fff; }
 `;
 
 export const darkStyleForGame = _darkStyleForGame;

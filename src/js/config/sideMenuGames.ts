@@ -686,6 +686,7 @@ const defaultGames: Partial<Game>[] = [
 	{
 		name: "colorado",
 		playerPanel: "board_{{player_id}}",
+		boardPanel: "main_board"
 	},
 	{
 		name: "zuuli",
@@ -828,6 +829,12 @@ const defaultGames: Partial<Game>[] = [
 		name: "wizardsgrimoire",
 		playerPanel: "player-table-{{player_id}}",
 	},
+	{
+		name: "deus",
+		playerPanel: "deus_playerboard_{{player_id}}",
+		bottomPanel: "deus_common_components"
+	},
+
 ];
 
 export default defaultGames;
