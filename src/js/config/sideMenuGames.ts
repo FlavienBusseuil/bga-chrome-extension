@@ -783,6 +783,7 @@ const defaultGames: Partial<Game>[] = [
 	{
 		name: "fleet",
 		playerPanel: "playertable_{{player_id}}_wrap",
+		bottomPanel: "auction_bottom"
 	},
 	{
 		name: "faraway",

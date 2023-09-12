@@ -99,16 +99,6 @@ html.darkpanel .player-board .roundedboxinner b,
   color: var(--light-70) !important;
 }
 
-.bgabutton_red,
-.notouch-device .bgabutton_red:hover {
-  background: #db661f;
-}
-
-.bgabutton_blue,
-.notouch-device .bgabutton_blue:hover {
-  background: #39838a;
-}
-
 .pagesection {
   background: var(--dark-20);
   color: var(--light-80);

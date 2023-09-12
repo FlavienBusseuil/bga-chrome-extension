@@ -16,6 +16,8 @@
   --green-30: #009e0a;
   --green-50: #00ff00;
 
+  --yellow-10: #996300;
+
   --violet-60: #5a4275;
   --violet-80: #8f5fbd;
 
@@ -28,6 +30,34 @@
   --highlight-max: drop-shadow(0px 0px 8px #fff);
   --highlight: drop-shadow(0px 0px 4px #fff);
   --highlight-min: drop-shadow(0px 0px 1px #fff);
+}
+
+.bgabutton_red {
+  background: linear-gradient(180deg, #db661f, #84461f);
+}
+
+.bgabutton_red:hover,
+.notouch-device .bgabutton_red:hover {
+  background: linear-gradient(180deg, #ff8e47, #84461f)
+}
+
+.bgabutton_red:active,
+.notouch-device .bgabutton_red:active {
+  background: linear-gradient(180deg, #84461f, #db661f)
+}
+
+.bgabutton_blue {
+  background: linear-gradient(180deg, #0ba9b7, #248189);
+}
+
+.bgabutton_blue:hover,
+.notouch-device .bgabutton_blue:hover {
+  background: linear-gradient(180deg, #06d7ea, #248189)
+}
+
+.bgabutton_blue:active,
+.notouch-device .bgabutton_blue:active {
+  background: linear-gradient(180deg, #248189, #0ba9b7)
 }
 
 /* Modales et popin */

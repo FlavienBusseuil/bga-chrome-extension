@@ -13,7 +13,7 @@ interface ModeSelectorProps {
 const isDarkMode = (config: Configuration, gameName: string) => {
   const customActions = gamesWithCustomActions[gameName];
 
-  if (customActions) {
+  if (customActions && customActions.isDarkMode) {
     try {
       return customActions.isDarkMode();
     }

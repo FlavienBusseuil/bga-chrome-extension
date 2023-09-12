@@ -113,6 +113,14 @@ select.colorselector {
   filter: drop-shadow(0px 0px 6px #00000077) invert(1) !important;
 }
 
+.desktop_version .season-progress-bar-wrap {
+  background-color: var(--dark-10);
+}
+
+#close_arena_tuto {
+  color: #fff;
+}
+
 .bga-invite-player-modal__content {
   background: linear-gradient(180deg, var(--dark-20) 0px, var(--dark-20) 7px) !important;
 }
@@ -605,6 +613,13 @@ a.gamename:hover {
   border-color: var(--dark-30);
 }
 
+.bga-lobby-table-item__border {
+  /* color inverted to blue */
+  border-left: 3px solid #e6b97e !important;
+  border-top: 3px solid #e6b97e !important;
+  border-bottom: 3px solid #e6b97e !important;
+}
+
 .bga-game-panel [class*=bg-bga-gray] {
   background: var(--dark-10) !important;
 }
@@ -618,12 +633,43 @@ a.gamename:hover {
   color: inherit;
 }
 
-.bga-game-panel .bga-game-option-form .bga-game-option-item-choice__selector [class*=text-bga-gray],
-.bga-game-panel .bga-game-option-form .bga-game-option-item-bool [class*=text-bga-gray],
-.bga-game-panel .bga-game-option-form .bga-game-option-item-bool .bga-checkbox--checked .bga-checkbox .bga-checkbox__checkmark,
-.bga-game-panel .bga-toggle .bga-toggle__slider [slot=slider] {
-  color: var(--dark-10);
+.bgaext_gamelist .bga-dropdown-option.bg-gray-200 {
+  background-color: var(--dark-30);
+  border-color: #595959 !important;
 }
+
+.bgaext_gamelist .bga-dropdown-option.bg-gray-200:hover {
+  background-color: var(--dark-40);
+}
+
+.bgaext_gamelist .bga-dropdown-option.bg-gray-200 * {
+  color: var(--light-80) !important;
+}
+
+.bgaext_gamelist .bga-checkbox {
+  background-color: var(--dark-40) !important;
+}
+
+.bgaext_gamelist .bga-checkbox--wrap:hover .bga-checkbox {
+  background-color: var(--background-color-faded) !important;
+}
+
+/* There are not result matching your search */
+.bgaext_gamelist [style^="background: linear-gradient(rgb(234, 234, 234), rgb(198, 198, 198));"] {
+  background: var(--dark-20) !important;
+}
+
+.bgaext_gamelist [style^="background: linear-gradient(rgb(234, 234, 234), rgb(198, 198, 198));"] * {
+  color: var(--light-80);
+}
+
+/*
+.bgaext_gamelist .bga-game-panel .bga-game-option-form .bga-game-option-item-choice__selector [class*=text-bga-gray],
+.bgaext_gamelist .bga-game-panel .bga-game-option-form .bga-game-option-item-bool [class*=text-bga-gray],
+.bgaext_gamelist .bga-game-panel .bga-game-option-form .bga-game-option-item-bool .bga-checkbox--checked .bga-checkbox .bga-checkbox__checkmark,
+.bgaext_gamelist .bga-game-panel .bga-toggle .bga-toggle__slider [slot=slider] {
+  color: var(--dark-10);
+}*/
 
 .bga-game-panel .bga-panel-table-status .bga-page-section__content .bga-collapse-icon {
   background: var(--light-80);
@@ -712,6 +758,51 @@ a.gamename:hover {
 
 #gamestart_warnings_first {
   color: var(--light-80);
+}
+
+.bga-dropdown-button-split[style^="background: linear-gradient(0deg, rgb(25, 88, 154), rgb(40, 97, 164));"] {
+  background: linear-gradient(0deg, #248189, #0ba9b7) !important;
+  border-bottom-color: #248189 !important;
+  color: #fff;
+}
+
+.bga-dropdown-button-value[style^="background: linear-gradient(white 0%, rgb(223, 223, 223) 80%);"] {
+  background: linear-gradient(0deg, var(--dark-30), var(--dark-40)) !important;
+  border-bottom-color: var(--dark-30) !important;
+  color: #fff;
+}
+
+.bga-dropdown-button-split[style^="background: linear-gradient(rgb(25, 88, 154), rgb(40, 97, 164));"] {
+  background: linear-gradient(#248189, #0ba9b7) !important;
+  border-bottom-color: #0ba9b7 !important;
+  color: #fff;
+}
+
+.bga-dropdown-button-value[style^="background: linear-gradient(0deg, white 0%, rgb(223, 223, 223) 80%);"] {
+  background: linear-gradient(var(--dark-30), var(--dark-40)) !important;
+  border-bottom-color: var(--dark-40) !important;
+  color: #fff;
+}
+
+.bgaext_gamepanel .bga-dropdown-option.bg-gray-200 {
+  background-color: var(--dark-30);
+  color: var(--blue-80) !important;
+}
+
+.bgaext_gamepanel .bga-dropdown-option.bg-gray-200:hover {
+  background-color: var(--dark-40);
+  color: var(--blue-50) !important;
+}
+
+.bgaext_gamepanel .bga-player-count-dropdown__dot,
+.bgaext_gamepanel .bga-player-count-dropdown__cross {
+  color: #393c40 !important;
+}
+
+.bgaext_gamepanel .bga-game-option-item-choice__selector,
+.bgaext_gamepanel .bga-game-option-item-bool {
+  background-image: linear-gradient(0deg, var(--dark-10) 0%, var(--dark-30) 30%, var(--dark-40) 100%) !important;
+  color: var(--light-80) !important;
 }
 
 /* image par défaut des tournois */
@@ -848,7 +939,7 @@ a.gamename:hover {
 }
 
 .bgaext_translation .textarea_status_validated {
-  background-color: #996300;
+  background-color: var(--yellow-10)
 }
 
 .bgaext_translation .textarea_status_recorded {

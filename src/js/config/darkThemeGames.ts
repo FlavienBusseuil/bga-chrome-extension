@@ -66,7 +66,14 @@ export const gamesWithCustomPanel = [
 ];
 
 export const gamesWithCustomDarkMode = {
-  hardback: 'dark'
+  hardback: {
+    className: 'dark',
+    applyGeneralCss: false
+  },
+  earth: {
+    className: 'ea-background-dark',
+    applyGeneralCss: true
+  },
 };
 
 export const gamesWithCustomPlayerStyle = {
@@ -85,20 +92,18 @@ export const gamesWithCustomPlayerStyle = {
 };
 
 export const gamesWithCustomActions = {
-  newfrontiers: {
-    setDarkMode: (darkMode: string) => {
-      const input = document.getElementById('preference_control_101') as any;
-      input.value = (darkMode) ? "1" : "2";
-      input.dispatchEvent(new Event("change"));
-    },
-    isDarkMode: () => {
-      const input = document.getElementById('preference_control_101') as any;
-      return input.value == "1";
-    },
-    init: () => { }
+  earth: {
+    setDarkMode: (darkMode: boolean) => {
+      try {
+        const checkbox = document.getElementById("ea-dark-background-checkbox") as any;
+        const checkboxContainer = checkbox.parentNode.parentNode as any;
+        checkbox.checked = darkMode;
+        checkboxContainer.style.display = (darkMode) ? "none" : "flex";
+      } catch (error) { }
+    }
   },
   hardback: {
-    setDarkMode: (darkMode: string) => {
+    setDarkMode: (darkMode: boolean) => {
       const input = document.getElementById('preference_control_101') as any;
       input.value = (darkMode) ? "2" : "1";
       input.dispatchEvent(new Event("change"));
@@ -129,6 +134,18 @@ export const gamesWithCustomActions = {
       input2.addEventListener('change', () => hardbackModeChange(input2));
     }
   },
+  newfrontiers: {
+    setDarkMode: (darkMode: boolean) => {
+      const input = document.getElementById('preference_control_101') as any;
+      input.value = (darkMode) ? "1" : "2";
+      input.dispatchEvent(new Event("change"));
+    },
+    isDarkMode: () => {
+      const input = document.getElementById('preference_control_101') as any;
+      return input.value == "1";
+    },
+    init: () => { }
+  },
 };
 
 const _darkStyleForGame = {};
@@ -154,6 +171,7 @@ _darkStyleForGame['ageofchampagne'] = `
 body { background: none; }
 #player_boards .AOCsvg { filter: var(--highlight); }
 #player_boards .AOCplayer-PP:after { color: #fff; }
+.dijitTooltipContainer img:not([src$="ACQUIRING_A_VINEYARD.svg"]) { filter: invert(1); }
 `;
 
 _darkStyleForGame['ageofcivilization'] = `
@@ -282,6 +300,13 @@ _darkStyleForGame['automobiles'] = `
 _darkStyleForGame['babydinosaurrescue'] = `
 .card { color: #000; }
 .selected_card { box-shadow: none; filter: var(--highlight-max); }
+[style^="color:#462213"] { color: #c86237 !important; }
+[style^="color:#4b3d2f"] { color: #9d8062 !important; }
+[style^="color:#7d7847"] { color: #a39c5c !important; }
+[style^="color:#5f79b6"] { color: #738abf !important; }
+[style^="color:#8b4513"] { color: #e06f1f !important; }
+[style^="color:#0000ff"] { color: #6666ff !important; }
+
 `;
 
 _darkStyleForGame['bamboozle'] = `
@@ -338,17 +363,19 @@ _darkStyleForGame['bloodrage'] = `
 `;
 
 _darkStyleForGame['boomerangaustralia'] = `
-.bg-arrow-left { background-color: #021f31e8; color: #fff; }
+.bg-arrow-left, .bg-arrow-right { background-color: #021f31e8; color: #fff; }
 .box-name { background-color: #0a0700e6; }
+.score-box { color: #000; }
 `;
 
 _darkStyleForGame['boomerangeurope'] = `
-.bg-arrow-left { background-color: #021f31e8; color: #fff; }
+.bg-arrow-left, .bg-arrow-right { background-color: #021f31e8; color: #fff; }
+.score-box { color: #000; }
 `;
 
 _darkStyleForGame['boomerangusa'] = `
-.bg-arrow-left { background-color: #021f31e8; color: #fff; }
-.box-name { color: #000; }
+.bg-arrow-left, .bg-arrow-right { background-color: #021f31e8; color: #fff; }
+.box-name, .score-box { color: #000; }
 `;
 
 _darkStyleForGame['briscola'] = `
@@ -495,6 +522,14 @@ _darkStyleForGame['chakra'] = `
 
 _darkStyleForGame['chicagoexpress'] = `
 #ce-end-game-tracker { background: rgb(39 42 47 / 90%); color: #fff; }
+#initial-auction { background-color: var(--yellow-10); }
+.ce-auction-next-player { filter: invert(1); }
+.ce-charter-small * { text-shadow: none !important; }
+.ce-charter-small .ce-charter.ce-charter-1 { background-color: #5b2020cc; }
+.ce-charter-small .ce-charter.ce-charter-2 { background-color: #203a5bcc; }
+.ce-charter-small .ce-charter.ce-charter-3 { background-color: #155b30cc; }
+.ce-charter-small .ce-charter.ce-charter-4 { background-color: #697000cc; }
+.ce-log-company2 { color: #6666ff; }
 `;
 
 _darkStyleForGame['chocolatefactory'] = `
@@ -606,6 +641,7 @@ _darkStyleForGame['cribbage'] = `
 _darkStyleForGame['crimezoom'] = `
 #tab-bar li { background-color: var(--dark-back); }
 #tab-bar li.active,#tab-bar li:hover, #main-content { background-color: var(--dark-20); color: #fff; }
+p.epilogue-paragraph { background-color: var(--dark-10); color: var(--light-70); }
 `;
 
 _darkStyleForGame['crusadersthywillbedone'] = `
@@ -642,7 +678,7 @@ _styleForGame['diceathlon'] = `
 
 _darkStyleForGame['diceathlon'] = `
 .doubleempty { color: #fff; }
-.medal { filter: var(--highlight) !important; }
+.medal { filter: var(--drop-shadow) !important; }
 `;
 
 _darkStyleForGame['diceforge'] = `
@@ -674,10 +710,17 @@ _darkStyleForGame['dingosdreams'] = `
 
 _darkStyleForGame['dinnerinparis'] = `
 h3 { color: #fff; }
+.resource { filter: var(--drop-shadow); }
+.responsive-layer .game-table .restaurant-pile .item-counter { background: #000; }
+.responsive-layer .modal-container { background-color: var(--dark-back); }
+.responsive-layer .modal { background-color: var(--dark-10); color: var(--light-80); }
+.responsive-layer .btn-close { filter: invert(1); }
+.game-player-panel .panel-item.item-majority-ranking .item-value { background: #000; }
 `;
 
 _darkStyleForGame['dinosaurteaparty'] = `
 .guess_text { color: #000; }
+.dinosaurtooltip_text [style^="color: #0c5a93;"] { color: #1392ec !important; }
 `;
 
 _darkStyleForGame['dobble'] = `
@@ -804,6 +847,7 @@ _darkStyleForGame['eriantys'] = `
 .svg-zoom { filter: invert(0.7); }
 .inner_player_board span { text-shadow: none; }
 .tower { filter: var(--highlight-min); }
+#assistant_cards_myhand, #assistant_cards_played { background-color: var(--dark-back); color: var(--light-80); }
 `;
 
 _darkStyleForGame['euchre'] = `
@@ -956,6 +1000,11 @@ _darkStyleForGame['gofish'] = `
 .playertable_982fff { background-color: #0d001a80 !important; background-image: none !important; }
 .playertable_72c3b1 { background-color: #08121080 !important; background-image: none !important; }
 #player_boards .white_text_shadow { text-shadow: none; }
+`;
+
+_darkStyleForGame['gogoa'] = `
+.goa-tooltip-close-area { filter: invert(1); }
+.goa-tooltip-active { background-color: var(--dark-back); }
 `;
 
 _darkStyleForGame['goldblivion'] = `
@@ -1301,6 +1350,10 @@ _darkStyleForGame['martiandice'] = `
 .turn-order { text-shadow: none; }
 `;
 
+_darkStyleForGame['mascarade'] = `
+.hbz_tooltiptext { color: var(--light-90); }
+`;
+
 _darkStyleForGame['mechadream'] = `
 .mad_layout_selector_inner { background: #000; border: 1px solid #fff; }
 .mad_layouticon { background-color: #fff; }
@@ -1329,6 +1382,7 @@ body { background: none; }
 #page-content { color: #fff; }
 .scrollerClass { border-color: var(--dark-20); background-color: var(--dark-back); }
 .otherPlayerPossibleMove,.possibleMove { filter: invert(0.7); }
+#popup { border-style: solid; border-width: 1px; background-color: var(--dark-40); }
 `;
 
 _darkStyleForGame['mow'] = `
@@ -1789,6 +1843,11 @@ _darkStyleForGame['sobek'] = `
 .fixed_player_title { height: 32px; }
 `;
 
+_darkStyleForGame['solarstorm'] = `
+.ss-player-board__action-tokens__number { color: var(--light-80); }
+.ss-dice-result-dialog { background: var(--dark-back); }
+`;
+
 _darkStyleForGame['solo'] = `
 #howto2, #helptext2 { color: var(--light-80); }
 `;
@@ -1838,6 +1897,10 @@ _darkStyleForGame['starfluxx'] = `
 { color: #fff; background: var(--dark-back); }
 `;
 
+_darkStyleForGame['steamworks'] = `
+#SW_sort_options { color: var(--light-80); }
+`;
+
 _darkStyleForGame['stirfryeighteen'] = `
 #table_setup, #nbr_cards { color: #fff; }
 `;
@@ -1847,7 +1910,8 @@ _darkStyleForGame['stockpile'] = `
 #card_marketback_val { color: #fff; }
 .containerbackground { background-color: var(--dark-20); }
 .portfolioval { color: #fff; }
-.titleicon { filter: var(--highlight); }
+.titleicon { filter: var(--drop-shadow); }
+.tooltip_card_wrap { color: var(--dark-10); }
 `;
 
 _darkStyleForGame['stoneage'] = `
@@ -2125,8 +2189,9 @@ _darkStyleForGame['troyesdice'] = `
 `;
 
 _darkStyleForGame['tucano'] = `
-.tuc_header { background-color: #000 !important; }
+#tuc-player-tableaus .tuc_header { background-color: #000 !important; }
 .tuc_linenblock { background-color: var(--dark-back); }
+.dijitTooltipContainer  .tuc_counter { color: var(--dark-10); }
 `;
 
 _darkStyleForGame['turingmachine'] = `
