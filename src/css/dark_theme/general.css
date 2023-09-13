@@ -117,6 +117,10 @@ select.colorselector {
   background-color: var(--dark-10);
 }
 
+.season-progress-histogram-bar {
+  background-color: #1d202333;
+}
+
 #close_arena_tuto {
   color: #fff;
 }
@@ -186,13 +190,17 @@ a.gamename:hover {
   color: var(--light-80);
 }
 
-.bga-dropdown__options .text-bga-link,
+.text-bga-link {
+  color: var(--blue-50);
+}
+
+/*.bga-dropdown__options .text-bga-link,*/
 .bga-dropdown__options .optionRightIcon--set,
 .sectiontitle_dropdown_menu a {
   color: var(--light-80);
 }
 
-.bga-dropdown__options .text-bga-link:hover,
+/*.bga-dropdown__options .text-bga-link:hover,*/
 .sectiontitle_dropdown_menu a:hover {
   background: var(--dark-40) !important;
 }
@@ -455,13 +463,15 @@ a.gamename:hover {
   background: var(--dark-20) !important;
 }
 
+
 .bga-dropdown__options .bg-bga-gray-244 .items-center {
   background: var(--dark-20) !important;
 }
 
+/*
 .bga-dropdown__options .bg-bga-gray-244 .items-center>span {
   color: white;
-}
+}*/
 
 .bg-bga-gray-211 {
   background: var(--dark-20);
@@ -544,6 +554,51 @@ a.gamename:hover {
   background-image: linear-gradient(180deg, var(--dark-20) calc(100% - 45px), var(--dark-20) 100%) !important;
 }
 
+.bgaext_lobby .gamename {
+  color: var(--blue-50);
+}
+
+.gamerank_apprentice,
+.gamerank_beginner {
+  background-color: hsl(192, 25%, 64%)
+}
+
+.gamerank_average {
+  background-color: hsl(205 25% 35% / 1);
+}
+
+.gamerank_good {
+  background-color: hsl(218, 25%, 71%)
+}
+
+.gamerank_strong {
+  background-color: hsl(229, 25%, 71%)
+}
+
+.gamerank_expert {
+  background-color: hsl(258, 25%, 70%)
+}
+
+.gamerank_master {
+  background-color: hsl(282, 25%, 67%)
+}
+
+.wannaplay_mask_button.wannaplayauto_pref {
+  background-color: var(--dark-40);
+}
+
+.wannaplay_mask_button.del_favorite {
+  background-color: var(--dark-30);
+}
+
+.wannaplay_mask_button.add_favorite {
+  background-color: var(--yellow-10);
+}
+
+.wannaplay_mask_button.how_to_play_button {
+  background-color: var(--blue-50);
+}
+
 /* Page Table */
 #table-module .players .whiteblock {
   background: var(--dark-30);
@@ -563,9 +618,14 @@ a.gamename:hover {
   color: var(--light-80);
 }
 
-.bga-game-browser__panel .items-center [class*=text-] {
+.bgaext_gamelist .bga-game-browser__panel .items-center .text-gray-600 {
   color: var(--light-80);
 }
+
+/*
+.bga-game-browser__panel .items-center [class*=text-] {
+  color: var(--light-80);
+}*/
 
 .bga-game-filter-tags {
   color: var(--light-80) !important;
@@ -646,6 +706,15 @@ a.gamename:hover {
   color: var(--light-80) !important;
 }
 
+.bgaext_gamelist .bga-button-dropdown-item {
+  border-color: var(--dark-40) !important;
+}
+
+.bgaext_gamelist .bga-button-dropdown-item:hover {
+  background-color: var(--dark-20) !important;
+  color: var(--blue-80) !important;
+}
+
 .bgaext_gamelist .bga-checkbox {
   background-color: var(--dark-40) !important;
 }
@@ -656,10 +725,27 @@ a.gamename:hover {
 
 /* There are not result matching your search */
 .bgaext_gamelist [style^="background: linear-gradient(rgb(234, 234, 234), rgb(198, 198, 198));"] {
-  background: var(--dark-20) !important;
+  background: var(--dark-10) !important;
 }
 
-.bgaext_gamelist [style^="background: linear-gradient(rgb(234, 234, 234), rgb(198, 198, 198));"] * {
+.bgaext_gamelist [style^="background: linear-gradient(rgb(234, 234, 234), rgb(198, 198, 198));"] *:not(.bga-link) {
+  color: var(--light-80);
+}
+
+.bgaext_gamelist [style="background: linear-gradient(0deg, rgb(204, 204, 204) 0%, rgb(238, 238, 238) 50%);"] {
+  background: var(--dark-10) !important;
+}
+
+.bgaext_gamelist [style="background: linear-gradient(0deg, rgb(204, 204, 204) 0%, rgb(238, 238, 238) 50%);"] *:not(.text-bga-blue) {
+  color: var(--light-80);
+}
+
+.bgaext_gamelist .rounded-md .text-bga-blue {
+  color: var(--blue-80);
+}
+
+.bgaext_gamelist .bga-button-plus {
+  background: linear-gradient(180deg, var(--dark-10), var(--dark-30));
   color: var(--light-80);
 }
 
@@ -690,7 +776,7 @@ a.gamename:hover {
   color: var(--light-80);
 }
 
-.bga-game-panel .quick-play-drawer__panel__col1 .bga-page-section [class*=text-bga-gray] {
+.bga-game-panel .quick-play-drawer__panel__col1 .bga-page-section [class*=text-bga-gray]:has(p) {
   padding: 20px;
   background: var(--dark-20);
   border-radius: 0.375rem;
@@ -784,13 +870,16 @@ a.gamename:hover {
   color: #fff;
 }
 
-.bgaext_gamepanel .bga-dropdown-option.bg-gray-200 {
+.bgaext_gamepanel .bga-dropdown-option.bg-gray-200,
+.bgaext_gamepanel .bga-button-dropdown-item {
   background-color: var(--dark-30);
+  border-color: var(--dark-20) !important;
   color: var(--blue-80) !important;
 }
 
-.bgaext_gamepanel .bga-dropdown-option.bg-gray-200:hover {
-  background-color: var(--dark-40);
+.bgaext_gamepanel .bga-dropdown-option.bg-gray-200:hover,
+.bgaext_gamepanel .bga-button-dropdown-item:hover {
+  background-color: var(--dark-40) !important;
   color: var(--blue-50) !important;
 }
 
@@ -801,8 +890,41 @@ a.gamename:hover {
 
 .bgaext_gamepanel .bga-game-option-item-choice__selector,
 .bgaext_gamepanel .bga-game-option-item-bool {
-  background-image: linear-gradient(0deg, var(--dark-10) 0%, var(--dark-30) 30%, var(--dark-40) 100%) !important;
+  background-image: linear-gradient(180deg, var(--dark-30) 00%, var(--dark-40) 40%, var(--dark-40) 60%, var(--dark-30)100%) !important;
   color: var(--light-80) !important;
+}
+
+.bgaext_gamepanel .bga-checkbox {
+  background-color: var(--dark-20) !important;
+}
+
+.bgaext_gamepanel .bga-checkbox--wrap:hover .bga-checkbox {
+  background-color: var(--background-color-faded) !important;
+}
+
+.bgaext_gamepanel .bga-toggle {
+  background: var(--dark-10) !important;
+}
+
+.bgaext_gamepanel .bga-toggle__slider {
+  background: linear-gradient(180deg, var(--dark-30) 00%, var(--dark-40) 40%, var(--dark-40) 60%, var(--dark-30)100%) !important;
+}
+
+.bga-collection-management-modal input {
+  color: var(--light-80) !important;
+}
+
+.bgaext_gamepanel .bga-game-option-item-choice__option {
+  background-color: var(--dark-30) !important;
+  color: var(--light-80);
+}
+
+.bgaext_gamepanel .bga-game-option-item-choice__option:hover {
+  background-color: var(--dark-40) !important;
+}
+
+.bgaext_gamepanel .bga-game-option-item-choice__option:after {
+  background: var(--dark-20) !important;
 }
 
 /* image par défaut des tournois */
