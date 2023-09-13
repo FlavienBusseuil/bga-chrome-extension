@@ -1693,6 +1693,10 @@ _darkStyleForGame['rollingpins'] = `
 .freeballs, .turnnum { filter: var(--highlight-min); box-shadow: none; }
 `;
 
+_darkStyleForGame['rollintotown'] = `
+body { background: none; }
+`;
+
 _darkStyleForGame['rolltothetopjourneys'] = `
 .dice_area_active, .dice_area_inactive { background-color: var(--dark-back); color: #fff; }
 .first_player { filter: var(--highlight-min); }
