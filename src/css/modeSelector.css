@@ -1,0 +1,105 @@
+#bgaext_palette_container {
+  position: absolute;
+  top: 48px;
+  right: 140px;
+  border: 1px solid var(--dark-40);
+  box-sizing: content-box;
+  border-radius: 8px;
+  padding: 60px 20px 20px 20px;
+  background-color: #000;
+  filter: var(--drop-shadow);
+  display: flex;
+  flex-flow: column;
+  gap: 20px;
+}
+
+.bgaext_palette_title {
+  position: absolute;
+  top: 10px;
+  left: 10px;
+  text-transform: uppercase;
+  margin-top: 0px;
+  margin-left: 10px;
+  font-size: 150%;
+}
+
+.bga-ext-closeicon {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  font-size: 2em;
+  color: var(--light-70);
+  cursor: pointer;
+}
+
+.bga-ext-closeicon * {
+  color: var(--light-70);
+  margin: 0px !important;
+}
+
+.bga-ext-closeicon:hover {
+  font-size: 2em;
+  color: #fff;
+}
+
+.bga-ext-closeicon:hover * {
+  color: #fff;
+  margin: 0px !important;
+}
+
+.bgaext_palette {
+  display: flex;
+  flex-flow: row nowrap;
+  border: 1px solid var(--light-70);
+}
+
+.bgaext_saturation_selector {
+  height: 32px;
+  border: 1px solid var(--light-70);
+}
+
+.bgaext_palette_cell {
+  height: 32px;
+  width: 16px;
+  cursor: pointer;
+}
+
+#bgaext_palette_cursor,
+#bgaext_saturation_cursor {
+  position: absolute;
+  display: none;
+  left: 16px;
+  height: 32px;
+  width: 16px;
+  cursor: pointer;
+  border: 5px solid var(--light-80);
+  border-radius: 4px;
+  box-sizing: content-box;
+  background-color: transparent;
+  filter: var(--drop-shadow);
+}
+
+#bgaext_palette_cursor {
+  top: 56px;
+}
+
+#bgaext_saturation_cursor {
+  top: 110px;
+  display: block;
+}
+
+.bga-ext-link {
+  color: var(--blue-80) !important;
+  text-decoration: none;
+}
+
+.bga-ext-link:hover {
+  color: var(--violet-80) !important;
+  text-decoration: underline;
+}
+
+.bgaext_palette_bottom {
+  display: flex;
+  width: 100%;
+  justify-content: right;
+}

@@ -910,6 +910,7 @@ _darkStyleForGame['forbiddenisland'] = `
 
 _darkStyleForGame['forestshuffle'] = `
 .player_config_row > div:last-child > svg { filter: invert(0.7); }
+.deckinfo { background: var(--dark-back); color: var(--light-80); }
 `;
 
 _darkStyleForGame['frenchtarot'] = `
@@ -1987,7 +1988,8 @@ _darkStyleForGame['tashkalar'] = `
 
 _darkStyleForGame['teotihuacan'] = `
 .cc_counter { background-color: #ffffff33; }
-.token24 { filter: var(--highlight-min); }
+.token24 { filter: var(--drop-shadow); }
+.enableButton { border: 1px solid var(--light-70); }
 `;
 
 _darkStyleForGame['terramystica'] = `

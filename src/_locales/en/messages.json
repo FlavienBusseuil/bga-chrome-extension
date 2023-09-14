@@ -116,5 +116,17 @@
 	},
 	"reportCreationWarningLink": {
 		"message": "HERE"
+	},
+	"darkColorConfigurationMain": {
+		"message": "Default colour settings"
+	},
+	"darkColorResetMain": {
+		"message": "Restore dark mode without colour"
+	},
+	"darkColorConfigurationGame": {
+		"message": "Game colour settings"
+	},
+	"darkColorResetGame": {
+		"message": "Restore default values"
 	}
 }

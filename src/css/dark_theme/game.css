@@ -1,6 +1,5 @@
 :root {
   --dark-back: #272a2fbf;
-  --drop-shadow: drop-shadow(2px 2px 1px #000) drop-shadow(0 0 2px #fff);
   --drop-shadow-min: drop-shadow(1px 1px 1px #000) drop-shadow(0 0 1px #fff);
   --text-w-shadow: -1px 0 #fff, 0 1px #fff, 1px 0 #fff, 0 -1px #fff;
 }
@@ -188,7 +187,7 @@ a.replay_last_move_button:hover {
 
 span.playername,
 #pagemaintitletext>span:first-child {
-  background: transparent !important;
+  background-color: transparent !important;
 }
 
 .icon32_replaylastmoves,

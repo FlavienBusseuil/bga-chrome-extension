@@ -522,7 +522,8 @@ a.gamename:hover {
   background: linear-gradient(180deg, var(--dark-10) 00%, var(--dark-40) 40%, var(--dark-40) 60%, var(--dark-10) 100%) !important;
 }
 
-.bgaext_lobby .gametable {
+.bgaext_lobby .gametable,
+.bgaext_gameinprogress .gametable {
   background: var(--dark-30);
   border-color: var(--dark-30);
   color: var(--light-80);
@@ -532,17 +533,20 @@ a.gamename:hover {
   background: var(--green-10);
 }
 
-.bgaext_lobby .gametable:hover {
+.bgaext_lobby .gametable:hover,
+.bgaext_gameinprogress .gametable:hover {
   border-color: var(--light-80) !important;
 }
 
-.bgaext_lobby .gametable .gametable_separator {
+.bgaext_lobby .gametable .gametable_separator,
+.bgaext_gameinprogress .gametable .gametable_separator {
   background: var(--dark-30);
 }
 
-.bgaext_lobby .gameinfoname .gamename,
+.bgaext_lobby .gametable_upper_part .gameinfoname .gamename,
+.bgaext_gameinprogress .gametable_upper_part .gameinfoname .gamename,
 .bgaext_lobby .game_box_wrap .gamename {
-  color: var(--light-80);
+  color: var(--blue-70);
 }
 
 .bgaext_lobby .game_box_wrap .gamename:hover {
@@ -1069,6 +1073,30 @@ a.gamename:hover {
   background-color: #7ba1cd;
 }
 
+.bgaext_bug #bug_status_awaiting,
+.bgaext_bug #bug_status_acknowledged {
+  background-color: var(--yellow-10) !important;
+}
+
+.bgaext_bug #bug_status_inforequest {
+  background-color: var(--orange-30) !important;
+}
+
+.bgaext_bug #bug_status_open,
+.bgaext_bug #bug_status_infoneeded {
+  background-color: var(--red-10) !important;
+}
+
+.bgaext_bug #bug_status_implemented,
+.bgaext_bug #bug_status_fixed {
+  background-color: var(--green-10) !important;
+}
+
+.bgaext_bug #bug_status_rejected {
+  background-color: var(--blue-10) !important;
+}
+
+
 /* Arena suggestions */
 
 .bgaext_arenasuggestions .bg-white {
@@ -1083,7 +1111,7 @@ a.gamename:hover {
   color: var(--light-70);
 }
 
-/* Page Traduction */
+/* Page translation */
 
 .statstable th {
   background-color: #8c4a0d;
@@ -1119,7 +1147,7 @@ a.gamename:hover {
 }
 
 .bgaext_translation .textarea_status_validated {
-  background-color: var(--yellow-10)
+  background-color: var(--yellow-10);
 }
 
 .bgaext_translation .textarea_status_recorded {
@@ -1326,4 +1354,26 @@ a.gamename:hover {
 
 .bgaext_controlpanelgames .bga-dropdown-option:hover {
   background-color: var(--dark-40);
+}
+
+/* game invitation */
+.bga-toast-holder .bga-toast.bg-bga-gray-233 {
+  background-color: var(--dark-20);
+}
+
+.bga-toast-holder .bga-toast.bg-bga-gray-233 .bg-bga-whitebg.text-bga-blue {
+  background-color: var(--dark-10);
+  color: var(--light-80);
+}
+
+.bga-toast-holder .bga-toast__progress-bar {
+  background-color: var(--blue-70);
+}
+
+.bga-toast-holder .bga-toast__progress-bar .bg-bga-blue {
+  background-color: var(--dark-40);
+}
+
+.bga-toast-holder .bga-table-list-item .text-gray-500 {
+  color: var(--light-70);
 }

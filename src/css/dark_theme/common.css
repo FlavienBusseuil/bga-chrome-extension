@@ -23,6 +23,7 @@
   --violet-80: #8f5fbd;
 
   --orange-10: #383b1b;
+  --orange-30: #8a5d0f;
 
   --light-70: #ccc;
   --light-80: #dcddde;
@@ -31,6 +32,8 @@
   --highlight-max: drop-shadow(0px 0px 8px #fff);
   --highlight: drop-shadow(0px 0px 4px #fff);
   --highlight-min: drop-shadow(0px 0px 1px #fff);
+
+  --drop-shadow: drop-shadow(2px 2px 1px #000) drop-shadow(0 0 2px #fff);
 }
 
 .bgabutton_red {

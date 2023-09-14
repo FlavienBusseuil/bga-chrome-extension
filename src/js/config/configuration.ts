@@ -26,6 +26,12 @@ export interface Game {
 	menuCss?: string;
 }
 
+export interface DarkModeConfig {
+	name: string;
+	color: number;
+	sat: number;
+}
+
 export interface Template {
 	name: string;
 	text: string;
@@ -34,6 +40,7 @@ export interface Template {
 
 interface CustomConfig {
 	games: Game[];
+	dark: DarkModeConfig[];
 	disabled: string[];
 	hidden: string[];
 	floating: string[];
@@ -42,6 +49,8 @@ interface CustomConfig {
 	devTemplates?: Template[];
 	hideGeneralChat?: boolean;
 	darkMode?: boolean;
+	darkModeColor?: number;
+	darkModeSat?: number;
 };
 
 class Configuration {
@@ -72,6 +81,7 @@ class Configuration {
 		};
 		this._customConfig = {
 			games: [],
+			dark: [],
 			disabled: [],
 			floating: [],
 			hidden: [],
@@ -83,6 +93,9 @@ class Configuration {
 		this._customConfig = (await storageGet()) as any;
 		if (!this._customConfig.games) {
 			this._customConfig.games = [];
+		}
+		if (!this._customConfig.dark) {
+			this._customConfig.dark = [];
 		}
 		if (!this._customConfig.disabled) {
 			this._customConfig.disabled = [];
@@ -345,6 +358,47 @@ class Configuration {
 	setDarkMode(val: boolean) {
 		this._customConfig.darkMode = val;
 		storageSet({ darkMode: val });
+	}
+
+	getDarkModeColor(gameName: string) {
+		const mainValue = this._customConfig.darkModeColor === undefined ? -1 : this._customConfig.darkModeColor;
+
+		if (gameName === "general" || gameName === "forum") {
+			return mainValue;
+		}
+
+		const result = this._customConfig.dark.find(d => d.name === gameName)?.color;
+		return result === undefined ? mainValue : result;
+	}
+
+	getDarkModeSaturation(gameName) {
+		const mainValue = this._customConfig.darkModeSat || 15;
+		if (gameName === "general" || gameName === "forum") {
+			return mainValue;
+		}
+
+		return this._customConfig.dark.find(d => d.name === gameName)?.sat || mainValue;
+	}
+
+	setDarkModeColor(gameName: string, darkModeColor: number, darkModeSat: number) {
+		if (gameName === "general" || gameName === "forum") {
+			this._customConfig.darkModeColor = darkModeColor;
+			this._customConfig.darkModeSat = darkModeSat;
+			storageSet({ darkModeColor, darkModeSat });
+			return;
+		}
+
+		if (this._customConfig.darkModeColor === darkModeColor && this._customConfig.darkModeSat === darkModeSat) {
+			// default config
+			this._customConfig.dark = this._customConfig.dark.filter(d => d.name !== gameName);
+		} else {
+			this._customConfig.dark = [
+				...this._customConfig.dark.filter(d => d.name !== gameName),
+				{ name: gameName, color: darkModeColor, sat: darkModeSat }
+			];
+		}
+
+		storageSet({ dark: this._customConfig.dark });
 	}
 }
 
