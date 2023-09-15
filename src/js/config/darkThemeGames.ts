@@ -181,7 +181,7 @@ _darkStyleForGame['ageofcivilization'] = `
 `;
 
 _darkStyleForGame['agricola'] = `
-.player-name > svg, .slider { filter: invert(0.7); }
+.player-name > svg { filter: invert(0.7); }
 #player_boards > div { background-color: #000000CC !important; }
 .dijitTooltipContainer .action-header, .dijitTooltipContainer .action-desc { color: #000 !important; }
 .meeple-container { filter: var(--drop-shadow); }
@@ -264,9 +264,9 @@ _darkStyleForGame['artdecko'] = `
 `;
 
 _darkStyleForGame['arknova'] = `
-.player-name > svg, .slider { filter: invert(0.7); }
+.player-name > svg { filter: invert(0.7); }
 .ark-log-card-name { color: #fffafb; }
-#player_boards .arknova-icon, #logs .arknova-icon, #maintitlebar_content .arknova-icon { filter: var(--highlight-min); }
+#player_boards .arknova-icon, #logs .arknova-icon, #maintitlebar_content .arknova-icon { filter: var(--drop-shadow); }
 .dijitTooltipContainer .arknova-icon { filter: var(--highlight); }
 .dijitTooltipContainer .ark-card-bottom, .dijitTooltipContainer .arknova-bonus { color: #000; }
 `;

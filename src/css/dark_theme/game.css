@@ -1,5 +1,6 @@
 :root {
   --dark-back: #272a2fbf;
+  --dark-popup-back: #373737;
   --drop-shadow-min: drop-shadow(1px 1px 1px #000) drop-shadow(0 0 1px #fff);
   --text-w-shadow: -1px 0 #fff, 0 1px #fff, 1px 0 #fff, 0 -1px #fff;
 }
@@ -174,7 +175,7 @@ html.darkpanel .player-board .roundedboxinner b,
 }
 
 #loader_mask {
-  background: var(--dark-40);
+  background: #000;
 }
 
 a.replay_last_move_button {
@@ -262,7 +263,7 @@ span.playername,
 .dijitTooltipContainer,
 .tundra .dijitTooltipContainer {
   background-image: none !important;
-  background-color: #373737 !important;
+  background-color: var(--dark-popup-back) !important;
   border: 1px solid #7c7c7c !important;
   color: var(--light-80);
 }

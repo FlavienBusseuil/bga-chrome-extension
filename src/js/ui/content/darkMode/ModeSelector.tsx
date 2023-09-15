@@ -30,10 +30,13 @@ const isDarkMode = (config: Configuration, gameName: string) => {
   return config.isDarkMode();
 }
 
+const HUE_STEP = 16;
+const SAT_STEP = 4;
+
 const ModeSelector = (props: ModeSelectorProps) => {
   const { config, gameName } = props;
   const [darkMode, setDarkMode] = useState(isDarkMode(config, gameName));
-  const [darkColorIndex, setDarkColorIndex] = useState(config.getDarkModeColor(gameName));
+  const [darkColorHue, setDarkColorHue] = useState(config.getDarkModeColor(gameName));
   const [darkColorSaturation, setDarkColorSaturation] = useState(config.getDarkModeSaturation(gameName));
   const [paletteVisible, setPaletteVisible] = useState(false);
   const [paletteCursorMoving, setPaletteCursorMoving] = useState(false);
@@ -42,16 +45,16 @@ const ModeSelector = (props: ModeSelectorProps) => {
   useEffect(() => setDarkStyle(gameName, darkMode), [gameName, darkMode]);
 
   useEffect(() => {
-    config.setDarkModeColor(gameName, darkColorIndex, darkColorSaturation);
-    selectColor(darkColorIndex, darkColorSaturation);
-  }, [darkColorIndex, darkColorSaturation]);
+    config.setDarkModeColor(gameName, darkColorHue, darkColorSaturation);
+    selectColor(darkColorHue, darkColorSaturation);
+  }, [darkColorHue, darkColorSaturation]);
 
   useEffect(() => {
     if (paletteVisible) {
       setPaletteCursorPosition();
       setSaturationCursorPosition();
     }
-  }, [paletteVisible, darkColorIndex, darkColorSaturation]);
+  }, [paletteVisible, darkColorHue, darkColorSaturation]);
 
   useEffect(() => {
     if (paletteVisible && paletteCursorMoving) {
@@ -72,9 +75,8 @@ const ModeSelector = (props: ModeSelectorProps) => {
     paletteCursor = document.getElementById("bgaext_palette_cursor");
 
     if (paletteCursor) {
-      const cursIndex = darkColorIndex < 0 ? 32 : darkColorIndex;
-      const cursPos = (cursIndex + 1) * 16;
-
+      const cursPos = darkColorHue < 0 ? (512 + 16) : (darkColorHue * 2) + 16;
+      console.log("setPaletteCursorPosition", darkColorHue, cursPos)
       paletteCursor.style.left = `${cursPos}px`;
       paletteCursor.style.display = "block";
     }
@@ -84,7 +86,7 @@ const ModeSelector = (props: ModeSelectorProps) => {
     saturationCursor = document.getElementById("bgaext_saturation_cursor");
 
     if (saturationCursor) {
-      const cursPos = (darkColorSaturation - 4) * 16 + 16;
+      const cursPos = (darkColorSaturation - 4) * SAT_STEP + 16;
 
       saturationCursor.style.left = `${cursPos}px`;
       saturationCursor.style.display = "block";
@@ -94,6 +96,10 @@ const ModeSelector = (props: ModeSelectorProps) => {
   const toggleDarkMode = () => {
     setDarkMode(!darkMode);
     config.setDarkMode(!darkMode);
+
+    if (darkMode) {
+      setPaletteVisible(false);
+    }
 
     const customActions = gamesWithCustomActions[gameName];
     customActions && customActions.setDarkMode(!darkMode);
@@ -106,51 +112,60 @@ const ModeSelector = (props: ModeSelectorProps) => {
   const paletteCursorMove = (evt: MouseEvent) => {
     const leftEdge = paletteContainer.getBoundingClientRect().left;
     const maxPos = 33 * 16;
-    const pos = Math.min(Math.max(evt.clientX - leftEdge - 10, 16), maxPos);
+    const pos = Math.min(Math.max(evt.clientX - leftEdge - 10, 16), maxPos) - 16;
+    const hue = pos > 510 ? - 1 : Math.round(pos / 2);
 
-    const index = Math.round((pos - 16) / 16);
     if (timer) {
       window.clearTimeout(timer);
     }
-    timer = window.setTimeout(() => setDarkColorIndex(index === 32 ? -1 : index), 200);
+    timer = window.setTimeout(() => setDarkColorHue(hue), 200);
 
-    paletteCursor.style.left = `${pos}px`;
+    paletteCursor.style.left = `${pos + 16}px`;
   };
 
   const saturationCursorMove = (evt: MouseEvent) => {
     const leftEdge = paletteContainer.getBoundingClientRect().left;
     const maxPos = 33 * 16;
-    const pos = Math.min(Math.max(evt.clientX - leftEdge - 10, 16), maxPos);
+    const pos = Math.min(Math.max(evt.clientX - leftEdge - 10, 16), maxPos) - 16;
 
-    const index = Math.round((pos - 16) / 16) + 4;
+    const sat = Math.round(pos / SAT_STEP) + 4;
 
     if (timer) {
       window.clearTimeout(timer);
     }
-    timer = window.setTimeout(() => setDarkColorSaturation(index), 200);
+    timer = window.setTimeout(() => setDarkColorSaturation(sat), 200);
 
-    saturationCursor.style.left = `${pos}px`;
+    saturationCursor.style.left = `${pos + 16}px`;
+  };
+
+  const paletteClick = (evt: MouseEvent) => {
+    paletteCursorMoveDown();
+    paletteCursorMove(evt);
+    cursorMouseUp();
   };
 
   const saturationClick = (evt: MouseEvent) => {
-    paletteCursorMoveDown();
+    saturationCursorMoveDown();
     saturationCursorMove(evt);
     cursorMouseUp();
   };
 
-  const selectColor = (index: number, saturation: number) => {
-    if (index < 0 || index >= 32) {
+  const selectColor = (hue: number, saturation: number) => {
+    if (hue < 0) {
       document.body.style.removeProperty("--dark-10");
       document.body.style.removeProperty("--dark-20");
       document.body.style.removeProperty("--dark-30");
       document.body.style.removeProperty("--dark-40");
       document.body.style.removeProperty("--dark-back");
+      document.body.style.removeProperty("--dark-popup-back");
+
     } else {
-      document.body.style.setProperty("--dark-10", `hsl(${index * 8}, ${saturation}%, 15%)`);
-      document.body.style.setProperty("--dark-20", `hsl(${index * 8}, ${saturation}%, 20%)`);
-      document.body.style.setProperty("--dark-30", `hsl(${index * 8}, ${saturation / 2}%, 25%)`);
-      document.body.style.setProperty("--dark-40", `hsl(${index * 8}, ${saturation / 2}%, 30%)`);
-      document.body.style.setProperty("--dark-back", `hsl(${index * 8}, ${saturation * 1.5}%, 15%, 0.75)`);
+      document.body.style.setProperty("--dark-10", `hsl(${hue}, ${saturation}%, 13%)`);
+      document.body.style.setProperty("--dark-20", `hsl(${hue}, ${saturation}%, 17%)`);
+      document.body.style.setProperty("--dark-30", `hsl(${hue}, ${saturation - 4}%, 22%)`);
+      document.body.style.setProperty("--dark-40", `hsl(${hue}, ${saturation - 4}%, 26%)`);
+      document.body.style.setProperty("--dark-back", `hsl(${hue}, ${saturation}%, 15%, 0.75)`);
+      document.body.style.setProperty("--dark-popup-back", `hsl(${hue}, ${saturation - 4}%, 22%)`);
     }
   };
 
@@ -170,10 +185,6 @@ const ModeSelector = (props: ModeSelectorProps) => {
     setPaletteCursorMoving(false);
     setSaturationCursorMoving(false);
   }
-
-  const selectCell = (index: number) => {
-    setDarkColorIndex(index);
-  };
 
   const togglePaletteVisible = () => {
     setPaletteVisible(!paletteVisible);
@@ -201,17 +212,18 @@ const ModeSelector = (props: ModeSelectorProps) => {
 
   const getCells = () => {
     const result: preact.JSX.Element[] = [];
+    const max = (512 / HUE_STEP) / 2;
 
-    for (let i = 0; i < 32; i++) {
-      const startColor = `hsl(${i * 8}, 50%, 50%)`;
-      const endColor = `hsl(${(i + 1) * 8}, 50%, 50%)`;
+    for (let i = 0; i < max; i++) {
+      const startColor = `hsl(${i * HUE_STEP}, 50%, 50%)`;
+      const endColor = `hsl(${(i + 1) * HUE_STEP}, 50%, 50%)`;
       const color = `linear-gradient(90deg, ${startColor}, ${endColor}`
       result.push(
         <div
           key={`color_${i}`}
           className="bgaext_palette_cell"
-          style={{ background: color }}
-          onClick={() => selectCell(i)}
+          style={{ background: color, width: HUE_STEP * 2 }}
+          onClick={paletteClick}
           draggable={false}
           onDragStart={() => false}
         />
@@ -222,8 +234,8 @@ const ModeSelector = (props: ModeSelectorProps) => {
       <div
         key="color_black"
         className="bgaext_palette_cell"
-        style={{ background: "var(--dark-20)" }}
-        onClick={() => selectCell(-1)}
+        style={{ background: "#272a2f" }}
+        onClick={() => setDarkColorHue(-1)}
         draggable={false}
         onDragStart={() => false}
       />
@@ -246,20 +258,20 @@ const ModeSelector = (props: ModeSelectorProps) => {
 
   const reset = () => {
     if (gameName === "general") {
-      setDarkColorIndex(-1);
+      setDarkColorHue(-1);
       setDarkColorSaturation(15);
     } else {
-      setDarkColorIndex(config.getDarkModeColor("general"));
+      setDarkColorHue(config.getDarkModeColor("general"));
       setDarkColorSaturation(config.getDarkModeSaturation("general"));
     }
   };
 
   const getPalette = () => {
-    const color1 = `hsl(${darkColorIndex * 8}, 4%, 50%)`;
-    const color2 = `hsl(${darkColorIndex * 8}, 60%, 50%)`;
+    const color1 = `hsl(${darkColorHue}, 4%, 35%)`;
+    const color2 = `hsl(${darkColorHue}, 124%, 35%)`;
     const saturationStyle = `background: linear-gradient(90deg, ${color1}, ${color2})`;
 
-    if (paletteVisible) {
+    if (paletteVisible && darkMode) {
       let titleText: string, resetLinkText: string;
 
       if (gameName === "general") {
@@ -278,7 +290,7 @@ const ModeSelector = (props: ModeSelectorProps) => {
             {getCells()}
             {getCursor()}
           </div>
-          {darkColorIndex >= 0 && <div className="bgaext_saturation_selector" style={saturationStyle} onClick={saturationClick} draggable={false} onDragStart={() => false}>
+          {darkColorHue >= 0 && <div className="bgaext_saturation_selector" style={saturationStyle} onClick={saturationClick} draggable={false} onDragStart={() => false}>
             {getSaturationCursor()}
           </div>}
           <div className="bgaext_palette_bottom"><a href="#" className="bga-ext-link" onClick={reset}>{resetLinkText}</a></div>

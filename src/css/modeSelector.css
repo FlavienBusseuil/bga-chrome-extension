@@ -90,12 +90,12 @@
 
 .bga-ext-link {
   color: var(--blue-80) !important;
-  text-decoration: none;
+  text-decoration: none !important;
 }
 
 .bga-ext-link:hover {
   color: var(--violet-80) !important;
-  text-decoration: underline;
+  text-decoration: underline !important;
 }
 
 .bgaext_palette_bottom {
