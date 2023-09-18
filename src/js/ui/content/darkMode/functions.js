@@ -22,7 +22,7 @@ const getContainer = (gameName) => {
 };
 
 const initDarkMode = (config, gameName) => {
-  const darkModeIconId = 'bga_extension_dark_mode_icon';
+  const darkModeIconId = 'bga_extension_mode_icon';
 
   if (!document.getElementById(darkModeIconId)) {
     const container = getContainer(gameName);

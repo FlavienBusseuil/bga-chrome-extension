@@ -5,5 +5,5 @@ body {
 
 html.bga-white-background,
 html.bga-white-background body {
-  background: #0A0A0A !important;
+  background: var(--dark-10) !important
 }

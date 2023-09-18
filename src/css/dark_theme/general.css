@@ -102,15 +102,23 @@ select.colorselector {
 }
 
 .bga-lobby-table-item__bg {
-  filter: invert(1);
+  background: linear-gradient(to bottom, var(--dark-10) 0%, var(--dark-30) 89%, var(--dark-40) 100%) !important;
+}
+
+.bga-lobby-table-item__pointer stop[stop-color="#e8e8e8"] {
+  stop-color: var(--dark-10) !important;
+}
+
+.bga-lobby-table-item__pointer stop[stop-color="#c4c4c4"] {
+  stop-color: var(--dark-30) !important;
+}
+
+.bga-lobby-table-item__pointer stop[stop-color="#b6b6b6"] {
+  stop-color: var(--dark-40) !important;
 }
 
 .bga-lobby-table-item-wrap>div:last-child {
   background: none !important;
-}
-
-.bga-lobby-table-item__pointer {
-  filter: drop-shadow(0px 0px 6px #00000077) invert(1) !important;
 }
 
 .desktop_version .season-progress-bar-wrap {
@@ -686,13 +694,6 @@ a.gamename:hover {
   border-color: var(--dark-30);
 }
 
-.bga-lobby-table-item__border {
-  /* color inverted to blue */
-  border-left: 3px solid #e6b97e !important;
-  border-top: 3px solid #e6b97e !important;
-  border-bottom: 3px solid #e6b97e !important;
-}
-
 .bga-game-panel [class*=bg-bga-gray] {
   background: var(--dark-10) !important;
 }
@@ -875,6 +876,10 @@ a.gamename:hover {
   background: linear-gradient(var(--dark-30), var(--dark-40)) !important;
   border-bottom-color: var(--dark-40) !important;
   color: #fff;
+}
+
+.bgaext_gamepanel .text-bga-blue {
+  color: var(--blue-70);
 }
 
 .bgaext_gamepanel .bga-dropdown-option.bg-gray-200,
@@ -1206,6 +1211,142 @@ a.gamename:hover {
 
 #tournament-module .pagesection.tournament-section--stage-display .v2tournament--bracketElimination h4 {
   color: var(--dark-10);
+}
+
+/* Hall of games */
+
+.bgaext_halloffame .challenge_text img {
+  filter: grayscale(1) invert(0.7);
+}
+
+.bgaext_halloffame .desktop_version .overall-stats-wrap {
+  background-image: none;
+  background-color: var(--dark-back);
+  margin-bottom: 1em;
+}
+
+.bgaext_halloffame .overall-stat-text {
+  color: var(--blue-50);
+}
+
+.bgaext_halloffame .own-progress-background {
+  background-image: linear-gradient(180deg, var(--dark-20), var(--dark-40));
+}
+
+.bgaext_halloffame #own-progress-current-text,
+.bgaext_halloffame #own-progress-next-text {
+  color: var(--light-80);
+}
+
+.bgaext_halloffame .desktop_version .hof-league-progress-bar-bottom-infos {
+  color: var(--light-80) !important;
+}
+
+.bgaext_halloffame .desktop_version .own-progress-wrap {
+  background-color: var(--dark-10);
+}
+
+.bgaext_halloffame .icon32.icon_arena.arena_white {
+  filter: invert(0.7);
+}
+
+/* Tournament */
+
+.bgaext_tournament #group_avatar[src*="noimage_tournament"] {
+  filter: invert(1);
+}
+
+.bgaext_tournament #tournamentfullname {
+  color: var(--light-80);
+}
+
+.bgaext_tournament .pagesection__content,
+.bgaext_tournament .v2tournament {
+  background: var(--dark-10) !important;
+}
+
+.bgaext_tournament .v2tournament h4 {
+  background: var(--green-10);
+  color: var(--light-80);
+}
+
+.bgaext_tournament .v2tournament__players-stats-table {
+  color: var(--light-80);
+}
+
+.bgaext_tournament .v2tournament__players-stats-table.v2tournament__players-stats-table td {
+  background: var(--dark-40);
+}
+
+.bgaext_tournament .v2tournament__players-stats-table tr:nth-child(odd) td {
+  background: var(--dark-30);
+}
+
+.bgaext_tournament .v2tournament__encounters-step {
+  background: var(--dark-40);
+}
+
+.bgaext_tournament .v2tournament__encounters-step:nth-child(odd) {
+  background: var(--dark-30);
+}
+
+.bgaext_tournament .v2tournament__encounters-steps-arrow--right {
+  background: linear-gradient(-90deg, var(--dark-20) 25%, hsla(0, 0%, 100%, 0));
+}
+
+.bgaext_tournament .v2tournament__encounters-steps-arrow--right:hover {
+  background: linear-gradient(-90deg, var(--dark-20) 65%, hsla(0, 0%, 100%, 0));
+}
+
+.bgaext_tournament .v2tournament__encounters-steps-arrow--left {
+  background: linear-gradient(90deg, var(--dark-20) 25%, hsla(0, 0%, 100%, 0));
+}
+
+.bgaext_tournament .v2tournament__encounters-steps-arrow--left:hover {
+  background: linear-gradient(90deg, var(--dark-20) 65%, hsla(0, 0%, 100%, 0));
+}
+
+.bgaext_tournament .v2tournament__encounters-clear-player .v2tournament__encounter-player {
+  background: var(--dark-20) !important;
+}
+
+.bgaext_tournament .v2tournament__encounters-steps-arrow i.fa {
+  filter: invert(1);
+}
+
+.bgaext_tournament .v2tournament__encounter-status {
+  background: var(--green-10);
+  color: var(--light-80);
+}
+
+.bgaext_tournament .v2tournament__encounter-player-result {
+  color: var(--light-70);
+}
+
+.bgaext_tournament .v2tournament__encounter-player {
+  background: var(--dark-20);
+}
+
+.bgaext_tournament .v2tournament__encounter-player.highlighted {
+  background: var(--dark-40);
+}
+
+.bgaext_tournament .v2tournament__encounter--status-play a.v2tournament__encounter-title {
+  background: var(--green-30);
+  color: var(--light-80);
+}
+
+.bgaext_tournament .v2tournament__encounters-step-title {
+  background: linear-gradient(90deg, var(--green-10), var(--green-30) 35%, var(--green-30));
+  color: var(--light-80);
+}
+
+.bgaext_tournament .v2tournament__encounters-step-title:after {
+  border-color: transparent transparent transparent var(--green-30);
+}
+
+.bgaext_tournament .v2tournament__encounter-player-points {
+  color: var(--light-80);
 }
 
 /* Page Vos badges */

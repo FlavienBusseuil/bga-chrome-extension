@@ -24,7 +24,8 @@
       "run_at": "document_start",
       "js": [
         "content.js"
-      ]
+      ],
+      "all_frames": true
     },
     {
       "matches": [

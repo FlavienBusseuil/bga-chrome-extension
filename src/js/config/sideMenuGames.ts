@@ -851,6 +851,27 @@ const defaultGames: Partial<Game>[] = [
 		playerPanel: "QQ-questsZone-{{player_id}}",
 		css: " "
 	},
+	{
+		name: "goldwest",
+		playerPanel: ".whiteblock:has(>.gw-player-board-wrap-wrap)",
+	},
+	{
+		name: "moonriver",
+		playerPanel: "player_table_{{player_id}}",
+		playerPanelOffset: 25,
+	},
+	{
+		name: "divideetimpera",
+		playerPanel: "hand-{{player_id}}",
+		playerPanelOffset: 35,
+		boardPanel: "mission-board"
+	},
+	{
+		name: "mantisfalls",
+		playerPanel: "tableau_{{player_id}}",
+		boardPanel: "tableau_actions",
+		boardPanelText: "#tableau_actions > h3 > span"
+	},
 ];
 
 export default defaultGames;

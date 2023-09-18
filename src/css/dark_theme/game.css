@@ -1,5 +1,4 @@
 :root {
-  --dark-back: #272a2fbf;
   --dark-popup-back: #373737;
   --drop-shadow-min: drop-shadow(1px 1px 1px #000) drop-shadow(0 0 1px #fff);
   --text-w-shadow: -1px 0 #fff, 0 1px #fff, 1px 0 #fff, 0 -1px #fff;
@@ -74,11 +73,8 @@ html.darkpanel .player-board .roundedboxinner b,
 }
 
 #logs .log:hover .timestamp {
-  background: var(--dark-40);
-}
-
-#logs span[style="color:black"] {
-  text-shadow: -1px 0 white, 0 1px white, 1px 0 white, 0 -1px white;
+  background: transparent;
+  color: var(--blue-80);
 }
 
 #logs .timestamp {
@@ -139,8 +135,10 @@ html.darkpanel .player-board .roundedboxinner b,
 #logs [style^="color:#000000"],
 #logs [style="color:#000"],
 #logs [style$=";color:#000"],
-#logs [style$=";color:#000000"] {
-  text-shadow: -1px 0 #fff, 0 1px #fff, 1px 0 #fff, 0 -1px #fff;
+#logs [style$=";color:#000000"],
+#logs span[style="color:black"],
+#logs span[style^="color:#000;"] {
+  text-shadow: var(--text-w-shadow);
 }
 
 .pagesection h2,
@@ -204,7 +202,13 @@ span.playername,
 
 #maingameview_menuheader,
 #maingameview_menufooter {
-  filter: invert(0.9);
+  background: var(--dark-10);
+  color: #fff;
+}
+
+#maingameview_menuheader .pageheader_menu>div,
+#maingameview_menuheader .pageheader_menu>div {
+  color: var(--light-70);
 }
 
 .avatar_active,
@@ -250,7 +254,8 @@ span.playername,
 }
 
 #seemorelogs {
-  filter: grayscale(1);
+  background-image: none;
+  background: linear-gradient(360deg, var(--dark-20) 25%, hsla(0, 0%, 100%, 0));
 }
 
 /* Hide the "You may note something for next time..." popup that would appear during round end, hiding the score and animation. */
@@ -416,7 +421,21 @@ div[id*="popin"][id$="underlay"] {
   background-color: #000 !important;
 }
 
-/* tournament (to complete) */
+/* wiki */
+
+.wikicontent .wikimenu {
+  filter: var(--highlight-min);
+}
+
+.wikicontent a.external.text {
+  color: var(--blue-80) !important;
+}
+
+.wikicontent a.external.text:hover {
+  color: #fff !important;
+}
+
+/* tournament */
 
 #tournament-module {
   color: var(--light-80);
