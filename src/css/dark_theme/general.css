@@ -141,7 +141,8 @@ select.colorselector {
   background: linear-gradient(to top, var(--dark-30) 0%, var(--dark-30) 100%) !important;
 }
 
-.bga-invite-player-modal__content .bga-hover-for-list:hover {
+.bga-invite-player-modal__content .bga-hover-for-list:hover,
+.bga-toast-holder .bga-hover-for-list:hover {
   background: linear-gradient(180deg, var(--dark-30) 20%, var(--dark-30) 80%) !important;
 }
 
@@ -1334,6 +1335,10 @@ a.gamename:hover {
 .bgaext_tournament .v2tournament__encounter--status-play a.v2tournament__encounter-title {
   background: var(--green-30);
   color: var(--light-80);
+}
+
+.bgaext_tournament .v2tournament__encounter--status-play .v2tournament__encounter-progress {
+  background: var(--green-30);
 }
 
 .bgaext_tournament .v2tournament__encounters-step-title {

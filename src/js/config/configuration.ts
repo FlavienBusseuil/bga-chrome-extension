@@ -39,6 +39,7 @@ export interface Template {
 }
 
 interface CustomConfig {
+	clientId: string;
 	games: Game[];
 	dark: DarkModeConfig[];
 	disabled: string[];
@@ -80,6 +81,7 @@ class Configuration {
 			}) as Game[],
 		};
 		this._customConfig = {
+			clientId: "",
 			games: [],
 			dark: [],
 			disabled: [],
@@ -91,6 +93,10 @@ class Configuration {
 
 	async init() {
 		this._customConfig = (await storageGet()) as any;
+		if (!this._customConfig.clientId) {
+			this._customConfig.clientId = self.crypto.randomUUID();
+			storageSet({ clientId: this._customConfig.clientId });
+		}
 		if (!this._customConfig.games) {
 			this._customConfig.games = [];
 		}
@@ -116,6 +122,33 @@ class Configuration {
 				}
 			} catch (error) { } // not a big deal
 		});
+	}
+
+	private _sendAnalytics(evt: string, context: string) {
+		/*
+		const endpoint = "https://www.google-analytics.com/mp/collect";
+		const measurementId = "G-ZDKRET609Q";
+		const apiSecret = "4TThk978Rse1u4xipIDEnw";
+
+		const contextConfig = this._customConfig.dark.find(d => d.name === evt);
+
+		fetch(`${endpoint}?measurement_id=${measurementId}&api_secret=${apiSecret}`, {
+			method: 'POST',
+			body: JSON.stringify({
+				client_id: this._customConfig.clientId,
+				events: [
+					{
+						name: evt,
+						params: {
+							page_title: context,
+							darkMode: this._customConfig.darkMode,
+							darkModeColor: contextConfig?.color || this._customConfig.darkModeColor,
+							darkModeSat: contextConfig?.sat || this._customConfig.darkModeSat,
+						},
+					},
+				],
+			}),
+		});*/
 	}
 
 	private _merge() {
@@ -285,6 +318,8 @@ class Configuration {
 	}
 
 	hideGame(name: string) {
+		this._sendAnalytics('hide_game', name);
+
 		this._customConfig.hidden = [
 			...this._customConfig.hidden.filter((g) => g !== name),
 			name,
@@ -294,6 +329,8 @@ class Configuration {
 	}
 
 	displayGame(name: string) {
+		this._sendAnalytics('display_game', name);
+
 		this._customConfig.hidden = [
 			...this._customConfig.hidden.filter((g) => g !== name),
 		];
@@ -336,6 +373,8 @@ class Configuration {
 	}
 
 	setGeneralChatHidden(val: boolean) {
+		this._sendAnalytics(val ? 'hide_chat' : 'display_chat', 'general');
+
 		this._customConfig.hideGeneralChat = val;
 		storageSet({ hideGeneralChat: val });
 	}
@@ -358,6 +397,8 @@ class Configuration {
 	setDarkMode(val: boolean) {
 		this._customConfig.darkMode = val;
 		storageSet({ darkMode: val });
+
+		this._sendAnalytics('set_dark', 'general');
 	}
 
 	getDarkModeColor(gameName: string) {
@@ -385,20 +426,21 @@ class Configuration {
 			this._customConfig.darkModeColor = darkModeColor;
 			this._customConfig.darkModeSat = darkModeSat;
 			storageSet({ darkModeColor, darkModeSat });
-			return;
-		}
-
-		if (this._customConfig.darkModeColor === darkModeColor && this._customConfig.darkModeSat === darkModeSat) {
-			// default config
-			this._customConfig.dark = this._customConfig.dark.filter(d => d.name !== gameName);
 		} else {
-			this._customConfig.dark = [
-				...this._customConfig.dark.filter(d => d.name !== gameName),
-				{ name: gameName, color: darkModeColor, sat: darkModeSat }
-			];
+			if (this._customConfig.darkModeColor === darkModeColor && this._customConfig.darkModeSat === darkModeSat) {
+				// default config
+				this._customConfig.dark = this._customConfig.dark.filter(d => d.name !== gameName);
+			} else {
+				this._customConfig.dark = [
+					...this._customConfig.dark.filter(d => d.name !== gameName),
+					{ name: gameName, color: darkModeColor, sat: darkModeSat }
+				];
+			}
+
+			storageSet({ dark: this._customConfig.dark });
 		}
 
-		storageSet({ dark: this._customConfig.dark });
+		this._sendAnalytics('set_dark', gameName);
 	}
 }
 

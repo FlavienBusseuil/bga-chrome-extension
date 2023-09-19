@@ -872,6 +872,33 @@ const defaultGames: Partial<Game>[] = [
 		boardPanel: "tableau_actions",
 		boardPanelText: "#tableau_actions > h3 > span"
 	},
+	{
+		name: "chimerastation",
+		playerPanel: "chs_playername_{{player_index_1}}",
+		boardPanel: "chs_perks_wrap",
+		boardPanelText: "#chs_perks_header > span"
+	},
+	{
+		name: "nangaparbat",
+		playerPanel: "np_playerboard_{{player_id}}_wrap",
+	},
+	{
+		name: "dontgointhere",
+		playerPanel: "dgit_player_{{player_id}}_header",
+	},
+	{
+		name: "bigmonster",
+		playerPanel: "{{player_id}}_scrollmap_wrapper",
+	},
+	{
+		name: "khronos",
+		playerPanel: "board_{{player_index_1}}",
+		bottomPanel: "turn_slider"
+	},
+	{
+		name: "tanghulu",
+		playerPanel: "pl{{player_id}}_area",
+	},
 ];
 
 export default defaultGames;

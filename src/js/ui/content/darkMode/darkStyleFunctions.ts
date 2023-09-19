@@ -1,7 +1,7 @@
 import { getUrl } from "../../../utils/chrome";
 import { isNumber } from "../../../utils/misc/isNumber";
 import { darkStyleForGame, gamesWithCustomActions, gamesWithCustomBackground, gamesWithCustomDarkMode, gamesWithCustomPanel, gamesWithCustomPlayerStyle, styleForGame } from "../../../config/darkThemeGames";
-import { PlayerData, getPlayersData } from "../players";
+import { PlayerData, getPlayersData, getPlayersPossibleColors } from "../players";
 
 const themeStyleId = "ext-theme-style";
 const cookieName = "ext_dark_theme";
@@ -147,10 +147,12 @@ const _setDarkStyle = (mode: string) => {
         getPlayersData().then(playersData => {
           console.log("[bga extension] players data", playersData);
 
+          const possibleColors = [...playersData, ...getPlayersPossibleColors(mode)];
+
           const gameStyle = styleForGame[mode] || "";
           const gameDarkStyle = darkStyleForGame[mode] || "";
           const backStyle = gamesWithCustomBackground.includes(mode) ? "" : cssContents["dark_theme/background.css"];
-          const colorsStyle = getDarkColorsStyle(playersData);
+          const colorsStyle = getDarkColorsStyle(possibleColors);
           styleComponent.innerHTML = `${backStyle}${cssContents["dark_theme/common.css"]}${cssContents["dark_theme/chat.css"]}${cssContents["dark_theme/game.css"]}${gameDarkStyle}${gameStyle}${colorsStyle}`;
 
           if (!gamesWithCustomPanel.includes(mode)) {

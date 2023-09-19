@@ -102,7 +102,7 @@ const ModeSelector = (props: ModeSelectorProps) => {
     }
 
     const customActions = gamesWithCustomActions[gameName];
-    customActions && customActions.setDarkMode(!darkMode);
+    customActions && customActions.setDarkMode && customActions.setDarkMode(!darkMode);
 
     if (window.location.pathname.startsWith("/forum")) {
       location.reload();

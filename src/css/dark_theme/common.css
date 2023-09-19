@@ -66,6 +66,11 @@
 }
 
 /* Modales et popin */
+
+.bga-popup-modal__holder.bg-white {
+  background-color: transparent;
+}
+
 .standard_popin,
 .bga-popup-modal__content,
 .bga-popup-modal__content [class*=bg-bga-graybg],

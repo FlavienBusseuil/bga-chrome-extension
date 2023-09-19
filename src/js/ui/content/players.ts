@@ -1,4 +1,5 @@
 import rgbHex from "rgb-hex";
+import { gamesWithCustomColors } from "../../config/darkThemeGames";
 
 export interface PlayerData {
   id: number;
@@ -51,6 +52,26 @@ const _getPlayersData = (returnFunc: (data: PlayerData[]) => void) => {
   };
 };
 
+export const getPlayersPossibleColors = (gameName: string) => {
+  if (gamesWithCustomColors[gameName]) {
+    return gamesWithCustomColors[gameName].map((color: string) => {
+      const darkColor = colorsMap.find(c => c.light === color)?.dark;
+      const darkEnlight = colorsToEnlight.includes(color);
+
+      return {
+        id: 0,
+        name: '',
+        avatar: '',
+        color,
+        darkColor,
+        darkEnlight
+      };
+    });
+  }
+
+  return [];
+};
+
 const colorsMap = [
   { light: "#0000ff", dark: "#6666ff" },
   { light: "#982fff", dark: "#bf80ff" },
@@ -92,10 +113,17 @@ const colorsMap = [
   { light: "#004879", dark: "#006bb3" },
   { light: "#5c315f", dark: "#824587" },
   { light: "#0d5741", dark: "#1bb184" },
+  { light: "#4e008e", dark: "#7e00e6" },
+  { light: "#70421d", dark: "#a2602a" },
+  { light: "#971923", dark: "#c5202e" },
+  { light: "#660090", dark: "#a400e6" },
+  { light: "#111a22", dark: "#446888" },
+  { light: "#4c266d", dark: "#693597" },
+
 ];
 
 const colorsToEnlight = [
   '#000000', '#101820', '#123888', '#1e2e3d', '#404040', '#272c29', '#3d1303', '#2d2926',
   '#3b3232', '#010203', '#1a2126', '#302c2b', '#321500', '#080d10', '#210000', '#423d37',
-  '#100000', '#171614', '#1b1819'
+  '#100000', '#171614', '#1b1819', "#101112", "#262f33"
 ];
