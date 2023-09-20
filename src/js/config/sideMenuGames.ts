@@ -899,6 +899,33 @@ const defaultGames: Partial<Game>[] = [
 		name: "tanghulu",
 		playerPanel: "pl{{player_id}}_area",
 	},
+	{
+		name: "cosmosempires",
+		playerPanel: "player_{{player_id}}_container",
+		iconBackground: "#aaabad"
+	},
+	{
+		name: "fortheking",
+		playerPanel: ".container1 .mycards .playernameclass",
+		playerPanelOffset: 25,
+		boardPanel: "centercard",
+		boardPanelOffset: 50
+	},
+	{
+		name: "balloonpop",
+		playerPanel: "pad_{{player_id}}",
+		playerPanelOffset: 60,
+	},
+	{
+		name: "onceuponaforest",
+		playerPanel: "playertable_{{player_id}}",
+	},
+	{
+		name: "nautilus",
+		playerPanel: "#player_domains_wrap, #opponent_domains_wrap",
+		bottomPanel: "special_cards_discarded_wrap",
+	},
+
 ];
 
 export default defaultGames;
