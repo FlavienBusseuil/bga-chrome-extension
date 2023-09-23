@@ -925,7 +925,19 @@ const defaultGames: Partial<Game>[] = [
 		playerPanel: "#player_domains_wrap, #opponent_domains_wrap",
 		bottomPanel: "special_cards_discarded_wrap",
 	},
-
+	{
+		name: "tinyfarms",
+		playerPanel: "playerBoard_{{player_id}}",
+		playerPanelOffset: 30,
+	},
+	{
+		name: "fifteendays",
+		playerPanel: "playerarea_{{player_id}}",
+	},
+	{
+		name: "spiritsoftheforest",
+		playerPanel: "playerarea_{{player_id}}",
+	},
 ];
 
 export default defaultGames;
