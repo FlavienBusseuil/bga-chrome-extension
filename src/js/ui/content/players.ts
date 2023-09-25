@@ -15,7 +15,7 @@ export const getPlayersData = async (): Promise<PlayerData[]> => {
 };
 
 const _getPlayersData = (returnFunc: (data: PlayerData[]) => void) => {
-  const playerContainers = document.querySelectorAll("#player_boards div.player-name[id^=\"player_name_\"]");
+  const playerContainers = Array.from(document.querySelectorAll("#player_boards div.player-name[id^=\"player_name_\"]")).filter(elt => elt.id.length > 13 || elt.id === "player_name_7");
   const playerlinks = document.querySelectorAll("#player_boards div.player-name[id^=\"player_name_\"] a[href*=\"/player?id\"]");
   let result: PlayerData[] | undefined = undefined;
 
@@ -131,5 +131,5 @@ const colorsMap = [
 const colorsToEnlight = [
   '#000000', '#101820', '#123888', '#1e2e3d', '#404040', '#272c29', '#3d1303', '#2d2926',
   '#3b3232', '#010203', '#1a2126', '#302c2b', '#321500', '#080d10', '#210000', '#423d37',
-  '#100000', '#171614', '#1b1819', "#101112", "#262f33", "#202020"
+  '#100000', '#171614', '#1b1819', "#101112", "#262f33", "#202020", "#12151a"
 ];

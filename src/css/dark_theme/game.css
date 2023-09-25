@@ -45,20 +45,47 @@ textarea {
   color: var(--light-80);
 }
 
-html.darkpanel .player-board,
-html.darkpanel .player-board .roundedboxinner,
-html.darkpanel .player-board .roundedboxinner b,
-.player-board .roundedbox_main,
-.player-board .roundedbox_topleft,
-.player-board .roundedbox_topmain,
-.player-board .roundedbox_topright,
-.player-board .roundedbox_bottomleft,
-.player-board .roundedbox_bottommain,
-.player-board .roundedbox_bottomright {
+html.darkpanel #player_boards .player-board,
+html.darkpanel #player_boards .player-board .roundedboxinner,
+html.darkpanel #player_boards .player-board .roundedboxinner b,
+#player_boards .player-board .roundedbox_main,
+#player_boards .player-board .roundedbox_topleft,
+#player_boards .player-board .roundedbox_topmain,
+#player_boards .player-board .roundedbox_topright,
+#player_boards .player-board .roundedbox_bottomleft,
+#player_boards .player-board .roundedbox_bottommain,
+#player_boards .player-board .roundedbox_bottomright {
   background: var(--dark-20) !important;
 }
 
-.log .roundedbox .playername {
+#spectatorbox_wrapper .player-board,
+#spectatorbox_wrapper .player-board .roundedboxinner,
+#spectatorbox_wrapper .player-board .roundedboxinner b,
+#spectatorbox_wrapper .player-board .roundedbox_main,
+#spectatorbox_wrapper .player-board .roundedbox_topleft,
+#spectatorbox_wrapper .player-board .roundedbox_topmain,
+#spectatorbox_wrapper .player-board .roundedbox_topright,
+#spectatorbox_wrapper .player-board .roundedbox_bottomleft,
+#spectatorbox_wrapper .player-board .roundedbox_bottommain,
+#spectatorbox_wrapper .player-board .roundedbox_bottomright {
+  background: var(--dark-20) !important;
+}
+
+.player-board.spectator-mode,
+.player-board.spectator-mode .roundedboxinner,
+.player-board.spectator-mode .roundedboxinner b,
+.player-board.spectator-mode .roundedbox_main,
+.player-board.spectator-mode .roundedbox_topleft,
+.player-board.spectator-mode .roundedbox_topmain,
+.player-board.spectator-mode .roundedbox_topright,
+.player-board.spectator-mode .roundedbox_bottomleft,
+.player-board.spectator-mode .roundedbox_bottommain,
+.player-board.spectator-mode .roundedbox_bottomright {
+  background: var(--dark-20) !important;
+  color: var(--light-80);
+}
+
+spectator-mode .log .roundedbox .playername {
   display: inline !important;
 }
 

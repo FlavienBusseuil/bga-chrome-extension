@@ -558,6 +558,11 @@ a.gamename:hover {
   color: var(--blue-70);
 }
 
+.player_is_at_table .gametable.gametable_status_asyncinit,
+.player_is_at_table .gametable.gametable_status_asyncopen {
+  background-color: transparent;
+}
+
 .bgaext_lobby .game_box_wrap .gamename:hover {
   color: var(--violet-80);
 }

@@ -938,6 +938,13 @@ const defaultGames: Partial<Game>[] = [
 		name: "spiritsoftheforest",
 		playerPanel: "playerarea_{{player_id}}",
 	},
+	{
+		name: "heat",
+		playerPanel: "player-table-{{player_id}}",
+		bottomPanel: "legend-table",
+		css: "#bga-jump-to_controls { display: none; } #game_play_area { padding-left: 50px; }",
+	},
+
 ];
 
 export default defaultGames;
