@@ -200,6 +200,10 @@ const ModeSelector = (props: ModeSelectorProps) => {
   };
 
   const getMenuIcon = () => {
+    if (!darkMode) {
+      return <></>;
+    }
+
     const style = (gameName === "general") ? "font-size: 32px; color: #01c4ca; cursor: pointer; padding-right: 0.3em;" : "font-size: 24px; cursor: pointer; padding-right: 0.3em;"
     const icon = paletteVisible ? <i class="fa fa-caret-up" style={style}></i> : <i class="fa fa-caret-down" style={style}></i>;
 

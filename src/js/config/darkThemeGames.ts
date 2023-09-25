@@ -23,6 +23,7 @@ export const gamesWithCustomBackground = [
   'jumpdrive',
   'kingoftokyo',
   'krosmasterblast',
+  'lasvegan',
   'lielow',
   'lostexplorers',
   'mantisfalls',
@@ -39,6 +40,7 @@ export const gamesWithCustomBackground = [
   'pingimus',
   'quirkyquarks',
   'raceforthegalaxy',
+  'restinpeace',
   'santorini',
   'secretmoon',
   'skull',
@@ -590,6 +592,10 @@ html.century_theme.spice #logs .log_replayable .roundedbox { background: #272a2f
 .logitem.gcard_forlog { background-color: #040404; color: #e59480; }
 `;
 
+_darkStyleForGame['cephalopod'] = `
+.icon_placed_dice_000000, .icon_placed_dice_00a400 { filter: var(--drop-shadow); }
+`;
+
 _darkStyleForGame['challengers'] = `
 .cha-log-holder { background: var(--dark-20); color: var(--light-80); }
 .cha-matchup-name-inner { background: var(--dark-20); padding: 0.3em 0.5em; border-radius: 8px; }
@@ -1002,6 +1008,15 @@ _darkStyleForGame['euchre'] = `
 
 _darkStyleForGame['evergreen'] = `
 .eve_inline-block { color: #000; }
+`;
+
+_darkStyleForGame['factum'] = `
+.storytextarea[readonly] { background-color: var(--dark-10); }
+.badge { filter: invert(0.7); }
+html.darkpanel .player-board.team_storyteller { background-color: var(--dark-20) !important; }
+html.darkpanel .player-board.team_storyteller_captain { background-color: var(--dark-10) !important; }
+html.darkpanel .player-board.team_judge { background-color: var(--dark-30) !important; }
+html.darkpanel .player-board.team_judge_captain { background-color: var(--dark-40) !important; }
 `;
 
 _darkStyleForGame['fairytrails'] = `
@@ -1440,6 +1455,10 @@ _darkStyleForGame['lama'] = `
 #deckCount { color: #fff; }
 `;
 
+_darkStyleForGame['lasvegan'] = `
+#overall-content { background: var(--dark-back); }
+`;
+
 _darkStyleForGame['legendraiders'] = `
 #tiles_stack_counter { color: var(--light-100); }
 `;
@@ -1587,6 +1606,10 @@ _darkStyleForGame['mechadream'] = `
 _darkStyleForGame['memoir'] = `
 #clipboard-button { filter: invert(0.7); }
 .card-text-container, .card-subtitle { color: #000; }
+`;
+
+_darkStyleForGame['metromaniab'] = `
+.tunnels_count { color: #000; }
 `;
 
 _darkStyleForGame['microdojo'] = `
@@ -1829,6 +1852,11 @@ _darkStyleForGame['perfectwords'] = `
 .dbnogrid-cell-button:hover { background-color: #00000066; }
 `;
 
+_darkStyleForGame['phat'] = `
+#targetTitle { color: var(--light-70); }
+[style*="color: Blue;"] { color: #6666ff !important; }
+`;
+
 _darkStyleForGame['photosynthesis'] = `
 .psy_toolbtn, .psy_overlay_button { color: #fff; background: var(--dark-20); box-shadow: none; filter: var(--drop-shadow); }
 .psy_suncounter, .psy_token { color: #000; box-shadow: none; }
@@ -1961,6 +1989,12 @@ _darkStyleForGame['resarcana'] = `
 .res_counterintext { color: #000; }
 `;
 
+_darkStyleForGame['restinpeace'] = `
+#overall-content { background-color: var(--dark-back); }
+#rip-game-holder-holder #zoom-panel { background-color: var(--dark-20); }
+#zoom-in-btn, #zoom-out-btn { filter: invert(0.7); }
+`;
+
 _darkStyleForGame['riftvalleyreserve'] = `
 .riftvalleyreserve-name-272c29 { text-shadow: var(--text-w-shadow); }
 .rvr-icon-element[data-color="272c29"][data-type=stop] { background-color: #fff; border-radius: 18px; }
@@ -2071,6 +2105,10 @@ _darkStyleForGame['seikatsu'] = `
 #flower_score_table { background: var(--dark-back); color: var(--light-80); }
 `;
 
+_darkStyleForGame['sergeantmajor'] = `
+.playertablename { text-shadow: none; }
+`;
+
 _darkStyleForGame['setup'] = `
 .setup-piece { filter: var(--drop-shadow); }
 .setup-tile-number[data-suit="10"], .setup-tile-suit[data-suit="10"] { text-shadow: var(--text-w-shadow); }
@@ -2178,6 +2216,10 @@ _darkStyleForGame['solarstorm'] = `
 
 _darkStyleForGame['solo'] = `
 #howto2, #helptext2 { color: var(--light-80); }
+`;
+
+_darkStyleForGame['solowhist'] = `
+.infotitle, .targetTitle, .handinfo { color: var(--light-70); }
 `;
 
 _darkStyleForGame['soulaween'] = `
@@ -2507,6 +2549,10 @@ _darkStyleForGame['tigriseuphrates'] = `
 .player_leader_wheel, #hand_leaders .mini_leader { filter: var(--drop-shadow); }
 `;
 
+_darkStyleForGame['tiki'] = `
+.bgae_panel .bgae_content .panel { background-color: var(--dark-back); }
+`;
+
 _darkStyleForGame['timemasters'] = `
 .options { background-image:none; background-color: var(--dark-back); }
 .options a, #spheres { color: #fff; }
@@ -2578,6 +2624,11 @@ _darkStyleForGame['trio'] = `
 }
 .playerLabelContainer { justify-content: space-between; }
 .playerLabelContainer .bgabutton[style="display: none;"] { display: block !important; visibility: hidden; }
+`;
+
+_darkStyleForGame['troggu'] = `
+#playertables, #playertables.three_players { background-color: var(--green-10); }
+#turn_order, .three_players #turn_order { color: var(--green-30); }
 `;
 
 _darkStyleForGame['troyes'] = `
