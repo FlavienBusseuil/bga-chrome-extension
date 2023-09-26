@@ -944,7 +944,32 @@ const defaultGames: Partial<Game>[] = [
 		bottomPanel: "legend-table",
 		css: "#bga-jump-to_controls { display: none; } #game_play_area { padding-left: 50px; }",
 	},
-
+	{
+		name: "hydroracers",
+		playerPanel: "j_{{player_id}}",
+	},
+	{
+		name: "florenzacardgame",
+		playerPanel: "board-florenza-player-{{player_id}}-card-container",
+		playerPanelOffset: 45
+	},
+	{
+		name: "rolledwest",
+		playerPanel: "#other_players_board .whiteblock",
+		myPanel: "#personal_info_wrapper"
+	},
+	{
+		name: "heckinhounds",
+		playerPanel: "playertable_{{player_id}}",
+		iconBackground: "#4babb4",
+		iconBackgroundDark: "#4babb4",
+		css: " "
+	},
+	{
+		name: "krakenup",
+		playerPanel: ".playertablename",
+		playerPanelOffset: 20
+	},
 ];
 
 export default defaultGames;
