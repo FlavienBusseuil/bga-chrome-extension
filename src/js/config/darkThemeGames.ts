@@ -31,6 +31,7 @@ export const gamesWithCustomBackground = [
   'memoir',
   'mrjack',
   'mycity',
+  'mycityrb',
   'newfrontiers',
   'notalone',
   'nowboarding',
@@ -98,6 +99,7 @@ export const gamesWithCustomPlayerStyle = {
   mindup: '.player-table .name-wrapper',
   mue: '.mue_bidtablename',
   skatelegend: '.player-table .name-wrapper',
+  stupormundi: '.stm_playermat_label',
   tucano: '.tuc_header',
   wizardsgrimoire: '.wg-title',
   zuuli: '.writes.lg'
@@ -411,6 +413,8 @@ _darkStyleForGame['barenpark'] = `
 
 _darkStyleForGame['barrage'] = `
 html.darkpanel .player-board { background: var(--dark-30) !important; }
+.player_panel_content .company-panel-wheel-container .company-summary-wheel .summary-wheel-inner:before { background: var(--dark-20); }
+.barrage-tech-tile .tech-tile-fixed-size .tech-tile-image { filter: var(--drop-shadow); }
 `;
 
 _darkStyleForGame['battleforhill'] = `
@@ -1319,6 +1323,14 @@ _darkStyleForGame['hadara'] = `
 .dijitTooltip:has( > div > div > div.had_colony_tile) > div:first-child { display: none; }
 `;
 
+_darkStyleForGame['hadrianswall'] = `
+.playercard { color: #000; }
+.arcicon { filter: var(--drop-shadow) !important; }
+.hwcard  .hwtext { color: #000; }
+.discard, .hwturns .score { background-color: var(--dark-back); color: var(--light-80); }
+.discard {  box-sizing: border-box; }
+`;
+
 _darkStyleForGame['haggis'] = `
 .playertable_ff0000 { background-color: #800000cc !important; }
 .playertable_008000 { background-color: #006600cc !important; }
@@ -1612,9 +1624,7 @@ _darkStyleForGame['lineae'] = `
 [style*="border-left: 2px dashed black;"] { border-left: 2px dashed var(--light-70) !important; }
 [style*="border-top: 2px dashed black;"] { border-top: 2px dashed var(--light-70) !important; }
 .launched_rocket_div { filter: invert(0.7); }
-
 `;
-
 
 _darkStyleForGame['lineit'] = `
 .player-table { background: var(--dark-back) !important; }
@@ -1825,13 +1835,31 @@ _darkStyleForGame['mycity'] = `
 .cty_header_extra { background-color: var(--dark-back); color: #fff; }
 .cty_intro_header { filter: invert(1); }
 .cty_header_extra h2, .cty_header_extra h3, .cty_header_extra h4 { color: #fff; }
-.cty_intro { background-color: #000; color: #e87a9a; }
-.cty_intro_rankings { border: 2px solid #e87a9a; }
-.cty_intro_button { background-color: #e87a9a; border: 2px solid #e87a9a; }
-.cty_intro_button:hover { background-color: #fff; color: #e87a9a; }
-.cty_header_warning { background-color: var(--dark-20); color: #fff; }
+.cty_intro { background-color: #000; color: var(--light-80); }
+.cty_intro_rankings { border: 2px solid var(--light-80); }
+.cty_intro_button { background-color: #6d122c; border: 2px solid #6d122c; }
+.cty_intro_button:hover { background-color: #2c0712; color: var(--light-80); }
+.cty_header_warning, #cty_header_warning { background-color: var(--dark-20); color: #fff; }
 .cty_extra_button a { color: #fff; }
 .cty_extra_button a:hover { color: var(--violet-80); }
+`;
+
+_darkStyleForGame['mycityrb'] = `
+.cty_header_extra { background-color: var(--dark-back); color: #fff; }
+.cty_intro_header { filter: invert(1); }
+.cty_header_extra h2, .cty_header_extra h3, .cty_header_extra h4 { color: #fff; }
+.cty_intro { background-color: #000; color: var(--light-80); }
+.cty_intro_rankings { border: 2px solid var(--light-80); }
+.cty_intro_button { background-color: #6d122c; border: 2px solid #6d122c; }
+.cty_intro_button:hover { background-color: #2c0712; color: var(--light-80); }
+#cty_header_warning { background-color: var(--dark-20); color: #fff; }
+.cty_player_pass_slot_graf { border: 2px solid var(--light-80); }
+#overall-content:before { content: ""; background: #00000066; position: absolute; width: 100%; height: 100%; }
+.cty_proba { background: #00000066; color: var(--light-80); }
+.cty_campaign { color: #fff; }
+.cty_campaign_list_active { background-color: #000; }
+.cty_compass { background-color: #00000066; color: var(--light-80); }
+.cty_board_player_name_rb { background-color: #2e251a; color: var(--light-80); }
 `;
 
 _darkStyleForGame['myshelfie'] = `
@@ -2409,6 +2437,12 @@ _darkStyleForGame['skatelegend'] = `
 .dijitTooltipContainer [style="color: darkred"] { color: #ff3333 !important; }
 `;
 
+_darkStyleForGame['skyteam'] = `
+#popin_stWelcomeDialogId { background: var(--dark-20); }
+#bga-zoom-controls { filter: invert(0.7); }
+.st-victory-conditions.st-victory-conditions-row.pending { background: var(--dark-40) !important; }
+`;
+
 _darkStyleForGame['smallislands'] = `
 body { background: none; }
 #stacks { background-color: var(--dark-back); color: var(--light-80); }
@@ -2541,6 +2575,13 @@ _darkStyleForGame['streets'] = `
 [style*="color:#ffff00"], [style*="color: #ffff00"], [style*="color:#ffffff"], [style*="color: #ffffff"] { text-shadow:none!important; }
 .tbp-ownerToken { filter: var(--highlight-min); }
 #tbp-board-outer { background: var(--dark-back); }
+`;
+
+_darkStyleForGame['stupormundi'] = `
+html.darkpanel #player_boards.player-board.stm_player_passed { background: var(--dark-40) !important; }
+.stm_label_0000ff, .stm_label_00cc00, .stm_label_ffa500 { text-shadow: none; }
+.stm_panel { background: var(--dark-20); }
+#autorotate { filter: invert(1); }
 `;
 
 _darkStyleForGame['superfantasybrawl'] = `
@@ -3016,6 +3057,13 @@ _darkStyleForGame['wizard'] = `
 
 _darkStyleForGame['warchest'] = `
 #team_board_id { background-color: var(--dark-20) !important; }
+`;
+
+_darkStyleForGame['wastelandia'] = `
+.panel-icon { filter: invert(0.7); }
+#player_boards.whiteblock { background-image: none; background-color: var(--dark-40); }
+.panel-cell.wastelandia-icon { filter: var(--drop-shadow); }
+.wastelandia-icon { filter: invert(1); }
 `;
 
 _darkStyleForGame['wingspan'] = `
