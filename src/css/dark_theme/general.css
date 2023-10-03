@@ -153,13 +153,13 @@ select.colorselector {
 /* Liens */
 .bga-link,
 .bga-link .pagesection__content,
-a.gamename {
+.gamename {
   color: var(--blue-80);
 }
 
 .bga-link:hover,
 .bga-link:hover .pagesection__content,
-a.gamename:hover {
+.gamename:hover {
   color: var(--violet-80);
 }
 

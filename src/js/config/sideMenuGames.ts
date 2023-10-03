@@ -983,6 +983,12 @@ const defaultGames: Partial<Game>[] = [
 		name: "stupormundi",
 		playerPanel: "playermat_{{player_id}}"
 	},
+	{
+		name: "praga",
+		playerPanel: "playerboard_{{player_id}}",
+		position: "bottom",
+		css: "#uiPanel { top: 1vh; } #game_play_area { padding-left: 50px; }"
+	},
 ];
 
 export default defaultGames;
