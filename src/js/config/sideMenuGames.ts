@@ -989,6 +989,11 @@ const defaultGames: Partial<Game>[] = [
 		position: "bottom",
 		css: "#uiPanel { top: 1vh; } #game_play_area { padding-left: 50px; }"
 	},
+	{
+		name: "mutantcrops",
+		playerPanel: "player-crops-{{player_id}}",
+		playerPanelOffset: 40,
+	}
 ];
 
 export default defaultGames;

@@ -907,6 +907,10 @@ _darkStyleForGame['dinosaurteaparty'] = `
 .dinosaurtooltip_text [style^="color: #0c5a93;"] { color: #1392ec !important; }
 `;
 
+_styleForGame['divercite'] = `
+.quantity { color: var(--light-80); }
+`;
+
 _styleForGame['divideetimpera'] = `
 .bgext_avatar svg.dei_hidden { display: block !important; }
 `;
@@ -1831,6 +1835,13 @@ _darkStyleForGame['murusgallicus'] = `
 .lastmove { background-color: var(--dark-40); }
 `;
 
+_darkStyleForGame['mutantcrops'] = `
+#resource-supply .mtc_resource-quantity, .mtc_player-panel .mtc_tokens-container .mtc_token, .mtc_player-panel .mtc_round-information { color: #eb8b47; }
+div#player-crops div.mtc_player-crops { background-color: var(--dark-20); border: 2px solid var(--dark-10); box-shadow: 5px 5px 5px var(--dark-0); }
+div#player-crops div.mtc_player-crops .mtc_player-name { background-color: var(--dark-20); border: 2px solid var(--dark-10); border-bottom: none; }
+.mtc_first-player-marker-content, .mtc_player-panel .mtc_tokens-container .mtc_meeple { filter: var(--drop-shadow); }
+`;
+
 _darkStyleForGame['mycity'] = `
 .cty_header_extra { background-color: var(--dark-back); color: #fff; }
 .cty_intro_header { filter: invert(1); }
@@ -1992,6 +2003,10 @@ _darkStyleForGame['origin'] = `
 .roundedbox { background-color: var(--dark-10) !important; }
 .tableau { background-color: var(--dark-back); }
 #board_tribes .tribe { filter: var(--drop-shadow); }
+`;
+
+_darkStyleForGame['oxono'] = `
+.black { text-shadow: var(--text-w-shadow); }
 `;
 
 _darkStyleForGame['painttheroses'] = `

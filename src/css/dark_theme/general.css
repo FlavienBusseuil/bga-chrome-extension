@@ -1547,3 +1547,7 @@ select.colorselector {
 .bgaext_playerstat #chart {
   filter: invert(0.8);
 }
+
+#server_status_warning_message {
+  background-color: var(--dark-10);
+}
