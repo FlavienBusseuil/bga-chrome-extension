@@ -8,6 +8,11 @@
   filter: invert(0.7) grayscale(1);
 }
 
+.whiteblock {
+  background-image: none;
+  background-color: var(--dark-20);
+}
+
 /* Formulaires */
 input,
 input:focus,
@@ -559,7 +564,9 @@ select.colorselector {
 }
 
 .player_is_at_table .gametable.gametable_status_asyncinit,
-.player_is_at_table .gametable.gametable_status_asyncopen {
+.player_is_at_table .gametable.gametable_status_asyncopen,
+.player_is_at_table .gametable.gametable_status_init,
+.player_is_at_table .gametable.gametable_status_open {
   background-color: transparent;
 }
 
@@ -1135,11 +1142,6 @@ select.colorselector {
   border: 1px solid #888
 }
 
-.bgaext_translation .whiteblock {
-  background-image: none;
-  background-color: var(--dark-20);
-}
-
 .bgaext_translation #translationwarning {
   background-color: #662900 !important;
   color: #fff;
@@ -1435,10 +1437,6 @@ select.colorselector {
 }
 
 /* studio */
-#resultDlgFrame {
-  filter: invert(1);
-}
-
 #popin_resultDlg_close>i {
   color: white;
 }

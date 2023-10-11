@@ -30,7 +30,7 @@ const initObserver = (page) => {
 const manageLocationChange = (pathname) => {
 	console.log("[bga extension] load path", pathname);
 
-	const pageInfo = pathname.substring(1).split("/");
+	const pageInfo = pathname.substring(1).split(".")[0].split("/");
 
 	if (currentObserver) {
 		currentObserver.disconnect();

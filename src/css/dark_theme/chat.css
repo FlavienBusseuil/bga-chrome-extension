@@ -57,10 +57,6 @@ body.mobile_version #chatbar .chatwindowcollapsed {
   margin-right: 7px;
 }
 
-#chatbar .whiteblock {
-  color: var(--dark-10);
-}
-
 #chatbar .chatwindow .playername {
   display: inline !important;
 }

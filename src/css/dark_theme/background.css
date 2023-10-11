@@ -5,6 +5,8 @@ body.mode_3d {
 }
 
 html.bga-white-background,
-html.bga-white-background body {
+html.bga-white-background body,
+html.bgaext_admin,
+html.bgaext_admin body {
   background: var(--dark-10) !important
 }
