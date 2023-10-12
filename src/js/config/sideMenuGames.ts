@@ -92,7 +92,7 @@ const defaultGames: Partial<Game>[] = [
 		playerPanel: "ea-area-player-{{player_id}}",
 		playerPanelOffset: 0,
 		iconShadow: "#ffffff",
-		css: "#ea-shortcut-area { visibility: hidden; }",
+		css: "#ea-shortcut-area { visibility: hidden; } .ea-player-panel-row:has(>.bx-checkbox-switch>#ea-shortcuts-checkbox) { display: none; }",
 	},
 	{
 		name: "gizmos",

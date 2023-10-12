@@ -114,7 +114,7 @@ const _setPlayersColor = (query: string, playersData: PlayerData[]) => {
 const _setDarkStyleIfActivated = () => {
   try {
     const customActions = gamesWithCustomActions[mode];
-    customActions && customActions.init();
+    customActions && customActions.init && customActions.init();
 
     if (isDarkStyle(mode)) {
       _setDarkStyle(mode);

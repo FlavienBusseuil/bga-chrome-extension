@@ -111,13 +111,10 @@ export const gamesWithCustomColors = {
 
 export const gamesWithCustomActions = {
   earth: {
-    setDarkMode: (darkMode: boolean) => {
-      try {
-        const checkbox = document.getElementById("ea-dark-background-checkbox") as any;
-        const checkboxContainer = checkbox.parentNode.parentNode as any;
-        checkbox.checked = darkMode;
-        checkboxContainer.style.display = (darkMode) ? "none" : "flex";
-      } catch (error) { }
+    init: () => {
+      const checkbox = document.getElementById("ea-dark-background-checkbox") as any;
+      const checkboxContainer = checkbox.parentNode.parentNode as any;
+      checkboxContainer.style.display = "none";
     }
   },
   dronesvsseagulls: {
@@ -139,7 +136,7 @@ export const gamesWithCustomActions = {
       const input1 = document.getElementById('preference_control_101') as any;
       const input2 = document.getElementById('preference_fontrol_101') as any;
 
-      const hardbackModeChange = (input) => {
+      const hardbackModeChange = (input: any) => {
         const button = document.getElementById('bga_extension_mode_icon')?.firstChild?.firstChild as any;
 
         if (button) {
@@ -330,6 +327,7 @@ _darkStyleForGame['arnak'] = `
 .display-deck, .display-discard { background: #000; border: 3px solid #9e6464; }
 .display-deck:hover { background: var(--dark-30); }
 .display-deck:active { background: var(--dark-40); }
+html.darkpanel #player_boards .player-board.player-board.passed {  background-color: var(--dark-0) !important }
 `;
 
 _darkStyleForGame['assyria'] = `
