@@ -2038,7 +2038,7 @@ _darkStyleForGame['parks'] = `
 `;
 
 _darkStyleForGame['patchwork'] = `
-#player_boards .micon { filter: invert(1); }
+#player_boards .micon, .bgabutton .control-image { filter: invert(1); }
 `;
 
 _darkStyleForGame['pedro'] = `
