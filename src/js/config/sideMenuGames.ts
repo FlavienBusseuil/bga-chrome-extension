@@ -993,7 +993,11 @@ const defaultGames: Partial<Game>[] = [
 		name: "mutantcrops",
 		playerPanel: "player-crops-{{player_id}}",
 		playerPanelOffset: 40,
-	}
+	},
+	{
+		name: "paxpamir",
+		playerPanel: "player_tableau_{{player_id}}"
+	},
 ];
 
 export default defaultGames;

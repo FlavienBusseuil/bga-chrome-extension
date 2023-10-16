@@ -1549,3 +1549,7 @@ select.colorselector {
 #server_status_warning_message {
   background-color: var(--dark-10);
 }
+
+.studio-framework-navigation {
+  background: var(--dark-0) !important;
+}

@@ -847,6 +847,13 @@ _darkStyleForGame['darkagent'] = `
 .pbname input { background-color: var(--dark-20) !important; }
 `;
 
+_darkStyleForGame['daybreak'] = `
+.dbk-card-inner { background: var(--dark-20); color: var(--light-80); }
+.dbk-card-inner .dbk-icon-arrow, .tooltiptext .dbk-icon-arrow { filter: invert(0.7); }
+.dbk-card-mod { background: var(--dark-10); }
+.dbk-tab, .dbk-tab:not(.dbk-tab-selected):hover, .dbk-tab.dbk-tab-selected { background-color: var(--dark-20); color: var(--light-80); }
+`;
+
 _darkStyleForGame['deus'] = `
 .deus_player_display .deus_resource_indicator, .deus_log_resource { filter: var(--highlight-min); }
 .deus_repeat_counter_section { background-color: var(--dark-40); }
@@ -1268,9 +1275,9 @@ _darkStyleForGame['gogoa'] = `
 `;
 
 _darkStyleForGame['goldblivion'] = `
-html.darkmode .player-board.gb-player-panel-passed { background-color: #404347 !important; }
-html.darkmode #player_boards .player-name a, html.darkmode .gb-area-player-title .player-name { background-color: transparent !important; }
-html.darkmode .gb-area-player, html.darkmode .gb-detail-list { background-color: #272a2fa6; }
+html.darkpanel #player_boards .player-board.gb-player-panel-passed { background-color: var(--dark-40) !important; }
+#player_boards .player-name a, .gb-area-player-title .player-name { background-color: transparent !important; }
+.gb-area-player, .gb-detail-list { background-color: #272a2fa6; }
 .custom_popin { background: var(--dark-10); color: var(--light-80); }
 .custom_popin_closeicon { color: #aaa !important; }
 .notouch-device .custom_popin_closeicon:hover { color: #fff !important; }
@@ -1780,6 +1787,10 @@ _darkStyleForGame['mijnlieff'] = `
 .mijnlieff_square.mijnlieff_legal { box-shadow: inset 0 0 10px #b2d0e6; }
 `;
 
+_darkStyleForGame['minnesotawhist'] = `
+#logs strong[style="color:black;"] { text-shadow: var(--text-w-shadow); }
+`;
+
 _darkStyleForGame['mindup'] = `
 .darkmode .spectator-mode * { background: transparent !important; }
 #round-counter-row #round-counter-block { background: var(--dark-20); text-shadow: none; }
@@ -1988,6 +1999,10 @@ _darkStyleForGame['ohhell'] = `
 .card_type_icon { filter: var(--highlight-min); }
 `;
 
+_darkStyleForGame['oneohone'] = `
+.ooo_playerName { background-color: var(--dark-20); }
+`;
+
 _darkStyleForGame['openfacechinesepoker'] = `
 .name_shadow { text-shadow: none; }
 `;
@@ -2038,7 +2053,16 @@ _darkStyleForGame['parks'] = `
 `;
 
 _darkStyleForGame['patchwork'] = `
-#player_boards .micon, .bgabutton .control-image { filter: invert(1); }
+.bgabutton .control-image { filter: invert(1); }
+#miniboard_0000ff .empty_icon { background-color: #039fb0; border-color: #fff; }
+#miniboard_ff0000 .empty_icon { background-color: #8d3f25; border-color: #fff; }
+`;
+
+_darkStyleForGame['paxpamir'] = `
+#pp_supply { background-color: var(--dark-20); color: var(--light-80) }
+#pp_discard_pile { border: 4px dashed #fff; }
+.pp_discarded_card { border: 1px solid #fff; }
+.pp_deck_counters_container { background-color: var(--dark-10); }
 `;
 
 _darkStyleForGame['pedro'] = `
@@ -2888,6 +2912,11 @@ _darkStyleForGame['toeshambo'] = `
 
 _darkStyleForGame['tokaido'] = `
 body { background: none; }
+`;
+
+_darkStyleForGame['tortugasixteensixtyseven'] = `
+#tableEventCardsArea, .tortuga_tooltip_text_container, #myHandArea, #crowsNestVoteCardsContainer
+{ background-color: var(--dark-20); color: var(--light-80); }
 `;
 
 _darkStyleForGame['tranquility'] = `
