@@ -463,6 +463,10 @@ div[id*="popin"][id$="underlay"] {
   color: #fff !important;
 }
 
+.wikicontent h3 {
+  margin-top: 20px;
+}
+
 /* tournament */
 
 #tournament-module {

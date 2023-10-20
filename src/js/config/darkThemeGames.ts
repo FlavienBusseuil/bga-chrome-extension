@@ -1330,6 +1330,8 @@ _darkStyleForGame['hadara'] = `
 .dijitTooltipContainer:has( > div > div.had_colony_tile) > div > div
 { background-color: transparent !important; border: none !important; box-shadow: none !important; }
 .dijitTooltip:has( > div > div > div.had_colony_tile) > div:first-child { display: none; }
+.player-board { background-color: var(--dark-10); }
+.had_game_board_player_name { background: var(--dark-back); }
 `;
 
 _darkStyleForGame['hadrianswall'] = `
@@ -2231,6 +2233,9 @@ _darkStyleForGame['railwaysoftheworld'] = `
 _darkStyleForGame['rainforest'] = `
  .playerPanel p { color: #fff; }
  .notif_species { filter: var(--highlight-min); }
+ .jungleZoneBlock { background-color: #00000033; outline: 2px dashed #ffffff4d; }
+ #rainForestContainer .playerSpeciesZone { border: 0.3vw dashed #898989; }
+ #mainBoard:before { position: absolute; top:0px; left:0px; width: 100%; height: 100%; border: 1px solid var(--dark-10); box-sizing: border-box; content: ""; }
  `;
 
 _darkStyleForGame['rallymangt'] = `
@@ -2708,7 +2713,9 @@ _darkStyleForGame['terramystica'] = `
 `;
 
 _darkStyleForGame['thattimeyoukilledme'] = `
-.tty-pawn-000000 { filter: var(--highlight-min); }
+#player_boards .tty-pawn-000000, .tty-log-entry.tty-log-move-pawn-000000, .tty-log-entry.tty-log-move-pawn-ffffff { filter: var(--highlight-min); }
+.tty-rock-label { color: var(--light-80); }
+.player-board { background-color: var(--dark-10); }
 `;
 
 _darkStyleForGame['thatslife'] = `
