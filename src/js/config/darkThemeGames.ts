@@ -244,6 +244,12 @@ _darkStyleForGame['almadi'] = `
 .helperHeader div, .helperIcone { filter: var(--highlight-min); }
 `;
 
+_darkStyleForGame['amalfi'] = `
+.playerIcons_line_4, .playerIcons_line_5 { background-color: var(--dark-10); }
+.playerResourceBlock p { text-shadow: 2px 0 2px #00000099, 0 -2px 2px #00000099, 0 2px 2px #00000099, -2px 0 2px #00000099; }
+.amf_tooltip_header > span[style*="color: #666666"] { color: #999999 !important; }
+`;
+
 _darkStyleForGame['amerigo'] = `
 #generalreserve { background: var(--dark-back); }
 #generalreserve h3, .amg_playerreserve h3, .amg_playersupply h3 { font-weight: normal; color: #fff; }
@@ -458,6 +464,13 @@ _darkStyleForGame['bigmonster'] = `
 
 _darkStyleForGame['bigtimesoccer'] = `
 .nbr_yellowcards, .nbr_cards { color: var(--light-80); }
+`;
+
+_darkStyleForGame['biomos'] = `
+.player_score_token, .player_score_token3 { background: #00000080; }
+.player_biome_nb { color: var(--light-80); }
+.player_board_reserve { background-color: var(--dark-20); color: var(--light-80); }
+#text { color: var(--light-70) !important; }
 `;
 
 _darkStyleForGame['biyi'] = `
@@ -933,6 +946,11 @@ _darkStyleForGame['doglover'] = `
 #DOGFoodMode { filter: invert(1); }
 #page-content { color: #fff; }
 .DOG-watchdog { filter: var(--drop-shadow); }
+`;
+
+_darkStyleForGame['dogpark'] = `
+#popin_bgaHelpDialog { background: var(--dark-10); }
+#bga-zoom-controls { filter: invert(0.7); }
 `;
 
 _darkStyleForGame['downforce'] = `
@@ -1999,6 +2017,13 @@ _styleForGame['offtherails'] = `
 _darkStyleForGame['ohhell'] = `
 #table .table_player_name { background-color: var(--dark-20); }
 .card_type_icon { filter: var(--highlight-min); }
+`;
+
+_darkStyleForGame['okanagan'] = `
+#player_boards .tokencontainer { filter: var(--drop-shadow); }
+.exchangeImg { filter: invert(1); }
+.Help_info { background-color: var(--dark-10); }
+#buttontableelement, .buttonswapview { filter: invert(0.8); }
 `;
 
 _darkStyleForGame['oneohone'] = `
