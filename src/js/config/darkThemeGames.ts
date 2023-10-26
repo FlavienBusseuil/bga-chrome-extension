@@ -1033,7 +1033,10 @@ _darkStyleForGame['earth'] = `
 .custom_popin_closeicon { color: #aaa !important; }
 .notouch-device .custom_popin_closeicon:hover { color: #fff !important; }
 .ea-dialog-card-detail-grid .ea-dialog-card-detail-jumper .ea-dialog-card-detail-jump-selected { border-bottom: 1px solid #fff; border-top: 1px solid #fff; }
-#ea-area-card-hand .ea-card-bottom, .ea-area-player-tableau .ea-card-bottom { background-color: var(--dark-40); }
+#ea-area-card-hand .ea-card-bottom, .ea-area-player-tableau .ea-card-bottom { background-color: var(--dark-10); }
+.ea-card-bottom i { text-shadow: none; }
+#ea-area-card-hand-container { background-color: var(--dark-back); }
+.ea-counter { background-color: var(--dark-10); border: 1px solid var(--light-80); color: var(--light-80); }
 `;
 
 _darkStyleForGame['ecarte'] = `
