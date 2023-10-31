@@ -997,6 +997,11 @@ const defaultGames: Partial<Game>[] = [
 		name: "paxpamir",
 		playerPanel: "player_tableau_{{player_id}}"
 	},
+	{
+		name: "romirami",
+		playerPanel: "rr-area-player-{{player_id}}",
+		css: "#rr-shortcut-area, #rr-area-pref-shortcut { display: none; }",
+	},
 ];
 
 export default defaultGames;

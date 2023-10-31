@@ -43,6 +43,7 @@ export const gamesWithCustomBackground = [
   'quirkyquarks',
   'raceforthegalaxy',
   'restinpeace',
+  'romirami',
   'santorini',
   'secretmoon',
   'skull',
@@ -84,6 +85,10 @@ export const gamesWithCustomDarkMode = {
   },
   earth: {
     className: 'ea-background-dark',
+    applyGeneralCss: true
+  },
+  romirami: {
+    className: 'bx-background-dark',
     applyGeneralCss: true
   },
 };
@@ -170,7 +175,7 @@ export const gamesWithCustomActions = {
       return input.value == "1";
     },
     init: () => { }
-  }
+  },
 };
 
 const _darkStyleForGame = {};
@@ -1037,6 +1042,8 @@ _darkStyleForGame['earth'] = `
 .ea-card-bottom i { text-shadow: none; }
 #ea-area-card-hand-container { background-color: var(--dark-back); }
 .ea-counter { background-color: var(--dark-10); border: 1px solid var(--light-80); color: var(--light-80); }
+.ea-objective-button { background-color: var(--dark-10); filter: var(--drop-shadow); }
+.ea-dialog-objective-detail-player-name > span, .ea-objective-detail-progress > span { background-color: transparent !important; }
 `;
 
 _darkStyleForGame['ecarte'] = `
@@ -1389,6 +1396,10 @@ div#overall-content:not([style^="back"]) { color: #fff; }
 
 _darkStyleForGame['handandfoot'] = `
 .card_type_icon { background-color: #fff; }
+`;
+
+_darkStyleForGame['happycity'] = `
+.hc_player_board { color: #000; }
 `;
 
 _darkStyleForGame['hearts'] = `
@@ -2340,6 +2351,18 @@ _darkStyleForGame['rolltothetopjourneys'] = `
 .first_player { filter: var(--highlight-min); }
 `;
 
+_styleForGame['romirami'] = `
+#rr-area-pref-background { display: none !important; }
+`;
+
+_darkStyleForGame['romirami'] = `
+div.player-name > a, span.player-name { background-color: transparent !important; }
+#rr-area-player-container .rr-area-player, #rr-area-pref { background-color: var(--dark-back); color: var(--light-80); }
+.bx-counter { color: var(--light-80); background-color: var(--dark-10); border: 1px solid var(--light-80); }
+.custom_popin { background: var(--dark-10); color: var(--light-80); }
+.bx-pill { background-color: var(--dark-0); color: var(--light-80); }
+`;
+
 _darkStyleForGame['russianrailroads'] = `
 .player-name, .player_score { background-color: var(--dark-20); }
 .nameslot { width: auto; }
@@ -2447,6 +2470,9 @@ html.darkpanel #player_boards .player-board { background: var(--dark-30) !import
 html.darkpanel #player_boards .player-board.stw_activepl { background: var(--dark-40) !important; }
 #centralaround.stw_emptypile { background: #80808099; }
 .stw_log_icon { filter: var(--drop-shadow); }
+.player-board { background-color: var(--dark-10); }
+.stw_activepl { background-color: var(--dark-20); }
+.choiceitem { background: var(--dark-40); }
 `;
 
 _darkStyleForGame['sevenwondersduel'] = `

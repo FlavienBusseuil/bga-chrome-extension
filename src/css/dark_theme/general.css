@@ -1553,3 +1553,9 @@ select.colorselector {
 .studio-framework-navigation {
   background: var(--dark-0) !important;
 }
+
+.playernotification_not_read,
+#current_tournament,
+div.post[style="background-color: rgb(237, 186, 183);"] {
+  background-color: var(--dark-40) !important;
+}
