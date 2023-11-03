@@ -1309,6 +1309,7 @@ html.darkpanel #player_boards .player-board.gb-player-panel-passed { background-
 .custom_popin { background: var(--dark-10); color: var(--light-80); }
 .custom_popin_closeicon { color: #aaa !important; }
 .notouch-device .custom_popin_closeicon:hover { color: #fff !important; }
+div.player-name > a, span.player-name { background-color: transparent !important; }
 `;
 
 _darkStyleForGame['goldwest'] = `
@@ -2169,6 +2170,19 @@ _darkStyleForGame['pinochle'] = `
 _darkStyleForGame['piratenkapern'] = `
 .blue { background-color: #00004d; }
 .red { background-color: #660000; color: #fff; }
+`;
+
+_darkStyleForGame['planetunknown'] = `
+#susan-container #susan-exterior { background: var(--dark-0); }
+#susan-container #susan-interior { background: var(--dark-20); }
+#susan-container .susan-space .susan-counter { background: var(--dark-0); color: var(--light-80); border-color: var(--light-80); }
+#popin_chooseCard, #popin_showScores, #popin_showSettings, #popin_showSusan, .planetunknown_popin_cards { background-color: #62411e; }
+#popin_chooseCard h2, #popin_showScores h2, #popin_showSettings h2, #popin_showSusan h2, .planetunknown_popin_cards h2 { background: #433423; color: var(--light-80); }
+#decks-info .civ-deck-counter-wrapper { box-shadow: none; filter: var(--drop-shadow); }
+#popin_showScores #popin_showScores_contents table thead tr#scores-planets { background: #433423; color: var(--light-80); }
+#popin_showScores #popin_showScores_contents table thead tr th, #popin_showScores #popin_showScores_contents table tbody tr td { color: var(--light-80); }
+#popin_showScores #popin_showScores_contents table tbody tr:nth-child(odd) { background: #433423; }
+#popin_showScores #popin_showScores_contents table thead tr#scores-names, #popin_showScores #popin_showScores_contents table tbody tr#scores-row-total { background-color: var(--dark-40); }
 `;
 
 _darkStyleForGame['pokerdice'] = `
