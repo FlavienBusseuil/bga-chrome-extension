@@ -84,6 +84,11 @@ body.mobile_version #chatbar .chatwindowcollapsed {
   text-shadow: none;
 }
 
+.notouch-device .predefined_message:hover,
+.notouch-device .predefined_textmessage:hover {
+  background-color: var(--dark-10);
+}
+
 .bgasmiley_smile {
   background-position: center;
   background-repeat: no-repeat;
@@ -138,8 +143,8 @@ body.mobile_version #chatbar .chatwindowcollapsed {
   background-image: url("chrome-extension://__MSG_@@extension_id__/img/dark_theme/forum/smilies/icon_e_surprised.gif");
 }
 
-/*
-todo
 .bgasmiley_blushing {
-  background-position: 0 -2040px
-}*/
+  background-position: center;
+  background-repeat: no-repeat;
+  background-image: url("chrome-extension://__MSG_@@extension_id__/img/dark_theme/forum/smilies/icon_e_shy.gif");
+}
