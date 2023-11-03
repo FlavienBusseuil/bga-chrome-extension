@@ -111,7 +111,8 @@ export const gamesWithCustomPlayerStyle = {
 };
 
 export const gamesWithCustomColors = {
-  terramystica: ['#971923', '#278139', '#70421d', '#1a2126']
+  terramystica: ['#971923', '#278139', '#70421d', '#1a2126'],
+  nowboarding: ['#000000']
 };
 
 export const gamesWithCustomActions = {
@@ -1994,11 +1995,14 @@ _darkStyleForGame['novaluna'] = `
 .disc { color: #000; }
 `;
 
-/* for wiki */
 _darkStyleForGame['nowboarding'] = `
 .wikicontent [style^="background: #FFF8E1;"] { background: var(--yellow-10) !important; }
 .wikicontent [style^="background: #E3F2FD;"] { background: var(--blue-10) !important; }
-}
+#chatbar .chatwindowlogs_zone { background: transparent; }
+#chatbar .chatwindowlogs_zone .roundedboxinner .msgtime { color: #777; }
+#chatbar .chatwindow .chatlog.ownchatlog .playername, #chatbar .chatwindow .chatlog.sameauthor .playername,
+#chatbar .chatwindow .chatwindowtype_privatechat .playername { display: none !important; }
+.load_previous_message { background: #00000080; }
 `;
 
 _styleForGame['numberdrop'] = `
