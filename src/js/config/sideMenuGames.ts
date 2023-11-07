@@ -1002,6 +1002,13 @@ const defaultGames: Partial<Game>[] = [
 		playerPanel: "rr-area-player-{{player_id}}",
 		css: "#rr-shortcut-area, #rr-area-pref-shortcut { display: none; }",
 	},
+	{
+		name: "bagofchips",
+		playerPanel: "player-table-{{player_id}}",
+		bottomPanel: "skin",
+		css: "#bga-jump-to_controls { display: none; }",
+	},
+
 ];
 
 export default defaultGames;

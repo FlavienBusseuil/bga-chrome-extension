@@ -107,11 +107,13 @@ export const gamesWithCustomPlayerStyle = {
   stupormundi: '.stm_playermat_label',
   tucano: '.tuc_header',
   wizardsgrimoire: '.wg-title',
-  zuuli: '.writes.lg'
+  zuuli: '.writes.lg',
+  bagofchips: '#tables .name-wrapper'
 };
 
 export const gamesWithCustomColors = {
   terramystica: ['#971923', '#278139', '#70421d', '#1a2126'],
+  terranova: ['#971923', '#278139', '#70421d', '#1a2126'],
   nowboarding: ['#000000']
 };
 
@@ -380,6 +382,12 @@ _darkStyleForGame['babydinosaurrescue'] = `
 [style^="color:#5f79b6"] { color: #738abf !important; }
 [style^="color:#8b4513"] { color: #e06f1f !important; }
 [style^="color:#0000ff"] { color: #6666ff !important; }
+`;
+
+_darkStyleForGame['bagofchips'] = `
+.player-table, #skin { background: var(--dark-back); color: var(--light-80); }
+#bga-zoom-controls { filter: invert(0.7); }
+#popin_bgaHelpDialog { background: var(--dark-10); }
 `;
 
 _darkStyleForGame['balloonpop'] = `
@@ -959,6 +967,11 @@ _darkStyleForGame['dogpark'] = `
 #bga-zoom-controls { filter: invert(0.7); }
 `;
 
+_darkStyleForGame['dominoes'] = `
+body { background: none !important; }
+.map_zoom { filter: invert(1); }
+`;
+
 _darkStyleForGame['downforce'] = `
 .df-car-token-small { filter: var(--drop-shadow); }
 `;
@@ -1030,10 +1043,9 @@ _darkStyleForGame['earth'] = `
 .ea-pill-counter { color: #fff; }
 .ea-objective-button .ea-pill-counter { color: #fff !important; }
 .bx-checkbox-switch, #ea-tableau-slider, #ea-fauna-slider { filter: grayscale(1); }
-.ea-icon-sprout, .ea-icon-soil, .ea-icon-growth, .ea-icon-draw-from-deck, .ea-icon-compost-destroy, .ea-icon-card-type-tree, .ea-icon-card-type-herb,
-.ea-icon-card-type-mushroom, .ea-icon-card-type-bush, .ea-icon-card-type-joker, .ea-icon-card-type-terrain, .ea-icon-card-type-event,
-.ea-icon-habitat-sunny, .ea-icon-habitat-wet, .ea-icon-habitat-rocky, .ea-icon-habitat-cold { filter: invert(1); }
-.ea-mini-card { border: 2px solid var(--light-70); }
+.ea-player-panel-pill div[class^="ea-icon"]:not([class="ea-icon-card-type-fauna"]) { filter: invert(1); }
+#logs div[class^="ea-icon"], .bgabutton_gray div[class^="ea-icon"], #pagemaintitletext div[class^="ea-icon"] { filter: invert(1); }
+.ea-mini-card, .ea-main-action-id-color { border: 2px solid var(--light-70); }
 .player-name a { background-color: transparent !important; }
 .custom_popin { background: var(--dark-10); color: var(--light-80); }
 .custom_popin_closeicon { color: #aaa !important; }
@@ -1045,6 +1057,14 @@ _darkStyleForGame['earth'] = `
 .ea-counter { background-color: var(--dark-10); border: 1px solid var(--light-80); color: var(--light-80); }
 .ea-objective-button { background-color: var(--dark-10); filter: var(--drop-shadow); }
 .ea-dialog-objective-detail-player-name > span, .ea-objective-detail-progress > span { background-color: transparent !important; }
+.ea-main-action-id-color-0.ea-main-action-id-color-0,.ea-main-action-id-color-0.ea-main-action-id-color-0:active { background: #44753d; }
+.ea-main-action-id-color-0.ea-main-action-id-color-0:hover { background: #4e8646; }
+.ea-main-action-id-color-1.ea-main-action-id-color-1,.ea-main-action-id-color-1.ea-main-action-id-color-1:active { background: #e26745; }
+.ea-main-action-id-color-1.ea-main-action-id-color-1:hover { background: #e5795b; }
+.ea-main-action-id-color-2.ea-main-action-id-color-2,.ea-main-action-id-color-2.ea-main-action-id-color-2:active { background: #87cdba; }
+.ea-main-action-id-color-2.ea-main-action-id-color-2:hover { background: #99d5c4; }
+.ea-main-action-id-color-3.ea-main-action-id-color-3,.ea-main-action-id-color-3.ea-main-action-id-color-3:active { background: #dcc84f; }
+.ea-main-action-id-color-3.ea-main-action-id-color-3:hover { background: #e0cf64; }
 `;
 
 _darkStyleForGame['ecarte'] = `
@@ -2159,6 +2179,11 @@ _darkStyleForGame['pi'] = `
 .token, .sp_marker { filter: var(--drop-shadow); }
 `;
 
+_darkStyleForGame['piepmatz'] = `
+#feeder_deck_count { text-shadow: none !important; }
+span[style^="background-color:white"] { background-color: var(--dark-back) !important; color: var(--light-80); }
+`;
+
 _darkStyleForGame['piereighteen'] = `
 .score_star { filter: var(--drop-shadow); text-shadow: none; }
 `;
@@ -2786,6 +2811,11 @@ _darkStyleForGame['terramystica'] = `
 #faction_name_chaosmagicians, #faction_name_giants { color: #c5202e !important; }
 `;
 
+_darkStyleForGame['terranova'] = `
+.faction_supply { background-color: var(--dark-back); }
+#logs .tmlogs_icon div[class^="trans_"] { border-radius: 12px; }
+`;
+
 _darkStyleForGame['thattimeyoukilledme'] = `
 #player_boards .tty-pawn-000000, .tty-log-entry.tty-log-move-pawn-000000, .tty-log-entry.tty-log-move-pawn-ffffff { filter: var(--highlight-min); }
 .tty-rock-label { color: var(--light-80); }
@@ -2901,6 +2931,10 @@ _darkStyleForGame['thermopyles'] = `
 _darkStyleForGame['thirtyone'] = `
 .closer { background-color: var(--dark-40) !important; }
 .name_shadow { text-shadow: none; }
+`;
+
+_darkStyleForGame['tholos'] = `
+.quantity { color: #5b7fa4; }
 `;
 
 _darkStyleForGame['throneandthegrail'] = `
@@ -3109,6 +3143,11 @@ _darkStyleForGame['vaalbara'] = `
 
 _darkStyleForGame['vault'] = `
 .dieval { border: 1px solid var(--blue-70); }
+`;
+
+_darkStyleForGame['vaultdenofthieves'] = `
+.doubleempty { color: var(--light-80); }
+.dieval { border: 1px solid #9999ff; }
 `;
 
 _darkStyleForGame['vegetables'] = `
