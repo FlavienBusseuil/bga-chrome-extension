@@ -108,7 +108,8 @@ export const gamesWithCustomPlayerStyle = {
   tucano: '.tuc_header',
   wizardsgrimoire: '.wg-title',
   zuuli: '.writes.lg',
-  bagofchips: '#tables .name-wrapper'
+  bagofchips: '#tables .name-wrapper',
+  framework: '#player-tabs > .player-tab > span',
 };
 
 export const gamesWithCustomColors = {
@@ -1213,6 +1214,15 @@ _darkStyleForGame['fortytwo'] = `
 
 _darkStyleForGame['fractal'] = `
 div[class^="icon_placed_tiles"] { filter: var(--drop-shadow); }
+`;
+
+_darkStyleForGame['framework'] = `
+body { background: none !important; }
+#offer-row #available-tiles { background-color: var(--dark-back); }
+.player-tab { background-color: var(--dark-back); border-left: 2px solid var(--dark-back); border-right: 2px solid var(--dark-back); }
+#player-tabs, .player-table { border: 2px solid var(--dark-back); }
+.player-tab-active { background-color: var(--dark-10); }
+.fa6, #frm_drawbag > img { filter: invert(0.7); }
 `;
 
 _darkStyleForGame['frenchtarot'] = `

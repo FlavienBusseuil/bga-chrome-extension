@@ -38,7 +38,7 @@
       "all_frames": true
     }
   ],
-  "author": "Flavien Busseuil",
+  "author": "Flavien Busseuil & Christophe Delaforge",
   "homepage_url": "https://github.com/FlavienBusseuil/bga-chrome-extension",
   "background": {
     "service_worker": "background.js",
