@@ -555,6 +555,10 @@ _darkStyleForGame['buttons'] = `
 .player-name { text-shadow: none; }
 `;
 
+_darkStyleForGame['caboodle'] = `
+body { background: none; }
+`;
+
 _darkStyleForGame['cacao'] = `
 .player_score_value { color: #000; }
 #jungle_display { background-color: var(--dark-back); border: 5px solid var(--dark-back); }
@@ -1297,6 +1301,9 @@ body { background: none !important; }
 #generalSupplyPanel { background: var(--dark-back); }
 #increaseZoomButton, #decreaseZoomButton { filter: invert(0.7); }
 .zoneWrapper { background: var(--dark-20); }
+.vp_panel, .res_panel, .newHandTile_panel { background-color: var(--dark-20); border-color: var(--dark-40); }
+.scrollmap_container.scrollmap_btns_right > .scrollmap_btns_divs_wrapper > .scrollmap_btns_flex { background: var(--dark-30); }
+.scrollmap_form [ type="submit"] { background-color: var(--dark-0) !important; }
 `;
 
 _darkStyleForGame['gizmos'] = `
@@ -2936,6 +2943,12 @@ _darkStyleForGame['themotherroad'] = `
 _darkStyleForGame['thermopyles'] = `
 #overall-content { color: var(--light-80); }
 #persian_graveyard { background-color: var(--dark-back); opacity: 1;}
+`;
+
+_darkStyleForGame['thewolves'] = `
+body { background: none; }
+.wolves-status-icon svg path { fill: var(--dark-20); stroke: var(--light-80); }
+.wolves-status-icon:after { background: var(--dark-0); box-shadow: 0 0 4px #fff, 0 1px 2px #000; color: var(--light-80);
 `;
 
 _darkStyleForGame['thirtyone'] = `

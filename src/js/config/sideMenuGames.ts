@@ -1008,7 +1008,10 @@ const defaultGames: Partial<Game>[] = [
 		bottomPanel: "skin",
 		css: "#bga-jump-to_controls { display: none; }",
 	},
-
+	{
+		name: "thewolves",
+		playerPanel: "wolves-player-container-{{player_id}}"
+	},
 ];
 
 export default defaultGames;
