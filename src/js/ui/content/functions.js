@@ -9,10 +9,10 @@ import { initGameListObserver } from "./gameList/functions";
 import { initDarkMode } from "./darkMode/functions";
 import shouldFilter from "../../config/filteredLogs";
 
-const buildMainCss = () => {
+const buildMainCss = (code) => {
 	const style = document.createElement("style");
 	style.id = "cde_bga_ext";
-	style.innerHTML = "#lrf-bga-extension { display: none; }";
+	style.innerHTML = `#lrf-bga-extension { display: none; } ${code}`;
 	document.head.appendChild(style);
 };
 

@@ -17,3 +17,11 @@ export const addChangeListener = (func) => {
 export const getUrl = (localUrl) => {
 	return chrome.runtime.getURL(localUrl);
 };
+
+export const localStorageGet = async () => {
+	return await chrome.storage.local.get();
+};
+
+export const localStorageSet = async (val) => {
+	return await chrome.storage.local.set(val);
+};

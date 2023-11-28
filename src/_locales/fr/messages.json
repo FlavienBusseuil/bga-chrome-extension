@@ -81,11 +81,17 @@
 	"optionNavigationTab": {
 		"message": "Navigation entre les plateaux des joueurs"
 	},
+	"optionCssTab": {
+		"message": "CSS personnalisé"
+	},
 	"optionHiddenTitle": {
 		"message": "Liste des jeux cachés"
 	},
 	"optionNavigationTitle": {
 		"message": "Liste des jeux gérés"
+	},
+	"optionCssTitle": {
+		"message": "Personnalisez l'apparence du site avec du code CSS"
 	},
 	"optionNoHiddenGames": {
 		"message": "Aucun jeu caché"

@@ -81,11 +81,17 @@
 	"optionNavigationTab": {
 		"message": "Navigation between players' boards"
 	},
+	"optionCssTab": {
+		"message": "Custom CSS"
+	},
 	"optionHiddenTitle": {
 		"message": "Hidden games list"
 	},
 	"optionNavigationTitle": {
 		"message": "Managed games list"
+	},
+	"optionCssTitle": {
+		"message": "Customise the look and feel of the site with some CSS code"
 	},
 	"optionNoHiddenGames": {
 		"message": "No hidden games"

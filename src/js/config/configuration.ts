@@ -1,6 +1,6 @@
 import equal from "fast-deep-equal";
 import defaultGames from "./sideMenuGames";
-import { addChangeListener, storageGet, storageSet } from "../utils/chrome";
+import { addChangeListener, localStorageGet, localStorageSet, storageGet, storageSet } from "../utils/chrome";
 
 export interface Game {
 	name: string;
@@ -54,9 +54,14 @@ interface CustomConfig {
 	darkModeSat?: number;
 };
 
+interface LocalConfig {
+	css: string;
+}
+
 class Configuration {
 	_defConfig: { games: Game[] };
 	_customConfig: CustomConfig;
+	_localConfig: LocalConfig;
 	_config: { games: Game[] };
 
 	constructor() {
@@ -92,7 +97,11 @@ class Configuration {
 	}
 
 	async init() {
-		this._customConfig = (await storageGet()) as any;
+		const [syncStorage, localStorage] = await Promise.all([storageGet(), localStorageGet()]);
+
+		this._customConfig = syncStorage;
+		this._localConfig = localStorage;
+
 		if (!this._customConfig.clientId) {
 			this._customConfig.clientId = self.crypto.randomUUID();
 			storageSet({ clientId: this._customConfig.clientId });
@@ -441,6 +450,15 @@ class Configuration {
 		}
 
 		this._sendAnalytics('set_dark', gameName);
+	}
+
+	getCustomCss() {
+		return this._localConfig.css || "";
+	}
+
+	setCustomCss(code: string) {
+		this._localConfig.css = code;
+		return localStorageSet({ css: code });
 	}
 }
 

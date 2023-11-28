@@ -10,10 +10,9 @@ const Options = (props: { config: Configuration }) => {
 	const [selected, setSelected] = useState(list[0]);
 	const [changed, setChanged] = useState(false);
 	const [text, setText] = useState("");
+	const [css, setCss] = useState(config.getCustomCss());
 	const [tabSelected, setTabSelected] = useState("hidden");
-	const [hiddenGames, setHiddenGames] = useState<string[]>(
-		config.getHiddenGames(),
-	);
+	const [hiddenGames, setHiddenGames] = useState<string[]>(config.getHiddenGames());
 
 	const serialize = (game: Game) => {
 		return JSON.stringify(
@@ -63,9 +62,14 @@ const Options = (props: { config: Configuration }) => {
 	};
 
 	const save = () => {
-		const game = JSON.parse(text);
-		setList(config.saveGame(selected.name, game));
-		setSelected(game);
+		try {
+			const game = JSON.parse(text);
+			setList(config.saveGame(selected.name, game));
+			setSelected(game);
+		}
+		catch (error) {
+			window.location.reload();
+		}
 	};
 
 	const duplicate = () => {
@@ -190,41 +194,70 @@ const Options = (props: { config: Configuration }) => {
 		);
 	};
 
-	return (
-		<div className="bgext_options_main">
-			<div className="bgext_options_config_area">
-				<div className="bgext_links_area">
-					<div
-						className={
-							tabSelected === "hidden"
-								? "bgext_link_selected"
-								: "bgext_link"
-						}
-						href="#"
-						selected={tabSelected === "hidden"}
-						onClick={() => setTabSelected("hidden")}
-					>
-						{chrome.i18n.getMessage("optionHiddenTab")}
-					</div>
-					<div
-						className={
-							tabSelected === "navigation"
-								? "bgext_link_selected"
-								: "bgext_link"
-						}
-						href="#"
-						selected={tabSelected === "navigation"}
-						onClick={() => setTabSelected("navigation")}
-					>
-						{chrome.i18n.getMessage("optionNavigationTab")}
-					</div>
+	const getCssConfiguration = () => {
+		return (
+			<>
+				<div className="bgext_options_title">
+					{chrome.i18n.getMessage("optionCssTitle")}
 				</div>
-				{tabSelected === "hidden"
-					? getHiddenConfiguration()
-					: getNavigationConfiguration()}
+				<div className="bgext_css_container">
+					<textarea
+						id="css_config"
+						className="bgext_options_input"
+						value={css}
+						onChange={(evt) => setCss((evt.target as any).value)}
+						onKeyUp={() => setCss((document.getElementById("css_config") as any).value)}
+					/>
+				</div>
+				<div className="bgext_css_buttons">
+					<button
+						style={{ width: "100px" }}
+						onClick={() => config.setCustomCss(css).catch(_ => window.location.reload())}
+					>
+						{chrome.i18n.getMessage("optionSave")}
+					</button>
+				</div>
+			</>
+		);
+	};
+
+	const getTab = (tabId: string, tabText: string) => {
+		return (
+			<div
+				className={
+					tabSelected === tabId
+						? "bgext_link_selected"
+						: "bgext_link"
+				}
+				href="#"
+				selected={tabSelected === tabId}
+				onClick={() => setTabSelected(tabId)}
+			>
+				{tabText}
 			</div>
-		</div>
-	);
+		);
+	};
+
+	try {
+		return (
+			<div className="bgext_options_main">
+				<div className="bgext_options_config_area">
+					<div className="bgext_links_area">
+						{getTab("hidden", chrome.i18n.getMessage("optionHiddenTab"))}
+						{getTab("navigation", chrome.i18n.getMessage("optionNavigationTab"))}
+						{getTab("css", chrome.i18n.getMessage("optionCssTab"))}
+					</div>
+					{tabSelected === "hidden" && getHiddenConfiguration()}
+					{tabSelected === "navigation" && getNavigationConfiguration()}
+					{tabSelected === "css" && getCssConfiguration()}
+				</div>
+			</div>
+		);
+	}
+	catch (error) {
+		window.location.reload();
+		return <></>;
+	}
 };
 
 export default Options;

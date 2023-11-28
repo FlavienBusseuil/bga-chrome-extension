@@ -64,6 +64,24 @@ div.bgext_hidden_games_container {
 	padding: 1em;
 }
 
+div.bgext_css_container {
+	height: 400px;
+	box-sizing: border-box;
+	border: 1px solid #aaaaaa;
+	margin: 0em 2em;
+	display: flex;
+	flex-flow: row wrap;
+	justify-content: start;
+	padding: 1em;
+}
+
+div.bgext_css_buttons {
+	display: flex;
+	flex-flow: row wrap;
+	justify-content: end;
+	padding-right: 2em;
+}
+
 div.bgext_hidden_game {
 	position: relative;
 	margin-right: 5px;

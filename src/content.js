@@ -91,7 +91,7 @@ const setHtmlClass = (mode) => {
 const initPage = () => {
 	config.isEmpty() && document.dispatchEvent(new CustomEvent("bga_ext_get_config", {}));
 
-	buildMainCss();
+	buildMainCss(config.getCustomCss());
 	addLocationChangeListener(manageLocationChange);
 	manageLocationChange(window.location.pathname);
 };
