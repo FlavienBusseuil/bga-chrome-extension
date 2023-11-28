@@ -147,7 +147,8 @@ select.colorselector {
 }
 
 .bga-invite-player-modal__content .bga-hover-for-list:hover,
-.bga-toast-holder .bga-hover-for-list:hover {
+.bga-toast-holder .bga-hover-for-list:hover,
+.notouch-device .bga-hover-for-list:hover {
   background: linear-gradient(180deg, var(--dark-30) 20%, var(--dark-30) 80%) !important;
 }
 
@@ -166,6 +167,14 @@ select.colorselector {
 .bga-link:hover .pagesection__content,
 .gamename:hover {
   color: var(--violet-80);
+}
+
+.bga-link--active,
+.bga-link-inside a:not(.playername, .gamename, .bgabutton):active,
+.bga-link-inside a:not(.playername, .gamename, .bgabutton):hover,
+.bga-link:active,
+.bga-link:hover {
+  text-decoration: underline;
 }
 
 .bgaext_ratingdetails a {
@@ -251,12 +260,20 @@ select.colorselector {
   color: var(--light-80);
 }
 
+.bga-menu-bar-items {
+  background: var(--dark-10) !important;
+}
+
 .bga-menu-bar-items.bga-mobile .bga-menu-bar-items__menu-item {
-  background: var(--dark-20) !important;
+  background: var(--dark-10) !important;
 }
 
 .bga-menu-bar-items.bga-mobile .bga-menu-bar-items__menu-item--active {
-  color: var(--violet-80) !important;
+  color: var(--light-80) !important;
+}
+
+.bga-menu-bar-items__selection {
+  background-color: var(--light-80) !important;
 }
 
 /* Barre de recherche */
@@ -962,6 +979,18 @@ select.colorselector {
   background: var(--dark-20) !important;
 }
 
+.bgaext_gamepanel .bg-gray-300 {
+  background-color: var(--dark-10);
+}
+
+.bgaext_gamepanel .bga-ranking-entry.bga-ranking-entry--me {
+  background: linear-gradient(#3759FF, #0E6FF4) !important;
+}
+
+.bgaext_gamepanel [style*="background-color: rgb(233, 199, 0)"] {
+  background-color: transparent !important;
+}
+
 /* start screen */
 .gamestart_overlay {
   background: var(--dark-20);
@@ -1138,8 +1167,12 @@ select.colorselector {
 .bgaext_translationhq .statstable td,
 .bgaext_translationhq .statstable th,
 .bgaext_translation .statstable td,
-.bgaext_translation .statstable th {
-  border: 1px solid #888
+.bgaext_translation .statstable th,
+.bgaext_bugs .statstable td,
+.bgaext_bugs .statstable th,
+.bgaext_bugs .statstable td,
+.bgaext_bugs .statstable th {
+  border: 1px solid var(--dark-40);
 }
 
 .bgaext_translation #translationwarning {
@@ -1258,6 +1291,10 @@ select.colorselector {
   filter: invert(0.7);
 }
 
+.own-progress-wrap-not-participated {
+  color: var(--light-80);
+}
+
 /* Tournament */
 
 .bgaext_tournament #group_avatar[src*="noimage_tournament"] {
@@ -1366,6 +1403,14 @@ select.colorselector {
   background-color: var(--dark-30);
 }
 
+.notouch-device .expanded .achievement:hover {
+  background-color: var(--dark-30);
+}
+
+.expanded .achievement_container.topleft {
+  background-image: none;
+}
+
 /* Page News */
 #follow_us_portlet.portlet .portlet__content {
   background: var(--dark-10);
@@ -1427,10 +1472,7 @@ select.colorselector {
   color: var(--violet-80);
 }
 
-.palmares_details .icon20 {
-  filter: invert(0.7);
-}
-
+.palmares_details .icon20,
 .whypremium_icon,
 .panelmenuicon {
   filter: invert(0.7);
@@ -1558,4 +1600,12 @@ select.colorselector {
 #current_tournament,
 div.post[style="background-color: rgb(237, 186, 183);"] {
   background-color: var(--dark-40) !important;
+}
+
+.panel-arena-history-entry {
+  background-color: var(--dark-30) !important;
+}
+
+.panel-arena-history-entry:nth-child(odd) {
+  background-color: var(--dark-10) !important;
 }

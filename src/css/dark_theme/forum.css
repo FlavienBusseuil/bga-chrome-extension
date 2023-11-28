@@ -441,7 +441,7 @@ blockquote blockquote blockquote {
 }
 
 .codebox code {
-  color: #AA0000;
+  color: #c00;
 }
 
 /* Attachments
@@ -1425,6 +1425,16 @@ li.notification-disapproved strong {
   color: #ffffff;
 }
 
+.phpbb_iframed a {
+  color: #4871b6;
+}
+
+.phpbb_iframed a:hover {
+  color: #3abdb8;
+  background: transparent;
+  text-decoration: underline;
+}
+
 .phpbb_iframed a:visited {
   color: #92aad3;
 }
@@ -1448,4 +1458,8 @@ li.notification-disapproved strong {
 input.inputbox {
   background: black;
   color: #f9f9f9 !important;
+}
+
+#postingbox.panel {
+  background-color: #2a2a2a;
 }

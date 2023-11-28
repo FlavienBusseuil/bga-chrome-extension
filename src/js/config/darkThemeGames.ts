@@ -41,7 +41,6 @@ export const gamesWithCustomBackground = [
   'pandemic',
   'pingimus',
   'quirkyquarks',
-  'raceforthegalaxy',
   'restinpeace',
   'romirami',
   'santorini',
@@ -2312,7 +2311,11 @@ _darkStyleForGame['quoridor'] = `
 `;
 
 _darkStyleForGame['raceforthegalaxy'] = `
+body { background: none; }
 #vp_nbr_remain_img { filter: var(--highlight-min); }
+.new_design a:link { color: var(--light-70); }
+.player-board, .roundedbox,  .roundedbox .roundedbox_bottomleft, .roundedbox .roundedbox_bottommain, .roundedbox .roundedbox_bottomright,
+.roundedbox .roundedbox_main, .roundedbox .roundedbox_topleft, .roundedbox .roundedbox_topmain, .roundedbox .roundedbox_topright { background-color: transparent; }
 `;
 
 _darkStyleForGame['railroadink'] = `

@@ -306,7 +306,7 @@ const ModeSelector = (props: ModeSelectorProps) => {
   };
 
   return (
-    <span>
+    <span style={{ display: "flex", flexFlow: "row nowrap" }}>
       {getMenuIcon()}
 
       <span onClick={toggleDarkMode}>
