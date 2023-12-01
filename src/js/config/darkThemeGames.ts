@@ -109,6 +109,7 @@ export const gamesWithCustomPlayerStyle = {
   zuuli: '.writes.lg',
   bagofchips: '#tables .name-wrapper',
   framework: '#player-tabs > .player-tab > span',
+  terraformingmars: ".mfull .playerboard_side_name"
 };
 
 export const gamesWithCustomColors = {
@@ -2814,6 +2815,22 @@ _darkStyleForGame['teotihuacan'] = `
 .cc_counter { background-color: #ffffff33; }
 .token24 { filter: var(--drop-shadow); }
 .enableButton { border: 1px solid var(--light-70); }
+`;
+
+_darkStyleForGame['terraformingmars'] = `
+.groupline { text-shadow: none; }
+.log .token_img { color: #000; }
+#settings-controls-container-prefs:before, .localsettings_header { background-color: var(--orange-30); }
+.tooltiptitle { background-color: var(--dark-back); }
+.mcompact .player_area { background: var(--dark-back); }
+.mcompact .tt_intertitle { background: var(--dark-40); }
+.mcompact .card_tooltipcontainer[data-card-type="1"] .tt_intertitle { background: #356818; }
+.mcompact .card_tooltipcontainer[data-card-type="2"] .tt_intertitle { background: #184268; }
+.mcompact .card_tooltipcontainer[data-card-type="3"] .tt_intertitle { background: #682118; }
+.mcompact .card_tooltipcontainer[data-card-type="4"] .tt_intertitle { background: #5d1868; }
+.mfull #ebd-body .tooltipcontainer { background-image: none; }
+.mfull .tooltiptitle { box-sizing: border-box; }
+.mfull .playerboard_side_gear:after { color: var(--dark-10); }
 `;
 
 _darkStyleForGame['terramystica'] = `

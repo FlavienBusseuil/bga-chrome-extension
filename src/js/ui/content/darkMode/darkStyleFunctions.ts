@@ -93,12 +93,27 @@ const getDarkColorsStyle = (playersData: PlayerData[]) => {
   return `${mappingStyle} ${enlightStyle} ${playerColorsCss}`;
 };
 
+const _checkContent = (elt: any, text: string) => {
+  const toSearch = text.toLowerCase();
+
+  if (elt.innerText.trim().toLowerCase().startsWith(toSearch)) {
+    return true;
+  }
+
+  const beforeText = getComputedStyle(elt, ':before').getPropertyValue('content') || '';
+  if (beforeText.trim().replace('"', '').toLowerCase().startsWith(toSearch)) {
+    return true;
+  }
+
+  return false;
+};
+
 const _setPlayersColor = (query: string, playersData: PlayerData[]) => {
   const elements = document.querySelectorAll(query);
 
   let ok = false;
   elements.forEach((elt: any) => {
-    const data = playersData.find(p => elt.innerText.trim().toLowerCase().startsWith(p.name.toLowerCase()));
+    const data = playersData.find(p => _checkContent(elt, p.name));
     if (data) {
       elt.classList.add(`ext_player_${data.id}`);
       ok = true;

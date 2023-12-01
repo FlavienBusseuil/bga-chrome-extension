@@ -1012,6 +1012,11 @@ const defaultGames: Partial<Game>[] = [
 		name: "thewolves",
 		playerPanel: "wolves-player-container-{{player_id}}"
 	},
+	{
+		name: "terraformingmars",
+		playerPanel: "#players_area .player_area",
+		boardPanel: "main_board"
+	},
 ];
 
 export default defaultGames;

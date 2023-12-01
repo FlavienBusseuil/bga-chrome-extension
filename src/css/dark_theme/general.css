@@ -794,9 +794,13 @@ select.colorselector {
   color: var(--light-80);
 }
 
+.bga-collapse-icon {
+  background-image: linear-gradient(0deg, var(--dark-40), var(--dark-20)) !important;
+  border: 1px solid var(--light-70);
+}
+
 .bga-game-panel .bga-panel-table-status .bga-page-section__content .bga-collapse-icon {
   background: var(--light-80);
-  color: var(--dark-10);
 }
 
 .bga-game-panel .bga-panel-table-status .bga-page-section__content [class*=text-bga-gray]:hover .bga-collapse-icon {
