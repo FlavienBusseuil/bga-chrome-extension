@@ -19,16 +19,25 @@ input:focus,
 textarea,
 select {
   color-scheme: dark;
-  background: var(--dark-40);
+  background: var(--dark-30);
   color: var(--light-80);
   border: 1px solid #b3b3b3;
 }
 
 textarea:focus,
 input:focus,
-select:focus {
+select:focus,
+.bga-game-selector:focus {
   outline: none;
   border: 1px solid #fff;
+}
+
+input::placeholder {
+  color: #b3b3b3;
+}
+
+.border-none {
+  border-style: none !important;
 }
 
 .tundra .dijitSelectFocused,
@@ -49,6 +58,10 @@ select:focus {
 .tundra .dijitToggleButtonActive .dijitButtonNode,
 .tundra .dijitUpArrowButtonActive .dijitColorPalette {
   border-color: #fff;
+}
+
+.dijitTooltipContainer .imgtext[src$="/img/layout/help_click.png"] {
+  filter: invert(0.7);
 }
 
 .tundra .dijitButtonHover .dijitButtonNode,
@@ -333,6 +346,10 @@ select.colorselector {
 
 .bga-player-menu .notification-unread .notification-time {
   color: var(--light-80) !important;
+}
+
+.bga-player-menu .notification-image img[src$="gameguru.png"] {
+  filter: invert(0.7);
 }
 
 .bga-table-list-item--searching {
@@ -1112,8 +1129,15 @@ select.colorselector {
   color: #fff !important;
 }
 
+.bga-game-selector {
+  border: 1px solid #b3b3b3;
+}
+
 .bga-game-selector .bg-white {
   background-color: var(--dark-40);
+  border: 1px solid var(--light-70);
+  margin-left: -1px;
+  margin-top: 3px;
 }
 
 .bga-game-selector .bg-white .text-gray-500 {
@@ -1164,19 +1188,13 @@ select.colorselector {
 
 /* Page translation */
 
-.statstable th {
-  background-color: #8c4a0d;
+.statstable td[style="color:black"] {
+  color: var(--light-70) !important;
+  background-color: var(--dark-0);
 }
 
-.bgaext_translationhq .statstable td,
-.bgaext_translationhq .statstable th,
-.bgaext_translation .statstable td,
-.bgaext_translation .statstable th,
-.bgaext_bugs .statstable td,
-.bgaext_bugs .statstable th,
-.bgaext_bugs .statstable td,
-.bgaext_bugs .statstable th {
-  border: 1px solid var(--dark-40);
+.bgaext_translationhq .bga_big_input {
+  background-color: var(--dark-30);
 }
 
 .bgaext_translation #translationwarning {

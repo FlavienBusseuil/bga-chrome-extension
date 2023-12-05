@@ -1426,17 +1426,17 @@ li.notification-disapproved strong {
 }
 
 .phpbb_iframed a {
-  color: #4871b6;
+  color: var(--blue-80);
 }
 
 .phpbb_iframed a:hover {
-  color: #3abdb8;
+  color: var(--violet-80);
   background: transparent;
   text-decoration: underline;
 }
 
 .phpbb_iframed a:visited {
-  color: #92aad3;
+  color: var(--blue-80);
 }
 
 /* Custom */

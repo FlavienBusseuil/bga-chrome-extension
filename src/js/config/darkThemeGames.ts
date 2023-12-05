@@ -55,6 +55,7 @@ export const gamesWithCustomBackground = [
   'starfluxx',
   'thecrew',
   'talon',
+  'tinyturbocars',
   'trio',
   'tuned',
   'wizardsgrimoire'
@@ -282,6 +283,18 @@ _darkStyleForGame['amyitis'] = `
 _darkStyleForGame['anachrony'] = `
 .playeroverall { background: var(--dark-back); color: #fff; }
 .anaicon { filter: var(--highlight-min) !important; }
+`;
+
+_darkStyleForGame['ancientknowledge'] = `
+#popin_bgaHelpDialog { background: var(--dark-10); }
+#help-popin .help-icon-line { background: hsla(0,0%,93%,0.1); }
+.bga-help_button, .bga-help_unfolded-content { filter: invert(1); box-shadow: 3px 5px 5px 0 #fff; }
+.icon-technology-writing:before { color: #b7827b; }
+.player-table { background: var(--dark-back); }
+#table-center .fold-button .fold-button-arrow { background: var(--dark-10); border-radius: 24px; }
+.bga-cards_deck-counter.round { background: var(--dark-10); color: var(--light-80); }
+.player-table .timeline .slot { background: hsla(0,0%,100%,.1); }
+#bga-zoom-controls { filter: invert(0.7); }
 `;
 
 _darkStyleForGame['apocalypseazcc'] = `
@@ -3039,6 +3052,10 @@ _darkStyleForGame['tinyfarms'] = `
 #zoomControls { filter: invert(0.7); }
 #popin_gameScoringAid_contents>div:first-child { background-color: #283b12 !important; }
 .barnContainer>div:first-child { color: var(--light-80); text-shadow: none !important; }
+`;
+
+_darkStyleForGame['tinyturbocars'] = `
+#overall-content:before { content: ""; background: #000000bb; position: absolute; width: 100%; height: 100%; }
 `;
 
 _darkStyleForGame['tiwanaku'] = `

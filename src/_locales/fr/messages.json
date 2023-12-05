@@ -118,10 +118,13 @@
 		"message": "Plateau principal"
 	},
 	"reportCreationWarning": {
-		"message": "Vous utilisez une extension de navigateur qui modifie sensiblement le visuel du site et de certains jeux. Si vous avez un problème avec le mode sombre, ne créez pas un rapport, venez plutôt en parler sur le forum !"
+		"message": "Vous utilisez une extension de navigateur qui modifie sensiblement le visuel du site et de certains jeux. <br>Si vous avez un problème avec le mode sombre, ne créez pas un rapport, venez plutôt en parler sur le forum !"
 	},
 	"reportCreationWarningLink": {
 		"message": "ICI"
+	},
+	"reportCreationWarningCss": {
+		"message": "Vous avez également modifié le code CSS du site via les options de l'extension, veuillez d'abord vérifier que vos problèmes ne viennent pas de vos personnalisations."
 	},
 	"darkColorConfigurationMain": {
 		"message": "Configuration des couleurs par défaut"

@@ -1017,6 +1017,12 @@ const defaultGames: Partial<Game>[] = [
 		playerPanel: "#players_area .player_area",
 		boardPanel: "main_board"
 	},
+	{
+		name: "ancientknowledge",
+		playerPanel: "player-table-{{player_id}}",
+		css: "#bga-jump-to_controls { display: none; }",
+	},
+
 ];
 
 export default defaultGames;

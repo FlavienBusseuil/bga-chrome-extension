@@ -123,6 +123,9 @@
 	"reportCreationWarningLink": {
 		"message": "HERE"
 	},
+	"reportCreationWarningCss": {
+		"message": "You've also modified the CSS code of the site via the extension options, so please check first that your problems aren't caused by your customisations."
+	},
 	"darkColorConfigurationMain": {
 		"message": "Default colour settings"
 	},

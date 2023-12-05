@@ -150,7 +150,10 @@ body.mobile_version #chatbar .chatwindowcollapsed {
   background-image: url("chrome-extension://__MSG_@@extension_id__/img/dark_theme/forum/smilies/icon_e_shy.gif");
 }
 
+.notouch-device .chatwindowremovec {
+  background-position: 0 -1720px;
+}
+
 .notouch-device .chatwindowremovec:hover {
-  background-position: 0 -1800px;
-  /* change black icon to white at -1720px */
+  background-position: 0 -1740px;
 }
