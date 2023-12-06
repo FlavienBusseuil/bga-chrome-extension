@@ -110,7 +110,8 @@ export const gamesWithCustomPlayerStyle = {
   zuuli: '.writes.lg',
   bagofchips: '#tables .name-wrapper',
   framework: '#player-tabs > .player-tab > span',
-  terraformingmars: ".mfull .playerboard_side_name"
+  terraformingmars: '.mfull .playerboard_side_name',
+  biomos: '#playersboard div[id^="playerposition_"]',
 };
 
 export const gamesWithCustomColors = {
@@ -499,6 +500,7 @@ _darkStyleForGame['biomos'] = `
 .player_biome_nb { color: var(--light-80); }
 .player_board_reserve { background-color: var(--dark-20); color: var(--light-80); }
 #text { color: var(--light-70) !important; }
+.playerposition_1, .playerposition_2, .playerposition_3, .playerposition_4 { background-color: var(--dark-back); }
 `;
 
 _darkStyleForGame['biyi'] = `
@@ -636,7 +638,24 @@ _darkStyleForGame['castlesofburgundy'] = `
 _darkStyleForGame['catan'] = `
 .cat_panel_prim_icons, #player_boards .cat_panel_prim_icons .cat_panel_score { filter: invert(1) !important; }
 #replaylogs .cat_log_token, .log .cat_log_token, .tooltiptext .cat_log_token { filter: var(--drop-shadow); }
-#player_boards .cat_panel_sec_icons .cat_panel_icon { filter: var(--highlight-min); }
+#cat_map_bg { background: none; background-color: var(--dark-back); }
+#cat_mapcontrols { background: var(--dark-30); border: none; box-shadow: none; margin: 5px; filter: var(--drop-shadow); }
+#cat_mapcontrols > * { filter: invert(0.7); }
+#cat_devcards_draw { top: 4vh; }
+`;
+
+_darkStyleForGame['catanck'] = `
+.cat_panel_prim_icons, #player_boards .cat_panel_prim_icons .cat_panel_score { filter: invert(1) !important; }
+#replaylogs .cat_log_token, .log .cat_log_token, .tooltiptext .cat_log_token { filter: var(--drop-shadow); }
+#cat_map_bg { background: none; background-color: var(--dark-back); }
+.cat_img_knight, .cat_barbarians_ship { filter: invert(0.7); }
+.cat_ck_param_line { border-bottom: 1px solid var(--light-80); }
+#cat_mapcontrols { background: var(--dark-30); border: none; box-shadow: none; margin: 5px; filter: var(--drop-shadow); }
+#cat_mapcontrols > * { filter: invert(0.7); }
+#cat_devcards_ck { top: 6vh; }
+.cat_cardcounter { background: #000; border: 2px solid #fff; color: #fff; }
+.cat_panel_ck_citylevel { color: #000; }
+.cat_metropolis { box-shadow: none; filter: var(--drop-shadow); margin-bottom: 5px; }
 `;
 
 _darkStyleForGame['catcafe'] = `

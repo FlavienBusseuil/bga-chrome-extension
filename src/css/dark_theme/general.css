@@ -97,7 +97,8 @@ input::placeholder {
   filter: invert(1);
 }
 
-.extended_message_hidden:after {
+.extended_message_hidden:after,
+.commentcontent .extended_message_hidden:after {
   background: linear-gradient(180deg, hsla(0, 0%, 95%, 0), var(--dark-10));
 }
 
