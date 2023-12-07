@@ -384,6 +384,10 @@ _darkStyleForGame['aves'] = `
 #deck_size { color: var(--light-80); }
 `;
 
+_darkStyleForGame['azul'] = `
+.player-table-wrapper .player-hand { background: var(--dark-back); box-shadow: 0 0 5px 5px #000000dd; }
+`;
+
 _darkStyleForGame['babet'] = `
 .btnDesactive { background-color: var(--dark-40); }
 `;
@@ -838,6 +842,8 @@ _darkStyleForGame['conspiracy'] = `
 #logs [style="color: #770405"] { color: #ac0609 !important; }
 #popin_conspiracyHelpDialog { background: var(--dark-20); color: var(--light-80); }
 #help-popin h1 { color: #fff; }
+#help-popin #alliance { color: var(--yellow-10); }
+#help-popin #alliance .example-wrapper .example { margin-top: 1em; }
 `;
 
 _darkStyleForGame['copenhagen'] = `

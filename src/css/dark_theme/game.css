@@ -1,5 +1,4 @@
 :root {
-  --dark-popup-back: #373737;
   --drop-shadow-min: drop-shadow(1px 1px 1px #000) drop-shadow(0 0 1px #fff);
   --text-w-shadow: -1px 0 #fff, 0 1px #fff, 1px 0 #fff, 0 -1px #fff;
 }
@@ -188,11 +187,11 @@ spectator-mode .log .roundedbox .playername {
 }
 
 .chatwindowtype_table .chatbarbelowinput_item {
-  color: var(--light-80);
+  color: var(--dark-10) !important;
 }
 
 .chatwindowtype_table .chatbarbelowinput_item:hover {
-  color: var(--violet-80);
+  color: var(--violet-80) !important;
 }
 
 #loader_mask {
@@ -313,6 +312,10 @@ span.playername,
 .dijitTooltipContainer .help_info {
   background-color: transparent;
   background-image: url("chrome-extension://__MSG_@@extension_id__/img/dark_theme/tooltip/help_info.png");
+}
+
+.dijitTooltip .newbgatable td {
+  color: var(--light-80);
 }
 
 .help-marker {

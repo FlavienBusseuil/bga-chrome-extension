@@ -85,6 +85,14 @@ body.mobile_version #chatbar .chatwindowcollapsed {
   text-shadow: none;
 }
 
+.notouch-device .chatbarbelowinput_item {
+  color: var(--dark-10) !important;
+}
+
+.notouch-device .chatbarbelowinput_item:hover {
+  color: var(--violet-80) !important;
+}
+
 .notouch-device .predefined_message:hover,
 .notouch-device .predefined_textmessage:hover {
   background-color: var(--dark-10);

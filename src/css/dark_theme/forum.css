@@ -241,7 +241,7 @@ a:hover .icon.icon-lightgray {
 
 .icon.icon-black,
 a:hover .icon.icon-black {
-  color: #333333;
+  color: #bbb;
 }
 
 .alert_close .icon:before {
@@ -667,7 +667,7 @@ Colours and backgrounds for buttons.css
 
 .pagination li.ellipsis span {
   background: transparent;
-  color: #000000;
+  color: #fff;
 }
 
 .pagination li.active span {
@@ -1426,17 +1426,22 @@ li.notification-disapproved strong {
 }
 
 .phpbb_iframed a {
-  color: var(--blue-80);
+  color: #4871b6;
 }
 
 .phpbb_iframed a:hover {
-  color: var(--violet-80);
+  color: #3abdb8;
   background: transparent;
   text-decoration: underline;
 }
 
 .phpbb_iframed a:visited {
-  color: var(--blue-80);
+  color: #92aad3;
+}
+
+.phpbb_iframed #wrap {
+  background: #000;
+  padding: 2em;
 }
 
 /* Custom */
