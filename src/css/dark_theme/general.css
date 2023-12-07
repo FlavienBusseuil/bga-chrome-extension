@@ -1632,3 +1632,7 @@ div.post[style="background-color: rgb(237, 186, 183);"] {
 .panel-arena-history-entry:nth-child(odd) {
   background-color: var(--dark-10) !important;
 }
+
+iframe#forum_frame {
+  margin-bottom: 1em;
+}

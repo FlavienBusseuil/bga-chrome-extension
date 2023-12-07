@@ -1,3 +1,38 @@
+:root {
+  --dark-0: #000000;
+  --dark-10: #1d2023;
+  --dark-20: #272a2f;
+  --dark-30: #35373c;
+  --dark-40: #404347;
+  --dark-back: #272a2fbf;
+  --dark-popup-back: #373737;
+
+  --blue-10: #003b85;
+  --blue-50: #7289da;
+  --blue-70: #009aa0;
+  --blue-80: #11a9bb;
+
+  --red-10: #993333;
+  --red-50: #ff0000;
+
+  --green-10: #01663a;
+  --green-30: #009e0a;
+  --green-50: #00ff00;
+
+  --yellow-10: #996300;
+
+  --violet-60: #5a4275;
+  --violet-80: #8f5fbd;
+
+  --orange-10: #383b1b;
+  --orange-30: #8a5d0f;
+
+  --light-50: #8e8e8e;
+  --light-70: #ccc;
+  --light-80: #dcddde;
+  --light-100: #ffffff;
+}
+
 html,
 body {
   color: #D3D3D3;
@@ -1167,10 +1202,14 @@ Colours and backgrounds for forms.css
 
 /* General form styles
 ----------------------------------------*/
+
+input,
+textarea,
 select {
-  border-color: #666666;
-  background-color: #FAFAFA;
-  color: #000;
+  color-scheme: dark;
+  background: var(--dark-30);
+  color: var(--light-80);
+  border: 1px solid #b3b3b3;
 }
 
 label {
