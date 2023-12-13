@@ -1015,6 +1015,11 @@ body { background: none !important; }
 .map_zoom { filter: invert(1); }
 `;
 
+_darkStyleForGame['donuts'] = `
+.ring_set { background-color: var(--dark-back); }
+#boardback { filter: brightness(0.4); }
+`;
+
 _darkStyleForGame['downforce'] = `
 .df-car-token-small { filter: var(--drop-shadow); }
 `;
@@ -2073,11 +2078,12 @@ _darkStyleForGame['novaluna'] = `
 _darkStyleForGame['nowboarding'] = `
 .wikicontent [style^="background: #FFF8E1;"] { background: var(--yellow-10) !important; }
 .wikicontent [style^="background: #E3F2FD;"] { background: var(--blue-10) !important; }
-#chatbar .chatwindowlogs_zone { background: transparent; }
 #chatbar .chatwindowlogs_zone .roundedboxinner .msgtime { color: #777; }
 #chatbar .chatwindow .chatlog.ownchatlog .playername, #chatbar .chatwindow .chatlog.sameauthor .playername,
 #chatbar .chatwindow .chatwindowtype_privatechat .playername { display: none !important; }
 .load_previous_message { background: #00000080; }
+#nbchat .chatbarbelowinput { background: var(--dark-40); }
+.player-board .player-name a { text-shadow: 1px 1px #000 !important; }
 `;
 
 _styleForGame['numberdrop'] = `
