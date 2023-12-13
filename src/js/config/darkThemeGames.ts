@@ -1232,6 +1232,15 @@ _darkStyleForGame['fleet'] = `
 #playertables h3[style="color:#000000;"], #flt_game_area span[id^="playerbid_"] { color: #fff !important; }
 `;
 
+_darkStyleForGame['flipfreighters'] = `
+#ffg_showScoreDialogContent table tbody tr:nth-of-type(odd) { background-color: var(--dark-10); }
+#ffg_showScoreDialogContent table tbody tr.ffg_highlight { background-color: var(--yellow-10); }
+.ffg_board_title h1 span { background-color: var(--dark-0); }
+#ffg_user_settings { outline-color: var(--light-50); }
+#ffg_icon_settings, #ffg_round_label { color: var(--light-70); }
+#ffg_showScoreDialogContent table tbody tr.ffg_highlight .ffg_player_col>.playername { text-shadow: 1px 0 1px #000,0 1px 1px #000,-1px 0 1px #000,0 -1px 1px #000; }
+`;
+
 _darkStyleForGame['fluxx'] = `
 #pagesection_gameview .whiteblock { color: #000; }
 #flx-zoom-controls { background-color: var(--dark-20) !important; }

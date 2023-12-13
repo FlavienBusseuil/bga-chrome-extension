@@ -1000,7 +1000,7 @@ const defaultGames: Partial<Game>[] = [
 	{
 		name: "romirami",
 		playerPanel: "rr-area-player-{{player_id}}",
-		css: "#rr-shortcut-area, #rr-area-pref-shortcut { display: none; }",
+		css: "#rr-shortcut-area, #rr-area-pref-shortcut { display: none !important; }",
 	},
 	{
 		name: "bagofchips",
