@@ -990,6 +990,12 @@ _styleForGame['divideetimpera'] = `
 .bgext_avatar svg.dei_hidden { display: block !important; }
 `;
 
+_darkStyleForGame['divideetimpera'] = `
+#zoomplus, #zoomminus { background-image:none !important; -webkit-font-smoothing: antialiased; -moz-osx-font-smoothing: grayscale; display: inline-block; font: normal normal normal 14px/1 FontAwesome; font-size: inherit; text-rendering: auto; }
+#zoomplus:before { content:"\\f00e"; }
+#zoomminus:before { content:"\\f010"; }
+`;
+
 _darkStyleForGame['dobble'] = `
 #game_play_area div[id^="player_name_"], .pile-description div:not(.dbl_sleep) { background-color: var(--dark-20); }
 `;
@@ -3079,7 +3085,7 @@ body { background: none; }
 `;
 
 _darkStyleForGame['tinyepicdefenders'] = `
-#settings, #TED_zoom_plus, #TED_zoom_minus, .TED-inline-icon { filter: invert(1); }
+#settings, #TED_zoom_plus, #TED_zoom_minus, .TED-inline-icon, .TED .tooltip-ability-icon { filter: invert(1); }
 span[style^="color: #444444;"] { color: #aaaaaa !important; }
 .TED#bgaimagebutton_submenu_wrap { background-color: var(--dark-10); }
 .bgaimagebutton-submenu-icon .sprite-icon-symbol-Move, .bgaimagebutton-submenu-icon .sprite-icon-symbol-Secure,
