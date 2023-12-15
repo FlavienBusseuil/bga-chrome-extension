@@ -944,6 +944,12 @@ const defaultGames: Partial<Game>[] = [
 		css: "#bga-jump-to_controls { display: none; } #game_play_area { padding-left: 50px; }",
 	},
 	{
+		name: "heatchampionship",
+		playerPanel: "player-table-{{player_id}}",
+		bottomPanel: "legend-table",
+		css: "#bga-jump-to_controls { display: none; } #game_play_area { padding-left: 50px; }",
+	},
+	{
 		name: "hydroracers",
 		playerPanel: "j_{{player_id}}",
 	},

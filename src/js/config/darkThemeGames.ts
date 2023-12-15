@@ -68,6 +68,7 @@ export const gamesWithCustomPanel = [
   'envelopesofcash',
   'lumen',
   'mantisfalls',
+  'maracaibo',
   'notalone',
   'nowboarding',
   'sevenwondersarchitects',
@@ -99,6 +100,7 @@ export const gamesWithCustomPlayerStyle = {
   colorflush: ".cfl_name",
   elawa: '.player-table .name-wrapper',
   heat: '.player-table .name-wrapper',
+  heatchampionship: '.player-table .name-wrapper',
   homesteaders: '#main_container div[id^="player_name_"]',
   lineit: '.player-table .name-wrapper',
   mindup: '.player-table .name-wrapper',
@@ -1512,6 +1514,21 @@ _darkStyleForGame['heat'] = `
 html.darkpanel #player_boards .player-board.finished { background-color: var(--dark-40) !important; }
 .player-board .order-counter { border: 2px solid var(--light-80); background-color: var(--dark-40); }
 .player-board .order-counter.played { background-color: var(--dark-0); }
+#help-popin .weather-card { box-shadow: none; }
+`;
+
+_darkStyleForGame['heatchampionship'] = `
+#tables .player-table { background: var(--dark-back); }
+#popin_bgaHelpDialog { background: var(--dark-20); }
+#bga-zoom-controls { filter: invert(0.7); }
+.player-board .icon { filter: var(--drop-shadow); }
+html.darkpanel #player_boards .player-board.finished { background-color: var(--dark-40) !important; }
+.player-board .order-counter { border: 2px solid var(--light-80); background-color: var(--dark-40); }
+.player-board .order-counter.played { background-color: var(--dark-0); }
+#help-popin .weather-card { box-shadow: none; }
+#scorepad-image table tr td { text-shadow: none; }
+#scorepad-image { color: #000; }
+#championship-table #championship-circuits { background: var(--dark-10); color: #fff; }
  `;
 
 _darkStyleForGame['heckinhounds'] = `
@@ -1855,6 +1872,11 @@ _darkStyleForGame['madeira'] = `
 _darkStyleForGame['mantisfalls'] = `
 a[style*="color: #000000"], h3[style*="color: #000000"]>span, span[style*="color:#000000"] { background-color: transparent; }
 #event_header_label > span { background-color: transparent !important; }
+`;
+
+_darkStyleForGame['maracaibo'] = `
+#mcb-tabContents { background-color: var(--dark-back); }
+.mcb-closable.whiteblock { background: var(--dark-10) !important; }
 `;
 
 _darkStyleForGame['marcopolo'] = `
