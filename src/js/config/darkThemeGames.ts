@@ -605,6 +605,16 @@ _darkStyleForGame['capereurope'] = `
 .tbp-cardSlot { box-shadow: 0 3px 1px #cc6600b3; }
 `;
 
+_darkStyleForGame['captainflip'] = `
+.cf_title { background-color: var(--dark-back); }
+.cf_boardrule, .cf_tooltip { background-color: var(--yellow-10); color: var(--light-80); }
+.cf_tooltip_quote { color: var(--light-80); }
+.cf_tooltip, .cf_boardrule { border: 3px solid var(--light-50); }
+.cf_tooltip_endgame { color: var(--blue-10); }
+.dijitTooltipContainer .cf_tooltip_endgame { color: var(--blue-50); }
+.bg-firstplayer { filter: var(--drop-shadow); }
+`;
+
 _darkStyleForGame['caravan'] = `
 .camel, .log .cube { filter: var(--highlight-min); }
 `;
@@ -3080,6 +3090,10 @@ _darkStyleForGame['tichu'] = `
 .player_board_inner { background-color: transparent !important; }
 .icon.hand, .icon.star { filter: var(--drop-shadow); }
 .playertablename { padding-left: 0.1em; }
+`;
+
+_darkStyleForGame['ticketgagnant'] = `
+#moimeme { background-color: var(--dark-back); }
 `;
 
 _darkStyleForGame['tictacmatch'] = `
