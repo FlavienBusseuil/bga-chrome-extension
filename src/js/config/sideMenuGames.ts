@@ -1033,6 +1033,10 @@ const defaultGames: Partial<Game>[] = [
 		playerPanel: ".cf_title",
 		bottomPanel: "o-help"
 	},
+	{
+		name: "mastersofrenaissance",
+		playerPanel: "{{player_id}}"
+	},
 ];
 
 export default defaultGames;

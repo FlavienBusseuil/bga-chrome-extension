@@ -1649,3 +1649,7 @@ div.post[style="background-color: rgb(237, 186, 183);"] {
 iframe#forum_frame {
   margin-bottom: 1em;
 }
+
+.bgaext_gamegurus img[alt="guru"] {
+  filter: invert(0.7);
+}

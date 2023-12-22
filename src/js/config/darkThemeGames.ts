@@ -28,6 +28,7 @@ export const gamesWithCustomBackground = [
   'lielow',
   'lostexplorers',
   'mantisfalls',
+  'mastersofrenaissance',
   'memoir',
   'mrjack',
   'mycity',
@@ -74,6 +75,7 @@ export const gamesWithCustomPanel = [
   'sevenwondersarchitects',
   'spacestationphoenix',
   'tickettoride',
+  'tickettorideeurope',
   'twinpalms',
   'viticulture',
   'wingspan'
@@ -994,7 +996,7 @@ _darkStyleForGame['dinosaurteaparty'] = `
 .dinosaurtooltip_text [style^="color: #0c5a93;"] { color: #1392ec !important; }
 `;
 
-_styleForGame['divercite'] = `
+_darkStyleForGame['divercite'] = `
 .quantity { color: var(--light-80); }
 `;
 
@@ -1168,6 +1170,7 @@ _darkStyleForGame['envelopesofcash'] = `
 .dijitTooltipContents h4, .standard_popin h4 { var(--light-80); }
 .dijitTooltipContents .eoc-icon-end, .dijitTooltipContents .eoc-icon-env, .dijitTooltipContents .eoc-icon-funds,
 .dijitTooltipContents .eoc-icon-type1, .dijitTooltipContents .eoc-icon-type2, .dijitTooltipContents .eoc-icon-type3 { filter: none; }
+#pagemaintitletext span[style*="color:#000000"] { text-shadow: var(--text-w-shadow); }
 `;
 
 _styleForGame['equinox'] = `
@@ -1915,6 +1918,12 @@ _darkStyleForGame['mascarade'] = `
 .hbz_tooltiptext { color: var(--light-90); }
 `;
 
+_darkStyleForGame['mastersofrenaissance'] = `
+#overall-content:before { content: ""; background: var(--dark-back); position: absolute; width: 100%; height: 100%; }
+#development_cards_grid, #market_grid { background-color: var(--dark-back); color: var(--light-80); }
+#boards>div>div:last-child { background-color: var(--dark-back); }
+`;
+
 _darkStyleForGame['mattock'] = `
 .coordinate { color: var(--light-80); }
 `;
@@ -2139,7 +2148,7 @@ div.preference_choice:has(> div > div > select#preference_control_100) { display
 div.preference_choice:has(> div > div > select#preference_fontrol_100) { display: none; }
 `;
 
-_styleForGame['oasis'] = `
+_darkStyleForGame['oasis'] = `
 .cards-counter.counter { filter: invert(0.7); }
 .title { background-color: var(--dark-20); padding: 0.2em 0.5em; top: -20px; border-radius: 8px; }
 `;
@@ -2152,11 +2161,11 @@ _darkStyleForGame['obsession'] = `
 [id^="playerDiscardContainer-"] { filter: none !important;  background-color: var(--dark-back) !important; }
 `;
 
-_styleForGame['ohseven'] = `
+_darkStyleForGame['ohseven'] = `
 .o7-table-card-label { background-color: var(--dark-20); }
 `;
 
-_styleForGame['offtherails'] = `
+_darkStyleForGame['offtherails'] = `
 #jewel_bag, .otr_cart_button, .otr_cart_ready { filter: var(--drop-shadow); }
 .otr_mission_counter_icon { filter: var(--highlight-min); }
 `;
