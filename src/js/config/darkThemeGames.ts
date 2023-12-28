@@ -41,6 +41,7 @@ export const gamesWithCustomBackground = [
   'oriflamme',
   'pandemic',
   'pingimus',
+  'pook',
   'quirkyquarks',
   'restinpeace',
   'romirami',
@@ -1238,6 +1239,10 @@ table.ffo-score-table thead th { background-color: #000; color: #d0d2b4; }
 table.ffo-score-table { background-color: var(--dark-20); color: #fff; }
 `;
 
+_darkStyleForGame['fifteendays'] = `
+.pb_label { color: var(--light-80); }
+`;
+
 _darkStyleForGame['fika'] = `
 #fika_show_card_list span { background-color: var(--dark-20); color: var(--light-80); text-shadow: none; }
 .fika_slot:empty { background-color: var(--dark-30); }
@@ -1718,7 +1723,9 @@ table.tableScore td, .quickRefNote { color: #b3b3b3; }
 
 _darkStyleForGame['kmakici'] = `
 .grid-discard { color: var(--light-80); }
-.grid-player-chip { background-color: var(--dark-back); color: var(--light-80); }
+.grid-player-chip, .grid-player-hand  { background-color: var(--dark-back); color: var(--light-80); }
+#party_room { background-color: #103f56cc; color: var(--light-80); }
+details summary { background: var(--dark-10); color: var(--light-80); }
 `;
 
 _darkStyleForGame['knarr'] = `
@@ -2334,6 +2341,11 @@ _darkStyleForGame['planetunknown'] = `
 _darkStyleForGame['pokerdice'] = `
 #rank_chart { background-color: var(--dark-back); color: var(--light-80); }
 .playertablename { text-shadow: none; }
+`;
+
+_darkStyleForGame['pook'] = `
+#overall-content:before { content: ""; background: var(--dark-back); position: absolute; width: 100%; height: 100%; }
+.resizer { background: var(--dark-10); border-top: 1px dashed var(--dark-40); }
 `;
 
 _darkStyleForGame['potionexplosion'] = `
@@ -3438,7 +3450,7 @@ _darkStyleForGame['yokohama'] = `
 _darkStyleForGame['zefiria'] = `
 .doubleempty { color: #fff; }
 .blueact { filter: invert(0.7); }
-div[id^="plname"]:not(:empty) { background-color: var(--dark-back); }
+div[id^="plname"]:not(:empty) { background-color: var(--dark-back); border-radius: 8px; }
 `;
 
 _darkStyleForGame['zola'] = `
