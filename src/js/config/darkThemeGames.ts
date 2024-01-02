@@ -115,7 +115,7 @@ export const gamesWithCustomPlayerStyle = {
   zuuli: '.writes.lg',
   bagofchips: '#tables .name-wrapper',
   framework: '#player-tabs > .player-tab > span',
-  terraformingmars: '.mfull .playerboard_side_name',
+  terraformingmars: '.mfull .playerboard_side_name, .mcompact .player_area_name',
   biomos: '#playersboard div[id^="playerposition_"]',
 };
 
@@ -764,6 +764,14 @@ _darkStyleForGame['chromino'] = `
 
 _darkStyleForGame['cinco'] = `
 .playertablename { color: #fff !important; }
+`;
+
+_darkStyleForGame['citadels'] = `
+.cit_toggle-zoom-out, .cit_toggle-zoom-in { background-image:none !important; -webkit-font-smoothing: antialiased; -moz-osx-font-smoothing: grayscale; display: inline-block; font: normal normal normal 14px/1 FontAwesome; font-size: inherit; text-rendering: auto; }
+.cit_toggle-zoom-in:before { content:"\\f00e"; }
+.cit_toggle-zoom-out:before { content:"\\f010"; }
+.cit_text-ornament-left, .cit_text-ornament-right { filter: invert(0.7); }
+#ebd-body { background: none; }
 `;
 
 _darkStyleForGame['cityofthebigshoulders'] = `
@@ -1785,6 +1793,12 @@ _darkStyleForGame['lewisclark'] = `
 .tooltipslide_overlay { background-color: var(--dark-30);  }
 `;
 
+_darkStyleForGame['lewisclarksecondedition'] = `
+.player-name, .player_board_inner, .player_score { background-color: transparent; }
+.resource { filter: var(--drop-shadow); }
+.tooltipslide_overlay { background-color: var(--dark-30);  }
+`;
+
 _darkStyleForGame['libertalia'] = `
 .discarded { filter: invert(0.7); }
 `;
@@ -1944,6 +1958,10 @@ _darkStyleForGame['mechadream'] = `
 _darkStyleForGame['memoir'] = `
 #clipboard-button { filter: invert(0.7); }
 .card-text-container, .card-subtitle { color: #000; }
+`;
+
+_darkStyleForGame['metro'] = `
+.mtr_hand_info_wrap { background-color: var(--dark-10); }
 `;
 
 _darkStyleForGame['metromaniab'] = `
@@ -2940,9 +2958,14 @@ _darkStyleForGame['terraformingmars'] = `
 .mcompact .card_tooltipcontainer[data-card-type="2"] .tt_intertitle { background: #184268; }
 .mcompact .card_tooltipcontainer[data-card-type="3"] .tt_intertitle { background: #682118; }
 .mcompact .card_tooltipcontainer[data-card-type="4"] .tt_intertitle { background: #5d1868; }
+.mcompact .player_area_name { background: linear-gradient(0deg,var(--dark-40) 0,var(--dark-30) 1%,var(--dark-10) 26%,var(--dark-20) 48%,var(--dark-30) 75%,var(--dark-40)); border: 0.3vh solid var(--dark-30); }
+.mcompact .viewcards_button { background: var(--dark-0); }
 .mfull #ebd-body .tooltipcontainer { background-image: none; }
 .mfull .tooltiptitle { box-sizing: border-box; }
 .mfull .playerboard_side_gear:after { color: var(--dark-10); }
+.tracker_passed { color: var(--light-50); }
+.player_tags { color: var(--light-80); }
+.card.corp, .card, .playerboard_own { color: #000; }
 `;
 
 _darkStyleForGame['terramystica'] = `
@@ -3302,6 +3325,13 @@ _darkStyleForGame['uptown'] = `
 
 _darkStyleForGame['vaalbara'] = `
 .vlb_zone_title { background-color: var(--dark-20) !important; }
+`;
+
+_darkStyleForGame['valeofeternity'] = `
+#ve_round { color: var(--light-80); }
+.ve_header_phase, .ve_tooltip_cost { color: var(--light-70); }
+.ve_zone, .ve_tooltip_title { text-shadow: var(--text-w-shadow); }
+.ve_zone_market { background-color: var(--dark-back); }
 `;
 
 _darkStyleForGame['vault'] = `
