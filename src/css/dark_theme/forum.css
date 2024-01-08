@@ -1485,17 +1485,15 @@ li.notification-disapproved strong {
 
 /* Custom */
 #tabs .tab>a {
-  background-color: #a7a7a7;
+  background-color: #4d4d4d;
+  color: var(--light-80) !important;
 }
 
 .tabs .activetab>a,
 .tabs .activetab>a:hover {
   box-shadow: none;
-  background-color: #cbd2d7 !important;
-}
-
-#tabs .tab>a:hover {
-  color: black ! important;
+  background-color: #2d2d2d !important;
+  border-bottom: none;
 }
 
 .message-box textarea,

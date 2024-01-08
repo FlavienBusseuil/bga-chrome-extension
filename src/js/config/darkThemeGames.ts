@@ -16,6 +16,7 @@ export const gamesWithCustomBackground = [
   'eminentdomain',
   'emdomicrocosm',
   'equinox',
+  'federation',
   'gangsta',
   'giftoftulips',
   'goldblivion',
@@ -1247,6 +1248,11 @@ table.ffo-score-table thead th { background-color: #000; color: #d0d2b4; }
 table.ffo-score-table { background-color: var(--dark-20); color: #fff; }
 `;
 
+_darkStyleForGame['federation'] = `
+#overall-content:before { content: ""; background: var(--dark-back); position: absolute; width: 100%; height: 100%; }
+#logs .log.notif_clearEndOfRound .roundedbox,#logs .log.notif_startExecutivePhaseStep .roundedbox { background: var(--dark-30); }
+`;
+
 _darkStyleForGame['fifteendays'] = `
 .pb_label { color: var(--light-80); }
 `;
@@ -1254,6 +1260,7 @@ _darkStyleForGame['fifteendays'] = `
 _darkStyleForGame['fika'] = `
 #fika_show_card_list span { background-color: var(--dark-20); color: var(--light-80); text-shadow: none; }
 .fika_slot:empty { background-color: var(--dark-30); }
+.fika_greater { color: #fff; }
 `;
 
 _darkStyleForGame['flamingpyramids'] = `
@@ -2168,7 +2175,10 @@ _darkStyleForGame['notalone'] = `
 `;
 
 _darkStyleForGame['novaluna'] = `
+body { background: none; }
 .disc { color: #000; }
+.disc_3 { color: #fff; }
+.player_map { background-color: var(--dark-back); }
 `;
 
 _darkStyleForGame['nowboarding'] = `
@@ -2383,10 +2393,12 @@ _darkStyleForGame['pook'] = `
 
 _darkStyleForGame['potionexplosion'] = `
 .area_label, .player-name { text-shadow: none; }
-.marble_pool { border: 1px dashed #fff; }
+.marble_pool { border: 1px dashed var(--light-50); }
 .potion, .stockitem { filter: var(--drop-shadow); }
 .reward_icon, .help_icon, .starter_token { filter: var(--highlight-min); }
 .potion_tooltip, .potion_tooltip_small { background-color: var(--dark-30); }
+.potion_tooltip_small, .active { border: 3px solid var(--light-50); }
+.cupboard, .discard { border: 1px solid var(--light-50); }
 `;
 
 _darkStyleForGame['praga'] = `

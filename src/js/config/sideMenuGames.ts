@@ -101,6 +101,7 @@ const defaultGames: Partial<Game>[] = [
 	{
 		name: "potionexplosion",
 		playerPanel: "playerArea_{{player_id}}",
+		bottomPanel: "bottom_panel",
 		css: "#game_play_area { margin-left: 50px; }",
 	},
 	{
