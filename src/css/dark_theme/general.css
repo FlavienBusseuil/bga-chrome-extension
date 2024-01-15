@@ -106,6 +106,35 @@ input::placeholder {
   background-color: var(--dark-40) !important;
 }
 
+/* player elo popup */
+
+.player-elo-tooltip .calculation-result .arrows-square {
+  border-color: var(--dark-10);
+}
+
+.player-elo-tooltip .calculation-description>div {
+  color: var(--light-70);
+}
+
+.player-elo-tooltip .duels-list .duel:nth-child(odd) {
+  background-color: var(--dark-20);
+}
+
+.player-elo-tooltip .duels-list .duel:nth-child(2n) {
+  background-color: var(--dark-30);
+}
+
+.player-elo-tooltip .duels-list .duel .duel-profile .duel-conditions,
+.player-elo-tooltip .player-rank-pos {
+  color: var(--light-80);
+}
+
+.player-elo-tooltip .duels-list .duel .duel-profile .duel-conditions .duel-modifiers .modifier-description .modifier-highlight {
+  color: var(--violet-80) !important;
+}
+
+/* fin player elo popup */
+
 select.colorselector {
   color: var(--dark-40);
 }
@@ -704,6 +733,10 @@ select.colorselector {
   color: var(--light-80);
 }
 
+.bgaext_gamelist .arrow {
+  background-color: #7d7d7dcc !important;
+}
+
 /*
 .bga-game-browser__panel .items-center [class*=text-] {
   color: var(--light-80);
@@ -907,8 +940,8 @@ select.colorselector {
   background: var(--dark-20) !important
 }
 
-.game-info__value .icon16 {
-  filter: var(--highlight-min);
+.bga-game-panel .game-info__value .icon16 {
+  filter: grayscale(1) invert(0.7);
 }
 
 .warning_high {
@@ -1137,6 +1170,7 @@ select.colorselector {
 
 .upper_back_button>.icon16_backgray {
   filter: invert(1);
+  transform: scaleY(-1);
 }
 
 .bgaext_bugs .statstable th a.bga-link {
@@ -1177,7 +1211,8 @@ select.colorselector {
 }
 
 .bgaext_bug #bug_status_implemented,
-.bgaext_bug #bug_status_fixed {
+.bgaext_bug #bug_status_fixed,
+.bgaext_bug #bug_status_duplicate {
   background-color: var(--green-10) !important;
 }
 
@@ -1185,6 +1220,27 @@ select.colorselector {
   background-color: var(--blue-10) !important;
 }
 
+.bgaext_bug #bug_status_confirmed {
+  background-color: var(--red-30) !important;
+}
+
+.bgaext_bug #bug_status_wontfix {
+  background-color: var(--blue-10) !important
+}
+
+.bgaext_bug #bug_status_worksforme {
+  background-color: var(--green-10) !important
+}
+
+.bgaext_bug #bug_status_notabug,
+.bgaext_bug #bug_status_notupdated,
+.bgaext_bug #bug_status_claimed {
+  background-color: var(--green-30) !important
+}
+
+.bgaext_bug .developer {
+  border: 3px solid var(--light-50);
+}
 
 /* Arena suggestions */
 
@@ -1620,6 +1676,7 @@ select.colorselector {
 }
 
 /* player stat */
+
 .bgaext_playerstat #chart {
   filter: invert(0.8);
 }
@@ -1655,23 +1712,42 @@ iframe#forum_frame {
 }
 
 /* report player */
-html.bgaext_report {
+
+.bgaext_newreport .bgabutton_gray {
+  background: linear-gradient(180deg, var(--dark-10), var(--dark-30));
+  color: var(--blue-70);
+}
+
+.bgaext_newreport .bgabutton_gray:hover {
+  background: linear-gradient(180deg, var(--dark-10), var(--dark-40));
+  color: var(--violet-80);
+}
+
+.bgaext_newreport .notouch-device .newreport_step .chat_log p:hover {
+  background-color: var(--red-10);
+}
+
+.bgaext_newreport .newreport_step .chat_log p.selected {
+  background-color: var(--red-30);
+}
+
+.bgaext_report {
   color: var(--light-80);
 }
 
-html.bgaext_report .bga-page-section>.bga-page-section__content {
+.bgaext_report .bga-page-section>.bga-page-section__content {
   background-color: var(--dark-10);
   background-image: linear-gradient(180deg, var(--dark-20), var(--dark-10) 30px, var(--dark-10) calc(100% - 15px), var(--dark-30));
 }
 
-html.bgaext_report .bg-bga-whitebg {
+.bgaext_report .bg-bga-whitebg {
   background-color: var(--dark-0);
 }
 
-html.bgaext_report .text-bga-gray-78 {
+.bgaext_report .text-bga-gray-78 {
   color: var(--light-70);
 }
 
-html.bgaext_report .text-gray-500 {
+.bgaext_report .text-gray-500 {
   color: var(--light-50);
 }

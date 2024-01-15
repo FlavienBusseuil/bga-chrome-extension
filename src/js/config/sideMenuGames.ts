@@ -1042,6 +1042,22 @@ const defaultGames: Partial<Game>[] = [
 		name: "citadels",
 		playerPanel: "city-{{player_id}}-container"
 	},
+	{
+		name: "wordtraveler",
+		playerPanel: "wot-word-cards-{{player_id}}-container"
+	},
+	{
+		name: "starshipmerchants",
+		playerPanel: "disp_{{player_id}}"
+	},
+	{
+		name: "foreverhome",
+		playerPanel: "player-table-{{player_id}}"
+	},
+	{
+		name: "valeofeternity",
+		playerPanel: "zone_title_{{player_index_1}}"
+	},
 ];
 
 export default defaultGames;

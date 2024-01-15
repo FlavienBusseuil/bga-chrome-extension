@@ -61,6 +61,7 @@ export const gamesWithCustomBackground = [
   'tinyturbocars',
   'trio',
   'tuned',
+  'unrest',
   'wizardsgrimoire'
 ];
 
@@ -1299,6 +1300,11 @@ _darkStyleForGame['forestshuffle'] = `
 .deckinfo { background: var(--dark-back); color: var(--light-80); }
 `;
 
+_darkStyleForGame['foreverhome'] = `
+#bga-zoom-wrapper #bga-zoom-controls { filter: invert(0.7); }
+.fh-player-no-badge { background-color: var(--dark-20); border: 1px solid var(--light-50); color: var(--light-80); }
+`;
+
 _darkStyleForGame['fortheking'] = `
 #pagesection_gameview { color: var(--light-80); }
 #zoom-controls3 { filter: invert(0.7); }
@@ -1469,6 +1475,16 @@ _darkStyleForGame['goodcopbadcop'] = `
 .large_equipment_name, .large_equipment_effect { color: #000; }
 `;
 
+_darkStyleForGame['gosux'] = `
+#gsxCardlist_container { background-color: var(--dark-20); color: var(--light-80); }
+#gsxCardlist_container.visible { border: 1px solid var(--light-70); }
+#gsxCardlist_header.clanChoose { background-color: var(--dark-40); }
+#gosuxContainer { color: var(--light-80); }
+.gsxCardSlot { outline: 2px dashed var(--light-70); }
+.gsx_counter_none { opacity: .5; }
+.gsx_keyword_text { filter: drop-shadow(1px 1px 1px black); }
+`;
+
 _darkStyleForGame['guildes'] = `
 .round_infos { color: var(--light-80); }
 `;
@@ -1572,6 +1588,10 @@ _darkStyleForGame['heckinhounds'] = `
  .playertable { border: thick outset #20435e; }
  `;
 
+_darkStyleForGame['hens'] = `
+ #page-content { color: var(--light-80); }
+`;
+
 _darkStyleForGame['herd'] = `
 #board, #board > *, .die { filter: invert(1); }
  `;
@@ -1653,6 +1673,16 @@ _darkStyleForGame['insert'] = `
 
 _darkStyleForGame['inventors'] = `
 .playerzonewrap { background-color: var(--dark-back); }
+`;
+
+_darkStyleForGame['inverteddice'] = `
+ #page-content, .doubleempty { color: var(--light-80); }
+ #grend td[id^=num] { color: #000; }
+ #grend td { border-color: var(--light-80) !important; }
+ #result { background-color: var(--dark-back); border: 3px solid #178217; color: #178217; }
+ .ReRoll { filter: invert(1); }
+ #helpline > td { background-color: var(--dark-20) !important; }
+
 `;
 
 _darkStyleForGame['isleoftrainsallaboard'] = `
@@ -2863,6 +2893,10 @@ _darkStyleForGame['starfluxx'] = `
 { color: #fff; background: var(--dark-back); }
 `;
 
+_darkStyleForGame['starshipmerchants'] = `
+.spacewrap { color: var(--light-80); }
+`;
+
 _darkStyleForGame['steamrollers'] = `
 .vls-scoreImage, .vls-good, .vls-personal_good { filter: var(--drop-shadow); }
 .vls-firstPlayerToken { filter: var(--highlight-min); }
@@ -3013,6 +3047,11 @@ _darkStyleForGame['terramystica'] = `
 _darkStyleForGame['terranova'] = `
 .faction_supply { background-color: var(--dark-back); }
 #logs .tmlogs_icon div[class^="trans_"] { border-radius: 12px; }
+`;
+
+_darkStyleForGame['texasholdem'] = `
+.dark-wood-horizontal-background body, .dark-wood-vertical-background body { background: none; }
+.label { color: var(--light-70); }
 `;
 
 _darkStyleForGame['thattimeyoukilledme'] = `
@@ -3344,6 +3383,24 @@ _darkStyleForGame['ultimaterailroads'] = `
 _darkStyleForGame['unconditionalsurrender'] = `
 #pagemaintitletext { background: var(--dark-20) !important }
 #pagemaintitletext * { background-color: transparent !important; }
+`;
+
+_darkStyleForGame['undergrove'] = `
+body { background: none !important; }
+.icone_n, .icone_p, .icone_k, .icone_c,
+.iconeracine_6c4740, .iconeracine_708975,
+.iconesemi_6c4740, .iconesemi_708975,
+.iconearbre_6c4740, .iconearbre_708975,
+.icone_activation_b, .icone_activation_p,
+.icone_activation_g, .icone_activation_y,
+#firstplayer { filter: var(--drop-shadow); }
+.zoom { filter: invert(0.7); }
+#goals, #playerhand { background: var(--dark-back); color: #517b5b; outline: 4px solid #517b5b; }
+#carbontrack { outline: 4px solid #517b5b; }
+`;
+
+_darkStyleForGame['unrest'] = `
+div[style="background-color: rgba(255, 255, 255, 0.2);"], #right-side { background-color: var(--dark-back) !important; }
 `;
 
 _darkStyleForGame['uptown'] = `
