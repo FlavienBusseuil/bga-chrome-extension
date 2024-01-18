@@ -472,8 +472,9 @@ _darkStyleForGame['battleoflits'] = `
 
 _darkStyleForGame['battleship'] = `
 #board { background: var(--dark-20); color: #fff; }
-.table-cell { background: var(--dark-40); }
-.fleetship { box-shadow: inset 0px 0px 2px 2px #fff; }
+.fleetship { box-shadow: inset 0px 0px 2px 2px var(--light-50); }
+.table-cell { border: 0.5px solid var(--light-50); }
+.grid-body { background-color: var(--dark-40); }
 `;
 
 _darkStyleForGame['betta'] = `
@@ -3118,6 +3119,12 @@ _darkStyleForGame['thenumber'] = `
 _darkStyleForGame['thirteenclues'] = `
 #tcGameLogTable th { color: #05f; }
 .tableWindow td { color: #8585ad; }
+`;
+
+_darkStyleForGame['threethousandscoundrels'] = `
+.tech_icon { filter: invert(0.7); }
+.leader_and_hand .player-name { background: var(--dark-back); padding: 0.3em 0.5em; border-radius: 6px; }
+#hand { background-color: var(--dark-back); }
 `;
 
 _darkStyleForGame['throughtheages'] = `

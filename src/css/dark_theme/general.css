@@ -1751,3 +1751,9 @@ iframe#forum_frame {
 .bgaext_report .text-gray-500 {
   color: var(--light-50);
 }
+
+/* awards */
+
+.bgaext_awards {
+  color: var(--light-80);
+}

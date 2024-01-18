@@ -1058,6 +1058,12 @@ const defaultGames: Partial<Game>[] = [
 		name: "valeofeternity",
 		playerPanel: "zone_title_{{player_index_1}}"
 	},
+	{
+		name: "threethousandscoundrels",
+		playerPanel: "leader_{{player_id}}",
+		boardPanel: "board",
+		css: "#game_play_area, #day_number { padding-left: 50px; }"
+	},
 ];
 
 export default defaultGames;
