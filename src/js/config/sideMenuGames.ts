@@ -1064,6 +1064,23 @@ const defaultGames: Partial<Game>[] = [
 		boardPanel: "board",
 		css: "#game_play_area, #day_number { padding-left: 50px; }"
 	},
+	{
+		name: "supermegaluckybox",
+		playerPanel: ".smlb_playertable"
+	},
+	{
+		name: "bohnanza",
+		playerPanel: ".bean_field_block",
+		boardPanel: "container_posted_offers",
+		boardPanelText: "#container_posted_offers .to_translate:first-child",
+		bottomPanel: "container_deck_of_cards"
+	},
+	{
+		name: "championsofmidgard",
+		playerPanel: "playerboard_p{{player_id}}",
+		boardPanel: "availablelongboats",
+		boardPanelText: "#availablelongboats .to_translate:first-child",
+	},
 ];
 
 export default defaultGames;

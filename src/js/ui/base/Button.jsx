@@ -5,9 +5,9 @@ import { cn } from "../utils/cn";
 type Props = {
 	...{ onClick: () => void } | { url: string },
 	text: React$Node,
-	className?: string,
-	size?: 1 | 2,
-	type?: "primary" | "secondary" | "accept",
+		className ?: string,
+		size ?: 1 | 2,
+		type ?: "primary" | "secondary" | "accept",
 };
 
 export function Button({
@@ -19,7 +19,7 @@ export function Button({
 }: Props): React$Element<"div"> {
 	const styleFromSize = {
 		"1": "font-normal px-2 py-0.5",
-		"2": "font-extrabold px-4 py-2",
+		"2": "font-normal px-4 py-2",
 	}[String(size)];
 	const styleFromType = {
 		primary: "bg-bgaBlue hover:bg-bgaBlue-light border-bgaBlue-light",

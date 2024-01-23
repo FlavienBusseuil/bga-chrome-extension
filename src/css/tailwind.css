@@ -875,10 +875,6 @@ Ensure the default browser behavior of the `hidden` attribute.
   font-weight: 400;
 }
 
-.font-extrabold {
-  font-weight: 800;
-}
-
 .leading-3 {
   line-height: .75rem;
 }

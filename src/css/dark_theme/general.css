@@ -24,6 +24,10 @@ select {
   border: 1px solid #b3b3b3;
 }
 
+textarea#reviewcomment {
+  background: var(--dark-30) !important;
+}
+
 textarea:focus,
 input:focus,
 select:focus,

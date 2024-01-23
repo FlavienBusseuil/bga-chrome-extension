@@ -1,6 +1,6 @@
 {
 	"name": "bga-chrome-extension",
-	"version": "1.8.31",
+	"version": "1.8.32",
 	"description": "Checks your games in progress on boardgamearena.com",
 	"scripts": {
 		"dev-mock": "MOCK=presentation yarn dev",

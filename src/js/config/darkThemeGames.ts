@@ -534,6 +534,14 @@ _darkStyleForGame['bloodrage'] = `
 .br_board_button { text-shadow: none; filter: invert(1); }
 `;
 
+_darkStyleForGame['bohnanza'] = `
+.give_want_arrow { filter: invert(0.7); }
+.bean_count_label { color: var(--light-80); text-shadow: none; filter: var(--drop-shadow); }
+.bean_field_block > div:first-child > div:first-child { background: var(--dark-20) !important; }
+[style*="background-color:#bbbbbb"] { background-color: transparent !important; }
+.farm_icon { filter: var(--drop-shadow); }
+`;
+
 _darkStyleForGame['bombay'] = `
 .player_board_image { filter: var(--drop-shadow); }
 .notif_palace_black { filter: var(--highlight-min); }
@@ -716,6 +724,10 @@ _darkStyleForGame['cephalopod'] = `
 .icon_placed_dice_000000, .icon_placed_dice_00a400 { filter: var(--drop-shadow); }
 `;
 
+_darkStyleForGame['chakra'] = `
+.logIcon { filter: var(--drop-shadow) !important; }
+`;
+
 _darkStyleForGame['challengers'] = `
 .cha-log-holder { background: var(--dark-20); color: var(--light-80); }
 .cha-matchup-name-inner { background: var(--dark-20); padding: 0.3em 0.5em; border-radius: 8px; }
@@ -728,8 +740,8 @@ _darkStyleForGame['challengers'] = `
 .cha-name-a12b76, .cha-name-0000dd,.cha-name-f951a0 { background-color: transparent; }
 `;
 
-_darkStyleForGame['chakra'] = `
-.logIcon { filter: var(--drop-shadow) !important; }
+_darkStyleForGame['championsofmidgard'] = `
+.playercountericon, .stockitem_unselectable, .playercountericonsmall { filter: var(--highlight-min); }
 `;
 
 _darkStyleForGame['chicagoexpress'] = `
@@ -2950,6 +2962,10 @@ _darkStyleForGame['superfantasybrawl'] = `
 .showHero { background-color: var(--dark-20); }
 `;
 
+_darkStyleForGame['supermegaluckybox'] = `
+.smlb_x_icon, .smlb_x_icon .smlb_pb_count { filter: invert(1); }
+`;
+
 _darkStyleForGame['sushigo'] = `
 .block_title { background-image: none; background-color: var(--dark-20); }
 .tooltip_card_text { background-color: var(--dark-20); }
@@ -3522,6 +3538,12 @@ _darkStyleForGame['wastelandia'] = `
 #player_boards.whiteblock { background-image: none; background-color: var(--dark-40); }
 .panel-cell.wastelandia-icon { filter: var(--drop-shadow); }
 .wastelandia-icon { filter: invert(1); }
+`;
+
+_darkStyleForGame['wazabi'] = `
+#direction { filter: invert(0.7); }
+.cards { color: #000; }
+.card_place { background-color: var(--dark-20); }
 `;
 
 _darkStyleForGame['wingspan'] = `
