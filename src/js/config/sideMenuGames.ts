@@ -1081,6 +1081,17 @@ const defaultGames: Partial<Game>[] = [
 		boardPanel: "availablelongboats",
 		boardPanelText: "#availablelongboats .to_translate:first-child",
 	},
+	{
+		name: "boreal",
+		playerPanel: "pyramid_{{player_id}}",
+		position: "bottom",
+		css: "#board { left: -50px; } #game_play_area { padding-left: 50px; }",
+	},
+	{
+		name: "amalfi",
+		playerPanel: "playerZone_{{player_id}}",
+		css: "#mainBoard { left: -50px; } #game_play_area { padding-left: 50px; }",
+	},
 ];
 
 export default defaultGames;

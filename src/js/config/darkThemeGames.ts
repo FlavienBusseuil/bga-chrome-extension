@@ -563,6 +563,12 @@ _darkStyleForGame['boomerangusa'] = `
 .box-name, .score-box { color: #000; }
 `;
 
+_darkStyleForGame['boreal'] = `
+.pyramid { background-color: var(--dark-back); color: var(--light-80); }
+.pyramid .reserve:before { background-color: #000; }
+.player_config_row > div:last-child svg { filter: invert(0.7); }
+`;
+
 _darkStyleForGame['briscola'] = `
 .table_color { background: var(--dark-back); }
 .playertablename, .table_cell { color: #fff; }
