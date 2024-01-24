@@ -110,35 +110,6 @@ input::placeholder {
   background-color: var(--dark-40) !important;
 }
 
-/* player elo popup */
-
-.player-elo-tooltip .calculation-result .arrows-square {
-  border-color: var(--dark-10);
-}
-
-.player-elo-tooltip .calculation-description>div {
-  color: var(--light-70);
-}
-
-.player-elo-tooltip .duels-list .duel:nth-child(odd) {
-  background-color: var(--dark-20);
-}
-
-.player-elo-tooltip .duels-list .duel:nth-child(2n) {
-  background-color: var(--dark-30);
-}
-
-.player-elo-tooltip .duels-list .duel .duel-profile .duel-conditions,
-.player-elo-tooltip .player-rank-pos {
-  color: var(--light-80);
-}
-
-.player-elo-tooltip .duels-list .duel .duel-profile .duel-conditions .duel-modifiers .modifier-description .modifier-highlight {
-  color: var(--violet-80) !important;
-}
-
-/* fin player elo popup */
-
 select.colorselector {
   color: var(--dark-40);
 }
