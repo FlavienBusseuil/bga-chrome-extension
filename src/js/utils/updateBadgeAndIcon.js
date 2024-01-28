@@ -37,6 +37,7 @@ export async function updateBadgeAndIcon({
 	const oldTotal = getTotalFromBadgeText({ text });
 	if (oldTotal !== null && newTotal > oldTotal) {
 		const images = [
+			"img/icon-48.png",
 			"img/anim-0.png",
 			"img/anim-1.png",
 			"img/anim-2.png",
@@ -44,8 +45,16 @@ export async function updateBadgeAndIcon({
 			"img/anim-4.png",
 			"img/anim-5.png",
 			"img/anim-6.png",
+			"img/anim-7.png",
+			"img/anim-6.png",
+			"img/anim-5.png",
+			"img/anim-4.png",
+			"img/anim-3.png",
+			"img/anim-2.png",
+			"img/anim-1.png",
+			"img/anim-0.png",
 			"img/icon-48.png",
-		].map((path) => ({ path, timeframe: 75 }));
+		].map((path) => ({ path, timeframe: 15 }));
 		await animate({ images });
 	}
 
