@@ -1,5 +1,18 @@
 # Changelog
 
+## [v1.8.33](https://github.com/FlavienBusseuil/bga-chrome-extension/tree/v1.8.33) (2024-01-28)
+
+[Full Changelog](https://github.com/FlavienBusseuil/bga-chrome-extension/compare/v1.8.32...v1.8.33)
+
+**Implemented enhancements:**
+
+- Add message when no games in play [\#65](https://github.com/FlavienBusseuil/bga-chrome-extension/issues/65)
+- Change Extension Icon [\#64](https://github.com/FlavienBusseuil/bga-chrome-extension/issues/64)
+
+**Fixed bugs:**
+
+- Fix dark mode for tailwind config [\#66](https://github.com/FlavienBusseuil/bga-chrome-extension/issues/66)
+
 ## [v1.8.32](https://github.com/FlavienBusseuil/bga-chrome-extension/tree/v1.8.32) (2024-01-23)
 
 [Full Changelog](https://github.com/FlavienBusseuil/bga-chrome-extension/compare/v1.8.31...v1.8.32)
