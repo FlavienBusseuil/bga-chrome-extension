@@ -17,7 +17,7 @@ export function TournamentsView({ className, tournaments }: Props): React$Node {
 	return (
 		<div className={cn(["flex flex-col gap-2", className])}>
 			{tournaments.length === 0 && (
-				<span class="text-center text-xl">
+				<span class="text-black dark:text-white text-center text-xl">
 					{chrome.i18n.getMessage("no_tournaments")}
 				</span>
 			)}
