@@ -60,6 +60,9 @@
 	"tournaments": {
 		"message": "Tournaments"
 	},
+	"no_games": {
+		"message": "No games in play"
+	},
 	"no_tournaments": {
 		"message": "No tournaments"
 	},

@@ -60,6 +60,9 @@
 	"tournaments": {
 		"message": "Tournois"
 	},
+	"no_games": {
+		"message": "Aucune partie en cours ou à venir"
+	},
 	"no_tournaments": {
 		"message": "Aucun tournoi en cours ou à venir"
 	},

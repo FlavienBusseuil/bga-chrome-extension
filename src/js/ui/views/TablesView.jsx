@@ -25,76 +25,85 @@ export function TablesView({
 }: Props): React$Node {
 	return (
 		<div className={cn(["flex flex-col gap-2", className])}>
-			<CardList>
-				{tables.map(
-					({
-						nbMaxPlayers,
-						players,
-						hasArenaMode,
-						isOpenForPlayers,
-						tableId,
-						gameStart,
-						...restTable
-					}) => {
-						const nbMissingPlayers = isOpenForPlayers
-							? nbMaxPlayers - players.length
-							: 0;
-						const isWaitingCurrentPlayer = players.some(
-							({ isCurrentPlayer, isActivePlayer }) =>
-								isCurrentPlayer && isActivePlayer,
-						);
-						const isInvitePendingForCurrentPlayer = players.some(
-							({ isCurrentPlayer, isInvitePending }) =>
-								isCurrentPlayer && isInvitePending,
-						);
+			{tables.length === 0 && (
+				<span class="text-black dark:text-white text-center text-xl">
+					{chrome.i18n.getMessage("no_games")}
+				</span>
+			)}
 
-						return (
-							<Table
-								key={String(tableId)}
-								{...{
-									onAcceptInvite,
-									onDeclineInvite,
-									tableId,
-									hasArenaMode,
-									isInvitePendingForCurrentPlayer,
-									isOpenForPlayers,
-									isWaitingCurrentPlayer,
-									...restTable,
-								}}
-							>
-								<PlayerList>
-									{[
-										...players.map(
-											({
-												playerId,
-												playerName,
-												isActivePlayer,
-												isInvitePending,
-											}) => (
-												<Player
-													key={String(playerId)}
-													playerName={playerName}
-													isActivePlayer={
-														isActivePlayer
-													}
-													isInvitePending={
-														isInvitePending
-													}
-												/>
+			{tables.length > 0 && (
+				<CardList>
+					{tables.map(
+						({
+							nbMaxPlayers,
+							players,
+							hasArenaMode,
+							isOpenForPlayers,
+							tableId,
+							gameStart,
+							...restTable
+						}) => {
+							const nbMissingPlayers = isOpenForPlayers
+								? nbMaxPlayers - players.length
+								: 0;
+							const isWaitingCurrentPlayer = players.some(
+								({ isCurrentPlayer, isActivePlayer }) =>
+									isCurrentPlayer && isActivePlayer,
+							);
+							const isInvitePendingForCurrentPlayer =
+								players.some(
+									({ isCurrentPlayer, isInvitePending }) =>
+										isCurrentPlayer && isInvitePending,
+								);
+
+							return (
+								<Table
+									key={String(tableId)}
+									{...{
+										onAcceptInvite,
+										onDeclineInvite,
+										tableId,
+										hasArenaMode,
+										isInvitePendingForCurrentPlayer,
+										isOpenForPlayers,
+										isWaitingCurrentPlayer,
+										...restTable,
+									}}
+								>
+									<PlayerList>
+										{[
+											...players.map(
+												({
+													playerId,
+													playerName,
+													isActivePlayer,
+													isInvitePending,
+												}) => (
+													<Player
+														key={String(playerId)}
+														playerName={playerName}
+														isActivePlayer={
+															isActivePlayer
+														}
+														isInvitePending={
+															isInvitePending
+														}
+													/>
+												),
 											),
-										),
-										...Array.from(
-											Array(nbMissingPlayers),
-										).map(() => (
-											<Player playerName="🪑 ..." />
-										)),
-									]}
-								</PlayerList>
-							</Table>
-						);
-					},
-				)}
-			</CardList>
+											...Array.from(
+												Array(nbMissingPlayers),
+											).map(() => (
+												<Player playerName="🪑 ..." />
+											)),
+										]}
+									</PlayerList>
+								</Table>
+							);
+						},
+					)}
+				</CardList>
+			)}
 			<StartNewGameButton />
 		</div>
 	);
