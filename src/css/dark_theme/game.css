@@ -233,7 +233,8 @@ span.playername,
   color: var(--light-70);
 }
 
-.pageheader_menuitem {
+.pageheader_menuitem,
+a#pageheader_buy {
   color: var(--light-70);
 }
 

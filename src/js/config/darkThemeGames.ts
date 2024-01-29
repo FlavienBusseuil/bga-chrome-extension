@@ -3,6 +3,7 @@ import { getUrl } from "../utils/chrome";
 export const gamesWithCustomBackground = [
   'abyss',
   'agricola',
+  'altered',
   'azul',
   'beyondthesun',
   'carnegie',
@@ -42,6 +43,7 @@ export const gamesWithCustomBackground = [
   'oriflamme',
   'pandemic',
   'pingimus',
+  'pocketcats',
   'pook',
   'quirkyquarks',
   'restinpeace',
@@ -260,6 +262,18 @@ _darkStyleForGame['almadi'] = `
 .helperLine { background-color: var(--dark-30); }
 .helper_container table, td, tr { background-color: #000; border: 1px solid #fff; }
 .helperHeader div, .helperIcone { filter: var(--highlight-min); }
+`;
+
+_darkStyleForGame['altered'] = `
+.tooltip-arrow { border-bottom: 10px solid var(--light-50); }
+.tooltip-arrow:before { border-bottom: 10px solid var(--dark-20); }
+.altered-tooltip .card-tooltip-frame { background: var(--dark-20); border: 1px solid var(--light-50); }
+[data-popper-placement=top] .tooltip-arrow { border-top: 10px solid var(--light-50); }
+[data-popper-placement=top] .tooltip-arrow:before { border-top: 10px solid var(--dark-20); }
+[data-popper-placement=right] .tooltip-arrow { border-right: 10px solid var(--light-50); }
+[data-popper-placement=right] .tooltip-arrow:before { border-right: 10px solid var(--dark-20); }
+[data-popper-placement=left] .tooltip-arrow { border-left: 10px solid var(--light-50); }
+[data-popper-placement=left] .tooltip-arrow:before { border-left: 10px solid var(--dark-20); }
 `;
 
 _darkStyleForGame['amalfi'] = `
@@ -2434,6 +2448,10 @@ _darkStyleForGame['planetunknown'] = `
 #popin_showScores #popin_showScores_contents table thead tr th, #popin_showScores #popin_showScores_contents table tbody tr td { color: var(--light-80); }
 #popin_showScores #popin_showScores_contents table tbody tr:nth-child(odd) { background: #433423; }
 #popin_showScores #popin_showScores_contents table thead tr#scores-names, #popin_showScores #popin_showScores_contents table tbody tr#scores-row-total { background-color: var(--dark-40); }
+`;
+
+_darkStyleForGame['pocketcats'] = `
+#overall-content:before { content: ""; background: var(--dark-back); position: absolute; width: 100%; height: 100%; }
 `;
 
 _darkStyleForGame['pokerdice'] = `
