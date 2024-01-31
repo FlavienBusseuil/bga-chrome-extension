@@ -1092,6 +1092,15 @@ const defaultGames: Partial<Game>[] = [
 		playerPanel: "playerZone_{{player_id}}",
 		css: "#mainBoard { left: -50px; } #game_play_area { padding-left: 50px; }",
 	},
+	{
+		name: "wonderfulkingdom",
+		playerPanel: ".wk_zone_playername",
+	},
+	{
+		name: "cheeztricks",
+		playerPanel: "open_wrap_{{player_id}}",
+		css: "#game_play_area { padding-left: 30px; }",
+	},
 ];
 
 export default defaultGames;

@@ -64,7 +64,8 @@ export const gamesWithCustomBackground = [
   'trio',
   'tuned',
   'unrest',
-  'wizardsgrimoire'
+  'wizardsgrimoire',
+  'wonderfulkingdom'
 ];
 
 export const gamesWithCustomPanel = [
@@ -121,6 +122,7 @@ export const gamesWithCustomPlayerStyle = {
   framework: '#player-tabs > .player-tab > span',
   terraformingmars: '.mfull .playerboard_side_name, .mcompact .player_area_name',
   biomos: '#playersboard div[id^="playerposition_"]',
+  wonderfulkingdom: '.wk_zone_playername'
 };
 
 export const gamesWithCustomColors = {
@@ -764,6 +766,14 @@ _darkStyleForGame['championsofmidgard'] = `
 .playercountericon, .stockitem_unselectable, .playercountericonsmall { filter: var(--highlight-min); }
 `;
 
+_darkStyleForGame['cheeztricks'] = `
+#overall-content[style*=cheeztricks]:before { content: ""; background: var(--dark-back); position: absolute; width: 100%; height: 100%; }
+.playertablename { text-shadow: none; }
+.open_wrap.whiteblock:before { content: ""; background: var(--dark-back); position: absolute; width: 100%; height: 100%; top:0px; left:0px; border-radius:10px; }
+.open_wrap.whiteblock .playername > span { color: var(--light-80) !important; }
+.open_wrap > b { display: block; position: relative; }
+`;
+
 _darkStyleForGame['chicagoexpress'] = `
 #ce-end-game-tracker { background: rgb(39 42 47 / 90%); color: #fff; }
 #initial-auction { background-color: var(--yellow-10); }
@@ -916,6 +926,7 @@ body { background: none; }
 _darkStyleForGame['coupcitystate'] = `
 #myactions { color: #fff; }
 .playerhead { text-shadow: none; background-color: var(--dark-back); padding: 0.1em 0.3em; border-radius: 4px; }
+.placemat[style="color: #000000"] .playerhead { text-shadow: var(--text-w-shadow); }
 .placemat.eliminated { border-color: var(--light-50); }
 .action { background: var(--dark-20); }
 .action:hover, .action.pending, .placemat:hover, .placemat.selected { background: var(--dark-40); }
@@ -3593,6 +3604,15 @@ _darkStyleForGame['wizardsgrimoire'] = `
 .player_small_board .icon-wrapper>div { background: var(--dark-40); }
 .player_small_board .icon-wrapper .hand { filter: invert(0.7); }
 #wg-phase-selector { border: 2px solid var(--light-70); }
+`;
+
+_darkStyleForGame['wonderfulkingdom'] = `
+#overall-content:before { content: ""; background: var(--dark-back); position: absolute; width: 100%; height: 100%; }
+.wk_zone_title { color: var(--light-70); }
+.wk_stock p, .wk_phase_round { color: var(--light-80); }
+.wk_phase_phases .wk_phase_selected { background-color: var(--dark-40); border: 1px solid var(--light-50); color: var(--light-80); }
+.wk_threat_tooltip_desc { background-color: var(--dark-back); }
+.bg-ressource_7 { filter: invert(1); }
 `;
 
 _darkStyleForGame['xiangqi'] = `
