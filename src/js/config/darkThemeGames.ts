@@ -20,6 +20,7 @@ export const gamesWithCustomBackground = [
   'federation',
   'gangsta',
   'giftoftulips',
+  'goblinhood',
   'goldblivion',
   'iwari',
   'jekyllvshide',
@@ -122,7 +123,8 @@ export const gamesWithCustomPlayerStyle = {
   framework: '#player-tabs > .player-tab > span',
   terraformingmars: '.mfull .playerboard_side_name, .mcompact .player_area_name',
   biomos: '#playersboard div[id^="playerposition_"]',
-  wonderfulkingdom: '.wk_zone_playername'
+  wonderfulkingdom: '.wk_zone_playername',
+  goblinhood: '.player-table > h3',
 };
 
 export const gamesWithCustomColors = {
@@ -1472,6 +1474,18 @@ _darkStyleForGame['greatwesterntrail'] = `
 .player-board-button-wrapper { top: 0.5em; }
 #gwt_boards_area { gap: 0.5em; }
 .pref-group { background-color: #000; }
+`;
+
+_darkStyleForGame['goblinhood'] = `
+#overall-content:before { content: ""; background: var(--dark-back); position: absolute; width: 100%; height: 100%; }
+#popin_bgaHelpDialog, .player-table h3 { background: var(--dark-20); }
+.player-table, .player-table h3 { border-color: var(--light-50); }
+#decks #discard:empty { outline: 1px solid var(--light-50); }
+.bga-cards_deck-counter.round { background: var(--dark-10); box-shadow: 0 0 2px 1px var(--light-50); color: var(--light-80); }
+#table-score .players-scores { background-color: var(--dark-20); color: var(--light-80); }
+#table-score table tbody tr:nth-child(odd) { background-color: var(--dark-40); }
+#table-score .players-scores .score-icon { color: #000; }
+#table-score .players-scores .winner { background-color: var(--green-10); }
 `;
 
 _darkStyleForGame['gofish'] = `
@@ -3613,6 +3627,13 @@ _darkStyleForGame['wonderfulkingdom'] = `
 .wk_phase_phases .wk_phase_selected { background-color: var(--dark-40); border: 1px solid var(--light-50); color: var(--light-80); }
 .wk_threat_tooltip_desc { background-color: var(--dark-back); }
 .bg-ressource_7 { filter: invert(1); }
+`;
+
+_darkStyleForGame['xanadu'] = `
+#deck_remaining { color: var(--light-80); }
+.whiteblock.xdu_building_area { position: relative; }
+.whiteblock.xdu_building_area:before { content: ""; background: var(--dark-back); position: absolute; width: 100%; height: 100%; top: 0px; left: 0px; }
+.whiteblock.xdu_building_area > h3 { position: relative; display: block; }
 `;
 
 _darkStyleForGame['xiangqi'] = `
