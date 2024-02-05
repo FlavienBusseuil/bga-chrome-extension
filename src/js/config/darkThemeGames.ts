@@ -37,6 +37,7 @@ export const gamesWithCustomBackground = [
   'mycity',
   'mycityrb',
   'newfrontiers',
+  'nidavellir',
   'notalone',
   'nowboarding',
   'numberdrop',
@@ -2231,10 +2232,12 @@ _darkStyleForGame['nicodemus'] = `
 `;
 
 _darkStyleForGame['nidavellir'] = `
+#overall-content:before { content: ""; background: var(--dark-back); position: absolute; width: 100%; height: 100%; }
 #turn-counter-holder, #layout-mode { filter: invert(0.7); }
 .card-class-ranks, .card-class-score, .rank { filter: invert(1); }
 #player-boards > div { background: var(--dark-20); border-radius: 8px; }
 .player-board-name { background-color: var(--dark-30) !important; }
+#nidavellir-board #player-boards .nidavellir-player-board .command-zone-container .hero-line { border-top: 1px dashed #fdfdfd66; }
 `;
 
 _darkStyleForGame['ninetynine'] = `
