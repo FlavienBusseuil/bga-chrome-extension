@@ -648,6 +648,10 @@ select.colorselector {
   background-color: var(--yellow-10);
 }
 
+.bgaext_lobby .bubblebanner:after {
+  border-color: var(--yellow-10) transparent;
+}
+
 .bgaext_lobby .bubblebanner a {
   color: var(--light-80) !important;
   text-decoration: underline;
@@ -1749,4 +1753,37 @@ iframe#forum_frame {
 
 .bgaext_awards {
   color: var(--light-80);
+}
+
+/* new display of current games */
+.bga-player-menu__bottom .bga-table-list-item {
+  border: 1px solid var(--dark-40);
+  border-radius: 10px;
+}
+
+.bga-player-menu__bottom .bga-table-list-item__main {
+  background-color: var(--dark-20) !important;
+}
+
+.bga-player-menu__bottom .bga-table-list-item__game-name:active,
+.bga-player-menu__bottom .bga-table-list-item__background:hover .bga-table-list-item__game-name {
+  color: var(--violet-80) !important;
+}
+
+.bga-player-menu__bottom .bga-table-list-item__main .text-bga-gray-78 {
+  color: var(--light-50);
+  overflow: visible;
+}
+
+.bga-player-menu__bottom .bga-table-list-item__status-mode-icon {
+  color: var(--dark-40) !important;
+}
+
+.bga-player-menu__bottom .bga-table-list-item__background {
+  background-color: var(--dark-10) !important;
+  /*background-color: #354373 !important;*/
+}
+
+.bga-player-menu__bottom .bga-table-list-item__players-list {
+  background-color: var(--dark-20) !important;
 }
