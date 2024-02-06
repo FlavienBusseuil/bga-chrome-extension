@@ -644,6 +644,24 @@ select.colorselector {
   color: var(--blue-50);
 }
 
+.bgaext_lobby .bubblebanner {
+  background-color: var(--yellow-10);
+}
+
+.bgaext_lobby .bubblebanner a {
+  color: var(--light-80) !important;
+  text-decoration: underline;
+}
+
+.bgaext_lobby .bubblebanner a:hover {
+  color: #fff !important;
+}
+
+.bgaext_lobby .mm_pref_help {
+  color: var(--light-80);
+  border-color: var(--light-80);
+}
+
 .gamerank_apprentice,
 .gamerank_beginner {
   background-color: hsl(192, 25%, 64%)

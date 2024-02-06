@@ -107,6 +107,12 @@ spectator-mode .log .roundedbox .playername {
   text-shadow: none;
 }
 
+#logs .log .icon20_fullscreen,
+#logs .log .icon20_mute,
+#logs .log .icon20_config {
+  filter: contrast(2) invert(0.8);
+}
+
 .log_replayable:hover {
   background-color: #130d06
 }

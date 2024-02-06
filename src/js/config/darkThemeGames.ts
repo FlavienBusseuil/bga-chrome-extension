@@ -3598,6 +3598,12 @@ _darkStyleForGame['wastelandia'] = `
 .wastelandia-icon { filter: invert(1); }
 `;
 
+_darkStyleForGame['watergate'] = `
+#playerCardsInfo, #bottomHandArea, #topHandArea { color: var(--light-80); }
+#handEditor, #handNixon { filter: invert(0.9); }
+.card { border: 1px solid var(--light-80); }
+`;
+
 _darkStyleForGame['wazabi'] = `
 #direction { filter: invert(0.7); }
 .cards { color: #000; }
