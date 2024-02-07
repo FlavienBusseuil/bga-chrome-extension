@@ -1758,7 +1758,8 @@ iframe#forum_frame {
 /* new display of current games */
 .bgaext_gameinprogress .bga-table-list-item,
 .bga-player-menu__bottom .bga-table-list-item,
-.bgaext_gametables .bga-table-list-item {
+.bgaext_gametables .bga-table-list-item,
+.bgaext_gamepanel .bga-table-list-item {
   border: 1px solid var(--dark-40);
   border-radius: 10px;
 }
@@ -1770,16 +1771,13 @@ iframe#forum_frame {
 .bgaext_gameinprogress .bga-table-list-item__main,
 .bga-player-menu__bottom .bga-table-list-item__main,
 .bgaext_gameinprogress .bga-progress-list__tournament-item-holder,
-.bgaext_gametables .bga-table-list-item__main {
+.bgaext_gametables .bga-table-list-item__main,
+.bgaext_gamepanel .bga-table-list-item__main {
   background-color: var(--dark-20) !important;
 }
 
-.bgaext_gameinprogress .bga-table-list-item__game-name:active,
-.bgaext_gameinprogress .bga-table-list-item__background:hover .bga-table-list-item__game-name,
-.bgaext_gametables .bga-table-list-item__game-name:active,
-.bgaext_gametables .bga-table-list-item__background:hover .bga-table-list-item__game-name,
-.bga-player-menu__bottom .bga-table-list-item__game-name:active,
-.bga-player-menu__bottom .bga-table-list-item__background:hover .bga-table-list-item__game-name {
+.bga-table-list-item__game-name:active,
+.bga-table-list-item__background:hover .bga-table-list-item__game-name {
   color: var(--violet-80) !important;
 }
 
@@ -1790,21 +1788,20 @@ iframe#forum_frame {
   overflow: visible;
 }
 
-.bgaext_gameinprogress .bga-table-list-item__status-mode-icon,
-.bgaext_gametables .bga-table-list-item__status-mode-icon,
-.bga-player-menu__bottom .bga-table-list-item__status-mode-icon {
+.bga-table-list-item__status-mode-icon {
   color: var(--dark-40) !important;
 }
 
 .bgaext_gameinprogress .bga-table-list-item__background,
 .bgaext_gametables .bga-table-list-item__background,
+.bgaext_gamepanel .bga-table-list-item__background,
 .bga-player-menu__bottom .bga-table-list-item__background {
   background-color: var(--dark-10) !important;
-  /*background-color: #354373 !important;*/
 }
 
 .bgaext_gameinprogress .bga-table-list-item__players-list,
 .bgaext_gametables .bga-table-list-item__players-list,
+.bgaext_gamepanel .bga-table-list-item__players-list,
 .bga-player-menu__bottom .bga-table-list-item__players-list {
   background-color: var(--dark-20) !important;
 }
