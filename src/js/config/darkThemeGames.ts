@@ -42,6 +42,7 @@ export const gamesWithCustomBackground = [
   'nowboarding',
   'numberdrop',
   'ontour',
+  'openseason',
   'oriflamme',
   'pandemic',
   'pingimus',
@@ -2335,6 +2336,13 @@ _darkStyleForGame['oneohone'] = `
 
 _darkStyleForGame['openfacechinesepoker'] = `
 .name_shadow { text-shadow: none; }
+`;
+
+_darkStyleForGame['openseason'] = `
+#overall-content:before { content: ""; background: var(--dark-back); position: absolute; width: 100%; height: 100%; }
+.playerPersonnalZone_playerName span { text-shadow: 2px 2px 15px #000, 0 0 25px #000, 0 0 30px #000; }
+.handCardZone { background-color: var(--dark-back); outline: var(--cardBorder) dashed var(--light-50); }
+#zoomControler { filter: invert(0.7); }
 `;
 
 _darkStyleForGame['oriflamme'] = `

@@ -1101,6 +1101,11 @@ const defaultGames: Partial<Game>[] = [
 		playerPanel: "open_wrap_{{player_id}}",
 		css: "#game_play_area { padding-left: 30px; }",
 	},
+	{
+		name: "openseason",
+		playerPanel: "playerZone_{{player_id}}",
+		css: "#game_play_area { padding-left: 50px; } .keyhole { display: none; }",
+	},
 ];
 
 export default defaultGames;
