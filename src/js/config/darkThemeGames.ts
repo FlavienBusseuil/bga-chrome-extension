@@ -46,6 +46,7 @@ export const gamesWithCustomBackground = [
   'oriflamme',
   'pandemic',
   'pingimus',
+  'pixies',
   'pocketcats',
   'pook',
   'quirkyquarks',
@@ -2471,6 +2472,13 @@ _darkStyleForGame['pinochle'] = `
 _darkStyleForGame['piratenkapern'] = `
 .blue { background-color: #00004d; }
 .red { background-color: #660000; color: #fff; }
+`;
+
+_darkStyleForGame['pixies'] = `
+#overall-content:before { content: ""; background: var(--dark-back); position: absolute; width: 100%; height: 100%; }
+.player-table { background: var(--dark-back); }
+#popin_bgaHelpDialog { background: var(--dark-20); }
+#help-popin h1 { color: #6aa046; }
 `;
 
 _darkStyleForGame['planetunknown'] = `

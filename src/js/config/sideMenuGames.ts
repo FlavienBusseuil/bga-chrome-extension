@@ -1106,6 +1106,12 @@ const defaultGames: Partial<Game>[] = [
 		playerPanel: "playerZone_{{player_id}}",
 		css: "#game_play_area { padding-left: 50px; } .keyhole { display: none; }",
 	},
+	{
+		name: "pixies",
+		playerPanel: "player-table-{{player_id}}",
+		iconBackground: "#5e8e3e",
+		iconBackgroundDark: "#5e8e3e",
+	}
 ];
 
 export default defaultGames;
