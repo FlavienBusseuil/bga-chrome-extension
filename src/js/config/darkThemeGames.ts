@@ -590,6 +590,11 @@ _darkStyleForGame['boreal'] = `
 .player_config_row > div:last-child svg { filter: invert(0.7); }
 `;
 
+_darkStyleForGame['botanik'] = `
+body { background: none; }
+#zoomplus, #zoomminus { filter: invert(0.9); }
+`;
+
 _darkStyleForGame['briscola'] = `
 .table_color { background: var(--dark-back); }
 .playertablename, .table_cell { color: #fff; }
@@ -1944,6 +1949,7 @@ html.darkpanel .player-board.playerWentDown { background: #1a3d22 !important; }
 `;
 
 _darkStyleForGame['livingforest'] = `
+body { background: none; }
 .icon_fragment { filter: invert(1); }
 .lvf_playerboard_name { background: var(--dark-back); color: #fff; }
 `;
@@ -2220,6 +2226,11 @@ _darkStyleForGame['nautilus'] = `
 .dijitTooltipContainer [style="color:#8F156F"] { color: #de21ac !important; }
 .dijitTooltipContainer [style="color:#4D572D"] { color: #a0b168 !important; }
 .dijitTooltipContainer [style="color:#000000"] { color: #fff !important; }
+`;
+
+_darkStyleForGame['newyorkzoo'] = `
+#generalactions .control-image { filter: invert(1); }
+.mini_counter { color: var(--yellow-10); }
 `;
 
 _darkStyleForGame['nextstationtokyo'] = `
