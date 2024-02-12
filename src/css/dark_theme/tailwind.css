@@ -10,6 +10,14 @@
   --light-80: #dcddde;
 }
 
+body {
+  color: #000;
+}
+
+html.dark body {
+  color: var(--light-80);
+}
+
 html.dark body.container {
   background: var(--dark-10);
 }
