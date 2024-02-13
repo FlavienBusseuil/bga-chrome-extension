@@ -1111,6 +1111,10 @@ const defaultGames: Partial<Game>[] = [
 		playerPanel: "player-table-{{player_id}}",
 		iconBackground: "#5e8e3e",
 		iconBackgroundDark: "#5e8e3e",
+	},
+	{
+		name: "rivervalleyglassworks",
+		playerPanel: ".player_board_panel",
 	}
 ];
 

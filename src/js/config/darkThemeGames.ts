@@ -65,6 +65,7 @@ export const gamesWithCustomBackground = [
   'thecrew',
   'talon',
   'tinyturbocars',
+  'trailblazers',
   'trio',
   'tuned',
   'unrest',
@@ -3404,6 +3405,10 @@ body { background: none; }
 _darkStyleForGame['tortugasixteensixtyseven'] = `
 #tableEventCardsArea, .tortuga_tooltip_text_container, #myHandArea, #crowsNestVoteCardsContainer
 { background-color: var(--dark-20); color: var(--light-80); }
+`;
+
+_darkStyleForGame['trailblazers'] = `
+.tb_tabs .tb_player { background-color: #13201b; }
 `;
 
 _darkStyleForGame['tranquility'] = `
