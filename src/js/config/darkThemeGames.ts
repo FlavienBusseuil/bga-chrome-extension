@@ -2668,6 +2668,13 @@ _darkStyleForGame['riftvalleyreserve'] = `
 .rvr-icon-backpack, .rvr-tent-display { filter: var(--highlight-min); }
 `;
 
+_darkStyleForGame['rivervalleyglassworks'] = `
+.hand_selection_panel, .board_selection_panel { background-color: var(--dark-back); }
+.board_name_panel, .board_name_panel_lower, .num_gems_panel { background-color: var(--dark-20); }
+#bga-zoom-controls { filter: invert(0.7); }
+.num_gems_text { color: var(--light-80) !important; }
+`;
+
 _darkStyleForGame['rollandbump'] = `
 .rnb_cardsnb { color: #ddd; }
 .rnb_player { background: var(--dark-back); }
