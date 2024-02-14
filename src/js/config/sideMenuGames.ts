@@ -1115,7 +1115,23 @@ const defaultGames: Partial<Game>[] = [
 	{
 		name: "rivervalleyglassworks",
 		playerPanel: ".player_board_panel",
-	}
+	},
+	{
+		name: "solstis",
+		playerPanel: "zone_playername_{{player_index_1}}",
+		iconBackground: "#4fb9e5",
+		css: " "
+	},
+	{
+		name: "splendorduel",
+		playerPanel: "player-table-{{player_id}}",
+		boardPanel: "cards-wrapper",
+		boardPanelText: "#bga-jump-to_table-cards .bga-jump-to_label",
+		css: "#bga-jump-to_controls { display: none; }",
+		iconBackground: "#c4aec5",
+		iconBackgroundDark: "#c4aec5"
+	},
+
 ];
 
 export default defaultGames;

@@ -60,6 +60,7 @@ export const gamesWithCustomBackground = [
   'spaceempires',
   'spacestationphoenix',
   'splendor',
+  'splendorduel',
   'stella',
   'starfluxx',
   'thecrew',
@@ -2929,6 +2930,12 @@ _darkStyleForGame['solowhist'] = `
 .infotitle, .targetTitle, .handinfo { color: var(--light-70); }
 `;
 
+_darkStyleForGame['solstis'] = `
+.st_zone { background-color: var(--dark-back); }
+.st_header { background: var(--dark-30); margin-bottom: 0.2em; }
+#st_layout_change a, #st_layout_change p { color: var(--light-80); }
+`;
+
 _darkStyleForGame['soulaween'] = `
 #help_panel pre { background-color: var(--dark-back); color: #fff; }
 `;
@@ -2962,6 +2969,14 @@ _darkStyleForGame['sparts'] = `
 
 _darkStyleForGame['spiritsoftheforest'] = `
 .pb_label { color: var(--dark-80); }
+`;
+
+_darkStyleForGame['splendorduel'] = `
+#overall-content:before { content: ""; background: #000000bb; position: absolute; width: 100%; height: 100%; }*
+.player-table { background: var(--dark-back); }
+.token .card-sides .card-side { filter: var(--drop-shadow-min); }
+.player-table .hand-wrapper, .privilege-zone:not(:empty) { background: var(--dark-10); }
+#popin_bgaHelpDialog { background: var(--dark-10); }
 `;
 
 _darkStyleForGame['splito'] = `
