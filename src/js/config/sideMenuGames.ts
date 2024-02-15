@@ -993,7 +993,7 @@ const defaultGames: Partial<Game>[] = [
 		name: "praga",
 		playerPanel: "playerboard_{{player_id}}",
 		position: "bottom",
-		css: "#uiPanel { top: 1vh; } #game_play_area { padding-left: 50px; }"
+		css: "#game_play_area { padding-left: 50px; } #uiPanel { position: fixed; top: 65px; margin-left: 7px !important; } #uiPanelBtn { display: none; } #uiPanel>.uibtn { background-color: #ebd5bd; margin-left: 0px; border-radius: 50%; width: 40px; height: 40px; box-shadow: rgb(0, 0, 0) 0px 0px 10px 0px; } #uiPanel { background-color: transparent; } #uiPanel>.uibtn:after { left: 4px; top: 4px; width: 32px; height: 32px; border-radius: 50%; } #uiPanel { height: 350px; }"
 	},
 	{
 		name: "mutantcrops",
@@ -1131,7 +1131,11 @@ const defaultGames: Partial<Game>[] = [
 		iconBackground: "#c4aec5",
 		iconBackgroundDark: "#c4aec5"
 	},
-
+	{
+		name: "evolution",
+		playerPanel: "species_wrap_{{player_id}}",
+		css: ".eye_panelicon, .up_arrow { display: none; } #game_play_area { padding-left: 50px; }"
+	},
 ];
 
 export default defaultGames;

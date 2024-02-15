@@ -17,6 +17,7 @@ export const gamesWithCustomBackground = [
   'eminentdomain',
   'emdomicrocosm',
   'equinox',
+  'evolution',
   'federation',
   'gangsta',
   'giftoftulips',
@@ -1213,6 +1214,12 @@ _darkStyleForGame['ecarte'] = `
 #pagesection_gameview .playertable.whiteblock.vulnerable { background: #4d000080; }
 `;
 
+_darkStyleForGame['eck'] = `
+#overall-content:before { content: ""; background: #000000bb; position: absolute; width: 100%; height: 100%; }
+.playertablename { text-shadow: none; }
+.card_back.empty, .trick_card_margin.empty { outline: 2px dotted var(--light-50); }
+`;
+
 _darkStyleForGame['eightmastersrevenge'] = `
 #didyouknow { color: var(--light-80); }
 `;
@@ -1267,6 +1274,10 @@ _darkStyleForGame['euchre'] = `
 
 _darkStyleForGame['evergreen'] = `
 .eve_inline-block { color: #000; }
+`;
+
+_darkStyleForGame['evolution'] = `
+#overall-content:before { content: ""; background: var(--dark-back); position: absolute; width: 100%; height: 100%; }
 `;
 
 _darkStyleForGame['factum'] = `
@@ -2536,6 +2547,9 @@ _darkStyleForGame['praga'] = `
 .ressourceImg[style="background-position:-600% -000%;"], .ressourceImg[style="background-position:-700% -000%;"] { border-radius: 15px; }
 #turnLabel { color: var(--light-80); }
 #zoomplus, #zoomminus { filter: invert(0.7); }
+#uiPanelBtn { background-color: var(--dark-10) !important; }
+#uiPanel>.uibtn { background-color: #b9b9b9 !important; }
+#uiPanel>.uibtn.selected { background-color: var(--blue-70) !important; }
 `;
 
 _darkStyleForGame['president'] = `
@@ -2972,7 +2986,7 @@ _darkStyleForGame['spiritsoftheforest'] = `
 `;
 
 _darkStyleForGame['splendorduel'] = `
-#overall-content:before { content: ""; background: #000000bb; position: absolute; width: 100%; height: 100%; }*
+#overall-content:before { content: ""; background: #000000bb; position: absolute; width: 100%; height: 100%; }
 .player-table { background: var(--dark-back); }
 .token .card-sides .card-side { filter: var(--drop-shadow-min); }
 .player-table .hand-wrapper, .privilege-zone:not(:empty) { background: var(--dark-10); }
@@ -3238,6 +3252,13 @@ _darkStyleForGame['theisleofcats'] = `
 _darkStyleForGame['thenumber'] = `
 .tn-miniboard-digit { background: var(--dark-40); }
 .tn-miniboard-digit-closed { background: #000; color: #000; }
+`;
+
+_darkStyleForGame['theshipwreckarcana'] = `
+.hand_text { color: var(--light-80); }
+.hand_token_space { background-color: var(--dark-back); }
+#bga-zoom-controls { filter: invert(0.7); }
+.suggestion_area { background-color: var(--dark-back); color: var(--light-80); }
 `;
 
 _darkStyleForGame['thirteenclues'] = `
