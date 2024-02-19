@@ -90,8 +90,7 @@ export const gamesWithCustomPanel = [
   'tickettoride',
   'tickettorideeurope',
   'twinpalms',
-  'viticulture',
-  'wingspan'
+  'viticulture'
 ];
 
 export const gamesWithCustomDarkMode = {
@@ -3686,10 +3685,19 @@ _darkStyleForGame['wazabi'] = `
 `;
 
 _darkStyleForGame['wingspan'] = `
+.wsp_background_paper body { background: none; }
+.wsp_background_paper #overall-content:before { content: ""; background: var(--dark-back); position: absolute; width: 100%; height: 100%; }
 #spectatorbox { background-color: var(--dark-20) !important; }
 .player_board_content, .wsp_playerboard_card_icon { color: #000; }
 #feeder_outside, #feeder_outside > div { filter: invert(1); }
 .wsp_tooltip_header span[style$="color: #666666"] { color: #ccc !important; }
+#goal_current_round, #goal_title, #goal_forecast_option, .wsp_aviarycounter_turnsleft { color: var(--light-80); }
+#goal_appendix { color: var(--light-70); }
+#goal_forecast_option_checkbox, #birdtray_zoom { filter: invert(1); }
+.wsp_playermat_opponent_label, .player_board_inner>.player-name, #player_board_inner_ffa500>.player-name,.wsp_player_ffa500>.wsp_playermat_opponent_label,
+#player_board_inner_008000>.player-name,.wsp_player_008000>.wsp_playermat_opponent_label { text-shadow: 1px 0 2px #00000099,0 -1px 2px #00000099,0 1px 2px #00000099,-1px 0 2px #00000099 }
+.player_board_content, .wsp_playerboard_card_icon, .player_score_value { color: var(--light-80); }
+.fa-star:not(.rating_star) { filter: invert(1); }
 `;
 
 _darkStyleForGame['wizardsgrimoire'] = `

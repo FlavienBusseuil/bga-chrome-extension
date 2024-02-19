@@ -1847,3 +1847,7 @@ iframe#forum_frame {
 .bgaext_gametables {
   color: var(--light-80);
 }
+
+.bgaext_audience #chart {
+  filter: invert(0.8);
+}

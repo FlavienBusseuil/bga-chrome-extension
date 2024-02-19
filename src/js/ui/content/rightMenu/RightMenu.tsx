@@ -124,7 +124,7 @@ const RightMenu = (props: RightMenuProps) => {
 				className="bgext_right_menu bgabutton bgabutton_gray"
 			>
 				<i
-					className="fa fa-star"
+					className="fa fa-star rating_star"
 					style={{ width: "14px", height: "14px" }}
 				></i>
 				{scoreVisible && (
