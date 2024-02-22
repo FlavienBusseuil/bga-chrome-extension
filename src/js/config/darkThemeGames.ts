@@ -1692,6 +1692,27 @@ _darkStyleForGame['hex'] = `
 .hex_menu_content { background: var(--dark-back); color: #fff; }
 `;
 
+_darkStyleForGame['hiddenleaders'] = `
+.card-icon.icon-1, .card-icon.icon-2, .card-icon.icon-3, .card-icon.icon-4, .card-icon.icon-5, .card-icon.icon-6, .card-icon.icon-7, .card-icon.icon-10 { filter: invert(1); }
+.player-head { background: var(--dark-back); padding: 0.1em 1em; }
+.player-table-card-wrapper { background: var(--dark-back); border: 1px solid var(--light-50); }
+.player-table { border: 3px solid var(--light-50); }
+.player-table-card-wrapper .title { background-color: var(--dark-10); color: #fff; }
+.title-faction[data-faction="1"] { color: var(--light-80); }
+.title-faction[data-faction="3"] { color: #8080ff; }
+.title-faction[data-faction="3"] { color: #ff3333; }
+.dijitTooltipContainer strong[style="color: #030303;"] { color: var(--light-80) !important; }
+.dijitTooltipContainer i[style^="color:blue;"] { color: var(--blue-50) !important; }
+.bga-cards_deck-counter.round { background: var(--dark-10); box-shadow: 0 0 2px 1px #fff; color: var(--light-80); }
+.cards-stack[data-empty=true] { background-color: var(--dark-back); }
+#logs .card-name.faction-1, #maintitlebar_content .card-name.faction-1, #player_boards .card-name.faction-1,
+#score-table .card-name.faction-1, .cardToolTip .card-name.faction-1, .player-table-card-wrapper .card-name.faction-1,
+.title-faction .card-name.faction-1, .wg-card-gametext .card-name.faction-1, caption .card-name.faction-1 { text-shadow: var(--text-w-shadow); }
+.bgabutton.disabled { background-color: var(--light-50) !important; }
+#hiddenleaders-score { background-color: var(--dark-back); color: var(--light-80); box-shadow: 2px 2px 3px 3px var(--dark-10); }
+#hiddenleaders-score table tr td { text-shadow: none; }
+`;
+
 _darkStyleForGame['hive'] = `
 body { background: none !important; }
 `;

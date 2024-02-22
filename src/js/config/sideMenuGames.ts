@@ -1136,6 +1136,11 @@ const defaultGames: Partial<Game>[] = [
 		playerPanel: "species_wrap_{{player_id}}",
 		css: ".eye_panelicon, .up_arrow { display: none; } #game_play_area { padding-left: 50px; }"
 	},
+	{
+		name: "hiddenleaders",
+		playerPanel: "player-head-{{player_id}}",
+		css: "#bga-jump-to_controls { display: none; } #game_play_area { padding-left: 50px; }",
+	},
 ];
 
 export default defaultGames;
