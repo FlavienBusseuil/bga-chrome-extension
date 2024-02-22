@@ -1022,7 +1022,8 @@ const defaultGames: Partial<Game>[] = [
 	{
 		name: "terraformingmars",
 		playerPanel: "#players_area .player_area",
-		boardPanel: "main_board"
+		boardPanel: "main_board",
+		bottomPanel: "allcards"
 	},
 	{
 		name: "ancientknowledge",

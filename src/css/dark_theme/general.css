@@ -1770,6 +1770,7 @@ iframe#forum_frame {
 .bgaext_gameinprogress .bga-table-list-item,
 .bga-player-menu__bottom .bga-table-list-item,
 .bgaext_gametables .bga-table-list-item,
+.bgaext_playertables .bga-table-list-item,
 .bgaext_gamepanel .bga-table-list-item {
   border: 1px solid var(--dark-40);
   border-radius: 10px;

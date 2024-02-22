@@ -39,6 +39,7 @@ export const gamesWithCustomBackground = [
   'mycityrb',
   'newfrontiers',
   'nidavellir',
+  'nimalia',
   'notalone',
   'nowboarding',
   'numberdrop',
@@ -138,7 +139,8 @@ export const gamesWithCustomColors = {
   terramystica: ['#971923', '#278139', '#70421d', '#1a2126'],
   terranova: ['#971923', '#278139', '#70421d', '#1a2126'],
   nowboarding: ['#000000'],
-  lumen: ['#1f3067']
+  lumen: ['#1f3067'],
+  nimalia: ['#0000ff', '#ff0000', '#ffa500', '#008000']
 };
 
 export const gamesWithCustomActions = {
@@ -2299,6 +2301,11 @@ _darkStyleForGame['nidavellir'] = `
 #nidavellir-board #player-boards .nidavellir-player-board .command-zone-container .hero-line { border-top: 1px dashed #fdfdfd66; }
 `;
 
+_darkStyleForGame['nimalia'] = `
+#overall-content:before { content: ""; background: var(--dark-back); position: absolute; width: 100%; height: 100%; }
+#settings-controls-container { background: linear-gradient(180deg,var(--dark-20),var(--dark-20)); }
+`;
+
 _darkStyleForGame['ninetynine'] = `
 #decrev_player_name, .bgann_dealerindicator { color: #fff !important; }
 .bgann_firstplayer { border: 2px dashed var(--light-80); }
@@ -3185,6 +3192,11 @@ _darkStyleForGame['terraformingmars'] = `
 .log .token_img { color: #000; }
 #settings-controls-container-prefs:before, .localsettings_header { background-color: var(--orange-30); }
 .tooltiptitle { background-color: var(--dark-back); }
+.tooltipcontainer, .tundra .dijitTooltipContainer { background: var(--dark-20); }
+#popin_score_dlg:before { content: ""; background: #000000bb; position: absolute; width: 100%; height: 100%; top:0px; left: 0px; }
+#popin_score_dlg_title { position: relative; }
+.scoretable .scorecell { background-color: var(--dark-40); }
+.scoretable .header { background-color: var(--dark-30);  }
 .mcompact .player_area { background: var(--dark-back); }
 .mcompact .tt_intertitle { background: var(--dark-40); }
 .mcompact .card_tooltipcontainer[data-card-type="1"] .tt_intertitle { background: #356818; }
@@ -3199,6 +3211,8 @@ _darkStyleForGame['terraformingmars'] = `
 .tracker_passed { color: var(--light-50); }
 .player_tags { color: var(--light-80); }
 .card.corp, .card, .playerboard_own { color: #000; }
+.corp_logo { filter: var(--drop-shadow-min); }
+#player_boards .hand_symbol { filter: invert(1); }
 `;
 
 _darkStyleForGame['terramystica'] = `
