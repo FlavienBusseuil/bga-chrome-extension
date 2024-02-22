@@ -3197,7 +3197,7 @@ _darkStyleForGame['terraformingmars'] = `
 #popin_score_dlg_title { position: relative; }
 .scoretable .scorecell { background-color: var(--dark-40); }
 .scoretable .header { background-color: var(--dark-30);  }
-.mcompact .player_area { background: var(--dark-back); }
+.mcompact .player_area, .hand_area .location { background: var(--dark-back); }
 .mcompact .tt_intertitle { background: var(--dark-40); }
 .mcompact .card_tooltipcontainer[data-card-type="1"] .tt_intertitle { background: #356818; }
 .mcompact .card_tooltipcontainer[data-card-type="2"] .tt_intertitle { background: #184268; }
@@ -3213,6 +3213,11 @@ _darkStyleForGame['terraformingmars'] = `
 .card.corp, .card, .playerboard_own { color: #000; }
 .corp_logo { filter: var(--drop-shadow-min); }
 #player_boards .hand_symbol { filter: invert(1); }
+#ebd-body[data-localsetting_handplace=floating] #hand_area { background-color: var(--dark-40); }
+.handy:after { color: var(--light-70); }
+.hand_sorter { background-color: var(--dark-40); color: var(--light-70); border: 1px solid var(--light-50); }
+.hand_sorter .hs_button { border: 1px solid var(--light-70); }
+.hand_sorter .hs_button[data-direction=increase], .hand_sorter .hs_button[data-direction=decrease] { background-color: var(--yellow-10); }
 `;
 
 _darkStyleForGame['terramystica'] = `

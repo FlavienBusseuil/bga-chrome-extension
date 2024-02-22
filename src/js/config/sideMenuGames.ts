@@ -1023,7 +1023,8 @@ const defaultGames: Partial<Game>[] = [
 		name: "terraformingmars",
 		playerPanel: "#players_area .player_area",
 		boardPanel: "main_board",
-		bottomPanel: "allcards"
+		bottomPanel: "allcards",
+		css: "#bga_extension_sidebar { z-index: 999 !important; } #game_play_area { padding-left: 50px; } #ebd-body[data-localsetting_handplace=floating] #hand_area_buttons #hand_area_button_pop { background-color: #ebd5bd; } .darkmode #ebd-body[data-localsetting_handplace=floating] #hand_area_buttons #hand_area_button_pop { background-color: #b9b9b9; }"
 	},
 	{
 		name: "ancientknowledge",
