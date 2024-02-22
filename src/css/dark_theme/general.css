@@ -1678,6 +1678,17 @@ select.colorselector {
   filter: invert(0.8);
 }
 
+.bgaext_player .progressbar .progressbar_bar {
+  background: var(--dark-10);
+  border-radius: 0px;
+}
+
+#playertab-activity.bg-bga-gray-244,
+#playertab-news.bg-bga-gray-244 {
+  background-color: var(--dark-10);
+  color: var(--light-70);
+}
+
 #server_status_warning_message {
   background-color: var(--dark-10);
 }
@@ -1772,6 +1783,7 @@ iframe#forum_frame {
 .bga-player-menu__bottom .bga-table-list-item__main,
 .bgaext_gameinprogress .bga-progress-list__tournament-item-holder,
 .bgaext_gametables .bga-table-list-item__main,
+.bgaext_playertables .bga-table-list-item__main,
 .bgaext_gamepanel .bga-table-list-item__main {
   background-color: var(--dark-20) !important;
 }
@@ -1781,9 +1793,7 @@ iframe#forum_frame {
   color: var(--violet-80) !important;
 }
 
-.bgaext_gameinprogress .bga-table-list-item__main .text-bga-gray-78,
-.bgaext_gametables .bga-table-list-item__main .text-bga-gray-78,
-.bga-player-menu__bottom .bga-table-list-item__main .text-bga-gray-78 {
+.bga-table-list-item__main .text-bga-gray-78 {
   color: var(--light-50);
   overflow: visible;
 }
@@ -1792,18 +1802,16 @@ iframe#forum_frame {
   color: var(--dark-40) !important;
 }
 
-.bgaext_gameinprogress .bga-table-list-item__background,
-.bgaext_gametables .bga-table-list-item__background,
-.bgaext_gamepanel .bga-table-list-item__background,
-.bga-player-menu__bottom .bga-table-list-item__background {
+.bga-table-list-item__background {
   background-color: var(--dark-10) !important;
 }
 
-.bgaext_gameinprogress .bga-table-list-item__players-list,
-.bgaext_gametables .bga-table-list-item__players-list,
-.bgaext_gamepanel .bga-table-list-item__players-list,
-.bga-player-menu__bottom .bga-table-list-item__players-list {
+.bga-table-list-item__players-list {
   background-color: var(--dark-20) !important;
+}
+
+.bga-table-list-item__main .text-bga-gray-141 {
+  color: var(--light-50);
 }
 
 .bgaext_gameinprogress .bg-bga-gray-233.bga-player-progress-list__section {
@@ -1812,6 +1820,7 @@ iframe#forum_frame {
 
 .bgaext_gameinprogress .text-bga-gray-78,
 .bgaext_gametables .text-bga-gray-78,
+.bgaext_playertables .text-bga-gray-78,
 .bgaext_gameinprogress .text-gray-500 {
   color: var(--light-70);
 }
@@ -1842,6 +1851,14 @@ iframe#forum_frame {
 .bgaext_gametables .bga-button-dropdown-item:hover {
   background-color: var(--dark-20) !important;
   color: var(--blue-80) !important;
+}
+
+.bga-player-profile-modal__content {
+  background: var(--dark-20) !important;
+}
+
+.bga-player-profile-modal__content .text-gray-500 {
+  color: var(--light-80);
 }
 
 .bgaext_gametables {
