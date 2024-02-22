@@ -65,6 +65,8 @@ export const gamesWithCustomBackground = [
   'stella',
   'starfluxx',
   'thecrew',
+  'tickettoride',
+  'tickettorideeurope',
   'talon',
   'tinyturbocars',
   'trailblazers',
@@ -135,7 +137,8 @@ export const gamesWithCustomPlayerStyle = {
 export const gamesWithCustomColors = {
   terramystica: ['#971923', '#278139', '#70421d', '#1a2126'],
   terranova: ['#971923', '#278139', '#70421d', '#1a2126'],
-  nowboarding: ['#000000']
+  nowboarding: ['#000000'],
+  lumen: ['#1f3067']
 };
 
 export const gamesWithCustomActions = {
@@ -2001,12 +2004,22 @@ _darkStyleForGame['luckynumbers'] = `
 .playertable { background-color: var(--dark-back); }
 `;
 
+_darkStyleForGame['ludo'] = `
+.dice_table, .board_cell.safety_space { background: var(--dark-back); }
+.dice_table td { color: var(--light-80); }
+`;
+
 _darkStyleForGame['lumen'] = `
 #spectatorbox { background-color: var(--dark-20) !important; }
 #zoom-wrapper #map-controls button { background-color: var(--light-70) !important; border-color: var(--dark-40); }
 #zoom-wrapper #map-controls button.active { background-color: #fff !important; border-color: #4871b6; }
 #popin_lumenHelpDialog { background-color: var(--dark-20); color: #fff; }
 #help-popin h1 { color: #fff; }
+.player-table .name-and-tiles>div, .player-table .name-and-tiles .name-wrapper { background: var(--dark-back); }
+#scenario-name, #scenario-synopsis { background: var(--yellow-10); color: var(--light-80); }
+#scenario-special-rules, #scenario-objectives { background: var(--dark-back); color: var(--light-80); }
+#scenario-name .round { color: var(--light-50); }
+.dijitTooltipContents #scenario-objectives, .dijitTooltipContents #scenario-special-rules { background: var(--yellow-10); }
 `;
 
 _darkStyleForGame['luxor'] = `
@@ -3207,6 +3220,13 @@ _darkStyleForGame['theboss'] = `
 .stockitem { filter: var(--highlight-min); }
 `;
 
+_darkStyleForGame['thebrambles'] = `
+.to_translate { font-weight: normal !important; text-shadow: none !important; }
+#player_boards .player-name { text-shadow: none !important; }
+.cardspace { color: #000; }
+.card.empty, .card_back.empty { outline: 2px dotted var(--light-50); }
+`;
+
 _darkStyleForGame['thecrew'] = `
 #logs span.card-value.#000 { text-shadow: var(--text-w-shadow); }
 #logs span.card-value { padding-right: 0.2em; }
@@ -3360,6 +3380,14 @@ _darkStyleForGame['tichu'] = `
 
 _darkStyleForGame['ticketgagnant'] = `
 #moimeme { background-color: var(--dark-back); }
+`;
+
+_darkStyleForGame['tickettoride'] = `
+#overall-content:before { content: ""; background: #000000bb; position: absolute; width: 100%; height: 100%; }
+`;
+
+_darkStyleForGame['tickettorideeurope'] = `
+#overall-content:before { content: ""; background: #000000bb; position: absolute; width: 100%; height: 100%; }
 `;
 
 _darkStyleForGame['tictacmatch'] = `
