@@ -1143,6 +1143,12 @@ const defaultGames: Partial<Game>[] = [
 		playerPanel: "player-head-{{player_id}}",
 		css: "#bga-jump-to_controls { display: none; } #game_play_area { padding-left: 50px; }",
 	},
+	{
+		name: "paxrenaissance",
+		playerPanel: "pr_player_tableau_{{player_id}}",
+		iconBackground: "#a78d59",
+		iconBackgroundDark: "#a78d59"
+	},
 ];
 
 export default defaultGames;
