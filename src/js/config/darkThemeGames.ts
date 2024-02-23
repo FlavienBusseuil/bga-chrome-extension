@@ -334,6 +334,10 @@ _darkStyleForGame['ancientknowledge'] = `
 #bga-zoom-controls { filter: invert(0.7); }
 `;
 
+_darkStyleForGame['auntiemildred'] = `
+.pb_icon { filter: invert(0.9); }
+`;
+
 _darkStyleForGame['apocalypseazcc'] = `
 .bgae_panel .bgae_content .panel { background-color: var(--dark-back); opacity: 1; }
 .counter_prefix, .counter_value, .counter_suffix { color: var(--light-80) !important; }
@@ -1500,6 +1504,12 @@ _darkStyleForGame['greatwesterntrail'] = `
 .player-board-button-wrapper { top: 0.5em; }
 #gwt_boards_area { gap: 0.5em; }
 .pref-group { background-color: #000; }
+`;
+
+_darkStyleForGame['grund'] = `
+.castletile-box p { background: var(--dark-20); }
+.player-box .block-title { background: var(--dark-10); }
+.castle { background: var(--dark-back); }
 `;
 
 _darkStyleForGame['goblinhood'] = `
