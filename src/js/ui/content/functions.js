@@ -138,6 +138,11 @@ const buildOptions = (config, gameName, gameConfig) => {
 		chrome.i18n.getMessage("optionFloatingAlways") +
 		"</option>";
 	const checkFloating = (evt) => {
+		if (evt.target.value === "1") {
+			document.body.classList.add("logs_on_additional_column");
+		} else {
+			document.body.classList.remove("logs_on_additional_column");
+		}
 		if (evt.target.value === "3") {
 			setFloatingRightMenu(config, gameConfig, true);
 			config.setGameFloatingMenu(gameName, false);

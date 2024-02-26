@@ -157,8 +157,6 @@ const defaultGames: Partial<Game>[] = [
 		playerPanel: "playerArea_{{player_id}}",
 		bottomPanel: "game_wrapper_bottom",
 		css: "#page-content { padding-left: 50px; }",
-		menuCss:
-			"#player_board_config { background-color: rgb(218, 211, 193); }",
 	},
 	{
 		name: "resarcana",
@@ -192,7 +190,6 @@ const defaultGames: Partial<Game>[] = [
 		name: "gogoa",
 		playerPanel: "goa-holder-{{player_id}}",
 		css: ".desktop_version #page-content { padding-left: 50px; }",
-		menuCss: "#page-title { width: 100% !important }",
 	},
 	{
 		name: "anachrony",
@@ -288,7 +285,6 @@ const defaultGames: Partial<Game>[] = [
 	{
 		name: "marcopolotwo",
 		playerPanel: "playerMat-{{player_id}}",
-		menuCss: '#cde-floating-menu-score > .fa-star { background-image: none !important; } #cde-floating-menu-score > .fa-star:before { content: "\\f005" !important; }',
 	},
 	{
 		name: "nidavellir_buggy",
@@ -343,7 +339,6 @@ const defaultGames: Partial<Game>[] = [
 		iconBackground: "#97a09b",
 		iconShadow: "transparent",
 		css: ".cng_topbutton { display: none; } #game_play_area { padding-left: 50px; }",
-		menuCss: '#cde-floating-menu-score > .fa-star { background-image: none !important; } #cde-floating-menu-score > .fa-star:before { content: "\\f005" !important; } .player-board { background-color: #97a09b; }',
 	},
 	{
 		name: "dicehospital",
@@ -462,8 +457,6 @@ const defaultGames: Partial<Game>[] = [
 		boardPanel: "smalldev",
 		boardPanelText: "#choose_action_label > span",
 		css: ".nft_topbutton { display: none; }",
-		menuCss:
-			"html.nft_background_space .player-board { background-color: #333333 !important; } #goto_wrap { top: -5px; } ",
 	},
 	{
 		name: "jumpdrive",
@@ -511,7 +504,6 @@ const defaultGames: Partial<Game>[] = [
 		playerPanel: ".side_title > span",
 		playerPanelOffset: 20,
 		bottomPanel: "common_space",
-		menuCss: "#player-board { background-color: #3c4249; }",
 	},
 	{
 		name: "glow",
@@ -543,7 +535,6 @@ const defaultGames: Partial<Game>[] = [
 		iconBackground: "#ffffff",
 		playerPanel: "school_{{player_id}}",
 		css: "#players_school { max-height: initial !important; } #game_play_area { padding-left: 50px; }",
-		menuCss: ".player-board { background-color: #b0d1e9; }",
 	},
 	{
 		name: "theisleofcats",
@@ -615,7 +606,6 @@ const defaultGames: Partial<Game>[] = [
 		name: "riftvalleyreserve",
 		playerPanel: "rvr-map-index-{{player_index}}",
 		playerPanelOffset: 20,
-		menuCss: "#page-title { width: 100% !important }",
 	},
 	{
 		name: "afterus",

@@ -133,6 +133,8 @@ const _setDarkStyleIfActivated = () => {
 
     if (isDarkStyle(mode)) {
       _setDarkStyle(mode);
+    } else {
+      _setLightStyle(mode);
     }
     initClassObserver(mode);
   }

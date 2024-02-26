@@ -693,6 +693,12 @@ _darkStyleForGame['carcassonnehuntersandgatherers'] = `
 body { background: none !important; }
 `;
 
+_styleForGame['carnegie'] = `
+#cde-floating-menu-score > .fa-star { background-image: none !important; }
+#cde-floating-menu-score > .fa-star:before { content: "\\f005" !important; }
+.logs_on_floating_panel .player-board { background-color: #97a09b; }
+`;
+
 _darkStyleForGame['carnegie'] = `
  .cng_firstplayer { filter: var(--highlight); }
  .cng_token,  .player_score > i { filter: var(--drop-shadow); }
@@ -1252,6 +1258,10 @@ _darkStyleForGame['elgrande'] = `
 .eg_panel .cab, .log .cab, .selectMoveContainer .cab { filter: var(--highlight-min); }
 `;
 
+_styleForGame['eminentdomain'] = `
+.logs_on_floating_panel #player-board { background-color: #3c4249; }
+`;
+
 _darkStyleForGame['eminentdomain'] = `
 .card_tooltipcontainer .tooltiptext { background-color: #000; }
 `;
@@ -1270,6 +1280,10 @@ _darkStyleForGame['envelopesofcash'] = `
 
 _styleForGame['equinox'] = `
 #eqx-board-holder #eqx-grid .eqx-cell.eqx-cell-controller .playername { white-space: nowrap; }
+`;
+
+_styleForGame['eriantys'] = `
+.logs_on_floating_panel .player-board { background-color: #b0d1e9; }
 `;
 
 _darkStyleForGame['eriantys'] = `
@@ -1538,6 +1552,10 @@ _darkStyleForGame['gofish'] = `
 .playertable_982fff { background-color: #0d001a80 !important; background-image: none !important; }
 .playertable_72c3b1 { background-color: #08121080 !important; background-image: none !important; }
 #player_boards .white_text_shadow { text-shadow: none; }
+`;
+
+_styleForGame['gogoa'] = `
+.logs_on_floating_panel #page-title { width: 100% !important }
 `;
 
 _darkStyleForGame['gogoa'] = `
@@ -2099,6 +2117,11 @@ _darkStyleForGame['marcopolo'] = `
 .piece.panel_hourglass { filter: var(--highlight); }
 `;
 
+_styleForGame['marcopolotwo'] = `
+#cde-floating-menu-score > .fa-star { background-image: none !important; }
+#cde-floating-menu-score > .fa-star:before { content: "\\f005" !important; }
+`;
+
 _darkStyleForGame['marcopolotwo'] = `
 #characterSelectionDescription { background-color: var(--dark-20) !important; }
 .mp_playeraid { color: #000; }
@@ -2187,6 +2210,16 @@ _darkStyleForGame['mindup'] = `
 #round-counter-row #round-counter-block { background: var(--dark-20); text-shadow: none; }
 .player-table, .player-table .name-wrapper { background-color: var(--dark-20); }
 #table-center .slot .player-block { background: var(--dark-20); }
+`;
+
+_styleForGame['mlem'] = `
+.logs_on_floating_panel #btn-box { display: none; }
+.logs_on_floating_panel #right-side.pinned { position: static; }
+`;
+
+_darkStyleForGame['mlem'] = `
+#btn-box { background-color: var(--dark-20); }
+#pin-board-btn { filter: invert(0.7); }
 `;
 
 _darkStyleForGame['monsterfactory'] = `
@@ -2295,6 +2328,11 @@ _darkStyleForGame['nautilus'] = `
 .dijitTooltipContainer [style="color:#8F156F"] { color: #de21ac !important; }
 .dijitTooltipContainer [style="color:#4D572D"] { color: #a0b168 !important; }
 .dijitTooltipContainer [style="color:#000000"] { color: #fff !important; }
+`;
+
+_styleForGame['newfrontiers'] = `
+  html.nft_background_space .logs_on_floating_panel .player-board { background-color: #333333 !important; }
+  .logs_on_floating_panel #goto_wrap { top: -5px; }
 `;
 
 _darkStyleForGame['newyorkzoo'] = `
@@ -2759,6 +2797,10 @@ _darkStyleForGame['restinpeace'] = `
 #zoom-in-btn, #zoom-out-btn { filter: invert(0.7); }
 `;
 
+_styleForGame['riftvalleyreserve'] = `
+.logs_on_floating_panel #page-title { width: 100% !important }
+`;
+
 _darkStyleForGame['riftvalleyreserve'] = `
 .riftvalleyreserve-name-272c29 { text-shadow: var(--text-w-shadow); }
 .rvr-icon-element[data-color="272c29"][data-type=stop] { background-color: #fff; border-radius: 18px; }
@@ -3195,6 +3237,10 @@ _darkStyleForGame['takenoko'] = `
 
 _darkStyleForGame['talon'] = `
 .TALONlogBattle, .TALONlogRound, .TALONlogPlayer { background-color: transparent; }
+`;
+
+_styleForGame['tapestry'] = `
+.logs_on_floating_panel #player_board_config { background-color: rgb(218, 211, 193); }
 `;
 
 _darkStyleForGame['tapestry'] = `
@@ -3791,6 +3837,11 @@ _darkStyleForGame['wazabi'] = `
 #direction { filter: invert(0.7); }
 .cards { color: #000; }
 .card_place { background-color: var(--dark-20); }
+`;
+
+_styleForGame['wingspan'] = `
+#cde-floating-menu-score > .fa-star { background-image: none !important; filter: none !important; left: 0px; }
+#cde-floating-menu-score > .fa-star:before { content: "\\f005" !important; }
 `;
 
 _darkStyleForGame['wingspan'] = `

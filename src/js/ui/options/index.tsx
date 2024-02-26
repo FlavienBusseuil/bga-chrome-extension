@@ -38,7 +38,6 @@ const Options = (props: { config: Configuration }) => {
 				"iconShadow",
 				"customZoomContainer",
 				"css",
-				"menuCss",
 			],
 			2,
 		);

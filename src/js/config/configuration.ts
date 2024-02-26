@@ -23,7 +23,6 @@ export interface Game {
 	iconShadow: string;
 	customZoomContainer?: string;
 	css?: string;
-	menuCss?: string;
 }
 
 export interface DarkModeConfig {
