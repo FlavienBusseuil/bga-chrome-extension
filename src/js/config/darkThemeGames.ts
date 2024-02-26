@@ -241,11 +241,15 @@ _darkStyleForGame['ageofcivilization'] = `
 `;
 
 _darkStyleForGame['agricola'] = `
+#overall-content:before { content: ""; background: #000000bb; position: absolute; width: 100%; height: 100%; }
 .player-name > svg { filter: invert(0.7); }
 #player_boards > div { background-color: #000000CC !important; }
 .dijitTooltipContainer .action-header, .dijitTooltipContainer .action-desc { color: #000 !important; }
 .meeple-container { filter: var(--drop-shadow); }
 .player-card .player-card-resizable .player-card-inner { color: #000; }
+.player-board-wrapper .player-board-holder .player-board-name { background-color: var(--dark-back); }
+.log.cancel .roundedbox { background-color: var(--dark-40) !important; }
+#logs .log.notif_startNewTurn .roundedbox { background: var(--dark-0); }
 `;
 
 _darkStyleForGame['akeruption'] = `
@@ -311,6 +315,8 @@ _darkStyleForGame['amerigo'] = `
 .amg_playersubsection { background: var(--dark-0); }
 .amg_player_order { color: #000; }
 .amg_counter_icon { filter: var(--highlight-min); }
+.amg_token24.amg_vp { filter: grayscale(1) invert(1); }
+.amg-gear { filter: invert(0.7); }
 `;
 
 _darkStyleForGame['amyitis'] = `

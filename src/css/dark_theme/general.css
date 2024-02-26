@@ -1174,6 +1174,14 @@ select.colorselector {
   color: #fff !important;
 }
 
+.bgaext_bug .existing_bugs td[bgcolor="#ffffff"] {
+  background-color: var(--dark-10) !important;
+}
+
+.bgaext_bug .existing_bugs td[bgcolor="#ffffff"] a {
+  color: var(--light-80) !important;
+}
+
 .bga-game-selector {
   border: 1px solid #b3b3b3;
 }

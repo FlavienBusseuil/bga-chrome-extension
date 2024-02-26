@@ -10,7 +10,7 @@ export const initDevelopperUI = (config) => {
 		return;
 	}
 
-	if (window.location.search === "?id=0") {
+	if (window.location.search.startsWith("?id=0")) {
 		// creation of a bug report
 		const firstComment = document.querySelector(".pagesection__content > p");
 		if (!firstComment) {

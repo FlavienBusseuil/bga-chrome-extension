@@ -62,6 +62,8 @@ const defaultGames: Partial<Game>[] = [
 		name: "agricola",
 		playerPanel: "player-board-resizable-{{player_id}}",
 		css: "#position-wrapper { padding-left: 52px; }",
+		iconBackground: "#87c147",
+		iconBackgroundDark: "#378929"
 	},
 	{
 		name: "akropolis",
