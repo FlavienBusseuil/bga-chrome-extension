@@ -1682,13 +1682,27 @@ select.colorselector {
 
 /* player stat */
 
+.game_progression_bar {
+  border: 1px solid var(--light-50);
+}
+
+.game_progression_inner {
+  background-color: var(--light-50);
+}
+
 .bgaext_playerstat #chart {
   filter: invert(0.8);
 }
 
-.bgaext_player .progressbar .progressbar_bar {
+.bgaext_player .progressbar .progressbar_bar,
+.playergamedetails .progressbar .progressbar_bar,
+.playerdetails .progressbar .progressbar_bar {
   background: var(--dark-10);
   border-radius: 0px;
+}
+
+.grad {
+  background-color: var(--dark-10);
 }
 
 #playertab-activity.bg-bga-gray-244,
@@ -1873,6 +1887,8 @@ iframe#forum_frame {
 .bgaext_gametables {
   color: var(--light-80);
 }
+
+/* misc */
 
 .bgaext_audience #chart {
   filter: invert(0.8);
