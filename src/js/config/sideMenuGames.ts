@@ -1141,6 +1141,10 @@ const defaultGames: Partial<Game>[] = [
 		iconBackground: "#a78d59",
 		iconBackgroundDark: "#a78d59"
 	},
+	{
+		name: "neom",
+		playerPanel: ".neom-cityboards>div",
+	},
 ];
 
 export default defaultGames;

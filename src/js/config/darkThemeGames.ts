@@ -5,6 +5,7 @@ export const gamesWithCustomBackground = [
   'agricola',
   'altered',
   'azul',
+  'battlespiritssaga',
   'beyondthesun',
   'carnegie',
   'chromino',
@@ -17,6 +18,7 @@ export const gamesWithCustomBackground = [
   'eminentdomain',
   'emdomicrocosm',
   'equinox',
+  'escapethecurseofthetemple',
   'evolution',
   'federation',
   'gangsta',
@@ -1331,6 +1333,14 @@ _darkStyleForGame['evolution'] = `
 #overall-content:before { content: ""; background: var(--dark-back); position: absolute; width: 100%; height: 100%; }
 `;
 
+_darkStyleForGame['explodingkittens'] = `
+.ek-player-area .ek-player-badges { background: var(--dark-back); }
+.ek-player-area .ek-player-badges .ek-player-badge-player-hand-size .player-hand-card { filter: invert(0.7); }
+.bga-cards_deck-counter.round { background: var(--dark-10); box-shadow: 0 0 2px 1px #000; }
+#bga-zoom-controls { filter: invert(0.7); }
+.board, .token { filter: var(--drop-shadow); }
+`;
+
 _darkStyleForGame['factum'] = `
 .storytextarea[readonly] { background-color: var(--dark-10); }
 .badge { filter: invert(0.7); }
@@ -2350,6 +2360,13 @@ _darkStyleForGame['nautilus'] = `
 .dijitTooltipContainer [style="color:#8F156F"] { color: #de21ac !important; }
 .dijitTooltipContainer [style="color:#4D572D"] { color: #a0b168 !important; }
 .dijitTooltipContainer [style="color:#000000"] { color: #fff !important; }
+`;
+
+_darkStyleForGame['neom'] = `
+#neom-hand { background-color: var(--dark-back); }
+.neom-cityboard-playername { filter: none; background-color: var(--dark-20); padding: 0.2em; border-radius: 8px; text-shadow: none; }
+.neom-income .neom-income-icon, .dijitTooltip .neom-svg-road { filter: invert(1); }
+.neom-income-text { color: var(--light-80); }
 `;
 
 _styleForGame['newfrontiers'] = `

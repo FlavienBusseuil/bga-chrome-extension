@@ -454,3 +454,11 @@ div[id*="popin"][id$="underlay"] {
 #tournament-module {
   color: var(--light-80);
 }
+
+/* info banner */
+
+.head_info {
+  background-color: var(--dark-0);
+  border: 1px solid var(--dark-40);
+  color: var(--light-80);
+}
