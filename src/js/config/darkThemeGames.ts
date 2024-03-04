@@ -249,7 +249,7 @@ _darkStyleForGame['agricola'] = `
 .player-name > svg { filter: invert(0.7); }
 #player_boards > div { background-color: #000000CC !important; }
 .dijitTooltipContainer .action-header, .dijitTooltipContainer .action-desc { color: #000 !important; }
-#logs .meeple-container, #player_boards .meeple-container { filter: var(--drop-shadow); }
+#logs .meeple-container, #player_boards .meeple-container, .harvest-icon { filter: var(--drop-shadow); }
 .player-card .player-card-resizable .player-card-inner { color: #000; }
 .player-board-wrapper .player-board-holder .player-board-name { background-color: var(--dark-back); }
 .log.cancel .roundedbox { background-color: var(--dark-40) !important; }
@@ -324,6 +324,11 @@ _darkStyleForGame['amalfi'] = `
 .playerIcons_line_4, .playerIcons_line_5 { background-color: var(--dark-10); }
 .playerResourceBlock p { text-shadow: 2px 0 2px #00000099, 0 -2px 2px #00000099, 0 2px 2px #00000099, -2px 0 2px #00000099; }
 .amf_tooltip_header > span[style*="color: #666666"] { color: #999999 !important; }
+`;
+
+_darkStyleForGame['amazonas'] = `
+#turncounter { color: var(--light-80); }
+.gold, .silver { border-radius: 50%; }
 `;
 
 _darkStyleForGame['amerigo'] = `
@@ -1438,6 +1443,17 @@ _darkStyleForGame['forestshuffle'] = `
 _darkStyleForGame['foreverhome'] = `
 #bga-zoom-wrapper #bga-zoom-controls { filter: invert(0.7); }
 .fh-player-no-badge { background-color: var(--dark-20); border: 1px solid var(--light-50); color: var(--light-80); }
+`;
+
+_darkStyleForGame['formulad'] = `
+.FD-lap-no-icon { filter: invert(1); }
+.FD-player-rank { filter: grayscale(1) invert(1); color: #000; }
+#FDStatusBar { background-color: var(--dark-10) !important; color: var(--light-80); }
+.tundra .dijitMenu, .tundra .dijitMenuBar { background-color: var(--dark-10); border: 1px solid var(--dark-40); color: #fff; }
+.tundra .dijitMenuSeparatorTop { border-bottom: 1px solid var(--dark-40); }
+.tundra .dijitMenuSeparatorBottom { border-top: 1px solid var(--dark-40); }
+.tundra .dijitComboBoxMenu .dijitMenuItemHover, .tundra .dijitMenuItemSelected,.tundra .dijitMenuPassive .dijitMenuItemHover { background-color: var(--dark-30); }
+.dijitMenuArrowCell { filter: invert(1); }
 `;
 
 _darkStyleForGame['fortheking'] = `
@@ -3236,6 +3252,12 @@ _darkStyleForGame['stoneage'] = `
 #sta_adjustZoom,#sta_zoomIn,#sta_zoomOut { filter: invert(0.7) !important; }
 #sta_adjustZoom:hover,#sta_zoomIn:hover,#sta_zoomOut:hover { filter: invert(1) drop-shadow(0 0 3px #fff) !important; }
 .inactive_area, .workerplace, .zone, #player_boards .sa_icon { filter: var(--drop-shadow); }
+`;
+
+_darkStyleForGame['stonks'] = `
+#overall-content[style="background: rgb(119, 139, 108);"]:before
+{ content: ""; background: var(--dark-back); position: absolute; width: 100%; height: 100%; }
+#stock_board .playertablename { text-shadow: none; }
 `;
 
 _darkStyleForGame['strands'] = `

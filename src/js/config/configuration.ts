@@ -326,8 +326,6 @@ class Configuration {
 	}
 
 	hideGame(name: string) {
-		this._sendAnalytics('hide_game', name);
-
 		this._customConfig.hidden = [
 			...this._customConfig.hidden.filter((g) => g !== name),
 			name,
@@ -337,8 +335,6 @@ class Configuration {
 	}
 
 	displayGame(name: string) {
-		this._sendAnalytics('display_game', name);
-
 		this._customConfig.hidden = [
 			...this._customConfig.hidden.filter((g) => g !== name),
 		];
@@ -381,8 +377,6 @@ class Configuration {
 	}
 
 	setGeneralChatHidden(val: boolean) {
-		this._sendAnalytics(val ? 'hide_chat' : 'display_chat', 'general');
-
 		this._customConfig.hideGeneralChat = val;
 		storageSet({ hideGeneralChat: val });
 	}
@@ -405,8 +399,6 @@ class Configuration {
 	setDarkMode(val: boolean) {
 		this._customConfig.darkMode = val;
 		storageSet({ darkMode: val });
-
-		this._sendAnalytics('set_dark', 'general');
 	}
 
 	getDarkModeColor(gameName: string) {
@@ -447,8 +439,6 @@ class Configuration {
 
 			storageSet({ dark: this._customConfig.dark });
 		}
-
-		this._sendAnalytics('set_dark', gameName);
 	}
 
 	getCustomCss() {
