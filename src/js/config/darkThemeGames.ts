@@ -39,6 +39,7 @@ export const gamesWithCustomBackground = [
   'mrjack',
   'mycity',
   'mycityrb',
+  'mythicbattlesragnarok',
   'newfrontiers',
   'nidavellir',
   'nimalia',
@@ -2344,6 +2345,13 @@ _darkStyleForGame['myshelfie'] = `
 #first_player_seat { filter: var(--drop-shadow); }
 `;
 
+_darkStyleForGame['mythicbattlesragnarok'] = `
+#overall-content:before { content: ""; background: var(--dark-back); position: absolute; width: 100%; height: 100%; }
+.whiteonboard { background-color: var(--dark-back); border: 3px solid var(--light-50); }
+#textecategoryhero { color: var(--light-50); }
+.side, .card, .dashboard { border: 1px solid var(--light-50); }
+`;
+
 _darkStyleForGame['nangaparbat'] = `
 .np_miniboard>.imgtext { filter: var(--highlight-min); }
 `;
@@ -2733,6 +2741,13 @@ _darkStyleForGame['qawale'] = `
 _darkStyleForGame['quantum'] = `
 #gambits, #commands, #deckWindow { background-color: var(--dark-back); color: var(--light-80); }
 #mapName { color: #fff; }
+`;
+
+_darkStyleForGame['quato'] = `
+#round_wrap { text-shadow: none; }
+.cardspace { color: #000; }
+#overall-content[style="background: linear-gradient(90deg, rgb(224, 80, 32) 0%, rgb(255, 144, 96) 25%, rgb(255, 144, 96) 75%, rgb(224, 80, 32) 100%);"]:before
+{ content: ""; background: var(--dark-back); position: absolute; width: 100%; height: 100%; }
 `;
 
 _darkStyleForGame['quetzal'] = `
