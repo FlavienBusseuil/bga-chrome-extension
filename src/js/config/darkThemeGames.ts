@@ -275,6 +275,7 @@ _darkStyleForGame['agricola'] = `
 #draft-wrapper #draft-container, #draft-wrapper #hand-container, #alternative-hand-wrapper #hand-container, #player-boards.player-boards-right #player-boards-left-column #hand-container { background: var(--dark-back); border: 1px solid var(--dark-40); }
 .player-board-wrapper .player-board-holder { border: 1px dashed var(--light-50); }
 #add-board { border: 1px dashed var(--light-50); border-left: none; }
+#left-board, #central-board { filter: contrast(1.1) opacity(0.9); }
 `;
 
 _darkStyleForGame['akeruption'] = `
@@ -3843,6 +3844,10 @@ _darkStyleForGame['viamagica'] = `
 #vmg_myportalactiverow { background-color: #00191a; }
 #vmg_myportaldonerow { background-color: #040415; }
 .vmg_card-tooltip-image:before { position: absolute; width: 100%; height: 100%; border: 5px solid #262626; box-sizing: border-box; content: ""; }
+`;
+
+_darkStyleForGame['vidrasso'] = `
+.vid_table_currentplayer { outline: 2px dashed var(--light-50); }
 `;
 
 _darkStyleForGame['villagers'] = `
