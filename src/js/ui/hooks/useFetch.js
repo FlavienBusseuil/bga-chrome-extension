@@ -58,9 +58,11 @@ export function useFetch(): Output {
 						getFriendsTables: async () => {
 							rest.tables = await getFriendsTables();
 
-							const result = transformTables(rest).filter(t => t.isOpenForPlayers && t.nbMaxPlayers > t.players.length);
-							result.sort((a, b) => a.gameName.localeCompare(b.gameName));
-							return result;
+							const openedTables = transformTables(rest);
+							const availableTables = openedTables.filter(t => t.nbMaxPlayers > t.players.length);
+
+							availableTables.sort((a, b) => a.gameName.localeCompare(b.gameName));
+							return availableTables;
 						},
 					});
 				}

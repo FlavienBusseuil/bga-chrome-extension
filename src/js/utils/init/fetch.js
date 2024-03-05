@@ -47,25 +47,25 @@ export async function fetch(): Output {
 		return { isLoggedOut: true };
 	}
 
-	// Fetch number of waiting tables
-	const { nbWaitingTables } = await fetchActivityForPlayer(
-		{
-			playerToken: currentPlayerToken,
-			playerId: currentPlayerId,
-		},
-		{ requestToken },
-	);
+	// Fetch number of waiting tables, global translation, friends and tables
+	const [activityForPlayer, translations, friends, tables] = await Promise.all([
+		fetchActivityForPlayer(
+			{
+				playerToken: currentPlayerToken,
+				playerId: currentPlayerId,
+			},
+			{ requestToken },
+		),
+		fetchTranslations({
+			assetsUrl,
+			jsBundleVersion,
+			lang,
+		}),
+		fetchFriends({ requestToken }),
+		fetchTablesFromTableManager({ requestToken, status: 'play' })
+	])
 
-	// Fetch global translations
-	const translations = await fetchTranslations({
-		assetsUrl,
-		jsBundleVersion,
-		lang,
-	});
-
-	const friends = await fetchFriends({ requestToken });
-
-	const tables = await fetchTablesFromTableManager({ requestToken, status: 'play' });
+	const { nbWaitingTables } = activityForPlayer;
 
 	const getFriendsTables = async () => {
 		const result = await Promise.all([
@@ -74,7 +74,7 @@ export async function fetch(): Output {
 		]);
 
 		const list = [...result[0], ...result[1]];
-		return list.filter(t => friends.includes(t.table_creator));
+		return list.filter(t => friends.includes(t.table_creator) && !Object.keys(t.players).includes(currentPlayerId));
 	};
 
 	const nbPendingInvites = tables.reduce(

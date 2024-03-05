@@ -37,5 +37,11 @@ export async function fetchTablesFromTableManager({
 
 	const { tables } = result.data;
 
-	return Object.keys(tables).map((tableKey) => tables[tableKey]);
+	const list = Object.keys(tables).map((tableKey) => tables[tableKey]);
+	list.forEach(t => {
+		if (!t.table_creator) {
+			t.table_creator = Object.values(t.players).find(t => t.is_admin === "1")?.id;
+		}
+	})
+	return list;
 }

@@ -72,7 +72,7 @@ export function transformTable({
 		gameStart: gameStart ? castToDate(gameStart) : null,
 		hasArenaMode: options["201"] === "2",
 		hasTrainingMode: options["201"] === "1",
-		isOpenForPlayers: status === "asyncopen",
+		isOpenForPlayers: ["asyncopen", "open"].includes(status),
 		isTurnBased: ["asyncplay", "asyncopen", "asyncinit"].includes(status),
 		isPartOfTournament: castToBoolean(has_tournament),
 		link: `${bgaUrl}/${castNumberStringToString(
