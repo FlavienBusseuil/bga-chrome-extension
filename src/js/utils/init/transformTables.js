@@ -27,7 +27,7 @@ type InputTransformTable = {
 	translations: Translations,
 };
 
-function getTableCreatorName({ tableCreatorPlayerId, players }): null | string {
+export function getTableCreatorName({ tableCreatorPlayerId, players }): null | string {
 	if (!tableCreatorPlayerId) {
 		return null;
 	}
@@ -35,7 +35,7 @@ function getTableCreatorName({ tableCreatorPlayerId, players }): null | string {
 	// It seems that sometime players may not have a fullname attribut [issues/18]
 	// So we fall back on tableCreatorPlayerId
 	return (
-		players[castPlayerIdToString(tableCreatorPlayerId)].fullname ??
+		players[castPlayerIdToString(tableCreatorPlayerId)]?.fullname ??
 		castPlayerIdToString(tableCreatorPlayerId)
 	);
 }

@@ -140,5 +140,17 @@
 	},
 	"darkColorResetGame": {
 		"message": "Restore default values"
+	},
+	"friends": {
+		"message": "Friend's tables"
+	},
+	"no_games_friends": {
+		"message": "No games available"
+	},
+	"search_games_friends": {
+		"message": "Search for an open table created by a friend"
+	},
+	"search": {
+		"message": "Search"
 	}
 }

@@ -140,5 +140,17 @@
 	},
 	"darkColorResetGame": {
 		"message": "Rétablir les valeurs par défaut"
+	},
+	"friends": {
+		"message": "Tables d'amis"
+	},
+	"no_games_friends": {
+		"message": "Aucune table disponible"
+	},
+	"search_games_friends": {
+		"message": "Rechercher une table ouverte créée par un ami"
+	},
+	"search": {
+		"message": "Rechercher"
 	}
 }

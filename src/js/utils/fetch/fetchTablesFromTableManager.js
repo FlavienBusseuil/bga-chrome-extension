@@ -11,12 +11,16 @@ import { bgaUrl } from "../constants";
 import { fetchFromUrl } from "./fetchFromUrl";
 import { resolveQuery } from "./resolveQuery";
 
-export async function fetchTablesFromTableManager({
-	requestToken,
-}: FetchOptions): Promise<Array<Table>> {
-	const url = `${bgaUrl}/tablemanager/tablemanager/tableinfos.html?status=play`;
+interface Props extends FetchOptions {
+	status: String;
+};
 
-	const result = await resolveQuery<QueryResult<TableManagerQueryResultData>>(
+export async function fetchTablesFromTableManager({
+	requestToken, status
+}: Props): Promise<Array<Table>> {
+	const url = `${bgaUrl}/tablemanager/tablemanager/tableinfos.html?status=${status}`;
+
+	const result = await resolveQuery < QueryResult < TableManagerQueryResultData >> (
 		{
 			fromMock: { path: "tableManager" },
 			fromUrl: {

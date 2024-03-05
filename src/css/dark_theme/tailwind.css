@@ -10,8 +10,17 @@
   --light-80: #dcddde;
 }
 
+html {
+  width: 500px !important;
+}
+
 body {
   color: #000;
+}
+
+.max-result {
+  max-height: 472px;
+  overflow: auto;
 }
 
 html.dark body {

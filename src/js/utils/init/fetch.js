@@ -8,6 +8,7 @@ import { fetchActivityForPlayer } from "../fetch/fetchActivityForPlayer";
 import { fetchCurrentPlayer } from "../fetch/fetchCurrentPlayer";
 import { fetchGlobalInfo } from "../fetch/fetchGlobalInfo";
 import { fetchTranslations } from "../fetch/fetchTranslations";
+import { fetchFriends } from "../fetch/fetchFriends";
 import { fetchTablesFromTableManager } from "../fetch/fetchTablesFromTableManager";
 import type { Translations } from "../../types/bga/Translations";
 import { fetchTournaments } from "../fetch/fetchTournaments";
@@ -16,14 +17,15 @@ import { fetchRequestToken } from "../fetch/fetchRequestToken";
 
 export type FetchResult =
 	| {
-			nbWaitingTables: number,
-			nbPendingInvites: number,
-			currentPlayerId: PlayerId,
-			globalUserInfos: GlobalUserInfos,
-			translations: Translations,
-			tournaments: Array<Tournament>,
-			tables: Array<Table>,
-	  }
+		nbWaitingTables: number,
+		nbPendingInvites: number,
+		currentPlayerId: PlayerId,
+		globalUserInfos: GlobalUserInfos,
+		translations: Translations,
+		tournaments: Array<Tournament>,
+		tables: Array<Table>,
+		getFriendsTables: () => Promise<Array<Table>>,
+	}
 	| { isLoggedOut: true };
 
 type Output = Promise<FetchResult>;
@@ -61,7 +63,19 @@ export async function fetch(): Output {
 		lang,
 	});
 
-	const tables = await fetchTablesFromTableManager({ requestToken });
+	const friends = await fetchFriends({ requestToken });
+
+	const tables = await fetchTablesFromTableManager({ requestToken, status: 'play' });
+
+	const getFriendsTables = async () => {
+		const result = await Promise.all([
+			fetchTablesFromTableManager({ requestToken, status: 'realtime_open' }),
+			fetchTablesFromTableManager({ requestToken, status: 'async_open' })
+		]);
+
+		const list = [...result[0], ...result[1]];
+		return list.filter(t => friends.includes(t.table_creator));
+	};
 
 	const nbPendingInvites = tables.reduce(
 		(total, table) =>
@@ -82,5 +96,6 @@ export async function fetch(): Output {
 		tournaments,
 		translations,
 		tables,
+		getFriendsTables,
 	};
 }

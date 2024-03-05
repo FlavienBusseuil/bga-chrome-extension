@@ -35,12 +35,12 @@ export async function bgPeriodic() {
 			{ requestToken },
 		);
 
-		const tables = await fetchTablesFromTableManager({ requestToken });
+		const tables = await fetchTablesFromTableManager({ requestToken, status: 'play' });
 		const nbPendingInvites = tables.reduce(
 			(total, table) =>
 				total +
 				(table.players[castToString(playerId)].table_status ===
-				"expected"
+					"expected"
 					? 1
 					: 0),
 			0,

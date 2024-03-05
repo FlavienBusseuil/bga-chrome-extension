@@ -7,6 +7,8 @@ import { Error } from "./Error";
 import { Loading } from "./Loading";
 import { LoginButton } from "./LoginButton";
 import { TablesView } from "./views/TablesView";
+import { TournamentsView } from "./views/TournamentsView";
+import { FriendsView } from "./views/FriendsView";
 import { transformTables } from "../utils/init/transformTables";
 import { sortTables, sortTournaments } from "../utils/init/sort";
 
@@ -16,7 +18,7 @@ import { useFetch } from "./hooks/useFetch";
 import { Tabs } from "./base/Tabs";
 import { Tab } from "./base/Tab";
 import { cn } from "./utils/cn";
-import { TournamentsView } from "./views/TournamentsView";
+
 
 async function handleAcceptOrDeclineInvite(tableId: TableId) {
 	// TODO: https://github.com/FlavienBusseuil/bga-chrome-extension/projects/1
@@ -26,7 +28,7 @@ async function handleAcceptOrDeclineInvite(tableId: TableId) {
 export function App(): React$Node {
 	const [fetch, { error: fetchError, result }] = useFetch();
 	const [childError, resetChildError] = useErrorBoundary();
-	const [activeTab, setActiveTab] = useState<string>("tables");
+	const [activeTab, setActiveTab] = useState < string > ("tables");
 	const error = fetchError ?? childError;
 
 	useEffect(() => {
@@ -57,7 +59,9 @@ export function App(): React$Node {
 		nbPendingInvites,
 		transformedTables,
 		transformedTournaments,
+		getFriendsTables,
 	} = result;
+
 	const sortedTables = sortTables(transformedTables);
 	updateBadgeAndIcon({ nbWaitingTables, nbPendingInvites });
 
@@ -83,12 +87,20 @@ export function App(): React$Node {
 					{chrome.i18n.getMessage("tournaments")} (
 					{sortedTournaments.length})
 				</Tab>
+				<Tab
+					k="friends"
+					isActive={activeTab === "friends"}
+					onClick={(k) => setActiveTab(k)}
+				>
+					<span className="mr-2">🙋</span>
+					{chrome.i18n.getMessage("friends")}
+				</Tab>
 			</Tabs>
 
 			<div
 				className={cn([
-					"relative flex w-[200%] transition-all gap-0.5",
-					activeTab === "tables" ? "left-[50%]" : "-left-[50%]",
+					"relative flex w-[300%] transition-all gap-0.5",
+					activeTab === "tables" ? "left-[100%]" : activeTab === "tournaments" ? "left-[0%]" : "-left-[100%]",
 				])}
 			>
 				<TablesView
@@ -112,6 +124,15 @@ export function App(): React$Node {
 						activeTab !== "tournaments" && "invisible",
 					])}
 					tournaments={sortedTournaments}
+				/>
+				<FriendsView
+					className={cn([
+						"w-full",
+						"transition-all",
+						activeTab !== "friends" && "opacity-0",
+						activeTab !== "friends" && "invisible",
+					])}
+					getFriendsTables={getFriendsTables}
 				/>
 			</div>
 		</>

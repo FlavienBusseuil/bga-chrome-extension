@@ -37,7 +37,7 @@
 		"postcss": "8.4.5",
 		"preact": "10.6.4",
 		"prettier": "^2.8.8",
-		"tailwindcss": "3.0.7",
+		"tailwindcss": "3.4.1",
 		"tailwindcss-cli": "0.1.2"
 	},
 	"dependencies": {
