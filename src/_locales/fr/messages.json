@@ -152,5 +152,17 @@
 	},
 	"search": {
 		"message": "Rechercher"
+	},
+	"options": {
+		"message": "Options"
+	},
+	"optionsTracking": {
+		"message": "Surveillance des tables"
+	},
+	"optionsTrackingOn": {
+		"message": "Surveillance de l'état de vos tables activée (vous êtes vu connecté)"
+	},
+	"optionsTrackingOff": {
+		"message": "Surveillance de l'état de vos tables désactivée"
 	}
 }

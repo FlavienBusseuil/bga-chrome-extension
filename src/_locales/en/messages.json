@@ -152,5 +152,17 @@
 	},
 	"search": {
 		"message": "Search"
+	},
+	"options": {
+		"message": "Settings"
+	},
+	"optionsTracking": {
+		"message": "Tables tracking"
+	},
+	"optionsTrackingOn": {
+		"message": "Tables status tracking enabled (other players see you connected)"
+	},
+	"optionsTrackingOff": {
+		"message": "Tables status tracking disabled"
 	}
 }

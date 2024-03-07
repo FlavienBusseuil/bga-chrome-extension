@@ -5,10 +5,6 @@ import { addChangeListener } from "./js/utils/chrome";
 const config = new Configuration();
 let darkModeConfigured = undefined;
 
-// Set alarm to run update every minute
-chrome.alarms.onAlarm.addListener(bgPeriodic);
-chrome.alarms.create("bgPeriodic", { delayInMinutes: 0, periodInMinutes: 1 });
-
 const setUrlFilters = (isDarkMode) => {
   if (darkModeConfigured !== isDarkMode) {
     darkModeConfigured = isDarkMode;
@@ -50,8 +46,13 @@ const setUrlFilters = (isDarkMode) => {
 };
 
 config.init().then(() => {
+  // Set alarm to run update every minute
+  chrome.alarms.onAlarm.addListener(() => bgPeriodic(config));
+  chrome.alarms.create("bgPeriodic", { delayInMinutes: 0, periodInMinutes: 1 });
+
   setUrlFilters(config.isDarkMode());
 });
+
 addChangeListener((changes) => {
   if (changes.darkMode) {
     setUrlFilters(changes.darkMode.newValue);

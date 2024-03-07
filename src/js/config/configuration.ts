@@ -51,6 +51,7 @@ interface CustomConfig {
 	darkMode?: boolean;
 	darkModeColor?: number;
 	darkModeSat?: number;
+	trackTables?: boolean;
 };
 
 interface LocalConfig {
@@ -101,6 +102,8 @@ class Configuration {
 		this._customConfig = syncStorage;
 		this._localConfig = localStorage;
 
+		console.log(syncStorage);
+
 		if (!this._customConfig.clientId) {
 			this._customConfig.clientId = self.crypto.randomUUID();
 			storageSet({ clientId: this._customConfig.clientId });
@@ -132,8 +135,8 @@ class Configuration {
 		});
 	}
 
+	/*
 	private _sendAnalytics(evt: string, context: string) {
-		/*
 		const endpoint = "https://www.google-analytics.com/mp/collect";
 		const measurementId = "G-ZDKRET609Q";
 		const apiSecret = "4TThk978Rse1u4xipIDEnw";
@@ -156,8 +159,8 @@ class Configuration {
 					},
 				],
 			}),
-		});*/
-	}
+		});
+	}*/
 
 	private _merge() {
 		const customNames = this._customConfig.games.map((g) => g.name);
@@ -225,6 +228,15 @@ class Configuration {
 	isCustomized(name: string) {
 		const custGame = this._customConfig.games.find((g) => g.name === name);
 		return !!custGame;
+	}
+
+	isTrackingEnable() {
+		return this._customConfig.trackTables === undefined || this._customConfig.trackTables;
+	}
+
+	setTrackingEnable(val: boolean) {
+		this._customConfig.trackTables = val;
+		storageSet({ trackTables: val });
 	}
 
 	setLeftMenuEnabled(name: string, enable: boolean) {

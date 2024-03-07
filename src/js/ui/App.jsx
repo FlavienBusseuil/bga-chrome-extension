@@ -1,16 +1,17 @@
 // @flow
 
 import type { TableId } from "../types/bga/Table";
-
 import { setBadge } from "../utils/badge/setBadge";
+import { sortTables, sortTournaments } from "../utils/init/sort";
+import Configuration from "../config/configuration";
+
 import { Error } from "./Error";
 import { Loading } from "./Loading";
 import { LoginButton } from "./LoginButton";
 import { TablesView } from "./views/TablesView";
 import { TournamentsView } from "./views/TournamentsView";
 import { FriendsView } from "./views/FriendsView";
-import { transformTables } from "../utils/init/transformTables";
-import { sortTables, sortTournaments } from "../utils/init/sort";
+import { OptionsView } from "./views/OptionsView";
 
 import { useState, useEffect, useErrorBoundary } from "preact/hooks";
 import { updateBadgeAndIcon } from "../utils/updateBadgeAndIcon";
@@ -19,21 +20,22 @@ import { Tabs } from "./base/Tabs";
 import { Tab } from "./base/Tab";
 import { cn } from "./utils/cn";
 
-
 async function handleAcceptOrDeclineInvite(tableId: TableId) {
 	// TODO: https://github.com/FlavienBusseuil/bga-chrome-extension/projects/1
 	// console.log(tableId);
 }
 
-export function App(): React$Node {
+type Props = {
+	config: Configuration,
+};
+
+export function App({ config }: Props): React$Node {
 	const [fetch, { error: fetchError, result }] = useFetch();
 	const [childError, resetChildError] = useErrorBoundary();
 	const [activeTab, setActiveTab] = useState < string > ("tables");
 	const error = fetchError ?? childError;
 
-	useEffect(() => {
-		fetch();
-	}, []);
+	useEffect(fetch, []);
 
 	if (error) {
 		setBadge({ color: "#dc2626", text: `x` });
@@ -63,40 +65,24 @@ export function App(): React$Node {
 	} = result;
 
 	const sortedTables = sortTables(transformedTables);
-	updateBadgeAndIcon({ nbWaitingTables, nbPendingInvites });
+	updateBadgeAndIcon({ nbWaitingTables, nbPendingInvites, tracking: config.isTrackingEnable() });
 
 	const sortedTournaments = sortTournaments(transformedTournaments);
 
-	return (
-		<>
-			<Tabs className="mb-1">
-				<Tab
-					k="tables"
-					isActive={activeTab === "tables"}
-					onClick={(k) => setActiveTab(k)}
-				>
-					<span className="mr-2">🎲</span>
-					{chrome.i18n.getMessage("tables")} ({sortedTables.length})
-				</Tab>
-				<Tab
-					k="tournaments"
-					isActive={activeTab === "tournaments"}
-					onClick={(k) => setActiveTab(k)}
-				>
-					<span className="mr-2">🏆</span>
-					{chrome.i18n.getMessage("tournaments")} (
-					{sortedTournaments.length})
-				</Tab>
-				<Tab
-					k="friends"
-					isActive={activeTab === "friends"}
-					onClick={(k) => setActiveTab(k)}
-				>
-					<span className="mr-2">🙋</span>
-					{chrome.i18n.getMessage("friends")}
-				</Tab>
-			</Tabs>
+	const configChange = () => {
+		if (config.isTrackingEnable()) {
+			fetch();
+		} else {
+			updateBadgeAndIcon({ nbPendingInvites: 0, nbWaitingTables: 0, tracking: false });
+		}
+	};
 
+	const getContent = () => {
+		if (activeTab === "options") {
+			return <OptionsView config={config} onChange={configChange} />;
+		}
+
+		return (
 			<div
 				className={cn([
 					"relative flex w-[300%] transition-all gap-0.5",
@@ -135,6 +121,52 @@ export function App(): React$Node {
 					getFriendsTables={getFriendsTables}
 				/>
 			</div>
+		);
+	}
+
+	return (
+		<>
+			<Tabs className="mb-1">
+				<Tab
+					k="tables"
+					fullWidth={true}
+					isActive={activeTab === "tables"}
+					onClick={(k) => setActiveTab(k)}
+				>
+					<span className="mr-1">🎲</span>
+					{chrome.i18n.getMessage("tables")} ({sortedTables.length})
+				</Tab>
+				<Tab
+					k="tournaments"
+					fullWidth={true}
+					isActive={activeTab === "tournaments"}
+					onClick={(k) => setActiveTab(k)}
+				>
+					<span className="mr-1">🏆</span>
+					{chrome.i18n.getMessage("tournaments")} (
+					{sortedTournaments.length})
+				</Tab>
+				<Tab
+					k="friends"
+					fullWidth={true}
+					isActive={activeTab === "friends"}
+					onClick={(k) => setActiveTab(k)}
+				>
+					<span className="mr-1">🙋</span>
+					{chrome.i18n.getMessage("friends")}
+				</Tab>
+				<Tab
+					k="options"
+					fullWidth={false}
+					isActive={activeTab === "options"}
+					onClick={(k) => setActiveTab(k)}
+				>
+					<span className="mr-1">⚙</span>
+					{chrome.i18n.getMessage("options")}
+				</Tab>
+			</Tabs>
+
+			{getContent()}
 		</>
 	);
 }

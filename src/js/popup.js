@@ -10,5 +10,5 @@ config.init().then(() => {
 });
 
 document.addEventListener("DOMContentLoaded", () => {
-	render(<App />, document.body);
+	render(<App config={config} />, document.body);
 });

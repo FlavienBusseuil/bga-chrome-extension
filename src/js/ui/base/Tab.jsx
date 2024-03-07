@@ -6,12 +6,14 @@ import { Button } from "./Button.jsx";
 type Props = {
 	k: string,
 	children: React$Node,
+	fullWidth: boolean,
 	isActive?: boolean,
 	onClick: (k: string) => void,
 };
 
 export function Tab({
 	k,
+	fullWidth,
 	children,
 	isActive = false,
 	onClick,
@@ -19,7 +21,7 @@ export function Tab({
 	return (
 		<Button
 			className={cn([
-				"w-full",
+				fullWidth ? "w-full" : "whitespace-nowrap",
 				!isActive && "!bg-bgaBlue-lighter",
 				!isActive && "hover:!bg-bgaBlue-light",
 				"!border-0",

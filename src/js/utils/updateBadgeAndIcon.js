@@ -8,6 +8,7 @@ import { animate } from "./icon/animate";
 type Props = {
 	nbWaitingTables: number,
 	nbPendingInvites: number,
+	tracking: boolean,
 };
 
 function getTotalFromBadgeText({ text }: { text: string }): null | number {
@@ -27,14 +28,23 @@ function getTotalFromBadgeText({ text }: { text: string }): null | number {
 export async function updateBadgeAndIcon({
 	nbPendingInvites,
 	nbWaitingTables,
+	tracking
 }: Props): Promise<void> {
+	if (!tracking) {
+		hideBadge();
+		await chrome.action.setIcon({ path: "img/icon-grey.png" });
+		return;
+	}
+
 	const newTotal = nbWaitingTables + nbPendingInvites;
 	if (newTotal === 0) {
+		await chrome.action.setIcon({ path: "img/icon-48.png" });
 		return hideBadge();
 	}
 
 	const { text } = await getBadge();
 	const oldTotal = getTotalFromBadgeText({ text });
+
 	if (oldTotal !== null && newTotal > oldTotal) {
 		const images = [
 			"img/icon-48.png",
@@ -56,6 +66,8 @@ export async function updateBadgeAndIcon({
 			"img/icon-48.png",
 		].map((path) => ({ path, timeframe: 15 }));
 		await animate({ images });
+	} else {
+		await chrome.action.setIcon({ path: "img/icon-48.png" });
 	}
 
 	setBadge({

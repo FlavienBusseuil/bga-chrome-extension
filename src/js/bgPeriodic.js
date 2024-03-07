@@ -7,46 +7,51 @@ import { updateBadgeAndIcon } from "./utils/updateBadgeAndIcon";
 import { castToString } from "./types/bga/Player";
 import { fetchRequestToken } from "./utils/fetch/fetchRequestToken";
 
-let cachedRequestToken = fetchRequestToken();
+let cachedRequestToken = undefined;
 
-export async function bgPeriodic() {
+export async function bgPeriodic(config) {
 	try {
-		const requestToken = await cachedRequestToken;
+		if (config.isTrackingEnable()) {
+			cachedRequestToken = cachedRequestToken || fetchRequestToken();
+			const requestToken = await cachedRequestToken;
 
-		// Fetch current player info
-		const { token: playerToken, id: playerId } = await fetchCurrentPlayer({
-			requestToken,
-			onRefreshRequestToken: (newRequestToken) => {
-				cachedRequestToken = newRequestToken;
-			},
-		});
+			// Fetch current player info
+			const { token: playerToken, id: playerId } = await fetchCurrentPlayer({
+				requestToken,
+				onRefreshRequestToken: (newRequestToken) => {
+					cachedRequestToken = newRequestToken;
+				},
+			});
 
-		if (!playerId) {
-			setBadge({ text: "-", color: "#757575" });
-			return;
+			if (!playerId) {
+				setBadge({ text: "-", color: "#757575" });
+				return;
+			}
+
+			// Fetch number of waiting tables
+			const { nbWaitingTables } = await fetchActivityForPlayer(
+				{
+					playerToken,
+					playerId,
+				},
+				{ requestToken },
+			);
+
+			const tables = await fetchTablesFromTableManager({ requestToken, status: 'play' });
+			const nbPendingInvites = tables.reduce(
+				(total, table) =>
+					total +
+					(table.players[castToString(playerId)].table_status ===
+						"expected"
+						? 1
+						: 0),
+				0,
+			);
+
+			updateBadgeAndIcon({ nbPendingInvites, nbWaitingTables, tracking: true });
+		} else {
+			updateBadgeAndIcon({ nbPendingInvites: 0, nbWaitingTables: 0, tracking: false });
 		}
-
-		// Fetch number of waiting tables
-		const { nbWaitingTables } = await fetchActivityForPlayer(
-			{
-				playerToken,
-				playerId,
-			},
-			{ requestToken },
-		);
-
-		const tables = await fetchTablesFromTableManager({ requestToken, status: 'play' });
-		const nbPendingInvites = tables.reduce(
-			(total, table) =>
-				total +
-				(table.players[castToString(playerId)].table_status ===
-					"expected"
-					? 1
-					: 0),
-			0,
-		);
-
-		updateBadgeAndIcon({ nbPendingInvites, nbWaitingTables });
 	} catch (error) {
 		console.error(error);
 		setBadge({ text: "x", color: "#dc2626" });
