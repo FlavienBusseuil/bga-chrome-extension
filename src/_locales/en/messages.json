@@ -164,5 +164,11 @@
 	},
 	"optionsTrackingOff": {
 		"message": "Tables status tracking disabled"
+	},
+	"about": {
+		"message": "About"
+	},
+	"aboutText": {
+		"message": "<p>You can consult the list of the extension's features on <a target='about:blank' href='https://en.doc.boardgamearena.com/ChromeExtension'>this page</a>.</p><p>You can also come and chat with the authors on <a target='about:blank' href='https://boardgamearena.com/forum/viewtopic.php?t=30509'>the forum</a>, tell us about your concerns and make suggestions, or why not just drop us a little word of encouragement 🙂.</p><p>Thanks !</p>"
 	}
 }

@@ -164,5 +164,11 @@
 	},
 	"optionsTrackingOff": {
 		"message": "Surveillance de l'état de vos tables désactivée"
+	},
+	"about": {
+		"message": "A propos"
+	},
+	"aboutText": {
+		"message": "<p>Vous pouvez consulter la liste des fonctionnalités de cette exension sur <a target='about:blank' href='https://fr.doc.boardgamearena.com/ChromeExtension'>cette page</a>.</p><p>Vous pouvez également venir discuter avec les auteurs sur <a target='about:blank' href='https://boardgamearena.com/forum/viewtopic.php?t=30509'>le forum</a>, nous remonter vos soucis et nous faire vos suggestions, ou pourquoi pas juste venir nous déposer un petit mot d'encouragement 🙂.</p><p>Merci !</p>"
 	}
 }

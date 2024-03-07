@@ -17,7 +17,7 @@ const Switch = ({ checked, textOn, textOff, onChange }: Props) => {
   }
 
   return (
-    <div className="slider-container">
+    <div className="switch-container">
       <label className='switch'>
         <input type='checkbox' checked={isChecked} onChange={handleCheckboxChange} />
         <span className="slider round" />
