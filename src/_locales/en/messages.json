@@ -169,6 +169,30 @@
 		"message": "About"
 	},
 	"aboutText": {
-		"message": "<p>You can consult the list of the extension's features on <a target='about:blank' href='https://en.doc.boardgamearena.com/ChromeExtension'>this page</a>.</p><p>You can also come and chat with the authors on <a target='about:blank' href='https://boardgamearena.com/forum/viewtopic.php?t=30509'>the forum</a>, tell us about your concerns and make suggestions, or why not just drop us a little word of encouragement 🙂.</p><p>Thanks !</p>"
+		"message": "<p>You can consult the list of the extension's features on <a target='_blank' href='https://en.doc.boardgamearena.com/ChromeExtension'>this page</a>.</p><p>You can also come and chat with the authors on <a target='_blank' href='https://boardgamearena.com/forum/viewtopic.php?t=30509'>the forum</a>, tell us about your concerns and make suggestions, or why not just drop us a little word of encouragement. 🙂</p><p>Thanks !</p>"
+	},
+	"deleteGameTitle": {
+		"message": "Deleting a game"
+	},
+	"deleteGameText1": {
+		"message": "The game will no longer appear in the game list or lobby."
+	},
+	"deleteGameText2": {
+		"message": "This is not a feature of the Board Game Arena site, but an add-on managed by a chrome extension you've installed."
+	},
+	"deleteGameText3": {
+		"message": "You can cancel the deletion of a game in the extension options."
+	},
+	"deleteGameLink": {
+		"message": "<a target='_blank' href='https://en.doc.boardgamearena.com/ChromeExtension'>View documentation</a>"
+	},
+	"deleteStop": {
+		"message": "Do not display this message again"
+	},
+	"buttonConfirm": {
+		"message": "Confirm"
+	},
+	"buttonCancel": {
+		"message": "Cancel"
 	}
 }

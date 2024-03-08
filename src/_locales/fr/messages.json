@@ -169,6 +169,30 @@
 		"message": "A propos"
 	},
 	"aboutText": {
-		"message": "<p>Vous pouvez consulter la liste des fonctionnalités de cette exension sur <a target='about:blank' href='https://fr.doc.boardgamearena.com/ChromeExtension'>cette page</a>.</p><p>Vous pouvez également venir discuter avec les auteurs sur <a target='about:blank' href='https://boardgamearena.com/forum/viewtopic.php?t=30509'>le forum</a>, nous remonter vos soucis et nous faire vos suggestions, ou pourquoi pas juste venir nous déposer un petit mot d'encouragement 🙂.</p><p>Merci !</p>"
+		"message": "<p>Vous pouvez consulter la liste des fonctionnalités de cette exension sur <a target='_blank' href='https://fr.doc.boardgamearena.com/ChromeExtension'>cette page</a>.</p><p>Vous pouvez également venir discuter avec les auteurs sur <a target='_blank' href='https://boardgamearena.com/forum/viewtopic.php?t=30509'>le forum</a>, nous remonter vos soucis et nous faire vos suggestions, ou pourquoi pas juste venir nous déposer un petit mot d'encouragement. 🙂</p><p>Merci !</p>"
+	},
+	"deleteGameTitle": {
+		"message": "Suppression d'un jeu"
+	},
+	"deleteGameText1": {
+		"message": "Le jeu n'apparaitra plus dans la liste des jeux ni dans le lobby."
+	},
+	"deleteGameText2": {
+		"message": "Ceci n'est pas une fonctionnalité du site Board Game Arena mais un ajout géré par une extension chrome que vous avez installé."
+	},
+	"deleteGameText3": {
+		"message": "Il est possible d'annuler la suppression d'un jeu dans les options de l'extension."
+	},
+	"deleteGameLink": {
+		"message": "<a target='_blank' href='https://fr.doc.boardgamearena.com/ChromeExtension'>Voir la documentation</a>"
+	},
+	"deleteStop": {
+		"message": "Ne plus afficher ce message"
+	},
+	"buttonConfirm": {
+		"message": "Confirmer"
+	},
+	"buttonCancel": {
+		"message": "Annuler"
 	}
 }

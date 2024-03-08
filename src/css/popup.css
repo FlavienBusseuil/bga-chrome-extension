@@ -1,10 +1,12 @@
-:root {
+:root.dark {
   color-scheme: dark;
 
   --dark-10: #1d2023;
   --dark-20: #272a2f;
   --dark-30: #35373c;
   --dark-40: #404347;
+
+  --blue-70: #009aa0;
 
   --light-50: #8e8e8e;
   --light-70: #ccc;
@@ -87,6 +89,7 @@ html.dark .options-frame {
   background-color: #fefce8;
   position: absolute;
   padding: 0em 0.5em;
+  font-weight: bold;
 }
 
 html.dark .options-frame-title {
@@ -94,7 +97,6 @@ html.dark .options-frame-title {
 }
 
 .bgext_hidden_games_container {
-  max-height: 400px;
   display: flex;
   flex-flow: row wrap;
   justify-content: start;

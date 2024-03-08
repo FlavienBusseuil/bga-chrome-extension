@@ -1,3 +1,6 @@
+import React, { render } from "preact";
+import ConfirmationPopup from "./ConfirmationPopup";
+
 const createHiddenGameStyle = (content) => {
 	const hiddenStyleId = "cde-hidden-games-style";
 
@@ -25,8 +28,28 @@ export const initGameListObserver = (config, page) => {
 		(style.innerHTML = config.getHiddenGamesStyle(page));
 
 	const hideGame = (name) => {
-		config.hideGame(name);
-		updateHiddenGameStyle();
+		if (localStorage.getItem("ext_delete_warning") === "off") {
+			config.hideGame(name);
+			updateHiddenGameStyle();
+		} else {
+			const container = document.createElement('div');
+			container.id = "bgaext_popup_container";
+			document.body.appendChild(container);
+
+			const close = () => {
+				container.remove();
+			}
+			const confirm = (stopWarn) => {
+				if (stopWarn) {
+					localStorage.setItem("ext_delete_warning", "off");
+				}
+				config.hideGame(name);
+				updateHiddenGameStyle();
+				close();
+			};
+
+			render(<ConfirmationPopup confirm={confirm} cancel={close} />, container);
+		}
 	};
 
 	const observer = new MutationObserver(() => {
