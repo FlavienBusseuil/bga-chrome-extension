@@ -1007,6 +1007,12 @@ _darkStyleForGame['coupell'] = `
 #turns_number_label { color: var(--light-80); }
 `;
 
+_darkStyleForGame['cradletograve'] = `
+#overall-content[style="background: linear-gradient(90deg, rgb(204, 204, 204) 0%, rgb(238, 238, 238) 25%, rgb(238, 238, 238) 75%, rgb(204, 204, 204) 100%);"]
+{ background: linear-gradient(90deg, var(--dark-0) 0%, var(--dark-20) 25%, var(--dark-20) 75%, var(--dark-0) 100%) !important; }
+#pagesection_gameview .whiteblock { color: #000; }
+`;
+
 _darkStyleForGame['crazyfarmers'] = `
 #game_play_area .cards {  background-color: #32280166; }
 `;
@@ -1647,6 +1653,10 @@ _darkStyleForGame['goodcopbadcop'] = `
 #board_area div[style^="color:#{PLAYER"] { display: none; }
 #equipment_reference_header { color: #fff; }
 .large_equipment_name, .large_equipment_effect { color: #000; }
+`;
+
+_darkStyleForGame['gostop'] = `
+#player_boards td.table_bordered { color: #000; }
 `;
 
 _darkStyleForGame['gosux'] = `
@@ -2868,6 +2878,17 @@ _darkStyleForGame['restinpeace'] = `
 #zoom-in-btn, #zoom-out-btn { filter: invert(0.7); }
 `;
 
+_styleForGame['riftforce'] = `
+h3 { padding: 0.2em; }
+`;
+
+_darkStyleForGame['riftforce'] = `
+#backgroundGlobal { color: var(--light-80); }
+.board-outline { outline-color: var(--light-50); }
+.token-card-hand { filter: invert(0.7); }
+.token-card-back { filter: var(--drop-shadow); }
+`;
+
 _styleForGame['riftvalleyreserve'] = `
 .logs_on_floating_panel #page-title { width: 100% !important }
 `;
@@ -3981,6 +4002,13 @@ _darkStyleForGame['yaniv'] = `
 _darkStyleForGame['yatzy'] = `
 .PointLine > th, .PointLine > td { color: #fff; }
 .PointLine > td.possibleCells { color: gray; }
+`;
+
+_darkStyleForGame['ynarosfallin'] = `
+.firstplayer { filter: invert(1); }
+#player_boards .crystal, #player_boards .boardblock .character, #player_boards .shadowdice, #player_boards .xp,
+.shadowcardinhand, .shadowcard { filter: var(--drop-shadow-min); }
+#popin_appendix { background-image: none; }
 `;
 
 _darkStyleForGame['yokai'] = `
