@@ -730,7 +730,7 @@ select.colorselector {
   color: var(--light-80);
 }
 
-.bgaext_gamelist .arrow {
+.bgaext_gamelist .bga-game-browser__panel .arrow {
   background-color: #7d7d7dcc !important;
 }
 

@@ -36,6 +36,7 @@ export const gamesWithCustomBackground = [
   'mantisfalls',
   'mastersofrenaissance',
   'memoir',
+  'mojo',
   'mrjack',
   'mycity',
   'mycityrb',
@@ -72,6 +73,7 @@ export const gamesWithCustomBackground = [
   'thecrew',
   'tickettoride',
   'tickettorideeurope',
+  'tikal',
   'talon',
   'tinyturbocars',
   'trailblazers',
@@ -1027,6 +1029,10 @@ _darkStyleForGame['crimezoom'] = `
 #tab-bar li { background-color: var(--dark-back); }
 #tab-bar li.active,#tab-bar li:hover, #main-content { background-color: var(--dark-20); color: #fff; }
 p.epilogue-paragraph { background-color: var(--dark-10); color: var(--light-70); }
+`;
+
+_darkStyleForGame['crisps'] = `
+#overall-content[style*="background"]:before { content: ""; background: var(--dark-back); position: absolute; width: 100%; height: 100%; }
 `;
 
 _darkStyleForGame['crusadersthywillbedone'] = `
@@ -2282,6 +2288,12 @@ _darkStyleForGame['mlem'] = `
 #pin-board-btn { filter: invert(0.7); }
 `;
 
+_darkStyleForGame['mojo'] = `
+#overall-content:before { content: ""; background: var(--dark-back); position: absolute; width: 100%; height: 100%; }
+.mj_mini, .mj_deck_label { background-color: var(--dark-back); border: 1px solid var(--light-50); }
+.mj_mini_title, .mj_deck_label { color: var(--light-80) !important; }
+`;
+
 _darkStyleForGame['monsterfactory'] = `
 body { background: none; }
 #page-content { color: #fff; }
@@ -2407,6 +2419,11 @@ _darkStyleForGame['neom'] = `
 _styleForGame['newfrontiers'] = `
   html.nft_background_space .logs_on_floating_panel .player-board { background-color: #333333 !important; }
   .logs_on_floating_panel #goto_wrap { top: -5px; }
+`;
+
+_darkStyleForGame['newton'] = `
+#player_boards hr { border: 1px solid var(--dark-40); }
+.ntn-top-tooltip-area { background-color: var(--dark-back); color: var(--light-80); }
 `;
 
 _darkStyleForGame['newyorkzoo'] = `

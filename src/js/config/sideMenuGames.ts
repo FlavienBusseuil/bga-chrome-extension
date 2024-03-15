@@ -1145,6 +1145,11 @@ const defaultGames: Partial<Game>[] = [
 		name: "neom",
 		playerPanel: ".neom-cityboards>div",
 	},
+	{
+		name: "newton",
+		playerPanel: "player_game_board_{{player_id}}",
+		playerPanelOffset: 20
+	},
 ];
 
 export default defaultGames;
