@@ -227,6 +227,30 @@ _darkStyleForGame['abyss'] = `
 .dijitTooltipContainer [style*="background-color: purple;"] { background-color: #cc00cc !important; }
 `;
 
+_styleForGame['affonorwegians'] = `
+#ffo-action-board-holder { padding-left: 16px; }
+.ffo-card.ffo-card-weapon-bow { background-position: 33.5% 0 }
+.ffo-card.ffo-card-weapon-snare { background-position: 44.9% 0; }
+.ffo-card.ffo-card-weapon-spear { background-position: 56.15% 0 }
+.ffo-card.ffo-card-weapon-sword { background-position: 67.4% 0 }
+`;
+
+_darkStyleForGame['affonorwegians'] = `
+.ffo-pref-background #overall-content:before { content: ""; background: #00000080; position: absolute; width: 100%; height: 100%; }
+.ffo-pref-background header, .ffo-pref-background body { background: none; }
+.player-name .ffo-icon-eye { filter: invert(0.8); }
+#ffo-modal #ffo-modal-content { background-color: var(--dark-back); border: 1px solid var(--dark-40); }
+#feast-for-odin .ffo-tab { background-color: var(--dark-10); }
+#feast-for-odin .ffo-tab:hover { background-color: var(--dark-30); }
+.ffo-num-vp-token { background-color: var(--dark-10); color: var(--light-80); }
+.ffo-player-board-main .ffo-player-name { background-color: var(--dark-back) !important; }
+.ffo-player-board-main .ffo-player-name span:first-child, .ffo-player-board-main .ffo-player-name span:last-child { color: var(--light-80) !important; }
+.ffo-main-resources .ffo-good, #logs .ffo-good.ffo-icon { filter: var(--drop-shadow-min); }
+table.ffo-score-table thead th { background-color: var(--dark-30); color: var(--light-80); }
+table.ffo-score-table { background-color: var(--dark-40); color: var(--light-80); }
+table.ffo-score-table tr[style="border-top: 1px solid black"], table.ffo-score-table tr[style="border-top: 3px double black"] { border-color: var(--light-50) !important; }
+`;
+
 _darkStyleForGame['afterus'] = `
 .icon { filter: var(--highlight-min); }
 .object-tooltip .label, .object-tooltip .title { color: #75b9d7; }
@@ -464,6 +488,8 @@ _darkStyleForGame['aves'] = `
 `;
 
 _darkStyleForGame['azul'] = `
+html:not(.background2) #overall-content:before { content: ""; background: var(--dark-back); position: absolute; width: 100%; height: 100%; }
+html:not(.background2) #bga-zoom-controls { filter: invert(1); }
 .player-table-wrapper .player-hand { background: var(--dark-back); box-shadow: 0 0 5px 5px #000000dd; }
 `;
 
@@ -547,6 +573,10 @@ _darkStyleForGame['battleship'] = `
 .fleetship { box-shadow: inset 0px 0px 2px 2px var(--light-50); }
 .table-cell { border: 0.5px solid var(--light-50); }
 .grid-body { background-color: var(--dark-40); }
+`;
+
+_darkStyleForGame['beammeup'] = `
+.dijitTooltip .planetTooltip { background-color: transparent; }
 `;
 
 _darkStyleForGame['betta'] = `
@@ -1392,14 +1422,28 @@ _darkStyleForGame['farmclub'] = `
 .fc_animal { filter: var(--highlight-min); }
 `;
 
+_styleForGame['feastforodin'] = `
+#ffo-action-board-holder { padding-left: 16px; }
+.ffo-card.ffo-card-weapon-bow { background-position: 33.5% 0 }
+.ffo-card.ffo-card-weapon-snare { background-position: 44.9% 0; }
+.ffo-card.ffo-card-weapon-spear { background-position: 56.15% 0 }
+.ffo-card.ffo-card-weapon-sword { background-position: 67.4% 0 }
+`;
+
 _darkStyleForGame['feastforodin'] = `
-.ffo-icon-eye { filter: invert(0.7); }
-#ffo-modal #ffo-modal-content { background-color: #00000066; }
-.ffo-player-board-main .ffo-player-name { background-color: #00000080; }
-.ffo-player-name > span:first-child, .ffo-player-name > span:last-child { color: #fff !important; }
-.ffo-icon { filter: var(--drop-shadow); }
-table.ffo-score-table thead th { background-color: #000; color: #d0d2b4; }
-table.ffo-score-table { background-color: var(--dark-20); color: #fff; }
+.ffo-pref-background #overall-content:before { content: ""; background: #00000080; position: absolute; width: 100%; height: 100%; }
+.ffo-pref-background header, .ffo-pref-background body { background: none; }
+.player-name .ffo-icon-eye { filter: invert(0.8); }
+#ffo-modal #ffo-modal-content { background-color: var(--dark-back); border: 1px solid var(--dark-40); }
+#feast-for-odin .ffo-tab { background-color: var(--dark-10); }
+#feast-for-odin .ffo-tab:hover { background-color: var(--dark-30); }
+.ffo-num-vp-token { background-color: var(--dark-10); color: var(--light-80); }
+.ffo-player-board-main .ffo-player-name { background-color: var(--dark-back) !important; }
+.ffo-player-board-main .ffo-player-name span:first-child, .ffo-player-board-main .ffo-player-name span:last-child { color: var(--light-80) !important; }
+.ffo-main-resources .ffo-good, #logs .ffo-good.ffo-icon, #logs .ffo-icon.ffo-icon-d12 { filter: var(--drop-shadow-min); }
+table.ffo-score-table thead th { background-color: var(--dark-30); color: var(--light-80); }
+table.ffo-score-table { background-color: var(--dark-40); color: var(--light-80); }
+table.ffo-score-table tr[style="border-top: 1px solid black"], table.ffo-score-table tr[style="border-top: 3px double black"] { border-color: var(--light-50) !important; }
 `;
 
 _darkStyleForGame['federation'] = `
@@ -1415,6 +1459,10 @@ _darkStyleForGame['fika'] = `
 #fika_show_card_list span { background-color: var(--dark-20); color: var(--light-80); text-shadow: none; }
 .fika_slot:empty { background-color: var(--dark-30); }
 .fika_greater { color: #fff; }
+`;
+
+_darkStyleForGame['fivethreefive'] = `
+#overall-content[style*="background"] { background-color: var(--dark-10) !important; background-image: linear-gradient(45deg, var(--dark-10) 0%, var(--dark-40) 84%) !important; }
 `;
 
 _darkStyleForGame['flamingpyramids'] = `
@@ -2110,6 +2158,20 @@ _darkStyleForGame['lookatthestars'] = `
 #cards #shapes .pile-wrapper .pile:empty { border: 1px dashed #ccc; }
 #zoom-controls { filter: invert(0.7); }
 #popin_lookatthestarsHelpDialog { background: var(--dark-20); color: #fff; }
+`;
+
+_darkStyleForGame['looot'] = `
+#back_layer:before { content: ""; background: #00000080; position: absolute; width: 100%; height: 100%; }
+#player_boards .player-name a { background-color: transparent !important; }
+.score_header { border-bottom: 1px solid var(--dark-40); }
+.scrollmap_form [ type="submit"] { background-color: var(--blue-70); }
+.scrollmap_container > .scrollmap_btns_flex { background-color: var(--dark-back); }
+#scoretable { outline: 0.3em solid var(--dark-40); }
+#scoretable .scorecell { background-color: var(--dark-30); border-left: 0.1em solid var(--dark-40); border-top: 0.1em solid var(--dark-40); }
+#scoretable .scorecell.score.header.total { background-color: var(--dark-20); }
+#scoretable .header, #scoretable .lheader { background-color: var(--dark-10); }
+.player_name_holder { background: var(--dark-10) !important; }
+.player_vikings_pool_counter { background: var(--dark-10); color: var(--light-80); }
 `;
 
 _darkStyleForGame['lostcities'] = `
