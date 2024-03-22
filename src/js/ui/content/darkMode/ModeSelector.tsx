@@ -5,7 +5,7 @@ import Configuration from "../../../config/configuration";
 import { gamesWithCustomActions } from "../../../config/darkThemeGames";
 import { setDarkStyle } from "./darkStyleFunctions";
 
-import "../../../../css/modeSelector.css";
+import "../../../../css/darkModeSelector.css";
 
 interface ModeSelectorProps {
   config: Configuration;
@@ -194,9 +194,18 @@ const ModeSelector = (props: ModeSelectorProps) => {
     const style = (gameName === "general") ? "font-size: 32px; color: #01c4ca; cursor: pointer;" : "font-size: 24px; cursor: pointer;"
 
     if (darkMode) {
-      return <i class="fa fa-moon-o" style={style}></i>;
+      return (
+        <span onClick={toggleDarkMode}>
+          <i class="fa fa-moon-o" style={style}></i>
+        </span>
+      );
     }
-    return <i class="fa fa-sun-o" style={style}></i>;
+
+    return (
+      <span onClick={toggleDarkMode}>
+        <i class="fa fa-sun-o" style={style}></i>
+      </span>
+    );
   };
 
   const getMenuIcon = () => {
@@ -305,14 +314,12 @@ const ModeSelector = (props: ModeSelectorProps) => {
     return <></>;
   };
 
+  const className = darkMode ? "ext-dark-mode ext-dark-mode-on" : "ext-dark-mode ext-dark-mode-off";
+
   return (
-    <span style={{ display: "flex", flexFlow: "row nowrap" }}>
+    <span className={className}>
       {getMenuIcon()}
-
-      <span onClick={toggleDarkMode}>
-        {getIcon()}
-      </span>
-
+      {getIcon()}
       {getPalette()}
     </span>
   );

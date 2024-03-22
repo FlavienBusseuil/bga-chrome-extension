@@ -177,7 +177,7 @@ export const gamesWithCustomActions = {
       const input2 = document.getElementById('preference_fontrol_101') as any;
 
       const hardbackModeChange = (input: any) => {
-        const button = document.getElementById('bga_extension_mode_icon')?.firstChild?.firstChild as any;
+        const button = document.getElementById('bga_extension_dark_mode_icon')?.firstChild?.firstChild as any;
 
         if (button) {
           if (input.value === "2" || (input.value === "0" && window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches)) {
@@ -441,6 +441,7 @@ _darkStyleForGame['arknova'] = `
 .player-name > svg { filter: invert(0.7); }
 .ark-log-card-name { color: #fffafb; }
 #player_boards .arknova-icon, #logs .arknova-icon, #maintitlebar_content .arknova-icon { filter: var(--drop-shadow); }
+.player-info .handCount-holder .scoringHandCount-holder { color: #000; }
 .dijitTooltipContainer .arknova-icon { filter: var(--highlight); }
 .dijitTooltipContainer .ark-card-bottom, .dijitTooltipContainer .arknova-bonus { color: #000; }
 `;
@@ -3174,6 +3175,10 @@ _darkStyleForGame['sheepboombah'] = `
 div[id^="playersection_"] > div { background-color: var(--dark-back); padding: 0.2em 1em; border-radius: 8px; box-sizing: border-box; }
 `;
 
+_darkStyleForGame['sherlockthirteen'] = `
+#overall-content:before { content: ""; background: var(--dark-back); position: absolute; width: 100%; height: 100%; }
+`;
+
 _darkStyleForGame['shiftingstones'] = `
 .doubleempty, .empty, #deck, #disc, #mycard { color: #fff !important; }
 .box_wrap { padding: 16px 10px 0 10px; }
@@ -4060,6 +4065,8 @@ _darkStyleForGame['wonderfulkingdom'] = `
 .wk_phase_phases .wk_phase_selected { background-color: var(--dark-40); border: 1px solid var(--light-50); color: var(--light-80); }
 .wk_threat_tooltip_desc { background-color: var(--dark-back); }
 .bg-ressource_7 { filter: invert(1); }
+.wk_phase { background-color: var(--dark-back); }
+.wk_phase_phases>div { color: var(--light-70); }
 `;
 
 _darkStyleForGame['xanadu'] = `

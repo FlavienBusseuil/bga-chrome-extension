@@ -1,3 +1,18 @@
+.ext-dark-mode {
+  display: flex;
+  flex-flow: row nowrap;
+  padding-left: 6px;
+}
+
+/*
+.ext-dark-mode-on {
+  width: 40px;
+}
+
+.ext-dark-mode-off {
+  width: 20px;
+}*/
+
 #bgaext_palette_container {
   position: absolute;
   top: 48px;
