@@ -1156,6 +1156,12 @@ const defaultGames: Partial<Game>[] = [
 		iconBackground: "#7a99b8",
 		iconBackgroundDark: "#7a99b8",
 	},
+	{
+		name: "glassroad",
+		playerPanel: "playerboard_row_{{player_id}}",
+		boardPanel: "board-row",
+		bottomPanel: "history_section"
+	},
 ];
 
 export default defaultGames;

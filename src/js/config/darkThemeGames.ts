@@ -1622,6 +1622,18 @@ _darkStyleForGame['gizmos'] = `
 #logs .gzs_log_token, .dijitTooltipContainer .gzs_tooltip_token { filter: var(--drop-shadow); }
 `;
 
+_darkStyleForGame['glassroad'] = `
+#board_legend_buildable, #board .tile_wrapper[data-buildable="1"]:before,#board_private_tiles .tile_wrapper[data-buildable="1"]:before, .gr_card_player_played_card:before { background: var(--dark-10); }
+.playerboard, #board, .stockitem, .card_container, .tile_container { color: #000; }
+#toggle_history_exandable:link { color: var(--light-80) !important; }
+.gr_playing_order_item { background-color: var(--dark-back); border: 1px solid var(--light-50); }
+.gr_card_current_player { border: 4px solid var(--yellow-10); }
+.spectatorMode .spectator_playerboard_hand_zone { border: 1px solid var(--light-50); }
+#bga-zoom-controls { filter: invert(0.8); }
+.cc_counter { background: var(--dark-40); }
+.token.handSize { filter: invert(0.9); }
+`;
+
 _darkStyleForGame['glow'] = `
 #zoom-controls, .icon.footprint { filter: invert(0.7); }
 .player-board #firstPlayerToken { filter: var(--highlight); }
