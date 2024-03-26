@@ -17,12 +17,12 @@ const Switch = ({ checked, textOn, textOff, onChange }: Props) => {
   }
 
   return (
-    <div className="switch-container">
-      <label className='switch'>
+    <div className="bgaext_switch_container">
+      <label className='bgaext_switch'>
         <input type='checkbox' checked={isChecked} onChange={handleCheckboxChange} />
-        <span className="slider round" />
+        <span className="bgaext_slider round" />
       </label>
-      <span className='switch-text'>
+      <span className='bgaext_switch_text'>
         {isChecked ? textOn : textOff}
       </span>
     </div>

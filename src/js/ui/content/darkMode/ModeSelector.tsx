@@ -6,6 +6,7 @@ import { gamesWithCustomActions } from "../../../config/darkThemeGames";
 import { setDarkStyle } from "./darkStyleFunctions";
 
 import "../../../../css/darkModeSelector.css";
+import "../../../../css/modeSelector.css";
 
 interface ModeSelectorProps {
   config: Configuration;
@@ -298,7 +299,7 @@ const ModeSelector = (props: ModeSelectorProps) => {
       return (
         <div id="bgaext_palette_container" draggable={false} onDragStart={() => false}>
           <h2 class="bgaext_palette_title">{titleText}</h2>
-          <div class="bga-ext-closeicon" onClick={togglePaletteVisible}><i class="fa fa-times-circle" aria-hidden="true"></i></div>
+          <div class="bgaext_closeicon" onClick={togglePaletteVisible}><i class="fa fa-times-circle" aria-hidden="true"></i></div>
           <div className="bgaext_palette" draggable={false} onDragStart={() => false}>
             {getCells()}
             {getCursor()}
@@ -306,7 +307,7 @@ const ModeSelector = (props: ModeSelectorProps) => {
           {darkColorHue >= 0 && <div className="bgaext_saturation_selector" style={saturationStyle} onClick={saturationClick} draggable={false} onDragStart={() => false}>
             {getSaturationCursor()}
           </div>}
-          <div className="bgaext_palette_bottom"><a href="#" className="bga-ext-link" onClick={reset}>{resetLinkText}</a></div>
+          <div className="bgaext_palette_bottom"><a href="#" className="bgaext_link" onClick={reset}>{resetLinkText}</a></div>
         </div>
       );
     }
@@ -314,14 +315,14 @@ const ModeSelector = (props: ModeSelectorProps) => {
     return <></>;
   };
 
-  const className = darkMode ? "ext-dark-mode ext-dark-mode-on" : "ext-dark-mode ext-dark-mode-off";
-
   return (
-    <span className={className}>
-      {getMenuIcon()}
-      {getIcon()}
+    <>
+      <span className="bgaext_darkmode">
+        {getMenuIcon()}
+        {getIcon()}
+      </span>
       {getPalette()}
-    </span>
+    </>
   );
 };
 

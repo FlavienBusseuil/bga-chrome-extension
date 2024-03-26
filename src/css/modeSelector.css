@@ -1,0 +1,23 @@
+.bgaext_closeicon {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  font-size: 2em;
+  color: var(--light-70) !important;
+  cursor: pointer;
+}
+
+.bgaext_closeicon * {
+  color: var(--light-70) !important;
+  margin: 0px !important;
+}
+
+.bgaext_closeicon:hover {
+  font-size: 2em;
+  color: #fff !important;
+}
+
+.bgaext_closeicon:hover * {
+  color: #fff !important;
+  margin: 0px !important;
+}

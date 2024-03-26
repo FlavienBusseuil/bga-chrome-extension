@@ -1,11 +1,11 @@
-.switch-container {
+.bgaext_switch_container {
   position: relative;
   display: flex;
   flex-flow: row;
   gap: 0.5em;
 }
 
-.switch {
+.bgaext_switch {
   position: relative;
   display: inline-block;
   width: 40px;
@@ -13,14 +13,14 @@
 }
 
 /* Hide default HTML checkbox */
-.switch input {
+.bgaext_switch input {
   opacity: 0;
   width: 0;
   height: 0;
 }
 
 /* The slider */
-.slider {
+.bgaext_slider {
   position: absolute;
   cursor: pointer;
   top: 0;
@@ -32,12 +32,13 @@
   transition: .4s;
 }
 
-html.dark .slider {
+html.dark .bgaext_slider,
+html.darkmode .bgaext_slider {
   background-color: var(--dark-40);
   border: 1px solid var(--light-50);
 }
 
-.slider:before {
+.bgaext_slider:before {
   position: absolute;
   content: "";
   height: 16px;
@@ -49,44 +50,48 @@ html.dark .slider {
   transition: .4s;
 }
 
-html.dark .slider:before {
+html.dark .bgaext_slider:before,
+html.darkmode .bgaext_slider:before {
   bottom: 3px;
 }
 
-input:checked+.slider {
+input:checked+.bgaext_slider {
   background-color: #2196F3;
 }
 
-html.dark input:checked+.slider {
+html.dark input:checked+.bgaext_slider,
+html.darkmode input:checked+.bgaext_slider {
   background-color: var(--blue-70);
   border-color: var(--blue-70);
 }
 
-input:focus+.slider {
+input:focus+.bgaext_slider {
   box-shadow: 0 0 1px #2196F3;
 }
 
-html.dark input:focus+.slider {
+html.dark input:focus+.bgaext_slider,
+html.darkmode input:focus+.bgaext_slider {
   box-shadow: 0 0 1px var(--blue-70);
 }
 
-input:checked+.slider:before {
+input:checked+.bgaext_slider:before {
   transform: translateX(16px);
 }
 
-html.dark input:checked+.slider:before {
+html.dark input:checked+.bgaext_slider:before,
+html.darkmode input:checked+.bgaext_slider:before {
   transform: translateX(15px);
 }
 
 /* Rounded sliders */
-.slider.round {
+.bgaext_slider.round {
   border-radius: 34px;
 }
 
-.slider.round:before {
+.bgaext_slider.round:before {
   border-radius: 50%;
 }
 
-.switch-text {
-  line-height: 24px;
+.bgaext_switch_text {
+  line-height: 26px;
 }
