@@ -3292,6 +3292,11 @@ _darkStyleForGame['sparts'] = `
 .cardontable { border-radius: 8px; }
 `;
 
+_darkStyleForGame['spellbook'] = `
+.playername, .playername.pos0 { background-color: var(--dark-back); }
+.anatcard { outline: 2px solid var(--light-50); }
+`;
+
 _darkStyleForGame['spiritsoftheforest'] = `
 .pb_label { color: var(--dark-80); }
 `;

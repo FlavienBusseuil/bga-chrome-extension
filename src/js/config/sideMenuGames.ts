@@ -1162,6 +1162,10 @@ const defaultGames: Partial<Game>[] = [
 		boardPanel: "board-row",
 		bottomPanel: "history_section"
 	},
+	{
+		name: "spellbook",
+		playerPanel: "playername_{{player_id}}",
+	},
 ];
 
 export default defaultGames;

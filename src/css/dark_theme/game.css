@@ -366,11 +366,11 @@ a#pageheader_buy {
   color: #fff;
 }
 
-#settings-controls-container .row-data label.bgaext_switch .bgaext_slider {
+#settings-controls-container .row-data label.switch .slider {
   background-color: #697061;
 }
 
-#settings-controls-container .row-data label.bgaext_switch input:checked+.bgaext_slider {
+#settings-controls-container .row-data label.switch input:checked+.slider {
   background-color: #39838a;
 }
 
