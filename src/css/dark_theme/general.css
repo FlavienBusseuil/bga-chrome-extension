@@ -577,14 +577,14 @@ select.colorselector {
   background: var(--dark-30) !important;
 }
 
-.bgaext_lobby .pageheader_mobile_switcher_wrap .pageheader_menuitem .bgaext_switcher_zone,
-.bgaext_tournamentlist .pageheader_mobile_switcher_wrap .pageheader_menuitem .bgaext_switcher_zone {
+.bgaext_lobby .pageheader_mobile_switcher_wrap .pageheader_menuitem .switcher_zone,
+.bgaext_tournamentlist .pageheader_mobile_switcher_wrap .pageheader_menuitem .switcher_zone {
   background: linear-gradient(180deg, var(--dark-10) 00%, var(--dark-40) 40%, var(--dark-40) 60%, var(--dark-10) 100%);
   border-left: 1px solid var(--dark-40);
 }
 
-.bgaext_lobby .pageheader_mobile_switcher_wrap .pageheader_menuitem:hover .bgaext_switcher_zone,
-.bgaext_tournamentlist .pageheader_mobile_switcher_wrap .pageheader_menuitem:hover .bgaext_switcher_zone {
+.bgaext_lobby .pageheader_mobile_switcher_wrap .pageheader_menuitem:hover .switcher_zone,
+.bgaext_tournamentlist .pageheader_mobile_switcher_wrap .pageheader_menuitem:hover .switcher_zone {
   background: linear-gradient(180deg, var(--dark-10) 00%, var(--dark-40) 40%, var(--dark-40) 60%, var(--dark-10) 100%) !important;
 }
 
@@ -626,13 +626,13 @@ select.colorselector {
   color: var(--violet-80);
 }
 
-.bgaext_lobby.bgaext_switch_to_arena,
-.bgaext_lobby .bgaext_switch_to_arena_inline {
+.bgaext_lobby.switch_to_arena,
+.bgaext_lobby .switch_to_arena_inline {
   background: var(--dark-30);
   color: var(--light-80);
 }
 
-.bgaext_lobby .bgaext_switch_to_arena_inline .gamename {
+.bgaext_lobby .switch_to_arena_inline .gamename {
   color: var(--light-80);
 }
 
