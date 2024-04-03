@@ -270,6 +270,12 @@ _darkStyleForGame['ageofcivilization'] = `
 .playertable { background-color: var(--dark-back); }
 `;
 
+_darkStyleForGame['ageofinnovation'] = `
+#drafting_players { background-color: var(--dark-30); }
+#drafting_players table { color: var(--light-80); }
+.faction_supply, .player_collections { background-color: var(--dark-back); }
+`;
+
 _darkStyleForGame['agricola'] = `
 #overall-content:before { content: ""; background: #000000bb; position: absolute; width: 100%; height: 100%; }
 .player-name > svg { filter: invert(0.7); }
@@ -2085,6 +2091,10 @@ _darkStyleForGame['lagranja'] = `
 
 _darkStyleForGame['lama'] = `
 #deckCount { color: #fff; }
+`;
+
+_darkStyleForGame['lancaster'] = `
+.board_castle_name { background: var(--dark-20); margin-top: 0.5em; padding: 0.3em 1em !important; border-radius: 8px; width: fit-content; }
 `;
 
 _darkStyleForGame['lasvegan'] = `
