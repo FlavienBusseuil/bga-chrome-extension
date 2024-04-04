@@ -1170,6 +1170,14 @@ const defaultGames: Partial<Game>[] = [
 		name: "lancaster",
 		playerPanel: "board_castle_name_p{{player_id}}",
 	},
+	{
+		name: "flowers",
+		playerPanel: "flw_playZone_{{player_id}}",
+	},
+	{
+		name: "grund",
+		playerPanel: "playerbox-{{player_id}}",
+	},
 ];
 
 export default defaultGames;

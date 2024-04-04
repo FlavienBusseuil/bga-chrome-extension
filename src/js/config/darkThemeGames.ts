@@ -25,6 +25,7 @@ export const gamesWithCustomBackground = [
   'giftoftulips',
   'goblinhood',
   'goldblivion',
+  'grund',
   'iwari',
   'jekyllvshide',
   'jumpdrive',
@@ -81,7 +82,8 @@ export const gamesWithCustomBackground = [
   'tuned',
   'unrest',
   'wizardsgrimoire',
-  'wonderfulkingdom'
+  'wonderfulkingdom',
+  'wordtraveler'
 ];
 
 export const gamesWithCustomPanel = [
@@ -515,6 +517,10 @@ _darkStyleForGame['babydinosaurrescue'] = `
 [style^="color:#0000ff"] { color: #6666ff !important; }
 `;
 
+_darkStyleForGame['bacon'] = `
+#overall-content:before { content: ""; background: var(--dark-back); position: absolute; width: 100%; height: 100%; }
+`;
+
 _darkStyleForGame['bagofchips'] = `
 .player-table, #skin { background: var(--dark-back); color: var(--light-80); }
 #bga-zoom-controls { filter: invert(0.7); }
@@ -675,7 +681,7 @@ _darkStyleForGame['boomerangusa'] = `
 _darkStyleForGame['boreal'] = `
 .pyramid { background-color: var(--dark-back); color: var(--light-80); }
 .pyramid .reserve:before { background-color: #000; }
-.player_config_row > div:last-child svg { filter: invert(0.7); }
+.player_config_row > div:not(#help-mode-switch) svg { filter: invert(0.7); }
 `;
 
 _darkStyleForGame['botanik'] = `
@@ -1491,6 +1497,10 @@ _darkStyleForGame['flipfreighters'] = `
 #ffg_showScoreDialogContent table tbody tr.ffg_highlight .ffg_player_col>.playername { text-shadow: 1px 0 1px #000,0 1px 1px #000,-1px 0 1px #000,0 -1px 1px #000; }
 `;
 
+_darkStyleForGame['flowers'] = `
+.deckCounter { color: var(--light-80); }
+`;
+
 _darkStyleForGame['fluxx'] = `
 #pagesection_gameview .whiteblock { color: #000; }
 #flx-zoom-controls { background-color: var(--dark-20) !important; }
@@ -1658,7 +1668,7 @@ _darkStyleForGame['greatwesterntrail'] = `
 _darkStyleForGame['grund'] = `
 .castletile-box p { background: var(--dark-20); }
 .player-box .block-title { background: var(--dark-10); }
-.castle { background: var(--dark-back); }
+.whiteblock, .castle { background: var(--dark-back) !important; }
 `;
 
 _darkStyleForGame['goblinhood'] = `
@@ -2249,6 +2259,14 @@ font[color="red"] { color: #ff3333 !important; }
 
 _darkStyleForGame['madeira'] = `
 .money, .pirates { filter: var(--highlight-min); }
+`;
+
+_darkStyleForGame['mandala'] = `
+#mdl_decks_area .mdl_decks_inner { color: var(--light-80); }
+#mdl_decks_area .mdl_decks_inner .mdl_card_counter, #mdl_playmat .mdl_cup_counter { background-color: var(--dark-10); border: 1px solid var(--light-80); color: var(--light-80); }
+#mdl_playmat { position: relative; }
+#mdl_playmat:before { content: ""; background: #272a2f66; position: absolute; top: 0px; left: 0px; width: 100%; height: 100%; border: 1px solid var(--dark-40); box-sizing: border-box; }
+#mdl_playmat .player-name { background-color: var(--dark-20); border-radius: 4px; }
 `;
 
 _darkStyleForGame['mantisfalls'] = `
@@ -3206,6 +3224,11 @@ _darkStyleForGame['shiftingstones'] = `
 .box_wrap { padding: 16px 10px 0 10px; }
 `;
 
+_darkStyleForGame['shogi'] = `
+.komadai { background-color: var(--dark-back); }
+.shg_piece-count { background-color: var(--dark-10); border: 1px solid var(--light-70); color: var(--light-80); }
+`;
+
 _darkStyleForGame['siam'] = `
 .counter_value { color: var(--light-80) !important; }
 `;
@@ -4094,6 +4117,10 @@ _darkStyleForGame['wonderfulkingdom'] = `
 .bg-ressource_7 { filter: invert(1); }
 .wk_phase { background-color: var(--dark-back); }
 .wk_phase_phases>div { color: var(--light-70); }
+`;
+
+_darkStyleForGame['wordtraveler'] = `
+html { background-color: var(--dark-40); background-image: none; }
 `;
 
 _darkStyleForGame['xanadu'] = `
