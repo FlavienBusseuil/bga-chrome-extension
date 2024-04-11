@@ -11,10 +11,10 @@ export interface PlayerData {
 };
 
 export const getPlayersData = async (): Promise<PlayerData[]> => {
-  return new Promise<PlayerData[]>(resolve => _getPlayersData(resolve));
+  return new Promise<PlayerData[]>(resolve => _getPlayersData(resolve, 0));
 };
 
-const _getPlayersData = (returnFunc: (data: PlayerData[]) => void) => {
+const _getPlayersData = (returnFunc: (data: PlayerData[]) => void, iteration: number) => {
   const playerContainers = Array.from(document.querySelectorAll("#player_boards div.player-name[id^=\"player_name_\"]")).filter(elt => elt.id.length > 13 || elt.id === "player_name_7");
   const playerlinks = document.querySelectorAll("#player_boards div.player-name[id^=\"player_name_\"] a[href*=\"/player?id\"]");
   let result: PlayerData[] | undefined = undefined;
@@ -46,10 +46,20 @@ const _getPlayersData = (returnFunc: (data: PlayerData[]) => void) => {
   }
 
   if (result) {
-    returnFunc(result);
+    const diffColors = Array.from(new Set(result.map(c => c.color)));
+
+    if (diffColors.length === result.length) {
+      returnFunc(result);
+      return;
+    }
+  }
+
+  if (iteration < 50) {
+    setTimeout(() => _getPlayersData(returnFunc, iteration + 1), 100);
   } else {
-    setTimeout(() => _getPlayersData(returnFunc), 100);
-  };
+    console.error("Too many iterations in getPlayersData");
+    returnFunc(result || []);
+  }
 };
 
 export const getPlayersPossibleColors = (gameName: string) => {

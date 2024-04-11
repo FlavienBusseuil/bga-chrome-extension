@@ -1148,6 +1148,7 @@ const defaultGames: Partial<Game>[] = [
 	{
 		name: "newton",
 		playerPanel: "player_game_board_{{player_id}}",
+		boardPanel: "ntn_track_board",
 		playerPanelOffset: 20
 	},
 	{

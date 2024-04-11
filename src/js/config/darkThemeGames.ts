@@ -21,6 +21,7 @@ export const gamesWithCustomBackground = [
   'escapethecurseofthetemple',
   'evolution',
   'federation',
+  'fromage',
   'gangsta',
   'giftoftulips',
   'goblinhood',
@@ -213,6 +214,18 @@ export const gamesWithCustomActions = {
     },
     init: () => { }
   },
+  supermegaluckybox: {
+    init: () => {
+      const manageBackground = () => {
+        if (document.documentElement.classList.contains("smlb_background")) {
+          document.documentElement.classList.add("custom_background");
+        } else if (!document.documentElement.classList.contains("smlb_bga_background")) {
+          setTimeout(manageBackground, 50);
+        }
+      };
+      manageBackground();
+    }
+  }
 };
 
 const _darkStyleForGame = {};
@@ -1564,6 +1577,15 @@ _darkStyleForGame['frenchtarot'] = `
 .black { text-shadow: var(--text-w-shadow); }
 .blue { color: #6666ff !important; }
 .red { color: #ff3333 !important; }
+`;
+
+_darkStyleForGame['fromage'] = `
+#overall-content:before { content: ""; background: var(--dark-back); position: absolute; width: 100%; height: 100%; }
+.fr-player-panel-row .resource-badge { background: var(--dark-10); border-color: var(--light-50); }
+#fr-main-board-toggle-view-button { border-color: var(--light-50); }
+#player_boards .fr-cheese-art { filter: var(--drop-shadow-min); }
+#fr-game #fr-player-areas-wrapper #fr-player-areas .fr-player-area { background: var(--dark-back); }
+#bga-zoom-controls { filter: invert(0.7); }
 `;
 
 _darkStyleForGame['fruitpicking'] = `
