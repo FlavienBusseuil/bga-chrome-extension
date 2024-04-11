@@ -1915,6 +1915,13 @@ _darkStyleForGame['hiddenleaders'] = `
 #hiddenleaders-score table tr td { text-shadow: none; }
 `;
 
+_darkStyleForGame['highseason'] = `
+#player_boards .eye, #titre { filter: invert(1); }
+#player_board_compteur { background-color: var(--dark-10); }
+#compteur { color: var(--light-80); }
+.titlename { background-color: var(--dark-back); }
+`;
+
 _darkStyleForGame['hive'] = `
 body { background: none !important; }
 `;
