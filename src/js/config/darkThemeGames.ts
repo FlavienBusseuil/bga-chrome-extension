@@ -44,6 +44,7 @@ export const gamesWithCustomBackground = [
   'mycityrb',
   'mythicbattlesragnarok',
   'newfrontiers',
+  'nextstation',
   'nidavellir',
   'nimalia',
   'notalone',
@@ -960,6 +961,31 @@ _darkStyleForGame['cloudcity'] = `
 .clc_playertableicon { filter: invert(1); }
 `;
 
+_darkStyleForGame['coalbaron'] = `
+#coalbaron-main-container .coalbaron-board .player-board-fixed-size .board-elevator .player-name { background: var(--dark-20); }
+#coalbaron-main-container #coalbaron-board .board-space,
+#coalbaron-main-container #coalbaron-board .board-space#bank_1 .space-workers-container,
+#coalbaron-main-container #coalbaron-board .board-space#canteen .space-workers-container { background: var(--dark-back); }
+#coalbaron-main-container #coalbaron-board .board-space#factory_1 .space-tile-container,
+#coalbaron-main-container #coalbaron-board .board-space#factory_2 .space-tile-container,
+#coalbaron-main-container #coalbaron-board .board-space#factory_3 .space-tile-container,
+#coalbaron-main-container #coalbaron-board .board-space#factory_4 .space-tile-container,
+#coalbaron-main-container #coalbaron-board .board-space#factory_5 .space-tile-container,
+#coalbaron-main-container #coalbaron-board .board-space#factory_6 .space-tile-container,
+#coalbaron-main-container #coalbaron-board .board-space#factory_7 .space-tile-container,
+#coalbaron-main-container #coalbaron-board .board-space#factory_8 .space-tile-container,
+#coalbaron-main-container #coalbaron-board .board-space#order_1 .space-workers-container,
+#coalbaron-main-container #coalbaron-board .board-space#order_2 .space-workers-container,
+#coalbaron-main-container #coalbaron-board .board-space#order_3 .space-workers-container,
+#coalbaron-main-container #coalbaron-board .board-space#order_4 .space-workers-container { border-bottom: 1px solid var(--light-50); }
+#coalbaron-main-container #coalbaron-board .board-space#factory_5 .space-tile-container,
+#coalbaron-main-container #coalbaron-board .board-space#factory_6 .space-tile-container,
+#coalbaron-main-container #coalbaron-board .board-space#factory_7 .space-tile-container,
+#coalbaron-main-container #coalbaron-board .board-space#factory_8 .space-tile-container { border-top: 1px solid var(--light-50); }
+#player_config #round-counter-wrapper { background: var(--dark-10); font-weight: normal; color: var(--light-80); }
+#coalbaron-main-container .coalbaron-board { background-color: #3d2b0f; }
+`;
+
 _darkStyleForGame['codexnaturalis'] = `
 #overall-content, body { background: none! important; }
 .cn_player-board-first-player-token, .cn_icon { filter: var(--drop-shadow); }
@@ -1406,6 +1432,7 @@ _darkStyleForGame['evergreen'] = `
 
 _darkStyleForGame['evolution'] = `
 #overall-content:before { content: ""; background: var(--dark-back); position: absolute; width: 100%; height: 100%; }
+.shadow_smallicon { filter: var(--drop-shadow); }
 `;
 
 _darkStyleForGame['explodingkittens'] = `
@@ -1534,6 +1561,10 @@ _darkStyleForGame['forestshuffle'] = `
 _darkStyleForGame['foreverhome'] = `
 #bga-zoom-wrapper #bga-zoom-controls { filter: invert(0.7); }
 .fh-player-no-badge { background-color: var(--dark-20); border: 1px solid var(--light-50); color: var(--light-80); }
+`;
+
+_darkStyleForGame['forks'] = `
+#forks_surface { color: #fff; }
 `;
 
 _darkStyleForGame['formulad'] = `
@@ -2388,6 +2419,13 @@ _darkStyleForGame['microdojo'] = `
 [style="color: blue;"] { color: #6666ff !important; }
 `;
 
+_darkStyleForGame['micromidgard'] = `
+.doubleempty { color: var(--light-80); }
+.myicon, .gold, .mead { filter: var(--drop-shadow-min); border-radius: 50%; }
+[style="color: blue;"], [style="font-weight:bold;color:blue;"] { color: #6666ff !important; }
+[style="color: red;"], [style="font-weight:bold;color:red;"] { color: #ff3333 !important; }
+`;
+
 _darkStyleForGame['mighty'] = `
 .playertablename { text-shadow: none; }
 #pagesection_gameview .playertable.whiteblock.declarer { background-color: #00004d99; }
@@ -2563,8 +2601,19 @@ _darkStyleForGame['newyorkzoo'] = `
 .mini_counter { color: var(--yellow-10); }
 `;
 
+_darkStyleForGame['nextstation'] = `
+#ebd-body:before { content: ""; background: var(--dark-back); position: fixed; width: 100%; height: 100%; top: 0px; left: 0px }
+.nex_scorepad { color: #000; }
+`;
+
+_darkStyleForGame['nextstationparis'] = `
+#ebd-body:before { content: ""; background: var(--dark-back); position: fixed; width: 100%; height: 100%; top: 0px; left: 0px }
+.nex_scorepad { color: #000; }
+`;
+
 _darkStyleForGame['nextstationtokyo'] = `
-#ebd-body { background-image: none !important; }
+#ebd-body:before { content: ""; background: var(--dark-back); position: fixed; width: 100%; height: 100%; top: 0px; left: 0px }
+.nex_scorepad { color: #000; }
 `;
 
 _darkStyleForGame['nicodemus'] = `
@@ -3500,6 +3549,10 @@ _darkStyleForGame['talon'] = `
 .TALONlogBattle, .TALONlogRound, .TALONlogPlayer { background-color: transparent; }
 `;
 
+_styleForGame['tapas'] = `
+.tap_log-tile { filter: var(--highlight-min); }
+`;
+
 _styleForGame['tapestry'] = `
 .logs_on_floating_panel #player_board_config { background-color: rgb(218, 211, 193); }
 `;
@@ -4001,6 +4054,7 @@ _darkStyleForGame['vault'] = `
 _darkStyleForGame['vaultdenofthieves'] = `
 .doubleempty { color: var(--light-80); }
 .dieval { border: 1px solid #9999ff; }
+.Diamond { filter: var(--highlight-min); }
 `;
 
 _darkStyleForGame['vegetables'] = `

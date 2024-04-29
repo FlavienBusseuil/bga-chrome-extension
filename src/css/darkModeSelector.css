@@ -1,17 +1,19 @@
-.ext-dark-mode {
-  display: flex;
-  flex-flow: row nowrap;
-  padding-left: 6px;
+#topbar #bga_extension_dark_mode_icon {
+  position: relative !important;
+  height: 100% !important;
+  margin-left: 12px !important;
 }
 
-/*
-.ext-dark-mode-on {
-  width: 40px;
+#topbar .bgaext_darkmode {
+  display: flex !important;
+  flex-flow: row nowrap !important;
+  padding: 0px 0px 0px 6px !important;
 }
 
-.ext-dark-mode-off {
-  width: 20px;
-}*/
+#topbar .bgaext_darkmode span {
+  padding: 0px !important;
+  position: relative !important;
+}
 
 #bgaext_palette_container {
   position: absolute;
