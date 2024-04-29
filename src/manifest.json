@@ -1,7 +1,7 @@
 {
   "manifest_version": 3,
   "name": "BGA Chrome Extension",
-  "version": "1.9.6",
+  "version": "1.9.7",
   "action": {
     "default_popup": "popup.html"
   },
