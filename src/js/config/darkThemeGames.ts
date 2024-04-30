@@ -3545,6 +3545,15 @@ _darkStyleForGame['takenoko'] = `
 #take_zoom_icon { filter: invert(0.7); }
 `;
 
+_darkStyleForGame['takenokolor'] = `
+.icon.ladybug, #firstPlayerToken { filter: var(--highlight); }
+.log .icon.black { filter: invert(1); }
+#popin_bgaHelpDialog { background: var(--dark-10); }
+.rule-block { background: var(--dark-back); }
+.rule-block .rule-title { border-bottom: 3px dotted var(--red-10); color: var(--red-10); }
+#rules { color: var(--light-80); }
+`;
+
 _darkStyleForGame['talon'] = `
 .TALONlogBattle, .TALONlogRound, .TALONlogPlayer { background-color: transparent; }
 `;

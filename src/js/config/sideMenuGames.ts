@@ -1183,6 +1183,12 @@ const defaultGames: Partial<Game>[] = [
 		name: "coalbaron",
 		playerPanel: "board-{{player_id}}",
 	},
+	{
+		name: "takenokolor",
+		playerPanel: "player-table-{{player_id}}",
+		bottomPanel: "rules-wrapper",
+		css: "#bga-jump-to_controls { display: none; }",
+	},
 ];
 
 export default defaultGames;

@@ -1119,13 +1119,8 @@ ul.cplist {
   color: #D7D4D4;
 }
 
-@media only screen and (max-width: 900px),
-only screen and (max-device-width: 900px) {
-
-  #navigation a,
-  .rtl #navigation a {
-    background: #070707;
-  }
+#navigation a {
+  background-color: #070707;
 }
 
 /* Preferences pane layout
