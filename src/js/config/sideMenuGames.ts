@@ -1189,6 +1189,12 @@ const defaultGames: Partial<Game>[] = [
 		bottomPanel: "rules-wrapper",
 		css: "#bga-jump-to_controls { display: none; }",
 	},
+	{
+		name: "draftandwriterecords",
+		playerPanel: "dwr-area-player-{{player_id}}",
+		bottomPanel: "dwr-area-pref",
+		css: "#dwr-shortcut-area, #dwr-area-pref-shortcuts { display: none; }",
+	},
 ];
 
 export default defaultGames;

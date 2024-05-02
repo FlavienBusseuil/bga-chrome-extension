@@ -8,12 +8,14 @@ export const gamesWithCustomBackground = [
   'battlespiritssaga',
   'beyondthesun',
   'carnegie',
+  'cartographers',
   'chromino',
   'concept',
   'conspiracy',
   'dobbleconnect',
   'dontgointhere',
   'draculahelsing',
+  'draftandwriterecords',
   'earth',
   'eminentdomain',
   'emdomicrocosm',
@@ -30,6 +32,7 @@ export const gamesWithCustomBackground = [
   'iwari',
   'jekyllvshide',
   'jumpdrive',
+  'khiva',
   'kingoftokyo',
   'krosmasterblast',
   'lasvegan',
@@ -116,6 +119,10 @@ export const gamesWithCustomDarkMode = {
     applyGeneralCss: true
   },
   romirami: {
+    className: 'bx-background-dark',
+    applyGeneralCss: true
+  },
+  draftandwriterecords: {
     className: 'bx-background-dark',
     applyGeneralCss: true
   },
@@ -803,6 +810,17 @@ _darkStyleForGame['carrara'] = `
 #player_boards .stockitem, .first_player_tile, #objects > div { filter: var(--highlight); }
 `;
 
+_darkStyleForGame['cartographers'] = `
+#overall-content:before { content: ""; background: var(--dark-back); position: absolute; width: 100%; height: 100%; }
+.jj-ui-hint-box { background-color: var(--dark-10); }
+.car-score-track .car-score-track-season .car-score-track-season-cells { background-color: var(--dark-10); }
+.car-score-track .car-score-track-season .fa6-hourglass { background-color: var(--dark-20); }
+.car-score-track .car-score-track-season .car-score-track-season-cell,
+.car-score-track .car-score-track-season .car-score-track-season-cells,
+.car-score-track .car-score-track-season .fa6-hourglass { border-color: var(--light-50) !important; }
+.car-sheet-coins-track { background-color: var(--orange-10); }
+`;
+
 _darkStyleForGame['castlesofcaleira'] = `
 #zoom-controls, .coc_scroll_arrow { filter: invert(0.7); }
 `;
@@ -1268,6 +1286,21 @@ _darkStyleForGame['draculahelsing'] = `
 .dh_board_title_graf { filter: var(--highlight); }
 `;
 
+_darkStyleForGame['draftandwriterecords'] = `
+.bx-pill { background-color: var(--dark-40); color: var(--light-80); }
+#dwr-area-goal-container-wrap, #dwr-area-pref { background-color: var(--dark-back); }
+#dwr-area-pref-background { display: none; }
+.bx-counter { background-color: var(--dark-10); border: 1px solid var(--light-50); color: var(--light-80); }
+.bx-checkbox-switch i { background-color: var(--light-50); }
+.bx-checkbox-switch input:checked+i { background-color: var(--dark-40); }
+.bx-checkbox-switch i:before { background-color: var(--dark-10); }
+.bx-checkbox-switch i:after { background-color: var(--light-50); }
+.custom_popin { background: var(--dark-10); border: 2px solid var(--light-50); color: var(--light-80); }
+.custom_popin_closeicon { color: #aaa !important; }
+.notouch-device .custom_popin_closeicon:hover { color: #fff !important; }
+.dwr-card { border: 1px solid var(--dark-40); }
+`;
+
 _darkStyleForGame['draftcider'] = `
 #btnwraps { color: var(--light-80); }
 `;
@@ -1718,6 +1751,11 @@ _darkStyleForGame['greatwesterntrail'] = `
 .pref-group { background-color: #000; }
 `;
 
+_darkStyleForGame['grumblestone'] = `
+#overall-content:before { content: ""; background: var(--dark-back); position: absolute; width: 100%; height: 100%; }
+.mywhiteblock, .nums { color: var(--light-80); }
+`;
+
 _darkStyleForGame['grund'] = `
 .castletile-box p { background: var(--dark-20); }
 .player-box .block-title { background: var(--dark-10); }
@@ -1763,6 +1801,11 @@ html.darkpanel #player_boards .player-board.gb-player-panel-passed { background-
 .custom_popin_closeicon { color: #aaa !important; }
 .notouch-device .custom_popin_closeicon:hover { color: #fff !important; }
 div.player-name > a, span.player-name { background-color: transparent !important; }
+`;
+
+_styleForGame['goldncrash'] = `
+.player-info .hand-counter-wrapper svg { filter: invert(1); }
+#goldncrash-main-container .goldncrash-player-board .columns-zone .column-holder .column-cards-holder { border: 1px dashed var(--light-80); }
 `;
 
 _darkStyleForGame['goldwest'] = `
@@ -2087,6 +2130,10 @@ _darkStyleForGame['kahuna'] = `
 _darkStyleForGame['keyflower'] = `
 .player-name { text-shadow: none; }
 .resource, .worker_mini { filter: var(--highlight-min); }
+`;
+
+_darkStyleForGame['khiva'] = `
+.kv_board_path_title { background-color: var(--dark-20); padding: 0.2em 0.5em; border-radius: 4px; margin-left: -1em; }
 `;
 
 _darkStyleForGame['kingdombuilder'] = `
@@ -3238,6 +3285,13 @@ _darkStyleForGame['sergeantmajor'] = `
 _darkStyleForGame['setup'] = `
 .setup-piece { filter: var(--drop-shadow); }
 .setup-tile-number[data-suit="10"], .setup-tile-suit[data-suit="10"] { text-shadow: var(--text-w-shadow); }
+`;
+
+_darkStyleForGame['sevenknightsbewitched'] = `
+body { background: none !important; }
+.mur-placeholder:before { color: var(--light-80); }
+#mur-deployment .mur-placeholder { outline: 4px dotted var(--yellow-10); }
+.mur-player-name { background-color: var(--dark-back); padding: 0.2em 0.5em; border-radius: 4px; }
 `;
 
 _darkStyleForGame['sevenwonders'] = `
