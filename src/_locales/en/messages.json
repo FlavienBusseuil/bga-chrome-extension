@@ -78,6 +78,9 @@
 	"optionFloatingAlways": {
 		"message": "In a floating menu (for all games)"
 	},
+	"optionMisc": {
+		"message": "Miscellaneous"
+	},
 	"optionHiddenTab": {
 		"message": "Hidden games"
 	},
@@ -87,6 +90,9 @@
 	"optionCssTab": {
 		"message": "Custom CSS"
 	},
+	"optionMiscTitle": {
+		"message": "Miscellaneous parameters"
+	},
 	"optionHiddenTitle": {
 		"message": "Hidden games list"
 	},
@@ -94,7 +100,7 @@
 		"message": "Managed games list"
 	},
 	"optionCssTitle": {
-		"message": "Customise the look and feel of the site with some CSS code"
+		"message": "Customize site appearance with CSS code"
 	},
 	"optionNoHiddenGames": {
 		"message": "No hidden games"
@@ -164,6 +170,12 @@
 	},
 	"optionsTrackingOff": {
 		"message": "Tables status tracking disabled"
+	},
+	"optionsFlashingOn": {
+		"message": "Tables on which you are awaited are indicated by a flashing color"
+	},
+	"optionsFlashingOff": {
+		"message": "Tables where you are expected are indicated by a color code and a message"
 	},
 	"about": {
 		"message": "About"

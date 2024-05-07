@@ -78,6 +78,9 @@
 	"optionFloatingAlways": {
 		"message": "Dans un menu flottant (pour tous les jeux)"
 	},
+	"optionMisc": {
+		"message": "Divers"
+	},
 	"optionHiddenTab": {
 		"message": "Jeux cachés"
 	},
@@ -86,6 +89,9 @@
 	},
 	"optionCssTab": {
 		"message": "CSS personnalisé"
+	},
+	"optionMiscTitle": {
+		"message": "Paramètres divers"
 	},
 	"optionHiddenTitle": {
 		"message": "Liste des jeux cachés"
@@ -164,6 +170,12 @@
 	},
 	"optionsTrackingOff": {
 		"message": "Surveillance de l'état de vos tables désactivée"
+	},
+	"optionsFlashingOn": {
+		"message": "Les tables sur lesquels vous êtes attendus sont signalées par une couleur clignotante"
+	},
+	"optionsFlashingOff": {
+		"message": "Les tables sur lesquels vous êtes attendus sont signalées par un code couleur et un message"
 	},
 	"about": {
 		"message": "A propos"

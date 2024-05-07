@@ -31,6 +31,7 @@ type Props = {
 	children: React$Element<typeof PlayerList>,
 	onAcceptInvite: (TableId) => Promise<void>,
 	onDeclineInvite: (TableId) => Promise<void>,
+	motionSensitivityEnable: boolean
 };
 
 export function Table({
@@ -51,6 +52,7 @@ export function Table({
 	children,
 	onAcceptInvite,
 	onDeclineInvite,
+	motionSensitivityEnable,
 }: Props): React$Element<typeof Card> {
 	const renderIcons: Array<React$Element<typeof TableIcon>> = [
 		isPartOfTournament ? (
@@ -73,6 +75,7 @@ export function Table({
 					isOpenForPlayers,
 					isTurnBased,
 					isWaitingCurrentPlayer,
+					motionSensitivityEnable
 				}}
 			/>
 			<TableIcons>{renderIcons}</TableIcons>
@@ -81,16 +84,16 @@ export function Table({
 			<TableFooter className="flex gap-1 items-center justify-end bg-bgaOrange-lighter">
 				{
 					isInvitePendingForCurrentPlayer &&
-						tableCreatorName !== null && (
-							<span
-								className="flex-grow text-gray-600 text-sm leading none"
-								dangerouslySetInnerHTML={{
-									__html: tr("player_invited_you", [
-										`<a class="text-bgaBlue-lighter">${tableCreatorName}</a>`,
-									]),
-								}}
-							></span>
-						)
+					tableCreatorName !== null && (
+						<span
+							className="flex-grow text-gray-600 text-sm leading none"
+							dangerouslySetInnerHTML={{
+								__html: tr("player_invited_you", [
+									`<a class="text-bgaBlue-lighter">${tableCreatorName}</a>`,
+								]),
+							}}
+						></span>
+					)
 
 					// Button({
 					//   className: "shrink-0",

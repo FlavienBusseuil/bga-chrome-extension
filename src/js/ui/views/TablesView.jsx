@@ -15,6 +15,7 @@ type Props = {
 	tables: Array<TransformedTable>,
 	onAcceptInvite: (TableId) => Promise<void>,
 	onDeclineInvite: (TableId) => Promise<void>,
+	motionSensitivityEnable: boolean,
 };
 
 export function TablesView({
@@ -22,6 +23,7 @@ export function TablesView({
 	tables,
 	onAcceptInvite,
 	onDeclineInvite,
+	motionSensitivityEnable
 }: Props): React$Node {
 	return (
 		<div className={cn(["flex justify-between flex-col gap-2", className])}>
@@ -70,6 +72,7 @@ export function TablesView({
 											isInvitePendingForCurrentPlayer,
 											isOpenForPlayers,
 											isWaitingCurrentPlayer,
+											motionSensitivityEnable,
 											...restTable,
 										}}
 									>

@@ -2,17 +2,24 @@ import React from "preact";
 import { useEffect, useState } from "preact/hooks";
 
 import Configuration, { Game } from "../../config/configuration";
+import Switch from "../base/Switch";
+import { updateBadgeAndIcon } from "../../utils/updateBadgeAndIcon";
+
 import "../../../css/options.css";
+import "../../../css/switch.css";
 
 const Options = (props: { config: Configuration }) => {
 	const { config } = props;
-	const [list, setList] = useState<Game[]>(config.getGamesList());
+	const [list, setList] = useState(config.getGamesList());
 	const [selected, setSelected] = useState(list[0]);
 	const [changed, setChanged] = useState(false);
 	const [text, setText] = useState("");
 	const [css, setCss] = useState(config.getCustomCss());
-	const [tabSelected, setTabSelected] = useState("hidden");
-	const [hiddenGames, setHiddenGames] = useState<string[]>(config.getHiddenGames());
+	const [tabSelected, setTabSelected] = useState("misc");
+	const [hiddenGames, setHiddenGames] = useState(config.getHiddenGames());
+	const [tracking, setTracking] = useState(config.isTrackingEnable());
+	const [motionSensitivity, setMotionSensitivity] = useState(config.isMotionSensitivityEnable());
+	const smallInterface = document.body.clientWidth < 400;
 
 	const serialize = (game: Game) => {
 		return JSON.stringify(
@@ -81,6 +88,46 @@ const Options = (props: { config: Configuration }) => {
 	const isDefault = config.isDefault(selected.name);
 	const couldReset = changed || (isCustomized && isDefault);
 	const couldDelete = isCustomized && !isDefault;
+
+	const updateTracking = (val: boolean) => {
+		setTracking(val);
+		config.setTrackingEnable(val);
+
+		if (val) {
+			updateBadgeAndIcon({ nbPendingInvites: 0, nbWaitingTables: 0, tracking: true });
+		} else {
+			updateBadgeAndIcon({ nbPendingInvites: 0, nbWaitingTables: 0, tracking: false });
+		}
+	};
+
+	const updateFlashing = (val: boolean) => {
+		setMotionSensitivity(!val);
+		config.setMotionSensitivityEnable(!val);
+	};
+
+	const getMiscConfiguration = () => {
+		return (
+			<>
+				<div className="bgext_options_title">
+					{chrome.i18n.getMessage("optionMiscTitle")}
+				</div>
+				<div className="bgext_misc_container">
+					<Switch
+						checked={tracking}
+						textOn={chrome.i18n.getMessage("optionsTrackingOn")}
+						textOff={chrome.i18n.getMessage("optionsTrackingOff")}
+						onChange={updateTracking}
+					/>
+					<Switch
+						checked={!motionSensitivity}
+						textOn={chrome.i18n.getMessage("optionsFlashingOn")}
+						textOff={chrome.i18n.getMessage("optionsFlashingOff")}
+						onChange={updateFlashing}
+					/>
+				</div>
+			</>
+		);
+	};
 
 	const getHiddenConfiguration = () => {
 		return (
@@ -199,7 +246,7 @@ const Options = (props: { config: Configuration }) => {
 				<div className="bgext_options_title">
 					{chrome.i18n.getMessage("optionCssTitle")}
 				</div>
-				<div className="bgext_css_container">
+				<div className={smallInterface ? "bgext_css_container_small" : "bgext_css_container"}>
 					<textarea
 						id="css_config"
 						className="bgext_options_input"
@@ -240,12 +287,14 @@ const Options = (props: { config: Configuration }) => {
 	try {
 		return (
 			<div className="bgext_options_main">
-				<div className="bgext_options_config_area">
+				<div className={smallInterface ? "bgext_options_config_area_small" : "bgext_options_config_area"}>
 					<div className="bgext_links_area">
-						{getTab("hidden", chrome.i18n.getMessage("optionHiddenTab"))}
-						{getTab("navigation", chrome.i18n.getMessage("optionNavigationTab"))}
+						{getTab("misc", chrome.i18n.getMessage("optionMisc"))}
+						{!smallInterface && getTab("hidden", chrome.i18n.getMessage("optionHiddenTab"))}
+						{!smallInterface && getTab("navigation", chrome.i18n.getMessage("optionNavigationTab"))}
 						{getTab("css", chrome.i18n.getMessage("optionCssTab"))}
 					</div>
+					{tabSelected === "misc" && getMiscConfiguration()}
 					{tabSelected === "hidden" && getHiddenConfiguration()}
 					{tabSelected === "navigation" && getNavigationConfiguration()}
 					{tabSelected === "css" && getCssConfiguration()}

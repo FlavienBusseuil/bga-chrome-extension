@@ -15,10 +15,11 @@ import { Loading } from "../Loading";
 
 type Props = {
   className?: string,
-  getFriendsTables: () => Promise<TransformedTable[]>
+  getFriendsTables: () => Promise<TransformedTable[]>,
+  motionSensitivityEnable: boolean
 };
 
-export const FriendsView = ({ className, getFriendsTables }: Props) => {
+export const FriendsView = ({ className, getFriendsTables, motionSensitivityEnable }: Props) => {
   const [tables, setTables] = useState<TransformedTable[]>([]);
   const [loading, setLoading] = useState(false);
   const [requested, setRequested] = useState(false);
@@ -99,6 +100,7 @@ export const FriendsView = ({ className, getFriendsTables }: Props) => {
                       isInvitePendingForCurrentPlayer,
                       isOpenForPlayers,
                       isWaitingCurrentPlayer,
+                      motionSensitivityEnable,
                       ...restTable,
                     }}
                   >

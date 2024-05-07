@@ -6,10 +6,18 @@ div.bgext_options_main {
 }
 
 div.bgext_options_config_area {
+	height: 540px;
+}
+
+div.bgext_options_config_area_small {
+	height: 430px;
+}
+
+div.bgext_options_config_area,
+div.bgext_options_config_area_small {
 	border: 1px solid #aaaaaa;
 	border-radius: 8px;
 	width: 860px;
-	height: 540px;
 	display: flex;
 	flex-flow: column;
 	gap: 1em;
@@ -42,6 +50,7 @@ div.bgext_link_selected {
 }
 
 div.bgext_options_title {
+	color: grey;
 	font-size: 1.5rem;
 	font-weight: bold;
 	display: flex;
@@ -51,9 +60,11 @@ div.bgext_options_title {
 	box-sizing: border-box;
 	margin: 0em 1em;
 	line-height: 36px;
+	text-align: center;
 }
 
-div.bgext_hidden_games_container {
+div.bgext_hidden_games_container,
+div.bgext_misc_container {
 	max-height: 400px;
 	box-sizing: border-box;
 	border: 1px solid #aaaaaa;
@@ -64,8 +75,21 @@ div.bgext_hidden_games_container {
 	padding: 1em;
 }
 
+div.bgext_misc_container {
+	flex-flow: column;
+	gap: 1em;
+}
+
 div.bgext_css_container {
 	height: 400px;
+}
+
+div.bgext_css_container_small {
+	height: 250px;
+}
+
+div.bgext_css_container,
+div.bgext_css_container_small {
 	box-sizing: border-box;
 	border: 1px solid #aaaaaa;
 	margin: 0em 2em;

@@ -34,6 +34,7 @@ export function App({ config }: Props): React$Node {
 	const [childError, resetChildError] = useErrorBoundary();
 	const [activeTab, setActiveTab] = useState < string > ("tables");
 	const error = fetchError ?? childError;
+	const motionSensitivityEnable = config.isMotionSensitivityEnable();
 
 	useEffect(fetch, []);
 
@@ -100,6 +101,7 @@ export function App({ config }: Props): React$Node {
 						tables: sortedTables,
 						onAcceptInvite: handleAcceptOrDeclineInvite,
 						onDeclineInvite: handleAcceptOrDeclineInvite,
+						motionSensitivityEnable
 					}}
 				/>
 				<TournamentsView
@@ -119,6 +121,7 @@ export function App({ config }: Props): React$Node {
 						activeTab !== "friends" && "invisible",
 					])}
 					getFriendsTables={getFriendsTables}
+					motionSensitivityEnable
 				/>
 			</div>
 		);

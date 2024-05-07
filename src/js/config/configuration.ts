@@ -52,6 +52,7 @@ interface CustomConfig {
 	darkModeColor?: number;
 	darkModeSat?: number;
 	trackTables?: boolean;
+	motionSensitivity?: boolean;
 };
 
 interface LocalConfig {
@@ -237,6 +238,15 @@ class Configuration {
 	setTrackingEnable(val: boolean) {
 		this._customConfig.trackTables = val;
 		storageSet({ trackTables: val });
+	}
+
+	isMotionSensitivityEnable() {
+		return this._customConfig.motionSensitivity;
+	}
+
+	setMotionSensitivityEnable(val: boolean) {
+		this._customConfig.motionSensitivity = val;
+		storageSet({ motionSensitivity: val });
 	}
 
 	setLeftMenuEnabled(name: string, enable: boolean) {

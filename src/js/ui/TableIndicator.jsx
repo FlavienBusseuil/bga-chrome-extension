@@ -2,22 +2,23 @@
 
 import { cn } from "./utils/cn";
 
-function getIncatorClassnames({
+function getIndicatorClassnames({
 	isInvitePendingForCurrentPlayer,
 	isOpenForPlayers,
 	isTurnBased,
 	isWaitingCurrentPlayer,
+	motionSensitivityEnable
 }) {
 	if (!isTurnBased) {
-		return "bg-yellow-300 animate-pulse-0.25";
+		return motionSensitivityEnable ? "bg-yellow-300" : "bg-yellow-300 animate-pulse-0.25";
 	}
 
 	if (isWaitingCurrentPlayer) {
-		return "bg-bgaGreen animate-pulse-0.5";
+		return motionSensitivityEnable ? "bg-bgaGreen" : "bg-bgaGreen animate-pulse-0.5";
 	}
 
 	if (isInvitePendingForCurrentPlayer) {
-		return "bg-bgaOrange animate-pulse-0.5";
+		return motionSensitivityEnable ? "bg-bgaOrange" : "bg-bgaOrange animate-pulse-0.5";
 	}
 
 	if (isOpenForPlayers) {
@@ -32,6 +33,7 @@ type Props = {
 	isOpenForPlayers: boolean,
 	isTurnBased: boolean,
 	isWaitingCurrentPlayer: boolean,
+	motionSensitivityEnable: boolean
 };
 
 export function TableIndicator({
@@ -39,16 +41,18 @@ export function TableIndicator({
 	isOpenForPlayers,
 	isTurnBased,
 	isWaitingCurrentPlayer,
+	motionSensitivityEnable
 }: Props): React$Element<"div"> {
 	return (
 		<div
 			className={cn([
 				"absolute",
-				getIncatorClassnames({
+				getIndicatorClassnames({
 					isInvitePendingForCurrentPlayer,
 					isOpenForPlayers,
 					isTurnBased,
 					isWaitingCurrentPlayer,
+					motionSensitivityEnable
 				}),
 				"h-full",
 				"left-0",
