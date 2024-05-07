@@ -1195,6 +1195,10 @@ const defaultGames: Partial<Game>[] = [
 		bottomPanel: "dwr-area-pref",
 		css: "#dwr-shortcut-area, #dwr-area-pref-shortcuts { display: none; }",
 	},
+	{
+		name: "ethnos",
+		playerPanel: "player_cardboard_{{player_id}}",
+	},
 ];
 
 export default defaultGames;

@@ -28,6 +28,7 @@ export const gamesWithCustomBackground = [
   'giftoftulips',
   'goblinhood',
   'goldblivion',
+  'gravitysuperstar',
   'grund',
   'iwari',
   'jekyllvshide',
@@ -1441,7 +1442,7 @@ _styleForGame['equinox'] = `
 #eqx-board-holder #eqx-grid .eqx-cell.eqx-cell-controller .playername { white-space: nowrap; }
 `;
 
-_styleForGame['eriantys'] = `
+_darkStyleForGame['eriantys'] = `
 .logs_on_floating_panel .player-board { background-color: #b0d1e9; }
 `;
 
@@ -1453,6 +1454,16 @@ _darkStyleForGame['eriantys'] = `
 .inner_player_board span { text-shadow: none; }
 .tower { filter: var(--highlight-min); }
 #assistant_cards_myhand, #assistant_cards_played { background-color: var(--dark-back); color: var(--light-80); }
+`;
+
+_styleForGame['ethnos'] = `
+.player_board { box-sizing: border-box; }
+`;
+
+_darkStyleForGame['ethnos'] = `
+.player_name_000000 { text-shadow: var(--text-w-shadow); }
+.board_color_000000 { border-color: var(--light-50); }
+.my_expandable { border: 1px dotted var(--light-80); }
 `;
 
 _darkStyleForGame['euchre'] = `
@@ -1743,6 +1754,15 @@ _darkStyleForGame['glow'] = `
 #middle-band { background: #000; color: #fff; }
 `;
 
+_styleForGame['gravitysuperstar'] = `
+.gsc_replay_token_zoom_5, .gsc_replay_token_zoom_10 { border-radius: 50%; }
+`;
+
+_darkStyleForGame['gravitysuperstar'] = `
+#gsi_board_star_total { color: var(--light-80); }
+.gsc_star_zoom_10 { filter: var(--highlight-min); }
+`;
+
 _darkStyleForGame['greatwesterntrail'] = `
 #gwt_markets { color: #fff; }
 .player-area { background: #00000066; padding: 1em; }
@@ -1804,7 +1824,7 @@ html.darkpanel #player_boards .player-board.gb-player-panel-passed { background-
 div.player-name > a, span.player-name { background-color: transparent !important; }
 `;
 
-_styleForGame['goldncrash'] = `
+_darkStyleForGame['goldncrash'] = `
 .player-info .hand-counter-wrapper svg { filter: invert(1); }
 #goldncrash-main-container .goldncrash-player-board .columns-zone .column-holder .column-cards-holder { border: 1px dashed var(--light-80); }
 `;
@@ -2541,6 +2561,11 @@ _darkStyleForGame['mrjack'] = `
 #character-ability { background: var(--dark-20); color: #fff; border: 1px solid #fff; }
 `;
 
+_darkStyleForGame['mrjackpocket'] = `
+#goal-info-inner, .available-option-back, .available-option-front, .round, .tale { filter: var(--highlight); }
+span[style="color: blue"] { color: #6666ff !important; }
+`;
+
 _darkStyleForGame['mue'] = `
 #mue_gametarget { color: #fff; }
 .mue_discard_btn { color: var(--light-70); }
@@ -2635,8 +2660,8 @@ _darkStyleForGame['neom'] = `
 `;
 
 _styleForGame['newfrontiers'] = `
-  html.nft_background_space .logs_on_floating_panel .player-board { background-color: #333333 !important; }
-  .logs_on_floating_panel #goto_wrap { top: -5px; }
+html.nft_background_space .logs_on_floating_panel .player-board { background-color: #333333 !important; }
+.logs_on_floating_panel #goto_wrap { top: -5px; }
 `;
 
 _darkStyleForGame['newton'] = `
@@ -3613,7 +3638,7 @@ _darkStyleForGame['talon'] = `
 .TALONlogBattle, .TALONlogRound, .TALONlogPlayer { background-color: transparent; }
 `;
 
-_styleForGame['tapas'] = `
+_darkStyleForGame['tapas'] = `
 .tap_log-tile { filter: var(--highlight-min); }
 `;
 
@@ -3756,6 +3781,14 @@ _darkStyleForGame['thecrewdeepsea'] = `
 #thecrewdeepsea-table>div#table-middle #cards-mat #card-mat-bottom div.mat-card-holder,
 #thecrewdeepsea-table>div#table-middle #cards-mat #card-mat-top div.mat-card-holder { border: 1px dashed #fff; }
 #mission-overview #mission-overview-counter-wrapper { background: #22323f; color: var(--light-80); }
+`;
+
+_darkStyleForGame['thefoxintheforest'] = `
+.playertablename.text_shadow { text-shadow: none; }
+#overall-content:before { content: ""; background: var(--dark-back); position: absolute; width: 100%; height: 100%; }
+#odd_card_list, #trick_score_table { background: var(--dark-back); color: var(--light-80); }
+.cardspace, .stockitem { color: #000; }
+b[style="color:#5e3f85"] { color: #7b52ad !important; }
 `;
 
 _darkStyleForGame['thegreatamericanfoxhunt'] = `
