@@ -76,6 +76,7 @@ export const gamesWithCustomBackground = [
   'splendorduel',
   'stella',
   'starfluxx',
+  'taluva',
   'thecrew',
   'tickettoride',
   'tickettorideeurope',
