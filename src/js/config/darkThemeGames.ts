@@ -701,6 +701,11 @@ _darkStyleForGame['boomerangusa'] = `
 .box-name, .score-box { color: #000; }
 `;
 
+_styleForGame['boreal'] = `
+.Plateau-input, .Cartes-input { display: flex; flex-flow: row nowrap; justify-content: space-between; width: 100%; padding-top: 5px; }
+.player_config_row .slider { margin: 0px 0px 5px 0px; }
+`;
+
 _darkStyleForGame['boreal'] = `
 .pyramid { background-color: var(--dark-back); color: var(--light-80); }
 .pyramid .reserve:before { background-color: #000; }
@@ -1638,6 +1643,24 @@ _darkStyleForGame['fortheking'] = `
 _darkStyleForGame['fortytwo'] = `
 #card_log_table { background-color: var(--dark-back); color: #fff; }
 #pagesection_gameview .whiteblock.playertable.declarer { background: #004d004d; border: 1px solid var(--dark-back); }
+`;
+
+_darkStyleForGame['fourcolorcards'] = `
+#card_style_btn, #discard_btn, #ref_btn { color: var(--light-50); }
+#card_style_btn:hover,#discard_btn:hover,#ref_btn:hover { color: var(--light-70); }
+#overall-content { color: var(--light-80); }
+#fcc_deck { background-color: #393714; }
+#fcc_last_played_card { background-color: var(--dark-back); }
+#fcc_deck_count { z-index: 1; }
+.fcc_player_ground.player { background-color: var(--dark-30); }
+.fcc_player_ground { background-color: var(--dark-40); }
+.fcc_card_group { background-color: var(--dark-10); }
+`;
+
+_darkStyleForGame['fourgardens'] = `
+body { background: none !important; }
+.res_info_icon { filter: var(--highlight-min); }
+#score_bar, #score_content { background-color: var(--dark-10); background-image: none; }
 `;
 
 _darkStyleForGame['fractal'] = `
