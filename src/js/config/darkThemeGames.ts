@@ -1549,6 +1549,13 @@ _darkStyleForGame['federation'] = `
 #logs .log.notif_clearEndOfRound .roundedbox,#logs .log.notif_startExecutivePhaseStep .roundedbox { background: var(--dark-30); }
 `;
 
+_darkStyleForGame['festivibes'] = `
+.card-stock .slot { background: var(--dark-back); }
+.card-stock.event-slot .slot { background: var(--dark-20); }
+.card-stock.event-slot .slot:nth-child(2n) { background: var(--dark-30); }
+#settings-controls-container { background: var(--dark-10); }
+`;
+
 _darkStyleForGame['fifteendays'] = `
 .pb_label { color: var(--light-80); }
 `;
@@ -2634,6 +2641,11 @@ _darkStyleForGame['mythicbattlesragnarok'] = `
 .side, .card, .dashboard { border: 1px solid var(--light-50); }
 `;
 
+_darkStyleForGame['nachopile'] = `
+#game_play_area { color: var(--light-80); }
+.nachosmall, .smallnacho { filter: var(--highlight-min); }
+`;
+
 _darkStyleForGame['nangaparbat'] = `
 .np_miniboard>.imgtext { filter: var(--highlight-min); }
 `;
@@ -3716,17 +3728,16 @@ _darkStyleForGame['terramystica'] = `
 .faction_selection_item, .player_faction { text-shadow: none; color: #fff; }
 #logs .tmlogs_icon div[class^="trans_"] { border-radius: 12px; }
 .control_box { background-color: #09092a; }
-.faction_supply, .favors_collection { background-color: var(--dark-back); }
 .priests_collection { filter: var(--highlight-min); }
 .structure_marker { filter: none; }
-#faction_selection { background-color: var(--dark-back); }
+#faction_selection, .faction_supply, .favors_collection { background-color: var(--dark-back); }
 #faction_name_alchemists, #faction_name_darklings { color: #5d7689 !important; text-shadow: #222222 1px 0px 1px, #222222 0px -1px 1px, #222222 0px 1px 1px, #222222 -1px 0px 1px !important; }
 #faction_name_halflings, #faction_name_cultists { color: #a2602a !important; }
 #faction_name_chaosmagicians, #faction_name_giants { color: #c5202e !important; }
 `;
 
 _darkStyleForGame['terranova'] = `
-.faction_supply { background-color: var(--dark-back); }
+#faction_selection, .faction_supply { background-color: var(--dark-back); }
 #logs .tmlogs_icon div[class^="trans_"] { border-radius: 12px; }
 `;
 
