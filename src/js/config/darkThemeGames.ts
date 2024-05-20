@@ -3723,6 +3723,7 @@ _darkStyleForGame['teotihuacan'] = `
 _darkStyleForGame['terraformingmars'] = `
 .groupline { text-shadow: none; }
 .log .token_img { color: #000; }
+#settings-controls-container .row-data:not(.custom_pref_pp) .row-label { color: var(--light-80); }
 #settings-controls-container-prefs:before, .localsettings_header { background-color: var(--orange-30); }
 .tooltiptitle { background-color: var(--dark-back); }
 .tooltipcontainer, .tundra .dijitTooltipContainer { background: var(--dark-20); }
@@ -3751,6 +3752,7 @@ _darkStyleForGame['terraformingmars'] = `
 .hand_sorter { background-color: var(--dark-40); color: var(--light-70); border: 1px solid var(--light-50); }
 .hand_sorter .hs_button { border: 1px solid var(--light-70); }
 .hand_sorter .hs_button[data-direction=increase], .hand_sorter .hs_button[data-direction=decrease] { background-color: var(--yellow-10); }
+:root { --color-mapping_ff0000: #ff3333; --color-mapping_0000ff: #6666ff; --color-mapping_008000: #00cc00; }
 `;
 
 _darkStyleForGame['terramystica'] = `
