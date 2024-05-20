@@ -23,6 +23,7 @@ export const gamesWithCustomBackground = [
   'escapethecurseofthetemple',
   'evolution',
   'federation',
+  'flowersmandalagame',
   'fromage',
   'gangsta',
   'giftoftulips',
@@ -1598,6 +1599,12 @@ _darkStyleForGame['flowers'] = `
 .deckCounter { color: var(--light-80); }
 `;
 
+_darkStyleForGame['flowersmandalagame'] = `
+.player_config_row svg, #board .flower .hint svg { filter: invert(0.7); }
+#board .flower .flower-heart .stack-container .flo-label { filter: drop-shadow(1px 1px 2px black) drop-shadow(1px 1px 2px black); }
+#board .flower .hint { background-color: var(--dark-40); border: 1px solid var(--dark-0); color: var(--light-80); }
+`;
+
 _darkStyleForGame['fluxx'] = `
 #pagesection_gameview .whiteblock { color: #000; }
 #flx-zoom-controls { background-color: var(--dark-20) !important; }
@@ -2472,6 +2479,7 @@ _darkStyleForGame['mastersofrenaissance'] = `
 #overall-content:before { content: ""; background: var(--dark-back); position: absolute; width: 100%; height: 100%; }
 #development_cards_grid, #market_grid { background-color: var(--dark-back); color: var(--light-80); }
 #boards>div>div:last-child { background-color: var(--dark-back); }
+#arrow_cont { border-top: 1px solid var(--light-50); }
 `;
 
 _darkStyleForGame['mattock'] = `
