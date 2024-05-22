@@ -841,15 +841,6 @@ _darkStyleForGame['catan'] = `
 .cat_panel_prim_icons, #player_boards .cat_panel_prim_icons .cat_panel_score { filter: invert(1) !important; }
 #replaylogs .cat_log_token, .log .cat_log_token, .tooltiptext .cat_log_token { filter: var(--drop-shadow); }
 #cat_map_bg { background: none; background-color: var(--dark-back); }
-#cat_mapcontrols { background: var(--dark-30); border: none; box-shadow: none; margin: 5px; filter: var(--drop-shadow); }
-#cat_mapcontrols > * { filter: invert(0.7); }
-#cat_devcards_draw { top: 4vh; }
-`;
-
-_darkStyleForGame['catanck'] = `
-.cat_panel_prim_icons, #player_boards .cat_panel_prim_icons .cat_panel_score { filter: invert(1) !important; }
-#replaylogs .cat_log_token, .log .cat_log_token, .tooltiptext .cat_log_token { filter: var(--drop-shadow); }
-#cat_map_bg { background: none; background-color: var(--dark-back); }
 .cat_img_knight, .cat_barbarians_ship { filter: invert(0.7); }
 .cat_ck_param_line { border-bottom: 1px solid var(--light-80); }
 #cat_mapcontrols { background: var(--dark-30); border: none; box-shadow: none; margin: 5px; filter: var(--drop-shadow); }
