@@ -1203,6 +1203,10 @@ const defaultGames: Partial<Game>[] = [
 		name: "fourgardens",
 		playerPanel: "player_zone_{{player_id}}",
 	},
+	{
+		name: "middleages",
+		playerPanel: "zone_playername_{{player_index_1}}",
+	},
 ];
 
 export default defaultGames;

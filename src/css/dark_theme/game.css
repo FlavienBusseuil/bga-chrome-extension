@@ -57,6 +57,23 @@ html.darkpanel #player_boards .player-board .roundedboxinner b,
   background: var(--dark-20) !important;
 }
 
+/* new version of loading messages ? */
+.roundedbox,
+.roundedbox .roundedbox_main,
+.roundedbox .roundedbox_topleft,
+.roundedbox .roundedbox_topmain,
+.roundedbox .roundedbox_topright,
+.roundedbox .roundedbox_bottomleft,
+.roundedbox .roundedbox_bottommain,
+.roundedbox .roundedbox_bottomright {
+  background-color: var(--dark-20);
+}
+
+#connect_status_text,
+#connect_gs_status_text {
+  color: var(--light-80);
+}
+
 #spectatorbox_wrapper .player-board,
 #spectatorbox_wrapper .player-board .roundedboxinner,
 #spectatorbox_wrapper .player-board .roundedboxinner b,

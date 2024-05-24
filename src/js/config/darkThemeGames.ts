@@ -9,6 +9,7 @@ export const gamesWithCustomBackground = [
   'beyondthesun',
   'carnegie',
   'cartographers',
+  'catinthebox',
   'chromino',
   'concept',
   'conspiracy',
@@ -43,6 +44,7 @@ export const gamesWithCustomBackground = [
   'mantisfalls',
   'mastersofrenaissance',
   'memoir',
+  'middleages',
   'mojo',
   'mrjack',
   'mycity',
@@ -855,6 +857,10 @@ _darkStyleForGame['catcafe'] = `
 .ctc_psb_footprint, .ctc_log_shape { filter: var(--highlight); }
 `;
 
+_darkStyleForGame['catinthebox'] = `
+#overall-content:before { content: ""; background: #00000080; position: absolute; width: 100%; height: 100%; }
+`;
+
 _darkStyleForGame['caverna'] = `
 #central-board .turn-action-container .turn-number, #show-expedition { filter: invert(1); }
 #player_config #round-counter-wrapper { background-color: #000; }
@@ -1231,6 +1237,14 @@ h3 { color: #fff; }
 _darkStyleForGame['dinosaurteaparty'] = `
 .guess_text { color: #000; }
 .dinosaurtooltip_text [style^="color: #0c5a93;"] { color: #1392ec !important; }
+`;
+
+_darkStyleForGame['distilled'] = `
+.dwhiteblock, .iconCanvas, #distillerChoice > div:first-child { background-color: #00000080 !important;  }
+.invisiblePantryWrap, .pantryWrap { background-color: #000000cc; border-top: 1px solid var(--dark-40); }
+.pantryWrapTop, #pagesection_gameview .whiteblock { background-color: #000000cc; }
+.pantryExpanded .pantry2, div[id^=display][id$=wrapper] { background-color: #ffffff1a !important; }
+.playerContainer { color: var(--light-80); }
 `;
 
 _darkStyleForGame['divercite'] = `
@@ -2523,6 +2537,25 @@ _darkStyleForGame['micromidgard'] = `
 [style="color: red;"], [style="font-weight:bold;color:red;"] { color: #ff3333 !important; }
 `;
 
+_darkStyleForGame['middleages'] = `
+#overall-content:before { content: ""; background: var(--dark-back); position: absolute; width: 100%; height: 100%; }
+#overall-content { color: var(--light-80); }
+#zone_market { background-color: var(--dark-back); }
+.ma_zone_nobg { margin-top: 1px; }
+.ma_zone_player_1, .ma_zone_playername_1 span { background-color: #684c5c; }
+.ma_zone_player_2, .ma_zone_playername_2 span { background-color: #5c5250; }
+.ma_zone_player_3, .ma_zone_playername_3 span { background-color: #56604f; }
+.ma_zone_player_4, .ma_zone_playername_4 span { background-color: #726745; }
+.ma_zone_player_5, .ma_zone_playername_5 span { background-color: #405b68; }
+#player_board_config { background-color: var(--dark-20) !important; margin-bottom: 0.5em; }
+.ma_header_buttons { filter: invert(1); }
+`;
+
+_styleForGame['middleages'] = `
+.logs_on_floating_panel #player_board_config { background-color: #ebd5bd; margin-bottom: 0.5em; }
+.ma_token.ma_item.mf_init_no_anim { z-index: 1001; }
+`;
+
 _darkStyleForGame['mighty'] = `
 .playertablename { text-shadow: none; }
 #pagesection_gameview .playertable.whiteblock.declarer { background-color: #00004d99; }
@@ -3175,6 +3208,7 @@ html.darkpanel #player_boards .player-board.selected_panel { background-color: #
 _darkStyleForGame['resarcana'] = `
 .res_emptydiscardpile { border: 1px dotted #aaa; }
 .res_counterintext { color: #000; }
+#res_roundnumber, .res_counterintext { color: var(--light-80); }
 `;
 
 _darkStyleForGame['restinpeace'] = `
@@ -3456,6 +3490,16 @@ _darkStyleForGame['skyteam'] = `
 .st-victory-conditions.st-victory-conditions-row.pending { background: var(--dark-40) !important; }
 `;
 
+_darkStyleForGame['slide'] = `
+#sld_midzone { background: #04040466; }
+#popin_score_dlg_title { font-weight: normal; }
+#scoretable .scorecell { border-color: var(--light-50); }
+#scoretable { outline-color: var(--light-50); }
+#scoretable .header, #scoretable .lheader { background-color: var(--dark-20); }
+#scoretable .scorecell.score.header.total { background-color: var(--dark-40); }
+#scoretable .vtext { color: var(--light-80); }
+`;
+
 _darkStyleForGame['smallislands'] = `
 body { background: none; }
 #stacks { background-color: var(--dark-back); color: var(--light-80); }
@@ -3539,6 +3583,11 @@ _darkStyleForGame['splito'] = `
 #player-area-containers { background-color: var(--dark-back); }
 .spl_player-icon { filter: invert(0.6); }
 .spl_small-keyhole { filter: invert(0.7); }
+`;
+
+_darkStyleForGame['springcleaning'] = `
+#overall-content:before { content: ""; background: var(--dark-back); position: absolute; width: 100%; height: 100%; }
+.playertablename { text-shadow: none; }
 `;
 
 _darkStyleForGame['spyrium'] = `
@@ -3839,6 +3888,11 @@ _darkStyleForGame['thegreatamericanfoxhunt'] = `
 
 _darkStyleForGame['theisleofcats'] = `
 .tioc-player-panel-draft, .tioc-meeple{ filter: var(--drop-shadow); }
+`;
+
+_darkStyleForGame['thelast'] = `
+#overall-content { background-image: none !important; }
+.player-name, .playertablename { font-weight: normal; }
 `;
 
 _darkStyleForGame['thenumber'] = `
