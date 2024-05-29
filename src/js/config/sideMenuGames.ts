@@ -1143,7 +1143,7 @@ const defaultGames: Partial<Game>[] = [
 	},
 	{
 		name: "neom",
-		playerPanel: ".neom-cityboards>div",
+		playerPanel: "neom-cityboard-{{player_id}}-playername",
 	},
 	{
 		name: "newton",

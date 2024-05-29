@@ -479,3 +479,10 @@ div[id*="popin"][id$="underlay"] {
   border: 1px solid var(--dark-40);
   color: var(--light-80);
 }
+
+/* sound controls */
+#soundControls {
+  left: 60px;
+  background-color: var(--dark-10);
+  box-shadow: 0 0 10px -2px var(--light-50);
+}

@@ -41,6 +41,7 @@ export const gamesWithCustomBackground = [
   'lasvegan',
   'lielow',
   'lostexplorers',
+  'maatatahay',
   'mantisfalls',
   'mastersofrenaissance',
   'memoir',
@@ -398,6 +399,7 @@ _darkStyleForGame['amerigo'] = `
 .amg_playersection { background: var(--dark-20); }
 .amg_playerreserve, .amg_playersupply { background: var(--dark-40); }
 .amg_miniboard_counter { background: var(--dark-40); border-color: var(--dark-40);}
+.amg_miniboard_subgroup .amg_token24.amg_chest { filter: var(--highlight-min); }
 .amg_player_tabs a { background-color: #000; background-image: linear-gradient(180deg,#000,#444); text-shadow: none; color: #fff; }
 .amg_player_tabs a:focus,.amg_player_tabs a:focus:after { background: #000; }
 .amg_player_tabs a:after { background: #000; background-image: linear-gradient(180deg,#000,#444); }
@@ -408,6 +410,10 @@ _darkStyleForGame['amerigo'] = `
 .amg_counter_icon { filter: var(--highlight-min); }
 .amg_token24.amg_vp { filter: grayscale(1) invert(1); }
 .amg-gear { filter: invert(0.7); }
+#amg_overlay { background: var(--dark-back); }
+#token_look { background-color: var(--dark-20); }
+.amg_look_zone { background-color: #ffffff1a; box-shadow: 0 3px 8px #7b7b7b; }
+.amg_look_zone_title { color: var(--light-80); }
 `;
 
 _darkStyleForGame['amyitis'] = `
@@ -2419,6 +2425,11 @@ _darkStyleForGame['luxor'] = `
 #popin_chooseLayout { background-color: #4b3901; }
 #popin_chooseLayout_contents .layout-prompt { background-color: #7e5d01; }
 #popin_chooseLayout_contents .layout-prompt:hover { background-color: #c59207; }
+`;
+
+_darkStyleForGame['maatatahay'] = `
+#logs .sprite { filter: var(--highlight); }
+.ma_tile.selected { box-shadow: 0 0 6px 6px var(--light-50); }
 `;
 
 _darkStyleForGame['machiavelli'] = `
