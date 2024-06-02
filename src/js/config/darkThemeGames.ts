@@ -32,6 +32,7 @@ export const gamesWithCustomBackground = [
   'goldblivion',
   'gravitysuperstar',
   'grund',
+  'itsawonderfulworld',
   'iwari',
   'jekyllvshide',
   'jumpdrive',
@@ -2158,10 +2159,20 @@ _darkStyleForGame['isleoftrainsallaboard'] = `
 `;
 
 _darkStyleForGame['itsawonderfulworld'] = `
+#overall-content:before { content: ""; background: var(--dark-back); position: absolute; width: 100%; height: 100%; }
+.player-board:not(#iww-info):not(#spectatorbox):before { filter: grayscale(1); }
+#player_boards .player-name { text-shadow: none; background-color: var(--dark-back); }
 .avatar_active { filter: none; }
 .iww-resources, .player_score { color: #000; }
 .iww-tab { background-color: var(--dark-20); color: var(--light-80); }
 .iww-tab.iww-tab-selected, .iww-tab:not(.iww-tab-selected):hover { background-color: #000; color: #fff; }
+.doubletime_infos { color: #000; }
+[style="border-color: rgb(255, 0, 0); box-shadow: rgb(255, 0, 0) 0px 0px 5px, rgb(255, 0, 0) 0px 0px 10px;"]
+{ border-color: #ff3333 !important; box-shadow: #ff3333 0px 0px 5px, #ff3333 0px 0px 10px !important; }
+[style="border-color: rgb(0, 128, 0); box-shadow: rgb(0, 128, 0) 0px 0px 5px, rgb(0, 128, 0) 0px 0px 10px;"]
+{ border-color: #00cc00  !important; box-shadow: #00cc00 0px 0px 5px, #00cc00 0px 0px 10px !important; }
+[style="border-color: rgb(0, 0, 255); box-shadow: rgb(0, 0, 255) 0px 0px 5px, rgb(0, 0, 255) 0px 0px 10px;"]
+{ border-color: #6666ff !important; box-shadow: #6666ff 0px 0px 5px, #6666ff 0px 0px 10px !important; }
 `;
 
 _darkStyleForGame['iwari'] = `
@@ -2587,6 +2598,10 @@ _darkStyleForGame['mindup'] = `
 #round-counter-row #round-counter-block { background: var(--dark-20); text-shadow: none; }
 .player-table, .player-table .name-wrapper { background-color: var(--dark-20); }
 #table-center .slot .player-block { background: var(--dark-20); }
+`;
+
+_darkStyleForGame['minirogue'] = `
+.mnr-card { color: #000; }
 `;
 
 _styleForGame['mlem'] = `
