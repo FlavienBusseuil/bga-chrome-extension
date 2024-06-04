@@ -2823,9 +2823,14 @@ _darkStyleForGame['nidavellir'] = `
 #nidavellir-board #player-boards .nidavellir-player-board .command-zone-container .hero-line { border-top: 1px dashed #fdfdfd66; }
 `;
 
+_styleForGame['nimalia'] = `
+.game_interface #soundControls { left: 78px; }
+`;
+
 _darkStyleForGame['nimalia'] = `
 #overall-content:before { content: ""; background: #000000A0; position: absolute; width: 100%; height: 100%; }
 #settings-controls-container { background: linear-gradient(180deg,var(--dark-20),var(--dark-20)); }
+.game_interface #soundControls { left: 94px !important; }
 `;
 
 _darkStyleForGame['ninetynine'] = `

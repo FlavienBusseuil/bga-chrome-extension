@@ -120,3 +120,12 @@
   width: 100%;
   justify-content: right;
 }
+
+/* sound controls */
+.game_interface #soundControls {
+  left: 44px;
+}
+
+.darkmode .game_interface #soundControls {
+  left: 60px;
+}
