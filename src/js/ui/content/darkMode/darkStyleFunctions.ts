@@ -161,20 +161,23 @@ const _setDarkStyle = (mode: string) => {
       const classToAdd = gamesWithCustomDarkMode[mode]?.className;
 
       if (applyGeneralCss) {
+        const gameStyle = styleForGame[mode] || "";
+        const gameDarkStyle = darkStyleForGame[mode] || "";
+        const backStyle = gamesWithCustomBackground.includes(mode) ? "" : cssContents["dark_theme/background.css"];
+
+        const completeStyle = `${backStyle}${cssContents["dark_theme/common.css"]}${cssContents["dark_theme/chat.css"]}${cssContents["dark_theme/game.css"]}${gameDarkStyle}${gameStyle}`;
+        styleComponent.innerHTML = completeStyle;
+
+        if (!gamesWithCustomPanel.includes(mode)) {
+          document.documentElement.classList.add("darkpanel");
+        }
+
         getPlayersData().then(playersData => {
           console.log("[bga extension] players data", playersData);
 
           const possibleColors = [...playersData, ...getPlayersPossibleColors(mode)];
-
-          const gameStyle = styleForGame[mode] || "";
-          const gameDarkStyle = darkStyleForGame[mode] || "";
-          const backStyle = gamesWithCustomBackground.includes(mode) ? "" : cssContents["dark_theme/background.css"];
           const colorsStyle = getDarkColorsStyle(possibleColors);
-          styleComponent.innerHTML = `${backStyle}${cssContents["dark_theme/common.css"]}${cssContents["dark_theme/chat.css"]}${cssContents["dark_theme/game.css"]}${gameDarkStyle}${gameStyle}${colorsStyle}`;
-
-          if (!gamesWithCustomPanel.includes(mode)) {
-            document.documentElement.classList.add("darkpanel");
-          }
+          styleComponent.innerHTML = `${completeStyle}${colorsStyle}`;
 
           if (gamesWithCustomPlayerStyle[mode]) {
             _setPlayersColor(gamesWithCustomPlayerStyle[mode], playersData);

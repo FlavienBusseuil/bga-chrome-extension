@@ -54,7 +54,7 @@ const _getPlayersData = (returnFunc: (data: PlayerData[]) => void, iteration: nu
     }
   }
 
-  if (iteration < 50) {
+  if (iteration < 25) {
     setTimeout(() => _getPlayersData(returnFunc, iteration + 1), 100);
   } else {
     console.error("Too many iterations in getPlayersData");
