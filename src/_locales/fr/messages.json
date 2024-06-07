@@ -154,7 +154,7 @@
 		"message": "Aucune table disponible"
 	},
 	"search_games_friends": {
-		"message": "Rechercher une table ouverte créée par un ami"
+		"message": "Rechercher une table ouverte créée par un ami ou par le membre d'un de vos groupes"
 	},
 	"search": {
 		"message": "Rechercher"
@@ -206,5 +206,8 @@
 	},
 	"buttonCancel": {
 		"message": "Annuler"
+	},
+	"my_friends": {
+		"message": "Mes amis"
 	}
 }

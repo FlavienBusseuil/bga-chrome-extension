@@ -9,6 +9,15 @@ export type GlobalUserInfos = {
 			actives?: Array<PlayerId>,
 		},
 	},
+	friends: {
+		[userId: string]: number
+	},
+	group_types: {
+		[groupId: string]: string
+	},
+	group_names: {
+		[groupId: string]: string
+	},
 	lang: LanguageKey,
 	...
 };

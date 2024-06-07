@@ -62,7 +62,8 @@ export function App({ config }: Props): React$Node {
 		nbPendingInvites,
 		transformedTables,
 		transformedTournaments,
-		getFriendsTables,
+		getGroupTables,
+		groups,
 	} = result;
 
 	const sortedTables = sortTables(transformedTables);
@@ -120,7 +121,8 @@ export function App({ config }: Props): React$Node {
 						activeTab !== "friends" && "opacity-0",
 						activeTab !== "friends" && "invisible",
 					])}
-					getFriendsTables={getFriendsTables}
+					getGroupTables={getGroupTables}
+					groups={groups}
 					motionSensitivityEnable
 				/>
 			</div>

@@ -20,7 +20,8 @@ type Result =
 		nbWaitingTables: number,
 		transformedTables: Array<TransformedTable>,
 		transformedTournaments: Array<TransformedTournament>,
-		getFriendsTables: () => Promise<Array<TransformedTable>>,
+		getGroupTables: (groupId: string) => Promise<Array<TransformedTable>>,
+		groups: string[]
 	};
 type Output = [() => void, { result: null | Result, error: ?Error }];
 
@@ -42,7 +43,8 @@ export function useFetch(): Output {
 						nbWaitingTables,
 						nbPendingInvites,
 						tournaments,
-						getFriendsTables,
+						getGroupTables,
+						groups,
 						...rest
 					} = response;
 					const transformedTables = transformTables(rest);
@@ -55,8 +57,8 @@ export function useFetch(): Output {
 						nbWaitingTables,
 						transformedTables,
 						transformedTournaments,
-						getFriendsTables: async () => {
-							rest.tables = await getFriendsTables();
+						getGroupTables: async (groupId: string) => {
+							rest.tables = await getGroupTables(groupId);
 
 							const openedTables = transformTables(rest);
 							const availableTables = openedTables.filter(t => t.nbMaxPlayers > t.players.length);
@@ -64,6 +66,7 @@ export function useFetch(): Output {
 							availableTables.sort((a, b) => a.gameName.localeCompare(b.gameName));
 							return availableTables;
 						},
+						groups,
 					});
 				}
 			});

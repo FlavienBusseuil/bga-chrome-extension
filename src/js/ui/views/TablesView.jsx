@@ -28,7 +28,7 @@ export function TablesView({
 	return (
 		<div className={cn(["flex justify-between flex-col gap-2", className])}>
 			{tables.length === 0 && (
-				<div className="flex justify-center flex-col grow">
+				<div className="flex justify-center flex-col grow" style={{ minHeight: "60px" }}>
 					<span class="text-black dark:text-white text-center text-xl">
 						{chrome.i18n.getMessage("no_games")}
 					</span>

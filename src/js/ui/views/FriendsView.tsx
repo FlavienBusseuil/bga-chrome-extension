@@ -15,20 +15,22 @@ import { Loading } from "../Loading";
 
 type Props = {
   className?: string,
-  getFriendsTables: () => Promise<TransformedTable[]>,
+  getGroupTables: (groupId: string) => Promise<TransformedTable[]>,
+  groups: { id: string, name: string }[],
   motionSensitivityEnable: boolean
 };
 
-export const FriendsView = ({ className, getFriendsTables, motionSensitivityEnable }: Props) => {
+export const FriendsView = ({ className, getGroupTables, groups, motionSensitivityEnable }: Props) => {
   const [tables, setTables] = useState<TransformedTable[]>([]);
   const [loading, setLoading] = useState(false);
   const [requested, setRequested] = useState(false);
+  const [group, setGroup] = useState("0");
   const handleAcceptOrDeclineInvite = (tableId: TableId) => { };
 
   const search = () => {
     setLoading(true);
     setRequested(true);
-    getFriendsTables().then(tables => {
+    getGroupTables(group).then(tables => {
       setTables(tables);
       setLoading(false);
     });
@@ -47,12 +49,16 @@ export const FriendsView = ({ className, getFriendsTables, motionSensitivityEnab
   const noGame = () => {
     const msg = requested ? chrome.i18n.getMessage("no_games_friends") : chrome.i18n.getMessage("search_games_friends");
     return (
-      <div className="flex justify-center flex-col grow">
+      <div className="flex justify-center flex-col grow" style={{ minHeight: "60px" }}>
         <span class="text-black dark:text-white text-center text-xl">
           {msg}
         </span>
       </div>
     );
+  }
+
+  const getOptions = () => {
+    return groups.map((g, index) => <option key={`opt_${index}`} value={g.id}>{g.name}</option>);
   }
 
   return (
@@ -139,13 +145,23 @@ export const FriendsView = ({ className, getFriendsTables, motionSensitivityEnab
           </CardList>
         </div>
       )}
-      <Button
-        {...{
-          text: chrome.i18n.getMessage("search"),
-          className: "",
-          onClick: search,
-        }}
-      />
+      <div className={cn(["flex justify-between flex-row gap-2", className || ''])}>
+        <select
+          className="flex-grow border border-black dark:dark:border-white rounded"
+          value={group}
+          onChange={(evt) => setGroup(evt.target.value)}
+        >
+          <option value="0">{chrome.i18n.getMessage("my_friends")}</option>
+          {getOptions()}
+        </select>
+        <Button
+          {...{
+            text: chrome.i18n.getMessage("search"),
+            className: "flex-grow",
+            onClick: search,
+          }}
+        />
+      </div>
     </div>
   );
 }
