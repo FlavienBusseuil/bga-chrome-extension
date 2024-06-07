@@ -5,6 +5,7 @@ export const gamesWithCustomBackground = [
   'agricola',
   'altered',
   'azul',
+  'azulsummerpavilion',
   'battlespiritssaga',
   'beyondthesun',
   'carnegie',
@@ -158,6 +159,7 @@ export const gamesWithCustomPlayerStyle = {
   biomos: '#playersboard div[id^="playerposition_"]',
   wonderfulkingdom: '.wk_zone_playername',
   goblinhood: '.player-table > h3',
+  azulsummerpavilion: ".player-name.color"
 };
 
 export const gamesWithCustomColors = {
@@ -555,6 +557,20 @@ _darkStyleForGame['azul'] = `
 html:not(.background2) #overall-content:before { content: ""; background: #000000A0; position: absolute; width: 100%; height: 100%; }
 html:not(.background2) #bga-zoom-controls { filter: invert(1); }
 .player-table-wrapper .player-hand { background: var(--dark-back); box-shadow: 0 0 5px 5px #000000dd; }
+`;
+
+_darkStyleForGame['azulsummerpavilion'] = `
+#overall-content:before { content: ""; background: #000000B0; position: absolute; width: 100%; height: 100%; }
+#bga-zoom-controls button { filter: invert(0.7); }
+#page-title #summary { background: var(--dark-10); }
+#page-title #summary:after, #page-title #summary:before { border-top: 32px solid var(--dark-10); }
+#zoom-notice { color: var(--light-80); background: var(--dark-20); }
+#zoom-notice .arrow-right { border-left: 12px solid var(--dark-20); }
+.tile-count { background: var(--dark-10); }
+.player-table-wrapper .player-hand { background: var(--dark-back); box-shadow: 0 0 5px 5px hsl(0deg 0% 0.13% / 86.7%); }
+.player-name-wrapper { display: none !important; }
+.player-name-wrapper.shift { display: flex !important; }
+.player-table-wrapper .player-name-box { background: var(--dark-20); }
 `;
 
 _darkStyleForGame['babet'] = `
@@ -999,6 +1015,11 @@ _darkStyleForGame['citadels'] = `
 _darkStyleForGame['cityofthebigshoulders'] = `
 .panel-token { filter: var(--highlight-min); }
 #main_board, #available_companies, .owned_companies_area { color: var(--dark-10); }
+`;
+
+_darkStyleForGame['claim'] = `
+#faction_table, .playertablename { text-shadow: none; }
+.faction_token_1, .faction_token_2 { filter: var(--highlight); }
 `;
 
 _darkStyleForGame['clashofdecks'] = `
@@ -3242,6 +3263,10 @@ _darkStyleForGame['rainforest'] = `
  .jungleZoneBlock { background-color: #00000033; outline: 2px dashed #ffffff4d; }
  #rainForestContainer .playerSpeciesZone { border: 0.3vw dashed #898989; }
  #mainBoard:before { position: absolute; top:0px; left:0px; width: 100%; height: 100%; border: 1px solid var(--dark-10); box-sizing: border-box; content: ""; }
+ `;
+
+_darkStyleForGame['rallymandirt'] = `
+ .timestamp { background-color: var(--dark-10); }
  `;
 
 _darkStyleForGame['rallymangt'] = `

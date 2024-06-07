@@ -1207,6 +1207,11 @@ const defaultGames: Partial<Game>[] = [
 		name: "middleages",
 		playerPanel: "zone_playername_{{player_index_1}}",
 	},
+	{
+		name: "azulsummerpavilion",
+		playerPanel: "player-hand-{{player_id}}",
+		playerPanelOffset: 40
+	},
 ];
 
 export default defaultGames;
