@@ -56,6 +56,10 @@ hr {
   border-top-color: #CCCCCC;
 }
 
+#keywords::placeholder {
+  color: #CCCCCC;
+}
+
 /*
 --------------------------------------------------------------
 Colours and backgrounds for links.css
@@ -1459,18 +1463,34 @@ li.notification-disapproved strong {
   color: #ffffff;
 }
 
-.phpbb_iframed a {
-  color: #4871b6;
+.phpbb_iframed a,
+.phpbb_iframed a:link,
+.phpbb_iframed #search-box a:active,
+.phpbb_iframed .navbg a:active,
+.phpbb_iframed .forumbg .header a:active,
+.phpbb_iframed .forabg .header a:active,
+.phpbb_iframed th a:active,
+.phpbb_iframed #search-box a:visited,
+.phpbb_iframed .navbg a:visited,
+.phpbb_iframed .forumbg .header a:visited,
+.phpbb_iframed .forabg .header a:visited,
+.phpbb_iframed th a:visited,
+.phpbb_iframed #search-box a:link,
+.phpbb_iframed .navbg a:link,
+.phpbb_iframed .forumbg .header a:link,
+.phpbb_iframed .forabg .header a:link,
+.phpbb_iframed th a:link {
+  color: var(--blue-80);
 }
 
 .phpbb_iframed a:hover {
-  color: #3abdb8;
+  color: var(--violet-80);
   background: transparent;
   text-decoration: underline;
 }
 
 .phpbb_iframed a:visited {
-  color: #92aad3;
+  color: var(--blue-80);
 }
 
 .phpbb_iframed #wrap {
