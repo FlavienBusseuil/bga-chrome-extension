@@ -2398,6 +2398,14 @@ _darkStyleForGame['linkage'] = `
 #colourGroupsCounter { background-color: var(--dark-20) !important; color: var(--light-80) !important; }
 `;
 
+_styleForGame['linx'] = `
+.scrollmap_form button { cursor: pointer; }
+`;
+
+_darkStyleForGame['linx'] = `
+.scrollmap_form [ type="submit"] { background-color: var(--blue-70) !important; }
+`;
+
 _darkStyleForGame['liverpoolrummy'] = `
 #handNumber { color: #fff !important; }
 #redTarget, .prepbox, .prepjoker, .downWhite { color: var(--light-70) !important; }
