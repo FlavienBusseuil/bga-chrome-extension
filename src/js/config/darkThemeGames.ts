@@ -4,6 +4,7 @@ export const gamesWithCustomBackground = [
   'abyss',
   'agricola',
   'altered',
+  'arknova',
   'azul',
   'azulsummerpavilion',
   'battlespiritssaga',
@@ -167,7 +168,8 @@ export const gamesWithCustomColors = {
   terranova: ['#971923', '#278139', '#70421d', '#1a2126'],
   nowboarding: ['#000000'],
   lumen: ['#1f3067'],
-  nimalia: ['#0000ff', '#ff0000', '#ffa500', '#008000']
+  nimalia: ['#0000ff', '#ff0000', '#ffa500', '#008000'],
+  riverofgold: ['#000000', '#ff0000', '#008000', '#0000ff', '#ffffff'],
 };
 
 export const gamesWithCustomActions = {
@@ -503,6 +505,7 @@ _darkStyleForGame['artthief'] = `
 `;
 
 _darkStyleForGame['arknova'] = `
+#overall-content:before { content: ""; background: #000000B0; position: absolute; width: 100%; height: 100%; }
 .player-name > svg { filter: invert(0.7); }
 .ark-log-card-name { color: #fffafb; }
 #player_boards .arknova-icon, #logs .arknova-icon, #maintitlebar_content .arknova-icon { filter: var(--drop-shadow); }
@@ -1296,6 +1299,7 @@ _darkStyleForGame['distilled'] = `
 .pantryWrapTop, #pagesection_gameview .whiteblock { background-color: #000000cc; }
 .pantryExpanded .pantry2, div[id^=display][id$=wrapper] { background-color: #ffffff1a !important; }
 .playerContainer { color: var(--light-80); }
+svg[id^="eye_"] { filter: invert(1); }
 `;
 
 _darkStyleForGame['divercite'] = `
@@ -1490,6 +1494,10 @@ _darkStyleForGame['eminentdomain'] = `
 
 _darkStyleForGame['emdomicrocosm'] = `
 .card_tooltipcontainer .tooltiptext { background-color: #000; }
+`;
+
+_darkStyleForGame['enemyanemone'] = `
+#overall-content:before { content: ""; background: #00000080; position: absolute; width: 100%; height: 100%; }
 `;
 
 _darkStyleForGame['envelopesofcash'] = `
@@ -3333,6 +3341,23 @@ _darkStyleForGame['riftvalleyreserve'] = `
 .riftvalleyreserve-name-272c29 { text-shadow: var(--text-w-shadow); }
 .rvr-icon-element[data-color="272c29"][data-type=stop] { background-color: #fff; border-radius: 18px; }
 .rvr-icon-backpack, .rvr-tent-display { filter: var(--highlight-min); }
+`;
+
+_darkStyleForGame['riverofgold'] = `
+.rog_player_delivered_resizable, .rog_player_hand_resizable { background-color: var(--dark-back); color: var(--light-80); }
+.playername_wrapper_ffffff .playername, .playername_wrapper_ffffff.playername { background-color: transparent !important; }
+#logs .rog_icon_influence, #player_boards .rog_icon_influence { filter: var(--highlight-min); }
+#player_boards .player-name { text-shadow: -1px 0 #000, 0 1px #000, 1px 0 #000, 0 -1px #000}
+#player_config #pin-panel-switch .label { background-color: #697061; }
+.logs_on_floating_panel #player_config #pin-panel-switch { visibility: hidden; }
+#player_config #help-mode-switch .checkbox:checked+.label, #player_config #pin-panel-switch .checkbox:checked+.label { background-color: var(--blue-70); }
+#player_config #turn_counter_wrapper { background: var(--dark-10); color: var(--light-80); font-weight: normal; }
+.playername_wrapper_ff0000 .playername,.playername_wrapper_ff0000.playername { color: #ff3333!important; }
+.playername_wrapper_008000 .playername,.playername_wrapper_008000.playername { color: #00cc00!important; }
+.playername_wrapper_0000ff .playername,.playername_wrapper_0000ff.playername { color: #6666ff!important; }
+div[style*="border-color: rgb(255, 0, 0)"] { border-color: #ff3333!important; }
+div[style*="border-color: rgb(0, 128, 0)"] { border-color: #00cc00!important; }
+div[style*="border-color: rgb(0, 0, 255)"] { border-color: #6666ff!important; }
 `;
 
 _darkStyleForGame['rivervalleyglassworks'] = `
