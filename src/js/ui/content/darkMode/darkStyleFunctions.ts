@@ -1,10 +1,7 @@
-import { getUrl } from "../../../utils/chrome";
 import { isNumber } from "../../../utils/misc/isNumber";
 import { darkStyleForGame, gamesWithCustomActions, gamesWithCustomBackground, gamesWithCustomDarkMode, gamesWithCustomPanel, gamesWithCustomPlayerStyle, styleForGame } from "../../../config/darkThemeGames";
 import { PlayerData, getPlayersData, getPlayersPossibleColors } from "../players";
-
-const themeStyleId = "ext-theme-style";
-const cookieName = "ext_dark_theme";
+import { cookieName, createStyle, getFile } from "./darkStyleCommonFunctions";
 
 const isDarkStyle = (mode: string) => {
   const customActions = gamesWithCustomActions[mode];
@@ -12,10 +9,6 @@ const isDarkStyle = (mode: string) => {
 }
 
 const { cssList, mode } = (() => {
-  if (window.location.host === "forum.boardgamearena.com") {
-    return { mode: "forum", cssList: ["dark_theme/background.css", "dark_theme/forum.css"] };
-  }
-
   const pageInfo = window.location.pathname.substring(1).split("/");
   if (pageInfo.length >= 2 && isNumber(pageInfo[0])) {
     return { mode: pageInfo[1], cssList: ["dark_theme/background.css", "dark_theme/common.css", "dark_theme/chat.css", "dark_theme/game.css"] };
@@ -29,25 +22,12 @@ const { cssList, mode } = (() => {
 })();
 
 const cssContents = {};
-
-const getFile = async (file: string) => {
-  const url = getUrl(`css/${file}`);
-  const response = await fetch(url);
-  const content = await response.text();
-  return { file, content };
-};
-
 let styleComponent;
-const createStyle = () => {
-  styleComponent = document.createElement("style");
-  styleComponent.id = themeStyleId;
-  document.head.appendChild(styleComponent);
-};
 
 Promise.all(cssList.map(getFile)).then(fileContents => {
   fileContents.forEach(({ file, content }) => cssContents[file] = content);
 
-  createStyle();
+  styleComponent = createStyle();
   _setDarkStyleIfActivated();
 });
 
@@ -152,9 +132,7 @@ const _setDarkStyle = (mode: string) => {
       return;
     }
 
-    if (mode === "forum") {
-      styleComponent.innerHTML = `${cssContents["dark_theme/background.css"]}${cssContents["dark_theme/forum.css"]}`;
-    } else if (mode === "general") {
+    if (mode === "general") {
       styleComponent.innerHTML = `${cssContents["dark_theme/background.css"]}${cssContents["dark_theme/common.css"]}${cssContents["dark_theme/chat.css"]}${cssContents["dark_theme/general.css"]}`;
     } else {
       const applyGeneralCss = !gamesWithCustomDarkMode[mode] || gamesWithCustomDarkMode[mode].applyGeneralCss;
@@ -207,8 +185,6 @@ const _setLightStyle = (mode: string) => {
 
     if (mode === "general") {
       styleComponent.innerHTML = cssContents["light_theme/background.css"];
-    } else if (mode === "forum") {
-      styleComponent.innerHTML = "";
     } else if (gamesWithCustomDarkMode[mode]) {
       styleComponent.innerHTML = styleForGame[mode] || "";
       document.documentElement.classList.remove(gamesWithCustomDarkMode[mode].className);
@@ -236,7 +212,7 @@ export const setDarkStyle = (mode: string, val: boolean) => {
 };
 
 const initClassObserver = (mode: string) => {
-  if (mode === "general" || mode === "forum") {
+  if (mode === "general") {
     return;
   }
 

@@ -1,8 +1,8 @@
 import Configuration from "./js/config/configuration";
-import { setDarkStyle } from "./js/ui/content/darkMode/darkStyleFunctions";
+import { setDarkStyle } from "./js/ui/content/darkMode/darkStyleForumFunctions";
 
 const initPage = () => {
-  setDarkStyle("forum", config.isDarkMode());
+  setDarkStyle(config.isDarkMode());
 };
 
 const config = new Configuration();

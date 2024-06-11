@@ -1483,14 +1483,14 @@ li.notification-disapproved strong {
   color: var(--blue-80);
 }
 
+.phpbb_iframed a:visited {
+  color: var(--blue-70);
+}
+
 .phpbb_iframed a:hover {
   color: var(--violet-80);
   background: transparent;
   text-decoration: underline;
-}
-
-.phpbb_iframed a:visited {
-  color: var(--blue-80);
 }
 
 .phpbb_iframed #wrap {
