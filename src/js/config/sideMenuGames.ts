@@ -1212,6 +1212,13 @@ const defaultGames: Partial<Game>[] = [
 		playerPanel: "player-hand-{{player_id}}",
 		playerPanelOffset: 40
 	},
+	{
+		name: "pathofcivilization",
+		playerPanel: "player-table-{{player_id}}",
+		boardPanel: "technology-board",
+		boardPanelText: "#bga-jump-to_technology-board > span",
+		css: "#bga-jump-to_controls { display: none; }",
+	},
 ];
 
 export default defaultGames;

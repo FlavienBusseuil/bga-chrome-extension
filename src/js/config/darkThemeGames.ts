@@ -3029,6 +3029,17 @@ _darkStyleForGame['patchwork'] = `
 #miniboard_ff0000 .empty_icon { background-color: #8d3f25; border-color: #fff; }
 `;
 
+_darkStyleForGame['pathofcivilization'] = `
+.counter-sub:not(.symbol) { background: var(--dark-10); border: 1px solid var(--light-50); }
+.counter-sub.symbol { color: var(--light-80); text-shadow: none; }
+.player-table { background: var(--dark-back); }
+#bga-zoom-controls { filter: invert(0.7); }
+.battle-card .name, .challenge-card .name { background: var(--orange-30); color: var(--light-80); }
+.leader-card .card-sides .card-side.front .name, .wonder-card .card-sides .card-side.front .name { background: var(--dark-20); color: var(--light-80); }
+.dijitTooltipContainer [style="color: #000000"] { color: var(--light-80)!important; }
+.dijitTooltipContainer strong { text-shadow: -1px 0 #000, 0 1px #000, 1px 0 #000, 0 -1px #000; }
+`;
+
 _darkStyleForGame['paxpamir'] = `
 #pp_supply { background-color: var(--dark-20); color: var(--light-80) }
 #pp_discard_pile { border: 4px dashed #fff; }
