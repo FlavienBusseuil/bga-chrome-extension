@@ -136,32 +136,28 @@ class Configuration {
 		});
 	}
 
-	/*
-	private _sendAnalytics(evt: string, context: string) {
+	private _sendAnalytics(context: string) {
 		const endpoint = "https://www.google-analytics.com/mp/collect";
 		const measurementId = "G-ZDKRET609Q";
 		const apiSecret = "4TThk978Rse1u4xipIDEnw";
 
-		const contextConfig = this._customConfig.dark.find(d => d.name === evt);
-
+		const contextConfig = this._customConfig.dark.find(d => d.name === context);
 		fetch(`${endpoint}?measurement_id=${measurementId}&api_secret=${apiSecret}`, {
 			method: 'POST',
 			body: JSON.stringify({
 				client_id: this._customConfig.clientId,
 				events: [
 					{
-						name: evt,
+						name: `${context}_${this._customConfig.darkMode ? "dark" : "light"}`,
 						params: {
-							page_title: context,
-							darkMode: this._customConfig.darkMode,
-							darkModeColor: contextConfig?.color || this._customConfig.darkModeColor,
-							darkModeSat: contextConfig?.sat || this._customConfig.darkModeSat,
+							dark_mode_color: this._customConfig.darkMode ? contextConfig?.color || this._customConfig.darkModeColor : -1,
+							dark_mode_sat: this._customConfig.darkMode ? contextConfig?.sat || this._customConfig.darkModeSat : -1,
 						},
 					},
 				],
 			}),
 		});
-	}*/
+	}
 
 	private _merge() {
 		const customNames = this._customConfig.games.map((g) => g.name);
@@ -189,6 +185,7 @@ class Configuration {
 	}
 
 	getGameConfig(game: string): Game | undefined {
+		this._sendAnalytics(game);
 		return this._config.games.find((c: any) => c.name === game);
 	}
 
@@ -374,21 +371,21 @@ class Configuration {
 				return this._customConfig.hidden
 					.map(
 						(name) =>
-							`div:has(> a[href="/gamepanel?game=${name}"]), div.bga-game-browser-carousel__block:has(> div > a[href="/gamepanel?game=${name}"]) { display: none; }`,
+							`div: has(> a[href = "/gamepanel?game=${name}"]), div.bga - game - browser - carousel__block: has(> div > a[href = "/gamepanel?game=${name}"]) { display: none; }`,
 					)
 					.join(" ");
 			case "lobby":
 				return this._customConfig.hidden
 					.map(
 						(name) =>
-							`div:has(> a[href="/gamepanel?game=${name}"]), div.game_box_wrap:has(> div > div > div > a[href="/gamepanel?game=${name}"]) { display: none; }`,
+							`div: has(> a[href = "/gamepanel?game=${name}"]), div.game_box_wrap: has(> div > div > div > a[href = "/gamepanel?game=${name}"]) { display: none; }`,
 					)
 					.join(" ");
 			default:
 				return this._customConfig.hidden
 					.map(
 						(name) =>
-							`div:has(> a[href="/gamepanel?game=${name}"]) { display: none; }`,
+							`div: has(> a[href = "/gamepanel?game=${name}"]) { display: none; }`,
 					)
 					.join(" ");
 		}
