@@ -376,6 +376,12 @@ a#pageheader_buy {
 #settings-controls-container #settings-controls-header div {
   background: #4e3b27;
   color: var(--light-80);
+  border-bottom: 1px solid #734f2a;
+  border-right: 1px solid #734f2a;
+}
+
+#settings-controls-container .row-data {
+  border-bottom: none;
 }
 
 #settings-controls-container .row-data .row-label,

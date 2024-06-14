@@ -3185,9 +3185,13 @@ _darkStyleForGame['potionexplosion'] = `
 .cupboard, .discard { border: 1px solid var(--light-50); }
 `;
 
+_styleForGame['praga'] = `
+.ressourceImg[style="background-position:-100% -000%;"], .ressourceImg[style="background-position:-600% -000%;"], .ressourceImg[style="background-position:-700% -000%;"] { border-radius: 50%; }
+.tileBack { color: #000; text-shadow: -1px 0 #fff, 0 1px #fff, 1px 0 #fff, 0 -1px #fff; }
+`;
+
 _darkStyleForGame['praga'] = `
 .ressourceImg, .cube_0, .cube_1, .cube_2, .cube_3 { filter: var(--drop-shadow); }
-.ressourceImg[style="background-position:-600% -000%;"], .ressourceImg[style="background-position:-700% -000%;"] { border-radius: 15px; }
 #turnLabel { color: var(--light-80); }
 #zoomplus, #zoomminus { filter: invert(0.7); }
 #uiPanelBtn { background-color: var(--dark-10) !important; }
