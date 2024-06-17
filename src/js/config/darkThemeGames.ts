@@ -3373,6 +3373,9 @@ _darkStyleForGame['riverofgold'] = `
 div[style*="border-color: rgb(255, 0, 0)"] { border-color: #ff3333!important; }
 div[style*="border-color: rgb(0, 128, 0)"] { border-color: #00cc00!important; }
 div[style*="border-color: rgb(0, 0, 255)"] { border-color: #6666ff!important; }
+.rog_tooltip table, .rog_tooltip table th { border: 1px solid #ffffff33; }
+.rog_tooltip table td { border: 1px solid #ffffff33; }
+}
 `;
 
 _darkStyleForGame['rivervalleyglassworks'] = `

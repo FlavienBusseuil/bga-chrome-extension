@@ -371,14 +371,14 @@ class Configuration {
 				return this._customConfig.hidden
 					.map(
 						(name) =>
-							`div: has(> a[href = "/gamepanel?game=${name}"]), div.bga - game - browser - carousel__block: has(> div > a[href = "/gamepanel?game=${name}"]) { display: none; }`,
+							`div:has(> a[href="/gamepanel?game=${name}"]), div.bga-game-browser-carousel__block:has(> div > a[href="/gamepanel?game=${name}"]) { display: none; }`,
 					)
 					.join(" ");
 			case "lobby":
 				return this._customConfig.hidden
 					.map(
 						(name) =>
-							`div: has(> a[href = "/gamepanel?game=${name}"]), div.game_box_wrap: has(> div > div > div > a[href = "/gamepanel?game=${name}"]) { display: none; }`,
+							`div:has(> a[href="/gamepanel?game=${name}"]), div.game_box_wrap:has(> div > div > div > a[href="/gamepanel?game=${name}"]) { display: none; }`,
 					)
 					.join(" ");
 			default:
