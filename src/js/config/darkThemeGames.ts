@@ -1626,6 +1626,11 @@ _darkStyleForGame['festivibes'] = `
 #settings-controls-container { background: var(--dark-10); }
 `;
 
+_darkStyleForGame['fibonachos'] = `
+#overall-content[style^="background"]:before { content: ""; background: #000000aa; position: absolute; width: 100%; height: 100%; top:0px; left: 0px; }
+.player-name, .playertablename { text-shadow: none !important; font-weight: normal; }
+`;
+
 _darkStyleForGame['fifteendays'] = `
 .pb_label { color: var(--light-80); }
 `;
@@ -2492,6 +2497,15 @@ _darkStyleForGame['lumen'] = `
 #scenario-special-rules, #scenario-objectives { background: var(--dark-back); color: var(--light-80); }
 #scenario-name .round { color: var(--light-50); }
 .dijitTooltipContents #scenario-objectives, .dijitTooltipContents #scenario-special-rules { background: var(--yellow-10); }
+`;
+
+_darkStyleForGame['lunar'] = `
+#overall-content[style^="background"]:before { content: ""; background: #00000080; position: absolute; width: 100%; height: 100%; top:0px; left: 0px; }
+.playertablename { text-shadow: none; }
+#trick_score_table { background: var(--dark-back); border: 1px solid var(--light-50); color: var(--light-80); }
+.table_cell_content[style="color:green"] { color: #00cc00 !important; }
+.table_cell_content[style="color:red"] { color: #ff3333 !important; }
+.table_cell_content[style="color:darkgoldenrod"] { color: #f2b926 !important; }
 `;
 
 _darkStyleForGame['luxor'] = `
@@ -3375,7 +3389,6 @@ div[style*="border-color: rgb(0, 128, 0)"] { border-color: #00cc00!important; }
 div[style*="border-color: rgb(0, 0, 255)"] { border-color: #6666ff!important; }
 .rog_tooltip table, .rog_tooltip table th { border: 1px solid #ffffff33; }
 .rog_tooltip table td { border: 1px solid #ffffff33; }
-}
 `;
 
 _darkStyleForGame['rivervalleyglassworks'] = `

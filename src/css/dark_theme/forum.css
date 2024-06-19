@@ -56,8 +56,10 @@ hr {
   border-top-color: #CCCCCC;
 }
 
-#keywords::placeholder {
-  color: #CCCCCC;
+#keywords::placeholder,
+#add_keywords::placeholder,
+#search_keywords::placeholder {
+  color: #888;
 }
 
 /*
@@ -1463,32 +1465,16 @@ li.notification-disapproved strong {
   color: #ffffff;
 }
 
-.phpbb_iframed a,
-.phpbb_iframed a:link,
-.phpbb_iframed #search-box a:active,
-.phpbb_iframed .navbg a:active,
-.phpbb_iframed .forumbg .header a:active,
-.phpbb_iframed .forabg .header a:active,
-.phpbb_iframed th a:active,
-.phpbb_iframed #search-box a:visited,
-.phpbb_iframed .navbg a:visited,
-.phpbb_iframed .forumbg .header a:visited,
-.phpbb_iframed .forabg .header a:visited,
-.phpbb_iframed th a:visited,
-.phpbb_iframed #search-box a:link,
-.phpbb_iframed .navbg a:link,
-.phpbb_iframed .forumbg .header a:link,
-.phpbb_iframed .forabg .header a:link,
-.phpbb_iframed th a:link {
-  color: var(--blue-80);
+.phpbb_iframed a {
+  color: var(--blue-80) !important;
 }
 
 .phpbb_iframed a:visited {
-  color: var(--blue-70);
+  color: var(--blue-70) !important;
 }
 
 .phpbb_iframed a:hover {
-  color: var(--violet-80);
+  color: var(--violet-80) !important;
   background: transparent;
   text-decoration: underline;
 }
