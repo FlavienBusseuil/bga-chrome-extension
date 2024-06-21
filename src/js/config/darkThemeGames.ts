@@ -15,6 +15,7 @@ export const gamesWithCustomBackground = [
   'chromino',
   'concept',
   'conspiracy',
+  'dicycards',
   'dobbleconnect',
   'dontgointhere',
   'draculahelsing',
@@ -47,6 +48,7 @@ export const gamesWithCustomBackground = [
   'maatatahay',
   'mantisfalls',
   'mastersofrenaissance',
+  'megajackpot',
   'memoir',
   'middleages',
   'mojo',
@@ -376,6 +378,12 @@ _darkStyleForGame['aknile'] = `
 
 _darkStyleForGame['akropolis'] = `
 .player-table .name-wrapper, #market #remaining-stacks { background: var(--dark-back); }
+`;
+
+_darkStyleForGame['alakablast'] = `
+.main { color: var(--light-80); }
+.help-cards-button { filter: invert(1); }
+.discard-table { background-color: var(--dark-30); }
 `;
 
 _darkStyleForGame['alhambra'] = `
@@ -724,6 +732,11 @@ _darkStyleForGame['bloodrage'] = `
 .br_board_button { text-shadow: none; filter: invert(1); }
 `;
 
+_darkStyleForGame['blot'] = `
+#overall-content[style^="background"]:before { content: ""; background: #00000080; position: absolute; width: 100%; height: 100%; top:0px; left: 0px; }
+.player-name, .playertablename { text-shadow: none !important; }
+`;
+
 _darkStyleForGame['bohnanza'] = `
 .give_want_arrow { filter: invert(0.7); }
 .bean_count_label { color: var(--light-80); text-shadow: none; filter: var(--drop-shadow); }
@@ -869,6 +882,10 @@ _darkStyleForGame['carrara'] = `
 #player_boards .stockitem, .first_player_tile, #objects > div { filter: var(--highlight); }
 `;
 
+_styleForGame['cartographers'] = `
+#car-scoring-card-scale { padding-top: 0.5em; }
+`;
+
 _darkStyleForGame['cartographers'] = `
 #overall-content:before { content: ""; background: #000000A0; position: absolute; width: 100%; height: 100%; }
 .jj-ui-hint-box { background-color: var(--dark-10); }
@@ -877,7 +894,10 @@ _darkStyleForGame['cartographers'] = `
 .car-score-track .car-score-track-season .car-score-track-season-cell,
 .car-score-track .car-score-track-season .car-score-track-season-cells,
 .car-score-track .car-score-track-season .fa6-hourglass { border-color: var(--light-50) !important; }
-.car-sheet-coins-track { background-color: var(--orange-10); }
+.car-sheet-coins-track { background-color: #383b1b40; }
+#undoAll, #undoLast  { background: linear-gradient(var(--yellow-10), var(--orange-30)); color: #fff; }
+#undoAll:hover, #undoLast:hover{ background: linear-gradient(#b07303, var(--orange-30)); color: #fff; }
+#jj-preferences-panel #jj-preferences-panel-content .jj-preferences-panel-category-label { background: var(--dark-back); }
 `;
 
 _darkStyleForGame['castlesofcaleira'] = `
@@ -1264,6 +1284,12 @@ _darkStyleForGame['dicedtomatoes'] = `
 .log_dice { filter: var(--drop-shadow); }
 `;
 
+_darkStyleForGame['dicycards'] = `
+#overall-content:before { content: ""; background: #00000080; position: absolute; width: 100%; height: 100%; }
+.dc_zone { background-color: var(--dark-back); }
+.dc_zone_nobg { background-color: transparent; }
+`;
+
 _darkStyleForGame['digupadventure'] = `
 .duaplayername { background: var(--dark-back); }
 .txtcard { color: #000; }
@@ -1615,7 +1641,7 @@ table.ffo-score-table tr[style="border-top: 1px solid black"], table.ffo-score-t
 `;
 
 _darkStyleForGame['federation'] = `
-#overall-content:before { content: ""; background: var(--dark-back); position: absolute; width: 100%; height: 100%; }
+#overall-content:before { content: ""; background: #00000080; position: absolute; width: 100%; height: 100%; }
 #logs .log.notif_clearEndOfRound .roundedbox,#logs .log.notif_startExecutivePhaseStep .roundedbox { background: var(--dark-30); }
 `;
 
@@ -2508,6 +2534,11 @@ _darkStyleForGame['lunar'] = `
 .table_cell_content[style="color:darkgoldenrod"] { color: #f2b926 !important; }
 `;
 
+_darkStyleForGame['lure'] = `
+#overall-content[style^="background"]:before { content: ""; background: #00000080; position: absolute; width: 100%; height: 100%; top:0px; left: 0px; }
+#lure_wrap { color: var(--light-80); }
+`;
+
 _darkStyleForGame['luxor'] = `
 #popin_chooseLayout { background-color: #4b3901; }
 #popin_chooseLayout_contents .layout-prompt { background-color: #7e5d01; }
@@ -2593,6 +2624,20 @@ _darkStyleForGame['mechadream'] = `
 .mad_layout_selector_inner { background: #000; border: 1px solid #fff; }
 .mad_layouticon { background-color: #fff; }
 .mad_score_icon { filter: var(--highlight-min); }
+`;
+
+_styleForGame['megajackpot'] = `
+.icon.inline.money { border-radius: 50%; }
+`;
+
+_darkStyleForGame['megajackpot'] = `
+#overall-content:before { content: ""; background: #00000080; position: absolute; width: 100%; height: 100%; top:0px; left: 0px; }
+.player_cards { background-color: var(--dark-30); background-image: none; }
+.playercard_counter { color: var(--light-80); }
+.player_board .player_name { background-color: var(--dark-20); background-image: none; }
+[style="--plcolor:#ff0000;"] { --plcolor:#ff3333!important; }
+[style="--plcolor:#008000;"] { --plcolor:#00cc00!important; }
+[style="--plcolor:#0000ff;"] { --plcolor:#6666ff!important; }
 `;
 
 _darkStyleForGame['megalomania'] = `
