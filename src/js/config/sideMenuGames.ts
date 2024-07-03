@@ -1219,6 +1219,14 @@ const defaultGames: Partial<Game>[] = [
 		boardPanelText: "#bga-jump-to_technology-board > span",
 		css: "#bga-jump-to_controls { display: none; }",
 	},
+	{
+		name: "batalladecoronas",
+		playerPanel: "boc_castleWrapper:{{player_id}}",
+	},
+	{
+		name: "festival",
+		playerPanel: "fes-player-area-{{player_id}}",
+	},
 ];
 
 export default defaultGames;

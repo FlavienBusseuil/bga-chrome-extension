@@ -27,6 +27,7 @@ export const gamesWithCustomBackground = [
   'escapethecurseofthetemple',
   'evolution',
   'federation',
+  'festival',
   'flowersmandalagame',
   'fromage',
   'gangsta',
@@ -107,6 +108,7 @@ export const gamesWithCustomPanel = [
   'eminentdomain',
   'emdomicrocosm',
   'envelopesofcash',
+  'festival',
   'fromage',
   'lumen',
   'mantisfalls',
@@ -551,6 +553,11 @@ _darkStyleForGame['astra'] = `
 .tooltiptext .tbp-icon-vp { filter: invert(0.9); }
 `;
 
+_darkStyleForGame['aurum'] = `
+.game-content { color: var(--light-80); }
+#bga-zoom-controls { filter: invert(0.7); }
+`;
+
 _darkStyleForGame['automobiles'] = `
 #AMBDisplayOptionsToggle { filter: invert(0.7); }
 .amb-rank-icon, .amb-inner-icon { filter: var(--highlight-min); }
@@ -673,6 +680,10 @@ _darkStyleForGame['battleship'] = `
 
 _darkStyleForGame['beammeup'] = `
 .dijitTooltip .planetTooltip { background-color: transparent; }
+`;
+
+_darkStyleForGame['belladonebluff'] = `
+.game-content { color: var(--light-80); }
 `;
 
 _darkStyleForGame['betta'] = `
@@ -1081,6 +1092,7 @@ _darkStyleForGame['coalbaron'] = `
 #coalbaron-main-container #coalbaron-board .board-space#factory_8 .space-tile-container { border-top: 1px solid var(--light-50); }
 #player_config #round-counter-wrapper { background: var(--dark-10); font-weight: normal; color: var(--light-80); }
 #coalbaron-main-container .coalbaron-board { background-color: #3d2b0f; }
+.coalbaron-meeple.icon-worker { filter: var(--highlight); }
 `;
 
 _darkStyleForGame['codexnaturalis'] = `
@@ -1643,6 +1655,12 @@ table.ffo-score-table tr[style="border-top: 1px solid black"], table.ffo-score-t
 _darkStyleForGame['federation'] = `
 #overall-content:before { content: ""; background: #00000080; position: absolute; width: 100%; height: 100%; }
 #logs .log.notif_clearEndOfRound .roundedbox,#logs .log.notif_startExecutivePhaseStep .roundedbox { background: var(--dark-30); }
+`;
+
+_darkStyleForGame['festival'] = `
+#overall-content:before { content: ""; background: #00000080; position: absolute; width: 100%; height: 100%; }
+.floating-objectives #fes-objective-crowd-pleaser-row, #fes-objective-crowd-pleaser-row-pin-button { background: var(--dark-back); border: 1px solid var(--light-50); }
+#fes-objective-crowd-pleaser-row-pin-button { box-sizing: border-box; color: var(--light-80); }
 `;
 
 _darkStyleForGame['festivibes'] = `
@@ -3244,6 +3262,10 @@ _darkStyleForGame['potionexplosion'] = `
 .cupboard, .discard { border: 1px solid var(--light-50); }
 `;
 
+_darkStyleForGame['powervacuum'] = `
+#overall-content[style^="background"]:before { content: ""; background: #000000A0; position: absolute; width: 100%; height: 100%; top:0px; left: 0px; }
+`;
+
 _styleForGame['praga'] = `
 .ressourceImg[style="background-position:-100% -000%;"], .ressourceImg[style="background-position:-600% -000%;"], .ressourceImg[style="background-position:-700% -000%;"] { border-radius: 50%; }
 .tileBack { color: #000; text-shadow: -1px 0 #fff, 0 1px #fff, 1px 0 #fff, 0 -1px #fff; }
@@ -3487,6 +3509,23 @@ div.player-name > a, span.player-name { background-color: transparent !important
 .bx-pill { background-color: var(--dark-0); color: var(--light-80); }
 `;
 
+_darkStyleForGame['rttaironage'] = `
+#end_game_banner { position: relative; z-index: 2; background-color: var(--red-10); border: 3px solid var(--red-30); color: var(--light-80); }
+.rtta_pBoard { background-color: var(--dark-30); }
+.rtta_player_score { background-color: var(--dark-40); }
+.player_mat:before { content: ""; background: #00000080; position: fixed; width: 100%; height: 100%; top: 0px; left: 0px; }
+.rtta_scoreCard { background-color: #000; color: var(--light-80); border: 7px solid var(--dark-back); }
+#infoIcon { background-color: var(--dark-10); border: 2px solid var(--light-50); color: var(--light-80); }
+.sc_dice_grid, .sc_dice_grid > div, #sc_ports_pop, #sc_ports_pop > div, #sc_ports_urn, #sc_ports_urn > div, #sc_provinces, #sc_provinces > div,
+#sc_monument_0, #sc_monument_0 > div, #sc_monument_1, #sc_monument_1 > div, #sc_monument_2, #sc_monument_2 > div, #sc_monument_3, #sc_monument_3 > div, #sc_monument_4, #sc_monument_4 > div,
+.sc_urn, .sc_dev_title_costs, .population, .star, .sc_disaster, .sc_sizer_wrapper { filter: invert(1); }
+.sc_monument_score_prime { border: 1px solid #fff; }
+.sc_urn[style="background-color: rgb(255, 0, 0);"], .sc_disaster[style="background-color: rgb(255, 0, 0);"] { background-color: rgb(0, 255, 255) !important; }
+.sc_urn[style="background-color: rgb(0, 0, 255);"], .sc_disaster[style="background-color: rgb(0, 0, 255);"] { background-color: rgb(255, 255, 0) !important; }
+.sc_urn[style="background-color: rgb(0, 128, 0);"], .sc_disaster[style="background-color: rgb(0, 128, 0);"] { background-color: rgb(255, 128, 255) !important; }
+.sc_urn[style="background-color: #ffa500;"], .sc_disaster[style="background-color: #ffa500;"] { background-color: #005aff !important; }
+`;
+
 _darkStyleForGame['russianrailroads'] = `
 .player-name, .player_score { background-color: var(--dark-20); }
 .nameslot { width: auto; }
@@ -3512,6 +3551,12 @@ _darkStyleForGame['sahwari'] = `
 .playerCaravanZone { background-color: #3d3229; }
 .playerCamelZone:not(:empty) { background-color: #2a0f09; }
 .player_board_content .token { filter: var(--drop-shadow); }
+`;
+
+_darkStyleForGame['sail'] = `
+#overall-content[style^="background"]:before { content: ""; background: #00000080; position: absolute; width: 100%; height: 100%; top:0px; left: 0px; }
+#map_move_left, #map_move_right { background-color: var(--dark-back); color: var(--light-80); }
+.first_player_token { filter: var(--highlight); }
 `;
 
 _darkStyleForGame['saintpetersburg'] = `
