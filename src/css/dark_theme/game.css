@@ -241,8 +241,8 @@ span.playername,
 }
 
 .notouch-device .ingame_menu_item:hover {
-  background-color: transparent;
-  color: var(--violet-80) !important;
+  background-color: var(--dark-40);
+  color: #fff !important;
 }
 
 #maingameview_menuheader,

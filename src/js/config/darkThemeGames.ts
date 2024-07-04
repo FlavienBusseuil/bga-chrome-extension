@@ -1038,6 +1038,12 @@ _darkStyleForGame['cinco'] = `
 .playertablename { color: #fff !important; }
 `;
 
+_darkStyleForGame['circleoflifesavannah'] = `
+.nextCard { border: 1px dotted var(--light-50); }
+#nextCard > div { color: #c43a08 !important; }
+#nextCard > div > span, #circleoflife_play_zone > div[style*="color:grey"] { color: var(--light-50) !important; }
+`;
+
 _darkStyleForGame['citadels'] = `
 .cit_toggle-zoom-out, .cit_toggle-zoom-in { background-image:none !important; -webkit-font-smoothing: antialiased; -moz-osx-font-smoothing: grayscale; display: inline-block; font: normal normal normal 14px/1 FontAwesome; font-size: inherit; text-rendering: auto; }
 .cit_toggle-zoom-in:before { content:"\\f00e"; }
@@ -1724,6 +1730,17 @@ _darkStyleForGame['fluxx'] = `
 #flx-zoom-out, #flx-zoom-in { filter: invert(0.7); }
 `;
 
+_styleForGame['forage'] = `
+.scrollmap_form button { cursor: pointer; }
+`;
+
+_darkStyleForGame['forage'] = `
+#overall-content[style^="background"]:before { content: ""; background: #000000A0; position: absolute; width: 100%; height: 100%; top:0px; left: 0px; }
+#overall-content { color: #fff; }
+.scrollmap_container.scrollmap_btns_right > .scrollmap_btns_divs_wrapper > .scrollmap_btns_flex { background: var(--dark-30); }
+.scrollmap_form [type="submit"] { background-color: var(--blue-70) !important; }
+`;
+
 _darkStyleForGame['forbiddenisland'] = `
 .side_title_wrapper { background: var(--dark-20); }
 .card_icon, .player_symbol, .treasure_figure { filter: var(--drop-shadow); }
@@ -1873,6 +1890,10 @@ _darkStyleForGame['giftoftulips'] = `
 #overall-content { background-color: var(--dark-back); }
 `;
 
+_styleForGame['ginkgopolis'] = `
+.scrollmap_form button { cursor: pointer; }
+`;
+
 _darkStyleForGame['ginkgopolis'] = `
 body { background: none !important; }
 #generalSupplyPanel { background: var(--dark-back); }
@@ -1880,7 +1901,7 @@ body { background: none !important; }
 .zoneWrapper { background: var(--dark-20); }
 .vp_panel, .res_panel, .newHandTile_panel { background-color: var(--dark-20); border-color: var(--dark-40); }
 .scrollmap_container.scrollmap_btns_right > .scrollmap_btns_divs_wrapper > .scrollmap_btns_flex { background: var(--dark-30); }
-.scrollmap_form [ type="submit"] { background-color: var(--dark-0) !important; }
+.scrollmap_form [type="submit"] { background-color: var(--blue-70) !important; }
 `;
 
 _darkStyleForGame['gizmos'] = `
@@ -2460,7 +2481,7 @@ _styleForGame['linx'] = `
 `;
 
 _darkStyleForGame['linx'] = `
-.scrollmap_form [ type="submit"] { background-color: var(--blue-70) !important; }
+.scrollmap_form [type="submit"] { background-color: var(--blue-70) !important; }
 `;
 
 _darkStyleForGame['liverpoolrummy'] = `
@@ -2491,11 +2512,15 @@ _darkStyleForGame['lookatthestars'] = `
 #popin_lookatthestarsHelpDialog { background: var(--dark-20); color: #fff; }
 `;
 
+_styleForGame['looot'] = `
+.scrollmap_form button { cursor: pointer; }
+`;
+
 _darkStyleForGame['looot'] = `
 #back_layer:before { content: ""; background: #00000080; position: absolute; width: 100%; height: 100%; }
 #player_boards .player-name a { background-color: transparent !important; }
 .score_header { border-bottom: 1px solid var(--dark-40); }
-.scrollmap_form [ type="submit"] { background-color: var(--blue-70); }
+.scrollmap_form [type="submit"] { background-color: var(--blue-70) !important; }
 .scrollmap_container > .scrollmap_btns_flex { background-color: var(--dark-back); }
 #scoretable { outline: 0.3em solid var(--dark-40); }
 #scoretable .scorecell { background-color: var(--dark-30); border-left: 0.1em solid var(--dark-40); border-top: 0.1em solid var(--dark-40); }
