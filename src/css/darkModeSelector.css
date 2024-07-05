@@ -30,6 +30,22 @@
   gap: 20px;
 }
 
+.mobile_version #bgaext_palette_container {
+  right: 0px;
+}
+
+@media (max-width: 530px) {
+  .mobile_version #bga_extension_dark_mode_icon {
+    padding-left: 0.3em;
+  }
+
+  .mobile_version #bga_extension_dark_mode_icon .fa-caret-down,
+  .mobile_version #bga_extension_dark_mode_icon .fa-caret-up,
+  .mobile_version #bgaext_palette_container {
+    display: none;
+  }
+}
+
 .bgaext_palette_title {
   position: absolute;
   top: 10px;

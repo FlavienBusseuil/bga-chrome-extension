@@ -61,6 +61,7 @@ export const gamesWithCustomBackground = [
   'nextstation',
   'nidavellir',
   'nimalia',
+  'norsemen',
   'notalone',
   'nowboarding',
   'numberdrop',
@@ -2993,6 +2994,10 @@ _darkStyleForGame['noneshallpass'] = `
 #zoomin, #zoomout { background-color: transparent; box-shadow: none; filter: invert(0.7); }
 [style="color: #0000aa;"], [style="color:#0000aa"] { color: #6666aa !important; }
 [style="color: #000000;"], [style="color:#000000"] { text-shadow: var(--text-w-shadow) }
+`;
+
+_darkStyleForGame['norsemen'] = `
+#nor-option-accordeon, #nor-options { color: #d04949; }
 `;
 
 _darkStyleForGame['notalone'] = `
