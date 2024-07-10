@@ -2,6 +2,26 @@
   color-scheme: dark;
 }
 
+.text-bga-gray-78 {
+  color: var(--light-70);
+}
+
+.text-gray-500 {
+  color: var(--light-50);
+}
+
+.text-bga-blue {
+  color: var(--blue-80);
+}
+
+.bg-bga-gray-233 {
+  background-color: var(--dark-10);
+}
+
+.bg-bga-gray-244 {
+  background-color: var(--dark-20);
+}
+
 .loading_icon,
 #loading,
 #overall_loading {
@@ -167,7 +187,7 @@ select.colorselector {
 .bga-invite-player-modal__content .bga-hover-for-list:hover,
 .bga-toast-holder .bga-hover-for-list:hover,
 .notouch-device .bga-hover-for-list:hover {
-  background: linear-gradient(180deg, var(--dark-30) 20%, var(--dark-30) 80%) !important;
+  background: linear-gradient(180deg, var(--dark-20) 20%, var(--dark-30) 80%) !important;
 }
 
 .bga-invite-player-modal__content .icon32_hotseat {
@@ -557,6 +577,15 @@ select.colorselector {
   color: var(--light-80);
 }
 
+.game_box_wrap,
+.tiny_verycompactlobby .game_box_wrap.expandedgame_box_wrap {
+  border: 2px solid var(--dark-30);
+}
+
+.game_box_wrap.tables_available {
+  border: 2px solid var(--blue-70);
+}
+
 .bgaext_lobby .pageheader_mobile_switcher_wrap .pageheader_menuitem,
 .bgaext_tournamentlist .pageheader_mobile_switcher_wrap .pageheader_menuitem {
   background: var(--dark-20) !important;
@@ -734,6 +763,12 @@ select.colorselector {
   background-color: #7d7d7dcc !important;
 }
 
+/* Boutons "prototypes", "recommandés en tour par tour", etc ... */
+.bga-filter-tag[style="background-color: transparent; color: rgb(20, 52, 83); border-color: rgb(20, 52, 83);"] {
+  color: #2866a4 !important;
+  border-color: #2866a4 !important;
+}
+
 /*
 .bga-game-browser__panel .items-center [class*=text-] {
   color: var(--light-80);
@@ -846,10 +881,6 @@ select.colorselector {
   color: var(--light-80);
 }
 
-.bga-modal .rounded-md .text-bga-blue {
-  color: var(--blue-80);
-}
-
 .bga-modal .bga-button-plus {
   background: linear-gradient(180deg, var(--dark-10), var(--dark-30));
   color: var(--light-80);
@@ -883,10 +914,6 @@ select.colorselector {
   background: var(--dark-20);
   border-radius: 0.375rem;
   color: var(--light-80);
-}
-
-.bga-game-panel .quick-play-drawer__panel__col1 .bga-page-section [class*=text-bga-gray] .text-bga-blue {
-  color: var(--blue-80);
 }
 
 .bga-game-panel .bga-page-section__content {
@@ -971,10 +998,6 @@ select.colorselector {
   background: linear-gradient(var(--dark-30), var(--dark-40)) !important;
   border-bottom-color: var(--dark-40) !important;
   color: #fff;
-}
-
-.bgaext_gamepanel .text-bga-blue {
-  color: var(--blue-70);
 }
 
 .bgaext_gamepanel .bga-dropdown-option.bg-gray-200,
@@ -1126,6 +1149,12 @@ select.colorselector {
   color: var(--light-80);
 }
 
+/* Page Support */
+.support_text {
+  background-color: var(--dark-10);
+  color: var(--light-70);
+}
+
 /* Page Tutoriels */
 #tutorial_list_wrapper .arenasuggestion__content .arenasuggestion__text {
   color: var(--light-80);
@@ -1147,6 +1176,10 @@ select.colorselector {
 
 #community-module .tips {
   padding: 10px;
+}
+
+.controlpanelmenu--gamegurus .gameguru-game {
+  border: 2px solid var(--dark-30);
 }
 
 /* Page Bugs */
@@ -1774,14 +1807,6 @@ iframe#forum_frame {
   background-color: var(--dark-0);
 }
 
-.bgaext_report .text-bga-gray-78 {
-  color: var(--light-70);
-}
-
-.bgaext_report .text-gray-500 {
-  color: var(--light-50);
-}
-
 /* awards */
 
 .bgaext_awards {
@@ -1841,23 +1866,8 @@ iframe#forum_frame {
   background-color: transparent !important;
 }
 
-.bgaext_gameinprogress .text-bga-gray-78,
-.bgaext_gametables .text-bga-gray-78,
-.bgaext_playertables .text-bga-gray-78,
-.bgaext_gameinprogress .text-gray-500 {
-  color: var(--light-70);
-}
-
 .bgaext_gameinprogress .bga-tournament-list-item__details svg {
   filter: invert(1);
-}
-
-.bgaext_gameinprogress .bg-bga-gray-233 {
-  background-color: var(--dark-10);
-}
-
-.bgaext_gameinprogress .bg-bga-gray-244 {
-  background-color: var(--dark-20);
 }
 
 .bgaext_gameinprogress .text-bga-blue {
@@ -1892,4 +1902,90 @@ iframe#forum_frame {
 
 .bgaext_audience #chart {
   filter: invert(0.8);
+}
+
+/* New home page 09/07/2024 */
+
+.bga-homepage .bg-bga-whitebg {
+  background-color: var(--dark-10);
+}
+
+.bga-homepage .bga-page-section-shadow {
+  box-shadow: .2rem .2rem .4rem .1rem var(--dark-30);
+}
+
+.homepage-section__content .post.bga-hover-for-list {
+  background-color: var(--dark-20);
+}
+
+.homepage-section__content .postmessage {
+  color: var(--light-50);
+}
+
+.bga-homepage-newsfeed .comment {
+  background-color: var(--dark-30) !important;
+}
+
+.homepage-section .bg-bga-gray-100 {
+  background-color: var(--dark-30);
+}
+
+/* No delete button in home page => doesn't work */
+.bga-homepage .ext_delete_button {
+  display: none;
+}
+
+.bga-homepage .bga-generic-game-item .bga-hover-animated-border:before {
+  background-color: var(--dark-40);
+}
+
+.bga-homepage .bga-generic-game-item .bga-hover-animated-border .bga-game-banner {
+  border: 1px solid var(--dark-40);
+}
+
+.bga-homepage .bga-generic-game-item .bga-hover-animated-border .bga-game-banner:before {
+  content: "";
+  position: absolute;
+  top: 0px;
+  left: 0px;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(90deg, var(--dark-20) 41.25%, rgba(0, 0, 0, 0) 82.5%);
+}
+
+.bga-homepage .even\:bg-bga-gray-233:nth-child(2n) {
+  background-color: var(--dark-20);
+}
+
+.bgaPlayerSearch .bg-bga-link {
+  background-color: var(--blue-80);
+}
+
+.bgaPlayerSearch input,
+.bga-copy-text-box__copy-display {
+  background: var(--dark-30) !important;
+  color: var(--light-80) !important;
+  border: 1px solid #b3b3b3 !important;
+}
+
+.bga-ranked-player-list__entry--of-user {
+  --tw-gradient-stops: var(--orange-30), var(--tw-gradient-to, var(--orange-10)) !important;
+  --tw-gradient-to: var(--orange-10) !important;
+}
+
+.bga-homepage-tournaments-agenda a {
+  color: var(--blue-80);
+}
+
+.bga-homepage-tournaments-agenda a:hover {
+  color: var(--violet-80);
+}
+
+.bga-homepage-achievements__label,
+.homepage-section__content .text-bga-link {
+  color: var(--light-50) !important;
+}
+
+.bga-news-item__news-text {
+  background-color: var(--dark-back) !important;
 }
