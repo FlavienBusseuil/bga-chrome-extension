@@ -18,8 +18,20 @@ const Options = (props: { config: Configuration }) => {
 	const [tabSelected, setTabSelected] = useState("misc");
 	const [hiddenGames, setHiddenGames] = useState(config.getHiddenGames());
 	const [tracking, setTracking] = useState(config.isTrackingEnable());
+	const [homeConfig, setHomeConfig] = useState(config.getHomeConfig());
 	const [motionSensitivity, setMotionSensitivity] = useState(config.isMotionSensitivityEnable());
-	const smallInterface = useMemo(() => document.body.clientWidth < 400, []);
+	const [date, setDate] = useState<Date | null>(null);
+	const smallInterface = useMemo(() => document.body.clientWidth < 400, [date]);
+
+	useEffect(() => {
+		const interval = setInterval(() => {
+			setDate(new Date());
+		}, 1000);
+
+		return () => {
+			clearInterval(interval);
+		};
+	}, []);
 
 	const serialize = (game: Game) => {
 		return JSON.stringify(
@@ -100,6 +112,12 @@ const Options = (props: { config: Configuration }) => {
 		}
 	};
 
+	const updateHomeConfig = (param: string, val: boolean) => {
+		const newHomeConfig = { ...homeConfig, [param]: val };
+		setHomeConfig(newHomeConfig);
+		config.setHomeConfig(newHomeConfig);
+	};
+
 	const updateFlashing = (val: boolean) => {
 		setMotionSensitivity(!val);
 		config.setMotionSensitivityEnable(!val);
@@ -125,6 +143,51 @@ const Options = (props: { config: Configuration }) => {
 						onChange={updateFlashing}
 					/>
 				</div>
+				<div className="bgext_options_title">
+					{chrome.i18n.getMessage("optionsHome")}
+				</div>
+				<div className="bgext_home_container">
+					<div>
+						<Switch
+							checked={homeConfig.header}
+							textOn={chrome.i18n.getMessage("optionsHomeHeaderOn")}
+							textOff={chrome.i18n.getMessage("optionsHomeHeaderOff")}
+							onChange={(val) => updateHomeConfig('header', val)}
+						/>
+						<Switch
+							checked={homeConfig.latestNews}
+							textOn={chrome.i18n.getMessage("optionsHomeLatestOn")}
+							textOff={chrome.i18n.getMessage("optionsHomeLatestOff")}
+							onChange={(val) => updateHomeConfig('latestNews', val)}
+						/>
+						<Switch
+							checked={homeConfig.smallFeed}
+							textOn={chrome.i18n.getMessage("optionsHomeNewsSmall")}
+							textOff={chrome.i18n.getMessage("optionsHomeNewsLarge")}
+							onChange={(val) => updateHomeConfig('smallFeed', val)}
+						/>
+					</div>
+					<div>
+						<Switch
+							checked={homeConfig.popularGames}
+							textOn={chrome.i18n.getMessage("optionsPopularColumnOn")}
+							textOff={chrome.i18n.getMessage("optionsPopularColumnOff")}
+							onChange={(val) => updateHomeConfig('popularGames', val)}
+						/>
+						<Switch
+							checked={homeConfig.recommandedGames}
+							textOn={chrome.i18n.getMessage("optionsRecommendedColumnOn")}
+							textOff={chrome.i18n.getMessage("optionsRecommendedColumnOff")}
+							onChange={(val) => updateHomeConfig('recommandedGames', val)}
+						/>
+						<Switch
+							checked={homeConfig.tournaments}
+							textOn={chrome.i18n.getMessage("tournamentsOn")}
+							textOff={chrome.i18n.getMessage("tournamentsOff")}
+							onChange={(val) => updateHomeConfig('tournaments', val)}
+						/>
+					</div>
+				</div >
 			</>
 		);
 	};
