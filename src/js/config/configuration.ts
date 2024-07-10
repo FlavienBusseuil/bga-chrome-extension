@@ -53,7 +53,17 @@ interface CustomConfig {
 	darkModeSat?: number;
 	trackTables?: boolean;
 	motionSensitivity?: boolean;
+	home?: HomeConfig;
 };
+
+export interface HomeConfig {
+	header: boolean;
+	latestNews: boolean;
+	smallFeed: boolean;
+	tournaments: boolean;
+	popularGames: boolean;
+	recommandedGames: boolean;
+}
 
 interface LocalConfig {
 	css: string;
@@ -103,7 +113,7 @@ class Configuration {
 		this._customConfig = syncStorage;
 		this._localConfig = localStorage;
 
-		console.log(syncStorage);
+		console.log("[bga extension] config", syncStorage);
 
 		if (!this._customConfig.clientId) {
 			this._customConfig.clientId = self.crypto.randomUUID();
@@ -235,6 +245,15 @@ class Configuration {
 	setTrackingEnable(val: boolean) {
 		this._customConfig.trackTables = val;
 		storageSet({ trackTables: val });
+	}
+
+	getHomeConfig() {
+		return this._customConfig.home || { header: true, latestNews: true, smallFeed: true, popularGames: true, recommandedGames: true };
+	}
+
+	setHomeConfig(val: HomeConfig) {
+		this._customConfig.home = val;
+		storageSet({ home: val });
 	}
 
 	isMotionSensitivityEnable() {
@@ -460,6 +479,10 @@ class Configuration {
 		}
 	}
 
+	isCssCustomized() {
+		return !!this._localConfig.css;
+	}
+
 	getCustomCss() {
 		return this._localConfig.css || "";
 	}
@@ -467,6 +490,50 @@ class Configuration {
 	setCustomCss(code: string) {
 		this._localConfig.css = code;
 		return localStorageSet({ css: code });
+	}
+
+	getAllCss() {
+		if (!this._customConfig.home) {
+			return this.getCustomCss();
+		}
+
+		const cssList: string[] = [];
+		let columns = 3;
+
+		if (!this._localConfig.css) {
+			cssList.push(this._localConfig.css);
+		}
+		if (!this._customConfig.home.header) {
+			cssList.push('.bgaext_welcome .bga-homepage-header { display: none; }');
+		}
+		if (!this._customConfig.home.latestNews) {
+			cssList.push('.bgaext_welcome div:has(>.bga-homepage__out-grid-title) { display: none; }');
+		}
+		if (!this._customConfig.home.popularGames) {
+			cssList.push('.bgaext_welcome .flex-1:has(>.homepage-section>.homepage-section__title>[href="/gamelist?isPopular"]) { display: none; }');
+			--columns;
+		}
+		if (!this._customConfig.home.recommandedGames) {
+			cssList.push('.bgaext_welcome .flex-1:has(>.homepage-section>.homepage-section__title>[href="/gamelist?isSuggested"]) { display: none; }');
+			--columns;
+		}
+		if (!this._customConfig.home.smallFeed) {
+			cssList.push(`.bgaext_welcome .bga-homepage__content { grid-template-columns: minmax(0, ${300 * columns}px) minmax(0, 100%) !important; }`);
+		}
+		if (!this._customConfig.home.tournaments) {
+			cssList.push('.bgaext_welcome div:has(>.homepage-section>.homepage-section__title>[href="/tournamentlist"]) { display: none; }');
+			cssList.push('.bgaext_welcome div:has(>.bga-homepage__newsfeed-controls-wrapper) { display: none; }');
+		}
+		if (columns < 3) {
+			cssList.push(`.bgaext_welcome .bga-homepage__games-section .grid-cols-3 { grid-template-columns: repeat(${columns}, minmax(0, 1fr)); }`);
+
+			if (columns === 1) {
+				cssList.push('.bgaext_welcome .bga-homepage__discover-section { grid-template-columns: repeat(1, minmax(0, 1fr)) !important; }');
+				cssList.push('.bgaext_welcome .bga-homepage__discover-section>div:last-child { display: none; }');
+			}
+		}
+
+		return cssList.join('\n');
 	}
 }
 

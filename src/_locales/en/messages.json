@@ -209,5 +209,47 @@
 	},
 	"my_friends": {
 		"message": "My friends"
+	},
+	"optionsHome": {
+		"message": "Visible elements on the home page"
+	},
+	"optionsHomeHeaderOn": {
+		"message": "Header displayed"
+	},
+	"optionsHomeHeaderOff": {
+		"message": "Header hidden"
+	},
+	"optionsHomeLatestOn": {
+		"message": "Latest News displayed"
+	},
+	"optionsHomeLatestOff": {
+		"message": "Latest News hidden"
+	},
+	"optionsHomeNewsLarge": {
+		"message": "Large Newsfeed"
+	},
+	"optionsHomeNewsSmall": {
+		"message": "Small Newsfeed"
+	},
+	"tournamentsOn": {
+		"message": "Tournaments displayed"
+	},
+	"tournamentsOff": {
+		"message": "Tournaments hidden"
+	},
+	"optionsPopularColumnOn": {
+		"message": "Popular games displayed"
+	},
+	"optionsPopularColumnOff": {
+		"message": "Popular games hidden"
+	},
+	"optionsRecommendedColumnOn": {
+		"message": "Recommended games displayed"
+	},
+	"optionsRecommendedColumnOff": {
+		"message": "Recommended games hidden"
+	},
+	"optionsHomeRefresh": {
+		"message": "You must reload the page for the changes to be effective."
 	}
 }

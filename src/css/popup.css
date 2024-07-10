@@ -77,6 +77,9 @@ html.dark .text-gray-600 {
   margin: 1em;
   box-sizing: border-box;
   position: relative;
+  gap: 0.2em;
+  display: flex;
+  flex-flow: column;
 }
 
 html.dark .options-frame {

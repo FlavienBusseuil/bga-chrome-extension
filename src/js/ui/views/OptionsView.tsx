@@ -1,7 +1,7 @@
 import React from "preact";
 import { useState } from "preact/hooks";
 
-import Configuration from "../../config/configuration";
+import Configuration, { HomeConfig } from "../../config/configuration";
 import Switch from "../base/Switch";
 
 type Props = {
@@ -11,11 +11,19 @@ type Props = {
 
 export const OptionsView = ({ config, onChange }: Props) => {
   const [tracking, setTracking] = useState(config.isTrackingEnable());
+  const [homeConfig, setHomeConfig] = useState<HomeConfig>(config.getHomeConfig());
   const [hiddenGames, setHiddenGames] = useState<string[]>(config.getHiddenGames());
 
   const updateTracking = (val: boolean) => {
     setTracking(val);
     config.setTrackingEnable(val);
+    onChange();
+  };
+
+  const updateHomeConfig = (param: string, val: boolean) => {
+    const newHomeConfig = { ...homeConfig, [param]: val };
+    setHomeConfig(newHomeConfig);
+    config.setHomeConfig(newHomeConfig);
     onChange();
   };
 
@@ -49,6 +57,46 @@ export const OptionsView = ({ config, onChange }: Props) => {
           textOff={chrome.i18n.getMessage("optionsTrackingOff")}
           onChange={updateTracking}
         />
+      </div>
+      <div className="options-frame">
+        <div className="options-frame-title">{chrome.i18n.getMessage("optionsHome")}</div>
+        <Switch
+          checked={homeConfig.header}
+          textOn={chrome.i18n.getMessage("optionsHomeHeaderOn")}
+          textOff={chrome.i18n.getMessage("optionsHomeHeaderOff")}
+          onChange={(val) => updateHomeConfig('header', val)}
+        />
+        <Switch
+          checked={homeConfig.latestNews}
+          textOn={chrome.i18n.getMessage("optionsHomeLatestOn")}
+          textOff={chrome.i18n.getMessage("optionsHomeLatestOff")}
+          onChange={(val) => updateHomeConfig('latestNews', val)}
+        />
+        <Switch
+          checked={homeConfig.smallFeed}
+          textOn={chrome.i18n.getMessage("optionsHomeNewsSmall")}
+          textOff={chrome.i18n.getMessage("optionsHomeNewsLarge")}
+          onChange={(val) => updateHomeConfig('smallFeed', val)}
+        />
+        <Switch
+          checked={homeConfig.popularGames}
+          textOn={chrome.i18n.getMessage("optionsPopularColumnOn")}
+          textOff={chrome.i18n.getMessage("optionsPopularColumnOff")}
+          onChange={(val) => updateHomeConfig('popularGames', val)}
+        />
+        <Switch
+          checked={homeConfig.recommandedGames}
+          textOn={chrome.i18n.getMessage("optionsRecommendedColumnOn")}
+          textOff={chrome.i18n.getMessage("optionsRecommendedColumnOff")}
+          onChange={(val) => updateHomeConfig('recommandedGames', val)}
+        />
+        <Switch
+          checked={homeConfig.tournaments}
+          textOn={chrome.i18n.getMessage("tournamentsOn")}
+          textOff={chrome.i18n.getMessage("tournamentsOff")}
+          onChange={(val) => updateHomeConfig('tournaments', val)}
+        />
+        <div>{chrome.i18n.getMessage("optionsHomeRefresh")}</div>
       </div>
       <div className="options-frame">
         <div className="options-frame-title">{chrome.i18n.getMessage("optionHiddenTab")}</div>

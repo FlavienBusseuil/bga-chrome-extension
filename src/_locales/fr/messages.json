@@ -209,5 +209,47 @@
 	},
 	"my_friends": {
 		"message": "Mes amis"
+	},
+	"optionsHome": {
+		"message": "Éléments visible sur la page d'accueil"
+	},
+	"optionsHomeHeaderOn": {
+		"message": "En-tête visible"
+	},
+	"optionsHomeHeaderOff": {
+		"message": "En-tête cachée"
+	},
+	"optionsHomeLatestOn": {
+		"message": "Dernières actualités visibles"
+	},
+	"optionsHomeLatestOff": {
+		"message": "Dernières actualités cachées"
+	},
+	"optionsHomeNewsLarge": {
+		"message": "Fil d'actualité large"
+	},
+	"optionsHomeNewsSmall": {
+		"message": "Fil d'actualité petit"
+	},
+	"tournamentsOn": {
+		"message": "Tournois visibles"
+	},
+	"tournamentsOff": {
+		"message": "Tournois cachés"
+	},
+	"optionsPopularColumnOn": {
+		"message": "Jeux populaire visibles"
+	},
+	"optionsPopularColumnOff": {
+		"message": "Jeux populaire cachés"
+	},
+	"optionsRecommendedColumnOn": {
+		"message": "Jeux recommandés visibles"
+	},
+	"optionsRecommendedColumnOff": {
+		"message": "Jeux recommandés cachés"
+	},
+	"optionsHomeRefresh": {
+		"message": "Vous devez recharger la page pour que les changements soient effectifs."
 	}
 }

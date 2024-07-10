@@ -24,7 +24,7 @@ export const initDevelopperUI = (config) => {
 			const extensionComment = document.createElement("p");
 			const warningSymbol = '<span style="color: red; font-size: 32px;">⚠</span>';
 			const forumLink = `<a href="https://boardgamearena.com/forum/viewtopic.php?t=30509" class="bga-link">>> ${chrome.i18n.getMessage("reportCreationWarningLink")} <<</a>`;
-			const endMessage = config.getCustomCss() ? `<p>${chrome.i18n.getMessage("reportCreationWarningCss")}</p>` : "";
+			const endMessage = config.isCssCustomized() ? `<p>${chrome.i18n.getMessage("reportCreationWarningCss")}</p>` : "";
 			extensionComment.innerHTML = `<p>${warningSymbol} ${chrome.i18n.getMessage("reportCreationWarning")} ${forumLink}</p> ${endMessage}`;
 			firstComment.parentNode.insertBefore(extensionComment, firstComment.nextSibling);
 			return;

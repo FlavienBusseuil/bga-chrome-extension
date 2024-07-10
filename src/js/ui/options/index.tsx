@@ -1,5 +1,5 @@
 import React from "preact";
-import { useEffect, useState } from "preact/hooks";
+import { useEffect, useState, useMemo } from "preact/hooks";
 
 import Configuration, { Game } from "../../config/configuration";
 import Switch from "../base/Switch";
@@ -19,7 +19,7 @@ const Options = (props: { config: Configuration }) => {
 	const [hiddenGames, setHiddenGames] = useState(config.getHiddenGames());
 	const [tracking, setTracking] = useState(config.isTrackingEnable());
 	const [motionSensitivity, setMotionSensitivity] = useState(config.isMotionSensitivityEnable());
-	const smallInterface = document.body.clientWidth < 400;
+	const smallInterface = useMemo(() => document.body.clientWidth < 400, []);
 
 	const serialize = (game: Game) => {
 		return JSON.stringify(
