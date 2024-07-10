@@ -53,6 +53,7 @@ export const gamesWithCustomBackground = [
   'memoir',
   'middleages',
   'mojo',
+  'mountaingoats',
   'mrjack',
   'mycity',
   'mycityrb',
@@ -335,6 +336,7 @@ _darkStyleForGame['ageofinnovation'] = `
 #drafting_players { background-color: var(--dark-30); }
 #drafting_players table { color: var(--light-80); }
 .faction_supply, .player_collections { background-color: var(--dark-back); }
+.player_faction { color: var(--light-80); text-shadow: none; }
 `;
 
 _darkStyleForGame['agricola'] = `
@@ -830,6 +832,12 @@ _darkStyleForGame['cacao'] = `
 #jungle_display { background-color: var(--dark-back); border: 5px solid var(--dark-back); }
 `;
 
+_darkStyleForGame['canasta'] = `
+.cardspace { color: #000; }
+.meld_card_counter_wrap { background-color: var(--dark-back); }
+.team_board_wrap { background-color: var(--green-10); }
+`;
+
 _darkStyleForGame['cantstop'] = `
 .diceactions, .dicechoice_plus { color: #fff; }
 `;
@@ -916,8 +924,13 @@ _darkStyleForGame['castlesofcaleira'] = `
 #zoom-controls, .coc_scroll_arrow { filter: invert(0.7); }
 `;
 
+_styleForGame['castlesofburgundy'] = `
+.additionalSection_title { cursor: pointer; }
+`;
+
 _darkStyleForGame['castlesofburgundy'] = `
 .cob_player_block { color: #000 !important; }
+#zoomLevelValue { background-color: transparent; }
 `;
 
 _darkStyleForGame['catan'] = `
@@ -1603,6 +1616,11 @@ _darkStyleForGame['explodingkittens'] = `
 .board, .token { filter: var(--drop-shadow); }
 `;
 
+_darkStyleForGame['expressions'] = `
+#harmony_wrap { background: var(--dark-40); }
+.playertablename { text-shadow: none; }
+`;
+
 _darkStyleForGame['factum'] = `
 .storytextarea[readonly] { background-color: var(--dark-10); }
 .badge { filter: invert(0.7); }
@@ -1943,6 +1961,16 @@ _darkStyleForGame['greatwesterntrail'] = `
 .player-board-button-wrapper { top: 0.5em; }
 #gwt_boards_area { gap: 0.5em; }
 .pref-group { background-color: #000; }
+`;
+
+_styleForGame['grovesolitaire'] = `
+.scrollmap_form button { cursor: pointer; }
+`;
+
+_darkStyleForGame['grovesolitaire'] = `
+#overall-content[style^="background"]:before { content: ""; background: #000000C0; position: absolute; width: 100%; height: 100%; top:0px; left: 0px; }
+#overall-content { color: var(--light-80); }
+.scrollmap_form [type="submit"] { background-color: var(--blue-70) !important; }
 `;
 
 _darkStyleForGame['grumblestone'] = `
