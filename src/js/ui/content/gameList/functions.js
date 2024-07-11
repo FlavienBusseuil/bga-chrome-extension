@@ -65,13 +65,11 @@ export const initGameListObserver = (config, page) => {
 				container.style.boxShadow = "none";
 
 				const removeBut = document.createElement("a");
-				removeBut.className =
-					"ext_delete_button bgabutton bgabutton_red bga-button-inner flex-1 truncate";
+				removeBut.className = "ext_delete_button bgabutton bgabutton_red bga-button-inner flex-1 truncate";
 				removeBut.style.padding = "5px 0px 0px 10px";
 				removeBut.style.margin = "0px 0px 0px 5px";
 				removeBut.style.minWidth = "32px";
-				removeBut.innerHTML =
-					'<div class="flex items-center"><div class="text-center"><i class="fa fa-trash"/></div></div>';
+				removeBut.innerHTML = '<div class="flex items-center"><div class="text-center"><i class="fa fa-trash"/></div></div>';
 				removeBut.onclick = () => hideGame(but.href.split("=")[1]);
 				container.appendChild(removeBut);
 			}
