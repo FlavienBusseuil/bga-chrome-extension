@@ -4,6 +4,7 @@ export const gamesWithCustomBackground = [
   'abyss',
   'agricola',
   'altered',
+  'aniversus',
   'arknova',
   'azul',
   'azulsummerpavilion',
@@ -475,6 +476,16 @@ _darkStyleForGame['ancientknowledge'] = `
 .bga-cards_deck-counter.round { background: var(--dark-10); color: var(--light-80); }
 .player-table .timeline .slot { background: hsla(0,0%,100%,.1); }
 #bga-zoom-controls { filter: invert(0.7); }
+`;
+
+_darkStyleForGame['aniversus'] = `
+#overall-content:before { content: ""; background: #000000A0; position: absolute; width: 100%; height: 100%; }
+.element_token { border-radius: 50%; }
+.player-name { text-shadow: none !important; }
+.tooltip_ability_left, .tooltip_ability_right { background-color: var(--dark-20); border-radius: 8px; }
+.notetextred { color: #ff6666; }
+.li-item.type { color: var(--blue-50); }
+.action-inline-image, .element_action_token, .element_draw_token, .element_hand_token { filter: var(--highlight); }
 `;
 
 _darkStyleForGame['auntiemildred'] = `

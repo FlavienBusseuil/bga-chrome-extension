@@ -59,7 +59,10 @@ const manageLocationChange = (pathname) => {
 		}
 
 		initDarkMode(config, gameName);
-	} else if (pageInfo[0] !== "archive" && pageInfo[0] !== "tutorial") {
+		return "game";
+	}
+
+	if (pageInfo[0] !== "archive" && pageInfo[0] !== "tutorial") {
 		initChatIcon(config);
 		initDarkMode(config, 'general');
 
@@ -75,7 +78,10 @@ const manageLocationChange = (pathname) => {
 		} else {
 			initObserver("other");
 		}
+		return "general";
 	}
+
+	return "archive";
 };
 
 const setHtmlClass = (mode) => {
@@ -90,10 +96,9 @@ const setHtmlClass = (mode) => {
 
 const initPage = () => {
 	config.isEmpty() && document.dispatchEvent(new CustomEvent("bga_ext_get_config", {}));
-
-	buildMainCss(config.getAllCss());
 	addLocationChangeListener(manageLocationChange);
-	manageLocationChange(window.location.pathname);
+	const pageType = manageLocationChange(window.location.pathname);
+	buildMainCss(pageType === "general" ? config.getAllCss() : config.getCustomCss());
 };
 
 config.init().then(initPage);
