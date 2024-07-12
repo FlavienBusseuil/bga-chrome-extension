@@ -60,6 +60,8 @@ export interface HomeConfig {
 	header: boolean;
 	latestNews: boolean;
 	smallFeed: boolean;
+	fewFeeds: boolean;
+	status: boolean;
 	tournaments: boolean;
 	popularGames: boolean;
 	recommandedGames: boolean;
@@ -248,7 +250,17 @@ class Configuration {
 	}
 
 	getHomeConfig() {
-		return this._customConfig.home || { header: true, latestNews: true, smallFeed: true, popularGames: true, recommandedGames: true };
+		return {
+			header: true,
+			latestNews: true,
+			smallFeed: true,
+			fewFeeds: true,
+			status: true,
+			tournaments: true,
+			popularGames: true,
+			recommandedGames: true,
+			...(this._customConfig.home || {})
+		};
 	}
 
 	setHomeConfig(val: HomeConfig) {
@@ -493,34 +505,37 @@ class Configuration {
 	}
 
 	getAllCss() {
-		if (!this._customConfig.home) {
-			return this.getCustomCss();
-		}
-
+		const home = this.getHomeConfig();
 		const cssList: string[] = [];
 		let columns = 3;
 
-		if (!this._localConfig.css) {
+		if (this._localConfig.css) {
 			cssList.push(this._localConfig.css);
 		}
-		if (!this._customConfig.home.header) {
+		if (!home.header) {
 			cssList.push('.bgaext_welcome .bga-homepage-header { display: none; }');
 		}
-		if (!this._customConfig.home.latestNews) {
+		if (!home.latestNews) {
 			cssList.push('.bgaext_welcome div:has(>.bga-homepage__out-grid-title) { display: none; }');
 		}
-		if (!this._customConfig.home.popularGames) {
+		if (!home.popularGames) {
 			cssList.push('.bgaext_welcome .flex-1:has(>.homepage-section>.homepage-section__title>[href="/gamelist?isPopular"]) { display: none; }');
 			--columns;
 		}
-		if (!this._customConfig.home.recommandedGames) {
+		if (!home.recommandedGames) {
 			cssList.push('.bgaext_welcome .flex-1:has(>.homepage-section>.homepage-section__title>[href="/gamelist?isSuggested"]) { display: none; }');
 			--columns;
 		}
-		if (!this._customConfig.home.smallFeed) {
+		if (!home.smallFeed) {
 			cssList.push(`.bgaext_welcome .bga-homepage__content { grid-template-columns: minmax(0, ${300 * columns}px) minmax(0, 100%) !important; }`);
 		}
-		if (!this._customConfig.home.tournaments) {
+		if (!home.fewFeeds) {
+			cssList.push(`.bgaext_welcome .post.bga-hover-for-list { display: block !important; }`);
+		}
+		if (!home.status) {
+			cssList.push(`.bgaext_welcome .bga-homepage__service-status-section { display: none; }`);
+		}
+		if (!home.tournaments) {
 			cssList.push('.bgaext_welcome div:has(>.homepage-section>.homepage-section__title>[href="/tournamentlist"]) { display: none; }');
 			cssList.push('.bgaext_welcome div:has(>.bga-homepage__newsfeed-controls-wrapper) { display: none; }');
 		}

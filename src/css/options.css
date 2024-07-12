@@ -81,11 +81,8 @@ div.bgext_misc_container {
 	gap: 0.5em;
 }
 
-div.bgext_home_container {
-	gap: 5em;
-}
-
 div.bgext_home_container>div {
+	flex-grow: 1;
 	display: flex;
 	flex-flow: column;
 	justify-content: start;

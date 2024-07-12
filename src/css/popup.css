@@ -99,6 +99,19 @@ html.dark .options-frame-title {
   background-color: var(--dark-10);
 }
 
+.options-subframe {
+  display: flex;
+  flex-flow: row nowrap;
+  width: 100%;
+}
+
+.options-subframe>div {
+  flex-grow: 1;
+  gap: 0.2em;
+  display: flex;
+  flex-flow: column;
+}
+
 .bgext_hidden_games_container {
   display: flex;
   flex-flow: row wrap;

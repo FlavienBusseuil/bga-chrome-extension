@@ -63,9 +63,7 @@ const Options = (props: { config: Configuration }) => {
 	};
 
 	useEffect(() => setText(serialize(selected)), [selected]);
-	useEffect(() => {
-		setChanged(serialize(selected) !== text);
-	}, [selected, text]);
+	useEffect(() => setChanged(serialize(selected) !== text), [selected, text]);
 	useEffect(() => {
 		const newSelected = list.find((g) => g.name === selected.name);
 		if (newSelected) {
@@ -166,6 +164,12 @@ const Options = (props: { config: Configuration }) => {
 							textOff={chrome.i18n.getMessage("optionsHomeNewsLarge")}
 							onChange={(val) => updateHomeConfig('smallFeed', val)}
 						/>
+						<Switch
+							checked={homeConfig.fewFeeds}
+							textOn={chrome.i18n.getMessage("optionsHomeNewsShort")}
+							textOff={chrome.i18n.getMessage("optionsHomeNewsTall")}
+							onChange={(val) => updateHomeConfig('fewFeeds', val)}
+						/>
 					</div>
 					<div>
 						<Switch
@@ -179,6 +183,12 @@ const Options = (props: { config: Configuration }) => {
 							textOn={chrome.i18n.getMessage("optionsRecommendedColumnOn")}
 							textOff={chrome.i18n.getMessage("optionsRecommendedColumnOff")}
 							onChange={(val) => updateHomeConfig('recommandedGames', val)}
+						/>
+						<Switch
+							checked={homeConfig.status}
+							textOn={chrome.i18n.getMessage("optionsStatusOn")}
+							textOff={chrome.i18n.getMessage("optionsStatusOff")}
+							onChange={(val) => updateHomeConfig('status', val)}
 						/>
 						<Switch
 							checked={homeConfig.tournaments}

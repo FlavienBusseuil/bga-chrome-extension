@@ -1266,9 +1266,9 @@ fieldset.quick-login input.inputbox {
 /* Input field styles
 ---------------------------------------- */
 .inputbox {
-  background-color: #FFFFFF;
-  border-color: #2A2A2A;
-  color: #333333;
+  background: var(--dark-30);
+  color: var(--light-70);
+  border: 1px solid #b3b3b3;
 }
 
 .inputbox:-moz-placeholder {
@@ -1280,12 +1280,12 @@ fieldset.quick-login input.inputbox {
 }
 
 .inputbox:hover {
-  border-color: #121212;
+  border: 1px solid #b3b3b3;
 }
 
 .inputbox:focus {
-  border-color: #212121;
-  color: #666666;
+  border: 1px solid #b3b3b3;
+  color: var(--light-80);
 }
 
 .inputbox:focus:-moz-placeholder {
@@ -1499,8 +1499,9 @@ li.notification-disapproved strong {
 
 .message-box textarea,
 input.inputbox {
-  background: black;
-  color: #f9f9f9 !important;
+  background: var(--dark-30);
+  color: var(--light-80);
+  border: 1px solid #b3b3b3;
 }
 
 #postingbox.panel {

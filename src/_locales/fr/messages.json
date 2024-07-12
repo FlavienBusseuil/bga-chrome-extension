@@ -226,10 +226,10 @@
 		"message": "Dernières actualités cachées"
 	},
 	"optionsHomeNewsLarge": {
-		"message": "Fil d'actualité large"
+		"message": "Fil d'actualité plus large"
 	},
 	"optionsHomeNewsSmall": {
-		"message": "Fil d'actualité petit"
+		"message": "Fil d'actualité petit en largeur"
 	},
 	"tournamentsOn": {
 		"message": "Tournois visibles"
@@ -248,6 +248,18 @@
 	},
 	"optionsRecommendedColumnOff": {
 		"message": "Jeux recommandés cachés"
+	},
+	"optionsStatusOn": {
+		"message": "État du service visible"
+	},
+	"optionsStatusOff": {
+		"message": "État du service caché"
+	},
+	"optionsHomeNewsShort": {
+		"message": "Fil d'actualité concis"
+	},
+	"optionsHomeNewsTall": {
+		"message": "Fil d'actualité plus long"
 	},
 	"optionsHomeRefresh": {
 		"message": "Vous devez recharger la page pour que les changements soient effectifs."

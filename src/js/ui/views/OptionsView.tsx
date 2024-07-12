@@ -60,42 +60,60 @@ export const OptionsView = ({ config, onChange }: Props) => {
       </div>
       <div className="options-frame">
         <div className="options-frame-title">{chrome.i18n.getMessage("optionsHome")}</div>
-        <Switch
-          checked={homeConfig.header}
-          textOn={chrome.i18n.getMessage("optionsHomeHeaderOn")}
-          textOff={chrome.i18n.getMessage("optionsHomeHeaderOff")}
-          onChange={(val) => updateHomeConfig('header', val)}
-        />
-        <Switch
-          checked={homeConfig.latestNews}
-          textOn={chrome.i18n.getMessage("optionsHomeLatestOn")}
-          textOff={chrome.i18n.getMessage("optionsHomeLatestOff")}
-          onChange={(val) => updateHomeConfig('latestNews', val)}
-        />
-        <Switch
-          checked={homeConfig.smallFeed}
-          textOn={chrome.i18n.getMessage("optionsHomeNewsSmall")}
-          textOff={chrome.i18n.getMessage("optionsHomeNewsLarge")}
-          onChange={(val) => updateHomeConfig('smallFeed', val)}
-        />
-        <Switch
-          checked={homeConfig.popularGames}
-          textOn={chrome.i18n.getMessage("optionsPopularColumnOn")}
-          textOff={chrome.i18n.getMessage("optionsPopularColumnOff")}
-          onChange={(val) => updateHomeConfig('popularGames', val)}
-        />
-        <Switch
-          checked={homeConfig.recommandedGames}
-          textOn={chrome.i18n.getMessage("optionsRecommendedColumnOn")}
-          textOff={chrome.i18n.getMessage("optionsRecommendedColumnOff")}
-          onChange={(val) => updateHomeConfig('recommandedGames', val)}
-        />
-        <Switch
-          checked={homeConfig.tournaments}
-          textOn={chrome.i18n.getMessage("tournamentsOn")}
-          textOff={chrome.i18n.getMessage("tournamentsOff")}
-          onChange={(val) => updateHomeConfig('tournaments', val)}
-        />
+        <div className="options-subframe">
+          <div>
+            <Switch
+              checked={homeConfig.header}
+              textOn={chrome.i18n.getMessage("optionsHomeHeaderOn")}
+              textOff={chrome.i18n.getMessage("optionsHomeHeaderOff")}
+              onChange={(val) => updateHomeConfig('header', val)}
+            />
+            <Switch
+              checked={homeConfig.latestNews}
+              textOn={chrome.i18n.getMessage("optionsHomeLatestOn")}
+              textOff={chrome.i18n.getMessage("optionsHomeLatestOff")}
+              onChange={(val) => updateHomeConfig('latestNews', val)}
+            />
+            <Switch
+              checked={homeConfig.smallFeed}
+              textOn={chrome.i18n.getMessage("optionsHomeNewsSmall")}
+              textOff={chrome.i18n.getMessage("optionsHomeNewsLarge")}
+              onChange={(val) => updateHomeConfig('smallFeed', val)}
+            />
+            <Switch
+              checked={homeConfig.fewFeeds}
+              textOn={chrome.i18n.getMessage("optionsHomeNewsShort")}
+              textOff={chrome.i18n.getMessage("optionsHomeNewsTall")}
+              onChange={(val) => updateHomeConfig('fewFeeds', val)}
+            />
+          </div>
+          <div>
+            <Switch
+              checked={homeConfig.popularGames}
+              textOn={chrome.i18n.getMessage("optionsPopularColumnOn")}
+              textOff={chrome.i18n.getMessage("optionsPopularColumnOff")}
+              onChange={(val) => updateHomeConfig('popularGames', val)}
+            />
+            <Switch
+              checked={homeConfig.recommandedGames}
+              textOn={chrome.i18n.getMessage("optionsRecommendedColumnOn")}
+              textOff={chrome.i18n.getMessage("optionsRecommendedColumnOff")}
+              onChange={(val) => updateHomeConfig('recommandedGames', val)}
+            />
+            <Switch
+              checked={homeConfig.status}
+              textOn={chrome.i18n.getMessage("optionsStatusOn")}
+              textOff={chrome.i18n.getMessage("optionsStatusOff")}
+              onChange={(val) => updateHomeConfig('status', val)}
+            />
+            <Switch
+              checked={homeConfig.tournaments}
+              textOn={chrome.i18n.getMessage("tournamentsOn")}
+              textOff={chrome.i18n.getMessage("tournamentsOff")}
+              onChange={(val) => updateHomeConfig('tournaments', val)}
+            />
+          </div>
+        </div>
         <div>{chrome.i18n.getMessage("optionsHomeRefresh")}</div>
       </div>
       <div className="options-frame">

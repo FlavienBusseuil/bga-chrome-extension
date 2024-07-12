@@ -249,6 +249,18 @@
 	"optionsRecommendedColumnOff": {
 		"message": "Recommended games hidden"
 	},
+	"optionsStatusOn": {
+		"message": "Service status displayed"
+	},
+	"optionsStatusOff": {
+		"message": "Service status hidden"
+	},
+	"optionsHomeNewsShort": {
+		"message": "Short news feed"
+	},
+	"optionsHomeNewsTall": {
+		"message": "Longer news feed"
+	},
 	"optionsHomeRefresh": {
 		"message": "You must reload the page for the changes to be effective."
 	}
