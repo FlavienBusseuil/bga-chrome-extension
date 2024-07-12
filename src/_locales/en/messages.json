@@ -220,16 +220,16 @@
 		"message": "Header hidden"
 	},
 	"optionsHomeLatestOn": {
-		"message": "Latest News displayed"
+		"message": "Latest news displayed"
 	},
 	"optionsHomeLatestOff": {
-		"message": "Latest News hidden"
+		"message": "Latest news hidden"
 	},
 	"optionsHomeNewsLarge": {
-		"message": "Large Newsfeed"
+		"message": "Large news feed"
 	},
 	"optionsHomeNewsSmall": {
-		"message": "Small Newsfeed"
+		"message": "Small news feed"
 	},
 	"tournamentsOn": {
 		"message": "Tournaments displayed"
