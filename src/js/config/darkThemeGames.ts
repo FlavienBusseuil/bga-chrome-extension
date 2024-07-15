@@ -22,6 +22,7 @@ export const gamesWithCustomBackground = [
   'draculahelsing',
   'draftandwriterecords',
   'earth',
+  'earthabundance',
   'eminentdomain',
   'emdomicrocosm',
   'equinox',
@@ -29,10 +30,12 @@ export const gamesWithCustomBackground = [
   'evolution',
   'federation',
   'festival',
+  'finca',
   'flowersmandalagame',
   'fromage',
   'gangsta',
   'giftoftulips',
+  'gnomehollow',
   'goblinhood',
   'goldblivion',
   'gravitysuperstar',
@@ -113,6 +116,7 @@ export const gamesWithCustomPanel = [
   'envelopesofcash',
   'festival',
   'fromage',
+  'gnomehollow',
   'lumen',
   'mantisfalls',
   'maracaibo',
@@ -132,6 +136,10 @@ export const gamesWithCustomDarkMode = {
     applyGeneralCss: false
   },
   earth: {
+    className: 'ea-background-dark',
+    applyGeneralCss: true
+  },
+  earthabundance: {
     className: 'ea-background-dark',
     applyGeneralCss: true
   },
@@ -181,6 +189,13 @@ export const gamesWithCustomColors = {
 
 export const gamesWithCustomActions = {
   earth: {
+    init: () => {
+      const checkbox = document.getElementById("ea-dark-background-checkbox") as any;
+      const checkboxContainer = checkbox.parentNode.parentNode as any;
+      checkboxContainer.style.display = "none";
+    }
+  },
+  earthabundance: {
     init: () => {
       const checkbox = document.getElementById("ea-dark-background-checkbox") as any;
       const checkboxContainer = checkbox.parentNode.parentNode as any;
@@ -1423,19 +1438,25 @@ _darkStyleForGame['draculahelsing'] = `
 .dh_board_title_graf { filter: var(--highlight); }
 `;
 
+_styleForGame['draftandwriterecords'] = `
+#dwr-area-pref-background { display: none; }
+`;
+
 _darkStyleForGame['draftandwriterecords'] = `
 .bx-pill { background-color: var(--dark-40); color: var(--light-80); }
 #dwr-area-goal-container-wrap, #dwr-area-pref { background-color: var(--dark-back); }
-#dwr-area-pref-background { display: none; }
 .bx-counter { background-color: var(--dark-10); border: 1px solid var(--light-50); color: var(--light-80); }
 .bx-checkbox-switch i { background-color: var(--light-50); }
-.bx-checkbox-switch input:checked+i { background-color: var(--dark-40); }
-.bx-checkbox-switch i:before { background-color: var(--dark-10); }
-.bx-checkbox-switch i:after { background-color: var(--light-50); }
+.bx-checkbox-switch i:before { background-color: var(--dark-40); }
+.bx-checkbox-switch i:after { transform: translate3d(4px, 3px, 0); background-color: #fff; height: 20px; width: 20px; }
+.bx-checkbox-switch input:checked+i { background-color: var(--blue-70); }
+.bx-checkbox-switch input:checked+i:after { transform: translate3d(22px, 3px, 0); }
 .custom_popin { background: var(--dark-10); border: 2px solid var(--light-50); color: var(--light-80); }
 .custom_popin_closeicon { color: #aaa !important; }
 .notouch-device .custom_popin_closeicon:hover { color: #fff !important; }
 .dwr-card { border: 1px solid var(--dark-40); }
+.dwr-section-type { color: #000; }
+.dwr-icon { filter: var(--highlight); }
 `;
 
 _darkStyleForGame['draftcider'] = `
@@ -1500,7 +1521,11 @@ _darkStyleForGame['earth'] = `
 .ea-player-panel-pill { background-color: var(--dark-40); }
 .ea-pill-counter { color: #fff; }
 .ea-objective-button .ea-pill-counter { color: #fff !important; }
-.bx-checkbox-switch, #ea-tableau-slider, #ea-fauna-slider { filter: grayscale(1); }
+.bx-checkbox-switch i { background-color: var(--light-50); }
+.bx-checkbox-switch i:before { background-color: var(--dark-40); }
+.bx-checkbox-switch i:after { transform: translate3d(4px, 3px, 0); background-color: #fff; height: 20px; width: 20px; }
+.bx-checkbox-switch input:checked+i { background-color: var(--blue-70); }
+.bx-checkbox-switch input:checked+i:after { transform: translate3d(22px, 3px, 0); }
 .ea-player-panel-pill div[class^="ea-icon"]:not([class="ea-icon-card-type-fauna"]) { filter: invert(1); }
 #logs div[class^="ea-icon"], .bgabutton_gray div[class^="ea-icon"], #pagemaintitletext div[class^="ea-icon"] { filter: invert(1); }
 .ea-mini-card, .ea-main-action-id-color { border: 2px solid var(--light-70); }
@@ -1524,6 +1549,8 @@ _darkStyleForGame['earth'] = `
 .ea-main-action-id-color-3.ea-main-action-id-color-3,.ea-main-action-id-color-3.ea-main-action-id-color-3:active { background: #dcc84f; }
 .ea-main-action-id-color-3.ea-main-action-id-color-3:hover { background: #e0cf64; }
 `;
+
+_darkStyleForGame['earthabundance'] = _darkStyleForGame['earth'];
 
 _darkStyleForGame['ecarte'] = `
 .playertablename { text-shadow: none; }
@@ -1719,6 +1746,16 @@ _darkStyleForGame['fika'] = `
 #fika_show_card_list span { background-color: var(--dark-20); color: var(--light-80); text-shadow: none; }
 .fika_slot:empty { background-color: var(--dark-30); }
 .fika_greater { color: #fff; }
+`;
+
+_darkStyleForGame['finca'] = `
+#overall-content:before { content: ""; background: #00000080; position: absolute; width: 100%; height: 100%; top:0px; left: 0px; }
+.fi_playerInfo.small .fi_food_count { color: #000; }
+.fi_food.sprite-w_a .fi_food_count,.fi_food.sprite-w_i .fi_food_count { color: #fff; }
+.fi_playerInfo.small .fi_request_playerInfo { background-color: var(--dark-40); }
+.fi_players .fi_playerInfo { background-color: var(--dark-back); }
+.fi_food_storage  { background-color: var(--dark-back); }
+.fi_game_container .fi_main_board .fi_board_img:after { background-color: transparent; }
 `;
 
 _darkStyleForGame['fivethreefive'] = `
@@ -1956,6 +1993,11 @@ _darkStyleForGame['glow'] = `
 #middle-band { background: #000; color: #fff; }
 `;
 
+_darkStyleForGame['gnomehollow'] = `
+#overall-content:before { content: ""; background: #000000C0; position: absolute; width: 100%; height: 100%; top:0px; left: 0px; }
+.player-board { background-color: var(--dark-back); }
+`;
+
 _styleForGame['gravitysuperstar'] = `
 .gsc_replay_token_zoom_5, .gsc_replay_token_zoom_10 { border-radius: 50%; }
 `;
@@ -2035,6 +2077,11 @@ html.darkpanel #player_boards .player-board.gb-player-panel-passed { background-
 .custom_popin_closeicon { color: #aaa !important; }
 .notouch-device .custom_popin_closeicon:hover { color: #fff !important; }
 div.player-name > a, span.player-name { background-color: transparent !important; }
+.bx-checkbox-switch i { background-color: var(--light-50); }
+.bx-checkbox-switch i:before { background-color: var(--dark-40); }
+.bx-checkbox-switch i:after { transform: translate3d(4px, 3px, 0); background-color: #fff; height: 20px; width: 20px; }
+.bx-checkbox-switch input:checked+i { background-color: var(--blue-70); }
+.bx-checkbox-switch input:checked+i:after { transform: translate3d(22px, 3px, 0); }
 `;
 
 _darkStyleForGame['goldncrash'] = `
@@ -2630,7 +2677,7 @@ _darkStyleForGame['luxor'] = `
 
 _darkStyleForGame['maatatahay'] = `
 #logs .sprite { filter: var(--highlight); }
-.ma_tile.selected { box-shadow: 0 0 6px 6px var(--light-50); }
+.ma_tile.selected { box-shadow: 0 0 6px 6px var(--dark-30); }
 `;
 
 _darkStyleForGame['machiavelli'] = `
@@ -3568,6 +3615,11 @@ _darkStyleForGame['rolltothetopjourneys'] = `
 
 _styleForGame['romirami'] = `
 #rr-area-pref-background { display: none !important; }
+.bx-checkbox-switch i { background-color: var(--light-50); }
+.bx-checkbox-switch i:before { background-color: var(--dark-40); }
+.bx-checkbox-switch i:after { transform: translate3d(4px, 3px, 0); background-color: #fff; height: 20px; width: 20px; }
+.bx-checkbox-switch input:checked+i { background-color: var(--blue-70); }
+.bx-checkbox-switch input:checked+i:after { transform: translate3d(22px, 3px, 0); }
 `;
 
 _darkStyleForGame['romirami'] = `

@@ -98,9 +98,7 @@ const SideMenu = (props: SideMenuProps) => {
 
 	const checkPlayerPanels = () => {
 		if (gameConfig.playerPanel.indexOf("{{") < 0) {
-			const panels = Array.from(
-				document.querySelectorAll(gameConfig.playerPanel),
-			);
+			const panels = Array.from(document.querySelectorAll(gameConfig.playerPanel));
 			players.forEach((p, index) => {
 				let playerPanel = panels.find(
 					(panel) => checkPlayerName(panel, p.name),

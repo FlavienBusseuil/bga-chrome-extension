@@ -62,17 +62,19 @@ const manageLocationChange = (pathname) => {
 		return "game";
 	}
 
-	if (pageInfo[0] !== "archive" && pageInfo[0] !== "tutorial") {
+	const pageName = pageInfo[0] || 'welcome';
+
+	if (pageName !== "archive" && pageName !== "tutorial") {
 		initChatIcon(config);
 		initDarkMode(config, 'general');
 
-		setHtmlClass(pageInfo[0]);
+		setHtmlClass(pageName);
 
-		if (pageInfo[0].startsWith("gamelist")) {
+		if (pageName.startsWith("gamelist")) {
 			initObserver("gamelist");
-		} else if (pageInfo[0].startsWith("lobby")) {
+		} else if (pageName.startsWith("lobby")) {
 			initObserver("lobby");
-		} else if (pageInfo[0].startsWith("bug")) {
+		} else if (pageName.startsWith("bug")) {
 			initObserver("other");
 			initDevelopperUI(config);
 		} else {

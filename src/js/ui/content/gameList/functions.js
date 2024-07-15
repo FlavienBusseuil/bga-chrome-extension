@@ -24,8 +24,7 @@ export const initGameListObserver = (config, page) => {
 	}
 
 	const style = createHiddenGameStyle(config.getHiddenGamesStyle(page));
-	const updateHiddenGameStyle = () =>
-		(style.innerHTML = config.getHiddenGamesStyle(page));
+	const updateHiddenGameStyle = () => (style.innerHTML = config.getHiddenGamesStyle(page));
 
 	const hideGame = (name) => {
 		if (localStorage.getItem("ext_delete_warning") === "off") {
@@ -53,9 +52,7 @@ export const initGameListObserver = (config, page) => {
 	};
 
 	const observer = new MutationObserver(() => {
-		const buttons = document.querySelectorAll(
-			'.bgabutton_blue[href*="/gamepanel?game="]',
-		);
+		const buttons = document.querySelectorAll('.bgabutton_blue[href*="/gamepanel?game="]');
 
 		buttons.forEach((but) => {
 			const container = but.parentNode;

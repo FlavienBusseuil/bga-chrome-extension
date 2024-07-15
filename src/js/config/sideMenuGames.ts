@@ -96,6 +96,14 @@ const defaultGames: Partial<Game>[] = [
 		css: "#ea-shortcut-area { visibility: hidden; } .ea-player-panel-row:has(>.bx-checkbox-switch>#ea-shortcuts-checkbox) { display: none; }",
 	},
 	{
+		name: "earthabundance",
+		top: "40vh",
+		boardPanel: "ea-area-common",
+		playerPanel: "ea-area-player-{{player_id}}",
+		playerPanelOffset: 0,
+		css: "#ea-shortcut-area { visibility: hidden; } .ea-player-panel-row:has(>.bx-checkbox-switch>#ea-shortcuts-checkbox) { display: none; }",
+	},
+	{
 		name: "gizmos",
 		playerPanel: "gizmo_track_{{player_id}}",
 		css: "#gizmos_board { margin-left: 50px; }",

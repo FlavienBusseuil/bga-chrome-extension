@@ -84,6 +84,7 @@ export const getPlayersPossibleColors = (gameName: string) => {
 
 const colorsMap = [
   { light: "#0000ff", dark: "#6666ff" },
+  { light: "#0000ee", dark: "#6666ff" },
   { light: "#982fff", dark: "#bf80ff" },
   { light: "#1863a5", dark: "#8fc2ef" },
   { light: "#0000dd", dark: "#8080ff" },
