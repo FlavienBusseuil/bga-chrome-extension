@@ -1235,6 +1235,15 @@ const defaultGames: Partial<Game>[] = [
 		name: "festival",
 		playerPanel: "fes-player-area-{{player_id}}",
 	},
+	{
+		name: "cosmoctopus",
+		playerPanel: "csm-player{{player_id}}-cards-title",
+	},
+	{
+		name: "harmonies",
+		playerPanel: "anchor-player-{{player_id}}",
+		iconBackgroundDark: "#817765"
+	},
 ];
 
 export default defaultGames;

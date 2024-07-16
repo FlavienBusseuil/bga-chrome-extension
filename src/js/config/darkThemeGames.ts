@@ -40,6 +40,7 @@ export const gamesWithCustomBackground = [
   'goldblivion',
   'gravitysuperstar',
   'grund',
+  'harmonies',
   'itsawonderfulworld',
   'iwari',
   'jekyllvshide',
@@ -1222,6 +1223,10 @@ _darkStyleForGame['copenhagen'] = `
 body { background: none; }
 `;
 
+_darkStyleForGame['cosmoctopus'] = `
+.csm-resize { background: var(--dark-20); border: 1px solid var(--light-50); color: var(--light-80); }
+`;
+
 _darkStyleForGame['cosmosempires'] = `
 body { background: none; }
 .coe-custom-background .timestamp { background-color: transparent; }
@@ -2192,6 +2197,18 @@ _darkStyleForGame['handandfoot'] = `
 
 _darkStyleForGame['happycity'] = `
 .hc_player_board { color: #000; }
+`;
+
+_darkStyleForGame['harmonies'] = `
+#overall-content:before { content: ""; background: #000000A0; position: absolute; width: 100%; height: 100%; }
+.counters, #central-board-counter-wrapper { color: var(--light-80); }
+.card-stock .slot { background: hsl(0deg 0% 11.5% / 40%); outline: 1px solid hsl(0deg 0% 54.37% / 40%); }
+#generalactions .show-player-tableau a { color: var(--light-80); }
+.active-zone .border { background: linear-gradient(90deg, #4e453b99 20%, #4e453b99 40%, #00000033 50%, #00000033 55%, #51493e10 70%, #4e453b99); background-size: 200% auto; }
+.getPlayersData .player-board[data-player-color=ff0000] .player-name a { color: red !important; }
+.getPlayersData .player-board[data-player-color=008000] .player-name a { color: green !important; }
+.getPlayersData .player-board[data-player-color=ffa500] .player-name a { color: orange !important; }
+.getPlayersData .player-board[data-player-color=982fff] .player-name a { color: #982fff !important; }
 `;
 
 _darkStyleForGame['hearts'] = `
