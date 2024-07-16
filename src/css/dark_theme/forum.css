@@ -712,8 +712,8 @@ Colours and backgrounds for buttons.css
 }
 
 .pagination li.active span {
-  color: #FFFFFF;
-  background-color: #4692bf;
+  color: #fff;
+  background-color: var(--blue-70);
 }
 
 .pagination li a:hover,
