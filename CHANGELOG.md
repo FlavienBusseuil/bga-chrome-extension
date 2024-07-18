@@ -1,5 +1,13 @@
 # Changelog
 
+## [v1.9.25](https://github.com/FlavienBusseuil/bga-chrome-extension/tree/v1.9.25) (2024-07-18)
+
+[Full Changelog](https://github.com/FlavienBusseuil/bga-chrome-extension/compare/v1.9.24...v1.9.25)
+
+**Closed issues:**
+
+- Show friends games that are available to join [\#63](https://github.com/FlavienBusseuil/bga-chrome-extension/issues/63)
+
 ## [v1.9.24](https://github.com/FlavienBusseuil/bga-chrome-extension/tree/v1.9.24) (2024-07-16)
 
 [Full Changelog](https://github.com/FlavienBusseuil/bga-chrome-extension/compare/v1.9.23...v1.9.24)
