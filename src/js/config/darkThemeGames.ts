@@ -28,6 +28,7 @@ export const gamesWithCustomBackground = [
   'equinox',
   'escapethecurseofthetemple',
   'evolution',
+  'explodingkittens',
   'federation',
   'festival',
   'finca',
@@ -85,6 +86,7 @@ export const gamesWithCustomBackground = [
   'romirami',
   'santorini',
   'secretmoon',
+  'scythe',
   'skull',
   'sobektwoplayers',
   'spacebase',
@@ -123,6 +125,7 @@ export const gamesWithCustomPanel = [
   'maracaibo',
   'notalone',
   'nowboarding',
+  'scythe',
   'sevenwondersarchitects',
   'spacestationphoenix',
   'tickettoride',
@@ -1654,9 +1657,11 @@ _darkStyleForGame['evolution'] = `
 _darkStyleForGame['explodingkittens'] = `
 .ek-player-area .ek-player-badges { background: var(--dark-back); }
 .ek-player-area .ek-player-badges .ek-player-badge-player-hand-size .player-hand-card { filter: invert(0.7); }
-.bga-cards_deck-counter.round { background: var(--dark-10); box-shadow: 0 0 2px 1px #000; }
+.bga-cards_deck-counter.round { background: var(--dark-10); box-shadow: 0 0 2px 1px #fff;  color: var(--light-80); }
 #bga-zoom-controls { filter: invert(0.7); }
 .board, .token { filter: var(--drop-shadow); }
+#popin_ekWelcomeDialogId_contents td.active-player-count, #popin_ekWelcomeDialogId_contents th.active-player-count { background-color: var(--green-10); border: 1px solid #696969; }
+#pagesection_gameview .whiteblock, #table-decision, #neutralized_game_panel { background: var(--dark-30); }
 `;
 
 _darkStyleForGame['expressions'] = `
@@ -3729,6 +3734,20 @@ _darkStyleForGame['scriptoria'] = `
 .pupitrePlayerContainer h2 { color: #fff; }
 `;
 
+_darkStyleForGame['scythe'] = `
+#page-title, .current_player_is_active #page-title, .gamestate_gameEnd #page-title { background: #b32041 !important; background-clip: content-box !important; }
+#pagemaintitletext span[style*="color:#e50028;"] { text-shadow: var(--text-w-shadow) !important; }
+#popin_showScores table th { background: var(--dark-20); color: var(--light-80); border-bottom: 1px solid #919191; }
+#popin_showScores td[style="color:#111111"] { text-shadow: var(--text-w-shadow); }
+#popin_showScores table tbody tr td:first-of-type { background: var(--dark-20); }
+#popin_showScores table td { background: var(--dark-30); color: var(--light-80); }
+#popin_showScores .icon-container { filter: var(--highlight); }
+#popin_auction h2, #popin_showFaction h2, #popin_showScores h2, #popin_showSettings h2, #popin_showTour h2 { background: var(--dark-20); color: var(--light-80); }
+.faction-infos .player-mat-holder { color: #000; }
+.objective-card .objective-card-inner .objective-text { color: #000; }
+span.factionname { background-color: rgba(0, 0, 0, 0) !important; }
+`;
+
 _darkStyleForGame['seasaltpaper'] = `
 #discard-pick, .player-table { background: var(--dark-back); }
 .player-table .name-wrapper { background: var(--dark-20); }
@@ -4249,11 +4268,17 @@ _darkStyleForGame['thecrewdeepsea'] = `
 `;
 
 _darkStyleForGame['thefoxintheforest'] = `
-#overall-content:before { content: ""; background: #00000080; position: absolute; width: 100%; height: 100%; }
+#overall-content[style^="background"]:before { content: ""; background: #00000080; position: absolute; width: 100%; height: 100%; }
 .playertablename.text_shadow { text-shadow: none; }
 #odd_card_list, #trick_score_table { background: var(--dark-back); color: var(--light-80); }
 .cardspace, .stockitem { color: #000; }
 b[style="color:#5e3f85"] { color: #7b52ad !important; }
+`;
+
+_darkStyleForGame['thefoxintheforestduet'] = `
+#overall-content[style^="background"]:before { content: ""; background: #000000A0; position: absolute; width: 100%; height: 100%; }
+#info_board { color: var(--light-80); }
+#card_list, #revealed_card_list { background: var(--dark-back); color: var(--light-80); }
 `;
 
 _darkStyleForGame['thegreatamericanfoxhunt'] = `
