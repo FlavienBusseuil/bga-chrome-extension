@@ -10,6 +10,7 @@ export const gamesWithCustomBackground = [
   'azulsummerpavilion',
   'battlespiritssaga',
   'beyondthesun',
+  'cannonades',
   'carnegie',
   'cartographers',
   'catinthebox',
@@ -179,7 +180,9 @@ export const gamesWithCustomPlayerStyle = {
   biomos: '#playersboard div[id^="playerposition_"]',
   wonderfulkingdom: '.wk_zone_playername',
   goblinhood: '.player-table > h3',
-  azulsummerpavilion: ".player-name.color"
+  azulsummerpavilion: '.player-name.color',
+  chemicaloverload: '.player-table > h3',
+  cannonades: '.player-table .c-title'
 };
 
 export const gamesWithCustomColors = {
@@ -695,6 +698,10 @@ html.darkpanel .player-board { background: var(--dark-30) !important; }
 .barrage-tech-tile .tech-tile-fixed-size .tech-tile-image { filter: var(--drop-shadow); }
 `;
 
+_darkStyleForGame['batalladecoronas'] = `
+#boc_supply-dice { color: var(--light-80); }
+`;
+
 _darkStyleForGame['battleforhill'] = `
 body { background: none; }
 #zoom_controls * { color: var(--light-80) !important; }
@@ -866,6 +873,13 @@ _darkStyleForGame['canasta'] = `
 .cardspace { color: #000; }
 .meld_card_counter_wrap { background-color: var(--dark-back); }
 .team_board_wrap { background-color: var(--green-10); }
+`;
+
+_darkStyleForGame['cannonades'] = `
+#overall-content:before { content: ""; background: #000000C0; position: absolute; width: 100%; height: 100%; top:0px; left: 0px; }
+.c-title { background-color: var(--dark-10); }
+#decks .deck[data-empty=true] { border: 1px solid var(--light-50); }
+.bga-cards_deck-counter.round { background: var(--dark-10); box-shadow: 0 0 2px 1px var(--light-50); color: var(--light-80); }
 `;
 
 _darkStyleForGame['cantstop'] = `
@@ -1043,6 +1057,14 @@ _darkStyleForGame['cheeztricks'] = `
 .open_wrap.whiteblock:before { content: ""; background: var(--dark-back); position: absolute; width: 100%; height: 100%; top:0px; left:0px; border-radius:10px; }
 .open_wrap.whiteblock .playername > span { color: var(--light-80) !important; }
 .open_wrap > b { display: block; position: relative; }
+`;
+
+_darkStyleForGame['chemicaloverload'] = `
+.player_board_content .player-board-wrapper .counters .counter-wrapper { background: var(--dark-40); border: 1px solid var(--light-50); }
+.player_board_content .player-board-wrapper .action-button.bgabutton { background: var(--green-10); }
+.player-table h3 { background-color: var(--dark-20); }
+.bga-cards_deck-counter.round { background: var(--dark-10); box-shadow: 0 0 2px 1px #fff; color: var(--light-80); }
+.help-marker .fa { color: #000 !important; text-shadow: var(--text-w-shadow); }
 `;
 
 _darkStyleForGame['chicagoexpress'] = `
@@ -1277,7 +1299,7 @@ p.epilogue-paragraph { background-color: var(--dark-10); color: var(--light-70);
 `;
 
 _darkStyleForGame['crisps'] = `
-#overall-content[style*="background"]:before { content: ""; background: var(--dark-back); position: absolute; width: 100%; height: 100%; }
+#overall-content[style*="background"]:before { content: ""; background: #000000A0; position: absolute; width: 100%; height: 100%; }
 `;
 
 _darkStyleForGame['crusadersthywillbedone'] = `
