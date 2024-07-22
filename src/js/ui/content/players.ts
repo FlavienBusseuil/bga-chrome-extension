@@ -164,6 +164,7 @@ const colorsMap = [
   { light: "#4a4e51", dark: "#798086" },
   { light: "#5743e9", dark: "#705fec" },
   { light: "#595653", dark: "#b5b3b0" },
+  { light: "#4d514d", dark: "#969c96" },
 ];
 
 const colorsToEnlight = [
