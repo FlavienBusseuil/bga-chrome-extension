@@ -4,13 +4,14 @@ import { addChangeListener } from "./js/utils/chrome";
 
 const config = new Configuration();
 let darkModeConfigured = undefined;
+let redirectConfigured = undefined;
 
-const setUrlFilters = (isDarkMode) => {
+const setDarkModeUrlFilters = (isDarkMode) => {
   if (darkModeConfigured !== isDarkMode) {
     darkModeConfigured = isDarkMode;
 
     if (darkModeConfigured) {
-      console.log("[bga extension] Add filters to prevent default backgrounds");
+      console.log("[bga extension] Add filters for dark mode");
       // rule 1 : prevent display default background just before dark background in dark mode
       // (could not be replaced because the whole page is NOT reloaded each time we change from dark to light)
       // rule 2 : replace forum default background in dark mode
@@ -32,17 +33,39 @@ const setUrlFilters = (isDarkMode) => {
         {
           id: 3,
           action: { type: "redirect", "redirect": { "regexSubstitution": `chrome-extension://${chrome.runtime.id}/img/dark_theme/forum/smilies/\\1.gif` } },
+          condition: { regexFilter: "^https://forum.boardgamearena.com/images/smilies/(.*).gif" },
+        }]
+      });
+    } else {
+      console.log("[bga extension] Remove filters for dark mode");
+
+      chrome.declarativeNetRequest.updateDynamicRules({
+        removeRuleIds: [1, 2, 3]
+      });
+    }
+  }
+};
+
+const setLobbyUrlFilters = (isRedirectEnable) => {
+  if (redirectConfigured !== isRedirectEnable) {
+    redirectConfigured = isRedirectEnable;
+
+    if (redirectConfigured) {
+      console.log("[bga extension] Add filters to redirect to classic lobby");
+      chrome.declarativeNetRequest.updateDynamicRules({
+        removeRuleIds: [4],
+        addRules: [{
+          id: 4,
+          action: { type: "redirect", "redirect": { "regexSubstitution": "https://boardgamearena.com/table?table=\\2&nr=true" } },
           condition: {
-            regexFilter: "^https://forum.boardgamearena.com/images/smilies/(.*).gif",
-            resourceTypes: ["main_frame", "sub_frame"]
+            regexFilter: "^https://boardgamearena.com/gamepanel?(.*)&table=(.*)"
           },
         }]
       });
     } else {
-      console.log("[bga extension] Remove filters");
-
+      console.log("[bga extension] Remove filters to redirect to classic lobby");
       chrome.declarativeNetRequest.updateDynamicRules({
-        removeRuleIds: [1, 2, 3]
+        removeRuleIds: [4]
       });
     }
   }
@@ -53,11 +76,15 @@ config.init().then(() => {
   chrome.alarms.onAlarm.addListener(() => bgPeriodic(config));
   chrome.alarms.create("bgPeriodic", { delayInMinutes: 0, periodInMinutes: 1 });
 
-  setUrlFilters(config.isDarkMode());
+  setDarkModeUrlFilters(config.isDarkMode());
+  setLobbyUrlFilters(config.isLobbyRedirectionEnable());
 });
 
 addChangeListener((changes) => {
   if (changes.darkMode) {
-    setUrlFilters(changes.darkMode.newValue);
+    setDarkModeUrlFilters(changes.darkMode.newValue);
+  }
+  if (changes.lobbyRedirect) {
+    setLobbyUrlFilters(changes.lobbyRedirect.newValue);
   }
 });
