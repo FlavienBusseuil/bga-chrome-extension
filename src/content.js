@@ -30,6 +30,17 @@ const initObserver = (page) => {
 const manageLocationChange = (pathname) => {
 	console.log("[bga extension] load path", pathname);
 
+	if (pathname === '/gamepanel' && config.isLobbyRedirectionEnable()) {
+		const params = window.location.search.substring(1).split('&');
+		const gameParam = params.find(p => p.startsWith('game'));
+		const tableParam = params.find(p => p.startsWith('table'));
+		if (gameParam && tableParam) {
+			const redirectUrl = `https://boardgamearena.com/table?${tableParam}&nr=true`;
+			window.location.replace(redirectUrl);
+			return;
+		}
+	}
+
 	const pageInfo = pathname.substring(1).split(".")[0].split("/");
 
 	if (currentObserver) {

@@ -11,13 +11,26 @@ type Props = {
 
 export const OptionsView = ({ config, onChange }: Props) => {
   const [tracking, setTracking] = useState(config.isTrackingEnable());
+  const [motionSensitivity, setMotionSensitivity] = useState(config.isMotionSensitivityEnable());
+  const [redirect, setRedirect] = useState(config.isLobbyRedirectionEnable());
   const [homeConfig, setHomeConfig] = useState<HomeConfig>(config.getHomeConfig());
   const [hiddenGames, setHiddenGames] = useState<string[]>(config.getHiddenGames());
+  const [configVisible, setConfigVisible] = useState('misc');
 
   const updateTracking = (val: boolean) => {
     setTracking(val);
     config.setTrackingEnable(val);
     onChange();
+  };
+
+  const updateFlashing = (val: boolean) => {
+    setMotionSensitivity(!val);
+    config.setMotionSensitivityEnable(!val);
+  };
+
+  const updateRedirect = (val: boolean) => {
+    setRedirect(val);
+    config.setLobbyRedirectionEnable(val);
   };
 
   const updateHomeConfig = (param: string, val: boolean) => {
@@ -47,17 +60,35 @@ export const OptionsView = ({ config, onChange }: Props) => {
     ));
   };
 
-  return (
-    <div className="options-container">
+  const getMiscSection = () => {
+    return (
       <div className="options-frame">
-        <div className="options-frame-title">{chrome.i18n.getMessage("optionsTracking")}</div>
+        <div className="options-frame-title">{chrome.i18n.getMessage("optionMiscTitle")}</div>
         <Switch
           checked={tracking}
           textOn={chrome.i18n.getMessage("optionsTrackingOn")}
           textOff={chrome.i18n.getMessage("optionsTrackingOff")}
           onChange={updateTracking}
         />
+        <Switch
+          checked={!motionSensitivity}
+          textOn={chrome.i18n.getMessage("optionsFlashingOn")}
+          textOff={chrome.i18n.getMessage("optionsFlashingOff")}
+          onChange={updateFlashing}
+          className='long_text'
+        />
+        <Switch
+          checked={redirect}
+          textOn={chrome.i18n.getMessage("optionsLobbyRedirectOn")}
+          textOff={chrome.i18n.getMessage("optionsLobbyRedirectOff")}
+          onChange={updateRedirect}
+        />
       </div>
+    );
+  }
+
+  const getHomeSection = () => {
+    return (
       <div className="options-frame">
         <div className="options-frame-title">{chrome.i18n.getMessage("optionsHome")}</div>
         <div className="options-subframe">
@@ -116,11 +147,24 @@ export const OptionsView = ({ config, onChange }: Props) => {
         </div>
         <div>{chrome.i18n.getMessage("optionsHomeRefresh")}</div>
       </div>
+    );
+  }
+
+  const getHiddenSection = () => {
+    return (
       <div className="options-frame">
         <div className="options-frame-title">{chrome.i18n.getMessage("optionHiddenTab")}</div>
         <div>{chrome.i18n.getMessage("optionHiddenGamesWarning")}</div>
         <div className="bgext_hidden_games_container">{getHiddenConfiguration()}</div>
       </div>
+    );
+  }
+
+  return (
+    <div className="options-container">
+      {getMiscSection()}
+      {getHomeSection()}
+      {getHiddenSection()}
       <div className="options-frame">
         <div className="options-frame-title">{chrome.i18n.getMessage("about")}</div>
         <div dangerouslySetInnerHTML={{ __html: chrome.i18n.getMessage("aboutText") }}></div>

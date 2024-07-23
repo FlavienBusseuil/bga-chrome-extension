@@ -1,14 +1,15 @@
-import React from "preact";
-import { useState } from "preact/hooks";
+import React from 'preact';
+import { useState } from 'preact/hooks';
 
 type Props = {
   checked: boolean,
   textOn: string,
   textOff: string,
   onChange: (val: boolean) => void,
+  className?: string;
 };
 
-const Switch = ({ checked, textOn, textOff, onChange }: Props) => {
+const Switch = ({ checked, textOn, textOff, onChange, className }: Props) => {
   const [isChecked, setIsChecked] = useState(checked)
 
   const handleCheckboxChange = () => {
@@ -17,7 +18,7 @@ const Switch = ({ checked, textOn, textOff, onChange }: Props) => {
   }
 
   return (
-    <div className="bgaext_switch_container">
+    <div className={`bgaext_switch_container ${className || ''}`}>
       <label className='bgaext_switch'>
         <input type='checkbox' checked={isChecked} onChange={handleCheckboxChange} />
         <span className="bgaext_slider round" />

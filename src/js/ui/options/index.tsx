@@ -18,6 +18,7 @@ const Options = (props: { config: Configuration }) => {
 	const [tabSelected, setTabSelected] = useState("misc");
 	const [hiddenGames, setHiddenGames] = useState(config.getHiddenGames());
 	const [tracking, setTracking] = useState(config.isTrackingEnable());
+	const [redirect, setRedirect] = useState(config.isLobbyRedirectionEnable());
 	const [homeConfig, setHomeConfig] = useState(config.getHomeConfig());
 	const [motionSensitivity, setMotionSensitivity] = useState(config.isMotionSensitivityEnable());
 	const [date, setDate] = useState<Date | null>(null);
@@ -121,6 +122,11 @@ const Options = (props: { config: Configuration }) => {
 		config.setMotionSensitivityEnable(!val);
 	};
 
+	const updateRedirect = (val: boolean) => {
+		setRedirect(val);
+		config.setLobbyRedirectionEnable(val);
+	};
+
 	const getMiscConfiguration = () => {
 		return (
 			<>
@@ -139,6 +145,12 @@ const Options = (props: { config: Configuration }) => {
 						textOn={chrome.i18n.getMessage("optionsFlashingOn")}
 						textOff={chrome.i18n.getMessage("optionsFlashingOff")}
 						onChange={updateFlashing}
+					/>
+					<Switch
+						checked={redirect}
+						textOn={chrome.i18n.getMessage("optionsLobbyRedirectOn")}
+						textOff={chrome.i18n.getMessage("optionsLobbyRedirectOff")}
+						onChange={updateRedirect}
 					/>
 				</div>
 				<div className="bgext_options_title">

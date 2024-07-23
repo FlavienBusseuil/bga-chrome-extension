@@ -52,23 +52,32 @@ export const initGameListObserver = (config, page) => {
 	};
 
 	const observer = new MutationObserver(() => {
-		const buttons = document.querySelectorAll('.bgabutton_blue[href*="/gamepanel?game="]');
+		const buttons = document.querySelectorAll('[href*="/gamepanel?game="]');
 
 		buttons.forEach((but) => {
-			const container = but.parentNode;
+			if (but.classList.contains('bgabutton_blue')) {
+				const container = but.parentNode;
 
-			if (!but.classList.contains('bgabutton_medium') && !container.lastChild.classList?.contains('bgabutton_red')) {
-				but.style.minWidth = "100px";
-				container.style.boxShadow = "none";
+				if (!but.classList.contains('bgabutton_medium') && !container.lastChild.classList?.contains('bgabutton_red')) {
+					but.style.minWidth = "100px";
+					container.style.boxShadow = "none";
 
-				const removeBut = document.createElement("a");
-				removeBut.className = "ext_delete_button bgabutton bgabutton_red bga-button-inner flex-1 truncate";
-				removeBut.style.padding = "5px 0px 0px 10px";
-				removeBut.style.margin = "0px 0px 0px 5px";
-				removeBut.style.minWidth = "32px";
-				removeBut.innerHTML = '<div class="flex items-center"><div class="text-center"><i class="fa fa-trash"/></div></div>';
-				removeBut.onclick = () => hideGame(but.href.split("=")[1]);
-				container.appendChild(removeBut);
+					const removeBut = document.createElement("a");
+					removeBut.className = "ext_delete_button bgabutton bgabutton_red bga-button-inner flex-1 truncate";
+					removeBut.style.padding = "5px 0px 0px 10px";
+					removeBut.style.margin = "0px 0px 0px 5px";
+					removeBut.style.minWidth = "32px";
+					removeBut.innerHTML = '<div class="flex items-center"><div class="text-center"><i class="fa fa-trash"/></div></div>';
+					removeBut.onclick = () => hideGame(but.href.split("=")[1]);
+					container.appendChild(removeBut);
+				}
+			} else if (config.isLobbyRedirectionEnable()) {
+				const url = `${but.href}`;
+				const pos = url.indexOf('&table=');
+				if (pos > 0) {
+					const table = url.substring(pos + 7);
+					but.href = `/table?table=${table}&nr=true`;
+				}
 			}
 		});
 	});

@@ -54,6 +54,7 @@ interface CustomConfig {
 	trackTables?: boolean;
 	motionSensitivity?: boolean;
 	home?: HomeConfig;
+	lobbyRedirect?: boolean;
 };
 
 export interface HomeConfig {
@@ -269,12 +270,21 @@ class Configuration {
 	}
 
 	isMotionSensitivityEnable() {
-		return this._customConfig.motionSensitivity;
+		return Boolean(this._customConfig.motionSensitivity);
 	}
 
 	setMotionSensitivityEnable(val: boolean) {
 		this._customConfig.motionSensitivity = val;
 		storageSet({ motionSensitivity: val });
+	}
+
+	isLobbyRedirectionEnable() {
+		return Boolean(this._customConfig.lobbyRedirect);
+	}
+
+	setLobbyRedirectionEnable(val: boolean) {
+		this._customConfig.lobbyRedirect = val;
+		storageSet({ lobbyRedirect: val });
 	}
 
 	setLeftMenuEnabled(name: string, enable: boolean) {

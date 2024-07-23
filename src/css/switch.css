@@ -94,5 +94,9 @@ html.darkmode input:checked+.bgaext_slider:before {
 }
 
 .bgaext_switch_text {
-  line-height: 26px;
+  line-height: 24px;
+}
+
+.long_text .bgaext_switch_text {
+  line-height: 16px;
 }

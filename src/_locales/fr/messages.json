@@ -162,9 +162,6 @@
 	"options": {
 		"message": "Options"
 	},
-	"optionsTracking": {
-		"message": "Surveillance des tables"
-	},
 	"optionsTrackingOn": {
 		"message": "Surveillance de l'état de vos tables activée (vous êtes vu connecté)"
 	},
@@ -176,6 +173,12 @@
 	},
 	"optionsFlashingOff": {
 		"message": "Les tables sur lesquels vous êtes attendus sont signalées par un code couleur et un message"
+	},
+	"optionsLobbyRedirectOn": {
+		"message": "[BETA] Toujours rediriger vers le lobby classique lorsque c'est possible"
+	},
+	"optionsLobbyRedirectOff": {
+		"message": "Utiliser le lobby par défaut"
 	},
 	"about": {
 		"message": "A propos"

@@ -32,7 +32,10 @@ const setUrlFilters = (isDarkMode) => {
         {
           id: 3,
           action: { type: "redirect", "redirect": { "regexSubstitution": `chrome-extension://${chrome.runtime.id}/img/dark_theme/forum/smilies/\\1.gif` } },
-          condition: { regexFilter: "^https://forum.boardgamearena.com/images/smilies/(.*).gif" },
+          condition: {
+            regexFilter: "^https://forum.boardgamearena.com/images/smilies/(.*).gif",
+            resourceTypes: ["main_frame", "sub_frame"]
+          },
         }]
       });
     } else {

@@ -162,9 +162,6 @@
 	"options": {
 		"message": "Settings"
 	},
-	"optionsTracking": {
-		"message": "Tables tracking"
-	},
 	"optionsTrackingOn": {
 		"message": "Tables status tracking enabled (other players see you connected)"
 	},
@@ -176,6 +173,12 @@
 	},
 	"optionsFlashingOff": {
 		"message": "Tables where you are expected are indicated by a color code and a message"
+	},
+	"optionsLobbyRedirectOn": {
+		"message": "[BETA] Always redirect to classic lobby when possible"
+	},
+	"optionsLobbyRedirectOff": {
+		"message": "Use the default lobby"
 	},
 	"about": {
 		"message": "About"
