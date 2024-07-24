@@ -4499,6 +4499,12 @@ _darkStyleForGame['tigriseuphrates'] = `
 .player_leader_wheel, #hand_leaders .mini_leader { filter: var(--drop-shadow); }
 `;
 
+_darkStyleForGame['tikal'] = `
+.discussion_bubble { background: var(--dark-20); }
+.discussion_bubble:after { border-color: var(--dark-20) transparent; }
+#tkl_side_area .tkl_panel_counter { background-color: var(--dark-10); border: 2px solid var(--light-50); color: var(--light-80); }
+`;
+
 _darkStyleForGame['tiki'] = `
 .bgae_panel .bgae_content .panel { background-color: var(--dark-back); }
 `;
@@ -4583,6 +4589,11 @@ _darkStyleForGame['tranquilitytheascent'] = `
 
 _darkStyleForGame['trekkingtheworld'] = `
 .riverCard { color: var(--dark-10); }
+`;
+
+_darkStyleForGame['treos'] = `
+.text-container { color: #000; }
+.player_config_row svg { filter: invert(0.7); }
 `;
 
 _darkStyleForGame['triatri'] = `
