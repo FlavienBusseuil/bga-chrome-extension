@@ -1407,6 +1407,7 @@ input.disabled {
 }
 
 .dropdown-extended .header {
+  text-shadow: none;
   background-color: #303030;
   /* Old browsers */
   /* FF3.6+ */

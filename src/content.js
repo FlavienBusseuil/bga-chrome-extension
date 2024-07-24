@@ -34,11 +34,31 @@ const manageLocationChange = (pathname) => {
 		const params = window.location.search.substring(1).split('&');
 		const gameParam = params.find(p => p.startsWith('game'));
 		const tableParam = params.find(p => p.startsWith('table'));
+
 		if (gameParam && tableParam) {
 			const redirectUrl = `https://boardgamearena.com/table?${tableParam}&nr=true`;
 			window.location.replace(redirectUrl);
 			return;
 		}
+
+		/*
+		let loop = 0;
+
+		const redirectToGame = () => {
+			console.log('loop', loop);
+			const gameId = document.getElementById('game_id')?.innerText;
+			if (gameId) {
+				const redirectUrl = `https://boardgamearena.com/lobby?game=${gameId}`;
+				window.location.replace(redirectUrl);
+			} else {
+				++loop;
+				if (loop < 50) {
+					setTimeout(redirectToGame, 10);
+				}
+			}
+		}
+		setTimeout(redirectToGame, 10);
+		*/
 	}
 
 	const pageInfo = pathname.substring(1).split(".")[0].split("/");

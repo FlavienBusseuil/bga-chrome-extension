@@ -81,20 +81,20 @@ const buildOption = (
 	if (inputValue === "1") {
 		input.insertAdjacentHTML(
 			"beforeend",
-			'<option value="1" selected="selected">' + option1 + "</option>",
+			`<option value="1" selected="selected">${option1}</option>`,
 		);
 		input.insertAdjacentHTML(
 			"beforeend",
-			'<option value="0">' + option2 + "</option>",
+			`<option value="0">${option2}</option>`,
 		);
 	} else {
 		input.insertAdjacentHTML(
 			"beforeend",
-			'<option value="1">' + option1 + "</option>",
+			`<option value="1">${option1}</option>`,
 		);
 		input.insertAdjacentHTML(
 			"beforeend",
-			'<option value="0" selected="selected">' + option2 + "</option>",
+			`<option value="0" selected="selected">${option2}</option>`,
 		);
 	}
 
@@ -119,24 +119,10 @@ const buildOptions = (config, gameName, gameConfig) => {
 	const secondPrefTitle = settings.getElementsByTagName("h2")[0];
 
 	// Add an option for floating menu
-	const optionFloatingGameSelected = config.isGameFloatingMenu(gameName)
-		? ' selected="selected"'
-		: " ";
-	const optionFloatingAlwaysSelected = config.isGlobalFloatingMenu()
-		? ' selected="selected"'
-		: " ";
-	const optionFloatingGame =
-		'<option value="2"' +
-		optionFloatingGameSelected +
-		">" +
-		chrome.i18n.getMessage("optionFloatingGame") +
-		"</option>";
-	const optionFloatingAlways =
-		'<option value="3"' +
-		optionFloatingAlwaysSelected +
-		">" +
-		chrome.i18n.getMessage("optionFloatingAlways") +
-		"</option>";
+	const optionFloatingGameSelected = config.isGameFloatingMenu(gameName) ? 'selected="selected"' : '';
+	const optionFloatingAlwaysSelected = config.isGlobalFloatingMenu() ? 'selected="selected"' : '';
+	const optionFloatingGame = `<option value="2" ${optionFloatingGameSelected}>${chrome.i18n.getMessage("optionFloatingGame")}</option>`;
+	const optionFloatingAlways = `<option value="3" ${optionFloatingAlwaysSelected}>${chrome.i18n.getMessage("optionFloatingAlways")}</option>`;
 	const checkFloating = (evt) => {
 		if (evt.target.value === "1") {
 			document.body.classList.add("logs_on_additional_column");

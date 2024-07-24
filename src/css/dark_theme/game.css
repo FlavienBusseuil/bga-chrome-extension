@@ -160,6 +160,10 @@ spectator-mode .log .roundedbox .playername {
   color: white;
 }
 
+#zombieBack {
+  color: var(--light-80);
+}
+
 #log_history_status {
   background-color: var(--dark-20);
 }

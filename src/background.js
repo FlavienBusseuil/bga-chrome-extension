@@ -58,7 +58,8 @@ const setLobbyUrlFilters = (isRedirectEnable) => {
           id: 4,
           action: { type: "redirect", "redirect": { "regexSubstitution": "https://boardgamearena.com/table?table=\\2&nr=true" } },
           condition: {
-            regexFilter: "^https://boardgamearena.com/gamepanel?(.*)&table=(.*)"
+            regexFilter: "^https://boardgamearena.com/gamepanel?game=([a-z]*)&table=([0-9]*)",
+            resourceTypes: ["main_frame"]
           },
         }]
       });
