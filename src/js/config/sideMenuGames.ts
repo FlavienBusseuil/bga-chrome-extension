@@ -1253,6 +1253,15 @@ const defaultGames: Partial<Game>[] = [
 		playerPanel: "player-table-{{player_id}}",
 		playerPanelOffset: 15
 	},
+	{
+		name: "botanicus",
+		playerPanel: "botanicus-garden-board-holder-{{player_id}}",
+		css: "#botanicus-tab-holder { display: none; }",
+	},
+	{
+		name: "zookeepers",
+		playerPanel: "zkp_playmat_container:{{player_id}}",
+	}
 ];
 
 export default defaultGames;

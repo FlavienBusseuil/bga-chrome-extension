@@ -831,6 +831,11 @@ _darkStyleForGame['boreal'] = `
 .player_config_row > div:not(#help-mode-switch) svg { filter: invert(0.7); }
 `;
 
+_darkStyleForGame['botanicus'] = `
+#player_boards .player-name a { background-color: transparent !important; }
+#botanicus-game-holder .garden-board-holder .garden-board .player-name-holder { background-color: var(--dark-10); }
+`;
+
 _darkStyleForGame['botanik'] = `
 body { background: none; }
 #zoomplus, #zoomminus { filter: invert(0.9); }
