@@ -347,6 +347,10 @@ select.colorselector {
   color: var(--light-80);
 }
 
+.bga-friends-icon__dropdown-arrow {
+  background: var(--dark-10) !important;
+}
+
 /* Barre personnelle */
 .bga-player-menu {
   color: var(--light-80);
@@ -1347,6 +1351,10 @@ select.colorselector {
   color: var(--light-80);
 }
 
+.tournaments-list-result__playerstatus {
+  color: #fff;
+}
+
 #tournamentlist-module .tournaments-list-result:hover,
 #tournamentlist-module .tournaments-list-result:hover .tournaments-list-result__players {
   background-color: var(--dark-10);
@@ -1929,6 +1937,10 @@ iframe#forum_frame {
 
 .homepage-section__content .post.bga-hover-for-list {
   background-color: var(--dark-20);
+}
+
+.homepage-section__content .post.bga-hover-for-list[style*="background-color: rgb(237, 186, 183);"] {
+  background-color: #4d1919 !important;
 }
 
 .homepage-section__content .postmessage {

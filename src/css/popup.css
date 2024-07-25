@@ -68,18 +68,33 @@ html.dark .text-gray-600 {
   display: flex;
   flex-flow: column;
   width: 100%;
+  padding: 0.5em;
 }
 
 .options-frame {
   border: 1px solid #000;
   border-radius: 4px;
   padding: 1em;
-  margin: 1em;
+  margin: 0.5em;
   box-sizing: border-box;
   position: relative;
   gap: 0.2em;
   display: flex;
   flex-flow: column;
+  transition: all .5s linear;
+}
+
+.options-frame.reduced {
+  cursor: pointer;
+  margin-top: 0em;
+}
+
+.options-frame.reduced:hover {
+  background: #fff;
+}
+
+html.dark .options-frame.reduced:hover {
+  background: var(--dark-40);
 }
 
 html.dark .options-frame {
@@ -87,12 +102,35 @@ html.dark .options-frame {
 }
 
 .options-frame-title {
+  position: absolute;
   top: -11px;
   left: 1em;
   background-color: #fefce8;
-  position: absolute;
   padding: 0em 0.5em;
   font-weight: bold;
+  transition: all .5s linear;
+}
+
+.reduced .options-frame-title {
+  position: relative;
+  top: 0px;
+  left: 0px;
+  display: flex;
+  flex-flow: row;
+  justify-content: space-between;
+}
+
+.reduced .options-frame-title svg {
+  width: 24px;
+  height: 24px;
+}
+
+.options-frame.reduced:hover .options-frame-title {
+  background: #fff;
+}
+
+html.dark .options-frame.reduced:hover .options-frame-title {
+  background: var(--dark-40);
 }
 
 html.dark .options-frame-title {
@@ -106,7 +144,7 @@ html.dark .options-frame-title {
 }
 
 .options-subframe>div {
-  flex-grow: 1;
+  width: 50%;
   gap: 0.2em;
   display: flex;
   flex-flow: column;

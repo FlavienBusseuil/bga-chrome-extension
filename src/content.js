@@ -40,25 +40,6 @@ const manageLocationChange = (pathname) => {
 			window.location.replace(redirectUrl);
 			return;
 		}
-
-		/*
-		let loop = 0;
-
-		const redirectToGame = () => {
-			console.log('loop', loop);
-			const gameId = document.getElementById('game_id')?.innerText;
-			if (gameId) {
-				const redirectUrl = `https://boardgamearena.com/lobby?game=${gameId}`;
-				window.location.replace(redirectUrl);
-			} else {
-				++loop;
-				if (loop < 50) {
-					setTimeout(redirectToGame, 10);
-				}
-			}
-		}
-		setTimeout(redirectToGame, 10);
-		*/
 	}
 
 	const pageInfo = pathname.substring(1).split(".")[0].split("/");
@@ -94,6 +75,17 @@ const manageLocationChange = (pathname) => {
 	}
 
 	const pageName = pageInfo[0] || 'welcome';
+
+	if (pageName === 'welcome' && !document.getElementById('ext_homepage')) {
+		const homeConfig = config.getHomeConfig();
+
+		if (homeConfig.tournaments && !homeConfig.tournamentsBelow) {
+			const script = document.createElement("script");
+			script.id = 'ext_homepage';
+			script.src = `${chrome.runtime.getURL('/js/homepage.js')}?&time=${new Date().getTime()}`;
+			document.head.appendChild(script);
+		}
+	}
 
 	if (pageName !== "archive" && pageName !== "tutorial") {
 		initChatIcon(config);

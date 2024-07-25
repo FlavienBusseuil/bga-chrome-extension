@@ -240,6 +240,18 @@
 	"tournamentsOff": {
 		"message": "Tournois cachés"
 	},
+	"tournamentsBelowOn": {
+		"message": "Tournois sous le fil d'actualité"
+	},
+	"tournamentsBelowOff": {
+		"message": "Tournois affichés à droite"
+	},
+	"optionsRecentColumnOn": {
+		"message": "Nouveaux jeux visibles"
+	},
+	"optionsRecentColumnOff": {
+		"message": "Nouveaux jeux cachés"
+	},
 	"optionsPopularColumnOn": {
 		"message": "Jeux populaires visibles"
 	},

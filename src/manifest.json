@@ -71,7 +71,8 @@
         "img/dark_theme/forum/smilies/*.gif",
         "img/dark_theme/tooltip/*.png",
         "css/light_theme/*.css",
-        "img/light_theme/background.jpg"
+        "img/light_theme/background.jpg",
+        "js/homepage.js"
       ],
       "extension_ids": [
         "*"

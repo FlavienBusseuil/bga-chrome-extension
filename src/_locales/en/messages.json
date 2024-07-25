@@ -240,6 +240,18 @@
 	"tournamentsOff": {
 		"message": "Tournaments hidden"
 	},
+	"tournamentsBelowOn": {
+		"message": "Tournaments under the news"
+	},
+	"tournamentsBelowOff": {
+		"message": "Tournaments on the right"
+	},
+	"optionsRecentColumnOn": {
+		"message": "Recent games displayed"
+	},
+	"optionsRecentColumnOff": {
+		"message": "Recent games hidden"
+	},
 	"optionsPopularColumnOn": {
 		"message": "Popular games displayed"
 	},

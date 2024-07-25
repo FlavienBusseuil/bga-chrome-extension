@@ -182,8 +182,20 @@ const Options = (props: { config: Configuration }) => {
 							textOff={chrome.i18n.getMessage("optionsHomeNewsTall")}
 							onChange={(val) => updateHomeConfig('fewFeeds', val)}
 						/>
+						<Switch
+							checked={homeConfig.tournaments}
+							textOn={chrome.i18n.getMessage("tournamentsOn")}
+							textOff={chrome.i18n.getMessage("tournamentsOff")}
+							onChange={(val) => updateHomeConfig('tournaments', val)}
+						/>
 					</div>
 					<div>
+						<Switch
+							checked={homeConfig.recentGames}
+							textOn={chrome.i18n.getMessage("optionsRecentColumnOn")}
+							textOff={chrome.i18n.getMessage("optionsRecentColumnOff")}
+							onChange={(val) => updateHomeConfig('recentGames', val)}
+						/>
 						<Switch
 							checked={homeConfig.popularGames}
 							textOn={chrome.i18n.getMessage("optionsPopularColumnOn")}
@@ -202,12 +214,14 @@ const Options = (props: { config: Configuration }) => {
 							textOff={chrome.i18n.getMessage("optionsStatusOff")}
 							onChange={(val) => updateHomeConfig('status', val)}
 						/>
-						<Switch
-							checked={homeConfig.tournaments}
-							textOn={chrome.i18n.getMessage("tournamentsOn")}
-							textOff={chrome.i18n.getMessage("tournamentsOff")}
-							onChange={(val) => updateHomeConfig('tournaments', val)}
-						/>
+						{homeConfig.tournaments &&
+							<Switch
+								checked={homeConfig.tournamentsBelow}
+								textOn={chrome.i18n.getMessage("tournamentsBelowOn")}
+								textOff={chrome.i18n.getMessage("tournamentsBelowOff")}
+								onChange={(val) => updateHomeConfig('tournamentsBelow', val)}
+							/>
+						}
 					</div>
 				</div >
 			</>
