@@ -1,7 +1,7 @@
 import React from "preact";
 import { useState } from "preact/hooks";
 
-import Configuration, { HomeConfig } from "../../config/configuration";
+import Configuration, { HomeConfig, InProgressConfig } from "../../config/configuration";
 import Switch from "../base/Switch";
 
 type Props = {
@@ -14,8 +14,14 @@ export const OptionsView = ({ config, onChange }: Props) => {
   const [motionSensitivity, setMotionSensitivity] = useState(config.isMotionSensitivityEnable());
   const [redirect, setRedirect] = useState(config.isLobbyRedirectionEnable());
   const [homeConfig, setHomeConfig] = useState<HomeConfig>(config.getHomeConfig());
+  const [inProgressConfig, setInProgressConfig] = useState<InProgressConfig>(config.getInProgressConfig());
   const [hiddenGames, setHiddenGames] = useState<string[]>(config.getHiddenGames());
-  const [configVisible, setConfigVisible] = useState('misc');
+  const [configVisible, setConfigVisible] = useState(localStorage.getItem('ext_settings') || 'misc');
+
+  const _setConfigVisible = (val: string) => {
+    localStorage.setItem('ext_settings', val);
+    setConfigVisible(val);
+  }
 
   const updateTracking = (val: boolean) => {
     setTracking(val);
@@ -37,6 +43,13 @@ export const OptionsView = ({ config, onChange }: Props) => {
     const newHomeConfig = { ...homeConfig, [param]: val };
     setHomeConfig(newHomeConfig);
     config.setHomeConfig(newHomeConfig);
+    onChange();
+  };
+
+  const updateInProgressConfig = (param: string, val: boolean) => {
+    const newInProgressConfig = { ...inProgressConfig, [param]: val };
+    setInProgressConfig(newInProgressConfig);
+    config.setInProgressConfig(newInProgressConfig);
     onChange();
   };
 
@@ -97,7 +110,7 @@ export const OptionsView = ({ config, onChange }: Props) => {
     }
 
     return (
-      <div className="options-frame reduced" onClick={() => setConfigVisible('misc')}>
+      <div className="options-frame reduced" onClick={() => _setConfigVisible('misc')}>
         <div className="options-frame-title">{chrome.i18n.getMessage("optionMiscTitle")} {arrow()}</div>
       </div>
     );
@@ -129,10 +142,11 @@ export const OptionsView = ({ config, onChange }: Props) => {
                 onChange={(val) => updateHomeConfig('smallFeed', val)}
               />
               <Switch
-                checked={homeConfig.fewFeeds}
+                checked={homeConfig.fewFeeds && homeConfig.tournaments && homeConfig.tournamentsBelow}
                 textOn={chrome.i18n.getMessage("optionsHomeNewsShort")}
                 textOff={chrome.i18n.getMessage("optionsHomeNewsTall")}
                 onChange={(val) => updateHomeConfig('fewFeeds', val)}
+                disabled={!homeConfig.tournaments || !homeConfig.tournamentsBelow}
               />
               <Switch
                 checked={homeConfig.tournaments}
@@ -176,14 +190,35 @@ export const OptionsView = ({ config, onChange }: Props) => {
               }
             </div>
           </div>
-          <div>{chrome.i18n.getMessage("optionsHomeRefresh")}</div>
         </div>
       );
     }
 
     return (
-      <div className="options-frame reduced" onClick={() => setConfigVisible('home')}>
+      <div className="options-frame reduced" onClick={() => _setConfigVisible('home')}>
         <div className="options-frame-title">{chrome.i18n.getMessage("optionsHome")} {arrow()}</div>
+      </div>
+    );
+  }
+
+  const getInProgressSection = () => {
+    if (configVisible === 'inProgress') {
+      return (
+        <div className="options-frame">
+          <div className="options-frame-title">{chrome.i18n.getMessage("optionsInProgress")}</div>
+          <Switch
+            checked={inProgressConfig.emptySections}
+            textOn={chrome.i18n.getMessage("optionsInProgressEmpyOn")}
+            textOff={chrome.i18n.getMessage("optionsInProgressEmpyOff")}
+            onChange={(val) => updateInProgressConfig('emptySections', val)}
+          />
+        </div>
+      );
+    }
+
+    return (
+      <div className="options-frame reduced" onClick={() => _setConfigVisible('inProgress')}>
+        <div className="options-frame-title">{chrome.i18n.getMessage("optionsInProgress")} {arrow()}</div>
       </div>
     );
   }
@@ -200,7 +235,7 @@ export const OptionsView = ({ config, onChange }: Props) => {
     }
 
     return (
-      <div className="options-frame reduced" onClick={() => setConfigVisible('hidden')}>
+      <div className="options-frame reduced" onClick={() => _setConfigVisible('hidden')}>
         <div className="options-frame-title">{chrome.i18n.getMessage("optionHiddenTab")} {arrow()}</div>
       </div>
     );
@@ -210,6 +245,7 @@ export const OptionsView = ({ config, onChange }: Props) => {
     <div className="options-container">
       {getMiscSection()}
       {getHomeSection()}
+      {getInProgressSection()}
       {getHiddenSection()}
       <div className="options-frame">
         <div className="options-frame-title">{chrome.i18n.getMessage("about")}</div>

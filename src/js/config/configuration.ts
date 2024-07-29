@@ -54,6 +54,7 @@ interface CustomConfig {
 	trackTables?: boolean;
 	motionSensitivity?: boolean;
 	home?: HomeConfig;
+	inProgress?: InProgressConfig;
 	lobbyRedirect?: boolean;
 };
 
@@ -68,11 +69,18 @@ export interface HomeConfig {
 	recentGames: boolean;
 	popularGames: boolean;
 	recommandedGames: boolean;
-}
+};
+
+export interface InProgressConfig {
+	emptySections: boolean;
+	playAgain: boolean;
+	discover: boolean;
+	more: boolean;
+};
 
 interface LocalConfig {
 	css: string;
-}
+};
 
 class Configuration {
 	_defConfig: { games: Game[] };
@@ -271,6 +279,21 @@ class Configuration {
 	setHomeConfig(val: HomeConfig) {
 		this._customConfig.home = val;
 		storageSet({ home: val });
+	}
+
+	getInProgressConfig() {
+		return {
+			emptySections: true,
+			playAgain: true,
+			discover: true,
+			more: true,
+			...(this._customConfig.inProgress || {})
+		}
+	}
+
+	setInProgressConfig(val: InProgressConfig) {
+		this._customConfig.inProgress = val;
+		storageSet({ inProgress: val });
 	}
 
 	isMotionSensitivityEnable() {
@@ -520,6 +543,7 @@ class Configuration {
 
 	getAllCss() {
 		const home = this.getHomeConfig();
+		const inProgress = this.getInProgressConfig();
 		const cssList: string[] = [];
 		let columns = 3;
 
@@ -571,7 +595,7 @@ class Configuration {
 		} else if (!home.tournamentsBelow) {
 			cssList.push(`.bgaext_welcome .bga-homepage__content { grid-template-columns: minmax(0, 40%) minmax(0, 60%) !important; }`);
 		}
-		if (!home.fewFeeds) {
+		if (!home.fewFeeds || !home.tournaments || !home.tournamentsBelow) {
 			cssList.push(`.bgaext_welcome .post.bga-hover-for-list { display: block !important; }`);
 		}
 		if (!home.status) {
@@ -588,6 +612,10 @@ class Configuration {
 				cssList.push('.bgaext_welcome .bga-homepage__discover-section { grid-template-columns: repeat(1, minmax(0, 1fr)) !important; }');
 				cssList.push('.bgaext_welcome .bga-homepage__discover-section>div:last-child { display: none; }');
 			}
+		}
+
+		if (!inProgress.emptySections) {
+			cssList.push('.bgaext_gameinprogress .bga-player-progress-list__section:has(>div.relative>div.relative>div.relative>div.flex.items-center) { display: none; }');
 		}
 
 		return cssList.join('\n');

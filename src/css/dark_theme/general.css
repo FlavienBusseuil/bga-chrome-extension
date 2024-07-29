@@ -2014,3 +2014,8 @@ iframe#forum_frame {
 .bga-news-item__news-text {
   background-color: var(--dark-back) !important;
 }
+
+.bga-homepage .bga-tournament-list-item__details svg {
+  color: #000;
+  filter: invert(1);
+}

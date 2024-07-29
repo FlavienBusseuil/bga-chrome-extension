@@ -495,3 +495,8 @@ div[id*="popin"][id$="underlay"] {
   background-color: var(--dark-10);
   box-shadow: 0 0 10px -2px var(--light-50);
 }
+
+/* studio */
+.whiteblock.debug_section {
+  color: var(--light-80);
+}

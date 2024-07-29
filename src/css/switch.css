@@ -5,6 +5,12 @@
   gap: 0.5em;
 }
 
+.bgaext_switch_container>div {
+  display: flex;
+  flex-flow: column;
+  justify-content: center;
+}
+
 .bgaext_switch {
   position: relative;
   display: inline-block;
@@ -46,9 +52,13 @@ html.darkmode .bgaext_slider {
   width: 16px;
   left: 4px;
   bottom: 4px;
-  background-color: white;
+  background-color: #fff;
   -webkit-transition: .4s;
   transition: .4s;
+}
+
+.bgaext_switch_container.disabled .bgaext_slider:before {
+  background-color: #888;
 }
 
 html.dark .bgaext_slider:before,
@@ -56,31 +66,22 @@ html.darkmode .bgaext_slider:before {
   bottom: 3px;
 }
 
-input:checked+.bgaext_slider {
+.bgaext_switch_container.checked .bgaext_slider {
   background-color: #2196F3;
 }
 
-html.dark input:checked+.bgaext_slider,
-html.darkmode input:checked+.bgaext_slider {
+html.dark .bgaext_switch_container.checked .bgaext_slider,
+html.darkmode .bgaext_switch_container.checked .bgaext_slider {
   background-color: var(--blue-70);
   border-color: var(--blue-70);
 }
 
-input:focus+.bgaext_slider {
-  box-shadow: 0 0 1px #2196F3;
-}
-
-html.dark input:focus+.bgaext_slider,
-html.darkmode input:focus+.bgaext_slider {
-  box-shadow: 0 0 1px var(--blue-70);
-}
-
-input:checked+.bgaext_slider:before {
+.bgaext_switch_container.checked .bgaext_slider:before {
   transform: translateX(16px);
 }
 
-html.dark input:checked+.bgaext_slider:before,
-html.darkmode input:checked+.bgaext_slider:before {
+html.dark .bgaext_switch_container.checked .bgaext_slider:before,
+html.darkmode .bgaext_switch_container.checked .bgaext_slider:before {
   transform: translateX(15px);
 }
 

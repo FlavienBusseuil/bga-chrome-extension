@@ -21,6 +21,7 @@ div.bgext_options_config_area_small {
 	display: flex;
 	flex-flow: column;
 	gap: 1em;
+	overflow: auto;
 }
 
 div.bgext_links_area {
@@ -59,7 +60,7 @@ div.bgext_options_title {
 	border: 1px solid #aaaaaa;
 	box-sizing: border-box;
 	margin: 0em 1em;
-	line-height: 36px;
+	line-height: 32px;
 	text-align: center;
 }
 
@@ -73,7 +74,7 @@ div.bgext_home_container {
 	display: flex;
 	flex-flow: row wrap;
 	justify-content: start;
-	padding: 1em;
+	padding: 0.5em;
 }
 
 div.bgext_misc_container {

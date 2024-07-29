@@ -1,6 +1,6 @@
-import Configuration from "./js/config/configuration";
-import { isNumber } from "./js/utils/misc/isNumber";
-import { addLocationChangeListener } from "./js/utils/misc/addLocationChangeListener";
+import Configuration from './js/config/configuration';
+import { isNumber } from './js/utils/misc/isNumber';
+import { addLocationChangeListener } from './js/utils/misc/addLocationChangeListener';
 import {
 	buildMainCss,
 	initlogObserver,
@@ -12,14 +12,15 @@ import {
 	initChatIcon,
 	setChatStyle,
 	initDarkMode
-} from "./js/ui/content/functions";
+} from './js/ui/content/functions';
 
 const config = new Configuration();
 let currentObserver = null;
+let pageType = undefined;
 
 const initObserver = (page) => {
 	currentObserver =
-		page === "game"
+		page === 'game'
 			? initlogObserver(config)
 			: initGameListObserver(config, page);
 	if (!currentObserver) {
@@ -28,7 +29,7 @@ const initObserver = (page) => {
 };
 
 const manageLocationChange = (pathname) => {
-	console.log("[bga extension] load path", pathname);
+	console.log('[bga extension] load path', pathname);
 
 	if (pathname === '/gamepanel' && config.isLobbyRedirectionEnable()) {
 		const params = window.location.search.substring(1).split('&');
@@ -42,7 +43,7 @@ const manageLocationChange = (pathname) => {
 		}
 	}
 
-	const pageInfo = pathname.substring(1).split(".")[0].split("/");
+	const pageInfo = pathname.substring(1).split('.')[0].split('/');
 
 	if (currentObserver) {
 		currentObserver.disconnect();
@@ -50,7 +51,7 @@ const manageLocationChange = (pathname) => {
 	}
 
 	if (pageInfo.length >= 2 && isNumber(pageInfo[0])) {
-		initObserver("game");
+		initObserver('game');
 
 		const gameName = pageInfo[1];
 		const gameConfig = config.getGameConfig(gameName);
@@ -71,7 +72,7 @@ const manageLocationChange = (pathname) => {
 		}
 
 		initDarkMode(config, gameName);
-		return "game";
+		return 'game';
 	}
 
 	const pageName = pageInfo[0] || 'welcome';
@@ -80,37 +81,37 @@ const manageLocationChange = (pathname) => {
 		const homeConfig = config.getHomeConfig();
 
 		if (homeConfig.tournaments && !homeConfig.tournamentsBelow) {
-			const script = document.createElement("script");
+			const script = document.createElement('script');
 			script.id = 'ext_homepage';
 			script.src = `${chrome.runtime.getURL('/js/homepage.js')}?&time=${new Date().getTime()}`;
 			document.head.appendChild(script);
 		}
 	}
 
-	if (pageName !== "archive" && pageName !== "tutorial") {
+	if (pageName !== 'archive' && pageName !== 'tutorial') {
 		initChatIcon(config);
 		initDarkMode(config, 'general');
 
 		setHtmlClass(pageName);
 
-		if (pageName.startsWith("gamelist")) {
-			initObserver("gamelist");
-		} else if (pageName.startsWith("lobby")) {
-			initObserver("lobby");
-		} else if (pageName.startsWith("bug")) {
-			initObserver("other");
+		if (pageName.startsWith('gamelist')) {
+			initObserver('gamelist');
+		} else if (pageName.startsWith('lobby')) {
+			initObserver('lobby');
+		} else if (pageName.startsWith('bug')) {
+			initObserver('other');
 			initDevelopperUI(config);
 		} else {
-			initObserver("other");
+			initObserver('other');
 		}
-		return "general";
+		return 'general';
 	}
 
-	return "archive";
+	return 'archive';
 };
 
 const setHtmlClass = (mode) => {
-	const oldClass = Array.from(document.documentElement.classList).find(c => c.startsWith("bgaext"));
+	const oldClass = Array.from(document.documentElement.classList).find(c => c.startsWith('bgaext'));
 
 	if (oldClass) {
 		document.documentElement.classList.remove(oldClass);
@@ -120,26 +121,32 @@ const setHtmlClass = (mode) => {
 };
 
 const initPage = () => {
-	config.isEmpty() && document.dispatchEvent(new CustomEvent("bga_ext_get_config", {}));
+	config.isEmpty() && document.dispatchEvent(new CustomEvent('bga_ext_get_config', {}));
 	addLocationChangeListener(manageLocationChange);
-	const pageType = manageLocationChange(window.location.pathname);
-	buildMainCss(pageType === "general" ? config.getAllCss() : config.getCustomCss());
+	pageType = manageLocationChange(window.location.pathname);
+	buildMainCss(pageType === 'general' ? config.getAllCss() : config.getCustomCss());
 };
 
 config.init().then(initPage);
 
-document.addEventListener("bga_ext_set_config", function (e) {
+document.addEventListener('bga_ext_set_config', function (e) {
 	const jsonData = e.detail;
 	console.log(
-		"[bga extension] import data from deprecated extension",
+		'[bga extension] import data from deprecated extension',
 		jsonData,
 	);
 	config.import(JSON.parse(jsonData));
 	!config.isEmpty() && location.reload();
 });
 
-document.addEventListener("bga_ext_update_config", (data) => {
-	if (data.detail.key === "hideGeneralChat") {
+document.addEventListener('bga_ext_update_config', (data) => {
+	console.log('bga_ext_update_config', data);
+	if (data.detail.key === 'hideGeneralChat') {
 		setChatStyle(config);
+	}
+	if (['home', 'inProgress'].includes(data.detail.key) && pageType === 'general') {
+		localStorage.removeItem('bga-homepage-newsfeed-slots');
+		localStorage.removeItem('bga-homepageNewsSeen');
+		buildMainCss(config.getAllCss());
 	}
 });

@@ -20,6 +20,7 @@ const Options = (props: { config: Configuration }) => {
 	const [tracking, setTracking] = useState(config.isTrackingEnable());
 	const [redirect, setRedirect] = useState(config.isLobbyRedirectionEnable());
 	const [homeConfig, setHomeConfig] = useState(config.getHomeConfig());
+	const [inProgressConfig, setInProgressConfig] = useState(config.getInProgressConfig());
 	const [motionSensitivity, setMotionSensitivity] = useState(config.isMotionSensitivityEnable());
 	const [date, setDate] = useState<Date | null>(null);
 	const smallInterface = useMemo(() => document.body.clientWidth < 400, [date]);
@@ -117,6 +118,12 @@ const Options = (props: { config: Configuration }) => {
 		config.setHomeConfig(newHomeConfig);
 	};
 
+	const updateInProgressConfig = (param: string, val: boolean) => {
+		const newInProgressConfig = { ...inProgressConfig, [param]: val };
+		setInProgressConfig(newInProgressConfig);
+		config.setInProgressConfig(newInProgressConfig);
+	};
+
 	const updateFlashing = (val: boolean) => {
 		setMotionSensitivity(!val);
 		config.setMotionSensitivityEnable(!val);
@@ -177,10 +184,11 @@ const Options = (props: { config: Configuration }) => {
 							onChange={(val) => updateHomeConfig('smallFeed', val)}
 						/>
 						<Switch
-							checked={homeConfig.fewFeeds}
+							checked={homeConfig.fewFeeds && homeConfig.tournaments && homeConfig.tournamentsBelow}
 							textOn={chrome.i18n.getMessage("optionsHomeNewsShort")}
 							textOff={chrome.i18n.getMessage("optionsHomeNewsTall")}
 							onChange={(val) => updateHomeConfig('fewFeeds', val)}
+							disabled={!homeConfig.tournaments || !homeConfig.tournamentsBelow}
 						/>
 						<Switch
 							checked={homeConfig.tournaments}
@@ -223,7 +231,18 @@ const Options = (props: { config: Configuration }) => {
 							/>
 						}
 					</div>
-				</div >
+				</div>
+				<div className="bgext_options_title">
+					{chrome.i18n.getMessage("optionsInProgress")}
+				</div>
+				<div className="bgext_misc_container">
+					<Switch
+						checked={inProgressConfig.emptySections}
+						textOn={chrome.i18n.getMessage("optionsInProgressEmpyOn")}
+						textOff={chrome.i18n.getMessage("optionsInProgressEmpyOff")}
+						onChange={(val) => updateInProgressConfig('emptySections', val)}
+					/>
+				</div>
 			</>
 		);
 	};

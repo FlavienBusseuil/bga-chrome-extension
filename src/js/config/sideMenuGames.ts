@@ -1261,6 +1261,10 @@ const defaultGames: Partial<Game>[] = [
 	{
 		name: "zookeepers",
 		playerPanel: "zkp_playmat_container:{{player_id}}",
+	},
+	{
+		name: "bonsai",
+		playerPanel: "bon_player-{{player_id}}",
 	}
 ];
 
