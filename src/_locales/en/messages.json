@@ -214,7 +214,7 @@
 		"message": "My friends"
 	},
 	"optionsHome": {
-		"message": "Visible elements on the home page"
+		"message": "Home page settings"
 	},
 	"optionsHomeHeaderOn": {
 		"message": "Header displayed"
@@ -240,6 +240,18 @@
 	"tournamentsOff": {
 		"message": "Tournaments hidden"
 	},
+	"tournamentsBelowOn": {
+		"message": "Tournaments under the news"
+	},
+	"tournamentsBelowOff": {
+		"message": "Tournaments on the right"
+	},
+	"optionsRecentColumnOn": {
+		"message": "Recent games displayed"
+	},
+	"optionsRecentColumnOff": {
+		"message": "Recent games hidden"
+	},
 	"optionsPopularColumnOn": {
 		"message": "Popular games displayed"
 	},
@@ -264,7 +276,13 @@
 	"optionsHomeNewsTall": {
 		"message": "Longer news feed"
 	},
-	"optionsHomeRefresh": {
-		"message": "You must reload the page for the changes to be effective."
+	"optionsInProgress": {
+		"message": "Game in progress page settings"
+	},
+	"optionsInProgressEmpyOn": {
+		"message": "Empty sections displayed"
+	},
+	"optionsInProgressEmpyOff": {
+		"message": "[BETA] Empty sections hidden"
 	}
 }

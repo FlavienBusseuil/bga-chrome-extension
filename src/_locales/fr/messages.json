@@ -214,7 +214,7 @@
 		"message": "Mes amis"
 	},
 	"optionsHome": {
-		"message": "Éléments visible sur la page d'accueil"
+		"message": "Configuration de la page d'accueil"
 	},
 	"optionsHomeHeaderOn": {
 		"message": "En-tête visible"
@@ -240,6 +240,18 @@
 	"tournamentsOff": {
 		"message": "Tournois cachés"
 	},
+	"tournamentsBelowOn": {
+		"message": "Tournois sous le fil d'actualité"
+	},
+	"tournamentsBelowOff": {
+		"message": "Tournois affichés à droite"
+	},
+	"optionsRecentColumnOn": {
+		"message": "Nouveaux jeux visibles"
+	},
+	"optionsRecentColumnOff": {
+		"message": "Nouveaux jeux cachés"
+	},
 	"optionsPopularColumnOn": {
 		"message": "Jeux populaires visibles"
 	},
@@ -264,7 +276,13 @@
 	"optionsHomeNewsTall": {
 		"message": "Fil d'actualité plus long"
 	},
-	"optionsHomeRefresh": {
-		"message": "Vous devez recharger la page pour que les changements soient effectifs."
+	"optionsInProgress": {
+		"message": "Configuration de la page des jeux en cours"
+	},
+	"optionsInProgressEmpyOn": {
+		"message": "Sections vides affichées"
+	},
+	"optionsInProgressEmpyOff": {
+		"message": "[BETA] Sections vides cachées"
 	}
 }
