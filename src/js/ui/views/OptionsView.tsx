@@ -116,6 +116,17 @@ export const OptionsView = ({ config, onChange }: Props) => {
     );
   }
 
+  const getHomeSwitch = (param: string, message: string) => {
+    return (
+      <Switch
+        checked={homeConfig[param]}
+        textOn={chrome.i18n.getMessage(`${message}On`)}
+        textOff={chrome.i18n.getMessage(`${message}Off`)}
+        onChange={(val) => updateHomeConfig(param, val)}
+      />
+    );
+  };
+
   const getHomeSection = () => {
     if (configVisible === 'home') {
       return (
@@ -123,24 +134,9 @@ export const OptionsView = ({ config, onChange }: Props) => {
           <div className="options-frame-title">{chrome.i18n.getMessage("optionsHome")}</div>
           <div className="options-subframe">
             <div>
-              <Switch
-                checked={homeConfig.header}
-                textOn={chrome.i18n.getMessage("optionsHomeHeaderOn")}
-                textOff={chrome.i18n.getMessage("optionsHomeHeaderOff")}
-                onChange={(val) => updateHomeConfig('header', val)}
-              />
-              <Switch
-                checked={homeConfig.latestNews}
-                textOn={chrome.i18n.getMessage("optionsHomeLatestOn")}
-                textOff={chrome.i18n.getMessage("optionsHomeLatestOff")}
-                onChange={(val) => updateHomeConfig('latestNews', val)}
-              />
-              <Switch
-                checked={homeConfig.smallFeed}
-                textOn={chrome.i18n.getMessage("optionsHomeNewsSmall")}
-                textOff={chrome.i18n.getMessage("optionsHomeNewsLarge")}
-                onChange={(val) => updateHomeConfig('smallFeed', val)}
-              />
+              {getHomeSwitch('header', 'optionsHomeHeader')}
+              {getHomeSwitch('latestNews', 'optionsHomeLatest')}
+              {getHomeSwitch('smallFeed', 'optionsHomeNewsSmall')}
               <Switch
                 checked={homeConfig.fewFeeds && homeConfig.tournaments && homeConfig.tournamentsBelow}
                 textOn={chrome.i18n.getMessage("optionsHomeNewsShort")}
@@ -148,48 +144,17 @@ export const OptionsView = ({ config, onChange }: Props) => {
                 onChange={(val) => updateHomeConfig('fewFeeds', val)}
                 disabled={!homeConfig.tournaments || !homeConfig.tournamentsBelow}
               />
-              <Switch
-                checked={homeConfig.tournaments}
-                textOn={chrome.i18n.getMessage("tournamentsOn")}
-                textOff={chrome.i18n.getMessage("tournamentsOff")}
-                onChange={(val) => updateHomeConfig('tournaments', val)}
-              />
+              {getHomeSwitch('tournaments', 'tournaments')}
             </div>
             <div>
-              <Switch
-                checked={homeConfig.recentGames}
-                textOn={chrome.i18n.getMessage("optionsRecentColumnOn")}
-                textOff={chrome.i18n.getMessage("optionsRecentColumnOff")}
-                onChange={(val) => updateHomeConfig('recentGames', val)}
-              />
-              <Switch
-                checked={homeConfig.popularGames}
-                textOn={chrome.i18n.getMessage("optionsPopularColumnOn")}
-                textOff={chrome.i18n.getMessage("optionsPopularColumnOff")}
-                onChange={(val) => updateHomeConfig('popularGames', val)}
-              />
-              <Switch
-                checked={homeConfig.recommandedGames}
-                textOn={chrome.i18n.getMessage("optionsRecommendedColumnOn")}
-                textOff={chrome.i18n.getMessage("optionsRecommendedColumnOff")}
-                onChange={(val) => updateHomeConfig('recommandedGames', val)}
-              />
-              <Switch
-                checked={homeConfig.status}
-                textOn={chrome.i18n.getMessage("optionsStatusOn")}
-                textOff={chrome.i18n.getMessage("optionsStatusOff")}
-                onChange={(val) => updateHomeConfig('status', val)}
-              />
-              {homeConfig.tournaments &&
-                <Switch
-                  checked={homeConfig.tournamentsBelow}
-                  textOn={chrome.i18n.getMessage("tournamentsBelowOn")}
-                  textOff={chrome.i18n.getMessage("tournamentsBelowOff")}
-                  onChange={(val) => updateHomeConfig('tournamentsBelow', val)}
-                />
-              }
+              {getHomeSwitch('recentGames', 'optionsRecentColumn')}
+              {getHomeSwitch('popularGames', 'optionsPopularColumn')}
+              {getHomeSwitch('recommandedGames', 'optionsRecommendedColumn')}
+              {getHomeSwitch('status', 'optionsStatus')}
+              {homeConfig.tournaments && getHomeSwitch('tournamentsBelow', 'tournamentsBelow')}
             </div>
           </div>
+          <div>{chrome.i18n.getMessage("optionsHomeRefresh")}</div>
         </div>
       );
     }
@@ -201,17 +166,32 @@ export const OptionsView = ({ config, onChange }: Props) => {
     );
   }
 
+  const getInProgressSwitch = (param: string, message: string) => {
+    return (
+      <Switch
+        checked={inProgressConfig[param]}
+        textOn={chrome.i18n.getMessage(`${message}On`)}
+        textOff={chrome.i18n.getMessage(`${message}Off`)}
+        onChange={(val) => updateInProgressConfig(param, val)}
+      />
+    );
+  };
+
   const getInProgressSection = () => {
     if (configVisible === 'inProgress') {
       return (
         <div className="options-frame">
           <div className="options-frame-title">{chrome.i18n.getMessage("optionsInProgress")}</div>
-          <Switch
-            checked={inProgressConfig.emptySections}
-            textOn={chrome.i18n.getMessage("optionsInProgressEmpyOn")}
-            textOff={chrome.i18n.getMessage("optionsInProgressEmpyOff")}
-            onChange={(val) => updateInProgressConfig('emptySections', val)}
-          />
+          <div className="options-subframe">
+            <div>
+              {getInProgressSwitch('emptySections', 'optionsInProgressEmpty')}
+              {getInProgressSwitch('discover', 'optionsInProgressDiscover')}
+            </div>
+            <div>
+              {getInProgressSwitch('playAgain', 'optionsInProgressReplay')}
+              {getInProgressSwitch('more', 'optionsInProgressMore')}
+            </div>
+          </div>
         </div>
       );
     }

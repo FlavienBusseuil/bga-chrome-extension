@@ -175,7 +175,7 @@
 		"message": "Tables where you are expected are indicated by a color code and a message"
 	},
 	"optionsLobbyRedirectOn": {
-		"message": "[BETA] Always redirect to classic lobby when possible"
+		"message": "Always redirect to classic lobby when possible"
 	},
 	"optionsLobbyRedirectOff": {
 		"message": "Use the default lobby"
@@ -228,10 +228,10 @@
 	"optionsHomeLatestOff": {
 		"message": "Latest news hidden"
 	},
-	"optionsHomeNewsLarge": {
+	"optionsHomeNewsSmallOff": {
 		"message": "Large news feed"
 	},
-	"optionsHomeNewsSmall": {
+	"optionsHomeNewsSmallOn": {
 		"message": "Small news feed"
 	},
 	"tournamentsOn": {
@@ -276,13 +276,34 @@
 	"optionsHomeNewsTall": {
 		"message": "Longer news feed"
 	},
+	"optionsHomeRefresh": {
+		"message": "If the display becomes weird after a configuration change, try reloading the page."
+	},
 	"optionsInProgress": {
 		"message": "Game in progress page settings"
 	},
-	"optionsInProgressEmpyOn": {
+	"optionsInProgressEmptyOn": {
 		"message": "Empty sections displayed"
 	},
-	"optionsInProgressEmpyOff": {
+	"optionsInProgressEmptyOff": {
 		"message": "[BETA] Empty sections hidden"
+	},
+	"optionsInProgressReplayOn": {
+		"message": "'Replay' section displayed"
+	},
+	"optionsInProgressReplayOff": {
+		"message": "'Replay' section hidden"
+	},
+	"optionsInProgressDiscoverOn": {
+		"message": "'Discover' section displayed"
+	},
+	"optionsInProgressDiscoverOff": {
+		"message": "'Discover' section hidden"
+	},
+	"optionsInProgressMoreOn": {
+		"message": "'More friends' section displayed"
+	},
+	"optionsInProgressMoreOff": {
+		"message": "'More friends' section hidden"
 	}
 }

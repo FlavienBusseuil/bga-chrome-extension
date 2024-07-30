@@ -134,6 +134,28 @@ const Options = (props: { config: Configuration }) => {
 		config.setLobbyRedirectionEnable(val);
 	};
 
+	const getHomeSwitch = (param: string, message: string) => {
+		return (
+			<Switch
+				checked={homeConfig[param]}
+				textOn={chrome.i18n.getMessage(`${message}On`)}
+				textOff={chrome.i18n.getMessage(`${message}Off`)}
+				onChange={(val) => updateHomeConfig(param, val)}
+			/>
+		);
+	};
+
+	const getInProgressSwitch = (param: string, message: string) => {
+		return (
+			<Switch
+				checked={inProgressConfig[param]}
+				textOn={chrome.i18n.getMessage(`${message}On`)}
+				textOff={chrome.i18n.getMessage(`${message}Off`)}
+				onChange={(val) => updateInProgressConfig(param, val)}
+			/>
+		);
+	};
+
 	const getMiscConfiguration = () => {
 		return (
 			<>
@@ -160,29 +182,15 @@ const Options = (props: { config: Configuration }) => {
 						onChange={updateRedirect}
 					/>
 				</div>
+
 				<div className="bgext_options_title">
 					{chrome.i18n.getMessage("optionsHome")}
 				</div>
 				<div className="bgext_home_container">
 					<div>
-						<Switch
-							checked={homeConfig.header}
-							textOn={chrome.i18n.getMessage("optionsHomeHeaderOn")}
-							textOff={chrome.i18n.getMessage("optionsHomeHeaderOff")}
-							onChange={(val) => updateHomeConfig('header', val)}
-						/>
-						<Switch
-							checked={homeConfig.latestNews}
-							textOn={chrome.i18n.getMessage("optionsHomeLatestOn")}
-							textOff={chrome.i18n.getMessage("optionsHomeLatestOff")}
-							onChange={(val) => updateHomeConfig('latestNews', val)}
-						/>
-						<Switch
-							checked={homeConfig.smallFeed}
-							textOn={chrome.i18n.getMessage("optionsHomeNewsSmall")}
-							textOff={chrome.i18n.getMessage("optionsHomeNewsLarge")}
-							onChange={(val) => updateHomeConfig('smallFeed', val)}
-						/>
+						{getHomeSwitch('header', 'optionsHomeHeader')}
+						{getHomeSwitch('latestNews', 'optionsHomeLatest')}
+						{getHomeSwitch('smallFeed', 'optionsHomeNewsSmall')}
 						<Switch
 							checked={homeConfig.fewFeeds && homeConfig.tournaments && homeConfig.tournamentsBelow}
 							textOn={chrome.i18n.getMessage("optionsHomeNewsShort")}
@@ -190,58 +198,29 @@ const Options = (props: { config: Configuration }) => {
 							onChange={(val) => updateHomeConfig('fewFeeds', val)}
 							disabled={!homeConfig.tournaments || !homeConfig.tournamentsBelow}
 						/>
-						<Switch
-							checked={homeConfig.tournaments}
-							textOn={chrome.i18n.getMessage("tournamentsOn")}
-							textOff={chrome.i18n.getMessage("tournamentsOff")}
-							onChange={(val) => updateHomeConfig('tournaments', val)}
-						/>
+						{getHomeSwitch('tournaments', 'tournaments')}
 					</div>
 					<div>
-						<Switch
-							checked={homeConfig.recentGames}
-							textOn={chrome.i18n.getMessage("optionsRecentColumnOn")}
-							textOff={chrome.i18n.getMessage("optionsRecentColumnOff")}
-							onChange={(val) => updateHomeConfig('recentGames', val)}
-						/>
-						<Switch
-							checked={homeConfig.popularGames}
-							textOn={chrome.i18n.getMessage("optionsPopularColumnOn")}
-							textOff={chrome.i18n.getMessage("optionsPopularColumnOff")}
-							onChange={(val) => updateHomeConfig('popularGames', val)}
-						/>
-						<Switch
-							checked={homeConfig.recommandedGames}
-							textOn={chrome.i18n.getMessage("optionsRecommendedColumnOn")}
-							textOff={chrome.i18n.getMessage("optionsRecommendedColumnOff")}
-							onChange={(val) => updateHomeConfig('recommandedGames', val)}
-						/>
-						<Switch
-							checked={homeConfig.status}
-							textOn={chrome.i18n.getMessage("optionsStatusOn")}
-							textOff={chrome.i18n.getMessage("optionsStatusOff")}
-							onChange={(val) => updateHomeConfig('status', val)}
-						/>
-						{homeConfig.tournaments &&
-							<Switch
-								checked={homeConfig.tournamentsBelow}
-								textOn={chrome.i18n.getMessage("tournamentsBelowOn")}
-								textOff={chrome.i18n.getMessage("tournamentsBelowOff")}
-								onChange={(val) => updateHomeConfig('tournamentsBelow', val)}
-							/>
-						}
+						{getHomeSwitch('recentGames', 'optionsRecentColumn')}
+						{getHomeSwitch('popularGames', 'optionsPopularColumn')}
+						{getHomeSwitch('recommandedGames', 'optionsRecommendedColumn')}
+						{getHomeSwitch('status', 'optionsStatus')}
+						{homeConfig.tournaments && getHomeSwitch('tournamentsBelow', 'tournamentsBelow')}
 					</div>
 				</div>
+
 				<div className="bgext_options_title">
 					{chrome.i18n.getMessage("optionsInProgress")}
 				</div>
-				<div className="bgext_misc_container">
-					<Switch
-						checked={inProgressConfig.emptySections}
-						textOn={chrome.i18n.getMessage("optionsInProgressEmpyOn")}
-						textOff={chrome.i18n.getMessage("optionsInProgressEmpyOff")}
-						onChange={(val) => updateInProgressConfig('emptySections', val)}
-					/>
+				<div className="bgext_home_container">
+					<div>
+						{getInProgressSwitch('emptySections', 'optionsInProgressEmpty')}
+						{getInProgressSwitch('discover', 'optionsInProgressDiscover')}
+					</div>
+					<div>
+						{getInProgressSwitch('playAgain', 'optionsInProgressReplay')}
+						{getInProgressSwitch('more', 'optionsInProgressMore')}
+					</div>
 				</div>
 			</>
 		);
@@ -259,23 +238,15 @@ const Options = (props: { config: Configuration }) => {
 							{chrome.i18n.getMessage("optionNoHiddenGames")}
 						</span>
 					)}
-					{hiddenGames.length > 0 &&
-						hiddenGames.map((game, index) => (
-							<div
-								className="bgext_hidden_game"
-								key={`game_${index}`}
-							>
-								{game}
-								<div
-									className="bgext_hidden_game_close"
-									onClick={() =>
-										setHiddenGames(config.displayGame(game))
-									}
-								>
-									🗙
-								</div>
-							</div>
-						))}
+					{hiddenGames.length > 0 && hiddenGames.map((game, index) => (
+						<div
+							className="bgext_hidden_game"
+							key={`game_${index}`}
+						>
+							{game}
+							<div className="bgext_hidden_game_close" onClick={() => setHiddenGames(config.displayGame(game))} >🗙</div>
+						</div>
+					))}
 				</div>
 				<div className="bgext_options_warning">
 					{chrome.i18n.getMessage("optionHiddenGamesWarning")}

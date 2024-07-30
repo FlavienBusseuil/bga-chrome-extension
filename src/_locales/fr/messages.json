@@ -175,7 +175,7 @@
 		"message": "Les tables sur lesquels vous êtes attendus sont signalées par un code couleur et un message"
 	},
 	"optionsLobbyRedirectOn": {
-		"message": "[BETA] Toujours rediriger vers le lobby classique lorsque c'est possible"
+		"message": "Toujours rediriger vers le lobby classique lorsque c'est possible"
 	},
 	"optionsLobbyRedirectOff": {
 		"message": "Utiliser le lobby par défaut"
@@ -228,10 +228,10 @@
 	"optionsHomeLatestOff": {
 		"message": "Dernières actualités cachées"
 	},
-	"optionsHomeNewsLarge": {
+	"optionsHomeNewsSmallOff": {
 		"message": "Fil d'actualité plus large"
 	},
-	"optionsHomeNewsSmall": {
+	"optionsHomeNewsSmallOn": {
 		"message": "Fil d'actualité petit en largeur"
 	},
 	"tournamentsOn": {
@@ -276,13 +276,34 @@
 	"optionsHomeNewsTall": {
 		"message": "Fil d'actualité plus long"
 	},
+	"optionsHomeRefresh": {
+		"message": "Si l'affichage devient étrange après une modification de la configuration, essayez de recharger la page."
+	},
 	"optionsInProgress": {
 		"message": "Configuration de la page des jeux en cours"
 	},
-	"optionsInProgressEmpyOn": {
+	"optionsInProgressEmptyOn": {
 		"message": "Sections vides affichées"
 	},
-	"optionsInProgressEmpyOff": {
+	"optionsInProgressEmptyOff": {
 		"message": "[BETA] Sections vides cachées"
+	},
+	"optionsInProgressReplayOn": {
+		"message": "Section 'Rejouer' affichée"
+	},
+	"optionsInProgressReplayOff": {
+		"message": "Section 'Rejouer' cachée"
+	},
+	"optionsInProgressDiscoverOn": {
+		"message": "Section 'Découvrir' affichée"
+	},
+	"optionsInProgressDiscoverOff": {
+		"message": "Section 'Découvrir' cachée"
+	},
+	"optionsInProgressMoreOn": {
+		"message": "Section 'Plus d'amis' affichée"
+	},
+	"optionsInProgressMoreOff": {
+		"message": "Section 'Plus d'amis' cachée"
 	}
 }
