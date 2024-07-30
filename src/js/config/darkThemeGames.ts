@@ -1428,6 +1428,16 @@ h3 { color: #fff; }
 .game-player-panel .panel-item.item-majority-ranking .item-value { background: #000; }
 `;
 
+_darkStyleForGame['dinogenics'] = `
+#visitor_panel_active .visitor-title, #visitor_panel_upcoming .visitor-title { color: var(--light-100); }
+#visitor_panel_active .empty-visitors, #visitor_panel_upcoming .empty-visitors { color: var(--light-50); }
+#visitor_panel_active .player-number,#visitor_panel_upcoming .player-number { color: var(--light-80); }
+body.dinogenics-game #player_boards .dgx_cp_board .dgx-sprite.dnaback, body.dinogenics-game #player_boards .dgx_cp_board .dgx-sprite.ednaback, body.dinogenics-game #player_boards .dgx_cp_board .dgx-sprite.manipback { filter: var(--highlight-min); }
+body.dinogenics-game #player_hand { background: var(--dark-back); }
+.dgx-tooltip-info { border: 1px solid var(--blue-80); color: var(--blue-80); }
+#main_board, .player_island { filter: brightness(0.8); }
+`;
+
 _darkStyleForGame['dinosaurteaparty'] = `
 .guess_text { color: #000; }
 .dinosaurtooltip_text [style^="color: #0c5a93;"] { color: #1392ec !important; }
