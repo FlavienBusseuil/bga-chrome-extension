@@ -1265,7 +1265,11 @@ const defaultGames: Partial<Game>[] = [
 	{
 		name: "bonsai",
 		playerPanel: "bon_player-{{player_id}}",
-	}
+	},
+	{
+		name: "castlecombo",
+		playerPanel: "player-table-{{player_id}}",
+	},
 ];
 
 export default defaultGames;

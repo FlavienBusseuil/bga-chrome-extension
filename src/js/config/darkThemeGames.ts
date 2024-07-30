@@ -983,6 +983,13 @@ _darkStyleForGame['cartographers'] = `
 #jj-preferences-panel #jj-preferences-panel-content .jj-preferences-panel-category-label { background: var(--dark-back); }
 `;
 
+_darkStyleForGame['castlecombo'] = `
+.player-table { background: var(--dark-back); }
+.player-table .name-wrapper .name { text-shadow: none; }
+#popin_bgaHelpDialog { background: var(--dark-10); }
+#popin_bgaHelpDialog .block { background: var(--dark-20); }
+`;
+
 _darkStyleForGame['castlesofcaleira'] = `
 #zoom-controls, .coc_scroll_arrow { filter: invert(0.7); }
 `;
