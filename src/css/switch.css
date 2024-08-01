@@ -39,6 +39,10 @@
   transition: .4s;
 }
 
+.bgaext_switch_container.disabled .bgaext_slider {
+  cursor: not-allowed;
+}
+
 html.dark .bgaext_slider,
 html.darkmode .bgaext_slider {
   background-color: var(--dark-40);

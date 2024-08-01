@@ -199,6 +199,15 @@ const Options = (props: { config: Configuration }) => {
 							disabled={!homeConfig.tournaments || !homeConfig.tournamentsBelow}
 						/>
 						{getHomeSwitch('tournaments', 'tournaments')}
+
+						<Switch
+							checked={homeConfig.events || homeConfig.recentGames}
+							textOn={chrome.i18n.getMessage("optionsHomeEventsOn")}
+							textOff={chrome.i18n.getMessage("optionsHomeEventsOff")}
+							onChange={(val) => updateHomeConfig('events', val)}
+							disabled={homeConfig.recentGames}
+						/>
+
 					</div>
 					<div>
 						{getHomeSwitch('recentGames', 'optionsRecentColumn')}

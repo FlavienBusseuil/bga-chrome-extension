@@ -272,6 +272,7 @@ class Configuration {
 			recentGames: true,
 			popularGames: true,
 			recommandedGames: true,
+			events: true,
 			...(this._customConfig.home || {})
 		};
 	}
@@ -547,6 +548,11 @@ class Configuration {
 		const cssList: string[] = [];
 		let columns = 3;
 
+		// If we want to display events, display the recent games section
+		if (home.events && document.querySelector('.bga-advent-calendar')) {
+			home.recentGames = true;
+		}
+
 		if (this._localConfig.css) {
 			cssList.push(this._localConfig.css);
 		}
@@ -595,9 +601,24 @@ class Configuration {
 		} else if (!home.tournamentsBelow) {
 			cssList.push(`.bgaext_welcome .bga-homepage__content { grid-template-columns: minmax(0, 40%) minmax(0, 60%) !important; }`);
 		}
+
+		/*
+		cssList.push(`.bgaext_welcome .bga-homepage__content { display: grid; grid-template-columns: [col1] ${300 * columns}px [col2] auto !important; grid-template-rows: [row1] auto [row2] auto !important; }`);
+		cssList.push('.bgaext_welcome .bga-homepage__games-section { display: grid; grid-column-start: 1 !important; grid-column-end: 1 !important; grid-row-start: 1 !important; grid-row-end: 1 !important; }');
+		cssList.push('.bgaext_welcome .bga-homepage__partner-events-section { display: grid; grid-column-start: 1 !important; grid-column-end: 1 !important; grid-row-start: 2 !important; grid-row-end: 2 !important; }');
+		cssList.push('.bgaext_welcome .bga-homepage__newsfeed-torunaments-section { display: grid; grid-column-start: 2 !important; grid-column-end: 2 !important; grid-row-start: 1 !important; grid-row-end: 1 !important; }');
+		*/
+		//cssList.push('.bgaext_welcome .bga-homepage__content .bga-homepage__games-section > .homepage-section:last-child { display: none; }');
+
+
 		if (!home.fewFeeds || !home.tournaments || !home.tournamentsBelow) {
 			cssList.push(`.bgaext_welcome .post.bga-hover-for-list { display: block !important; }`);
 		}
+
+		if (!home.smallFeed || !home.tournamentsBelow) {
+			cssList.push('.bgaext_welcome .bga-homepage__partner-events-section { display: none; }');
+		}
+
 		if (!home.status) {
 			cssList.push(`.bgaext_welcome .bga-homepage__service-status-section { display: none; }`);
 		}

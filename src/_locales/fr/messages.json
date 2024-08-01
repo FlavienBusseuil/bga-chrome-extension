@@ -234,6 +234,12 @@
 	"optionsHomeNewsSmallOn": {
 		"message": "Fil d'actualité petit en largeur"
 	},
+	"optionsHomeEventsOn": {
+		"message": "Calendrier des événements affiché"
+	},
+	"optionsHomeEventsOff": {
+		"message": "Calendrier des événements caché"
+	},
 	"tournamentsOn": {
 		"message": "Tournois visibles"
 	},

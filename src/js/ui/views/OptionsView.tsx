@@ -154,6 +154,14 @@ export const OptionsView = ({ config, onChange }: Props) => {
               {homeConfig.tournaments && getHomeSwitch('tournamentsBelow', 'tournamentsBelow')}
             </div>
           </div>
+
+          <Switch
+            checked={homeConfig.events || homeConfig.recentGames}
+            textOn={chrome.i18n.getMessage("optionsHomeEventsOn")}
+            textOff={chrome.i18n.getMessage("optionsHomeEventsOff")}
+            onChange={(val) => updateHomeConfig('events', val)}
+            disabled={homeConfig.recentGames}
+          />
           <div>{chrome.i18n.getMessage("optionsHomeRefresh")}</div>
         </div>
       );

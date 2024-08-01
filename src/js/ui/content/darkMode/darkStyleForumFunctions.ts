@@ -2,6 +2,7 @@ import { cookieName, createStyle, getFile } from "./darkStyleCommonFunctions";
 
 const cssList = ["dark_theme/background.css", "dark_theme/forum.css"];
 const cssContents = {};
+let customCssCode = '';
 let styleComponent;
 
 Promise.all(cssList.map(getFile)).then(fileContents => {
@@ -32,7 +33,7 @@ const _setDarkStyle = () => {
   console.log("[bga extension - forum] Set dark mode");
 
   if (styleComponent) {
-    styleComponent.innerHTML = `${cssContents["dark_theme/background.css"]}${cssContents["dark_theme/forum.css"]}`;
+    styleComponent.innerHTML = `${cssContents["dark_theme/background.css"]}${cssContents["dark_theme/forum.css"]}${customCssCode}`;
   }
 
   document.documentElement.classList.add("darkmode");
@@ -42,13 +43,15 @@ const _setLightStyle = () => {
   console.log("[bga extension - forum] Set light mode");
 
   if (styleComponent) {
-    styleComponent.innerHTML = "";
+    styleComponent.innerHTML = customCssCode;
   }
 
   document.documentElement.classList.remove("darkmode");
 };
 
-export const setDarkStyle = (val: boolean) => {
+export const setDarkStyle = (val: boolean, customCss: string) => {
+  customCssCode = customCss;
+
   if (isDarkStyle() === val) {
     return;
   }

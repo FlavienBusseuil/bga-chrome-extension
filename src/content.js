@@ -28,6 +28,23 @@ const initObserver = (page) => {
 	}
 };
 
+const _waitForObj = (q, maxIteration, returnFunc, returnFuncError) => {
+	console.log(`[bga extension] wait for elt '${q}. Iteration:${maxIteration}'`);
+	if (document.querySelector(q)) {
+		console.log(`[bga extension] wait for elt '${q}, result: true'`);
+		returnFunc();
+	} else if (maxIteration === 0) {
+		console.log(`[bga extension] wait for elt '${q}, result: false'`);
+		returnFuncError();
+	} else {
+		setTimeout(() => _waitForObj(q, maxIteration - 1, returnFunc, returnFuncError), 200);
+	}
+};
+
+const waitForObj = async (q, maxIteration) => {
+	await new Promise((resolve, error) => _waitForObj(q, maxIteration, resolve, error));
+}
+
 const manageLocationChange = (pathname) => {
 	console.log('[bga extension] load path', pathname);
 
@@ -86,6 +103,8 @@ const manageLocationChange = (pathname) => {
 			script.src = `${chrome.runtime.getURL('/js/homepage.js')}?&time=${new Date().getTime()}`;
 			document.head.appendChild(script);
 		}
+
+		waitForObj('.bga-advent-calendar', 10).then(() => buildMainCss(config.getAllCss()));
 	}
 
 	if (pageName !== 'archive' && pageName !== 'tutorial') {

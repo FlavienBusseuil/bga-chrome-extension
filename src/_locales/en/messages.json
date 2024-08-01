@@ -234,6 +234,12 @@
 	"optionsHomeNewsSmallOn": {
 		"message": "Small news feed"
 	},
+	"optionsHomeEventsOn": {
+		"message": "Events calendar displayed"
+	},
+	"optionsHomeEventsOff": {
+		"message": "Events calendar hidden"
+	},
 	"tournamentsOn": {
 		"message": "Tournaments displayed"
 	},
@@ -247,10 +253,10 @@
 		"message": "Tournaments on the right"
 	},
 	"optionsRecentColumnOn": {
-		"message": "Recent games displayed"
+		"message": "New games displayed"
 	},
 	"optionsRecentColumnOff": {
-		"message": "Recent games hidden"
+		"message": "New games hidden"
 	},
 	"optionsPopularColumnOn": {
 		"message": "Popular games displayed"
