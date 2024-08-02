@@ -84,6 +84,7 @@ export const gamesWithCustomBackground = [
   'pixies',
   'pocketcats',
   'pook',
+  'qo',
   'quartermastergeneraleastfront',
   'quirkyquarks',
   'restinpeace',
@@ -93,6 +94,7 @@ export const gamesWithCustomBackground = [
   'secretmoon',
   'scythe',
   'skull',
+  'smallworld',
   'sobektwoplayers',
   'spacebase',
   'spaceempires',
@@ -107,6 +109,7 @@ export const gamesWithCustomBackground = [
   'tickettorideeurope',
   'tikal',
   'talon',
+  'theyellowhouse',
   'tinyturbocars',
   'trailblazers',
   'trio',
@@ -808,6 +811,8 @@ _darkStyleForGame['bombay'] = `
 
 _darkStyleForGame['bonsai'] = `
 #bon_opponents .bon_player { background-color: var(--dark-back); color: var(--light-80); }
+#bon_solo-panel { background: var(--dark-back); }
+.bon_solo-obj { color: var(--light-80); }
 `;
 
 _darkStyleForGame['boomerangaustralia'] = `
@@ -1911,6 +1916,11 @@ _darkStyleForGame['formulad'] = `
 .dijitMenuArrowCell { filter: invert(1); }
 `;
 
+_darkStyleForGame['fornorthwood'] = `
+#overall-content[style^="background"]:before { content: ""; background: #000000A0; position: absolute; width: 100%; height: 100%; top:0px; left: 0px; }
+.card>.card_text { color: #000; }
+`;
+
 _darkStyleForGame['fortheking'] = `
 #pagesection_gameview { color: var(--light-80); }
 #zoom-controls3 { filter: invert(0.7); }
@@ -2068,6 +2078,7 @@ _darkStyleForGame['glow'] = `
 _darkStyleForGame['gnomehollow'] = `
 #overall-content:before { content: ""; background: #000000C0; position: absolute; width: 100%; height: 100%; top:0px; left: 0px; }
 .player-board { background-color: var(--dark-back); }
+.count_mushroom { color: #000; }
 `;
 
 _styleForGame['gravitysuperstar'] = `
@@ -3235,6 +3246,12 @@ _darkStyleForGame['odicey'] = `
 .odi_port { outline: var(--diceBorder) solid var(--dark-10); }
 `;
 
+_darkStyleForGame['odin'] = `
+.background-container { filter: brightness(0.3); }
+.log-arrow.log-arrow-right { color: var(--light-80) !important; }
+.a-card.game-area-card { filter: brightness(0.5); }
+`;
+
 _darkStyleForGame['ohseven'] = `
 .o7-table-card-label { background-color: var(--dark-20); }
 `;
@@ -3320,6 +3337,10 @@ _darkStyleForGame['parisconnection'] = `
 .pk-log-train2 { color: #6666ff; }
 .pk-log-train5 { color: #ff3333; }
 .pk-icon-train { filter: var(--drop-shadow); }
+`;
+
+_darkStyleForGame['parklife'] = `
+#overall-content[style^="background"]:before { content: ""; background: #000000A0; position: absolute; width: 100%; height: 100%; top:0px; left: 0px; }
 `;
 
 _darkStyleForGame['parks'] = `
@@ -4421,6 +4442,13 @@ _darkStyleForGame['theshipwreckarcana'] = `
 .suggestion_area { background-color: var(--dark-back); color: var(--light-80); }
 `;
 
+_darkStyleForGame['theyellowhouse'] = `
+body { background-color: #442908; }
+.yh_preview { background-color: var(--dark-back); }
+.yh_sidetitle span { background-color: var(--dark-back); color: var(--light-80); }
+.yh_item { color: var(--light-80); }
+`;
+
 _darkStyleForGame['thirteenclues'] = `
 #tcGameLogTable th { color: #05f; }
 .tableWindow td { color: #8585ad; }
@@ -4445,6 +4473,10 @@ _darkStyleForGame['throughtheages'] = `
 _darkStyleForGame['throughtheagesnewstory'] = `
 .firstplayernotice { color: #fff; }
 .dijitTooltipContainer .imgtext, .tta_icon { filter: var(--drop-shadow); }
+`;
+
+_darkStyleForGame['tulipandrose'] = `
+#info_container { background-color: var(--dark-10); color: var(--light-80); }
 `;
 
 _darkStyleForGame['turnthetide'] = `

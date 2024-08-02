@@ -69,6 +69,7 @@ export interface HomeConfig {
 	recentGames: boolean;
 	popularGames: boolean;
 	recommandedGames: boolean;
+	events: boolean;
 };
 
 export interface InProgressConfig {
