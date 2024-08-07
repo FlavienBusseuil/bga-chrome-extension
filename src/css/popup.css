@@ -19,6 +19,9 @@ html {
 
 body {
   color: #000;
+  width: 500px !important;
+  font-size: 9pt;
+  overflow: hidden;
 }
 
 .max-result {
