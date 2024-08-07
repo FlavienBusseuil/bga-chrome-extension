@@ -11,7 +11,11 @@
 		"clean": "rm -rf .parcel-cache/* build/*",
 		"prod:css": "yarn tailwindcss -i ./src/css/base.css -c ./tailwind.config.js -o ./src/css/tailwind.css",
 		"prod:parcel": "yarn parcel build src/manifest.json --target prod --dist-dir ./build --no-source-maps",
-		"release": "./scripts/release.zsh"
+		"release": "./scripts/release.zsh",
+		"build:ff": "yarn clean && NODE_ENV=production yarn prod:css && yarn prebuild:firefox && yarn prod:parcel:firefox && yarn postbuild:firefox",
+		"prod:parcel:firefox": "yarn parcel build src/manifest.json --target prod-firefox --dist-dir ./build --no-source-maps",
+		"prebuild:firefox": "mv src/manifest.json src/manifest-chrome.json && mv src/manifest-firefox.json src/manifest.json",
+		"postbuild:firefox": "mv src/manifest.json src/manifest-firefox.json && mv src/manifest-chrome.json src/manifest.json"
 	},
 	"browserslist": [
 		"since 2017-06"
@@ -23,7 +27,8 @@
 				"inlineSources": true
 			}
 		},
-		"prod": {}
+		"prod": {},
+		"prod-firefox": {}
 	},
 	"devDependencies": {
 		"@babel/core": "^7.12.0",
