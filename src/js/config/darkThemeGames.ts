@@ -91,6 +91,7 @@ export const gamesWithCustomBackground = [
   'railroadinkchallenge',
   'romirami',
   'santorini',
+  'seasaltpaper',
   'secretmoon',
   'scythe',
   'skull',
@@ -1710,6 +1711,8 @@ _darkStyleForGame['euchre'] = `
 
 _darkStyleForGame['evergreen'] = `
 .eve_inline-block { color: #000; }
+.eve_action-icon, .stockitem { filter: invert(1) hue-rotate(128deg) saturate(5); }
+.eve_biome-power-icon { filter: invert(1) drop-shadow(0 0 .2px red); }
 `;
 
 _darkStyleForGame['evolution'] = `
@@ -3874,10 +3877,13 @@ span.factionname { background-color: rgba(0, 0, 0, 0) !important; }
 `;
 
 _darkStyleForGame['seasaltpaper'] = `
+#overall-content:before { content: ""; background: #00000080; position: absolute; width: 100%; height: 100%; }
 #discard-pick, .player-table { background: var(--dark-back); }
-.player-table .name-wrapper { background: var(--dark-20); }
+.player-table .name-wrapper { background: var(--dark-10); }
 #popin_seasaltpaperHelpDialog { background: var(--dark-10); color: #fff; }
-#help-popin .help-section { background-color: #30919c; }
+#help-popin .help-section { background-color: #18494e; }
+#cards-points-tooltip { color: var(--light-80); }
+#table-center #deck-and-discards .discard-stack { background-color: var(--dark-back); }
 `;
 
 _darkStyleForGame['seasons'] = `
@@ -4966,6 +4972,10 @@ _darkStyleForGame['yaniv'] = `
 `;
 
 _darkStyleForGame['yatzy'] = `
+#scoring_chart { color: var(--light-80); }
+#scoring_chart, #scoring_chart td, #scoring_chart th { border: 1px solid var(--light-50); }
+.possible_cell { color: var(--light-50); }
+.possible_cell:hover { background-color: #055a0566; }
 .PointLine > th, .PointLine > td { color: #fff; }
 .PointLine > td.possibleCells { color: gray; }
 `;

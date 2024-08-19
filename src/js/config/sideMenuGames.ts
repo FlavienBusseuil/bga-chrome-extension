@@ -674,6 +674,8 @@ const defaultGames: Partial<Game>[] = [
 	{
 		name: "seasaltpaper",
 		playerPanel: "player-table-{{player_id}}",
+		iconBackground: "#778ea9",
+		iconBackgroundDark: "#778ea9"
 	},
 	{
 		name: "goldblivion",
