@@ -1158,8 +1158,9 @@ const defaultGames: Partial<Game>[] = [
 	{
 		name: "newton",
 		playerPanel: "player_game_board_{{player_id}}",
-		boardPanel: "ntn_track_board",
-		playerPanelOffset: 20
+		boardPanel: "ntn_top_boards",
+		playerPanelOffset: 20,
+		css: ".default_to_carousel_view_on #bga_extension_sidebar { display: none; } .default_to_carousel_view_off #game_play_area { padding-left: 50px; }",
 	},
 	{
 		name: "looot",

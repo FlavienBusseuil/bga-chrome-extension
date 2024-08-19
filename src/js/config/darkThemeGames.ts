@@ -3124,6 +3124,10 @@ html.nft_background_space .logs_on_floating_panel .player-board { background-col
 _darkStyleForGame['newton'] = `
 #player_boards hr { border: 1px solid var(--dark-40); }
 .ntn-top-tooltip-area { background-color: var(--dark-back); color: var(--light-80); }
+.ntn_top_carousel_button:hover { background-color: var(--dark-10); }
+.ntn_top_carousel_button_content.ntn_top_carousel_button_content_text { color: #a85757; }
+#ntn_shop_area { background-color: var(--dark-20); }
+.player_summary_row .fa.fa-chevron-down, .player_summary_row .fa.fa-chevron-up { color: var(--red-10); }
 `;
 
 _darkStyleForGame['newyorkzoo'] = `
@@ -4617,6 +4621,7 @@ _darkStyleForGame['tinyfarms'] = `
 
 _darkStyleForGame['tinyturbocars'] = `
 #overall-content:before { content: ""; background: #000000bb; position: absolute; width: 100%; height: 100%; }
+#logs .ttc_car[style="background-position-x:-300%"] { filter: var(--highlight-min); }
 `;
 
 _darkStyleForGame['tiwanaku'] = `
