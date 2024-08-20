@@ -1,8 +1,8 @@
 {
   "manifest_version": 3,
-  "name": "Board Game Arena (BGA) Chrome Extension - boardgamearena.com",
-  "short_name": "BGA Chrome Extension",
-  "version": "1.9.38",
+  "name": "Board Game Arena (BGA) Extension",
+  "short_name": "BGA Extension",
+  "version": "1.9.37",
   "action": {
     "default_popup": "popup.html"
   },
@@ -42,8 +42,9 @@
   "author": "Flavien Busseuil & Christophe Delaforge",
   "homepage_url": "https://github.com/FlavienBusseuil/bga-chrome-extension",
   "background": {
-    "service_worker": "background.js",
-    "type": "module"
+    "scripts": [
+      "background.js"
+    ]
   },
   "content_security_policy": {
     "extension_pages": "script-src 'self'; object-src 'self'"
@@ -83,8 +84,9 @@
     }
   ],
   "browser_specific_settings": {
-    "edge": {
-      "browser_action_next_to_addressbar": true
+    "gecko": {
+      "id": "{e0c7f997-ef08-4a68-8636-1e22206fe4fc}",
+      "strict_min_version": "113.0"
     }
   }
 }

@@ -2,6 +2,10 @@
   color-scheme: dark;
 }
 
+.bg-white {
+  background-color: var(--dark-back);
+}
+
 .text-bga-gray-78 {
   color: var(--light-70);
 }

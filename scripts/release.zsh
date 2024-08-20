@@ -12,6 +12,12 @@ yarn build;
 cd build/prod
 zip -r ../../builds/build-$TAG.zip *;
 cd ../..
+# production firefox build
+yarn build:ff;
+# zip firefox
+cd build/prod-firefox
+zip -r ../../builds/build-firefox-$TAG.zip *;
+cd ../..
 # commit changes
 git add package.json;
 git add src/manifest.json;
