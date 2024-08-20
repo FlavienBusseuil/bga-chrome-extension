@@ -78,6 +78,7 @@ export const gamesWithCustomBackground = [
   'ontour',
   'openseason',
   'oriflamme',
+  'orleans',
   'pandemic',
   'paxrenaissance',
   'pingimus',
@@ -200,6 +201,7 @@ export const gamesWithCustomColors = {
   lumen: ['#1f3067'],
   nimalia: ['#0000ff', '#ff0000', '#ffa500', '#008000'],
   riverofgold: ['#000000', '#ff0000', '#008000', '#0000ff', '#ffffff'],
+  parklife: ['#333333']
 };
 
 export const gamesWithCustomActions = {
@@ -994,6 +996,7 @@ _darkStyleForGame['castlecombo'] = `
 .player-table .name-wrapper .name { text-shadow: none; }
 #popin_bgaHelpDialog { background: var(--dark-10); }
 #popin_bgaHelpDialog .block { background: var(--dark-20); }
+.discount-counter .discount-counter-value { color: #000; }
 `;
 
 _darkStyleForGame['castlesofcaleira'] = `
@@ -1922,6 +1925,10 @@ _darkStyleForGame['formulad'] = `
 _darkStyleForGame['fornorthwood'] = `
 #overall-content[style^="background"]:before { content: ""; background: #000000A0; position: absolute; width: 100%; height: 100%; top:0px; left: 0px; }
 .card>.card_text { color: #000; }
+span[style*="color:#3c3c3c;"] { color: #999999 !important; }
+#fief_move_left, #fief_move_right { background-color: var(--dark-back); color: var(--light-70); }
+.visiting_space.currently_visiting { background: var(--dark-10); }
+.visiting_space.currently_visiting:after { filter: saturate(3); }
 `;
 
 _darkStyleForGame['fortheking'] = `
@@ -3086,9 +3093,14 @@ _darkStyleForGame['nachopile'] = `
 .nachosmall, .smallnacho { filter: var(--highlight-min); }
 `;
 
+_darkStyleForGame['naishi'] = `
+#pagemaintitletext span[style*="background-color:#bbbbbb"] { background-color: transparent !important; }
+`;
+
 _darkStyleForGame['nanatoridori'] = `
 #overall-content:before { content: ""; background: #000000A0; position: absolute; width: 100%; height: 100%; }
 #overall-content { color: var(--light-80); }
+.nana_hand { color: #000; }
 `;
 
 _darkStyleForGame['nangaparbat'] = `
@@ -3201,6 +3213,8 @@ _darkStyleForGame['noneshallpass'] = `
 
 _darkStyleForGame['norsemen'] = `
 #nor-option-accordeon, #nor-options { color: #d04949; }
+.nor_icon-Normandy { filter: var(--highlight-min); }
+.nor_icon-1vp, .nor_icon-2vp, .nor_icon-silverCoin1, .nor_icon-silverCoin2, .nor_icon-silverCoin3 { border-radius: 50%; }
 `;
 
 _darkStyleForGame['notalone'] = `
@@ -3314,6 +3328,18 @@ _darkStyleForGame['origin'] = `
 .roundedbox { background-color: var(--dark-10) !important; }
 .tableau { background-color: var(--dark-back); }
 #board_tribes .tribe { filter: var(--drop-shadow); }
+`;
+
+_darkStyleForGame['orleans'] = `
+#overall-content:before { content: ""; background: #00000080; position: absolute; width: 100%; height: 100%; top:0px; left: 0px; }
+#orl-main-reserve-craftsman, #orl-main-reserve-trader, #orl-main-reserve-scholar, .orl-follower-art.small { border: 1px solid var(--light-50); border-radius: 50%; box-sizing: border-box; }
+#popin_orl-player-aid-dialog_close i { border-radius: 50%; background: var(--dark-20); height: 30px; }
+#popin_orl-scoresheet-dialog #orl-scoresheet { color: #000; }
+#orl-main-game-panel #orl-main-game-panel-buttons { background: var(--dark-10); }
+#jj-preferences-panel { background-color: var(--dark-20); }
+#jj-preferences-panel #jj-preferences-panel-content .jj-preferences-panel-category-label, #orl-main-game-panel #orl-round-counter-wrapper { background: var(--dark-0); }
+#orl-main-place-tiles-wrapper h1 { color: var(--light-80); }
+.orl-trading-station .card-side { filter: drop-shadow(1px 1px 1px #8e8e8e); }
 `;
 
 _darkStyleForGame['oxono'] = `
