@@ -298,7 +298,7 @@
 		"message": "Empty sections displayed"
 	},
 	"optionsInProgressEmptyOff": {
-		"message": "[BETA] Empty sections hidden"
+		"message": "Empty sections hidden"
 	},
 	"optionsInProgressReplayOn": {
 		"message": "'Replay' section displayed"
