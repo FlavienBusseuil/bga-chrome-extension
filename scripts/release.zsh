@@ -21,6 +21,7 @@ cd ../..
 # commit changes
 git add package.json;
 git add src/manifest.json;
+git add src/manifest-firefox.json;
 git commit -m 'Update version';
 git push;
 # push Github tag

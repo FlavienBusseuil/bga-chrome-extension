@@ -235,10 +235,10 @@
 		"message": "Small news feed"
 	},
 	"optionsHomeEventsOn": {
-		"message": "Events calendar displayed"
+		"message": "Games calendar displayed"
 	},
 	"optionsHomeEventsOff": {
-		"message": "Events calendar hidden"
+		"message": "Games calendar hidden"
 	},
 	"tournamentsOn": {
 		"message": "Tournaments displayed"
@@ -269,6 +269,12 @@
 	},
 	"optionsRecommendedColumnOff": {
 		"message": "Recommended games hidden"
+	},
+	"optionsClassicGamesOn": {
+		"message": "Classic games displayed"
+	},
+	"optionsClassicGamesOff": {
+		"message": "Classic games hidden"
 	},
 	"optionsStatusOn": {
 		"message": "Service status displayed"

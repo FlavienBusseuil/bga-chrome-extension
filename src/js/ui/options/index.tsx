@@ -22,18 +22,6 @@ const Options = (props: { config: Configuration }) => {
 	const [homeConfig, setHomeConfig] = useState(config.getHomeConfig());
 	const [inProgressConfig, setInProgressConfig] = useState(config.getInProgressConfig());
 	const [motionSensitivity, setMotionSensitivity] = useState(config.isMotionSensitivityEnable());
-	const [date, setDate] = useState<Date | null>(null);
-	const smallInterface = useMemo(() => document.body.clientWidth < 400, [date]);
-
-	useEffect(() => {
-		const interval = setInterval(() => {
-			setDate(new Date());
-		}, 1000);
-
-		return () => {
-			clearInterval(interval);
-		};
-	}, []);
 
 	const serialize = (game: Game) => {
 		return JSON.stringify(
@@ -213,6 +201,7 @@ const Options = (props: { config: Configuration }) => {
 						{getHomeSwitch('recentGames', 'optionsRecentColumn')}
 						{getHomeSwitch('popularGames', 'optionsPopularColumn')}
 						{getHomeSwitch('recommandedGames', 'optionsRecommendedColumn')}
+						{getHomeSwitch('classicGames', 'optionsClassicGames')}
 						{getHomeSwitch('status', 'optionsStatus')}
 						{homeConfig.tournaments && getHomeSwitch('tournamentsBelow', 'tournamentsBelow')}
 					</div>
@@ -344,7 +333,7 @@ const Options = (props: { config: Configuration }) => {
 				<div className="bgext_options_title">
 					{chrome.i18n.getMessage("optionCssTitle")}
 				</div>
-				<div className={smallInterface ? "bgext_css_container_small" : "bgext_css_container"}>
+				<div className="bgext_css_container">
 					<textarea
 						id="css_config"
 						className="bgext_options_input"
@@ -368,6 +357,7 @@ const Options = (props: { config: Configuration }) => {
 	const getTab = (tabId: string, tabText: string) => {
 		return (
 			<div
+				id={`bgext_options_tab_${tabId}`}
 				className={
 					tabSelected === tabId
 						? "bgext_link_selected"
@@ -385,11 +375,11 @@ const Options = (props: { config: Configuration }) => {
 	try {
 		return (
 			<div className="bgext_options_main">
-				<div className={smallInterface ? "bgext_options_config_area_small" : "bgext_options_config_area"}>
+				<div className="bgext_options_config_area">
 					<div className="bgext_links_area">
 						{getTab("misc", chrome.i18n.getMessage("optionMisc"))}
-						{!smallInterface && getTab("hidden", chrome.i18n.getMessage("optionHiddenTab"))}
-						{!smallInterface && getTab("navigation", chrome.i18n.getMessage("optionNavigationTab"))}
+						{getTab("hidden", chrome.i18n.getMessage("optionHiddenTab"))}
+						{getTab("navigation", chrome.i18n.getMessage("optionNavigationTab"))}
 						{getTab("css", chrome.i18n.getMessage("optionCssTab"))}
 					</div>
 					{tabSelected === "misc" && getMiscConfiguration()}

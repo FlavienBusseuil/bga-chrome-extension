@@ -656,6 +656,7 @@ _darkStyleForGame['babydinosaurrescue'] = `
 _darkStyleForGame['bacon'] = `
 #overall-content:before { content: ""; background: #000000A0; position: absolute; width: 100%; height: 100%; }
 .playertablename, .player-name, #round_wrap b { font-weight: normal; }
+#combination_table td[style*="color:red;"] { color: var(--red-50) !important; }
 `;
 
 _darkStyleForGame['bagofchips'] = `
@@ -2069,7 +2070,7 @@ _darkStyleForGame['gizmos'] = `
 
 _darkStyleForGame['glassroad'] = `
 #board_legend_buildable, #board .tile_wrapper[data-buildable="1"]:before,#board_private_tiles .tile_wrapper[data-buildable="1"]:before, .gr_card_player_played_card:before { background: var(--dark-10); }
-.playerboard, #board, .stockitem, .card_container, .tile_container { color: #000; }
+.playerboard, #board, .stockitem, .card_container, .tile_container, .card { color: #000; }
 #toggle_history_exandable:link { color: var(--light-80) !important; }
 .gr_playing_order_item { background-color: var(--dark-back); border: 1px solid var(--light-50); }
 .gr_card_current_player { border: 4px solid var(--yellow-10); }
@@ -2077,6 +2078,8 @@ _darkStyleForGame['glassroad'] = `
 #bga-zoom-controls { filter: invert(0.8); }
 .cc_counter { background: var(--dark-40); }
 .token.handSize { filter: invert(0.9); }
+#gr_playing_order .bgabutton, .gr_help_wrapper a.bgabutton { border: 1px solid var(--light-50) !important; color: var(--light-50) !important; background: transparent !important; }
+#gr_playing_order .bgabutton:hover, .gr_help_wrapper a.bgabutton:hover { border: 1px solid var(--light-80) !important; color: var(--light-80) !important; }
 `;
 
 _darkStyleForGame['glow'] = `

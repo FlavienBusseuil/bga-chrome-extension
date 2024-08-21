@@ -235,10 +235,10 @@
 		"message": "Fil d'actualité petit en largeur"
 	},
 	"optionsHomeEventsOn": {
-		"message": "Calendrier des événements affiché"
+		"message": "Calendrier des jeux affiché"
 	},
 	"optionsHomeEventsOff": {
-		"message": "Calendrier des événements caché"
+		"message": "Calendrier des jeux caché"
 	},
 	"tournamentsOn": {
 		"message": "Tournois visibles"
@@ -269,6 +269,12 @@
 	},
 	"optionsRecommendedColumnOff": {
 		"message": "Jeux recommandés cachés"
+	},
+	"optionsClassicGamesOn": {
+		"message": "Jeux classiques visibles"
+	},
+	"optionsClassicGamesOff": {
+		"message": "Jeux classiques cachés"
 	},
 	"optionsStatusOn": {
 		"message": "État du service visible"
