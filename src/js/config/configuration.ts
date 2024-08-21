@@ -571,15 +571,15 @@ class Configuration {
 			columns = 0;
 		} else {
 			if (!home.recentGames) {
-				cssList.push('.bgaext_welcome .flex-1:has(>.homepage-section>.homepage-section__title>[href="/gamelist?isRecent"]) { display: none; }');
+				cssList.push('.bgaext_welcome .flex-1:has(>.homepage-section>.homepage-section__title>[href*="/gamelist?isRecent"]) { display: none; }');
 				--columns;
 			}
 			if (!home.popularGames) {
-				cssList.push('.bgaext_welcome .flex-1:has(>.homepage-section>.homepage-section__title>[href="/gamelist?isPopular"]) { display: none; }');
+				cssList.push('.bgaext_welcome .flex-1:has(>.homepage-section>.homepage-section__title>[href*="/gamelist?isPopular"]) { display: none; }');
 				--columns;
 			}
 			if (!home.recommandedGames) {
-				cssList.push('.bgaext_welcome .flex-1:has(>.homepage-section>.homepage-section__title>[href="/gamelist?isSuggested"]) { display: none; }');
+				cssList.push('.bgaext_welcome .flex-1:has(>.homepage-section>.homepage-section__title>[href*="/gamelist?isSuggested"]) { display: none; }');
 				--columns;
 			}
 			if (!home.classicGames) {
