@@ -27,13 +27,8 @@ const setDarkModeUrlFilters = (isDarkMode) => {
         },
         {
           id: 2,
-          action: { type: "redirect", "redirect": { "extensionPath": "/img/dark_theme/background.jpg" } },
+          action: { type: "redirect", "redirect": { "extensionPath": "/img/background_dark.jpg" } },
           condition: { urlFilter: "https://forum.boardgamearena.com/styles/prosilver/theme/images/bga/back-main.jpg" },
-        },
-        {
-          id: 3,
-          action: { type: "redirect", "redirect": { "regexSubstitution": `chrome-extension://${chrome.runtime.id}/img/dark_theme/forum/smilies/\\1.gif` } },
-          condition: { regexFilter: "^https://forum.boardgamearena.com/images/smilies/(.*).gif" },
         }]
       });
     } else {

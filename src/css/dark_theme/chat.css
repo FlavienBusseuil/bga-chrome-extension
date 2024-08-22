@@ -101,61 +101,61 @@ body.mobile_version #chatbar .chatwindowcollapsed {
 .bgasmiley_smile {
   background-position: center;
   background-repeat: no-repeat;
-  background-image: url("chrome-extension://__MSG_@@extension_id__/img/dark_theme/forum/smilies/icon_e_smile.gif");
+  background-image: var(--ext-icon-smile);
 }
 
 .bgasmiley_unsmile {
   background-position: center;
   background-repeat: no-repeat;
-  background-image: url("chrome-extension://__MSG_@@extension_id__/img/dark_theme/forum/smilies/icon_e_sad.gif");
+  background-image: var(--ext-icon-sad);
 }
 
 .bgasmiley_blink {
   background-position: center;
   background-repeat: no-repeat;
-  background-image: url("chrome-extension://__MSG_@@extension_id__/img/dark_theme/forum/smilies/icon_e_wink.gif");
+  background-image: var(--ext-icon-wink);
 }
 
 .bgasmiley_bigsmile {
   background-position: center;
   background-repeat: no-repeat;
-  background-image: url("chrome-extension://__MSG_@@extension_id__/img/dark_theme/forum/smilies/icon_e_biggrin.gif");
+  background-image: var(--ext-icon-smile);
 }
 
 .bgasmiley_bad {
   background-position: center;
   background-repeat: no-repeat;
-  background-image: url("chrome-extension://__MSG_@@extension_id__/img/dark_theme/forum/smilies/icon_e_confused.gif");
+  background-image: var(--ext-icon-confused);
 }
 
 .bgasmiley_shocked {
   background-position: center;
   background-repeat: no-repeat;
-  background-image: url("chrome-extension://__MSG_@@extension_id__/img/dark_theme/forum/smilies/icon_eek.gif");
+  background-image: var(--ext-icon-shocked);
 }
 
 .bgasmiley_sunglass {
   background-position: center;
   background-repeat: no-repeat;
-  background-image: url("chrome-extension://__MSG_@@extension_id__/img/dark_theme/forum/smilies/icon_cool.gif");
+  background-image: var(--ext-icon-cool);
 }
 
 .bgasmiley_mischievous {
   background-position: center;
   background-repeat: no-repeat;
-  background-image: url("chrome-extension://__MSG_@@extension_id__/img/dark_theme/forum/smilies/icon_razz.gif");
+  background-image: var(--ext-icon-mischievous);
 }
 
 .bgasmiley_surprised {
   background-position: center;
   background-repeat: no-repeat;
-  background-image: url("chrome-extension://__MSG_@@extension_id__/img/dark_theme/forum/smilies/icon_e_surprised.gif");
+  background-image: var(--ext-icon-surprised);
 }
 
 .bgasmiley_blushing {
   background-position: center;
   background-repeat: no-repeat;
-  background-image: url("chrome-extension://__MSG_@@extension_id__/img/dark_theme/forum/smilies/icon_e_shy.gif");
+  background-image: var(--ext-icon-shy);
 }
 
 .notouch-device .chatwindowremovec {

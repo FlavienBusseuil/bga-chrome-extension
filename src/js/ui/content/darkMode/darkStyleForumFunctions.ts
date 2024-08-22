@@ -1,6 +1,6 @@
 import { cookieName, createStyle, getFile } from "./darkStyleCommonFunctions";
 
-const cssList = ["dark_theme/background.css", "dark_theme/forum.css"];
+const cssList = ["dark_theme/background.css", "dark_theme/forum.css", "dark_theme/icons.css"];
 const cssContents = {};
 let customCssCode = '';
 let styleComponent;
@@ -33,7 +33,7 @@ const _setDarkStyle = () => {
   console.log("[bga extension - forum] Set dark mode");
 
   if (styleComponent) {
-    styleComponent.innerHTML = `${cssContents["dark_theme/background.css"]}${cssContents["dark_theme/forum.css"]}${customCssCode}`;
+    styleComponent.innerHTML = `${cssContents["dark_theme/background.css"]}${cssContents["dark_theme/icons.css"]}${cssContents["dark_theme/forum.css"]}${customCssCode}`;
   }
 
   document.documentElement.classList.add("darkmode");

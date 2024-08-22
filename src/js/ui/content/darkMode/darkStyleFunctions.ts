@@ -11,14 +11,14 @@ const isDarkStyle = (mode: string) => {
 const { cssList, mode } = (() => {
   const pageInfo = window.location.pathname.substring(1).split("/");
   if (pageInfo.length >= 2 && isNumber(pageInfo[0])) {
-    return { mode: pageInfo[1], cssList: ["dark_theme/background.css", "dark_theme/common.css", "dark_theme/chat.css", "dark_theme/game.css"] };
+    return { mode: pageInfo[1], cssList: ["dark_theme/background.css", "dark_theme/common.css", "dark_theme/chat.css", "dark_theme/icons.css", "dark_theme/game.css"] };
   }
 
   if (pageInfo[0] === "archive" || pageInfo[0] === "tutorial") {
     return { mode: "archive", cssList: [] };
   }
 
-  return { mode: "general", cssList: ["light_theme/background.css", "dark_theme/background.css", "dark_theme/common.css", "dark_theme/chat.css", "dark_theme/general.css"] };
+  return { mode: "general", cssList: ["light_theme/background.css", "dark_theme/background.css", "dark_theme/common.css", "dark_theme/chat.css", "dark_theme/icons.css", "dark_theme/general.css"] };
 })();
 
 const cssContents = {};
@@ -133,7 +133,7 @@ const _setDarkStyle = (mode: string) => {
     }
 
     if (mode === "general") {
-      styleComponent.innerHTML = `${cssContents["dark_theme/background.css"]}${cssContents["dark_theme/common.css"]}${cssContents["dark_theme/chat.css"]}${cssContents["dark_theme/general.css"]}`;
+      styleComponent.innerHTML = `${cssContents["dark_theme/background.css"]}${cssContents["dark_theme/icons.css"]}${cssContents["dark_theme/common.css"]}${cssContents["dark_theme/chat.css"]}${cssContents["dark_theme/general.css"]}`;
     } else {
       const applyGeneralCss = !gamesWithCustomDarkMode[mode] || gamesWithCustomDarkMode[mode].applyGeneralCss;
       const classToAdd = gamesWithCustomDarkMode[mode]?.className;
@@ -143,7 +143,7 @@ const _setDarkStyle = (mode: string) => {
         const gameDarkStyle = darkStyleForGame[mode] || "";
         const backStyle = gamesWithCustomBackground.includes(mode) ? "" : cssContents["dark_theme/background.css"];
 
-        const completeStyle = `${backStyle}${cssContents["dark_theme/common.css"]}${cssContents["dark_theme/chat.css"]}${cssContents["dark_theme/game.css"]}${gameDarkStyle}${gameStyle}`;
+        const completeStyle = `${backStyle}${cssContents["dark_theme/icons.css"]}${cssContents["dark_theme/common.css"]}${cssContents["dark_theme/chat.css"]}${cssContents["dark_theme/game.css"]}${gameDarkStyle}${gameStyle}`;
         styleComponent.innerHTML = completeStyle;
 
         if (!gamesWithCustomPanel.includes(mode)) {

@@ -339,7 +339,7 @@ a#pageheader_buy {
 .dijitTooltipContainer .icon_help,
 .dijitTooltipContainer .help_info {
   background-color: transparent;
-  background-image: url("chrome-extension://__MSG_@@extension_id__/img/dark_theme/tooltip/help_info.png");
+  background-image: var(--ext-icon-info);
 }
 
 .dijitTooltip .newbgatable td {
