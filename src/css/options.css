@@ -65,10 +65,9 @@ div.bgext_misc_container,
 div.bgext_home_container {
 	max-height: 400px;
 	box-sizing: border-box;
-	border: 1px solid #aaaaaa;
 	margin: 0em 2em;
 	display: flex;
-	flex-flow: row wrap;
+	flex-flow: row;
 	justify-content: start;
 	padding: 0.5em;
 }
@@ -95,14 +94,14 @@ div.bgext_css_container {
 	border: 1px solid #aaaaaa;
 	margin: 0em 2em;
 	display: flex;
-	flex-flow: row wrap;
+	flex-flow: row;
 	justify-content: start;
 	padding: 1em;
 }
 
 div.bgext_css_buttons {
 	display: flex;
-	flex-flow: row wrap;
+	flex-flow: row;
 	justify-content: end;
 	padding-right: 2em;
 }
@@ -192,7 +191,7 @@ textarea.bgext_options_input {
 }
 
 div.bgext_options_warning {
-	padding-right: 2em;
+	padding: 0em 2em;
 	text-align: right;
 }
 
@@ -218,8 +217,13 @@ div.bgext_options_warning {
 }
 
 /* Hide side menu settings for Firefox */
-@-moz-document url-prefix() {
+@supports (-moz-appearance:none) {
 	#bgext_options_tab_navigation {
 		display: none;
+	}
+
+	body {
+		font-family: Segoe UI;
+		font-size: 14px;
 	}
 }

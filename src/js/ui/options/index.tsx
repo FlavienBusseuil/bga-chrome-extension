@@ -246,9 +246,9 @@ const Options = (props: { config: Configuration }) => {
 						</div>
 					))}
 				</div>
-				<div className="bgext_options_warning">
+				{hiddenGames.length && <div className="bgext_options_warning">
 					{chrome.i18n.getMessage("optionHiddenGamesWarning")}
-				</div>
+				</div>}
 			</>
 		);
 	};
