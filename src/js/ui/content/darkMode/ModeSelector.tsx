@@ -159,7 +159,6 @@ const ModeSelector = (props: ModeSelectorProps) => {
       document.body.style.removeProperty("--dark-40");
       document.body.style.removeProperty("--dark-back");
       document.body.style.removeProperty("--dark-popup-back");
-
     } else {
       document.body.style.setProperty("--dark-10", `hsl(${hue}, ${saturation}%, 13%)`);
       document.body.style.setProperty("--dark-20", `hsl(${hue}, ${saturation}%, 17%)`);

@@ -503,6 +503,13 @@ select.colorselector {
   color: var(--light-80);
 }
 
+.mobile_version .pagesection .pagesection_link a {
+  border: 1px solid var(--light-50);
+  box-shadow: 0 1px 0 var(--light-50);
+  box-shadow: 0 0 0 var(--light-50);
+  color: var(--light-80);
+}
+
 .newstext {
   color: var(--light-80) !important;
 }

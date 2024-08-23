@@ -27,7 +27,7 @@ const setDarkModeUrlFilters = (isDarkMode) => {
         },
         {
           id: 2,
-          action: { type: "redirect", "redirect": { "extensionPath": "/img/background_dark.jpg" } },
+          action: { type: "block" },
           condition: { urlFilter: "https://forum.boardgamearena.com/styles/prosilver/theme/images/bga/back-main.jpg" },
         }]
       });

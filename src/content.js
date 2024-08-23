@@ -18,6 +18,20 @@ const config = new Configuration();
 let currentObserver = null;
 let pageType = undefined;
 
+if (localStorage.getItem('ext_dark_theme') === 'on') {
+	// hack to avoid light theme flashing
+	const s = document.createElement('style');
+	s.innerHTML = "* { background-color: #000!important; } iframe { width:1px!important; height:1px!important; } .bga-menu-bar { visibility: hidden; }"
+	document.documentElement.appendChild(s);
+	window.addEventListener("load", () => {
+		if (window.navigator.userAgent.toLowerCase().includes('firefox')) {
+			setTimeout(() => { s.remove(); }, 500);
+		} else {
+			s.remove();
+		}
+	});
+}
+
 const initObserver = (page) => {
 	currentObserver =
 		page === 'game'
