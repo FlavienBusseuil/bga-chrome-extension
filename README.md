@@ -21,3 +21,9 @@ yarn build:ff
 ```
 
 (Use yarn version 1.22 and node version 20 minimum)
+
+# Contributors
+ 
+<a href=https://github.com/FlavienBusseuil><img src="https://github.com/flavienbusseuil.png"  width="100;" alt="Flavien Busseuil" /></a>
+<a href=https://github.com/cdelaforge><img src="https://github.com/cdelaforge.png"  width="100;" alt="cdelaforge" /></a>
+<a href=https://github.com/arrendek><img src="https://github.com/arrendek.png"  width="100;" alt="Arrendek" /></a>
