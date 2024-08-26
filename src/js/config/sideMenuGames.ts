@@ -1153,7 +1153,7 @@ const defaultGames: Partial<Game>[] = [
 	},
 	{
 		name: "neom",
-		playerPanel: "neom-cityboard-{{player_id}}-playername",
+		playerPanel: "neom-cityboard-{{player_id}}-goods",
 	},
 	{
 		name: "newton",
@@ -1241,6 +1241,7 @@ const defaultGames: Partial<Game>[] = [
 	{
 		name: "cosmoctopus",
 		playerPanel: "csm-player{{player_id}}-cards-title",
+		boardPanel: "csm-main"
 	},
 	{
 		name: "harmonies",

@@ -202,7 +202,9 @@ export const gamesWithCustomColors = {
   lumen: ['#1f3067'],
   nimalia: ['#0000ff', '#ff0000', '#ffa500', '#008000'],
   riverofgold: ['#000000', '#ff0000', '#008000', '#0000ff', '#ffffff'],
-  parklife: ['#333333']
+  parklife: ['#333333'],
+  thefoxintheforest: ['#5e3f85'],
+  cosmoctopus: ['#20134b'],
 };
 
 export const gamesWithCustomActions = {
@@ -1302,6 +1304,7 @@ body { background: none !important; }
 
 _darkStyleForGame['cosmoctopus'] = `
 .csm-resize { background: var(--dark-20); border: 1px solid var(--light-50); color: var(--light-80); }
+.csm-icon-portal { filter: var(--highlight-min); }
 `;
 
 _darkStyleForGame['cosmosempires'] = `
@@ -1904,8 +1907,8 @@ _styleForGame['forage'] = `
 _darkStyleForGame['forage'] = `
 #overall-content[style^="background"]:before { content: ""; background: #000000A0; position: absolute; width: 100%; height: 100%; top:0px; left: 0px; }
 #overall-content { color: #fff; }
-.scrollmap_container.scrollmap_btns_right > .scrollmap_btns_divs_wrapper > .scrollmap_btns_flex { background: var(--dark-30); }
 .scrollmap_form [type="submit"] { background-color: var(--blue-70) !important; }
+.darkmode .scrollmap_container > .scrollmap_btns_flex { background-color: var(--dark-30); }
 `;
 
 _darkStyleForGame['forbiddenisland'] = `
@@ -2076,8 +2079,8 @@ body { background: none !important; }
 #increaseZoomButton, #decreaseZoomButton { filter: invert(0.7); }
 .zoneWrapper { background: var(--dark-20); }
 .vp_panel, .res_panel, .newHandTile_panel { background-color: var(--dark-20); border-color: var(--dark-40); }
-.scrollmap_container.scrollmap_btns_right > .scrollmap_btns_divs_wrapper > .scrollmap_btns_flex { background: var(--dark-30); }
 .scrollmap_form [type="submit"] { background-color: var(--blue-70) !important; }
+.darkmode .scrollmap_container > .scrollmap_btns_flex { background-color: var(--dark-30); }
 `;
 
 _darkStyleForGame['gizmos'] = `
@@ -2135,7 +2138,9 @@ _styleForGame['grovesolitaire'] = `
 _darkStyleForGame['grovesolitaire'] = `
 #overall-content[style^="background"]:before { content: ""; background: #000000C0; position: absolute; width: 100%; height: 100%; top:0px; left: 0px; }
 #overall-content { color: var(--light-80); }
+#deck_counter { color: #000; }
 .scrollmap_form [type="submit"] { background-color: var(--blue-70) !important; }
+.darkmode .scrollmap_container > .scrollmap_btns_flex { background-color: var(--dark-30); }
 `;
 
 _darkStyleForGame['grumblestone'] = `
@@ -2703,6 +2708,7 @@ _styleForGame['linx'] = `
 
 _darkStyleForGame['linx'] = `
 .scrollmap_form [type="submit"] { background-color: var(--blue-70) !important; }
+.darkmode .scrollmap_container > .scrollmap_btns_flex { background-color: var(--dark-30); }
 `;
 
 _darkStyleForGame['liverpoolrummy'] = `
@@ -2742,7 +2748,7 @@ _darkStyleForGame['looot'] = `
 #player_boards .player-name a { background-color: transparent !important; }
 .score_header { border-bottom: 1px solid var(--dark-40); }
 .scrollmap_form [type="submit"] { background-color: var(--blue-70) !important; }
-.scrollmap_container > .scrollmap_btns_flex { background-color: var(--dark-back); }
+.darkmode .scrollmap_container > .scrollmap_btns_flex { background-color: var(--dark-30); }
 #scoretable { outline: 0.3em solid var(--dark-40); }
 #scoretable .scorecell { background-color: var(--dark-30); border-left: 0.1em solid var(--dark-40); border-top: 0.1em solid var(--dark-40); }
 #scoretable .scorecell.score.header.total { background-color: var(--dark-20); }
@@ -3312,11 +3318,17 @@ _darkStyleForGame['ohhell'] = `
 .card_type_icon { filter: var(--highlight-min); }
 `;
 
+_styleForGame['okanagan'] = `
+.scrollmap_form button { cursor: pointer; }
+`;
+
 _darkStyleForGame['okanagan'] = `
 #player_boards .tokencontainer { filter: var(--drop-shadow); }
 .exchangeImg { filter: invert(1); }
 .Help_info { background-color: var(--dark-10); }
 #buttontableelement, .buttonswapview { filter: invert(0.8); }
+.scrollmap_form [type="submit"] { background-color: var(--blue-70) !important; }
+.darkmode .scrollmap_container > .scrollmap_btns_flex { background-color: var(--dark-30); }
 `;
 
 _darkStyleForGame['onda'] = `
