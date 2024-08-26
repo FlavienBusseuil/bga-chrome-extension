@@ -1,21 +1,10 @@
 import Configuration from "./js/config/configuration";
 import { setDarkStyle } from "./js/ui/content/darkMode/darkStyleForumFunctions";
 
-if (localStorage.getItem('ext_dark_theme') === 'on') {
+window.addEventListener("load", () => {
   // hack to avoid light theme flashing
-  const s = document.createElement('style');
-  s.innerHTML = "* { visibility: hidden; }"
-  document.documentElement.appendChild(s);
-  window.addEventListener("load", () => {
-    if (window.navigator.userAgent.toLowerCase().includes('firefox')) {
-      setTimeout(() => {
-        s.remove();
-      }, 1000);
-    } else {
-      s.remove();
-    }
-  });
-}
+  top.postMessage({ key: 'bga_ext_forum_visible' }, 'https://boardgamearena.com/');
+});
 
 const adjustDarkColors = () => {
   const hue = config.getDarkModeColor('forum');

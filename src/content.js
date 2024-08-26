@@ -43,12 +43,11 @@ const initObserver = (page) => {
 };
 
 const _waitForObj = (q, maxIteration, returnFunc, returnFuncError) => {
-	console.log(`[bga extension] wait for elt '${q}. Iteration:${maxIteration}'`);
 	if (document.querySelector(q)) {
-		console.log(`[bga extension] wait for elt '${q}, result: true'`);
+		console.log(`[bga extension] wait for elt '${q}', result: true`);
 		returnFunc();
 	} else if (maxIteration === 0) {
-		console.log(`[bga extension] wait for elt '${q}, result: false'`);
+		console.log(`[bga extension] wait for elt '${q}', result: false`);
 		returnFuncError();
 	} else {
 		setTimeout(() => _waitForObj(q, maxIteration - 1, returnFunc, returnFuncError), 200);
@@ -118,7 +117,7 @@ const manageLocationChange = (pathname) => {
 			document.head.appendChild(script);
 		}
 
-		waitForObj('.bga-advent-calendar', 10).then(() => buildMainCss(config.getAllCss()));
+		waitForObj('.bga-advent-calendar', 10).then(() => buildMainCss(config.getAllCss())).catch(() => { });
 	}
 
 	if (pageName !== 'archive' && pageName !== 'tutorial') {
@@ -144,11 +143,11 @@ const manageLocationChange = (pathname) => {
 };
 
 const setHtmlClass = (mode) => {
-	const oldClass = Array.from(document.documentElement.classList).find(c => c.startsWith('bgaext'));
+	const oldClasses = Array.from(document.documentElement.classList).filter(c => c.startsWith('bgaext'));
 
-	if (oldClass) {
+	oldClasses.map(oldClass => {
 		document.documentElement.classList.remove(oldClass);
-	}
+	})
 
 	document.documentElement.classList.add(`bgaext_${mode}`);
 };
@@ -162,18 +161,16 @@ const initPage = () => {
 
 config.init().then(initPage);
 
-document.addEventListener('bga_ext_set_config', function (e) {
+document.addEventListener('bga_ext_set_config', (e) => {
 	const jsonData = e.detail;
-	console.log(
-		'[bga extension] import data from deprecated extension',
-		jsonData,
-	);
+	console.log('[bga extension] import data from deprecated extension', jsonData);
 	config.import(JSON.parse(jsonData));
 	!config.isEmpty() && location.reload();
 });
 
 document.addEventListener('bga_ext_update_config', (data) => {
-	console.log('bga_ext_update_config', data);
+	console.log('[bga extension] configuration updated', data);
+
 	if (data.detail.key === 'hideGeneralChat') {
 		setChatStyle(config);
 	}
@@ -183,3 +180,11 @@ document.addEventListener('bga_ext_update_config', (data) => {
 		buildMainCss(config.getAllCss());
 	}
 });
+
+window.addEventListener('message', (evt) => {
+	if (evt.origin === 'https://forum.boardgamearena.com' && evt.data.key === 'bga_ext_forum_visible') {
+		// hack to avoid light theme flashing
+		console.log('[bga extension] forum displayed');
+		document.documentElement.classList.add('bgaext_forum_visible');
+	}
+}, false);

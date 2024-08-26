@@ -186,4 +186,26 @@
   color: var(--violet-80) !important;
 }
 
-/* fin player elo popup */
+/* end player elo popup */
+
+/* hack to avoid light theme flashing */
+
+#forum_frame {
+  visibility: hidden;
+}
+
+.bgaext_forum_visible #forum_frame {
+  visibility: visible;
+}
+
+.bga-game-browser__panel * {
+  visibility: hidden;
+  transition: all 1s linear;
+}
+
+.bgaext_gamelist .bga-game-browser__panel * {
+  visibility: visible;
+  transition: all 1s linear;
+}
+
+/* end hack to avoid light theme flashing */
