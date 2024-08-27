@@ -45,7 +45,6 @@ const Options = (props: { config: Configuration }) => {
 				"iconBorder",
 				"iconColor",
 				"iconShadow",
-				"customZoomContainer",
 				"css",
 			],
 			2,

@@ -191,7 +191,6 @@ const defaultGames: Partial<Game>[] = [
 		name: "hadara",
 		playerPanel: "game_board_{{player_id}}",
 		playerPanelOffset: 10,
-		customZoomContainer: "pagesection_gameview",
 		css: "#page-content { padding-left: 50px; }",
 	},
 	{
@@ -652,7 +651,6 @@ const defaultGames: Partial<Game>[] = [
 	{
 		name: "ontour",
 		playerPanel: "player_name_{{player_id}}",
-		customZoomContainer: "game_area",
 	},
 	{
 		name: "knarr",

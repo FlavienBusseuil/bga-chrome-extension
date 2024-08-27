@@ -21,7 +21,6 @@ export interface Game {
 	iconBorder: string;
 	iconColor: string;
 	iconShadow: string;
-	customZoomContainer?: string;
 	css?: string;
 }
 

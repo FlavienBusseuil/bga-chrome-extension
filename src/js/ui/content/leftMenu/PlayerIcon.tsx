@@ -40,25 +40,6 @@ const PlayerIcon = (props: PlayerIconProps) => {
 		const element = document.getElementById(eltId);
 		const titleBar = document.getElementById("page-title");
 		const topBar = document.getElementById("topbar");
-		const pageContent = document.getElementById("page-content");
-		let zoom = pageContent ? (getComputedStyle(pageContent) as any).zoom || 1 : 1;
-		let customZoom = 1;
-
-		if (!Number(zoom)) {
-			zoom = 1;
-		}
-
-		try {
-			if (gameConfig.customZoomContainer) {
-				const customZoomDiv = document.getElementById(gameConfig.customZoomContainer);
-
-				if (customZoomDiv) {
-					customZoom = (getComputedStyle(customZoomDiv) as any).zoom || 1;
-				}
-			}
-		} catch (error) {
-			console.error("[bga extension] Error getting custom zoom", error);
-		}
 
 		if (!element || !topBar || !titleBar) {
 			return;
@@ -80,12 +61,7 @@ const PlayerIcon = (props: PlayerIconProps) => {
 
 		window.scrollTo({
 			behavior: "smooth",
-			top:
-				((element.getBoundingClientRect().top - decTitleBar) *
-					customZoom -
-					getOffset() / customZoom) *
-				zoom -
-				document.body.getBoundingClientRect().top,
+			top: (element.getBoundingClientRect().top - decTitleBar) - getOffset() - document.body.getBoundingClientRect().top,
 		});
 
 		if (isTouchEnabled()) {
