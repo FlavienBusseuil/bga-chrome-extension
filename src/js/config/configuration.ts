@@ -162,6 +162,7 @@ class Configuration {
 	}
 
 	private _sendAnalytics(context: string) {
+		/*
 		const endpoint = "https://www.google-analytics.com/mp/collect";
 		const measurementId = "G-ZDKRET609Q";
 		const apiSecret = "4TThk978Rse1u4xipIDEnw";
@@ -182,6 +183,7 @@ class Configuration {
 				],
 			}),
 		});
+		*/
 	}
 
 	private _merge() {
