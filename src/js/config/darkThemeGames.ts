@@ -11,6 +11,7 @@ export const gamesWithCustomBackground = [
   'azulsummerpavilion',
   'battlespiritssaga',
   'beyondthesun',
+  'bigmonster',
   'cannonades',
   'carnegie',
   'cartographers',
@@ -774,6 +775,7 @@ _darkStyleForGame['bids'] = `
 `;
 
 _darkStyleForGame['bigmonster'] = `
+#overall-content:before { content: ""; background: #00000080; position: absolute; width: 100%; height: 100%; top:0px; left: 0px; }
 .bm_flex-container, .scrollerClass {  background-color: var(--dark-back); }
 .tab { background: var(--dark-20); }
 .tab:before { border-color: transparent var(--dark-back) transparent transparent; }
@@ -4475,6 +4477,7 @@ _darkStyleForGame['thefoxintheforestduet'] = `
 #overall-content[style^="background"]:before { content: ""; background: #000000A0; position: absolute; width: 100%; height: 100%; }
 #info_board { color: var(--light-80); }
 #card_list, #revealed_card_list { background: var(--dark-back); color: var(--light-80); }
+.card { color: #000; }
 `;
 
 _darkStyleForGame['thegreatamericanfoxhunt'] = `

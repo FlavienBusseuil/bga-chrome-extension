@@ -889,6 +889,8 @@ const defaultGames: Partial<Game>[] = [
 	{
 		name: "bigmonster",
 		playerPanel: "{{player_id}}_scrollmap_wrapper",
+		iconBackground: "#a9a7d7",
+		iconBackgroundDark: "#8686ac"
 	},
 	{
 		name: "khronos",
