@@ -1243,7 +1243,7 @@ const defaultGames: Partial<Game>[] = [
 	},
 	{
 		name: "harmonies",
-		playerPanel: "anchor-player-{{player_id}}",
+		playerPanel: "player-table-{{player_id}}",
 		iconBackgroundDark: "#817765"
 	},
 	{
