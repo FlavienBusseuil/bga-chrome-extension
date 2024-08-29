@@ -17,6 +17,7 @@ export const OptionsView = ({ config, onChange }: Props) => {
   const [inProgressConfig, setInProgressConfig] = useState<InProgressConfig>(config.getInProgressConfig());
   const [hiddenGames, setHiddenGames] = useState<string[]>(config.getHiddenGames());
   const [configVisible, setConfigVisible] = useState(localStorage.getItem('ext_settings') || 'misc');
+  const [soundNotification, setSoundNotification] = useState(config.isSoundNotificationEnable());
 
   const _setConfigVisible = (val: string) => {
     localStorage.setItem('ext_settings', val);
@@ -37,6 +38,11 @@ export const OptionsView = ({ config, onChange }: Props) => {
   const updateRedirect = (val: boolean) => {
     setRedirect(val);
     config.setLobbyRedirectionEnable(val);
+  };
+
+  const updateSoundNotification = (val: boolean) => {
+    setSoundNotification(val);
+    config.setSoundNotificationEnable(val)
   };
 
   const updateHomeConfig = (param: string, val: boolean) => {
@@ -104,6 +110,12 @@ export const OptionsView = ({ config, onChange }: Props) => {
             textOn={chrome.i18n.getMessage("optionsLobbyRedirectOn")}
             textOff={chrome.i18n.getMessage("optionsLobbyRedirectOff")}
             onChange={updateRedirect}
+          />
+          <Switch
+              checked={soundNotification}
+              textOn={chrome.i18n.getMessage("optionsNotificationSoundOn")}
+              textOff={chrome.i18n.getMessage("optionsNotificationSoundOff")}
+              onChange={updateSoundNotification}
           />
         </div>
       );

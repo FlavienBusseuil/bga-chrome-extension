@@ -52,6 +52,7 @@ interface CustomConfig {
 	darkModeSat?: number;
 	trackTables?: boolean;
 	motionSensitivity?: boolean;
+	soundNotification?: boolean;
 	home?: HomeConfig;
 	inProgress?: InProgressConfig;
 	lobbyRedirect?: boolean;
@@ -308,6 +309,15 @@ class Configuration {
 	setMotionSensitivityEnable(val: boolean) {
 		this._customConfig.motionSensitivity = val;
 		storageSet({ motionSensitivity: val });
+	}
+
+	isSoundNotificationEnable() {
+		return Boolean(this._customConfig.soundNotification);
+	}
+
+	setSoundNotificationEnable(val: boolean) {
+		this._customConfig.soundNotification = val;
+		storageSet({ soundNotification: val });
 	}
 
 	isLobbyRedirectionEnable() {

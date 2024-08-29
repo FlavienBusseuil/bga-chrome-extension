@@ -22,6 +22,7 @@ const Options = (props: { config: Configuration }) => {
 	const [homeConfig, setHomeConfig] = useState(config.getHomeConfig());
 	const [inProgressConfig, setInProgressConfig] = useState(config.getInProgressConfig());
 	const [motionSensitivity, setMotionSensitivity] = useState(config.isMotionSensitivityEnable());
+	const [soundNotification, setSoundNotification] = useState(config.isSoundNotificationEnable());
 
 	const serialize = (game: Game) => {
 		return JSON.stringify(
@@ -93,9 +94,9 @@ const Options = (props: { config: Configuration }) => {
 		config.setTrackingEnable(val);
 
 		if (val) {
-			updateBadgeAndIcon({ nbPendingInvites: 0, nbWaitingTables: 0, tracking: true });
+			updateBadgeAndIcon({ nbPendingInvites: 0, nbWaitingTables: 0, tracking: true, soundNotification : config.isSoundNotificationEnable() });
 		} else {
-			updateBadgeAndIcon({ nbPendingInvites: 0, nbWaitingTables: 0, tracking: false });
+			updateBadgeAndIcon({ nbPendingInvites: 0, nbWaitingTables: 0, tracking: false, soundNotification : config.isSoundNotificationEnable() });
 		}
 	};
 
@@ -119,6 +120,11 @@ const Options = (props: { config: Configuration }) => {
 	const updateRedirect = (val: boolean) => {
 		setRedirect(val);
 		config.setLobbyRedirectionEnable(val);
+	};
+
+	const updateSoundNotification = (val: boolean) => {
+		setSoundNotification(val);
+		config.setSoundNotificationEnable(val);
 	};
 
 	const getHomeSwitch = (param: string, message: string) => {
@@ -161,6 +167,12 @@ const Options = (props: { config: Configuration }) => {
 						textOn={chrome.i18n.getMessage("optionsFlashingOn")}
 						textOff={chrome.i18n.getMessage("optionsFlashingOff")}
 						onChange={updateFlashing}
+					/>
+					<Switch
+						checked={soundNotification}
+						textOn={chrome.i18n.getMessage("optionsNotificationSoundOn")}
+						textOff={chrome.i18n.getMessage("optionsNotificationSoundOff")}
+						onChange={updateSoundNotification}
 					/>
 					<Switch
 						checked={redirect}

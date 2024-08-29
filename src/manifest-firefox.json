@@ -56,7 +56,8 @@
   "permissions": [
     "alarms",
     "storage",
-    "declarativeNetRequest"
+    "declarativeNetRequest",
+    "offscreen"
   ],
   "web_accessible_resources": [
     {
@@ -67,7 +68,9 @@
         "img/icon-grey.png",
         "css/dark_theme/*.css",
         "css/light_theme/*.css",
-        "js/homepage.js"
+        "js/homepage.js",
+        "sound/myturn.mp3",
+        "offscreen.html"
       ],
       "extension_ids": [
         "*"
