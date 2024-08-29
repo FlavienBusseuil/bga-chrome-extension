@@ -1279,6 +1279,10 @@ const defaultGames: Partial<Game>[] = [
 		playerPanel: ".opp_container",
 		boardPanel: "main_board"
 	},
+	{
+		name: "golems",
+		playerPanel: "pl{{player_id}}_area"
+	},
 ];
 
 export default defaultGames;

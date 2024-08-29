@@ -6,6 +6,7 @@ export const gamesWithCustomBackground = [
   'agricola',
   'altered',
   'aniversus',
+  'arctic',
   'arknova',
   'azul',
   'azulsummerpavilion',
@@ -559,6 +560,18 @@ body { background: none !important; }
 _darkStyleForGame['architectsofthewestkingdom'] = `
 .playeroveroverall { background-color: var(--dark-back); }
 #logs .arcicon, #player_boards .arcicon { filter: var(--highlight-min); }
+`;
+
+_darkStyleForGame['arctic'] = `
+#overall-content:before { content: ""; background: #00000080; position: absolute; width: 100%; height: 100%; }
+#pagemaintitletext .arc_picto_wrapper, .dijitTooltip .arc_picto_wrapper { filter: invert(1) grayscale(1) brightness(5); }
+.darkmode  #page-title, .arc_whiteblock, .player-board:not(#controls3d_wrap) { background-color: var(--dark-back) !important; }
+#maingameview_menufooter { background: var(--dark-10) !important; }
+.stockitem_unselectable[style*="border: 1px solid rgb(255, 0, 0);"] { border: 1px solid #ff3333 !important; box-shadow: #ff3333 7px 7px 7px 0px !important; }
+.stockitem_unselectable[style*="border: 1px solid rgb(0, 128, 0);"] { border: 1px solid #090 !important; box-shadow: #090 7px 7px 7px 0px !important; }
+.stockitem_unselectable[style*="border: 1px solid rgb(0, 0, 255);"] { border: 1px solid #6666ff !important; box-shadow: #6666ff 7px 7px 7px 0px !important; }
+.stockitem_unselectable[style*="border: 1px solid rgb(255, 165, 0));"] { border: 1px solid #805300 !important; box-shadow: #805300 7px 7px 7px 0px !important; }
+.arc_unavailable:before { background-color: #00000099; }
 `;
 
 _darkStyleForGame['arcticscavengers'] = `
@@ -1269,7 +1282,7 @@ _darkStyleForGame['coltexpress'] = `
 
 _darkStyleForGame['commanderchess'] = `
 #board { color: var(--light-80); }
-#board:before { content: ""; background: var(--dark-back); position: absolute; width: 100%; height: 100%; }
+#board:before { content: ""; background: #00000080; position: absolute; width: 100%; height: 100%; }
 `;
 
 _darkStyleForGame['concept'] = `
@@ -1281,6 +1294,12 @@ div.preference_choice:has(> div > div > select#preference_fontrol_100) { display
 
 _styleForGame['concept'] = `
 #darkmode-switch { display: none; }
+`;
+
+_darkStyleForGame['confusinglands'] = `
+.selectcard:before { content: ""; background: #00000080; position: absolute; width: 100%; height: 100%;  }
+.selectcard { border: 2px solid #90961d; }
+#selectcardpopdown, #hide { background-color: #5f6819; color: #fff; }
 `;
 
 _darkStyleForGame['connectfour'] = `
@@ -1403,6 +1422,14 @@ _darkStyleForGame['daybreak'] = `
 _darkStyleForGame['deus'] = `
 .deus_player_display .deus_resource_indicator, .deus_log_resource { filter: var(--highlight-min); }
 .deus_repeat_counter_section { background-color: var(--dark-40); }
+`;
+
+_darkStyleForGame['diamonds'] = `
+#overall-content[style^="background"]:before { content: ""; background: #000000aa; position: absolute; width: 100%; height: 100%; top:0px; left: 0px; }
+.playertablename { text-shadow: none; }
+#logs [style^="color:#0000dd;"] { color: var(--blue-80) !important; }
+#logs [style^="color:#800080;"] { color: var(--violet-80) !important; }
+#logs [style^="color:#800000;"] { color: var(--red-50) !important; }
 `;
 
 _darkStyleForGame['diams'] = `
@@ -2188,6 +2215,15 @@ _darkStyleForGame['gogoa'] = `
 .goa-tooltip-active { background-color: var(--dark-back); }
 `;
 
+_darkStyleForGame['golems'] = `
+.column_placeholder_gemdust { border: 1px dashed var(--light-70); }
+.player_area_golems, .player_area_hand { border-top: 1px dotted var(--light-70); }
+.player_area_resources { border-top: 3px solid var(--light-70); }
+.column_placeholder_blue, .column_placeholder_yellow, .column_placeholder_red, .column_placeholder_green, .column_placeholder_gemdust { border: 1px dashed #99cfff; }
+.counter_resource { color: #66b8ff; }
+.panel_gems, .panel_resource, .panel_hand, .golem_icon { filter: var(--highlight); }
+`;
+
 _darkStyleForGame['goldblivion'] = `
 html.darkpanel #player_boards .player-board.gb-player-panel-passed { background-color: var(--dark-40) !important; }
 #player_boards .player-name a, .gb-area-player-title .player-name { background-color: transparent !important; }
@@ -2216,6 +2252,32 @@ _darkStyleForGame['golf'] = `
 #overall-content { background: none !important; }
 .playertablename { text-shadow: none; }
 .table_color { background-color: var(--dark-20); color: #fff; }
+`;
+
+_darkStyleForGame['golfie'] = `
+#spectator-notification .spectator-banner, #display-all-scores-button, #bottom-retract-scores-button { background-color: var(--dark-10); color: var(--light-80); }
+.gaming-section .score-board .player-score .header { color: var(--light-80); background-color: var(--dark-40); }
+.gaming-section .score-board .player-score .content { color: var(--light-80); background-color: var(--dark-20); }
+.gaming-section .score-board .player-score .header .playerIdentification { background-color: var(--dark-10); }
+.gaming-section .score-board .player-score .content.content-turn-malus1, .gaming-section .score-board .player-score .content.content-turn-malus2 { background-color: var(--red-10); }
+.gaming-section .score-board .player-score .content.content-turn-bonus1, .gaming-section .score-board .player-score .content.content-turn-bonus2 { background-color: var(--blue-50); }
+.gaming-section .score-board .player-score .setScore { background-color: var(--yellow-10); }
+.gaming-section .score-board .player-score .finalScore { background-color: var(--orange-30); }
+.gaming-section .score-board .player-score>* { border: 1px solid var(--light-50); }
+.statistiques-container__cards .number { background-color: var(--dark-20); color: var(--light-80); }
+.players_panel_value, #logs [style*="background-color: #b2bb97"] { background-color: var(--green-10) !important; }
+.players_panel_value.panel_combos, #logs [style*="background-color: #c1e1ff"] { background-color: var(--blue-10) !important; }
+.players_panel_value.panel_lost_ball, #logs [style*="background-color: #ffc2b6"] { background-color: var(--red-10) !important; }
+.players_panel_value.panel_total, #logs [style*="background-color: #fae5b7"] { background-color: var(--yellow-10) !important; }
+.custom-tooltip-button { background-color: var(--dark-10)!important; border: .15rem solid var(--light-70); cursor: pointer;}
+.decks-remaining-number { background-color: var(--dark-10); border: .2rem dashed var(--light-70); color: var(--light-70); }
+.board-container .discard-section { background-color: var(--dark-20); border: .2rem dashed var(--light-70); }
+.animation-control-title { color: var(--light-80); }
+.animation-control-container .control-panel { background-color: var(--dark-10); }
+.animation-control-container .control-panel__field { background-color: var(--dark-20); color: var(--light-80); }
+#top-retract-scores-button { background-color: var(--blue-70); }
+#top-retract-scores-button:hover { background-color: var(--blue-80); color:#fff; }
+.cp_board__character-logo { filter: drop-shadow(2px 3px 2px var(--light-50)); }
 `;
 
 _darkStyleForGame['gomoku'] = `
@@ -2484,6 +2546,15 @@ _darkStyleForGame['innovation'] = `
 .dijitTooltipContainer .icon_help { width: 16px; height: 16px; }
 `;
 
+_darkStyleForGame['inori'] = `
+#ino-rune-tile-stack-size, .ino_player-token-stack-size, .ino_supply-stack-size { color: #000; }
+#ino-zoom-action-bar-plus svg, #ino-zoom-action-bar-minus svg { filter: invert(0.8);  }
+.ino_favor-token, .ino_rune-tile, .ino_altar-tile { filter: drop-shadow(0 0 .1rem #fff) drop-shadow(0 0 .1rem #fff); }
+.ino_empty-favor-token-supply, .ino_empty-rune-tile-stack { filter: drop-shadow(0 0 .1rem #fff) drop-shadow(0 0 .1rem #fff) grayscale(1) opacity(.5) !important; }
+#ino-option-accordeon, #ino-options { color: var(--violet-80); }
+.ino_meeple { filter: var(--highlight-min); }
+`;
+
 _darkStyleForGame['insert'] = `
 .ring_set { background-color: transparent; }
 `;
@@ -2557,6 +2628,13 @@ _darkStyleForGame['kabaleo'] = `
 
 _darkStyleForGame['kahuna'] = `
 #round, #card_pool_wrapper { color: #fff; }
+`;
+
+_darkStyleForGame['karvi'] = `
+#game_play_area { color: #fff; }
+#karvi-tab-holder .tab { background-color: var(--dark-20); border: 2px solid var(--light-50); border-left: 0; }
+#karvi-tab-holder .tab:hover, html.game_elements_tabs #karvi-tab-holder .tab.selected { background-color: var(--dark-40); }
+#player_boards .player-panel-icon, .notif-icon { filter: var(--highlight-min); }
 `;
 
 _darkStyleForGame['keyflower'] = `
