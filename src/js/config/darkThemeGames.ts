@@ -1533,6 +1533,13 @@ _darkStyleForGame['dobbleconnect'] = `
 .dc-hand-bg { background-color: var(--dark-back); }
 `;
 
+_darkStyleForGame['dobro'] = `
+#overall-content[style^="background"]:before { content: ""; background: #00000080; position: absolute; width: 100%; height: 100%; top:0px; left: 0px; }
+#pagesection_gameview .whiteblock { color: #000; }
+#round_wrap, #myhand_wrap, #player_boards .hand_wrap, #player_boards .captured_wrap, #player_boards .hand_wrap span, #player_boards .captured_wrap span { text-shadow: none !important; color: var(--light-80) !important; }
+.player-name { text-shadow: none !important; }
+`;
+
 _darkStyleForGame['doglover'] = `
 #DOGFoodMode { filter: invert(1); }
 #page-content { color: #fff; }

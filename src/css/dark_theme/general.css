@@ -989,7 +989,7 @@ select.colorselector {
 
 .warning_high {
   background-color: var(--red-10);
-  border: 1px solid var(--orange-30);
+  border: 1px solid var(--light-50);
 }
 
 #gamestart_warnings_first {
