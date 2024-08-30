@@ -1637,6 +1637,18 @@ select.colorselector {
   color: white;
 }
 
+.bgaext_controlpanelgames {
+  --main-bg-colour: var(--dark-10);
+}
+
+.bgaext_controlpanelgames .bgabutton_blue {
+  color: var(--light-80);
+}
+
+.bgaext_controlpanelgames .bg-bga-whitebg {
+  background-color: var(--dark-10);
+}
+
 /* page loading */
 .roundedbox_topleft,
 .roundedbox_topmain,
