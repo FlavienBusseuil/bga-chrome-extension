@@ -16,6 +16,7 @@ export const gamesWithCustomBackground = [
   'cannonades',
   'carnegie',
   'cartographers',
+  'castlecombo',
   'catinthebox',
   'chromino',
   'concept',
@@ -94,6 +95,7 @@ export const gamesWithCustomBackground = [
   'restinpeace',
   'railroadinkchallenge',
   'romirami',
+  'safariwitness',
   'santorini',
   'seasaltpaper',
   'secretmoon',
@@ -1028,6 +1030,7 @@ _darkStyleForGame['cartographers'] = `
 `;
 
 _darkStyleForGame['castlecombo'] = `
+#overall-content { background: #18414e; }
 .player-table { background: var(--dark-back); }
 .player-table .name-wrapper .name { text-shadow: none; }
 #popin_bgaHelpDialog { background: var(--dark-10); }
@@ -1755,6 +1758,11 @@ _darkStyleForGame['eriantys'] = `
 #assistant_cards_myhand, #assistant_cards_played { background-color: var(--dark-back); color: var(--light-80); }
 `;
 
+_darkStyleForGame['eternitium'] = `
+.etmTooltipEffect, .etmTooltipName { color: var(--light-80); }
+.etmTooltipStatus { color: var(--light-50); }
+`;
+
 _styleForGame['ethnos'] = `
 .player_board { box-sizing: border-box; }
 `;
@@ -1947,6 +1955,7 @@ _darkStyleForGame['forage'] = `
 #overall-content { color: #fff; }
 .scrollmap_form [type="submit"] { background-color: var(--blue-70) !important; }
 .darkmode .scrollmap_container > .scrollmap_btns_flex { background-color: var(--dark-30); }
+.scrollmap_container .movetop.fa, .scrollmap_container .moveleft.fa, .scrollmap_container .moveright.fa, .scrollmap_container .movedown.fa { background-color: var(--dark-back) !important; color: var(--light-80); }
 `;
 
 _darkStyleForGame['forbiddenisland'] = `
@@ -2119,6 +2128,7 @@ body { background: none !important; }
 .vp_panel, .res_panel, .newHandTile_panel { background-color: var(--dark-20); border-color: var(--dark-40); }
 .scrollmap_form [type="submit"] { background-color: var(--blue-70) !important; }
 .darkmode .scrollmap_container > .scrollmap_btns_flex { background-color: var(--dark-30); }
+.scrollmap_container .movetop.fa, .scrollmap_container .moveleft.fa, .scrollmap_container .moveright.fa, .scrollmap_container .movedown.fa { background-color: var(--dark-back) !important; color: var(--light-80); }
 `;
 
 _darkStyleForGame['gizmos'] = `
@@ -2179,6 +2189,7 @@ _darkStyleForGame['grovesolitaire'] = `
 #deck_counter { color: #000; }
 .scrollmap_form [type="submit"] { background-color: var(--blue-70) !important; }
 .darkmode .scrollmap_container > .scrollmap_btns_flex { background-color: var(--dark-30); }
+.scrollmap_container .movetop.fa, .scrollmap_container .moveleft.fa, .scrollmap_container .moveright.fa, .scrollmap_container .movedown.fa { background-color: var(--dark-back) !important; color: var(--light-80); }
 `;
 
 _darkStyleForGame['grumblestone'] = `
@@ -2558,7 +2569,6 @@ _darkStyleForGame['innovation'] = `
 _darkStyleForGame['inori'] = `
 #ino-rune-tile-stack-size, .ino_player-token-stack-size, .ino_supply-stack-size { color: #000; }
 #ino-zoom-action-bar-plus svg, #ino-zoom-action-bar-minus svg { filter: invert(0.8);  }
-.ino_favor-token, .ino_rune-tile, .ino_altar-tile { filter: drop-shadow(0 0 .1rem #fff) drop-shadow(0 0 .1rem #fff); }
 .ino_empty-favor-token-supply, .ino_empty-rune-tile-stack { filter: drop-shadow(0 0 .1rem #fff) drop-shadow(0 0 .1rem #fff) grayscale(1) opacity(.5) !important; }
 #ino-option-accordeon, #ino-options { color: var(--violet-80); }
 .ino_meeple { filter: var(--highlight-min); }
@@ -2798,6 +2808,7 @@ _styleForGame['linx'] = `
 _darkStyleForGame['linx'] = `
 .scrollmap_form [type="submit"] { background-color: var(--blue-70) !important; }
 .darkmode .scrollmap_container > .scrollmap_btns_flex { background-color: var(--dark-30); }
+.scrollmap_container .movetop.fa, .scrollmap_container .moveleft.fa, .scrollmap_container .moveright.fa, .scrollmap_container .movedown.fa { background-color: var(--dark-back) !important; color: var(--light-80); }
 `;
 
 _darkStyleForGame['liverpoolrummy'] = `
@@ -2844,6 +2855,7 @@ _darkStyleForGame['looot'] = `
 #scoretable .header, #scoretable .lheader { background-color: var(--dark-10); }
 .player_name_holder { background: var(--dark-10) !important; }
 .player_vikings_pool_counter { background: var(--dark-10); color: var(--light-80); }
+.scrollmap_container .movetop.fa, .scrollmap_container .moveleft.fa, .scrollmap_container .moveright.fa, .scrollmap_container .movedown.fa { background-color: var(--dark-back) !important; color: var(--light-80); }
 `;
 
 _darkStyleForGame['lostcities'] = `
@@ -3418,6 +3430,7 @@ _darkStyleForGame['okanagan'] = `
 #buttontableelement, .buttonswapview { filter: invert(0.8); }
 .scrollmap_form [type="submit"] { background-color: var(--blue-70) !important; }
 .darkmode .scrollmap_container > .scrollmap_btns_flex { background-color: var(--dark-30); }
+.scrollmap_container .movetop.fa, .scrollmap_container .moveleft.fa, .scrollmap_container .moveright.fa, .scrollmap_container .movedown.fa { background-color: var(--dark-back) !important; color: var(--light-80); }
 `;
 
 _darkStyleForGame['onda'] = `
@@ -3958,6 +3971,22 @@ _darkStyleForGame['russianrailroads'] = `
 
 _darkStyleForGame['saboteur'] = `
 .saboteur_cell.default_cell_bg:empty { filter: invert(1); }
+`;
+
+_styleForGame['safariwitness'] = `
+.scrollmap_form button { cursor: pointer; }
+`;
+
+_darkStyleForGame['safariwitness'] = `
+#overall-content:before { content: ""; background: #00000080; position: absolute; width: 100%; height: 100%; top:0px; left: 0px; }
+.container_right_top, .abilities_detail, .container_box .container_left .container_left_bottom { background: var(--dark-20); border: 2px solid var(--dark-40); color: var(--light-80); }
+.clue_Area .title .img, .abilities_detail .title .img, .container_left_bottom .big_title .img { filter: invert(1); }
+.container_box .container_left { margin-right: 0.5em; }
+.abilities_detail .abilities_list li { border-top: 1px solid var(--light-50); }
+.abilities_detail .abilities_list li .detail { border-left: 1px solid var(--light-50); }
+.scrollmap_form [type="submit"] { background-color: var(--blue-70) !important; }
+.darkmode .scrollmap_container > .scrollmap_btns_flex { background-color: var(--dark-30); }
+.scrollmap_container .movetop.fa, .scrollmap_container .moveleft.fa, .scrollmap_container .moveright.fa, .scrollmap_container .movedown.fa { background-color: var(--dark-back) !important; color: var(--light-80); }
 `;
 
 _darkStyleForGame['sagani'] = `
@@ -4840,6 +4869,7 @@ _darkStyleForGame['trellis'] = `
 .scrollmap_form [type="submit"] { background-color: var(--blue-70) !important; }
 .darkmode .scrollmap_container > .scrollmap_btns_flex { background-color: var(--dark-30); }
 #logs .trl_vine_color, #logs .trl_tile_actual_tile { filter: var(--highlight-min); }
+.scrollmap_container .movetop.fa, .scrollmap_container .moveleft.fa, .scrollmap_container .moveright.fa, .scrollmap_container .movedown.fa { background-color: var(--dark-back) !important; color: var(--light-80); }
 `;
 
 _darkStyleForGame['treos'] = `

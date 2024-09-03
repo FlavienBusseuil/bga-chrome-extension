@@ -1275,6 +1275,8 @@ const defaultGames: Partial<Game>[] = [
 	{
 		name: "castlecombo",
 		playerPanel: "player-table-{{player_id}}",
+		iconBackground: "#a4d3e3",
+		iconBackgroundDark: "#30839c"
 	},
 	{
 		name: "dinogenics",
