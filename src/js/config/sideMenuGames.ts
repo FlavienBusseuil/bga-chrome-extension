@@ -1198,6 +1198,8 @@ const defaultGames: Partial<Game>[] = [
 		name: "takenokolor",
 		playerPanel: "player-table-{{player_id}}",
 		bottomPanel: "rules-wrapper",
+		iconBackground: "#93d4df",
+		iconBackgroundDark: "#7e9aa5",
 		css: "#bga-jump-to_controls { display: none; }",
 	},
 	{

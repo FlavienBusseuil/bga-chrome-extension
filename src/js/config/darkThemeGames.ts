@@ -113,6 +113,7 @@ export const gamesWithCustomBackground = [
   'tickettoride',
   'tickettorideeurope',
   'tikal',
+  'takenokolor',
   'talon',
   'theyellowhouse',
   'tinyturbocars',
@@ -194,7 +195,8 @@ export const gamesWithCustomPlayerStyle = {
   goblinhood: '.player-table > h3',
   azulsummerpavilion: '.player-name.color',
   chemicaloverload: '.player-table > h3',
-  cannonades: '.player-table .c-title'
+  cannonades: '.player-table .c-title',
+  takenokolor: '.player-table .name'
 };
 
 export const gamesWithCustomColors = {
@@ -4392,13 +4394,22 @@ _darkStyleForGame['takenoko'] = `
 `;
 
 _darkStyleForGame['takenokolor'] = `
+#overall-content { background: #12353b; }
 .icon.ladybug, #firstPlayerToken { filter: var(--highlight); }
-.log .icon.black { filter: invert(1); }
+.log .icon.black, #page-title .icon.black { filter: invert(1); }
 #popin_bgaHelpDialog { background: var(--dark-10); }
-.rule-block { background: var(--dark-back); }
+.rule-block { background: var(--dark-20); }
+.rule-block .rules-bonus-grid { background: var(--dark-30); }
 .rule-block .rule-title { border-bottom: 3px dotted var(--red-10); color: var(--red-10); }
 #rules { color: var(--light-80); }
-`;
+div[id^=player-table][id$=sheet]:before { content: ""; background: #00000050; position: absolute; width: 100%; height: 100%; }
+div[style*="--color: #de6393"] { --color: #7e1b41!important; }
+div[style*="--color: #2eb7d7"] { --color: #186d81!important; }
+div[style*="--color: #fdc300"] { --color: #997500!important; }
+div[style*="--color: #68b32e"] { --color: #467a1f!important; }
+.player-table .name { background-color: var(--dark-20); text-shadow: none; }
+.bga-dice_line-stock.selectable .bga-dice_die6.takenokolor-die.selectable:before { background: var(--dark-back); box-shadow: 0 0 5px 5px #000; }
+ `;
 
 _darkStyleForGame['talon'] = `
 .TALONlogBattle, .TALONlogRound, .TALONlogPlayer { background-color: transparent; }
@@ -4819,6 +4830,16 @@ _darkStyleForGame['tranquilitytheascent'] = `
 
 _darkStyleForGame['trekkingtheworld'] = `
 .riverCard { color: var(--dark-10); }
+`;
+
+_styleForGame['trellis'] = `
+.scrollmap_form button { cursor: pointer; }
+`;
+
+_darkStyleForGame['trellis'] = `
+.scrollmap_form [type="submit"] { background-color: var(--blue-70) !important; }
+.darkmode .scrollmap_container > .scrollmap_btns_flex { background-color: var(--dark-30); }
+#logs .trl_vine_color, #logs .trl_tile_actual_tile { filter: var(--highlight-min); }
 `;
 
 _darkStyleForGame['treos'] = `

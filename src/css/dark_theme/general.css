@@ -1632,6 +1632,15 @@ select.colorselector {
   filter: invert(0.7);
 }
 
+.game_result_status_important {
+  color: var(--red-30);
+}
+
+[data-action="hide-banner"] {
+  color: var(--light-80);
+  text-decoration: underline;
+}
+
 /* studio */
 #popin_resultDlg_close>i {
   color: white;
