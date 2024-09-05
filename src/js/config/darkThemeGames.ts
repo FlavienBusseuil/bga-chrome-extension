@@ -3407,9 +3407,11 @@ _darkStyleForGame['odicey'] = `
 `;
 
 _darkStyleForGame['odin'] = `
-.background-container { filter: brightness(0.3); }
+.background-container { filter: brightness(0.6); }
 .log-arrow.log-arrow-right { color: var(--light-80) !important; }
-.a-card.game-area-card { filter: brightness(0.5); }
+.a-card.game-area-card { filter: brightness(0.6); }
+.table-container .table-owner-name-container { background-color: var(--dark-back); color: var(--light-80); }
+.table-container .table-owner-name-container .table-owner-player-name { text-shadow: none; }
 `;
 
 _darkStyleForGame['ohseven'] = `
@@ -3486,6 +3488,8 @@ _darkStyleForGame['orleans'] = `
 #jj-preferences-panel #jj-preferences-panel-content .jj-preferences-panel-category-label, #orl-main-game-panel #orl-round-counter-wrapper { background: var(--dark-0); }
 #orl-main-place-tiles-wrapper h1 { color: var(--light-80); }
 .orl-trading-station .card-side { filter: drop-shadow(1px 1px 1px #8e8e8e); }
+.orl-player-area-tab-content { background: var(--dark-back); }
+.jj-tab-manager-tab span[style*="text-shadow: none;"] { text-shadow: none!important; }
 `;
 
 _darkStyleForGame['oxono'] = `
@@ -3598,6 +3602,11 @@ _darkStyleForGame['perikles'] = `
 .prk_location_vp_text {  background-color: var(--dark-30); }
 .dijitTooltipContainer h2 { color: #000; }
 .dijitTooltipContainer hr { display: none; }
+`;
+
+_darkStyleForGame['personanongrata'] = `
+.prs_publicArea .prs_areaTitle { background-color: var(--dark-10); color: var(--light-80); }
+.prs_corporationIcon { filter: var(--highlight-min); }
 `;
 
 _darkStyleForGame['pescadonovo'] = `

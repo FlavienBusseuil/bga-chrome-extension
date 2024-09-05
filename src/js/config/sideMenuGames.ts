@@ -1293,6 +1293,11 @@ const defaultGames: Partial<Game>[] = [
 		boardPanel: "fled_board-container",
 		css: ".fled_sticky { position: initial; } #fled_player-areas { padding-top: 2em; }"
 	},
+	{
+		name: "personanongrata",
+		playerPanel: "prs_playerArea${{player_id}}",
+		bottomPanel: "prs_publicArea"
+	},
 ];
 
 export default defaultGames;
