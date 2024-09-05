@@ -1916,6 +1916,13 @@ _darkStyleForGame['flamingpyramids'] = `
 #py_fire_mode_txt, #py_curse_mode_txt { color: #fff; }
 `;
 
+_darkStyleForGame['fled'] = `
+.fled_pile, .fled_inventory-slot { border: .1rem dotted var(--light-50); }
+.fled_pile label { color: var(--light-50); }
+.fled_inventory-slot:before { opacity: .2; }
+.fled_board-button { background-color: var(--dark-10); border: .1em solid var(--light-80); color: var(--light-80); box-shadow: .2em .2em .2em rgb(255 255 255 / 20%); }
+`;
+
 _darkStyleForGame['fleet'] = `
 #flt_game_area { color: #fff; }
 #playertables h3[style="color:#000000;"], #flt_game_area span[id^="playerbid_"] { color: #fff !important; }
@@ -3104,6 +3111,12 @@ _styleForGame['mlem'] = `
 _darkStyleForGame['mlem'] = `
 #btn-box { background-color: var(--dark-20); }
 #pin-board-btn { filter: invert(0.7); }
+`;
+
+_darkStyleForGame['modx'] = `
+#board { filter: invert(1); }
+#board > div { filter: invert(1); }
+#game_play_area { color: var(--light-80); }
 `;
 
 _darkStyleForGame['mojo'] = `
