@@ -14,6 +14,7 @@ export const gamesWithCustomBackground = [
   'beyondthesun',
   'bigmonster',
   'cannonades',
+  'capybarancapybara',
   'carnegie',
   'cartographers',
   'castlecombo',
@@ -211,6 +212,7 @@ export const gamesWithCustomColors = {
   parklife: ['#333333'],
   thefoxintheforest: ['#5e3f85'],
   cosmoctopus: ['#20134b'],
+  pandemic: ['#252525']
 };
 
 export const gamesWithCustomActions = {
@@ -934,6 +936,14 @@ _darkStyleForGame['cacao'] = `
 #jungle_display { background-color: var(--dark-back); border: 5px solid var(--dark-back); }
 `;
 
+_darkStyleForGame['capybarancapybara'] = `
+#overall-content:before { content: ""; background: #000000A0; position: absolute; width: 100%; height: 100%; top:0px; left: 0px; }
+#overall-content { color: var(--light-80); }
+.cb_zone { background-color: var(--dark-back); }
+.cb_hand { background-color: var(--dark-10); border: 2px solid var(--light-50); }
+.cb_panel_pumpkin { background-color: var(--dark-40); }
+`;
+
 _darkStyleForGame['canasta'] = `
 .cardspace { color: #000; }
 .meld_card_counter_wrap { background-color: var(--dark-back); }
@@ -1049,6 +1059,7 @@ _styleForGame['castlesofburgundy'] = `
 _darkStyleForGame['castlesofburgundy'] = `
 .cob_player_block { color: #000 !important; }
 #zoomLevelValue { background-color: transparent; }
+.cob_player_board:before, #main_board:before { content: ""; background: #00000050; position: absolute; width: 100%; height: 100%; top:0px; left: 0px; }
 `;
 
 _darkStyleForGame['catan'] = `
@@ -2692,7 +2703,13 @@ _darkStyleForGame['kingofthepitch'] = `
 `;
 
 _darkStyleForGame['kingoftokyo'] = `
+#overall-content:before { content: ""; background: #00000080; position: absolute; width: 100%; height: 100%; top:0px; left: 0px; }
 #active-expansions-button { background: #737373; }
+.kot-card .bottom, .kot-curse-card .bottom, .kot-evolution .bottom, .kot-tile .bottom,
+.kot-card .bottom > *, .kot-curse-card .bottom > *, .kot-evolution .bottom, .kot-tile .bottom > * { filter: invert(1); }
+.kot-card .description-wrapper, .kot-curse-card .description-wrapper, .kot-evolution .description-wrapper, .kot-tile .description-wrapper { color: var(--light-80); }
+.dice-icon { filter: var(--highlight-min); }
+#zoom-wrapper #zoom-controls { filter: invert(0.8); }
 `;
 
 _darkStyleForGame['klaverjassen'] = `
@@ -3507,6 +3524,10 @@ _darkStyleForGame['palace'] = `
 
 _darkStyleForGame['pandemic'] = `
 .player-board-pandemic__title, .player-name { text-shadow: var(--text-w-shadow); }
+.pdm-whiteblock { background-color: var(--dark-back); }
+#o-archives h3, .pdm-hand h3 { background-color: var(--dark-20); color: var(--light-80); }
+#player_boards .player-name, #player_boards .player-board-pandemic__title { text-shadow: none; }
+.bg-token_cube_4 { filter: var(--highlight-min); }
 `;
 
 _darkStyleForGame['papayoo'] = `

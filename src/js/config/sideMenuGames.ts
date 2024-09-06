@@ -1298,6 +1298,13 @@ const defaultGames: Partial<Game>[] = [
 		playerPanel: "prs_playerArea${{player_id}}",
 		bottomPanel: "prs_publicArea"
 	},
+	{
+		name: "capybarancapybara",
+		playerPanel: "zone_playername_{{player_index_1}}",
+
+		iconBackgroundDark: "#868e71"
+	},
+
 ];
 
 export default defaultGames;
