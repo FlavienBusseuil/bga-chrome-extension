@@ -22,6 +22,7 @@ export const gamesWithCustomBackground = [
   'chromino',
   'concept',
   'conspiracy',
+  'darwinsjourney',
   'dicycards',
   'dobbleconnect',
   'dontgointhere',
@@ -1426,6 +1427,14 @@ _darkStyleForGame['cucumber'] = `
 _darkStyleForGame['darkagent'] = `
 .player_board_content [style^="color:black;"] { color: var(--light-80) !important; }
 .pbname input { background-color: var(--dark-20) !important; }
+`;
+
+_darkStyleForGame['darwinsjourney'] = `
+#overall-content:before { content: ""; background: #00000080; position: absolute; width: 100%; height: 100%; top:0px; left: 0px; }
+.darwin-focus-panel { background-color: var(--dark-10); }
+#darwin-help-header, #darwin-move-history-header, .darwin-help-table tr:nth-child(odd), .darwin-move-history-table tr:nth-child(odd) { background-color: var(--dark-20); }
+.darwin-help-table tr:nth-child(2n), .darwin-move-history-table tr:nth-child(2n) { background-color: var(--dark-30); }
+.darwin-goals-panel, .darwin-navigation-panel { background-color: var(--dark-40); }
 `;
 
 _darkStyleForGame['daybreak'] = `
