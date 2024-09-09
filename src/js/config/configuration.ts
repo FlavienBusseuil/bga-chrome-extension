@@ -105,7 +105,7 @@ class Configuration {
 					playerPanelOffset: 5,
 					bottomPanelOffset: 5,
 					left: "0.5em",
-					css: "#game_play_area { padding-left: 50px; }",
+					css: ".desktop_version #game_play_area { padding-left: 50px; }",
 					...game,
 				};
 			}) as Game[],

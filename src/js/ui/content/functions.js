@@ -118,40 +118,43 @@ const buildOptions = (config, gameName, gameConfig) => {
 		return;
 	}
 
+	const isMobile = !window.matchMedia || window.matchMedia("only screen and (max-width: 760px)").matches;
 	const mainPrefTitle = mainMenu.getElementsByTagName('h2')[0];
 	const secondPrefTitle = settings.getElementsByTagName('h2')[0];
 
-	// Add an option for floating menu
-	const optionFloatingGameSelected = config.isGameFloatingMenu(gameName) ? `selected='selected'` : '';
-	const optionFloatingAlwaysSelected = config.isGlobalFloatingMenu() ? `selected='selected'` : '';
-	const optionFloatingGame = `<option value='2' ${optionFloatingGameSelected}>${chrome.i18n.getMessage('optionFloatingGame')}</option>`;
-	const optionFloatingAlways = `<option value='3' ${optionFloatingAlwaysSelected}>${chrome.i18n.getMessage('optionFloatingAlways')}</option>`;
-	const checkFloating = (evt) => {
-		if (evt.target.value === '1') {
-			document.body.classList.add('logs_on_additional_column');
-		} else {
-			document.body.classList.remove('logs_on_additional_column');
-		}
-		if (evt.target.value === '3') {
-			setFloatingRightMenu(config, gameConfig, true);
-			config.setGameFloatingMenu(gameName, false);
-			config.setGlobalFloatingMenu(true);
-		} else if (evt.target.value === '2') {
-			setFloatingRightMenu(config, gameConfig, true);
-			config.setGameFloatingMenu(gameName, true);
-			config.setGlobalFloatingMenu(false);
-		} else {
-			setFloatingRightMenu(config, gameConfig, false);
-			config.setGameFloatingMenu(gameName, false);
-			config.setGlobalFloatingMenu(false);
-		}
-	};
-	histoInputs.forEach((input) => {
-		input.insertAdjacentHTML('beforeend', optionFloatingGame);
-		input.insertAdjacentHTML('beforeend', optionFloatingAlways);
-		input.addEventListener('change', checkFloating);
-		input.addEventListener('click', (evt) => evt.stopPropagation());
-	});
+	if (!isMobile) {
+		// Add an option for floating menu
+		const optionFloatingGameSelected = config.isGameFloatingMenu(gameName) ? `selected='selected'` : '';
+		const optionFloatingAlwaysSelected = config.isGlobalFloatingMenu() ? `selected='selected'` : '';
+		const optionFloatingGame = `<option value='2' ${optionFloatingGameSelected}>${chrome.i18n.getMessage('optionFloatingGame')}</option>`;
+		const optionFloatingAlways = `<option value='3' ${optionFloatingAlwaysSelected}>${chrome.i18n.getMessage('optionFloatingAlways')}</option>`;
+		const checkFloating = (evt) => {
+			if (evt.target.value === '1') {
+				document.body.classList.add('logs_on_additional_column');
+			} else {
+				document.body.classList.remove('logs_on_additional_column');
+			}
+			if (evt.target.value === '3') {
+				setFloatingRightMenu(config, gameConfig, true);
+				config.setGameFloatingMenu(gameName, false);
+				config.setGlobalFloatingMenu(true);
+			} else if (evt.target.value === '2') {
+				setFloatingRightMenu(config, gameConfig, true);
+				config.setGameFloatingMenu(gameName, true);
+				config.setGlobalFloatingMenu(false);
+			} else {
+				setFloatingRightMenu(config, gameConfig, false);
+				config.setGameFloatingMenu(gameName, false);
+				config.setGlobalFloatingMenu(false);
+			}
+		};
+		histoInputs.forEach((input) => {
+			input.insertAdjacentHTML('beforeend', optionFloatingGame);
+			input.insertAdjacentHTML('beforeend', optionFloatingAlways);
+			input.addEventListener('change', checkFloating);
+			input.addEventListener('click', (evt) => evt.stopPropagation());
+		});
+	}
 
 	// Add a parameter for left menu
 	if (gameConfig) {

@@ -19,7 +19,7 @@ const _getPlayersData = (returnFunc: (data: PlayerData[]) => void, iteration: nu
   const playerlinks = document.querySelectorAll("#player_boards div.player-name[id^=\"player_name_\"] a[href*=\"/player?id\"]");
   let result: PlayerData[] | undefined = undefined;
 
-  document.documentElement.classList.add("getPlayersData");
+  document.documentElement.classList.add("bgaext_get_players_data");
 
   if (playerContainers && playerlinks && playerContainers.length && playerContainers.length === playerlinks.length) {
     const playersIdList = Object.values(playerContainers)
@@ -51,7 +51,7 @@ const _getPlayersData = (returnFunc: (data: PlayerData[]) => void, iteration: nu
     const diffColors = Array.from(new Set(result.map(c => c.color)));
 
     if (diffColors.length === result.length) {
-      document.documentElement.classList.remove("getPlayersData");
+      document.documentElement.classList.remove("bgaext_get_players_data");
       returnFunc(result);
       return;
     }
@@ -61,7 +61,7 @@ const _getPlayersData = (returnFunc: (data: PlayerData[]) => void, iteration: nu
     setTimeout(() => _getPlayersData(returnFunc, iteration + 1), 100);
   } else {
     console.error("Too many iterations in getPlayersData");
-    document.documentElement.classList.remove("getPlayersData");
+    document.documentElement.classList.remove("bgaext_get_players_data");
     returnFunc(result || []);
   }
 };

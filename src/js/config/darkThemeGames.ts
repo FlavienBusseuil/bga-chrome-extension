@@ -1075,6 +1075,7 @@ _darkStyleForGame['catan'] = `
 .cat_cardcounter { background: #000; border: 2px solid #fff; color: #fff; }
 .cat_panel_ck_citylevel { color: #000; }
 .cat_metropolis { box-shadow: none; filter: var(--drop-shadow); margin-bottom: 5px; }
+html.darkpanel #player_boards .player-board.cat_activepl { background: var(--dark-30)!important; }
 `;
 
 _darkStyleForGame['catcafe'] = `
@@ -1817,6 +1818,7 @@ _darkStyleForGame['explodingkittens'] = `
 .board, .token { filter: var(--drop-shadow); }
 #popin_ekWelcomeDialogId_contents td.active-player-count, #popin_ekWelcomeDialogId_contents th.active-player-count { background-color: var(--green-10); border: 1px solid #696969; }
 #pagesection_gameview .whiteblock, #table-decision, #neutralized_game_panel { background: var(--dark-30); }
+legend { color: var(--light-80); }
 `;
 
 _darkStyleForGame['expressions'] = `
@@ -2430,10 +2432,10 @@ _darkStyleForGame['harmonies'] = `
 .card-stock .slot { background: hsl(0deg 0% 11.5% / 40%); outline: 1px solid hsl(0deg 0% 54.37% / 40%); }
 #generalactions .show-player-tableau a { color: var(--light-80); }
 .active-zone .border { background: linear-gradient(90deg, #4e453b99 20%, #4e453b99 40%, #00000033 50%, #00000033 55%, #51493e10 70%, #4e453b99); background-size: 200% auto; }
-.getPlayersData .player-board[data-player-color=ff0000] .player-name a { color: red !important; }
-.getPlayersData .player-board[data-player-color=008000] .player-name a { color: green !important; }
-.getPlayersData .player-board[data-player-color=ffa500] .player-name a { color: orange !important; }
-.getPlayersData .player-board[data-player-color=982fff] .player-name a { color: #982fff !important; }
+.bgaext_get_players_data .player-board[data-player-color=ff0000] .player-name a { color: red !important; }
+.bgaext_get_players_data .player-board[data-player-color=008000] .player-name a { color: green !important; }
+.bgaext_get_players_data .player-board[data-player-color=ffa500] .player-name a { color: orange !important; }
+.bgaext_get_players_data .player-board[data-player-color=982fff] .player-name a { color: #982fff !important; }
 `;
 
 _darkStyleForGame['harvest'] = `

@@ -85,11 +85,9 @@ const manageLocationChange = (pathname) => {
 
 		const gameName = pageInfo[1];
 		const gameConfig = config.getGameConfig(gameName);
+		const isMobile = !window.matchMedia || window.matchMedia("only screen and (max-width: 760px)").matches;
 
-		if (
-			config.isGlobalFloatingMenu() ||
-			config.isGameFloatingMenu(gameName)
-		) {
+		if (!isMobile && (config.isGlobalFloatingMenu() || config.isGameFloatingMenu(gameName))) {
 			setFloatingRightMenu(config, gameConfig, true);
 		}
 
@@ -143,13 +141,17 @@ const manageLocationChange = (pathname) => {
 };
 
 const setHtmlClass = (mode) => {
-	const oldClasses = Array.from(document.documentElement.classList).filter(c => c.startsWith('bgaext'));
+	if (document.body) {
+		const oldClasses = Array.from(document.body.classList).filter(c => c.startsWith('bgaext'));
 
-	oldClasses.map(oldClass => {
-		document.documentElement.classList.remove(oldClass);
-	})
+		oldClasses.map(oldClass => {
+			document.body.classList.remove(oldClass);
+		})
 
-	document.documentElement.classList.add(`bgaext_${mode}`);
+		document.body.classList.add(`bgaext_${mode}`);
+	} else {
+		setTimeout(() => setHtmlClass(mode), 1);
+	}
 };
 
 const initPage = () => {
@@ -185,6 +187,6 @@ window.addEventListener('message', (evt) => {
 	if (evt.origin === 'https://forum.boardgamearena.com' && evt.data.key === 'bga_ext_forum_visible') {
 		// hack to avoid light theme flashing
 		console.log('[bga extension] forum displayed');
-		document.documentElement.classList.add('bgaext_forum_visible');
+		document.body.classList.add('bgaext_forum_visible');
 	}
 }, false);

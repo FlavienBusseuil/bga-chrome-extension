@@ -12,25 +12,29 @@ div.bgext_right_menu i {
 	font-size: 14px !important;
 }
 
-#right-side-first-part {
+.desktop_version #right-side-first-part {
 	max-height: initial;
 	width: 240px;
 }
 
-.logs_on_additional_column #right-side-first-part {
+.desktop_version.logs_on_additional_column #right-side-first-part {
 	width: 240px !important;
 }
 
-#right-side-second-part {
+.desktop_version #right-side-second-part {
 	max-height: initial;
 }
 
-.logs_on_floating_panel #left-side {
+.desktop_version.logs_on_floating_panel #left-side {
 	margin-right: 0px !important;
 }
 
-.logs_on_floating_panel #right-side-first-part,
-.logs_on_floating_panel #right-side-second-part {
+.desktop_version.logs_on_floating_panel #right-side {
+	width: 0px;
+}
+
+.desktop_version.logs_on_floating_panel #right-side-first-part,
+.desktop_version.logs_on_floating_panel #right-side-second-part {
 	position: fixed;
 	right: -500px;
 	overflow-y: auto;
@@ -38,7 +42,7 @@ div.bgext_right_menu i {
 	z-index: 1000;
 }
 
-.logs_on_floating_panel #right-side-second-part {
+.desktop_version.logs_on_floating_panel #right-side-second-part {
 	border: 1px solid var(--dark-10);
 	outline: 1px solid var(--light-50);
 	background-color: rgb(235, 213, 189);
@@ -46,65 +50,65 @@ div.bgext_right_menu i {
 	right: -500px;
 }
 
-.logs_on_floating_panel.score_visible #right-side-first-part {
+.desktop_version.logs_on_floating_panel.score_visible #right-side-first-part {
 	right: 5px;
 }
 
-.logs_on_floating_panel.logs_visible #right-side-second-part {
+.desktop_version.logs_on_floating_panel.logs_visible #right-side-second-part {
 	right: 5px;
 }
 
-.logs_on_floating_panel #cde-floating-menu {
+.desktop_version.logs_on_floating_panel #cde-floating-menu {
 	display: inline;
 }
 
-.logs_on_floating_panel #logs {
+.desktop_version .logs_on_floating_panel #logs {
 	margin-top: 0px;
 	max-height: 100000px;
 }
 
-.logs_on_floating_panel #seemorelogs {
+.desktop_version.logs_on_floating_panel #seemorelogs {
 	display: none !important;
 }
 
-.logs_on_floating_panel #go_to_next_table_inactive_player {
+.desktop_version.logs_on_floating_panel #go_to_next_table_inactive_player {
 	margin-left: 5px
 }
 
-.logs_on_floating_panel .mobile_version #cde-floating-menu-log {
+.desktop_version .logs_on_floating_panel .mobile_version #cde-floating-menu-log {
 	display: none;
 }
 
 
-.logs_on_floating_panel #cde-floating-menu-score .fa-caret-up {
+.desktop_version.logs_on_floating_panel #cde-floating-menu-score .fa-caret-up {
 	display: none;
 }
 
-.logs_on_floating_panel.score_visible #cde-floating-menu-score .fa-caret-up {
+.desktop_version.logs_on_floating_panel.score_visible #cde-floating-menu-score .fa-caret-up {
 	display: block;
 }
 
-.logs_on_floating_panel #cde-floating-menu-score .fa-caret-down {
+.desktop_version.logs_on_floating_panel #cde-floating-menu-score .fa-caret-down {
 	display: block;
 }
 
-.logs_on_floating_panel.score_visible #cde-floating-menu-score .fa-caret-down {
+.desktop_version.logs_on_floating_panel.score_visible #cde-floating-menu-score .fa-caret-down {
 	display: none;
 }
 
 
-.logs_on_floating_panel #cde-floating-menu-log .fa-caret-up {
+.desktop_version.logs_on_floating_panel #cde-floating-menu-log .fa-caret-up {
 	display: none;
 }
 
-.logs_on_floating_panel.logs_visible #cde-floating-menu-log .fa-caret-up {
+.desktop_version.logs_on_floating_panel.logs_visible #cde-floating-menu-log .fa-caret-up {
 	display: block;
 }
 
-.logs_on_floating_panel #cde-floating-menu-log .fa-caret-down {
+.desktop_version.logs_on_floating_panel #cde-floating-menu-log .fa-caret-down {
 	display: block;
 }
 
-.logs_on_floating_panel.logs_visible #cde-floating-menu-log .fa-caret-down {
+.desktop_version.logs_on_floating_panel.logs_visible #cde-floating-menu-log .fa-caret-down {
 	display: none;
 }
