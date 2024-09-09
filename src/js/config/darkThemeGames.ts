@@ -28,6 +28,7 @@ export const gamesWithCustomBackground = [
   'dontgointhere',
   'draculahelsing',
   'draftandwriterecords',
+  'dvonn',
   'earth',
   'earthabundance',
   'eminentdomain',
@@ -1672,6 +1673,23 @@ _darkStyleForGame['dungeontwister'] = `
 
 _darkStyleForGame['durak'] = `
 .attacker_token, .defender_token { filter: var(--highlight-min); }
+`;
+
+_darkStyleForGame['dvonn'] = `
+#overall-content:before { content: ""; background: #00000080; position: absolute; width: 100%; height: 100%; }
+#gipf-move-history-header { background-color: var(--dark-20); color: var(--light-80); border-top: 1px solid var(--light-50); }
+.gipf-move-history-table tr:nth-child(odd) { background-color: var(--dark-30); color: var(--light-80); }
+.gipf-move-history-table tr:nth-child(2n) { background-color: var(--dark-40); color: var(--light-80); }
+#gipf-move-history-content, #gipf-move-history-header, .gipf-move-history-slidecontainer { border-left: 1px solid var(--light-50); border-right: 1px solid var(--light-50); }
+#gipf-move-history-expand-collapse { background-color: var(--dark-20); color: var(--light-80); border: 1px solid var(--light-50); border-top: none; }
+#gipf-move-history-expand-collapse:hover { color: #fff; }
+#gipf-move-history-content { border-bottom: 1px solid var(--light-50); }
+.gipf-move-history-slidecontainer { background-color:var(--dark-20); }
+.gipf-move-history-slider { background-color: var(--dark-40); }
+.dvonn-piece-black, .dvonn-player-pieces-black { filter: var(--highlight-min); }
+.gipf-button-panel { background-color: var(--dark-20); border: 1px solid var(--light-50); color: var(--light-80); }
+.gipf-settings-panel { background-color:var(--dark-20); border: 1px solid var(--light-50); }
+#gipf-settings-label { color: var(--light-80); }
 `;
 
 _darkStyleForGame['earth'] = `
