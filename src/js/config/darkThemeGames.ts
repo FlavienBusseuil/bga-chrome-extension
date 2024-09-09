@@ -1009,13 +1009,13 @@ _styleForGame['carnegie'] = `
 `;
 
 _darkStyleForGame['carnegie'] = `
- .cng_firstplayer { filter: var(--highlight); }
- .cng_token,  .player_score > i { filter: var(--drop-shadow); }
- .cng_playerboard_counter { filter: invert(1); }
- #pagemaintitletext > span { background-color: transparent !important; }
- #timeline_block, #deptboard, .cng_company_block { background-color: #0a292980; color: #fff; }
- .cng_company_label { background: var(--dark-20); color: #fff; border-top-right-radius: 8px; border-bottom-right-radius: 8px; }
- .cng_companyboard_counter { color: var(--light-70); text-shadow: none; }
+.cng_firstplayer { filter: var(--highlight); }
+.cng_token,  .player_score > i { filter: var(--drop-shadow); }
+.cng_playerboard_counter { filter: invert(1); }
+#pagemaintitletext > span { background-color: transparent !important; }
+#timeline_block, #deptboard, .cng_company_block { background-color: #0a292980; color: #fff; }
+.cng_company_label { background: var(--dark-20); color: #fff; border-top-right-radius: 8px; border-bottom-right-radius: 8px; }
+.cng_companyboard_counter { color: var(--light-70); text-shadow: none; }
 `;
 
 _darkStyleForGame['carrara'] = `
@@ -2473,23 +2473,23 @@ html.darkpanel #player_boards .player-board.finished { background-color: var(--d
 #scorepad-image table tr td { text-shadow: none; }
 #scorepad-image { color: #000; }
 #championship-table #championship-circuits { background: var(--dark-10); color: #fff; }
- `;
+`;
 
 _darkStyleForGame['heckinhounds'] = `
- .playertablename, .loaded_font_1 { text-shadow: none; }
- .table_bordered { border: 3px ridge var(--dark-10); }
- #round_wrap { color: var(--light-80); }
- #overall-content.background_loaded { background-color: #173336; }
- .playertable { border: thick outset #20435e; }
- `;
+.playertablename, .loaded_font_1 { text-shadow: none; }
+.table_bordered { border: 3px ridge var(--dark-10); }
+#round_wrap { color: var(--light-80); }
+#overall-content.background_loaded { background-color: #173336; }
+.playertable { border: thick outset #20435e; }
+`;
 
 _darkStyleForGame['hens'] = `
- #page-content { color: var(--light-80); }
+#page-content { color: var(--light-80); }
 `;
 
 _darkStyleForGame['herd'] = `
 #board, #board > *, .die { filter: invert(1); }
- `;
+`;
 
 _darkStyleForGame['herrlof'] = `
 .player_board_inner img[id^="tricks_icon"] { filter: var(--drop-shadow); }
@@ -2612,12 +2612,12 @@ _darkStyleForGame['inventors'] = `
 `;
 
 _darkStyleForGame['inverteddice'] = `
- #page-content, .doubleempty { color: var(--light-80); }
- #grend td[id^=num] { color: #000; }
- #grend td { border-color: var(--light-80) !important; }
- #result { background-color: var(--dark-back); border: 3px solid #178217; color: #178217; }
- .ReRoll { filter: invert(1); }
- #helpline > td { background-color: var(--dark-20) !important; }
+#page-content, .doubleempty { color: var(--light-80); }
+#grend td[id^=num] { color: #000; }
+#grend td { border-color: var(--light-80) !important; }
+#result { background-color: var(--dark-back); border: 3px solid #178217; color: #178217; }
+.ReRoll { filter: invert(1); }
+#helpline > td { background-color: var(--dark-20) !important; }
 
 `;
 
@@ -3845,19 +3845,19 @@ _darkStyleForGame['railwaysoftheworld'] = `
 .all_cards_wrapper { background: var(--dark-back); color: #fff; }
 .all_cards_wrapper > h3 { padding-left: 0.5em; }
 .stockitem { color: #000; }
- `;
+`;
 
 _darkStyleForGame['rainforest'] = `
- .playerPanel p { color: #fff; }
- .notif_species { filter: var(--highlight-min); }
- .jungleZoneBlock { background-color: #00000033; outline: 2px dashed #ffffff4d; }
- #rainForestContainer .playerSpeciesZone { border: 0.3vw dashed #898989; }
- #mainBoard:before { position: absolute; top:0px; left:0px; width: 100%; height: 100%; border: 1px solid var(--dark-10); box-sizing: border-box; content: ""; }
- `;
+.playerPanel p { color: #fff; }
+.notif_species { filter: var(--highlight-min); }
+.jungleZoneBlock { background-color: #00000033; outline: 2px dashed #ffffff4d; }
+#rainForestContainer .playerSpeciesZone { border: 0.3vw dashed #898989; }
+#mainBoard:before { position: absolute; top:0px; left:0px; width: 100%; height: 100%; border: 1px solid var(--dark-10); box-sizing: border-box; content: ""; }
+`;
 
 _darkStyleForGame['rallymandirt'] = `
- .timestamp { background-color: var(--dark-10); }
- `;
+.timestamp { background-color: var(--dark-10); }
+`;
 
 _darkStyleForGame['rallymangt'] = `
 .warningCounterIcon { filter: invert(1); }
@@ -4492,7 +4492,7 @@ div[style*="--color: #fdc300"] { --color: #997500!important; }
 div[style*="--color: #68b32e"] { --color: #467a1f!important; }
 .player-table .name { background-color: var(--dark-20); text-shadow: none; }
 .bga-dice_line-stock.selectable .bga-dice_die6.takenokolor-die.selectable:before { background: var(--dark-back); box-shadow: 0 0 5px 5px #000; }
- `;
+`;
 
 _darkStyleForGame['talon'] = `
 .TALONlogBattle, .TALONlogRound, .TALONlogPlayer { background-color: transparent; }
@@ -4946,10 +4946,7 @@ _darkStyleForGame['trike'] = `
 `;
 
 _darkStyleForGame['trio'] = `
-.handPlayerName {
-  background: var(--dark-20); padding: 0.3em 2em; border-radius: 8px; color: #fff;
-  margin-top: 10px; width: auto; flex-grow: 0; height: 22px;
-}
+.handPlayerName { background: var(--dark-20); padding: 0.3em 2em; border-radius: 8px; color: #fff; margin-top: 10px; width: auto; flex-grow: 0; height: 22px; }
 .playerLabelContainer { justify-content: space-between; }
 .playerLabelContainer .bgabutton[style="display: none;"] { display: block !important; visibility: hidden; }
 `;
