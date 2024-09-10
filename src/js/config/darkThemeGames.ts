@@ -44,6 +44,7 @@ export const gamesWithCustomBackground = [
   'fromage',
   'gangsta',
   'giftoftulips',
+  'girafferaffe',
   'gnomehollow',
   'goblinhood',
   'goldblivion',
@@ -2176,6 +2177,12 @@ body { background: none !important; }
 .scrollmap_form [type="submit"] { background-color: var(--blue-70) !important; }
 .darkmode .scrollmap_container > .scrollmap_btns_flex { background-color: var(--dark-30); }
 .scrollmap_container .movetop.fa, .scrollmap_container .moveleft.fa, .scrollmap_container .moveright.fa, .scrollmap_container .movedown.fa { background-color: var(--dark-back) !important; color: var(--light-80); }
+`;
+
+_darkStyleForGame['girafferaffe'] = `
+#overall-content:before { content: ""; background: #000000B0; position: absolute; width: 100%; height: 100%; }
+#gr_redraw_title { color: #d17061; }
+.gr_zone_bg { background-color: var(--dark-back); }
 `;
 
 _darkStyleForGame['gizmos'] = `

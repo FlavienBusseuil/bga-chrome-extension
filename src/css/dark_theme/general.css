@@ -852,16 +852,19 @@ select.colorselector {
   color: inherit;
 }
 
-.bgaext_gamelist .bga-dropdown-option.bg-gray-200 {
+.bgaext_gamelist .bga-dropdown-option.bg-gray-200,
+.bgaext_gamepanel .bg-gray-200 {
   background-color: var(--dark-30);
   border-color: #595959 !important;
 }
 
-.bgaext_gamelist .bga-dropdown-option.bg-gray-200:hover {
+.bgaext_gamelist .bga-dropdown-option.bg-gray-200:hover,
+.bgaext_gamepanel .bg-gray-200:hover {
   background-color: var(--dark-40);
 }
 
-.bgaext_gamelist .bga-dropdown-option.bg-gray-200 * {
+.bgaext_gamelist .bga-dropdown-option.bg-gray-200 *,
+.bgaext_gamepanel .bg-gray-200 * {
   color: var(--light-80) !important;
 }
 
@@ -1097,6 +1100,14 @@ select.colorselector {
 
 .bgaext_gamepanel [style*="background-color: rgb(233, 199, 0)"] {
   background-color: transparent !important;
+}
+
+.bgaext_gamepanel .bga-game-panel-medias-box__icon {
+  background: linear-gradient(90deg, var(--dark-10) 50%, var(--dark-40) 100%) !important;
+}
+
+.bgaext_gamepanel .bga-game-panel-medias-box__icon--active {
+  background: var(--dark-10) !important;
 }
 
 /* start screen */
@@ -1654,7 +1665,8 @@ select.colorselector {
   color: var(--light-80);
 }
 
-.bgaext_controlpanelgames .bg-bga-whitebg {
+.bgaext_controlpanelgames .bg-bga-whitebg,
+.bgaext_gamepanel .bg-bga-whitebg {
   background-color: var(--dark-10);
 }
 
