@@ -67,7 +67,12 @@ export function App({ config }: Props): React$Node {
 	} = result;
 
 	const sortedTables = sortTables(transformedTables);
-	updateBadgeAndIcon({ nbWaitingTables, nbPendingInvites, tracking: config.isTrackingEnable() });
+	updateBadgeAndIcon({
+		nbWaitingTables,
+		nbPendingInvites,
+		tracking: config.isTrackingEnable(),
+		soundNotification: config.isSoundNotificationEnable()
+	});
 
 	const sortedTournaments = sortTournaments(transformedTournaments);
 
@@ -75,7 +80,7 @@ export function App({ config }: Props): React$Node {
 		if (config.isTrackingEnable()) {
 			fetch();
 		} else {
-			updateBadgeAndIcon({ nbPendingInvites: 0, nbWaitingTables: 0, tracking: false });
+			updateBadgeAndIcon({ nbPendingInvites: 0, nbWaitingTables: 0, tracking: false, soundNotification: false });
 		}
 	};
 

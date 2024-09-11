@@ -168,6 +168,12 @@
 	"optionsTrackingOff": {
 		"message": "Surveillance de l'état de vos tables désactivée"
 	},
+	"optionsNotificationSoundOn": {
+		"message": "Notification sonore quand vous êtes attendu sur au moins une table"
+	},
+	"optionsNotificationSoundOff": {
+		"message": "Notification sonore désactivée"
+	},
 	"optionsFlashingOn": {
 		"message": "Les tables sur lesquels vous êtes attendus sont signalées par une couleur clignotante"
 	},

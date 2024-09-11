@@ -51,6 +51,7 @@ interface CustomConfig {
 	darkModeColor?: number;
 	darkModeSat?: number;
 	trackTables?: boolean;
+	soundNotification?: boolean;
 	motionSensitivity?: boolean;
 	home?: HomeConfig;
 	inProgress?: InProgressConfig;
@@ -261,6 +262,15 @@ class Configuration {
 	setTrackingEnable(val: boolean) {
 		this._customConfig.trackTables = val;
 		storageSet({ trackTables: val });
+	}
+
+	isSoundNotificationEnable() {
+		return Boolean(this._customConfig.soundNotification);
+	}
+
+	setSoundNotificationEnable(val: boolean) {
+		this._customConfig.soundNotification = val;
+		storageSet({ soundNotification: val });
 	}
 
 	getHomeConfig() {

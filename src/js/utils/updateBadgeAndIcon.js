@@ -1,5 +1,4 @@
 // @flow
-
 import { getBadge } from "./badge/getBadge";
 import { hideBadge } from "./badge/hideBadge";
 import { setBadge } from "./badge/setBadge";
@@ -9,6 +8,7 @@ type Props = {
 	nbWaitingTables: number,
 	nbPendingInvites: number,
 	tracking: boolean,
+	soundNotification: boolean
 };
 
 function getTotalFromBadgeText({ text }: { text: string }): null | number {
@@ -28,7 +28,8 @@ function getTotalFromBadgeText({ text }: { text: string }): null | number {
 export async function updateBadgeAndIcon({
 	nbPendingInvites,
 	nbWaitingTables,
-	tracking
+	tracking,
+	soundNotification
 }: Props): Promise<void> {
 	if (!tracking) {
 		hideBadge();
@@ -70,8 +71,40 @@ export async function updateBadgeAndIcon({
 		await chrome.action.setIcon({ path: "img/icon-48.png" });
 	}
 
+	if (oldTotal === 0 && soundNotification) {
+		await setupOffscreenDocument("offscreen.html");
+		await chrome.runtime.sendMessage({
+			data: { source: "sound/myturn.mp3", volume: 1.0 },
+			target: "offscreen",
+		});
+	}
+
 	setBadge({
 		text: `${newTotal}`,
 		color: "#4871b6",
 	});
+}
+
+let creating;
+async function setupOffscreenDocument(path) {
+	const offscreenUrl = chrome.runtime.getURL(path);
+	const existingContexts = await chrome.runtime.getContexts({
+		contextTypes: ["OFFSCREEN_DOCUMENT"],
+		documentUrls: [offscreenUrl],
+	});
+
+	if (existingContexts.length > 0) {
+		return;
+	}
+	if (creating) {
+		await creating;
+	} else {
+		creating = chrome.offscreen.createDocument({
+			url: path,
+			reasons: ["AUDIO_PLAYBACK"],
+			justification: "Play a notification sound",
+		});
+		await creating;
+		creating = null;
+	}
 }

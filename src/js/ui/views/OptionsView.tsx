@@ -11,12 +11,14 @@ type Props = {
 
 export const OptionsView = ({ config, onChange }: Props) => {
   const [tracking, setTracking] = useState(config.isTrackingEnable());
+  const [soundNotification, setSoundNotification] = useState(config.isSoundNotificationEnable());
   const [motionSensitivity, setMotionSensitivity] = useState(config.isMotionSensitivityEnable());
   const [redirect, setRedirect] = useState(config.isLobbyRedirectionEnable());
   const [homeConfig, setHomeConfig] = useState<HomeConfig>(config.getHomeConfig());
   const [inProgressConfig, setInProgressConfig] = useState<InProgressConfig>(config.getInProgressConfig());
   const [hiddenGames, setHiddenGames] = useState<string[]>(config.getHiddenGames());
   const [configVisible, setConfigVisible] = useState(localStorage.getItem('ext_settings') || 'misc');
+  const isFirefox = window.navigator.userAgent.toLowerCase().includes('firefox');
 
   const _setConfigVisible = (val: string) => {
     localStorage.setItem('ext_settings', val);
@@ -27,6 +29,11 @@ export const OptionsView = ({ config, onChange }: Props) => {
     setTracking(val);
     config.setTrackingEnable(val);
     onChange();
+  };
+
+  const updateSoundNotification = (val: boolean) => {
+    setSoundNotification(val);
+    config.setSoundNotificationEnable(val)
   };
 
   const updateFlashing = (val: boolean) => {
@@ -92,6 +99,13 @@ export const OptionsView = ({ config, onChange }: Props) => {
             textOff={chrome.i18n.getMessage("optionsTrackingOff")}
             onChange={updateTracking}
           />
+          {!isFirefox && <Switch
+            checked={soundNotification && tracking}
+            textOn={chrome.i18n.getMessage("optionsNotificationSoundOn")}
+            textOff={chrome.i18n.getMessage("optionsNotificationSoundOff")}
+            onChange={updateSoundNotification}
+            disabled={!tracking}
+          />}
           <Switch
             checked={!motionSensitivity}
             textOn={chrome.i18n.getMessage("optionsFlashingOn")}

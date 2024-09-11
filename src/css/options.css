@@ -48,7 +48,7 @@ div.bgext_link_selected {
 
 div.bgext_options_title {
 	color: grey;
-	font-size: 1.5rem;
+	font-size: 1.1rem;
 	font-weight: bold;
 	display: flex;
 	align-items: center;
@@ -56,7 +56,7 @@ div.bgext_options_title {
 	border: 1px solid #aaaaaa;
 	box-sizing: border-box;
 	margin: 0em 1em;
-	line-height: 32px;
+	line-height: 26px;
 	text-align: center;
 }
 

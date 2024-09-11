@@ -18,10 +18,12 @@ const Options = (props: { config: Configuration }) => {
 	const [tabSelected, setTabSelected] = useState("misc");
 	const [hiddenGames, setHiddenGames] = useState(config.getHiddenGames());
 	const [tracking, setTracking] = useState(config.isTrackingEnable());
+	const [soundNotification, setSoundNotification] = useState(config.isSoundNotificationEnable());
 	const [redirect, setRedirect] = useState(config.isLobbyRedirectionEnable());
 	const [homeConfig, setHomeConfig] = useState(config.getHomeConfig());
 	const [inProgressConfig, setInProgressConfig] = useState(config.getInProgressConfig());
 	const [motionSensitivity, setMotionSensitivity] = useState(config.isMotionSensitivityEnable());
+	const isFirefox = window.navigator.userAgent.toLowerCase().includes('firefox');
 
 	const serialize = (game: Game) => {
 		return JSON.stringify(
@@ -92,11 +94,12 @@ const Options = (props: { config: Configuration }) => {
 		setTracking(val);
 		config.setTrackingEnable(val);
 
-		if (val) {
-			updateBadgeAndIcon({ nbPendingInvites: 0, nbWaitingTables: 0, tracking: true });
-		} else {
-			updateBadgeAndIcon({ nbPendingInvites: 0, nbWaitingTables: 0, tracking: false });
-		}
+		updateBadgeAndIcon({ nbPendingInvites: 0, nbWaitingTables: 0, tracking: val, soundNotification });
+	};
+
+	const updateSoundNotification = (val: boolean) => {
+		setSoundNotification(val);
+		config.setSoundNotificationEnable(val)
 	};
 
 	const updateHomeConfig = (param: string, val: boolean) => {
@@ -156,6 +159,13 @@ const Options = (props: { config: Configuration }) => {
 						textOff={chrome.i18n.getMessage("optionsTrackingOff")}
 						onChange={updateTracking}
 					/>
+					{!isFirefox && <Switch
+						checked={soundNotification && tracking}
+						textOn={chrome.i18n.getMessage("optionsNotificationSoundOn")}
+						textOff={chrome.i18n.getMessage("optionsNotificationSoundOff")}
+						onChange={updateSoundNotification}
+						disabled={!tracking}
+					/>}
 					<Switch
 						checked={!motionSensitivity}
 						textOn={chrome.i18n.getMessage("optionsFlashingOn")}
@@ -245,7 +255,7 @@ const Options = (props: { config: Configuration }) => {
 						</div>
 					))}
 				</div>
-				{hiddenGames.length && <div className="bgext_options_warning">
+				{hiddenGames.length > 0 && <div className="bgext_options_warning">
 					{chrome.i18n.getMessage("optionHiddenGamesWarning")}
 				</div>}
 			</>

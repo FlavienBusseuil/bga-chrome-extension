@@ -168,6 +168,12 @@
 	"optionsTrackingOff": {
 		"message": "Tables status tracking disabled"
 	},
+	"optionsNotificationSoundOn": {
+		"message": "Sound notification when you are expected on at least one table"
+	},
+	"optionsNotificationSoundOff": {
+		"message": "Sound notification disabled"
+	},
 	"optionsFlashingOn": {
 		"message": "Tables on which you are awaited are indicated by a flashing color"
 	},
