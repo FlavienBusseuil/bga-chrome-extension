@@ -11,7 +11,8 @@ const defaultGames: Partial<Game>[] = [
 	},
 	{
 		name: "abyss",
-		iconBackground: "#7ab1c5",
+		iconBackground: "#36697c",
+		iconBackgroundDark: "#36697c",
 		playerPanel: "player-panel-{{player_id}}",
 		css: ".desktop_version #centered-table { margin-left: 46px; }",
 	},
@@ -1303,6 +1304,12 @@ const defaultGames: Partial<Game>[] = [
 		playerPanel: "zone_playername_{{player_index_1}}",
 		iconBackground: "#adb791",
 		iconBackgroundDark: "#868e71"
+	},
+	{
+		name: "girafferaffe",
+		playerPanel: "zone_playername_{{player_index_1}}",
+		iconBackgroundDark: "#888077",
+		css: " "
 	},
 ];
 

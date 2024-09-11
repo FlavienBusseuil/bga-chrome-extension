@@ -1,7 +1,6 @@
 import { getUrl } from "../utils/chrome";
 
 export const gamesWithCustomBackground = [
-  'abyss',
   'agestofrobinhood',
   'agricola',
   'altered',
@@ -328,11 +327,13 @@ const _styleForGame = {};
 _darkStyleForGame['abyss'] = `
 #krakenToken, #scourgeToken { filter: var(--highlight); }
 .icon { filter: var(--highlight-min); }
+.icon-key { filter: var(--highlight); }
+.icon-lord { border-radius: 50%; }
 .player-panel .player-name { text-shadow: none; }
 #gameplay-options { background-color: #0e0e3f; }
-.dijitTooltipContainer [style="color: blue"] { color: #6666ff !important; }
+.dijitTooltipContainer [style="color: blue"], #logs [style="color:blue"] { color: #6666ff !important; }
 .dijitTooltipContainer [style*="background-color: blue;"] { background-color: #6666ff !important; }
-.dijitTooltipContainer [style="color: purple"] { color: #cc00cc !important; }
+.dijitTooltipContainer [style="color: purple"], #logs [style="color:purple"] { color: #cc00cc !important; }
 .dijitTooltipContainer [style*="background-color: purple;"] { background-color: #cc00cc !important; }
 `;
 
@@ -3170,6 +3171,7 @@ _darkStyleForGame['modx'] = `
 #board { filter: invert(1); }
 #board > div { filter: invert(1); }
 #game_play_area { color: var(--light-80); }
+.mdx_possibleMove { background-color: #000; }
 `;
 
 _darkStyleForGame['mojo'] = `
