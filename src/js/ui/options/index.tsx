@@ -7,6 +7,7 @@ import { updateBadgeAndIcon } from "../../utils/updateBadgeAndIcon";
 
 import "../../../css/options.css";
 import "../../../css/switch.css";
+import { isSoundCustom, playMp3, removeCustomMp3, uploadCustomMp3 } from "../../utils/misc/mp3";
 
 const Options = (props: { config: Configuration }) => {
 	const { config } = props;
@@ -19,6 +20,7 @@ const Options = (props: { config: Configuration }) => {
 	const [hiddenGames, setHiddenGames] = useState(config.getHiddenGames());
 	const [tracking, setTracking] = useState(config.isTrackingEnable());
 	const [soundNotification, setSoundNotification] = useState(config.isSoundNotificationEnable());
+	const [customSoundFile, setCustomSoundFile] = useState(isSoundCustom());
 	const [redirect, setRedirect] = useState(config.isLobbyRedirectionEnable());
 	const [homeConfig, setHomeConfig] = useState(config.getHomeConfig());
 	const [inProgressConfig, setInProgressConfig] = useState(config.getInProgressConfig());
@@ -102,6 +104,14 @@ const Options = (props: { config: Configuration }) => {
 		config.setSoundNotificationEnable(val)
 	};
 
+	const updateSoundCustom = (val: boolean) => {
+		setCustomSoundFile(val);
+
+		if (!val) {
+			removeCustomMp3();
+		}
+	}
+
 	const updateHomeConfig = (param: string, val: boolean) => {
 		const newHomeConfig = { ...homeConfig, [param]: val };
 		setHomeConfig(newHomeConfig);
@@ -166,6 +176,19 @@ const Options = (props: { config: Configuration }) => {
 						onChange={updateSoundNotification}
 						disabled={!tracking}
 					/>}
+					{!isFirefox && <div className="row_fullwidth">
+						<Switch
+							checked={soundNotification && tracking && customSoundFile}
+							textOn={chrome.i18n.getMessage("optionsNotificationCustomSoundOn")}
+							textOff={chrome.i18n.getMessage("optionsNotificationCustomSoundOff")}
+							onChange={updateSoundCustom}
+							disabled={!tracking || !soundNotification}
+						/>
+						{tracking && soundNotification && <div>
+							{customSoundFile && <button onClick={uploadCustomMp3}>{chrome.i18n.getMessage("uploadMp3")}</button>}
+							<button onClick={playMp3}>{chrome.i18n.getMessage("play")}</button>
+						</div>}
+					</div>}
 					<Switch
 						checked={!motionSensitivity}
 						textOn={chrome.i18n.getMessage("optionsFlashingOn")}
@@ -179,7 +202,13 @@ const Options = (props: { config: Configuration }) => {
 						onChange={updateRedirect}
 					/>
 				</div>
+			</>
+		);
+	}
 
+	const getDisplayConfiguration = () => {
+		return (
+			<>
 				<div className="bgext_options_title">
 					{chrome.i18n.getMessage("optionsHome")}
 				</div>
@@ -387,11 +416,13 @@ const Options = (props: { config: Configuration }) => {
 				<div className="bgext_options_config_area">
 					<div className="bgext_links_area">
 						{getTab("misc", chrome.i18n.getMessage("optionMisc"))}
+						{getTab("display", chrome.i18n.getMessage("optionDisplay"))}
 						{getTab("hidden", chrome.i18n.getMessage("optionHiddenTab"))}
 						{getTab("navigation", chrome.i18n.getMessage("optionNavigationTab"))}
 						{getTab("css", chrome.i18n.getMessage("optionCssTab"))}
 					</div>
 					{tabSelected === "misc" && getMiscConfiguration()}
+					{tabSelected === "display" && getDisplayConfiguration()}
 					{tabSelected === "hidden" && getHiddenConfiguration()}
 					{tabSelected === "navigation" && getNavigationConfiguration()}
 					{tabSelected === "css" && getCssConfiguration()}

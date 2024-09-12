@@ -196,3 +196,23 @@ a {
 p {
   padding-bottom: 0.5em;
 }
+
+.small_button {
+  padding: 0px;
+  width: 100px;
+  line-height: 22px;
+}
+
+.row_fullwidth {
+  width: 100%;
+  display: flex;
+  flex-flow: row;
+  justify-content: space-between;
+}
+
+.row_fullwidth>div:last-child {
+  padding-right: 1em;
+  display: flex;
+  flex-flow: row;
+  gap: 0.5em;
+}

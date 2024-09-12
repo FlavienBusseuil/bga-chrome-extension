@@ -5,7 +5,8 @@ chrome.runtime.onMessage.addListener((msg) => {
 
 // Play sound with access to DOM APIs
 function playAudio({ source, volume }) {
-  const audio = new Audio(source);
+  const url = localStorage.getItem(source) || "sound/myturn.mp3"
+  const audio = new Audio(url);
   audio.volume = volume;
   audio.play();
 }

@@ -81,6 +81,9 @@
 	"optionMisc": {
 		"message": "Miscellaneous"
 	},
+	"optionDisplay": {
+		"message": "Custom display"
+	},
 	"optionHiddenTab": {
 		"message": "Hidden games"
 	},
@@ -173,6 +176,12 @@
 	},
 	"optionsNotificationSoundOff": {
 		"message": "Sound notification disabled"
+	},
+	"optionsNotificationCustomSoundOn": {
+		"message": "Custom sound file"
+	},
+	"optionsNotificationCustomSoundOff": {
+		"message": "Default sound file"
 	},
 	"optionsFlashingOn": {
 		"message": "Tables on which you are awaited are indicated by a flashing color"
@@ -323,5 +332,11 @@
 	},
 	"optionsInProgressMoreOff": {
 		"message": "'More friends' section hidden"
+	},
+	"uploadMp3": {
+		"message": "Upload MP3"
+	},
+	"play": {
+		"message": "Play"
 	}
 }

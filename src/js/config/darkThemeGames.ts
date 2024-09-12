@@ -4956,6 +4956,7 @@ _darkStyleForGame['trellis'] = `
 _darkStyleForGame['treos'] = `
 .text-container { color: #000; }
 .player_config_row svg { filter: invert(0.7); }
+#decks-inner .minideck-row .minideck .deckinfo { background: var(--dark-back); color: var(--light-80); }
 `;
 
 _darkStyleForGame['triatri'] = `

@@ -3,6 +3,8 @@ import { useState } from "preact/hooks";
 
 import Configuration, { HomeConfig, InProgressConfig } from "../../config/configuration";
 import Switch from "../base/Switch";
+import { isSoundCustom, playMp3, removeCustomMp3, uploadCustomMp3 } from "../../utils/misc/mp3";
+import { Button } from "../base/Button";
 
 type Props = {
   config: Configuration,
@@ -12,6 +14,7 @@ type Props = {
 export const OptionsView = ({ config, onChange }: Props) => {
   const [tracking, setTracking] = useState(config.isTrackingEnable());
   const [soundNotification, setSoundNotification] = useState(config.isSoundNotificationEnable());
+  const [customSoundFile, setCustomSoundFile] = useState(isSoundCustom());
   const [motionSensitivity, setMotionSensitivity] = useState(config.isMotionSensitivityEnable());
   const [redirect, setRedirect] = useState(config.isLobbyRedirectionEnable());
   const [homeConfig, setHomeConfig] = useState<HomeConfig>(config.getHomeConfig());
@@ -35,6 +38,14 @@ export const OptionsView = ({ config, onChange }: Props) => {
     setSoundNotification(val);
     config.setSoundNotificationEnable(val)
   };
+
+  const updateSoundCustom = (val: boolean) => {
+    setCustomSoundFile(val);
+
+    if (!val) {
+      removeCustomMp3();
+    }
+  }
 
   const updateFlashing = (val: boolean) => {
     setMotionSensitivity(!val);
@@ -106,6 +117,31 @@ export const OptionsView = ({ config, onChange }: Props) => {
             onChange={updateSoundNotification}
             disabled={!tracking}
           />}
+          {!isFirefox && <div className="row_fullwidth">
+            <Switch
+              checked={soundNotification && tracking && customSoundFile}
+              textOn={chrome.i18n.getMessage("optionsNotificationCustomSoundOn")}
+              textOff={chrome.i18n.getMessage("optionsNotificationCustomSoundOff")}
+              onChange={updateSoundCustom}
+              disabled={!tracking || !soundNotification}
+            />
+            {tracking && soundNotification && <div>
+              {customSoundFile && <Button
+                {...{
+                  text: chrome.i18n.getMessage("uploadMp3"),
+                  className: "small_button",
+                  onClick: uploadCustomMp3
+                }}
+              />}
+              <Button
+                {...{
+                  text: chrome.i18n.getMessage("play"),
+                  className: "small_button",
+                  onClick: playMp3
+                }}
+              />
+            </div>}
+          </div>}
           <Switch
             checked={!motionSensitivity}
             textOn={chrome.i18n.getMessage("optionsFlashingOn")}

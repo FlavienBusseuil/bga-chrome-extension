@@ -81,6 +81,9 @@
 	"optionMisc": {
 		"message": "Divers"
 	},
+	"optionDisplay": {
+		"message": "Affichage"
+	},
 	"optionHiddenTab": {
 		"message": "Jeux cachés"
 	},
@@ -173,6 +176,12 @@
 	},
 	"optionsNotificationSoundOff": {
 		"message": "Notification sonore désactivée"
+	},
+	"optionsNotificationCustomSoundOn": {
+		"message": "Son personnalisé"
+	},
+	"optionsNotificationCustomSoundOff": {
+		"message": "Son par défaut"
 	},
 	"optionsFlashingOn": {
 		"message": "Les tables sur lesquels vous êtes attendus sont signalées par une couleur clignotante"
@@ -323,5 +332,11 @@
 	},
 	"optionsInProgressMoreOff": {
 		"message": "Section 'Plus d'amis' cachée"
+	},
+	"uploadMp3": {
+		"message": "Télécharger MP3"
+	},
+	"play": {
+		"message": "Écouter"
 	}
 }

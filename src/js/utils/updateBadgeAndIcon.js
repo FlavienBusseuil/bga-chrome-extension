@@ -3,6 +3,7 @@ import { getBadge } from "./badge/getBadge";
 import { hideBadge } from "./badge/hideBadge";
 import { setBadge } from "./badge/setBadge";
 import { animate } from "./icon/animate";
+import { playMp3 } from "./misc/mp3";
 
 type Props = {
 	nbWaitingTables: number,
@@ -72,39 +73,11 @@ export async function updateBadgeAndIcon({
 	}
 
 	if (oldTotal === 0 && soundNotification) {
-		await setupOffscreenDocument("offscreen.html");
-		await chrome.runtime.sendMessage({
-			data: { source: "sound/myturn.mp3", volume: 1.0 },
-			target: "offscreen",
-		});
+		await playMp3();
 	}
 
 	setBadge({
 		text: `${newTotal}`,
 		color: "#4871b6",
 	});
-}
-
-let creating;
-async function setupOffscreenDocument(path) {
-	const offscreenUrl = chrome.runtime.getURL(path);
-	const existingContexts = await chrome.runtime.getContexts({
-		contextTypes: ["OFFSCREEN_DOCUMENT"],
-		documentUrls: [offscreenUrl],
-	});
-
-	if (existingContexts.length > 0) {
-		return;
-	}
-	if (creating) {
-		await creating;
-	} else {
-		creating = chrome.offscreen.createDocument({
-			url: path,
-			reasons: ["AUDIO_PLAYBACK"],
-			justification: "Play a notification sound",
-		});
-		await creating;
-		creating = null;
-	}
 }

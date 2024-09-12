@@ -29,6 +29,7 @@ div.bgext_links_area {
 
 div.bgext_link,
 div.bgext_link_selected {
+	white-space: nowrap;
 	line-height: 24px;
 	text-decoration: none;
 	padding: 0px 10px;
@@ -193,6 +194,22 @@ textarea.bgext_options_input {
 div.bgext_options_warning {
 	padding: 0em 2em;
 	text-align: right;
+}
+
+.row_fullwidth {
+	display: flex;
+	flex-flow: row;
+	gap: 2em;
+}
+
+.row_fullwidth>div:last-child {
+	display: flex;
+	flex-flow: row;
+	gap: 1em;
+}
+
+.row_fullwidth * {
+	white-space: nowrap;
 }
 
 /* Hide side menu settings and deleted games tab for Edge */
