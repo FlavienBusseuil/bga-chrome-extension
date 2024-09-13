@@ -158,6 +158,8 @@ const defaultGames: Partial<Game>[] = [
 	{
 		name: "gardennation",
 		playerPanel: "player-table-{{player_id}}",
+		iconBackground: "#919544",
+		iconBackgroundDark: "#919544",
 		css: ".desktop_version #page-content { padding-left: 50px; }",
 	},
 	{
@@ -656,6 +658,7 @@ const defaultGames: Partial<Game>[] = [
 	{
 		name: "knarr",
 		playerPanel: "player-table-{{player_id}}",
+		iconBackground: "#dfeaeb",
 		css: "#bga-jump-to_controls { display: none; }",
 	},
 	{

@@ -124,7 +124,7 @@ const _setDarkStyleIfActivated = () => {
 };
 
 const _setDarkStyle = (mode: string) => {
-  console.log("[bga extension] Set dark mode");
+  console.log("[bga extension] set dark mode");
 
   if (styleComponent) {
     if (mode === "archive") {
@@ -175,7 +175,7 @@ const _setDarkStyle = (mode: string) => {
 };
 
 const _setLightStyle = (mode: string) => {
-  console.log("[bga extension] Set light mode");
+  console.log("[bga extension] set light mode");
 
   if (styleComponent) {
     if (mode === "archive") {

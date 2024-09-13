@@ -16,6 +16,25 @@ const createHiddenGameStyle = (content) => {
 	return style;
 };
 
+let pageNotFoundError = false;
+let links = [];
+let lastLink = undefined;
+
+const linkClick = (evt) => {
+	let elt = evt.target;
+	let loop = 0;
+
+	while (!elt.href && loop < 10) {
+		elt = elt.parentNode;
+		++loop;
+	}
+
+	if (elt.href) {
+		lastLink = elt.href;
+		console.log(`[bga extension] click on ${lastLink}`);
+	}
+};
+
 export const initGameListObserver = (config, page) => {
 	const mainElt = document.querySelector("#overall-content");
 
@@ -52,18 +71,27 @@ export const initGameListObserver = (config, page) => {
 	};
 
 	const observer = new MutationObserver(() => {
+		// attempt to fix "Page not found" bug => start
+
 		const infoMsg = Array.from(document.querySelectorAll('.head_infomsg_item'));
 
-		if (infoMsg.find(info => info.innerHTML.startsWith('Page not found'))) {
-			console.log("[bga extension] Page not found error");
-			window.history.back();
-			window.location.reload();
+		if (!pageNotFoundError && infoMsg.find(info => info.innerHTML.startsWith('Page not found'))) {
+			console.log(`[bga extension] page not found error, navigate to ${lastLink}`);
+			pageNotFoundError = true;
+			observer.disconnect();
+			window.location.replace(lastLink);
 			return;
 		}
 
-		const buttons = document.querySelectorAll('[href*="/gamepanel?game="]');
+		links.forEach(l => l.removeEventListener("click", linkClick));
+		links = document.querySelectorAll('[href]');
+		links.forEach(l => l.addEventListener("click", linkClick));
 
-		buttons.forEach(but => {
+		// attempt to fix "Page not found" bug => end
+
+		const gameButtons = document.querySelectorAll('[href^="/gamepanel?game="]');
+
+		gameButtons.forEach(but => {
 			if (but.classList.contains('bgabutton_blue') || but.classList.contains('bga-button--blue')) {
 				const container = but.parentNode;
 

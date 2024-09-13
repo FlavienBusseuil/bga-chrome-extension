@@ -93,7 +93,7 @@ const manageLocationChange = (pathname) => {
 		if (gameConfig) {
 			initLeftMenu(config, gameConfig, config.isLeftMenuEnabled(gameName));
 		} else {
-			console.log(`[bga extension] No configuration found for game ${gameName}`);
+			console.log(`[bga extension] no configuration found for game ${gameName}`);
 		}
 
 		initDarkMode(config, gameName);
