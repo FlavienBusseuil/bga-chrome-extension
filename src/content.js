@@ -3,7 +3,7 @@ import { isNumber } from './js/utils/misc/isNumber';
 import { addLocationChangeListener } from './js/utils/misc/addLocationChangeListener';
 import {
 	buildMainCss,
-	initlogObserver,
+	initLogObserver,
 	initLeftMenu,
 	setFloatingRightMenu,
 	initDevelopperUI,
@@ -33,10 +33,7 @@ if (localStorage.getItem('ext_dark_theme') === 'on') {
 }
 
 const initObserver = (page) => {
-	currentObserver =
-		page === 'game'
-			? initlogObserver(config)
-			: initGameListObserver(config, page);
+	currentObserver = page === 'game' ? initLogObserver(config) : initGameListObserver(config, page);
 	if (!currentObserver) {
 		setTimeout(() => initObserver(page), 500);
 	}
@@ -141,17 +138,13 @@ const manageLocationChange = (pathname) => {
 };
 
 const setHtmlClass = (mode) => {
-	if (document.body) {
-		const oldClasses = Array.from(document.body.classList).filter(c => c.startsWith('bgaext'));
+	const oldClasses = Array.from(document.documentElement.classList).filter(c => c.startsWith('bgaext'));
 
-		oldClasses.map(oldClass => {
-			document.body.classList.remove(oldClass);
-		})
+	oldClasses.map(oldClass => {
+		document.documentElement.classList.remove(oldClass);
+	})
 
-		document.body.classList.add(`bgaext_${mode}`);
-	} else {
-		setTimeout(() => setHtmlClass(mode), 1);
-	}
+	document.documentElement.classList.add(`bgaext_${mode}`);
 };
 
 const initPage = () => {
@@ -187,6 +180,6 @@ window.addEventListener('message', (evt) => {
 	if (evt.origin === 'https://forum.boardgamearena.com' && evt.data.key === 'bga_ext_forum_visible') {
 		// hack to avoid light theme flashing
 		console.log('[bga extension] forum displayed');
-		document.body.classList.add('bgaext_forum_visible');
+		document.documentElement.classList.add('bgaext_forum_visible');
 	}
 }, false);

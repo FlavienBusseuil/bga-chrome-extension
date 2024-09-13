@@ -52,10 +52,19 @@ export const initGameListObserver = (config, page) => {
 	};
 
 	const observer = new MutationObserver(() => {
+		const infoMsg = Array.from(document.querySelectorAll('.head_infomsg_item'));
+
+		if (infoMsg.find(info => info.innerHTML.startsWith('Page not found'))) {
+			console.log("[bga extension] Page not found error");
+			window.history.back();
+			window.location.reload();
+			return;
+		}
+
 		const buttons = document.querySelectorAll('[href*="/gamepanel?game="]');
 
-		buttons.forEach((but) => {
-			if (but.classList.contains('bgabutton_blue')) {
+		buttons.forEach(but => {
+			if (but.classList.contains('bgabutton_blue') || but.classList.contains('bga-button--blue')) {
 				const container = but.parentNode;
 
 				if (!but.classList.contains('bgabutton_medium') && !container.lastChild.classList?.contains('bgabutton_red')) {

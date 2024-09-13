@@ -260,7 +260,7 @@ const setChatStyle = (config) => {
 
 export {
 	buildMainCss,
-	initLogObserver as initlogObserver,
+	initLogObserver,
 	initLeftMenu,
 	setFloatingRightMenu,
 	initDevelopperUI,

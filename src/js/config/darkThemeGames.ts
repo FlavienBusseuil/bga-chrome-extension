@@ -100,9 +100,10 @@ export const gamesWithCustomBackground = [
   'romirami',
   'safariwitness',
   'santorini',
-  'seasaltpaper',
-  'secretmoon',
   'scythe',
+  'seasaltpaper',
+  'seasons',
+  'secretmoon',
   'skull',
   'smallworld',
   'sobektwoplayers',
@@ -1439,6 +1440,8 @@ _darkStyleForGame['darwinsjourney'] = `
 #darwin-help-header, #darwin-move-history-header, .darwin-help-table tr:nth-child(odd), .darwin-move-history-table tr:nth-child(odd) { background-color: var(--dark-20); }
 .darwin-help-table tr:nth-child(2n), .darwin-move-history-table tr:nth-child(2n) { background-color: var(--dark-30); }
 .darwin-goals-panel, .darwin-navigation-panel { background-color: var(--dark-40); }
+input:checked+.darwin-slider { background-color: var(--blue-70); }
+}
 `;
 
 _darkStyleForGame['daybreak'] = `
@@ -4147,6 +4150,7 @@ _darkStyleForGame['seasaltpaper'] = `
 `;
 
 _darkStyleForGame['seasons'] = `
+#overall-content:before { content: ""; background: #000000A0; position: absolute; width: 100%; height: 100%; }
 #player_boards .icon_cristal { filter: invert(0.7); }
 #player_boards .invocation_level, #player_boards .hand  { filter: invert(0.7); }
 .cardtooltip .energy0, .cardtooltip .icon_active, .cardtooltip .icon_permanent { filter: var(--highlight); }

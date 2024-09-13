@@ -904,7 +904,7 @@ select.colorselector {
 }
 
 .bga-modal .bga-button-plus {
-  background: linear-gradient(180deg, var(--dark-10), var(--dark-30));
+  background: linear-gradient(180deg, var(--dark-10), var(--dark-30)) !important;
   color: var(--light-80);
 }
 
