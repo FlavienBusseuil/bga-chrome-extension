@@ -903,9 +903,13 @@ select.colorselector {
   color: var(--light-80);
 }
 
-.bga-modal .bga-button-plus {
+.bga-button-holder .bga-button-plus {
   background: linear-gradient(180deg, var(--dark-10), var(--dark-30)) !important;
-  color: var(--light-80);
+  color: var(--light-80) !important;
+}
+
+.bga-button-holder .bga-button-plus:hover {
+  background: linear-gradient(180deg, var(--dark-20), var(--dark-40)) !important;
 }
 
 .bga-collapse-icon {
@@ -2000,8 +2004,8 @@ iframe#forum_frame {
   background-color: var(--dark-30);
 }
 
-/* No delete button in home page => doesn't work */
-.bga-homepage .ext_delete_button {
+/* Delete button on gamelist page */
+html:not(.bgaext_gamelist) .ext_delete_button {
   display: none;
 }
 

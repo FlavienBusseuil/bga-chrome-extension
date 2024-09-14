@@ -8,7 +8,7 @@ html.bga-white-background body {
   background: #f2f2f2 !important;
 }
 
-/* No delete button in home page => doesn't work */
-.bga-homepage .ext_delete_button {
+/* Delete button on gamelist page */
+html:not(.bgaext_gamelist) .ext_delete_button {
   display: none;
 }
