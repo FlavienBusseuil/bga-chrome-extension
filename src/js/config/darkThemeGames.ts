@@ -1836,9 +1836,10 @@ _darkStyleForGame['euchre'] = `
 `;
 
 _darkStyleForGame['evergreen'] = `
-.eve_inline-block { color: #000; }
-.eve_action-icon, .stockitem { filter: invert(1) hue-rotate(128deg) saturate(5); }
+.eve_recap { background: var(--dark-40); color: var(--light-80); }
+.bgabutton .eve_action-icon { filter: invert(1) hue-rotate(128deg) saturate(5); }
 .eve_biome-power-icon { filter: invert(1) drop-shadow(0 0 .2px red); }
+.eve_biome-icon { filter: drop-shadow(0 1px 0 #fff); }
 `;
 
 _darkStyleForGame['evolution'] = `

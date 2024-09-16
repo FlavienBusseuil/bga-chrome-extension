@@ -71,7 +71,7 @@ export function App({ config }: Props): React$Node {
 		nbWaitingTables,
 		nbPendingInvites,
 		tracking: config.isTrackingEnable(),
-		soundNotification: config.isSoundNotificationEnable()
+		soundNotification: config.isTrackingEnable() && config.isSoundNotificationEnable()
 	});
 
 	const sortedTournaments = sortTournaments(transformedTournaments);

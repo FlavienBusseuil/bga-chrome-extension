@@ -96,7 +96,7 @@ const Options = (props: { config: Configuration }) => {
 		setTracking(val);
 		config.setTrackingEnable(val);
 
-		updateBadgeAndIcon({ nbPendingInvites: 0, nbWaitingTables: 0, tracking: val, soundNotification });
+		updateBadgeAndIcon({ nbPendingInvites: 0, nbWaitingTables: 0, tracking: val, soundNotification: false });
 	};
 
 	const updateSoundNotification = (val: boolean) => {
