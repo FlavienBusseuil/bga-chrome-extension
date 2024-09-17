@@ -29,6 +29,7 @@ export const gamesWithCustomBackground = [
   'dontgointhere',
   'draculahelsing',
   'draftandwriterecords',
+  'duckcover',
   'dvonn',
   'earth',
   'earthabundance',
@@ -61,6 +62,7 @@ export const gamesWithCustomBackground = [
   'jumpdrive',
   'khiva',
   'kingoftokyo',
+  'kiriaitheduel',
   'knarr',
   'krosmasterblast',
   'lasvegan',
@@ -406,6 +408,7 @@ _darkStyleForGame['agestofrobinhood'] = `
 #popin_settings_modal_close, #popin_information_modal_close { background-color: #62411e !important; }
 #setting_modal_content, #information_modal_content { color: var(--light-80); }
 .information_modal #information_modal_content .gest_arrow { filter: grayscale(1) invert(1); }
+.gest_plots_and_deeds_container:before { content: ""; background: #000000bb; position: absolute; width: 100%; height: 100%; border-radius: 4px; }
 .gest_plots_and_deeds_container { border: 1px solid var(--light-50); }
 .gest_plots_and_deeds_container[data-side=robinHood] { background-color: #39382d; }
 .gest_plots_and_deeds_container[data-side=sheriff] { background-color: #333333; }
@@ -1675,6 +1678,17 @@ _darkStyleForGame['dronesvsseagulls'] = `
 #pagesection_gameview .whiteblock { background: inherit; }
 `;
 
+_darkStyleForGame['duckcover'] = `
+#overall-content:before { content: ""; background: #000000A0; position: absolute; width: 100%; height: 100%; }
+.dc_board_name { background-color: var(--dark-20); }
+.roundedbox { background-color: var(--dark-10) !important; }
+#round-container-id, #discard-title-id, .title { color: #ffff80; }
+.dc_captain_card { box-shadow: inset 0 0 20px 10px #ffff80; }
+.dc_card_selected,.dc_target_inside:hover { outline: 3px solid #ffff80; }
+.dc_target_outside:hover { outline: 3px dashed #ffff80; }
+.eye:hover { filter: invert(1); }
+`;
+
 _darkStyleForGame['dungeonpetz'] = `
 .side_title { text-shadow: -1px 0 #000, 0 1px #000, 1px 0 #000, 0 -1px #000; }
 `;
@@ -2686,7 +2700,7 @@ _darkStyleForGame['itsawonderfulworld'] = `
 [style="border-color: rgb(255, 0, 0); box-shadow: rgb(255, 0, 0) 0px 0px 5px, rgb(255, 0, 0) 0px 0px 10px;"]
 { border-color: #ff3333 !important; box-shadow: #ff3333 0px 0px 5px, #ff3333 0px 0px 10px !important; }
 [style="border-color: rgb(0, 128, 0); box-shadow: rgb(0, 128, 0) 0px 0px 5px, rgb(0, 128, 0) 0px 0px 10px;"]
-{ border-color: #00cc00  !important; box-shadow: #00cc00 0px 0px 5px, #00cc00 0px 0px 10px !important; }
+{ border-color: #009e0a  !important; box-shadow: #009e0a 0px 0px 5px, #009e0a 0px 0px 10px !important; }
 [style="border-color: rgb(0, 0, 255); box-shadow: rgb(0, 0, 255) 0px 0px 5px, rgb(0, 0, 255) 0px 0px 10px;"]
 { border-color: #6666ff !important; box-shadow: #6666ff 0px 0px 5px, #6666ff 0px 0px 10px !important; }
 `;
@@ -2986,7 +3000,7 @@ _darkStyleForGame['lunar'] = `
 #overall-content[style^="background"]:before { content: ""; background: #00000080; position: absolute; width: 100%; height: 100%; top:0px; left: 0px; }
 .playertablename { text-shadow: none; }
 #trick_score_table { background: var(--dark-back); border: 1px solid var(--light-50); color: var(--light-80); }
-.table_cell_content[style="color:green"] { color: #00cc00 !important; }
+.table_cell_content[style="color:green"] { color: #009e0a !important; }
 .table_cell_content[style="color:red"] { color: #ff3333 !important; }
 .table_cell_content[style="color:darkgoldenrod"] { color: #f2b926 !important; }
 `;
@@ -3093,7 +3107,7 @@ _darkStyleForGame['megajackpot'] = `
 .playercard_counter { color: var(--light-80); }
 .player_board .player_name { background-color: var(--dark-20); background-image: none; }
 [style="--plcolor:#ff0000;"] { --plcolor:#ff3333!important; }
-[style="--plcolor:#008000;"] { --plcolor:#00cc00!important; }
+[style="--plcolor:#008000;"] { --plcolor:#009e0a!important; }
 [style="--plcolor:#0000ff;"] { --plcolor:#6666ff!important; }
 `;
 
@@ -3989,10 +4003,10 @@ _darkStyleForGame['riverofgold'] = `
 #player_config #help-mode-switch .checkbox:checked+.label, #player_config #pin-panel-switch .checkbox:checked+.label { background-color: var(--blue-70); }
 #player_config #turn_counter_wrapper { background: var(--dark-10); color: var(--light-80); font-weight: normal; }
 .playername_wrapper_ff0000 .playername,.playername_wrapper_ff0000.playername { color: #ff3333!important; }
-.playername_wrapper_008000 .playername,.playername_wrapper_008000.playername { color: #00cc00!important; }
+.playername_wrapper_008000 .playername,.playername_wrapper_008000.playername { color: #009e0a!important; }
 .playername_wrapper_0000ff .playername,.playername_wrapper_0000ff.playername { color: #6666ff!important; }
 div[style*="border-color: rgb(255, 0, 0)"] { border-color: #ff3333!important; }
-div[style*="border-color: rgb(0, 128, 0)"] { border-color: #00cc00!important; }
+div[style*="border-color: rgb(0, 128, 0)"] { border-color: #009e0a!important; }
 div[style*="border-color: rgb(0, 0, 255)"] { border-color: #6666ff!important; }
 .rog_tooltip table, .rog_tooltip table th { border: 1px solid #ffffff33; }
 .rog_tooltip table td { border: 1px solid #ffffff33; }
@@ -4328,6 +4342,10 @@ body { background: none !important; }
 #zoomin, #zoomout { filter: invert(0.7); }
 `;
 
+_darkStyleForGame['smallworld'] = `
+.sw_popup_content { background-color: #272a2ff2; border: 2px solid var(--light-50); color: var(--light-80); }
+`;
+
 _darkStyleForGame['sobek'] = `
 .whiteblock_title { text-shadow: none; background-color: var(--dark-20); padding: 0.5em 1em; border-radius: 8px; }
 .fixed_player_title { height: 32px; }
@@ -4627,7 +4645,7 @@ _darkStyleForGame['terraformingmars'] = `
 .hand_sorter { background-color: var(--dark-40); color: var(--light-70); border: 1px solid var(--light-50); }
 .hand_sorter .hs_button { border: 1px solid var(--light-70); }
 .hand_sorter .hs_button[data-direction=increase], .hand_sorter .hs_button[data-direction=decrease] { background-color: var(--yellow-10); }
-:root { --color-mapping_ff0000: #ff3333; --color-mapping_0000ff: #6666ff; --color-mapping_008000: #00cc00; }
+:root { --color-mapping_ff0000: #ff3333; --color-mapping_0000ff: #6666ff; --color-mapping_008000: #009e0a; }
 `;
 
 _darkStyleForGame['terramystica'] = `
