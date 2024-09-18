@@ -234,6 +234,9 @@ const SideMenu = (props: SideMenuProps) => {
 	};
 
 	const iconBackground = darkMode ? gameConfig.iconBackgroundDark : gameConfig.iconBackground;
+	const iconBorder = darkMode ? gameConfig.iconBorderDark : gameConfig.iconBorder;
+	const iconShadow = darkMode ? gameConfig.iconShadowDark : gameConfig.iconShadow;
+	const iconColor = darkMode ? gameConfig.iconColorDark : gameConfig.iconColor;
 
 	return (
 		<div style={containerStyle}>
@@ -241,8 +244,9 @@ const SideMenu = (props: SideMenuProps) => {
 				<SideMenuItem onClick={toggleMenu}>
 					<Avatar
 						backColor={iconBackground}
-						borderColor={gameConfig.iconBorder}
-						shadowColor={gameConfig.iconShadow}
+						borderColor={iconBorder}
+						shadowColor={iconShadow}
+						iconColor={iconColor}
 					>
 						{visible && <CloseIcon />}
 						{!visible && <SandwichIcon />}
@@ -253,8 +257,9 @@ const SideMenu = (props: SideMenuProps) => {
 				<SideMenuItem onClick={scrollToTop}>
 					<Avatar
 						backColor={iconBackground}
-						borderColor={gameConfig.iconBorder}
-						shadowColor={gameConfig.iconShadow}
+						borderColor={iconBorder}
+						shadowColor={iconShadow}
+						iconColor={iconColor}
 					>
 						<TopArrowIcon />
 					</Avatar>
@@ -265,8 +270,9 @@ const SideMenu = (props: SideMenuProps) => {
 				<SideMenuItem onClick={toggleMenu}>
 					<Avatar
 						backColor={iconBackground}
-						borderColor={gameConfig.iconBorder}
-						shadowColor={gameConfig.iconShadow}
+						borderColor={iconBorder}
+						shadowColor={iconShadow}
+						iconColor={iconColor}
 					>
 						{visible && <CloseIcon />}
 						{!visible && <SandwichIcon />}

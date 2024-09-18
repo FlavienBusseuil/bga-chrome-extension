@@ -99,62 +99,32 @@ export const OptionsView = ({ config, onChange }: Props) => {
     );
   }
 
+  const getSwitch = (checked: boolean, onChange: (val: boolean) => void, textOnKey: string, textOffKey: string, disabled?: boolean) => {
+    const textOn = chrome.i18n.getMessage(textOnKey);
+    const textOff = chrome.i18n.getMessage(textOffKey);
+    const msg = checked ? textOn : textOff;
+    const className = (msg.length > 70) ? 'long_text' : undefined;
+
+    return <Switch checked={checked} textOn={textOn} textOff={textOff} onChange={onChange} disabled={disabled} className={className} />
+  };
+
   const getMiscSection = () => {
     if (configVisible === 'misc') {
       return (
         <div className="options-frame">
           <div className="options-frame-title">{chrome.i18n.getMessage("optionMiscTitle")}</div>
-          <Switch
-            checked={tracking}
-            textOn={chrome.i18n.getMessage("optionsTrackingOn")}
-            textOff={chrome.i18n.getMessage("optionsTrackingOff")}
-            onChange={updateTracking}
-          />
-          {!isFirefox && <Switch
-            checked={soundNotification && tracking}
-            textOn={chrome.i18n.getMessage("optionsNotificationSoundOn")}
-            textOff={chrome.i18n.getMessage("optionsNotificationSoundOff")}
-            onChange={updateSoundNotification}
-            disabled={!tracking}
-          />}
+          {getSwitch(tracking, updateTracking, "optionsTrackingOn", "optionsTrackingOff")}
+          {!isFirefox && getSwitch(soundNotification && tracking, updateSoundNotification, "optionsNotificationSoundOn", "optionsNotificationSoundOff", !tracking)}
           {!isFirefox && <div className="row_fullwidth">
-            <Switch
-              checked={soundNotification && tracking && customSoundFile}
-              textOn={chrome.i18n.getMessage("optionsNotificationCustomSoundOn")}
-              textOff={chrome.i18n.getMessage("optionsNotificationCustomSoundOff")}
-              onChange={updateSoundCustom}
-              disabled={!tracking || !soundNotification}
-            />
+            {getSwitch(soundNotification && tracking && customSoundFile, updateSoundCustom, "optionsNotificationCustomSoundOn", "optionsNotificationCustomSoundOff", !tracking || !soundNotification)}
             {tracking && soundNotification && <div>
-              {customSoundFile && <Button
-                {...{
-                  text: chrome.i18n.getMessage("uploadMp3"),
-                  className: "small_button",
-                  onClick: uploadCustomMp3
-                }}
-              />}
-              <Button
-                {...{
-                  text: chrome.i18n.getMessage("play"),
-                  className: "small_button",
-                  onClick: playMp3
-                }}
+              {customSoundFile && <Button {...{ text: chrome.i18n.getMessage("uploadMp3"), className: "small_button", onClick: uploadCustomMp3 }} />}
+              <Button {...{ text: chrome.i18n.getMessage("play"), className: "small_button", onClick: playMp3 }}
               />
             </div>}
           </div>}
-          <Switch
-            checked={!motionSensitivity}
-            textOn={chrome.i18n.getMessage("optionsFlashingOn")}
-            textOff={chrome.i18n.getMessage("optionsFlashingOff")}
-            onChange={updateFlashing}
-            className='long_text'
-          />
-          <Switch
-            checked={redirect}
-            textOn={chrome.i18n.getMessage("optionsLobbyRedirectOn")}
-            textOff={chrome.i18n.getMessage("optionsLobbyRedirectOff")}
-            onChange={updateRedirect}
-          />
+          {getSwitch(!motionSensitivity, updateFlashing, "optionsFlashingOn", "optionsFlashingOff")}
+          {getSwitch(redirect, updateRedirect, "optionsLobbyRedirectOn", "optionsLobbyRedirectOff")}
         </div>
       );
     }
@@ -167,14 +137,7 @@ export const OptionsView = ({ config, onChange }: Props) => {
   }
 
   const getHomeSwitch = (param: string, message: string) => {
-    return (
-      <Switch
-        checked={homeConfig[param]}
-        textOn={chrome.i18n.getMessage(`${message}On`)}
-        textOff={chrome.i18n.getMessage(`${message}Off`)}
-        onChange={(val) => updateHomeConfig(param, val)}
-      />
-    );
+    return getSwitch(homeConfig[param], (val) => updateHomeConfig(param, val), `${message}On`, `${message}Off`);
   };
 
   const getHomeSection = () => {
@@ -187,21 +150,9 @@ export const OptionsView = ({ config, onChange }: Props) => {
               {getHomeSwitch('header', 'optionsHomeHeader')}
               {getHomeSwitch('latestNews', 'optionsHomeLatest')}
               {getHomeSwitch('smallFeed', 'optionsHomeNewsSmall')}
-              <Switch
-                checked={homeConfig.fewFeeds && homeConfig.tournaments && homeConfig.tournamentsBelow}
-                textOn={chrome.i18n.getMessage("optionsHomeNewsShort")}
-                textOff={chrome.i18n.getMessage("optionsHomeNewsTall")}
-                onChange={(val) => updateHomeConfig('fewFeeds', val)}
-                disabled={!homeConfig.tournaments || !homeConfig.tournamentsBelow}
-              />
+              {getSwitch(homeConfig.fewFeeds && homeConfig.tournaments && homeConfig.tournamentsBelow, (val) => updateHomeConfig('fewFeeds', val), "optionsHomeNewsShort", "optionsHomeNewsTall")}
               {getHomeSwitch('tournaments', 'tournaments')}
-              <Switch
-                checked={homeConfig.events || homeConfig.recentGames}
-                textOn={chrome.i18n.getMessage("optionsHomeEventsOn")}
-                textOff={chrome.i18n.getMessage("optionsHomeEventsOff")}
-                onChange={(val) => updateHomeConfig('events', val)}
-                disabled={homeConfig.recentGames}
-              />
+              {getSwitch(homeConfig.events || homeConfig.recentGames, (val) => updateHomeConfig('events', val), "optionsHomeEventsOn", "optionsHomeEventsOff", homeConfig.recentGames)}
             </div>
             <div>
               {getHomeSwitch('recentGames', 'optionsRecentColumn')}
@@ -226,14 +177,7 @@ export const OptionsView = ({ config, onChange }: Props) => {
   }
 
   const getInProgressSwitch = (param: string, message: string) => {
-    return (
-      <Switch
-        checked={inProgressConfig[param]}
-        textOn={chrome.i18n.getMessage(`${message}On`)}
-        textOff={chrome.i18n.getMessage(`${message}Off`)}
-        onChange={(val) => updateInProgressConfig(param, val)}
-      />
-    );
+    return getSwitch(inProgressConfig[param], (val) => updateInProgressConfig(param, val), `${message}On`, `${message}Off`);
   };
 
   const getInProgressSection = () => {

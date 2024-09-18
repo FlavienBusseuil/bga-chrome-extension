@@ -19,8 +19,11 @@ export interface Game {
 	iconBackground: string;
 	iconBackgroundDark: string;
 	iconBorder: string;
+	iconBorderDark: string;
 	iconColor: string;
+	iconColorDark: string;
 	iconShadow: string;
+	iconShadowDark: string;
 	css?: string;
 }
 
@@ -95,10 +98,13 @@ class Configuration {
 			games: defaultGames.map((game) => {
 				return {
 					iconBackground: "#ebd5bd",
-					iconBackgroundDark: "#b9b9b9",
+					iconBackgroundDark: "#666",
 					iconBorder: "transparent",
-					iconColor: "#222222",
-					iconShadow: "#000000",
+					iconBorderDark: "transparent",
+					iconColor: "#222",
+					iconColorDark: "#eee",
+					iconShadow: "#000",
+					iconShadowDark: "#000",
 					position: "top",
 					top: "75px",
 					bottom: "auto",

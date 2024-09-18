@@ -4,7 +4,9 @@ const defaultGames: Partial<Game>[] = [
 	{
 		name: "mycity",
 		iconBackground: "#d8ba7f",
-		iconBackgroundDark: "#d8ba7f",
+		iconBackgroundDark: "#302317",
+		iconColorDark: "#eee",
+		iconShadowDark: "#777",
 		playerPanel: "cty_board_{{player_id}}",
 		playerPanelOffset: -10,
 		css: " ",
@@ -13,6 +15,8 @@ const defaultGames: Partial<Game>[] = [
 		name: "abyss",
 		iconBackground: "#36697c",
 		iconBackgroundDark: "#36697c",
+		iconColor: "#eee",
+		iconColorDark: "#eee",
 		playerPanel: "player-panel-{{player_id}}",
 		css: ".desktop_version #centered-table { margin-left: 46px; }",
 	},
@@ -22,7 +26,12 @@ const defaultGames: Partial<Game>[] = [
 		bottom: "140px",
 		left: "12px",
 		playerPanel: "player-table-{{player_id}}",
-		iconShadow: "#ffffff",
+		iconBackground: "#36697c",
+		iconBackgroundDark: "#36697c",
+		iconColor: "#eee",
+		iconColorDark: "#eee",
+		iconShadow: "#000",
+		iconShadowDark: "#000",
 		css: ".show-playermat-button { visibility: hidden; }",
 	},
 	{
@@ -40,7 +49,12 @@ const defaultGames: Partial<Game>[] = [
 		name: "azul",
 		position: "bottom",
 		playerPanel: "player-hand-{{player_id}}",
-		iconShadow: "#000000",
+		iconBackground: "#36697c",
+		iconBackgroundDark: "#36697c",
+		iconColor: "#eee",
+		iconColorDark: "#eee",
+		iconShadow: "#000",
+		iconShadowDark: "#000",
 		css: " ",
 	},
 	{
@@ -119,15 +133,17 @@ const defaultGames: Partial<Game>[] = [
 		name: "spacebase",
 		playerPanel: "playerTable_{{player_id}}",
 		playerPanelOffset: 45,
-		iconBackground: "#b9b5b8",
-		iconShadow: "#ffffff",
+		iconColor: "#eee",
+		iconBackground: "#2a0620",
+		iconBackgroundDark: "#2a0620",
+		iconShadow: "#918e8e",
+		iconShadowDark: "#918e8e",
 		css: ".desktop_version #game_play_area { margin-left: 50px; }",
 	},
 	{
 		name: "raceforthegalaxy",
 		playerPanel: "tableau_panel_{{player_id}}",
 		iconBackground: "#a3adb7",
-		iconShadow: "#ffffff",
 	},
 	{
 		name: "greatwesterntrail",
@@ -159,7 +175,7 @@ const defaultGames: Partial<Game>[] = [
 		name: "gardennation",
 		playerPanel: "player-table-{{player_id}}",
 		iconBackground: "#919544",
-		iconBackgroundDark: "#919544",
+		iconBackgroundDark: "#414512",
 		css: ".desktop_version #page-content { padding-left: 50px; }",
 	},
 	{
@@ -182,6 +198,7 @@ const defaultGames: Partial<Game>[] = [
 	{
 		name: "railroadink",
 		iconBackground: "#bfdef9",
+		iconBackgroundDark: "#415c71",
 		playerPanel: "player-area-{{player_id}}",
 		css: ".desktop_version #all-players { padding-left: 50px; }",
 	},
@@ -230,6 +247,7 @@ const defaultGames: Partial<Game>[] = [
 	{
 		name: "vaalbara",
 		iconBackground: "#ffffff",
+		iconBackgroundDark: "#3c5f77",
 		playerPanel: ".vlb_zone_title > h2 > span:last-child",
 		playerPanelOffset: 0,
 	},
@@ -241,7 +259,7 @@ const defaultGames: Partial<Game>[] = [
 		playerPanelOffset: 20,
 		bottomPanel: "limbo",
 		bottomPanelOffset: 10,
-		css: ".button_top { display: none; } .desktop_version #game_play_area { padding-left: 50px; }",
+		css: ".button_top { display: none; }",
 	},
 	{
 		name: "russianrailroads",
@@ -266,9 +284,9 @@ const defaultGames: Partial<Game>[] = [
 	{
 		name: "beyondthesun",
 		playerPanel: "bts-playerArea{{player_id}}",
-		iconBackground: "#a4bdd5",
-		iconBackgroundDark: "#a4bdd5",
-		iconShadow: "#ffffff",
+		iconColor: "#eee",
+		iconBackground: "#40678c",
+		iconBackgroundDark: "#40678c",
 	},
 	{
 		name: "elawa",
@@ -278,7 +296,7 @@ const defaultGames: Partial<Game>[] = [
 	{
 		name: "locomomo",
 		iconBackground: "#a3c268",
-		iconBackgroundDark: "#a3c268",
+		iconBackgroundDark: "#566534",
 		playerPanel: "loc_player-board-{{player_id}}",
 	},
 	{
@@ -297,15 +315,7 @@ const defaultGames: Partial<Game>[] = [
 		playerPanel: "playerMat-{{player_id}}",
 	},
 	{
-		name: "nidavellir_buggy",
-		iconBackground: "#cfd1d0",
-		iconShadow: "transparent",
-		playerPanel: ".player-board-name",
-		css: "#game_play_area { border-left: 50px solid #1e1e20; padding-left: 2px; } #tabs-container { min-width: 200px; overflow: hidden; } @media (min-width: 850px) { .lockedInterface #tabs-container { margin-right: 0px !important; } }",
-	},
-	{
 		name: "bloodrage",
-		iconShadow: "#ffffff",
 		playerPanel: ".br-clan-wrapper > h2",
 	},
 	{
@@ -395,6 +405,7 @@ const defaultGames: Partial<Game>[] = [
 	{
 		name: "lostseas",
 		iconBackground: "#8ddefc",
+		iconBackgroundDark: "#325a67",
 		playerPanel: "#ls_main .ls_playertitle",
 		playerPanelOffset: 50,
 	},
@@ -405,8 +416,9 @@ const defaultGames: Partial<Game>[] = [
 	},
 	{
 		name: "oriflamme",
-		iconBackground: "#8aafc5",
-		iconBackgroundDark: "#8aafc5",
+		iconColor: "#eee",
+		iconBackground: "#084864",
+		iconBackgroundDark: "#084864",
 		playerPanel: "discard-{{player_id}}",
 		playerPanelOffset: 45,
 		css: ".desktop_version #game_play_area { padding-left: 35px; }",
@@ -414,6 +426,7 @@ const defaultGames: Partial<Game>[] = [
 	{
 		name: "happycity",
 		iconBackground: "#b1dcf5",
+		iconBackgroundDark: "#084864",
 		playerPanel: "playerArea_{{player_id}}",
 	},
 	{
@@ -425,7 +438,10 @@ const defaultGames: Partial<Game>[] = [
 		name: "automobiles",
 		top: "40vh",
 		left: "1em",
-		iconBorder: "#ffffff",
+		iconBackground: "#ffffff",
+		iconBackgroundDark: "#272a2f",
+		iconShadowDark: "#eee",
+		iconColorDark: "#eee",
 		playerPanel: "AMBPlayArea_{{player_id}}",
 		css: ".desktop_version #AMBOtherPlayersLayout { padding-left: 65px; }",
 	},
@@ -440,13 +456,12 @@ const defaultGames: Partial<Game>[] = [
 		name: "trektwelve",
 		playerPanel: "board_{{player_id}}",
 		iconBackground: "#efd6a1",
-		iconBackgroundDark: "#efd6a1",
+		iconBackgroundDark: "#75593e",
 		css: "#upback, .show-sheet-button { display: none; }",
 	},
 	{
 		name: "troyesdice",
 		playerPanel: "td_player_board_{{player_id}}",
-		iconBackground: "#eddac5",
 		playerPanelOffset: 10,
 	},
 	{
@@ -460,9 +475,13 @@ const defaultGames: Partial<Game>[] = [
 	},
 	{
 		name: "newfrontiers",
+		iconColorDark: "#000",
 		iconBackground: "#afafaf",
-		iconBorder: "#000000",
-		iconShadow: "#ffffff",
+		iconBackgroundDark: "#afafaf",
+		iconBorder: "#000",
+		iconBorderDark: "#000",
+		iconShadow: "#666",
+		iconShadowDark: "#666",
 		playerPanel: "empire_{{player_id}}",
 		boardPanel: "smalldev",
 		boardPanelText: "#choose_action_label > span",
@@ -470,9 +489,9 @@ const defaultGames: Partial<Game>[] = [
 	},
 	{
 		name: "jumpdrive",
-		iconBackground: "#888888",
-		iconBorder: "#000000",
-		iconShadow: "#ffffff",
+		iconBackground: "#afafaf",
+		iconBorder: "#000",
+		iconShadow: "#666",
 		playerPanel: "jdr-tableau-{{player_id}}",
 	},
 	{
@@ -510,19 +529,19 @@ const defaultGames: Partial<Game>[] = [
 		name: "eminentdomain",
 		iconBackground: "#dadada",
 		iconBorder: "#000000",
-		iconShadow: "#ffffff",
+		iconShadow: "#666",
 		playerPanel: ".side_title > span",
 		playerPanelOffset: 20,
 		bottomPanel: "common_space",
 	},
 	{
 		name: "glow",
-		iconBackground: "#ffffff",
+		iconBackground: "#fff",
 		playerPanel: "player-table-{{player_id}}",
 	},
 	{
 		name: "lookatthestars",
-		iconBackground: "#ffffff",
+		iconBackground: "#fff",
 		playerPanel: "player-table-{{player_id}}",
 		css: "#jump-controls { display: none; } .desktop_version #game_play_area { padding-left: 50px; }",
 	},
@@ -535,7 +554,6 @@ const defaultGames: Partial<Game>[] = [
 	},
 	{
 		name: "myfirstcastlepanic",
-		iconBackground: "#edd9c1",
 		playerPanel: "playername_{{player_index_1}}",
 		playerPanelOffset: 15,
 		css: ".desktop_version #game_play_area { padding-left: 30px; }",
@@ -553,6 +571,7 @@ const defaultGames: Partial<Game>[] = [
 	{
 		name: "tucano",
 		iconBackground: "#a5cdbf",
+		iconBackgroundDark: "#326755",
 		playerPanel: "player-{{player_id}}-tableau",
 		playerPanelOffset: 30,
 	},
@@ -677,12 +696,12 @@ const defaultGames: Partial<Game>[] = [
 		name: "seasaltpaper",
 		playerPanel: "player-table-{{player_id}}",
 		iconBackground: "#778ea9",
-		iconBackgroundDark: "#778ea9"
+		iconBackgroundDark: "#1f4b7a"
 	},
 	{
 		name: "goldblivion",
 		iconBackground: "#537955",
-		iconBackgroundDark: "#537955",
+		iconBackgroundDark: "#415846",
 		playerPanel: "gb-area-player-{{player_id}}",
 		bottomPanel: "gb-discarded-help",
 		css: "#gb-shortcut-area { display: none; } .desktop_version #gb-area-full { padding-left: 50px; }",
@@ -705,7 +724,6 @@ const defaultGames: Partial<Game>[] = [
 	{
 		name: "quibbles",
 		iconBackground: "#99639c",
-		iconBackgroundDark: "#895a8c",
 		playerPanel: "player-area-{{player_id}}",
 		bottomPanel: "quibbles-ui-row-1"
 	},
@@ -894,7 +912,7 @@ const defaultGames: Partial<Game>[] = [
 		name: "bigmonster",
 		playerPanel: "{{player_id}}_scrollmap_wrapper",
 		iconBackground: "#a9a7d7",
-		iconBackgroundDark: "#8686ac"
+		iconBackgroundDark: "#352970"
 	},
 	{
 		name: "khronos",
@@ -974,7 +992,7 @@ const defaultGames: Partial<Game>[] = [
 		name: "heckinhounds",
 		playerPanel: "playertable_{{player_id}}",
 		iconBackground: "#4babb4",
-		iconBackgroundDark: "#4babb4",
+		iconBackgroundDark: "#446501",
 		css: " "
 	},
 	{
@@ -1118,7 +1136,7 @@ const defaultGames: Partial<Game>[] = [
 		name: "pixies",
 		playerPanel: "player-table-{{player_id}}",
 		iconBackground: "#5e8e3e",
-		iconBackgroundDark: "#5e8e3e",
+		iconBackgroundDark: "#3d5c28",
 	},
 	{
 		name: "rivervalleyglassworks",
@@ -1128,6 +1146,7 @@ const defaultGames: Partial<Game>[] = [
 		name: "solstis",
 		playerPanel: "zone_playername_{{player_index_1}}",
 		iconBackground: "#4fb9e5",
+		iconBackgroundDark: "#156584",
 		css: " "
 	},
 	{
@@ -1137,7 +1156,7 @@ const defaultGames: Partial<Game>[] = [
 		boardPanelText: "#bga-jump-to_table-cards .bga-jump-to_label",
 		css: "#bga-jump-to_controls { display: none; }",
 		iconBackground: "#c4aec5",
-		iconBackgroundDark: "#c4aec5"
+		iconBackgroundDark: "#394260"
 	},
 	{
 		name: "evolution",
@@ -1153,7 +1172,7 @@ const defaultGames: Partial<Game>[] = [
 		name: "paxrenaissance",
 		playerPanel: "pr_player_tableau_{{player_id}}",
 		iconBackground: "#a78d59",
-		iconBackgroundDark: "#a78d59"
+		iconBackgroundDark: "#5d493c"
 	},
 	{
 		name: "neom",
@@ -1170,7 +1189,7 @@ const defaultGames: Partial<Game>[] = [
 		name: "looot",
 		playerPanel: "player_board_{{player_id}}",
 		iconBackground: "#7a99b8",
-		iconBackgroundDark: "#7a99b8",
+		iconBackgroundDark: "#364c63",
 	},
 	{
 		name: "glassroad",
@@ -1203,7 +1222,7 @@ const defaultGames: Partial<Game>[] = [
 		playerPanel: "player-table-{{player_id}}",
 		bottomPanel: "rules-wrapper",
 		iconBackground: "#93d4df",
-		iconBackgroundDark: "#7e9aa5",
+		iconBackgroundDark: "#246975",
 		css: "#bga-jump-to_controls { display: none; }",
 	},
 	{
@@ -1243,6 +1262,8 @@ const defaultGames: Partial<Game>[] = [
 	{
 		name: "festival",
 		playerPanel: "fes-player-area-{{player_id}}",
+		iconBackgroundDark: "#5f483a",
+		iconShadow: "#666",
 	},
 	{
 		name: "cosmoctopus",
@@ -1306,12 +1327,12 @@ const defaultGames: Partial<Game>[] = [
 		name: "capybarancapybara",
 		playerPanel: "zone_playername_{{player_index_1}}",
 		iconBackground: "#adb791",
-		iconBackgroundDark: "#868e71"
+		iconBackgroundDark: "#505544"
 	},
 	{
 		name: "girafferaffe",
 		playerPanel: "zone_playername_{{player_index_1}}",
-		iconBackgroundDark: "#888077",
+		iconBackgroundDark: "#524d47",
 		css: " "
 	},
 ];

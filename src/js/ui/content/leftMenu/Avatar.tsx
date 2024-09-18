@@ -4,6 +4,7 @@ interface AvatarProps {
 	backColor: string;
 	borderColor: string;
 	shadowColor: string;
+	iconColor: string;
 	onMouseOver?: () => void;
 	onMouseOut?: () => void;
 	children: React.ComponentChildren;
@@ -14,6 +15,7 @@ const Avatar = (props: AvatarProps) => {
 		border: `3px solid ${props.borderColor}`,
 		boxShadow: `0px 0px 10px 0px ${props.shadowColor}`,
 		backgroundColor: props.backColor,
+		color: props.iconColor
 	};
 
 	return (
