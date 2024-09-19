@@ -2,8 +2,9 @@ import React from "preact";
 import { useState, useEffect } from "preact/hooks";
 
 import Configuration from "../../../config/configuration";
-import { gamesWithCustomActions } from "../../../config/darkThemeGames";
+import { gamesWithCustomActions, gamesWithRecommandedConfig } from "../../../config/darkThemeGames";
 import { setDarkStyle } from "./darkStyleFunctions";
+import { changeDarkColors } from "./darkColors";
 
 import "../../../../css/darkModeSelector.css";
 import "../../../../css/modeSelector.css";
@@ -36,9 +37,10 @@ const SAT_STEP = 4;
 
 const ModeSelector = (props: ModeSelectorProps) => {
   const { config, gameName } = props;
+  const recommandedConfig = gamesWithRecommandedConfig[gameName];
   const [darkMode, setDarkMode] = useState(isDarkMode(config, gameName));
-  const [darkColorHue, setDarkColorHue] = useState(config.getDarkModeColor(gameName));
-  const [darkColorSaturation, setDarkColorSaturation] = useState(config.getDarkModeSaturation(gameName));
+  const [darkColorHue, setDarkColorHue] = useState(config.getDarkModeColor(gameName, recommandedConfig?.color));
+  const [darkColorSaturation, setDarkColorSaturation] = useState(config.getDarkModeSaturation(gameName, recommandedConfig?.sat));
   const [paletteVisible, setPaletteVisible] = useState(false);
   const [paletteCursorMoving, setPaletteCursorMoving] = useState(false);
   const [saturationCursorMoving, setSaturationCursorMoving] = useState(false);
@@ -46,8 +48,12 @@ const ModeSelector = (props: ModeSelectorProps) => {
   useEffect(() => setDarkStyle(gameName, darkMode), [gameName, darkMode]);
 
   useEffect(() => {
-    config.setDarkModeColor(gameName, darkColorHue, darkColorSaturation);
-    selectColor(darkColorHue, darkColorSaturation);
+    if (darkColorHue === recommandedConfig?.color && darkColorSaturation === recommandedConfig?.sat) {
+      config.clearDarkModeColor(gameName);
+    } else {
+      config.setDarkModeColor(gameName, darkColorHue, darkColorSaturation, Boolean(recommandedConfig));
+    }
+    changeDarkColors(darkColorHue, darkColorSaturation);
   }, [darkColorHue, darkColorSaturation]);
 
   useEffect(() => {
@@ -149,24 +155,6 @@ const ModeSelector = (props: ModeSelectorProps) => {
     saturationCursorMoveDown();
     saturationCursorMove(evt);
     cursorMouseUp();
-  };
-
-  const selectColor = (hue: number, saturation: number) => {
-    if (hue < 0) {
-      document.body.style.removeProperty("--dark-10");
-      document.body.style.removeProperty("--dark-20");
-      document.body.style.removeProperty("--dark-30");
-      document.body.style.removeProperty("--dark-40");
-      document.body.style.removeProperty("--dark-back");
-      document.body.style.removeProperty("--dark-popup-back");
-    } else {
-      document.body.style.setProperty("--dark-10", `hsl(${hue}, ${saturation}%, 13%)`);
-      document.body.style.setProperty("--dark-20", `hsl(${hue}, ${saturation}%, 17%)`);
-      document.body.style.setProperty("--dark-30", `hsl(${hue}, ${saturation - 4}%, 22%)`);
-      document.body.style.setProperty("--dark-40", `hsl(${hue}, ${saturation - 4}%, 26%)`);
-      document.body.style.setProperty("--dark-back", `hsl(${hue}, ${saturation}%, 15%, 0.75)`);
-      document.body.style.setProperty("--dark-popup-back", `hsl(${hue}, ${saturation - 4}%, 22%)`);
-    }
   };
 
   const paletteCursorMoveDown = () => {
@@ -279,6 +267,13 @@ const ModeSelector = (props: ModeSelectorProps) => {
     }
   };
 
+  const setRecommanded = () => {
+    if (recommandedConfig) {
+      setDarkColorHue(recommandedConfig.color);
+      setDarkColorSaturation(recommandedConfig.sat);
+    }
+  };
+
   const getPalette = () => {
     const color1 = `hsl(${darkColorHue}, 4%, 35%)`;
     const color2 = `hsl(${darkColorHue}, 124%, 35%)`;
@@ -306,7 +301,11 @@ const ModeSelector = (props: ModeSelectorProps) => {
           {darkColorHue >= 0 && <div className="bgaext_saturation_selector" style={saturationStyle} onClick={saturationClick} draggable={false} onDragStart={() => false}>
             {getSaturationCursor()}
           </div>}
-          <div className="bgaext_palette_bottom"><a href="#" className="bgaext_link" onClick={reset}>{resetLinkText}</a></div>
+          <div className="bgaext_palette_bottom">
+            {recommandedConfig && <a href="#" className="bgaext_link" onClick={setRecommanded}>{chrome.i18n.getMessage("darkColorRecommanded")}</a>}
+            {!recommandedConfig && <span></span>}
+            <a href="#" className="bgaext_link" onClick={reset}>{resetLinkText}</a>
+          </div>
         </div>
       );
     }

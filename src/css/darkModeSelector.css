@@ -134,7 +134,7 @@
 .bgaext_palette_bottom {
   display: flex;
   width: 100%;
-  justify-content: right;
+  justify-content: space-between;
 }
 
 /* sound controls */

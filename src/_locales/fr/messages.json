@@ -142,13 +142,16 @@
 		"message": "Configuration des couleurs par défaut"
 	},
 	"darkColorResetMain": {
-		"message": "Rétablir le mode sombre sans couleur"
+		"message": "Mode sombre sans couleur"
 	},
 	"darkColorConfigurationGame": {
 		"message": "Configuration des couleurs de ce jeu"
 	},
 	"darkColorResetGame": {
-		"message": "Rétablir les valeurs par défaut"
+		"message": "Couleurs par défaut du site"
+	},
+	"darkColorRecommanded": {
+		"message": "Couleurs suggérées"
 	},
 	"friends": {
 		"message": "Tables d'amis"

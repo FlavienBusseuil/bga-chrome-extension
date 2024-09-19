@@ -242,6 +242,28 @@ export const gamesWithCustomColors = {
   pandemic: ['#252525']
 };
 
+export const gamesWithRecommandedConfig = {
+  'oriflamme': { color: 202, sat: 55 },
+  'ultimaterailroads': { color: 8, sat: 15 },
+  'trailblazers': { color: 130, sat: 30 },
+  'dicycards': { color: 146, sat: 15 },
+  'beyondthesun': { color: 197, sat: 35 },
+  'locomomo': { color: 91, sat: 14 },
+  'carnegie': { color: 169, sat: 10 },
+  'lostseas': { color: 195, sat: 22 },
+  'happycity': { color: 219, sat: 25 },
+  'tucano': { color: 138, sat: 15 },
+  'seasaltpaper': { color: 225, sat: 28 },
+  'goldblivion': { color: 135, sat: 15 },
+  'bigmonster': { color: 241, sat: 32 },
+  'paxrenaissance': { color: 25, sat: 15 },
+  'festival': { color: 14, sat: 15 },
+  'castlecombo': { color: 190, sat: 23 },
+  'capybarancapybara': { color: 97, sat: 15 },
+  'girafferaffe': { color: 7, sat: 9 },
+  'harmonies': { color: 16, sat: 15 },
+};
+
 export const gamesWithCustomActions = {
   earth: {
     init: () => {
@@ -2320,6 +2342,9 @@ _darkStyleForGame['greatwesterntrail'] = `
 .player-board-button-wrapper { top: 0.5em; }
 #gwt_boards_area { gap: 0.5em; }
 .pref-group { background-color: #000; }
+.slider { #666; }
+input:checked+.slider, #gwt_layout_wrapper input[type=radio]:checked+label, .block-user-pref-radio input[type=radio]:checked+label { background-color: var(--blue-70); }
+#gwt_layout_wrapper label, .block-user-pref-radio label { background-color: var(--light-50); }
 `;
 
 _styleForGame['grovesolitaire'] = `

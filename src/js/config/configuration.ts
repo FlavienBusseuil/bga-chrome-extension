@@ -509,7 +509,7 @@ class Configuration {
 		storageSet({ darkMode: val });
 	}
 
-	getDarkModeColor(gameName: string) {
+	getDarkModeColor(gameName: string, def: number) {
 		const mainValue = this._customConfig.darkModeColor === undefined ? -1 : this._customConfig.darkModeColor;
 
 		if (gameName === "general" || gameName === "forum") {
@@ -517,25 +517,25 @@ class Configuration {
 		}
 
 		const result = this._customConfig.dark.find(d => d.name === gameName)?.color;
-		return result === undefined ? mainValue : result;
+		return result === undefined ? def || mainValue : result;
 	}
 
-	getDarkModeSaturation(gameName) {
+	getDarkModeSaturation(gameName, def: number) {
 		const mainValue = this._customConfig.darkModeSat || 15;
 		if (gameName === "general" || gameName === "forum") {
 			return mainValue;
 		}
 
-		return this._customConfig.dark.find(d => d.name === gameName)?.sat || mainValue;
+		return this._customConfig.dark.find(d => d.name === gameName)?.sat || def || mainValue;
 	}
 
-	setDarkModeColor(gameName: string, darkModeColor: number, darkModeSat: number) {
+	setDarkModeColor(gameName: string, darkModeColor: number, darkModeSat: number, forceSave?: boolean) {
 		if (gameName === "general" || gameName === "forum") {
 			this._customConfig.darkModeColor = darkModeColor;
 			this._customConfig.darkModeSat = darkModeSat;
 			storageSet({ darkModeColor, darkModeSat });
 		} else {
-			if (this._customConfig.darkModeColor === darkModeColor && this._customConfig.darkModeSat === darkModeSat) {
+			if (!forceSave && this._customConfig.darkModeColor === darkModeColor && this._customConfig.darkModeSat === darkModeSat) {
 				// default config
 				this._customConfig.dark = this._customConfig.dark.filter(d => d.name !== gameName);
 			} else {
@@ -547,6 +547,11 @@ class Configuration {
 
 			storageSet({ dark: this._customConfig.dark });
 		}
+	}
+
+	clearDarkModeColor(gameName: string) {
+		this._customConfig.dark = this._customConfig.dark.filter(d => d.name !== gameName);
+		storageSet({ dark: this._customConfig.dark });
 	}
 
 	isCssCustomized() {

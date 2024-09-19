@@ -139,16 +139,19 @@
 		"message": "You've also modified the CSS code of the site via the extension options, so please check first that your problems aren't caused by your customisations."
 	},
 	"darkColorConfigurationMain": {
-		"message": "Default colour settings"
+		"message": "Default color settings"
 	},
 	"darkColorResetMain": {
-		"message": "Restore dark mode without colour"
+		"message": "Dark mode without color"
 	},
 	"darkColorConfigurationGame": {
-		"message": "Game colour settings"
+		"message": "Game color settings"
 	},
 	"darkColorResetGame": {
-		"message": "Restore default values"
+		"message": "Site default colors"
+	},
+	"darkColorRecommanded": {
+		"message": "Suggested colors"
 	},
 	"friends": {
 		"message": "Friend's tables"
