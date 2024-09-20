@@ -131,7 +131,7 @@ spectator-mode .log .roundedbox .playername {
 }
 
 .log_replayable:hover {
-  background-color: #130d06
+  background-color: var(--dark-back);
 }
 
 .bgabutton_gray {
@@ -226,11 +226,11 @@ spectator-mode .log .roundedbox .playername {
 }
 
 a.replay_last_move_button {
-  color: var(--light-80) !important;
+  color: var(--light-70) !important;
 }
 
 a.replay_last_move_button:hover {
-  color: var(--dark-20) !important;
+  color: var(--light-80) !important;
 }
 
 span.playername,
@@ -299,8 +299,8 @@ a#pageheader_buy {
 }
 
 /* Menu flottant */
-#right-side-second-part {
-  background: black !important;
+.logs_on_floating_panel #right-side-second-part {
+  background: var(--dark-20) !important;
 }
 
 .player-board .player-hand-card {

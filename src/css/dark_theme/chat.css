@@ -165,3 +165,7 @@ body.mobile_version #chatbar .chatwindowcollapsed {
 .notouch-device .chatwindowremovec:hover {
   background-position: 0 -1740px;
 }
+
+#autoChatWhilePressingKey .icon20_suggestion {
+  filter: invert(1);
+}

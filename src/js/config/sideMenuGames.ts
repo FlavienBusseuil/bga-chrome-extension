@@ -78,7 +78,7 @@ const defaultGames: Partial<Game>[] = [
 		playerPanel: "player-board-resizable-{{player_id}}",
 		css: "#position-wrapper { padding-left: 52px; }",
 		iconBackground: "#87c147",
-		iconBackgroundDark: "#378929"
+		iconBackgroundDark: "#28621d"
 	},
 	{
 		name: "akropolis",
@@ -669,6 +669,7 @@ const defaultGames: Partial<Game>[] = [
 	{
 		name: "forestshuffle",
 		playerPanel: "FOStable_{{player_id}}",
+		position: "bottom"
 	},
 	{
 		name: "ontour",
@@ -1058,7 +1059,9 @@ const defaultGames: Partial<Game>[] = [
 	{
 		name: "captainflip",
 		playerPanel: ".cf_title",
-		bottomPanel: "o-help"
+		bottomPanel: "o-help",
+		iconBackground: "#87c0cc",
+		iconBackgroundDark: "#07515f"
 	},
 	{
 		name: "mastersofrenaissance",
