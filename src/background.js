@@ -29,6 +29,10 @@ const setDarkModeUrlFilters = (isDarkMode) => {
           id: 2,
           action: { type: "block" },
           condition: { urlFilter: "https://forum.boardgamearena.com/styles/prosilver/theme/images/bga/back-main.jpg" },
+        }, {
+          id: 3,
+          action: { type: "block" },
+          condition: { urlFilter: "https://x.boardgamearena.net/data/themereleases/*/img/layout/back-main_games.jpg" },
         }]
       });
     } else {

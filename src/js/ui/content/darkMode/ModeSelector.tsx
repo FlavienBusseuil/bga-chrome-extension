@@ -18,6 +18,7 @@ let timer = 0;
 let paletteContainer: any;
 let paletteCursor: any;
 let saturationCursor: any;
+let cssCounter = 0;
 
 const isDarkMode = (config: Configuration, gameName: string) => {
   const customActions = gamesWithCustomActions[gameName];
@@ -101,18 +102,27 @@ const ModeSelector = (props: ModeSelectorProps) => {
   };
 
   const toggleDarkMode = () => {
-    setDarkMode(!darkMode);
-    config.setDarkMode(!darkMode);
+    const newDarkMode = !darkMode;
 
-    if (darkMode) {
+    setDarkMode(newDarkMode);
+    config.setDarkMode(newDarkMode);
+
+    if (!newDarkMode) {
       setPaletteVisible(false);
     }
 
     const customActions = gamesWithCustomActions[gameName];
-    customActions && customActions.setDarkMode && customActions.setDarkMode(!darkMode);
+    customActions && customActions.setDarkMode && customActions.setDarkMode(newDarkMode);
 
     if (window.location.pathname.startsWith("/forum")) {
       location.reload();
+    } else if (!newDarkMode) {
+      // refresh of the CSS to load the background image that was previously blocked
+      const cssName = gameName === 'general' ? 'common.css' : 'gameserver.css';
+      const link = Array.from(document.querySelectorAll("link")).find(l => l.href.indexOf(cssName) > 0)
+      if (link) {
+        setTimeout(() => link.href = `${link.href.split('?')[0]}?${cssCounter++}`, 1000);
+      }
     }
   };
 

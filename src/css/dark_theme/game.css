@@ -458,6 +458,29 @@ div[id*="popin"][id$="underlay"] {
   background-color: #000 !important;
 }
 
+/* board game settings in some games (codexnaturalis, forage, ginkgopolis, grovesolitaire, ...) */
+
+.scrollmap_form [type="submit"] {
+  background-color: var(--blue-70) !important;
+}
+
+.darkmode .scrollmap_container>.scrollmap_btns_flex {
+  background-color: var(--dark-20);
+  color: var(--light-80);
+}
+
+.scrollmap_container .movetop.fa,
+.scrollmap_container .moveleft.fa,
+.scrollmap_container .moveright.fa,
+.scrollmap_container .movedown.fa {
+  background-color: var(--dark-20) !important;
+  color: var(--light-80);
+}
+
+.scrollmap_form button {
+  cursor: pointer;
+}
+
 /* wiki */
 
 .wikicontent .wikimenu {

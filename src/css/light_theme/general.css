@@ -1,0 +1,4 @@
+/* Delete button on gamelist page */
+html:not(.bgaext_gamelist) .ext_delete_button {
+  display: none;
+}

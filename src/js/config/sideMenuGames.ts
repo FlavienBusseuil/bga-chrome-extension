@@ -927,7 +927,8 @@ const defaultGames: Partial<Game>[] = [
 	{
 		name: "cosmosempires",
 		playerPanel: "player_{{player_id}}_container",
-		iconBackground: "#aaabad"
+		iconBackground: "#aaabad",
+		iconBackgroundDark: "#36384a"
 	},
 	{
 		name: "fortheking",

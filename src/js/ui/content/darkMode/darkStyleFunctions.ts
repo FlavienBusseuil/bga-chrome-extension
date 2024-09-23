@@ -18,7 +18,7 @@ const { cssList, mode } = (() => {
     return { mode: "archive", cssList: [] };
   }
 
-  return { mode: "general", cssList: ["light_theme/background.css", "dark_theme/background.css", "dark_theme/common.css", "dark_theme/chat.css", "dark_theme/icons.css", "dark_theme/general.css"] };
+  return { mode: "general", cssList: ["light_theme/general.css", "dark_theme/background.css", "dark_theme/common.css", "dark_theme/chat.css", "dark_theme/icons.css", "dark_theme/general.css"] };
 })();
 
 const cssContents = {};
@@ -184,12 +184,12 @@ const _setLightStyle = (mode: string) => {
     }
 
     if (mode === "general") {
-      styleComponent.innerHTML = cssContents["light_theme/background.css"];
-    } else if (gamesWithCustomDarkMode[mode]) {
-      styleComponent.innerHTML = styleForGame[mode] || "";
-      document.documentElement.classList.remove(gamesWithCustomDarkMode[mode].className);
+      styleComponent.innerHTML = cssContents["light_theme/general.css"];
     } else {
       styleComponent.innerHTML = styleForGame[mode] || "";
+      if (gamesWithCustomDarkMode[mode]) {
+        document.documentElement.classList.remove(gamesWithCustomDarkMode[mode].className);
+      }
     }
   }
 
