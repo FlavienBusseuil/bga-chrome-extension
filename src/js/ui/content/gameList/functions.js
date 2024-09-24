@@ -31,7 +31,7 @@ const linkClick = (evt) => {
 
 	if (elt.href) {
 		lastLink = elt.href;
-		console.log(`[bga extension] click on ${lastLink}`);
+		console.debug(`[bga extension] click on ${lastLink}`);
 	}
 };
 

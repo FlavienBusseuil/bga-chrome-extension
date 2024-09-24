@@ -21,7 +21,6 @@ const initPage = () => {
 };
 
 document.addEventListener('bga_ext_update_config', (data) => {
-  console.log('bga_ext_update_config', data);
   if (['darkModeColor', 'darkModeSat'].includes(data.detail.key)) {
     adjustDarkColors();
   }

@@ -48,7 +48,6 @@ const toggleScoreVisible = () => {
 
 const onClick = (evt: any) => {
 	try {
-		console.log("onClick");
 		const eltId = evt.target.id || evt.target.parentNode.id;
 		if (eltId === "cde-floating-menu-log") {
 			toggleLogVisible();

@@ -1,5 +1,6 @@
 import Configuration from './js/config/configuration';
 import { isNumber } from './js/utils/misc/isNumber';
+import { waitForObj } from './js/utils/misc/wait';
 import { addLocationChangeListener } from './js/utils/misc/addLocationChangeListener';
 import {
 	buildMainCss,
@@ -39,22 +40,6 @@ const initObserver = (page) => {
 	}
 };
 
-const _waitForObj = (q, maxIteration, returnFunc, returnFuncError) => {
-	if (document.querySelector(q)) {
-		console.log(`[bga extension] wait for elt '${q}', result: true`);
-		returnFunc();
-	} else if (maxIteration === 0) {
-		console.log(`[bga extension] wait for elt '${q}', result: false`);
-		returnFuncError();
-	} else {
-		setTimeout(() => _waitForObj(q, maxIteration - 1, returnFunc, returnFuncError), 200);
-	}
-};
-
-const waitForObj = async (q, maxIteration) => {
-	await new Promise((resolve, error) => _waitForObj(q, maxIteration, resolve, error));
-}
-
 const manageLocationChange = (pathname) => {
 	console.log('[bga extension] load path', pathname);
 
@@ -93,7 +78,7 @@ const manageLocationChange = (pathname) => {
 		if (gameConfig) {
 			initLeftMenu(config, gameConfig, config.isLeftMenuEnabled(gameName));
 		} else {
-			console.log(`[bga extension] no configuration found for game ${gameName}`);
+			console.debug(`[bga extension] no configuration found for game ${gameName}`);
 		}
 
 		initDarkMode(config, gameName);
@@ -158,13 +143,13 @@ config.init().then(initPage);
 
 document.addEventListener('bga_ext_set_config', (e) => {
 	const jsonData = e.detail;
-	console.log('[bga extension] import data from deprecated extension', jsonData);
+	console.debug('[bga extension] import data from deprecated extension', jsonData);
 	config.import(JSON.parse(jsonData));
 	!config.isEmpty() && location.reload();
 });
 
 document.addEventListener('bga_ext_update_config', (data) => {
-	console.log('[bga extension] configuration updated', data);
+	console.debug('[bga extension] configuration updated', data);
 
 	if (data.detail.key === 'hideGeneralChat') {
 		setChatStyle(config);
@@ -179,7 +164,7 @@ document.addEventListener('bga_ext_update_config', (data) => {
 window.addEventListener('message', (evt) => {
 	if (evt.origin === 'https://forum.boardgamearena.com' && evt.data.key === 'bga_ext_forum_visible') {
 		// hack to avoid light theme flashing
-		console.log('[bga extension] forum displayed');
+		console.debug('[bga extension] forum displayed');
 		document.documentElement.classList.add('bgaext_forum_visible');
 	}
 }, false);

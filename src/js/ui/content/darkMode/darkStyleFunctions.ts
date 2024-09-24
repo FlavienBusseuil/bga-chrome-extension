@@ -151,7 +151,7 @@ const _setDarkStyle = (mode: string) => {
         }
 
         getPlayersData().then(playersData => {
-          console.log("[bga extension] players data", playersData);
+          console.debug("[bga extension] players data", playersData);
 
           const possibleColors = [...playersData, ...getPlayersPossibleColors(mode)];
           const colorsStyle = getDarkColorsStyle(possibleColors);

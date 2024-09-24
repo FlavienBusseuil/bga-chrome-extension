@@ -84,7 +84,7 @@ const ModeSelector = (props: ModeSelectorProps) => {
 
     if (paletteCursor) {
       const cursPos = darkColorHue < 0 ? (512 + 16) : (darkColorHue * 2) + 16;
-      console.log("setPaletteCursorPosition", darkColorHue, cursPos)
+
       paletteCursor.style.left = `${cursPos}px`;
       paletteCursor.style.display = "block";
     }

@@ -1,4 +1,4 @@
-export const addLocationChangeListener = (func) => {
+export const addLocationChangeListener = (func: (loc: string) => void) => {
 	let currentLocation = window.location.pathname;
 
 	const checkLocation = () => {

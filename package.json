@@ -14,8 +14,8 @@
 		"release": "./scripts/release.zsh",
 		"build:ff": "yarn clean && NODE_ENV=production yarn prod:css && yarn prebuild:firefox && yarn prod:parcel:firefox && yarn postbuild:firefox",
 		"prod:parcel:firefox": "yarn parcel build src/manifest.json --target prod-firefox --dist-dir ./build --no-source-maps",
-		"prebuild:firefox": "mv src/manifest.json src/manifest-chrome.json && mv src/manifest-firefox.json src/manifest.json",
-		"postbuild:firefox": "mv src/manifest.json src/manifest-firefox.json && mv src/manifest-chrome.json src/manifest.json"
+		"prebuild:firefox": "mv src/manifest.json src/manifest-chrome.json && mv src/manifest-firefox.json src/manifest.json && mv src/js/utils/misc/mp3.ts src/js/utils/misc/mp3-chrome.ts && mv src/js/utils/misc/mp3-firefox.ts src/js/utils/misc/mp3.ts",
+		"postbuild:firefox": "mv src/manifest.json src/manifest-firefox.json && mv src/manifest-chrome.json src/manifest.json && mv src/js/utils/misc/mp3.ts src/js/utils/misc/mp3-firefox.ts && mv src/js/utils/misc/mp3-chrome.ts src/js/utils/misc/mp3.ts"
 	},
 	"browserslist": [
 		"since 2017-06"

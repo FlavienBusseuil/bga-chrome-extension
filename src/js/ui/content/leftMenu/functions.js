@@ -7,7 +7,7 @@ let playersData;
 export const initLeftMenu = (config, gameConfig, leftMenuEnable) => {
 	document.addEventListener("DOMContentLoaded", () => {
 		getPlayersData().then((data) => {
-			console.log("[bga extension] players data", data);
+			console.debug("[bga extension] players data", data);
 
 			playersData = data;
 			buildLeftMenuCss(gameConfig, leftMenuEnable);

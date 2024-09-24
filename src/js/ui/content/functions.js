@@ -7,16 +7,20 @@ import { setFloatingRightMenu } from './rightMenu/functions';
 import { initDevelopperUI } from './studio/functions';
 import { initGameListObserver } from './gameList/functions';
 import { initDarkMode } from './darkMode/functions';
+import { waitForObj } from '../../utils/misc/wait';
 import shouldFilter from '../../config/filteredLogs';
 
 const buildMainCss = (code) => {
-	let style = document.getElementById('cde_bga_ext');
-	if (!style) {
-		style = document.createElement('style');
-		style.id = 'cde_bga_ext';
-		document.head.appendChild(style);
-	}
-	style.innerHTML = `#lrf-bga-extension { display: none; } ${code}`;
+	waitForObj('head', 10).then(() => {
+		let style = document.getElementById('cde_bga_ext');
+
+		if (!style) {
+			style = document.createElement('style');
+			style.id = 'cde_bga_ext';
+			document.head.appendChild(style);
+		}
+		style.innerHTML = `#lrf-bga-extension { display: none; } ${code}`;
+	});
 };
 
 const initLogObserver = (config) => {
