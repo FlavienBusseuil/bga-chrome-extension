@@ -523,3 +523,9 @@ div[id*="popin"][id$="underlay"] {
 .whiteblock.debug_section {
   color: var(--light-80);
 }
+
+/* hot seat */
+#hotseat_mask {
+  background-color: var(--dark-40);
+  color: var(--light-80);
+}

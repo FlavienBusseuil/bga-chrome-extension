@@ -22,7 +22,7 @@ let pageType = undefined;
 if (localStorage.getItem('ext_dark_theme') === 'on') {
 	// hack to avoid light theme flashing
 	const s = document.createElement('style');
-	s.innerHTML = "iframe { width:1px!important; height:1px!important; } * { visibility: hidden; }"
+	s.innerHTML = "* { visibility: hidden; }"
 	document.documentElement.appendChild(s);
 	window.addEventListener("load", () => {
 		if (window.navigator.userAgent.toLowerCase().includes('firefox')) {
