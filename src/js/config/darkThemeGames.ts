@@ -2930,7 +2930,12 @@ _darkStyleForGame['itsawonderfulworld'] = `
 `;
 
 _darkStyleForGame['iwari'] = `
+#overall-content:before { content: ""; background: #00000050; position: absolute; width: 100%; height: 100%; }
 .player-name { text-shadow: none; }
+`;
+
+_darkStyleForGame['jaipur'] = `
+#jpr_board { filter: brightness(0.7); }
 `;
 
 _darkStyleForGame['jekyllvshide'] = `
@@ -2940,6 +2945,7 @@ span[style*="color:#161614"] { color: #868679 !important; }
 _darkStyleForGame['jumpdrive'] = `
 .jdr-icon, .jdr-resource { filter: var(--highlight-min); }
 .dijitTooltipContainer .jdr-card-income, .dijitTooltipContainer .jdr-card-special, .dijitTooltipContainer .jdr-card-vp { color: var(--light-80); }
+.jdr-goalMarker { background: var(--orange-30); }
 `;
 
 _darkStyleForGame['justone'] = `
@@ -2961,11 +2967,16 @@ _darkStyleForGame['kahuna'] = `
 #round, #card_pool_wrapper { color: #fff; }
 `;
 
+_darkStyleForGame['kami'] = `
+#playerTables:before { content: ""; background: #00000080; position: absolute; width: 100%; height: 100%; }
+`;
+
 _darkStyleForGame['karvi'] = `
 #game_play_area { color: #fff; }
 #karvi-tab-holder .tab { background-color: var(--dark-20); border: 2px solid var(--light-50); border-left: 0; }
 #karvi-tab-holder .tab:hover, html.game_elements_tabs #karvi-tab-holder .tab.selected { background-color: var(--dark-40); }
 #player_boards .player-panel-icon, .notif-icon { filter: var(--highlight-min); }
+#karvi-game-holder .cards-holder .card-row-section { border-bottom: 1px solid var(--light-50); }
 `;
 
 _darkStyleForGame['keyflower'] = `
@@ -2974,6 +2985,7 @@ _darkStyleForGame['keyflower'] = `
 `;
 
 _darkStyleForGame['khiva'] = `
+body { filter: brightness(0.7); }
 .kv_board_path_title { background-color: var(--dark-20); padding: 0.2em 0.5em; border-radius: 4px; margin-left: -1em; }
 `;
 
@@ -3056,10 +3068,16 @@ _darkStyleForGame['ladyschoice'] = `
 _darkStyleForGame['lagranja'] = `
 .playerFarm > div:first-child > span:first-child { background-color: transparent !important; }
 .card, .drawDeck { color: #000; }
+.board, .drawDeck, .playerMat, .card { filter: brightness(0.75); }
 `;
 
 _darkStyleForGame['lama'] = `
 #deckCount { color: #fff; }
+`;
+
+_darkStyleForGame['lamarcheducrabe'] = `
+#overall-content[style^="background"]:before { content: ""; background: #000000A0; position: absolute; width: 100%; height: 100%; top:0px; left: 0px; }
+#freed_crabs { color: var(--light-80); }
 `;
 
 _darkStyleForGame['lancaster'] = `
@@ -3789,6 +3807,8 @@ _darkStyleForGame['orleans'] = `
 .orl-trading-station .card-side { filter: drop-shadow(1px 1px 1px #8e8e8e); }
 .orl-player-area-tab-content { background: var(--dark-back); }
 .jj-tab-manager-tab span[style*="text-shadow: none;"] { text-shadow: none!important; }
+.jj-ui-hint-box { background-color: var(--dark-40); }
+.orl-additional-board.orl-additional-board-player, .card, .jj-tab-manager .jj-tab-manager-tabs { filter: brightness(0.75); }
 `;
 
 _darkStyleForGame['oxono'] = `

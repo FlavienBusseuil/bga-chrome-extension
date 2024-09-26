@@ -12,6 +12,7 @@ let cachedRequestToken = undefined;
 export async function bgPeriodic(config) {
 	try {
 		if (config.isTrackingEnable()) {
+			console.debug("[bga extension] Track opened tables and player state");
 			cachedRequestToken = cachedRequestToken || fetchRequestToken();
 			const requestToken = await cachedRequestToken;
 
