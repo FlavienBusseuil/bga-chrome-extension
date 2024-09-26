@@ -130,7 +130,7 @@
 		"message": "Plateau principal"
 	},
 	"reportCreationWarning": {
-		"message": "Vous utilisez une extension de navigateur qui modifie sensiblement le visuel du site et de certains jeux. <br>Si vous avez un problème avec une des <a href='https://fr.doc.boardgamearena.com/ChromeExtension'>fonctionnalités de l'extension</a>, ne créez pas un rapport, venez plutôt en parler sur le forum !"
+		"message": "Vous utilisez une extension de navigateur qui modifie sensiblement le visuel du site et de certains jeux. <br>Si vous avez un problème avec une des <a href='https://fr.doc.boardgamearena.com/ChromeExtension' class='bga-link'>fonctionnalités de l'extension</a>, ne créez pas un rapport, venez plutôt en parler sur le forum !"
 	},
 	"reportCreationWarningLink": {
 		"message": "ICI"

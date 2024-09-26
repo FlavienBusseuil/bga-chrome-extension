@@ -139,15 +139,15 @@ const buildOptions = (config, gameName, gameConfig) => {
 				document.body.classList.remove('logs_on_additional_column');
 			}
 			if (evt.target.value === '3') {
-				setFloatingRightMenu(config, gameConfig, true);
+				setFloatingRightMenu(config, true);
 				config.setGameFloatingMenu(gameName, false);
 				config.setGlobalFloatingMenu(true);
 			} else if (evt.target.value === '2') {
-				setFloatingRightMenu(config, gameConfig, true);
+				setFloatingRightMenu(config, true);
 				config.setGameFloatingMenu(gameName, true);
 				config.setGlobalFloatingMenu(false);
 			} else {
-				setFloatingRightMenu(config, gameConfig, false);
+				setFloatingRightMenu(config, false);
 				config.setGameFloatingMenu(gameName, false);
 				config.setGlobalFloatingMenu(false);
 			}
@@ -225,26 +225,21 @@ const initChatIcon = (config) => {
 	const chatIconId = 'bga_extension_chat_icon';
 
 	if (!document.getElementById(chatIconId)) {
-		const friendsElt = document.querySelector('.bga-friends-icon');
+		waitForObj('.bga-friends-icon', 10).then((friendsElt) => {
+			const container = friendsElt.parentNode;
 
-		if (!friendsElt) {
-			setTimeout(() => initChatIcon(config), 100);
-			return;
-		}
+			const chatElt = document.createElement('div');
+			chatElt.id = chatIconId;
+			chatElt.innerHTML = `<i class='fa fa-comments' style='font-size: 32px; cursor: pointer;'></i>`;
+			chatElt.onclick = () => config.toggleGeneralChatHidden();
+			container.parentNode.insertBefore(chatElt, container);
 
-		const container = friendsElt.parentNode;
+			const sepElt = document.createElement('div');
+			sepElt.className = 'ml-1 tablet:ml-6';
+			container.parentNode.insertBefore(sepElt, container);
 
-		const chatElt = document.createElement('div');
-		chatElt.id = chatIconId;
-		chatElt.innerHTML = `<i class='fa fa-comments' style='font-size: 32px; cursor: pointer;'></i>`;
-		chatElt.onclick = () => config.toggleGeneralChatHidden();
-		container.parentNode.insertBefore(chatElt, container);
-
-		const sepElt = document.createElement('div');
-		sepElt.className = 'ml-1 tablet:ml-6';
-		container.parentNode.insertBefore(sepElt, container);
-
-		setChatStyle(config);
+			setChatStyle(config);
+		});
 	}
 };
 

@@ -4,10 +4,12 @@ export async function wait(ms: number): Promise<void> {
 	});
 }
 
-const _waitForObj = (q: string, maxIteration: number, returnFunc: (val: unknown) => void, returnFuncError: () => void) => {
-	if (document.querySelector(q)) {
+const _waitForObj = (q: string, maxIteration: number, returnFunc: (val: Element) => void, returnFuncError: () => void) => {
+	const elt = document.querySelector(q);
+
+	if (elt) {
 		console.debug(`[bga extension] wait for elt '${q}', result: true`);
-		returnFunc(true);
+		returnFunc(elt);
 	} else if (maxIteration === 0) {
 		console.debug(`[bga extension] wait for elt '${q}', result: false`);
 		returnFuncError();
@@ -17,5 +19,5 @@ const _waitForObj = (q: string, maxIteration: number, returnFunc: (val: unknown)
 };
 
 export const waitForObj = async (q: string, maxIteration: number) => {
-	await new Promise((resolve, error) => _waitForObj(q, maxIteration, resolve, error));
+	return new Promise((resolve, error) => _waitForObj(q, maxIteration, resolve, error));
 }

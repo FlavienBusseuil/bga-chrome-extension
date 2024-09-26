@@ -70,7 +70,7 @@ const manageLocationChange = (pathname) => {
 		const isMobile = !window.matchMedia || window.matchMedia("only screen and (max-width: 760px)").matches;
 
 		if (!isMobile && (config.isGlobalFloatingMenu() || config.isGameFloatingMenu(gameName))) {
-			setFloatingRightMenu(config, gameConfig, true);
+			setFloatingRightMenu(config, true);
 		}
 
 		buildOptions(config, gameName, gameConfig);
@@ -86,6 +86,10 @@ const manageLocationChange = (pathname) => {
 	}
 
 	const pageName = pageInfo[0] || 'welcome';
+
+	if (pageName === 'blank') {
+		return 'blank';
+	}
 
 	if (pageName === 'welcome' && !document.getElementById('ext_homepage')) {
 		const homeConfig = config.getHomeConfig();

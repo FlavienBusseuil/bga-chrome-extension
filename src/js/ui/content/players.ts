@@ -36,7 +36,7 @@ const _getPlayersData = (returnFunc: (data: PlayerData[]) => void, iteration: nu
 
       return {
         id,
-        name: userLink.innerText,
+        name: userLink.innerText || userLink.innerHTML,
         avatar: avatar.src,
         color,
         darkColor,

@@ -175,7 +175,7 @@ const defaultGames: Partial<Game>[] = [
 		name: "gardennation",
 		playerPanel: "player-table-{{player_id}}",
 		iconBackground: "#919544",
-		iconBackgroundDark: "#414512",
+		iconBackgroundDark: "#5f651a",
 		css: ".desktop_version #page-content { padding-left: 50px; }",
 	},
 	{
@@ -292,6 +292,7 @@ const defaultGames: Partial<Game>[] = [
 		name: "elawa",
 		playerPanel: "player-table-{{player_id}}",
 		css: "#bga-jump-to_controls { display: none; } .desktop_version #tables { padding-left: 45px; }",
+		iconBackgroundDark: "#6a552f"
 	},
 	{
 		name: "locomomo",
@@ -665,6 +666,8 @@ const defaultGames: Partial<Game>[] = [
 		name: "forbiddenisland",
 		playerPanel: "player_adventurer_{{player_id}}",
 		bottomPanel: "flood_deck_area",
+		iconBackground: "#69b7fc",
+		iconBackgroundDark: "#02357e"
 	},
 	{
 		name: "forestshuffle",
@@ -865,7 +868,6 @@ const defaultGames: Partial<Game>[] = [
 		playerPanel: "eoc-played{{player_id}}-outer",
 		boardPanel: "eoc-map-container",
 		boardPanelText: "#eoc-nav0",
-		bottomPanel: "eoc-discardPool-outer",
 		css: "#eoc-nav { display: none; }",
 	},
 	{
