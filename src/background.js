@@ -80,12 +80,11 @@ config.init().then(() => {
   });
   chrome.alarms.create("bgPeriodic", { delayInMinutes: 0, periodInMinutes: 1 });
 
-  if (window.navigator.userAgent.toLowerCase().includes('firefox')) {
-    // hack to be sure that the background script will not be terminated after 30 seconds inactivity
-    const now = new Date().getTime();
-    chrome.alarms.create("keepAlive1", { when: now + 20000, periodInMinutes: 1 });
-    chrome.alarms.create("keepAlive2", { when: now + 40000, periodInMinutes: 1 });
-  }
+  // hack to be sure that the background script will not be terminated after 30 seconds inactivity on FF
+  const now = new Date().getTime();
+  chrome.alarms.create("keepAlive0", { delayInMinutes: 0, periodInMinutes: 1 });
+  chrome.alarms.create("keepAlive1", { when: now + 20000, periodInMinutes: 1 });
+  chrome.alarms.create("keepAlive2", { when: now + 40000, periodInMinutes: 1 });
 
   setDarkModeUrlFilters(config.isDarkMode());
   setLobbyUrlFilters(config.isLobbyRedirectionEnable());

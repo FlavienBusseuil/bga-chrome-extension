@@ -12,6 +12,16 @@ const defaultGames: Partial<Game>[] = [
 		css: " ",
 	},
 	{
+		name: "mycityrb",
+		iconBackground: "#d8ba7f",
+		iconBackgroundDark: "#302317",
+		iconColorDark: "#eee",
+		iconShadowDark: "#777",
+		playerPanel: "cty_board_{{player_id}}",
+		bottomPanel: "cty_proba",
+		css: " ",
+	},
+	{
 		name: "abyss",
 		iconBackground: "#36697c",
 		iconBackgroundDark: "#36697c",
@@ -794,7 +804,6 @@ const defaultGames: Partial<Game>[] = [
 	{
 		name: "mechadream",
 		playerPanel: "mad_playerboard_{{player_id}}",
-		boardPanel: "mad_mainboard",
 	},
 	{
 		name: "dicesummoners",

@@ -121,6 +121,7 @@ const ModeSelector = (props: ModeSelectorProps) => {
       const cssName = gameName === 'general' ? 'common.css' : 'gameserver.css';
       const link = Array.from(document.querySelectorAll("link")).find(l => l.href.indexOf(cssName) > 0)
       if (link) {
+        setTimeout(() => link.href = `${link.href.split('?')[0]}?${cssCounter++}`, 100);
         setTimeout(() => link.href = `${link.href.split('?')[0]}?${cssCounter++}`, 1000);
       }
     }
