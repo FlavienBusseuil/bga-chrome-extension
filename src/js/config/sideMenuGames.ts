@@ -131,7 +131,6 @@ const defaultGames: Partial<Game>[] = [
 	{
 		name: "gizmos",
 		playerPanel: "gizmo_track_{{player_id}}",
-		css: ".desktop_version #gizmos_board { margin-left: 50px; }",
 	},
 	{
 		name: "potionexplosion",
@@ -165,6 +164,8 @@ const defaultGames: Partial<Game>[] = [
 		name: "throughtheagesnewstory",
 		playerPanel: "player_tableau_wrap_{{player_id}}",
 		playerPanelOffset: 45,
+		bottomPanel: "common_tactics",
+		bottomPanelOffset: 45,
 	},
 	{
 		name: "throughtheages",
@@ -1181,7 +1182,8 @@ const defaultGames: Partial<Game>[] = [
 	{
 		name: "hiddenleaders",
 		playerPanel: "player-head-{{player_id}}",
-		css: "#bga-jump-to_controls { display: none; } .desktop_version #game_play_area { padding-left: 50px; }",
+		css: "#bga-jump-to_controls { display: none; } .desktop_version #game_play_area { padding-left: 50px; } #tabs-container { margin-left: -60px; }",
+		position: "bottom"
 	},
 	{
 		name: "paxrenaissance",

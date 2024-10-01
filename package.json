@@ -18,7 +18,7 @@
 		"postbuild:firefox": "mv src/manifest.json src/manifest-firefox.json && mv src/manifest-chrome.json src/manifest.json && mv src/js/utils/misc/mp3.ts src/js/utils/misc/mp3-firefox.ts && mv src/js/utils/misc/mp3-chrome.ts src/js/utils/misc/mp3.ts"
 	},
 	"browserslist": [
-		"since 2017-06"
+		"last 2 versions, not dead, > 0.2%"
 	],
 	"targets": {
 		"dev": {
@@ -33,16 +33,16 @@
 	"devDependencies": {
 		"@babel/core": "^7.12.0",
 		"@babel/plugin-transform-flow-strip-types": "^7.0.0",
-		"@parcel/config-webextension": "2.10.3",
-		"autoprefixer": "10.4.0",
-		"concurrently": "6.5.1",
-		"flow-bin": "0.179.0",
-		"flow-remove-types": "2.179.0",
-		"parcel": "2.10.3",
-		"postcss": "8.4.5",
-		"preact": "10.6.4",
-		"prettier": "^2.8.8",
-		"tailwindcss": "3.4.1",
+		"@parcel/config-webextension": "2.12.0",
+		"autoprefixer": "10.4.20",
+		"concurrently": "9.0.1",
+		"flow-bin": "0.247.1",
+		"flow-remove-types": "2.247.1",
+		"parcel": "2.12.0",
+		"postcss": "8.4.47",
+		"preact": "10.24.1",
+		"prettier": "^3.3.3",
+		"tailwindcss": "3.4.13",
 		"tailwindcss-cli": "0.1.2"
 	},
 	"dependencies": {

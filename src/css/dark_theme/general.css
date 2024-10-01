@@ -88,6 +88,10 @@ input::placeholder {
   border-color: #fff;
 }
 
+.dj_webkit .tundra .dijitTooltipContainer {
+  box-shadow: 0 5px 10px #555;
+}
+
 .dijitTooltipContainer .imgtext[src$="/img/layout/help_click.png"] {
   filter: invert(0.7);
 }
@@ -364,6 +368,10 @@ select.colorselector {
 .bga-player-menu .bg-bga-whitebg {
   background: var(--dark-10);
   color: var(--light-80);
+}
+
+.bga-discussion-item--unread {
+  background-color: var(--violet-60) !important;
 }
 
 .bga-player-menu .bga-hover-for-list:hover,
