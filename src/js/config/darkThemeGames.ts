@@ -2239,6 +2239,12 @@ _darkStyleForGame['fivetribes'] = `
 .ft_rsrc_card, .ft_tile { filter: brightness(0.9); }
 .ft_counter.ft_slot_counter { z-index: 1; }
 .ft_notselectable { filter: grayscale(.3); opacity: .6; }
+:not(.disabled) { #ft_btn_undo, #ft_btn_score { background: linear-gradient(#0bb76c, #24895d) !important; border: 1px solid #004d05; }
+#ft_btn_undo:hover, #ft_btn_score:hover { background: linear-gradient(#06ea87, #24895d) !important; }
+#ft_btn_skip { background: linear-gradient(#b70bb7, #892489) !important; border: 1px solid #00334d; }
+#ft_btn_skip:hover { background: linear-gradient(#b70bb7, #ea06ea) !important; } }
+.ft_selectable, .ft_selected, .ft_turnselected { outline-color: #29a329 !important; }
+.ft_activatable { outline-color: var(--blue-50) !important; }
 `;
 
 _darkStyleForGame['flamingpyramids'] = `

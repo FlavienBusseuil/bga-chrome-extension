@@ -34,11 +34,7 @@ const initLogObserver = (config) => {
 		if (!config.isOnlineMessagesEnabled()) {
 			logsContainer.childNodes.forEach((elt, index) => {
 				const text = elt.innerHTML;
-				if (
-					text &&
-					text.indexOf('<!--PNS-->') >= 0 &&
-					shouldFilter(text)
-				) {
+				if (text && text.indexOf('<!--PNS-->') >= 0 && shouldFilter(text)) {
 					logsContainer.removeChild(elt);
 				}
 				if (index > 20) {
