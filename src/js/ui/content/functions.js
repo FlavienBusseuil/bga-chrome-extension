@@ -19,7 +19,7 @@ const buildMainCss = (code) => {
 			style.id = 'cde_bga_ext';
 			document.head.appendChild(style);
 		}
-		style.innerHTML = `#lrf-bga-extension { display: none; } ${code}`;
+		style.innerHTML = `#lrf-bga-extension, .bgaext_overlay { display: none; } .darkmode .bgaext_overlay { display: block; } ${code}`;
 	});
 };
 

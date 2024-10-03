@@ -54,26 +54,23 @@
   background: linear-gradient(180deg, #84461f, #db661f)
 }
 
-:not(.disabled) {
+.bgabutton_blue:not(.disabled),
+.bga-button--blue:not(.disabled) {
+  background: linear-gradient(180deg, #0ba9b7, #248189) !important;
+}
 
-  .bgabutton_blue,
-  .bga-button--blue {
-    background: linear-gradient(180deg, #0ba9b7, #248189) !important;
-  }
+.bgabutton_blue:not(.disabled):hover,
+.bga-button--blue:not(.disabled):hover,
+.notouch-device .bgabutton_blue:not(.disabled):hover,
+.notouch-device .bga-button--blue:not(.disabled):hover {
+  background: linear-gradient(180deg, #06d7ea, #248189) !important;
+}
 
-  .bgabutton_blue:hover,
-  .bga-button--blue:hover,
-  .notouch-device .bgabutton_blue:hover,
-  .notouch-device .bga-button--blue:hover {
-    background: linear-gradient(180deg, #06d7ea, #248189) !important;
-  }
-
-  .bgabutton_blue:active,
-  .notouch-device .bgabutton_blue:active,
-  .bga-button--blue:active,
-  .notouch-device .bga-button--blue:active {
-    background: linear-gradient(180deg, #248189, #0ba9b7) !important;
-  }
+.bgabutton_blue:not(.disabled):active,
+.notouch-device .bgabutton_blue:not(.disabled):active,
+.bga-button--blue:not(.disabled):active,
+.notouch-device .bga-button--blue:not(.disabled):active {
+  background: linear-gradient(180deg, #248189, #0ba9b7) !important;
 }
 
 /* Modales et popin */

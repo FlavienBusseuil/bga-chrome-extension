@@ -975,6 +975,7 @@ const defaultGames: Partial<Game>[] = [
 	{
 		name: "spiritsoftheforest",
 		playerPanel: "playerarea_{{player_id}}",
+		iconBackgroundDark: "#554171"
 	},
 	{
 		name: "heat",

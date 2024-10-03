@@ -367,6 +367,11 @@ a#pageheader_buy {
   background-color: var(--violet-60);
 }
 
+.head_error {
+  background-color: var(--red-10);
+  color: var(--light-80);
+}
+
 /* Tisaac games settings */
 
 #player_config #help-mode-switch .label,

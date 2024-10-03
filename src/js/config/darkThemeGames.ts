@@ -1,4 +1,5 @@
 import { getUrl } from "../utils/chrome";
+import { waitForObj } from '../utils/misc/wait';
 
 export const gamesWithCustomBackground = [
   'afterus',
@@ -145,13 +146,16 @@ export const gamesWithCustomBackground = [
   'seasaltpaper',
   'seasons',
   'secretmoon',
+  'skyteam',
   'skull',
+  'similo',
   'smallworld',
   'sobektwoplayers',
   'solstis',
   'spacebase',
   'spaceempires',
   'spacestationphoenix',
+  'spiritsoftheforest',
   'splendor',
   'splendorduel',
   'stella',
@@ -312,9 +316,11 @@ export const gamesWithRecommandedConfig = {
   pixies: { color: 95, sat: 15 },
   powervacuum: { color: 0, sat: 15 },
   regicide: { color: 165, sat: 15 },
+  similo: { color: 115, sat: 10 },
   scythe: { color: 28, sat: 12 },
   seasaltpaper: { color: 225, sat: 28 },
   seasons: { color: 0, sat: 10 },
+  splendor: { color: 220, sat: 22 },
   trailblazers: { color: 130, sat: 30 },
   tucano: { color: 138, sat: 15 },
   twelvechips: { color: 164, sat: 15 },
@@ -332,6 +338,23 @@ const manageBackground = (defBackClass: string, otherBackClasses: string[]) => {
   } else {
     document.documentElement.classList.add("custom_background");
   }
+};
+
+const addInvertOverlay = (className: string, copyDefaultStyle: boolean) => {
+  waitForObj('#overall-content', 5).then(overallContent => {
+    const overlay = document.createElement("DIV");
+    overlay.className = `bgaext_overlay ${className}`;
+    overlay.style.position = 'absolute';
+    overlay.style.top = '0px';
+    overlay.style.left = '0px';
+    overlay.style.width = '100%';
+    overlay.style.height = '100%';
+    overlay.style.filter = 'invert(1)';
+    if (copyDefaultStyle) {
+      overlay.style.background = getComputedStyle(document.documentElement).background;
+    }
+    overallContent.insertBefore(overlay, overallContent.firstChild);
+  });
 };
 
 export const gamesWithCustomActions = {
@@ -480,6 +503,15 @@ export const gamesWithCustomActions = {
       input2.addEventListener('change', () => setTimeout(setupManageBackground, 500));
       setupManageBackground();
     }
+  },
+  spiritsoftheforest: {
+    init: () => addInvertOverlay('spiritsoftheforest_background', false)
+  },
+  bamboozle: {
+    init: () => addInvertOverlay('', true)
+  },
+  fifteendays: {
+    init: () => addInvertOverlay('fifteendays_background', false)
   }
 };
 
@@ -895,8 +927,6 @@ _darkStyleForGame['balloonpop'] = `
 `;
 
 _darkStyleForGame['bamboozle'] = `
-html { filter: invert(1); }
-html > * { filter: invert(1); }
 #zoom-out, #zoom-in { filter: invert(1) grayscale(1) var(--highlight-min); }
 .ba_piles_log, .ba_tokens_log { filter: var(--highlight); }
 `;
@@ -1091,6 +1121,7 @@ _darkStyleForGame['bossquest'] = `
 _darkStyleForGame['botanicus'] = `
 #player_boards .player-name a { background-color: transparent !important; }
 #botanicus-game-holder .garden-board-holder .garden-board .player-name-holder { background-color: var(--dark-10); }
+#botanicus-board, .garden-board-holder { filter: brightness(0.9); }
 `;
 
 _darkStyleForGame['botanik'] = `
@@ -2207,8 +2238,6 @@ _darkStyleForGame['fibonachos'] = `
 `;
 
 _darkStyleForGame['fifteendays'] = `
-.fifteendays_background { filter: invert(1); }
-.fifteendays_background > * { filter: invert(1); }
 .pb_label { color: var(--light-80); }
 `;
 
@@ -4737,10 +4766,15 @@ _darkStyleForGame['seotda'] = `
 
 _darkStyleForGame['sheepboombah'] = `
 div[id^="playersection_"] > div:first-child { background-color: var(--dark-back); padding: 0.2em 1em; border-radius: 8px; box-sizing: border-box; }
+.sbb_icon_0, .sbb_icon_1, .sbb_icon_2, .sbb_icon_3 { border-radius: 50%; }
+.sbb_playerboard, #sbb_field { filter: brightness(0.9); }
 `;
 
 _darkStyleForGame['sherlockthirteen'] = `
 #overall-content:before { content: ""; background: #00000080; position: absolute; width: 100%; height: 100%; }
+#clue_sheet { filter: invert(0.9); box-shadow: 2px 2px 4px #fff; color: var(--light-80); }
+#clue_sheet > * { filter: invert(1); }
+.clue_table_cell { color: var(--light-80) !important; }
 `;
 
 _darkStyleForGame['shiftingstones'] = `
@@ -4753,14 +4787,27 @@ _darkStyleForGame['shogi'] = `
 .shg_piece-count { background-color: var(--dark-10); border: 1px solid var(--light-70); color: var(--light-80); }
 `;
 
+_darkStyleForGame['shogun'] = `
+#scrollmap-controls > * { filter: invert(1); }
+#pagesection_gameview .whiteblock.player-name-wrap { background: var(--dark-20); }
+`;
+
 _darkStyleForGame['siam'] = `
 .counter_value { color: var(--light-80) !important; }
 `;
 
+_darkStyleForGame['signorie'] = `
+.thething { filter: brightness(0.9); }
+`;
+
+_darkStyleForGame['similo'] = `
+#overall-content:before { content: ""; background: #00000080; position: absolute; width: 100%; height: 100%; }
+`;
+
 _darkStyleForGame['simplicity'] = `
-.player-teams .player-team-score .tile-meeple .tile-background { filter: var(--drop-shadow); }
-#logs .scity-meeple .tile-background, #pagemaintitletext .scity-meeple .tile-background { filter: var(--highlight-min); }
-.player-teams .player-team-score i { color: #fff; }
+.player-teams .player-team-score .tile-meeple .tile-background , #logs .scity-meeple .tile-background, #pagemaintitletext .scity-meeple .tile-background { filter: var(--highlight-min); }
+.player-teams .player-team-score i { color: var(--light-80); }
+#popin_showOverview #popin_showOverview_contents table thead { background: #0000004d; }
 #popin_showOverview #popin_showOverview_contents { background: #066036db; color: var(--light-80); }
 `;
 
@@ -4776,15 +4823,28 @@ _darkStyleForGame['skat'] = `
 
 _darkStyleForGame['skatelegend'] = `
 #round-counter-row #round-counter-block, .player-table { background: var(--dark-back); }
-.player-played-card, .player-scored-card, .bga-zoom-out-icon, .bga-zoom-in-icon { filter: invert(0.7); }
+.player-played-card, .player-scored-card, .bga-zoom-out-icon, .bga-zoom-in-icon { filter: invert(0.8); }
 .player-helmets { filter: var(--drop-shadow); }
 .dijitTooltipContainer [style="color: darkred"] { color: #ff3333 !important; }
+.card .card-sides .card-side.front { filter: brightness(0.9); }
 `;
 
 _darkStyleForGame['skyteam'] = `
+#overall-content:before { content: ""; background: #000000A0; position: absolute; width: 100%; height: 100%; }
 #popin_stWelcomeDialogId { background: var(--dark-20); }
-#bga-zoom-controls { filter: invert(0.7); }
 .st-victory-conditions.st-victory-conditions-row.pending { background: var(--dark-40) !important; }
+#st-communication-wrapper #st-communication-info.green, .st-victory-conditions .st-victory-conditions-row.success, html.darkpanel #player_boards .player-board.st-victory-conditions, .st-end-game-info-box { background: var(--green-10) !important; }
+#st-communication-wrapper #st-communication-info.red, .st-victory-conditions .st-victory-conditions-row.failed, .st-end-game-info-box.failure { background: var(--red-10) !important; }
+.st-victory-conditions .st-victory-conditions-row.pending { background: var(--dark-40) !important; }
+.st-victory-conditions .st-victory-conditions-row .st-victory-conditions-row-letter span { color: var(--green-10); }
+.st-victory-conditions.failure .st-victory-conditions-row-letter span, #st-final-round-notice p, #st-real-time-wrapper p  { color: var(--red-10); }
+.st-special-ability .fa-check-circle.co-pilot { stroke: var(--orange-30); }
+#st-real-time-wrapper .st-real-time-base-timer .st-real-time-base-timer-remaining.green { stroke: var(--green-10); }
+#st-real-time-wrapper .st-real-time-base-timer .st-real-time-base-timer-remaining.warning { stroke: var(--orange-30); }
+#st-real-time-wrapper .st-real-time-base-timer .st-real-time-base-timer-remaining.alert { stroke: var(--red-10); }
+.st-action-space-help { background-color: var(--dark-0); color: #fff; }
+.bga-cards_deck-counter.round { background: var(--dark-10); box-shadow: 0 0 2px 1px #fff; color: var(--light-80); }
+.bga-help_popin-button { background: var(--blue-70); }
 `;
 
 _darkStyleForGame['slide'] = `
@@ -4800,16 +4860,28 @@ _darkStyleForGame['slide'] = `
 _darkStyleForGame['smallislands'] = `
 body { background: none !important; }
 #stacks { background-color: var(--dark-back); color: var(--light-80); }
-#zoomin, #zoomout { filter: invert(0.7); }
+#zoomin, #zoomout { filter: invert(0.8); }
+.TileOnBoard, .stockitem { filter: brightness(0.9); }
+.boat_disabled { filter: contrast(.5); }
 `;
 
 _darkStyleForGame['smallworld'] = `
 .sw_popup_content { background-color: #272a2ff2; border: 2px solid var(--light-50); color: var(--light-80); }
+.sw_board { filter: brightness(0.9); }
 `;
 
 _darkStyleForGame['sobek'] = `
 .whiteblock_title { text-shadow: none; background-color: var(--dark-20); padding: 0.5em 1em; border-radius: 8px; }
 .fixed_player_title { height: 32px; }
+#score_track { filter: brightness(0.9); }
+`;
+
+_darkStyleForGame['sobektwoplayers'] = `
+#overall-content:before { content: ""; background: #00000080; position: absolute; width: 100%; height: 100%; }
+#right-side-buttons { position: relative; }
+#sbk-game-holder #sbk-board-holder { filter: brightness(0.9); }
+#sbk-game-holder #sbk-board-holder #deck-holder { background-color: var(--dark-back); color: var(--light-80); }
+#sbk-game-holder #sbk-board-holder #deck-holder .sprite-tile { filter: var(--drop-shadow); }
 `;
 
 _darkStyleForGame['solarstorm'] = `
@@ -4822,6 +4894,8 @@ _darkStyleForGame['solo'] = `
 `;
 
 _darkStyleForGame['solowhist'] = `
+#playertables { background-color: var(--green-10); }
+#turn_order { color: var(--green-30); }
 .infotitle, .targetTitle, .handinfo { color: var(--light-70); }
 `;
 
@@ -4831,6 +4905,7 @@ _darkStyleForGame['solstis'] = `
 .st_header { background: var(--dark-30); margin-bottom: 0.2em; }
 #st_layout_change a, #st_layout_change p { color: var(--light-80); }
 .st_label { background-color: var(--dark-10); color: var(--light-80); }
+.st_card_alphabg .st_card_back, .st_card_alphabg .st_card_front { filter: brightness(0.7); }
 `;
 
 _darkStyleForGame['soulaween'] = `
@@ -4862,15 +4937,21 @@ _darkStyleForGame['spades'] = `
 
 _darkStyleForGame['sparts'] = `
 .cardontable { border-radius: 8px; }
+.black, .s1, .s3 { text-shadow: var(--text-w-shadow); }
 `;
 
 _darkStyleForGame['spellbook'] = `
 .playername, .playername.pos0 { background-color: var(--dark-back); }
 .anatcard { outline: 2px solid var(--light-50); }
+.aide, .card { filter: drop-shadow(1px 1px 2px rgba(0, 0, 0, .7)) brightness(0.9); }
 `;
 
 _darkStyleForGame['spiritsoftheforest'] = `
 .pb_label { color: var(--dark-80); }
+`;
+
+_darkStyleForGame['splendor'] = `
+#overall-content:before { content: ""; background: #00000080; position: absolute; width: 100%; height: 100%; }
 `;
 
 _darkStyleForGame['splendorduel'] = `

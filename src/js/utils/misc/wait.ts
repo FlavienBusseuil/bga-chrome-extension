@@ -19,5 +19,5 @@ const _waitForObj = (q: string, maxIteration: number, returnFunc: (val: Element)
 };
 
 export const waitForObj = async (q: string, maxIteration: number) => {
-	return new Promise((resolve, error) => _waitForObj(q, maxIteration, resolve, error));
+	return new Promise<Element>((resolve, error) => _waitForObj(q, maxIteration, resolve, error));
 }
