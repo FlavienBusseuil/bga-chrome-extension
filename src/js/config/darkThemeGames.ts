@@ -2042,6 +2042,12 @@ _darkStyleForGame['ekonos'] = `
 .player-name > a, .ekonos-scoreboard-label { color: #fff !important; }
 `;
 
+_darkStyleForGame['ekko'] = `
+.ek_mini { background-color: var(--dark-back); }
+.ek_mini_selected { border: 2px solid var(--red-30); }
+.ek_deck_label p { color: var(--light-80) !important; }
+`;
+
 _darkStyleForGame['elawa'] = `
 #overall-content:before { content: ""; background: #000000A0; position: absolute; width: 100%; height: 100%; }
 #bga-zoom-controls { filter: invert(0.7); }
@@ -2457,7 +2463,7 @@ _darkStyleForGame['gardennation'] = `
 `;
 
 _darkStyleForGame['geekoutmasters'] = `
-.counter { color: #fff; }
+.counter, .write1, .write2 { color: #fff; }
 .counter_value[style^="color: rgb(0, 0, 0)"] { color: #fff !important; }
 `;
 
@@ -3520,6 +3526,7 @@ _darkStyleForGame['middleages'] = `
 .ma_header_buttons { filter: invert(1); }
 .ma_popup_cards { background-color: var(--dark-20); }
 #ma_event_title { color: var(--light-70); }
+.ma_lineinfo_event { border: 1px solid var(--light-50); }
 `;
 
 _styleForGame['middleages'] = `
@@ -4155,6 +4162,17 @@ _darkStyleForGame['piereighteen'] = `
 
 _darkStyleForGame['pingimus'] = `
 .player-name { text-shadow: none; }
+.vote label span { background: var(--dark-20); border: 3px solid var(--dark-10); color: var(--light-80); }
+.vote label input:checked+span { background: var(--dark-40); }
+#pingimus_canvas, #pictures img { filter: invert(0.9); }
+#canvas_container { box-shadow: 3px 3px 3px #50505080; }
+#pictures h3 { background: var(--dark-20); color: var(--light-80); }
+.guess.finished { background: var(--green-10); }
+.scoring_task { background: var(--dark-back); }
+.task_head { background: var(--dark-10); box-shadow: 1px 1px 1px #50505080; color: var(--light-80); }
+.scoring_player { background: var(--dark-0); }
+.guesses_head, .votes_head { color: var(--light-80); }
+.scoring_vote { background: var(--dark-10); }
 `;
 
 _darkStyleForGame['pinochle'] = `
@@ -4965,13 +4983,14 @@ _darkStyleForGame['splendorduel'] = `
 _darkStyleForGame['splito'] = `
 #overall-content { background-image: none; }
 #player-area-containers { background-color: var(--dark-back); }
-.spl_player-icon { filter: invert(0.6); }
-.spl_small-keyhole { filter: invert(0.7); }
+.spl_player-icon { filter: invert(0.8); }
+.spl_small-keyhole { filter: invert(0.8); }
 `;
 
 _darkStyleForGame['springcleaning'] = `
 #overall-content:before { content: ""; background: #000000A0; position: absolute; width: 100%; height: 100%; }
 .playertablename { text-shadow: none; }
+.card { filter: brightness(0.9); }
 `;
 
 _darkStyleForGame['spyrium'] = `
@@ -4992,6 +5011,7 @@ body { background: none !important; }
 
 _darkStyleForGame['spots'] = `
 .dijitTooltipContainer .spt-then { filter: invert(1); }
+.spt-card, .spt-trick { filter: brightness(0.9); }
 `;
 
 _darkStyleForGame['starfluxx'] = `
@@ -5009,10 +5029,15 @@ _darkStyleForGame['starshipmerchants'] = `
 _darkStyleForGame['steamrollers'] = `
 .vls-scoreImage, .vls-good, .vls-personal_good { filter: var(--drop-shadow); }
 .vls-firstPlayerToken { filter: var(--highlight-min); }
+#boardBackground, .vls-playerMap, .vls-action-tile, .vls-action-tile-owner { filter: brightness(0.9); }
 `;
 
 _darkStyleForGame['steamworks'] = `
 #SW_sort_options { color: var(--light-80); }
+`;
+
+_darkStyleForGame['stella'] = `
+#overall-content:before { content: ""; background: #00000080; position: absolute; width: 100%; height: 100%; }
 `;
 
 _darkStyleForGame['sticktocolours'] = `
@@ -5034,20 +5059,26 @@ _darkStyleForGame['stockpile'] = `
 
 _darkStyleForGame['stoneage'] = `
 .sta_boardBuildingCounter, .sta_boardCardCounter { color: #fff; }
-#sta_adjustZoom,#sta_zoomIn,#sta_zoomOut { filter: invert(0.7) !important; }
+#sta_adjustZoom,#sta_zoomIn,#sta_zoomOut { filter: invert(0.8) !important; }
 #sta_adjustZoom:hover,#sta_zoomIn:hover,#sta_zoomOut:hover { filter: invert(1) drop-shadow(0 0 3px #fff) !important; }
-.inactive_area, .workerplace, .zone, #player_boards .sa_icon { filter: var(--drop-shadow); }
+#player_boards .sa_icon { filter: var(--drop-shadow); }
+#diceboard { background-color: var(--dark-back); color: var(--light-80); border: 2px solid var(--dark-10); }
+#sta_finalScore table, #sta_finalScore table * { border-color: var(--light-50) !important; }
 `;
 
 _darkStyleForGame['stonks'] = `
-#overall-content[style="background: rgb(119, 139, 108);"]:before
-{ content: ""; background: var(--dark-back); position: absolute; width: 100%; height: 100%; }
-#stock_board .playertablename { text-shadow: none; }
+#overall-content[style="background: rgb(119, 139, 108);"]:before { content: ""; background: var(--dark-back); position: absolute; width: 100%; height: 100%; }
+.playertablename { text-shadow: none; }
 `;
 
 _darkStyleForGame['strands'] = `
 .strands-name-000000, .strands-num-1, .strands-num-2, .strands-num-3, .strands-num-4, .strands-num-5, .strands-num-6 { text-shadow: var(--text-w-shadow); }
 .hex-alt-colors .hex-tile[data-hex="6"] { filter: contrast(0); }
+`;
+
+_darkStyleForGame['strawberrysunset'] = `
+.sss-tableau-outer { background-color: var(--dark-back); }
+.sss-tableau-title { background: var(--dark-10); color: var(--light-80); }
 `;
 
 _darkStyleForGame['streets'] = `
@@ -5061,11 +5092,15 @@ html.darkpanel #player_boards.player-board.stm_player_passed { background: var(-
 .stm_label_0000ff, .stm_label_00cc00, .stm_label_ffa500 { text-shadow: none; }
 .stm_panel { background: var(--dark-20); }
 #autorotate { filter: invert(1); }
+.stm_action_card_empty { box-shadow: inset 0 0 50px #55555599; }
+.stm_icon_rotate_arrow { background-color: #fff; opacity: .5; }
+.stm_icon_rotate_arrow:hover { opacity: .7; }
 `;
 
 _darkStyleForGame['superfantasybrawl'] = `
 .herocard, .actioncard .fluff, .actioncard .power { color: var(--dark-10); }
 .showHero { background-color: var(--dark-20); }
+.midSizeDialog .description { color: #000; }
 `;
 
 _darkStyleForGame['supermegaluckybox'] = `

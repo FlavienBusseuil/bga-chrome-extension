@@ -552,3 +552,8 @@ div[id*="popin"][id$="underlay"] {
   background-color: var(--dark-40);
   color: var(--light-80);
 }
+
+.loading_icon,
+#loading {
+  filter: invert(0.7) grayscale(1);
+}
