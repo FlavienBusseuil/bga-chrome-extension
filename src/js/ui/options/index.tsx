@@ -18,10 +18,13 @@ const Options = (props: { config: Configuration }) => {
 	const [css, setCss] = useState(config.getCustomCss());
 	const [tabSelected, setTabSelected] = useState("misc");
 	const [hiddenGames, setHiddenGames] = useState(config.getHiddenGames());
+	const [onlineMessages, setOnlineMessages] = useState(config.isOnlineMessagesEnabled());
+	const [eloHidden, setEloHidden] = useState(config.isEloHidden());
 	const [tracking, setTracking] = useState(config.isTrackingEnable());
 	const [soundNotification, setSoundNotification] = useState(config.isSoundNotificationEnable());
 	const [customSoundFile, setCustomSoundFile] = useState(isSoundCustom());
 	const [redirect, setRedirect] = useState(config.isLobbyRedirectionEnable());
+	const [autoOpen, setAutoOpen] = useState(config.isAutoOpenEnable());
 	const [homeConfig, setHomeConfig] = useState(config.getHomeConfig());
 	const [inProgressConfig, setInProgressConfig] = useState(config.getInProgressConfig());
 	const [motionSensitivity, setMotionSensitivity] = useState(config.isMotionSensitivityEnable());
@@ -95,6 +98,16 @@ const Options = (props: { config: Configuration }) => {
 	const couldReset = changed || (isCustomized && isDefault);
 	const couldDelete = isCustomized && !isDefault;
 
+	const updateOnlineMessages = (val: boolean) => {
+		setOnlineMessages(val);
+		config.setOnlineMessagesEnabled(val)
+	};
+
+	const updateEloHidden = (val: boolean) => {
+		setEloHidden(val);
+		config.setEloHidden(val)
+	};
+
 	const updateTracking = (val: boolean) => {
 		setTracking(val);
 		config.setTrackingEnable(val);
@@ -135,6 +148,11 @@ const Options = (props: { config: Configuration }) => {
 	const updateRedirect = (val: boolean) => {
 		setRedirect(val);
 		config.setLobbyRedirectionEnable(val);
+	};
+
+	const updateAutoOpen = (val: boolean) => {
+		setAutoOpen(val);
+		config.setAutoOpenEnable(val);
 	};
 
 	const getHomeSwitch = (param: string, message: string) => {
@@ -203,6 +221,29 @@ const Options = (props: { config: Configuration }) => {
 						textOn={chrome.i18n.getMessage("optionsLobbyRedirectOn")}
 						textOff={chrome.i18n.getMessage("optionsLobbyRedirectOff")}
 						onChange={updateRedirect}
+					/>
+					<Switch
+						checked={autoOpen}
+						textOn={chrome.i18n.getMessage("optionsAutoOpenOn")}
+						textOff={chrome.i18n.getMessage("optionsAutoOpenOff")}
+						onChange={updateAutoOpen}
+					/>
+				</div>
+				<div className="bgext_options_title">
+					{chrome.i18n.getMessage("optionGamesTitle")}
+				</div>
+				<div className="bgext_misc_container">
+					<Switch
+						checked={onlineMessages}
+						textOn={chrome.i18n.getMessage("optionFriendsActivityOn")}
+						textOff={chrome.i18n.getMessage("optionFriendsActivityOff")}
+						onChange={updateOnlineMessages}
+					/>
+					<Switch
+						checked={eloHidden}
+						textOn={chrome.i18n.getMessage("optionEloHiddenOn")}
+						textOff={chrome.i18n.getMessage("optionEloHiddenOff")}
+						onChange={updateEloHidden}
 					/>
 				</div>
 			</>

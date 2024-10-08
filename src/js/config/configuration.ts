@@ -50,6 +50,7 @@ interface CustomConfig {
 	floatingRightMenu?: boolean;
 	devTemplates?: Template[];
 	hideGeneralChat?: boolean;
+	hideElo?: boolean;
 	darkMode?: boolean;
 	darkModeColor?: number;
 	darkModeSat?: number;
@@ -59,6 +60,7 @@ interface CustomConfig {
 	home?: HomeConfig;
 	inProgress?: InProgressConfig;
 	lobbyRedirect?: boolean;
+	autoOpen?: boolean;
 };
 
 export interface HomeConfig {
@@ -335,6 +337,15 @@ class Configuration {
 		storageSet({ lobbyRedirect: val });
 	}
 
+	isAutoOpenEnable() {
+		return Boolean(this._customConfig.autoOpen);
+	}
+
+	setAutoOpenEnable(val: boolean) {
+		this._customConfig.autoOpen = val;
+		storageSet({ autoOpen: val });
+	}
+
 	setLeftMenuEnabled(name: string, enable: boolean) {
 		this._customConfig.disabled = this._customConfig.disabled.filter(
 			(n) => n !== name,
@@ -498,6 +509,22 @@ class Configuration {
 			return '#bga_extension_chat_icon { color: #c4c4c4; } #chatwindow_general { display: none !important; }';
 		}
 		return '#bga_extension_chat_icon { color: #01c4ca; } #chatwindow_general { display: inline-block !important; }';
+	}
+
+	isEloHidden() {
+		return !!this._customConfig.hideElo;
+	}
+
+	setEloHidden(val: boolean) {
+		this._customConfig.hideElo = val;
+		storageSet({ hideElo: val });
+	}
+
+	getEloStyle() {
+		if (this._customConfig.hideElo) {
+			return '.player_elo_wrap, #game_result .adddetails, #table_stats .row-data:has(> .row-value > .gamerank) { display: none; } '
+		}
+		return '';
 	}
 
 	isDarkMode() {

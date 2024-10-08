@@ -66,7 +66,57 @@ export const initGameListObserver = (config, page) => {
 				close();
 			};
 
-			render(<ConfirmationPopup confirm={confirm} cancel={close} />, container);
+			render(<ConfirmationPopup type='delete_game' confirm={confirm} cancel={close} config={config} />, container);
+		}
+	};
+
+	const quickStart = (evt) => {
+		evt.stopPropagation();
+
+		const startGame = () => {
+			const gameId = evt.target.id.split('_').pop();
+			const key = new Date().getTime();
+
+			let obj = evt.target;
+			let gameMode = 'realtime';
+
+			for (let i = 0; i < 10; i++) {
+				const classes = Array.from(obj.classList);
+				if (classes.includes('gametable_status_asyncinit')) {
+					gameMode = 'async';
+					break;
+				}
+				if (classes.includes('gametable_status_init')) {
+					gameMode = 'realtime';
+					break;
+				}
+				obj = obj.parentNode;
+			}
+
+			const endPoint = `/table/table/createnew.html?game=${gameId}&gamemode=${gameMode}&forceManual=true&is_meeting=false&dojo.preventCache=${key}`;
+			const detail = JSON.stringify({ method: 'GET', endPoint, key, type: 'createnew' });
+			document.body.dispatchEvent(new CustomEvent('bga_ext_api_call', { detail }));
+		};
+
+		if (localStorage.getItem("ext_fast_start_warning") === "off") {
+			startGame();
+		} else {
+			const container = document.createElement('div');
+			container.id = "bgaext_popup_container";
+			document.body.appendChild(container);
+
+			const close = () => {
+				container.remove();
+			}
+			const confirm = (stopWarn) => {
+				if (stopWarn) {
+					localStorage.setItem("ext_fast_start_warning", "off");
+				}
+				startGame();
+				close();
+			};
+
+			render(<ConfirmationPopup type='fast_create' confirm={confirm} cancel={close} config={config} />, container);
 		}
 	};
 
@@ -115,6 +165,29 @@ export const initGameListObserver = (config, page) => {
 					const table = url.substring(pos + 7);
 					but.href = `/table?table=${table}&nr=true`;
 				}
+			}
+		});
+
+		const startButtons = document.querySelectorAll('a[id^="joingame_create_"]');
+
+		startButtons.forEach(but => {
+			const container = but.parentNode;
+			const id = but.id.replace('join', 'quick');
+
+			if (!document.getElementById(id)) {
+				const quickBut = document.createElement("a");
+				quickBut.id = id;
+				quickBut.className = "bgabutton bgabutton_blue";
+				quickBut.style.display = "inline-block";
+				quickBut.style.marginRight = "4px";
+				try {
+					quickBut.innerHTML = chrome.i18n.getMessage("buttonFastCreate");
+				}
+				catch (error) {
+					window.location.reload();
+				}
+				quickBut.addEventListener("click", quickStart);
+				container.insertBefore(quickBut, but);
 			}
 		});
 	});

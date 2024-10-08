@@ -651,7 +651,8 @@ select.colorselector {
   color: var(--light-80);
 }
 
-.bgaext_lobby .gametable.gametable_status_init.realtable {
+.bgaext_lobby .gametable.gametable_status_init.realtable,
+.bgaext_lobby .gametable.gametable_status_open.realtable {
   background: var(--green-10);
 }
 
@@ -662,7 +663,7 @@ select.colorselector {
 
 .bgaext_lobby .gametable .gametable_separator,
 .bgaext_gameinprogress .gametable .gametable_separator {
-  background: var(--dark-30);
+  background: var(--light-50);
 }
 
 .bgaext_lobby .gametable_upper_part .gameinfoname .gamename,
@@ -672,7 +673,10 @@ select.colorselector {
 }
 
 .player_is_at_table .gametable.gametable_status_asyncinit,
-.player_is_at_table .gametable.gametable_status_asyncopen,
+.player_is_at_table .gametable.gametable_status_asyncopen {
+  background-color: var(--orange-10);
+}
+
 .player_is_at_table .gametable.gametable_status_init,
 .player_is_at_table .gametable.gametable_status_open {
   background-color: transparent;
@@ -1841,6 +1845,10 @@ iframe#forum_frame {
 
 .bgaext_gamegurus img[alt="guru"] {
   filter: invert(0.7);
+}
+
+.player_presentation .playersubinfos_lang_speecharrow {
+  filter: invert(0.8);
 }
 
 /* report player */

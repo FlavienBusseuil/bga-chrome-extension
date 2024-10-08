@@ -81,7 +81,7 @@ html.dark .text-gray-600 {
   margin: 0.5em;
   box-sizing: border-box;
   position: relative;
-  gap: 0.2em;
+  gap: 0.3em;
   display: flex;
   flex-flow: column;
   transition: all .5s linear;

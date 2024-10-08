@@ -12,6 +12,7 @@ import {
 	initGameListObserver,
 	initChatIcon,
 	setChatStyle,
+	setEloStyle,
 	initDarkMode
 } from './js/ui/content/functions';
 
@@ -141,6 +142,29 @@ const initPage = () => {
 	addLocationChangeListener(manageLocationChange);
 	pageType = manageLocationChange(window.location.pathname);
 	buildMainCss(pageType === 'general' ? config.getAllCss() : config.getCustomCss());
+
+	waitForObj('head', 10).then(() => {
+		const script = document.createElement('script');
+		script.id = 'ext_bga_api';
+		script.src = `${chrome.runtime.getURL('/js/bgaApi.js')}?&time=${new Date().getTime()}`;
+		document.head.appendChild(script);
+
+		setEloStyle(config);
+	});
+
+	waitForObj('body', 10).then(() => {
+		document.body.addEventListener('bga_ext_api_result', (data) => {
+			const evtDetail = JSON.parse(data.detail);
+
+			if (evtDetail.type === 'createnew' && config.isAutoOpenEnable()) {
+				const key = new Date().getTime();
+				const tableId = evtDetail.response.data.table;
+				const endPoint = `/table/table/openTableNow.html?table=${tableId}&dojo.preventCache=${key}`;
+				const detail = JSON.stringify({ method: 'GET', endPoint, key, type: 'openTableNow' });
+				document.body.dispatchEvent(new CustomEvent('bga_ext_api_call', { detail }));
+			}
+		});
+	});
 };
 
 config.init().then(initPage);
@@ -154,9 +178,11 @@ document.addEventListener('bga_ext_set_config', (e) => {
 
 document.addEventListener('bga_ext_update_config', (data) => {
 	console.debug('[bga extension] configuration updated', data);
-
 	if (data.detail.key === 'hideGeneralChat') {
 		setChatStyle(config);
+	}
+	if (data.detail.key === 'hideElo') {
+		setEloStyle(config);
 	}
 	if (['home', 'inProgress'].includes(data.detail.key) && pageType === 'general') {
 		localStorage.removeItem('bga-homepage-newsfeed-slots');

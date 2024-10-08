@@ -187,34 +187,6 @@ const buildOptions = (config, gameName, gameConfig) => {
 			toggleDisplayMenu,
 		);
 	}
-
-	// Add a parameter for friends activity
-	const displayActivity = config.isOnlineMessagesEnabled() ? '1' : '0';
-	const toggleFriendsActivity = () => {
-		const enable = !config.isOnlineMessagesEnabled();
-		config.setOnlineMessagesEnabled(enable);
-		document.getElementById('cde_activity_1').value = enable ? '1' : '0';
-		document.getElementById('cde_activity_2').value = enable ? '1' : '0';
-	};
-	const displayActivityText = chrome.i18n.getMessage('optionFriendsActivity');
-	buildOption(
-		mainPrefTitle,
-		displayActivityText,
-		'cde_activity_1',
-		displayActivity,
-		infobulleInput[0].text,
-		infobulleInput[1].text,
-		toggleFriendsActivity,
-	);
-	buildOption(
-		secondPrefTitle,
-		displayActivityText,
-		'cde_activity_2',
-		displayActivity,
-		infobulleInput[0].text,
-		infobulleInput[1].text,
-		toggleFriendsActivity,
-	);
 };
 
 const initChatIcon = (config) => {
@@ -239,8 +211,8 @@ const initChatIcon = (config) => {
 	}
 };
 
-const setChatStyle = (config) => {
-	const chatStyleId = 'cde-chat-style';
+const setStyle = (id, content) => {
+	const chatStyleId = id;
 
 	let style = document.getElementById(chatStyleId);
 
@@ -250,7 +222,15 @@ const setChatStyle = (config) => {
 		document.head.appendChild(style);
 	}
 
-	style.innerHTML = config.getChatStyle();
+	style.innerHTML = content;
+}
+
+const setChatStyle = (config) => {
+	setStyle('bgaext-chat-style', config.getChatStyle());
+};
+
+const setEloStyle = (config) => {
+	setStyle('bgaext-elo-style', config.getEloStyle());
 };
 
 export {
@@ -263,5 +243,6 @@ export {
 	initGameListObserver,
 	initChatIcon,
 	setChatStyle,
+	setEloStyle,
 	initDarkMode
 };

@@ -12,21 +12,34 @@ type Props = {
 };
 
 export const OptionsView = ({ config, onChange }: Props) => {
+  const [onlineMessages, setOnlineMessages] = useState(config.isOnlineMessagesEnabled());
+  const [eloHidden, setEloHidden] = useState(config.isEloHidden());
   const [tracking, setTracking] = useState(config.isTrackingEnable());
   const [soundNotification, setSoundNotification] = useState(config.isSoundNotificationEnable());
   const [customSoundFile, setCustomSoundFile] = useState(isSoundCustom());
   const [motionSensitivity, setMotionSensitivity] = useState(config.isMotionSensitivityEnable());
   const [redirect, setRedirect] = useState(config.isLobbyRedirectionEnable());
+  const [autoOpen, setAutoOpen] = useState(config.isAutoOpenEnable());
   const [homeConfig, setHomeConfig] = useState<HomeConfig>(config.getHomeConfig());
   const [inProgressConfig, setInProgressConfig] = useState<InProgressConfig>(config.getInProgressConfig());
   const [hiddenGames, setHiddenGames] = useState<string[]>(config.getHiddenGames());
-  const [configVisible, setConfigVisible] = useState(localStorage.getItem('ext_settings') || 'misc');
+  const [configVisible, setConfigVisible] = useState(localStorage.getItem('ext_settings') || 'about');
   const isFirefox = window.navigator.userAgent.toLowerCase().includes('firefox');
 
   const _setConfigVisible = (val: string) => {
     localStorage.setItem('ext_settings', val);
     setConfigVisible(val);
-  }
+  };
+
+  const updateOnlineMessages = (val: boolean) => {
+    setOnlineMessages(val);
+    config.setOnlineMessagesEnabled(val)
+  };
+
+  const updateEloHidden = (val: boolean) => {
+    setEloHidden(val);
+    config.setEloHidden(val)
+  };
 
   const updateTracking = (val: boolean) => {
     setTracking(val);
@@ -45,7 +58,7 @@ export const OptionsView = ({ config, onChange }: Props) => {
     if (!val) {
       removeCustomMp3();
     }
-  }
+  };
 
   const updateFlashing = (val: boolean) => {
     setMotionSensitivity(!val);
@@ -55,6 +68,11 @@ export const OptionsView = ({ config, onChange }: Props) => {
   const updateRedirect = (val: boolean) => {
     setRedirect(val);
     config.setLobbyRedirectionEnable(val);
+  };
+
+  const updateAutoOpen = (val: boolean) => {
+    setAutoOpen(val);
+    config.setAutoOpenEnable(val);
   };
 
   const updateHomeConfig = (param: string, val: boolean) => {
@@ -97,7 +115,7 @@ export const OptionsView = ({ config, onChange }: Props) => {
         <path fill="currentcolor" d="M12 17.414 3.293 8.707l1.414-1.414L12 14.586l7.293-7.293 1.414 1.414L12 17.414z" />
       </svg>
     );
-  }
+  };
 
   const getSwitch = (checked: boolean, onChange: (val: boolean) => void, textOnKey: string, textOffKey: string, disabled?: boolean) => {
     const textOn = chrome.i18n.getMessage(textOnKey);
@@ -125,6 +143,7 @@ export const OptionsView = ({ config, onChange }: Props) => {
           </div>}
           {getSwitch(!motionSensitivity, updateFlashing, "optionsFlashingOn", "optionsFlashingOff")}
           {getSwitch(redirect, updateRedirect, "optionsLobbyRedirectOn", "optionsLobbyRedirectOff")}
+          {getSwitch(autoOpen, updateAutoOpen, "optionsAutoOpenOn", "optionsAutoOpenOff")}
         </div>
       );
     }
@@ -134,7 +153,25 @@ export const OptionsView = ({ config, onChange }: Props) => {
         <div className="options-frame-title">{chrome.i18n.getMessage("optionMiscTitle")} {arrow()}</div>
       </div>
     );
-  }
+  };
+
+  const getGamesSection = () => {
+    if (configVisible === 'games') {
+      return (
+        <div className="options-frame">
+          <div className="options-frame-title">{chrome.i18n.getMessage("optionGamesTitle")}</div>
+          {getSwitch(onlineMessages, updateOnlineMessages, "optionFriendsActivityOn", "optionFriendsActivityOff")}
+          {getSwitch(eloHidden, updateEloHidden, "optionEloHiddenOn", "optionEloHiddenOff")}
+        </div>
+      );
+    }
+
+    return (
+      <div className="options-frame reduced" onClick={() => _setConfigVisible('games')}>
+        <div className="options-frame-title">{chrome.i18n.getMessage("optionGamesTitle")} {arrow()}</div>
+      </div>
+    );
+  };
 
   const getHomeSwitch = (param: string, message: string) => {
     return getSwitch(homeConfig[param], (val) => updateHomeConfig(param, val), `${message}On`, `${message}Off`);
@@ -174,7 +211,7 @@ export const OptionsView = ({ config, onChange }: Props) => {
         <div className="options-frame-title">{chrome.i18n.getMessage("optionsHome")} {arrow()}</div>
       </div>
     );
-  }
+  };
 
   const getInProgressSwitch = (param: string, message: string) => {
     return getSwitch(inProgressConfig[param], (val) => updateInProgressConfig(param, val), `${message}On`, `${message}Off`);
@@ -204,7 +241,7 @@ export const OptionsView = ({ config, onChange }: Props) => {
         <div className="options-frame-title">{chrome.i18n.getMessage("optionsInProgress")} {arrow()}</div>
       </div>
     );
-  }
+  };
 
   const getHiddenSection = () => {
     if (configVisible === 'hidden') {
@@ -222,18 +259,33 @@ export const OptionsView = ({ config, onChange }: Props) => {
         <div className="options-frame-title">{chrome.i18n.getMessage("optionHiddenTab")} {arrow()}</div>
       </div>
     );
-  }
+  };
+
+  const getAboutSection = () => {
+    if (configVisible === 'about') {
+      return (
+        <div className="options-frame">
+          <div className="options-frame-title">{chrome.i18n.getMessage("about")}</div>
+          <div dangerouslySetInnerHTML={{ __html: chrome.i18n.getMessage("aboutText") }}></div>
+        </div>
+      );
+    }
+
+    return (
+      <div className="options-frame reduced" onClick={() => _setConfigVisible('about')}>
+        <div className="options-frame-title">{chrome.i18n.getMessage("about")} {arrow()}</div>
+      </div>
+    );
+  };
 
   return (
     <div className="options-container">
       {getMiscSection()}
+      {getGamesSection()}
       {getHomeSection()}
       {getInProgressSection()}
       {getHiddenSection()}
-      <div className="options-frame">
-        <div className="options-frame-title">{chrome.i18n.getMessage("about")}</div>
-        <div dangerouslySetInnerHTML={{ __html: chrome.i18n.getMessage("aboutText") }}></div>
-      </div>
+      {getAboutSection()}
     </div>
   );
 };

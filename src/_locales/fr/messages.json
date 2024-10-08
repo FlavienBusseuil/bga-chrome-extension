@@ -66,8 +66,17 @@
 	"no_tournaments": {
 		"message": "Aucun tournoi en cours ou à venir"
 	},
-	"optionFriendsActivity": {
-		"message": "Activité des amis dans le journal de jeu"
+	"optionFriendsActivityOn": {
+		"message": "L'activité des amis est affichée dans le journal des jeux"
+	},
+	"optionFriendsActivityOff": {
+		"message": "L'activité des amis est cachée dans le journal des jeux"
+	},
+	"optionEloHiddenOn": {
+		"message": "Le score ELO des joueurs est caché dans les jeux [BETA]"
+	},
+	"optionEloHiddenOff": {
+		"message": "Le score ELO des joueurs est affiché dans les jeux"
 	},
 	"optionLeftMenu": {
 		"message": "Naviguer entre les plateaux des joueurs"
@@ -95,6 +104,9 @@
 	},
 	"optionMiscTitle": {
 		"message": "Paramètres divers"
+	},
+	"optionGamesTitle": {
+		"message": "Paramètres des jeux"
 	},
 	"optionHiddenTitle": {
 		"message": "Liste des jeux cachés"
@@ -198,6 +210,12 @@
 	"optionsLobbyRedirectOff": {
 		"message": "Utiliser le lobby par défaut"
 	},
+	"optionsAutoOpenOn": {
+		"message": "Le bouton 'Création rapide' ouvre automatiquement la table aux autres joueurs [BETA]"
+	},
+	"optionsAutoOpenOff": {
+		"message": "Le bouton 'Création rapide' n'ouvre pas la table aux autres joueurs [BETA]"
+	},
 	"about": {
 		"message": "A propos"
 	},
@@ -222,11 +240,20 @@
 	"deleteStop": {
 		"message": "Ne plus afficher ce message"
 	},
+	"fastStartTitle": {
+		"message": "Démarrage rapide d'un jeu"
+	},
+	"fastStartText1": {
+		"message": "Le jeu sera démarré avec les paramètres par défaut (et automatiquement ouvert aux autres joueurs si vous avez configuré cette option)."
+	},
 	"buttonConfirm": {
 		"message": "Confirmer"
 	},
 	"buttonCancel": {
 		"message": "Annuler"
+	},
+	"buttonFastCreate": {
+		"message": "Création rapide"
 	},
 	"my_friends": {
 		"message": "Mes amis"

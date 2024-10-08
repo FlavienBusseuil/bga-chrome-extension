@@ -66,8 +66,17 @@
 	"no_tournaments": {
 		"message": "No tournaments"
 	},
-	"optionFriendsActivity": {
-		"message": "Friends' activity in the game log"
+	"optionFriendsActivityOn": {
+		"message": "The friends' activity is displayed in game logs"
+	},
+	"optionFriendsActivityOff": {
+		"message": "The friends' activity is hidden in game logs"
+	},
+	"optionEloHiddenOn": {
+		"message": "Players' ELO scores are hidden in games [BETA]"
+	},
+	"optionEloHiddenOff": {
+		"message": "Players' ELO scores are displayed in games"
 	},
 	"optionLeftMenu": {
 		"message": "Navigate between players' boards"
@@ -95,6 +104,9 @@
 	},
 	"optionMiscTitle": {
 		"message": "Miscellaneous parameters"
+	},
+	"optionGamesTitle": {
+		"message": "Games parameters"
 	},
 	"optionHiddenTitle": {
 		"message": "Hidden games list"
@@ -198,6 +210,12 @@
 	"optionsLobbyRedirectOff": {
 		"message": "Use the default lobby"
 	},
+	"optionsAutoOpenOn": {
+		"message": "The 'Fast create' button automatically opens the table to other players [BETA]"
+	},
+	"optionsAutoOpenOff": {
+		"message": "The 'Fast create' button does not open the table to other players [BETA]"
+	},
 	"about": {
 		"message": "About"
 	},
@@ -222,11 +240,20 @@
 	"deleteStop": {
 		"message": "Do not display this message again"
 	},
+	"fastStartTitle": {
+		"message": "Fast start of a game"
+	},
+	"fastStartText1": {
+		"message": "The game will be started with the default settings (and automatically opened to other players if you've set this option)."
+	},
 	"buttonConfirm": {
 		"message": "Confirm"
 	},
 	"buttonCancel": {
 		"message": "Cancel"
+	},
+	"buttonFastCreate": {
+		"message": "Fast create"
 	},
 	"my_friends": {
 		"message": "My friends"

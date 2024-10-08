@@ -30,6 +30,10 @@ html.darkmode #bgaext_popup_container {
   background-color: #eee;
 }
 
+#bgaext_popup.fast_start {
+  width: 600px;
+}
+
 html.darkmode #bgaext_popup {
   border: 1px solid var(--dark-40);
   background-color: var(--dark-10);
@@ -51,6 +55,9 @@ html.darkmode #bgaext_popup {
   display: flex;
   flex-flow: row nowrap;
   gap: 0.2em;
+}
+
+.bgaext_popup_footer .bgaext_popup_check {
   padding-top: 1em;
   height: 18px;
 }
