@@ -16,9 +16,9 @@
   --red-30: #ca0000;
   --red-50: #ff0000;
 
-  --green-10: #01663a;
-  --green-30: #009e0a;
-  --green-50: #00ff00;
+  --green-10: #1b3b2d;
+  --green-30: #01663a;
+  --green-50: #009e0a;
 
   --yellow-10: #996300;
 
@@ -153,6 +153,10 @@
 
 .icon20_stat {
   filter: invert(0.7);
+}
+
+.icon20_suggestion {
+  filter: invert(1);
 }
 
 .statstable th {

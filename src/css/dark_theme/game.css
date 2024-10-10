@@ -70,7 +70,8 @@ html.darkpanel #player_boards .player-board .roundedboxinner b,
 }
 
 #connect_status_text,
-#connect_gs_status_text {
+#connect_gs_status_text,
+#connect_status_fail_text {
   color: var(--light-80);
 }
 
@@ -136,6 +137,7 @@ spectator-mode .log .roundedbox .playername {
 
 .bgabutton_gray {
   background-color: var(--dark-40) !important;
+  border: 1px solid var(--light-50);
   color: var(--light-80) !important;
 }
 

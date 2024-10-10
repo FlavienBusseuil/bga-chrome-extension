@@ -1,5 +1,6 @@
 import rgbHex from "rgb-hex";
 import { gamesWithCustomColors } from "../../config/darkThemeGames";
+import { getColorForDarkMode } from "../../utils/misc/colors";
 
 export interface PlayerData {
   id: number;
@@ -31,16 +32,15 @@ const _getPlayersData = (returnFunc: (data: PlayerData[]) => void, iteration: nu
       const userLink = playerlinks[index] as any;
       const avatar = document.getElementById(`avatar_${id}`) as any;
       const color = `#${rgbHex(getComputedStyle(userLink).color)}`;
-      const darkColor = colorsMap.find(c => c.light === color)?.dark;
-      const darkEnlight = colorsToEnlight.includes(color);
+      const darkConfig = getColorForDarkMode(color);
 
       return {
         id,
         name: userLink.innerText || userLink.innerHTML,
         avatar: avatar.src,
         color,
-        darkColor,
-        darkEnlight
+        darkColor: darkConfig.color === color ? undefined : darkConfig.color,
+        darkEnlight: darkConfig.enlight
       };
     });
 
@@ -69,23 +69,22 @@ const _getPlayersData = (returnFunc: (data: PlayerData[]) => void, iteration: nu
 export const getPlayersPossibleColors = (gameName: string) => {
   if (gamesWithCustomColors[gameName]) {
     return gamesWithCustomColors[gameName].map((color: string) => {
-      const darkColor = colorsMap.find(c => c.light === color)?.dark;
-      const darkEnlight = colorsToEnlight.includes(color);
+      const darkConfig = getColorForDarkMode(color);
 
       return {
         id: 0,
         name: '',
         avatar: '',
         color,
-        darkColor,
-        darkEnlight
+        darkColor: darkConfig.color === color ? undefined : darkConfig.color,
+        darkEnlight: darkConfig.enlight
       };
     });
   }
 
   return [];
 };
-
+/*
 const colorsMap = [
   { light: "#0000ff", dark: "#6666ff" },
   { light: "#0000ee", dark: "#6666ff" },
@@ -181,6 +180,12 @@ const colorsMap = [
   { light: "#c8102e", dark: "#ff3333" },
   { light: "#615b60", dark: "#9c969b" },
   { light: "#1b1b1b", dark: "#999" },
+  { light: "#04237b", dark: "#205af8" },
+  { light: "#3b550c", dark: "#6d9c16" },
+  { light: "#3c3c3c", dark: "#808080" },
+  { light: "#2a456b", dark: "#4776b8" },
+  { light: "#4c3084", dark: "#6c44bb" },
+
 ];
 
 const colorsToEnlight = [
@@ -188,5 +193,5 @@ const colorsToEnlight = [
   '#3b3232', '#010203', '#1a2126', '#302c2b', '#321500', '#080d10', '#210000', '#423d37',
   '#100000', '#171614', '#1b1819', '#101112', '#262f33', '#202020', '#12151a', '#000001',
   '#231f20', '#080404', '#0a0706', '#3c312c', '#0f0f0e', "#240e11", "#111111", "#333333",
-  '#151d21', '#272727', '#252220', '#050303', '#252525', "#444444"
-];
+  '#151d21', '#272727', '#252220', '#050303', '#252525', "#444444", "#10222f"
+];*/

@@ -17,11 +17,10 @@ const Switch = ({ checked, disabled, textOn, textOff, onChange, className }: Pro
     }
   }
 
+  const fullClassName = `bgaext_switch_container ${className || ''} ${checked ? 'checked' : ''} ${disabled ? 'disabled' : ''}`;
+
   return (
-    <div
-      className={`bgaext_switch_container ${className || ''} ${checked ? 'checked' : ''} ${disabled ? 'disabled' : ''} }`}
-      onClick={handleCheckboxChange}
-    >
+    <div className={fullClassName} onClick={handleCheckboxChange}>
       <div>
         <label className='bgaext_switch'>
           <span className="bgaext_slider round" />

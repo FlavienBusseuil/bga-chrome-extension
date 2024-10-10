@@ -193,6 +193,7 @@ const defaultGames: Partial<Game>[] = [
 		name: "tapestry",
 		top: "90px",
 		playerPanel: "playerArea_{{player_id}}",
+		iconBackgroundDark: "#56648f",
 		bottomPanel: "game_wrapper_bottom",
 		css: ".desktop_version #page-content { padding-left: 50px; }",
 	},

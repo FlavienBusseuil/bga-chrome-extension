@@ -180,14 +180,11 @@ export const initGameListObserver = (config, page) => {
 				quickBut.className = "bgabutton bgabutton_blue";
 				quickBut.style.display = "inline-block";
 				quickBut.style.marginRight = "4px";
-				try {
-					quickBut.innerHTML = chrome.i18n.getMessage("buttonFastCreate");
-				}
-				catch (error) {
-					window.location.reload();
-				}
+				quickBut.innerHTML = `${but.innerHTML}&nbsp;<i class="fa fa-bolt"></i>`;
 				quickBut.addEventListener("click", quickStart);
 				container.insertBefore(quickBut, but);
+
+				but.innerHTML = `${but.innerHTML}&nbsp;<i class="fa fa-gear"></i>`;
 			}
 		});
 	});

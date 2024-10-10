@@ -26,6 +26,10 @@
   background-color: var(--dark-20);
 }
 
+.male {
+  color: var(--blue-80);
+}
+
 .loading_icon,
 #loading,
 #overall_loading {
@@ -651,11 +655,6 @@ select.colorselector {
   color: var(--light-80);
 }
 
-.bgaext_lobby .gametable.gametable_status_init.realtable,
-.bgaext_lobby .gametable.gametable_status_open.realtable {
-  background: var(--green-10);
-}
-
 .bgaext_lobby .gametable:hover,
 .bgaext_gameinprogress .gametable:hover {
   border-color: var(--light-80) !important;
@@ -679,7 +678,7 @@ select.colorselector {
 
 .player_is_at_table .gametable.gametable_status_init,
 .player_is_at_table .gametable.gametable_status_open {
-  background-color: transparent;
+  background-color: var(--green-10);
 }
 
 .bgaext_lobby .game_box_wrap .gamename:hover {
@@ -1298,7 +1297,7 @@ select.colorselector {
 .bgaext_bug #bug_status_implemented,
 .bgaext_bug #bug_status_fixed,
 .bgaext_bug #bug_status_duplicate {
-  background-color: var(--green-10) !important;
+  background-color: var(--green-30) !important;
 }
 
 .bgaext_bug #bug_status_rejected {
@@ -1314,13 +1313,13 @@ select.colorselector {
 }
 
 .bgaext_bug #bug_status_worksforme {
-  background-color: var(--green-10) !important
+  background-color: var(--green-30) !important
 }
 
 .bgaext_bug #bug_status_notabug,
 .bgaext_bug #bug_status_notupdated,
 .bgaext_bug #bug_status_claimed {
-  background-color: var(--green-30) !important
+  background-color: var(--green-50) !important
 }
 
 .bgaext_bug .developer {
@@ -1492,7 +1491,7 @@ select.colorselector {
 }
 
 .bgaext_tournament .v2tournament h4 {
-  background: var(--green-10);
+  background: var(--green-30);
   color: var(--light-80);
 }
 
@@ -1541,7 +1540,7 @@ select.colorselector {
 }
 
 .bgaext_tournament .v2tournament__encounter-status {
-  background: var(--green-10);
+  background: var(--green-30);
   color: var(--light-80);
 }
 
@@ -1558,21 +1557,21 @@ select.colorselector {
 }
 
 .bgaext_tournament .v2tournament__encounter--status-play a.v2tournament__encounter-title {
-  background: var(--green-30);
+  background: var(--green-50);
   color: var(--light-80);
 }
 
 .bgaext_tournament .v2tournament__encounter--status-play .v2tournament__encounter-progress {
-  background: var(--green-30);
+  background: var(--green-50);
 }
 
 .bgaext_tournament .v2tournament__encounters-step-title {
-  background: linear-gradient(90deg, var(--green-10), var(--green-30) 35%, var(--green-30));
+  background: linear-gradient(90deg, var(--green-30), var(--green-50) 35%, var(--green-50));
   color: var(--light-80);
 }
 
 .bgaext_tournament .v2tournament__encounters-step-title:after {
-  border-color: transparent transparent transparent var(--green-30);
+  border-color: transparent transparent transparent var(--green-50);
 }
 
 .bgaext_tournament .v2tournament__encounter-player-points {
