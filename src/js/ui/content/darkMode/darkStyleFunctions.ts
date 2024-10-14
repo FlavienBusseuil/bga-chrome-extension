@@ -1,5 +1,6 @@
 import { isNumber } from "../../../utils/misc/isNumber";
-import { darkStyleForGame, gamesWithCustomActions, gamesWithCustomBackground, gamesWithCustomDarkMode, gamesWithCustomPanel, gamesWithCustomPlayerStyle, styleForGame } from "../../../config/darkThemeGames";
+import { waitForObj } from "../../../utils/misc/wait";
+import { darkStyleForGame, gamesWithCustomActions, gamesWithCustomBackground, gamesWithCustomDarkMode, gamesWithCustomPanel, gamesWithCustomPlayerStyle, playersBackground, styleForGame } from "../../../config/darkThemeGames";
 import { PlayerData, getPlayersData, getPlayersPossibleColors } from "../players";
 import { cookieName, createStyle, getFile } from "./darkStyleCommonFunctions";
 
@@ -14,8 +15,13 @@ const { cssList, mode } = (() => {
     return { mode: pageInfo[1], cssList: ["dark_theme/background.css", "dark_theme/common.css", "dark_theme/chat.css", "dark_theme/icons.css", "dark_theme/game.css"] };
   }
 
-  if (pageInfo[0] === "archive" || pageInfo[0] === "tutorial") {
-    return { mode: "archive", cssList: [] };
+  if (pageInfo[0] === "tutorial") {
+    const mode = window.location.search.substring(1).split('&').find(p => p.startsWith('game'))?.split('=')[1] || 'general';
+    return { mode, cssList: ["dark_theme/background.css", "dark_theme/common.css", "dark_theme/chat.css", "dark_theme/icons.css", "dark_theme/game.css"] };
+  }
+
+  if (pageInfo[0] === "archive") {
+    return { mode: "archive", cssList: ["dark_theme/background.css", "dark_theme/common.css", "dark_theme/chat.css", "dark_theme/icons.css", "dark_theme/game.css"] };
   }
 
   return { mode: "general", cssList: ["light_theme/general.css", "dark_theme/background.css", "dark_theme/common.css", "dark_theme/chat.css", "dark_theme/icons.css", "dark_theme/general.css"] };
@@ -123,11 +129,57 @@ const _setDarkStyleIfActivated = () => {
   }
 };
 
+const _setDarkStyleForGame = (gameName: string) => {
+  const applyGeneralCss = !gamesWithCustomDarkMode[gameName] || gamesWithCustomDarkMode[gameName].applyGeneralCss;
+  const classToAdd = gamesWithCustomDarkMode[gameName]?.className;
+
+  if (applyGeneralCss) {
+    const gameStyle = styleForGame[gameName] || "";
+    const gameDarkStyle = darkStyleForGame[gameName] || "";
+    const backStyle = gamesWithCustomBackground.includes(gameName) ? "" : cssContents["dark_theme/background.css"];
+
+    const completeStyle = `${backStyle}${cssContents["dark_theme/icons.css"]}${cssContents["dark_theme/common.css"]}${cssContents["dark_theme/chat.css"]}${cssContents["dark_theme/game.css"]}${gameDarkStyle}${gameStyle}`;
+    styleComponent.innerHTML = completeStyle;
+
+    if (!gamesWithCustomPanel.includes(gameName)) {
+      document.documentElement.classList.add("darkpanel");
+    }
+
+    getPlayersData().then(playersData => {
+      console.debug("[bga extension] players data", playersData);
+
+      const possibleColors = [...playersData, ...getPlayersPossibleColors(gameName)];
+      const colorsStyle = getDarkColorsStyle(possibleColors);
+      const backStyle = playersBackground[gameName] ? playersBackground[gameName].map((rule: string) => {
+        return playersData.filter(d => d.darkColor && d.darkColor !== d.color).map(d => {
+          const ruleName = rule.replace('{{player_id}}', d.id.toString());
+          return `${ruleName} { background-color: ${d.darkColor}!important; }`
+        });
+      }).flat().join(' ') : '';
+      styleComponent.innerHTML = `${completeStyle}${colorsStyle}${backStyle}`;
+
+      if (gamesWithCustomPlayerStyle[gameName]) {
+        _setPlayersColor(gamesWithCustomPlayerStyle[gameName], playersData);
+      }
+    });
+  } else {
+    styleComponent.innerHTML = styleForGame[gameName] || "";
+  }
+
+  if (classToAdd) {
+    document.documentElement.classList.add(classToAdd)
+  }
+};
+
 const _setDarkStyle = (mode: string) => {
   console.log("[bga extension] set dark mode");
 
   if (styleComponent) {
     if (mode === "archive") {
+      waitForObj('[href*="table="]', 5).then((elt: any) => {
+        const gameName = elt.href.substring(elt.href.lastIndexOf('/') + 1).split('?')[0];
+        _setDarkStyleForGame(gameName);
+      });
       styleComponent.innerHTML = "";
       return;
     }
@@ -135,39 +187,7 @@ const _setDarkStyle = (mode: string) => {
     if (mode === "general") {
       styleComponent.innerHTML = `${cssContents["dark_theme/background.css"]}${cssContents["dark_theme/icons.css"]}${cssContents["dark_theme/common.css"]}${cssContents["dark_theme/chat.css"]}${cssContents["dark_theme/general.css"]}`;
     } else {
-      const applyGeneralCss = !gamesWithCustomDarkMode[mode] || gamesWithCustomDarkMode[mode].applyGeneralCss;
-      const classToAdd = gamesWithCustomDarkMode[mode]?.className;
-
-      if (applyGeneralCss) {
-        const gameStyle = styleForGame[mode] || "";
-        const gameDarkStyle = darkStyleForGame[mode] || "";
-        const backStyle = gamesWithCustomBackground.includes(mode) ? "" : cssContents["dark_theme/background.css"];
-
-        const completeStyle = `${backStyle}${cssContents["dark_theme/icons.css"]}${cssContents["dark_theme/common.css"]}${cssContents["dark_theme/chat.css"]}${cssContents["dark_theme/game.css"]}${gameDarkStyle}${gameStyle}`;
-        styleComponent.innerHTML = completeStyle;
-
-        if (!gamesWithCustomPanel.includes(mode)) {
-          document.documentElement.classList.add("darkpanel");
-        }
-
-        getPlayersData().then(playersData => {
-          console.debug("[bga extension] players data", playersData);
-
-          const possibleColors = [...playersData, ...getPlayersPossibleColors(mode)];
-          const colorsStyle = getDarkColorsStyle(possibleColors);
-          styleComponent.innerHTML = `${completeStyle}${colorsStyle}`;
-
-          if (gamesWithCustomPlayerStyle[mode]) {
-            _setPlayersColor(gamesWithCustomPlayerStyle[mode], playersData);
-          }
-        });
-      } else {
-        styleComponent.innerHTML = styleForGame[mode] || "";
-      }
-
-      if (classToAdd) {
-        document.documentElement.classList.add(classToAdd)
-      }
+      _setDarkStyleForGame(mode);
     }
   }
 

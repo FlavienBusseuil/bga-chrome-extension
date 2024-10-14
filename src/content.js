@@ -109,26 +109,36 @@ const manageLocationChange = (pathname) => {
 		waitForObj('.bga-advent-calendar', 10).then(() => buildMainCss(config.getAllCss())).catch(() => { });
 	}
 
-	if (pageName !== 'archive' && pageName !== 'tutorial') {
-		initChatIcon(config);
-		initDarkMode(config, 'general');
-
-		setHtmlClass(pageName);
-
-		if (pageName.startsWith('gamelist')) {
-			initObserver('gamelist');
-		} else if (pageName.startsWith('lobby')) {
-			initObserver('lobby');
-		} else if (pageName.startsWith('bug')) {
-			initObserver('other');
-			initDevelopperUI(config);
-		} else {
-			initObserver('other');
-		}
+	if (pageName === 'tutorial') {
+		const gameName = window.location.search.substring(1).split('&').find(p => p.startsWith('game'))?.split('=')[1];
+		initDarkMode(config, gameName);
 		return 'general';
 	}
 
-	return 'archive';
+	if (pageName === 'archive') {
+		waitForObj('[href*="table="]', 5).then((elt) => {
+			const gameName = elt.href.substring(elt.href.lastIndexOf('/') + 1).split('?')[0];
+			initDarkMode(config, gameName);
+		});
+		return 'general';
+	}
+
+	initChatIcon(config);
+	initDarkMode(config, 'general');
+
+	setHtmlClass(pageName);
+
+	if (pageName.startsWith('gamelist')) {
+		initObserver('gamelist');
+	} else if (pageName.startsWith('lobby')) {
+		initObserver('lobby');
+	} else if (pageName.startsWith('bug')) {
+		initObserver('other');
+		initDevelopperUI(config);
+	} else {
+		initObserver('other');
+	}
+	return 'general';
 };
 
 const setHtmlClass = (mode) => {

@@ -229,6 +229,10 @@ export const gamesWithCustomDarkMode = {
     className: 'bx-background-dark',
     applyGeneralCss: true
   },
+  twilightimperium: {
+    className: 'dark',
+    applyGeneralCss: false
+  },
 };
 
 export const gamesWithCustomPlayerStyle = {
@@ -258,6 +262,10 @@ export const gamesWithCustomPlayerStyle = {
   cannonades: '.player-table .c-title',
   takenokolor: '.player-table .name',
   myshelfie: '.shelf-name'
+};
+
+export const playersBackground = {
+  laserreflection: ['#lrf_container_{{player_id}} .lrf_progress-bar']
 };
 
 export const gamesWithCustomColors = {

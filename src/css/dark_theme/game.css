@@ -559,3 +559,16 @@ div[id*="popin"][id$="underlay"] {
 #loading {
   filter: invert(0.7) grayscale(1);
 }
+
+/* tutorial & archive */
+#newArchiveCommentTextDisplay span[style="color:blue"] {
+  color: #6666ff !important;
+}
+
+#archivecontrol a {
+  color: var(--light-80);
+}
+
+#archive_history_backtotop {
+  color: #000 !important;
+}
