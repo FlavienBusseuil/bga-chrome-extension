@@ -5,7 +5,7 @@ import "../../../../css/confirmation.css";
 import Configuration from "../../../config/configuration";
 
 interface Props {
-  type: 'delete_game' | 'fast_create'
+  type: 'delete_game' | 'fast_create' | 'mute_player'
   confirm: (stopWarn: boolean) => void;
   cancel: () => void;
   config: Configuration
@@ -31,6 +31,27 @@ const ConfirmationPopup = ({ type, confirm, cancel, config }: Props) => {
           <div className="bgaext_popup_buttons">
             <button class="bgabutton bgabutton_blue" onClick={() => confirm(stopWarn)}>{chrome.i18n.getMessage("buttonConfirm")}</button>
             <button class="bgabutton bgabutton_blue" onClick={cancel}>{chrome.i18n.getMessage("buttonCancel")}</button>
+          </div>
+        </div>
+      </div>
+    );
+  }
+
+  if (type === 'mute_player') {
+    return (
+      <div id="bgaext_popup" className="fast_start">
+        <h2 class="bgaext_popup_title">{chrome.i18n.getMessage("mutePlayerTitle")}</h2>
+        <p dangerouslySetInnerHTML={{ __html: chrome.i18n.getMessage("muteText1") }}></p>
+        <p dangerouslySetInnerHTML={{ __html: chrome.i18n.getMessage("muteText2") }}></p>
+        <p dangerouslySetInnerHTML={{ __html: chrome.i18n.getMessage("deleteGameText2") }}></p>
+        <div class="bgaext_popup_footer">
+          <div className="bgaext_popup_check" onClick={() => setStopWarn(!stopWarn)}>
+            <input type="checkbox" checked={stopWarn} />
+            <label>{chrome.i18n.getMessage("deleteStop")}</label>
+          </div>
+          <div className="bgaext_popup_buttons">
+            <button class="bgabutton bgabutton_blue" style={{ overflow: 'visible' }} onClick={() => confirm(stopWarn)}>{chrome.i18n.getMessage("buttonConfirm")}</button>
+            <button class="bgabutton bgabutton_blue" style={{ overflow: 'visible' }} onClick={cancel}>{chrome.i18n.getMessage("buttonCancel")}</button>
           </div>
         </div>
       </div>

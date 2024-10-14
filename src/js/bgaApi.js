@@ -4,7 +4,7 @@ const initBgaApi = () => {
   try {
     document.body.addEventListener('bga_ext_api_call', (data) => {
       console.debug('[bga extension] call bga api', data);
-      const headers = { 'x-request-token': bgaConfig.requestToken };
+      const headers = { 'x-request-token': bgaConfig.requestToken, 'Content-Type': 'application/x-www-form-urlencoded' };
       const evtDetail = JSON.parse(data.detail);
 
       fetch(`${baseUrl}${evtDetail.endPoint}`, { method: evtDetail.method, body: evtDetail.body, headers, credentials: 'same-origin' }).then((response) => {

@@ -1,5 +1,5 @@
 import React, { render } from "preact";
-import ConfirmationPopup from "./ConfirmationPopup";
+import ConfirmationPopup from "../misc/ConfirmationPopup";
 
 const createHiddenGameStyle = (content) => {
 	const hiddenStyleId = "cde-hidden-games-style";

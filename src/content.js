@@ -5,6 +5,7 @@ import { addLocationChangeListener } from './js/utils/misc/addLocationChangeList
 import {
 	buildMainCss,
 	initLogObserver,
+	initChatObserver,
 	initLeftMenu,
 	setFloatingRightMenu,
 	initDevelopperUI,
@@ -13,7 +14,8 @@ import {
 	initChatIcon,
 	setChatStyle,
 	setEloStyle,
-	initDarkMode
+	initDarkMode,
+	refreshMutedPlayers
 } from './js/ui/content/functions';
 
 const config = new Configuration();
@@ -38,6 +40,8 @@ const initObserver = (page) => {
 	currentObserver = page === 'game' ? initLogObserver(config) : initGameListObserver(config, page);
 	if (!currentObserver) {
 		setTimeout(() => initObserver(page), 500);
+	} else {
+		initChatObserver(config);
 	}
 };
 
@@ -180,11 +184,11 @@ document.addEventListener('bga_ext_update_config', (data) => {
 	console.debug('[bga extension] configuration updated', data);
 	if (data.detail.key === 'hideGeneralChat') {
 		setChatStyle(config);
-	}
-	if (data.detail.key === 'hideElo') {
+	} else if (data.detail.key === 'hideElo') {
 		setEloStyle(config);
-	}
-	if (['home', 'inProgress'].includes(data.detail.key) && pageType === 'general') {
+	} else if (data.detail.key === 'muted' && pageType === 'game') {
+		refreshMutedPlayers(config);
+	} else if (['home', 'inProgress'].includes(data.detail.key) && pageType === 'general') {
 		localStorage.removeItem('bga-homepage-newsfeed-slots');
 		localStorage.removeItem('bga-homepageNewsSeen');
 		buildMainCss(config.getAllCss());

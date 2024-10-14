@@ -23,6 +23,7 @@ export const OptionsView = ({ config, onChange }: Props) => {
   const [homeConfig, setHomeConfig] = useState<HomeConfig>(config.getHomeConfig());
   const [inProgressConfig, setInProgressConfig] = useState<InProgressConfig>(config.getInProgressConfig());
   const [hiddenGames, setHiddenGames] = useState<string[]>(config.getHiddenGames());
+  const [hiddenPlayers, setHiddenPlayers] = useState<string[]>(config.getMutedPlayers());
   const [configVisible, setConfigVisible] = useState(localStorage.getItem('ext_settings') || 'about');
   const isFirefox = window.navigator.userAgent.toLowerCase().includes('firefox');
 
@@ -105,6 +106,26 @@ export const OptionsView = ({ config, onChange }: Props) => {
       >
         {game}
         <div className="bgext_hidden_game_close" onClick={() => setHiddenGames(config.displayGame(game))}>🗙</div>
+      </div>
+    ));
+  };
+
+  const getMutedConfiguration = () => {
+    if (!hiddenPlayers.length) {
+      return (
+        <span>
+          {chrome.i18n.getMessage("optionNoMutedPlayer")}
+        </span>
+      );
+    }
+
+    return hiddenPlayers.map((name, index) => (
+      <div
+        className="bgext_hidden_game"
+        key={`game_${index}`}
+      >
+        {name}
+        <div className="bgext_hidden_game_close" onClick={() => setHiddenPlayers(config.unmutePlayer(name))}>🗙</div>
       </div>
     ));
   };
@@ -243,7 +264,7 @@ export const OptionsView = ({ config, onChange }: Props) => {
     );
   };
 
-  const getHiddenSection = () => {
+  const getHiddenGamesSection = () => {
     if (configVisible === 'hidden') {
       return (
         <div className="options-frame">
@@ -257,6 +278,24 @@ export const OptionsView = ({ config, onChange }: Props) => {
     return (
       <div className="options-frame reduced" onClick={() => _setConfigVisible('hidden')}>
         <div className="options-frame-title">{chrome.i18n.getMessage("optionHiddenTab")} {arrow()}</div>
+      </div>
+    );
+  };
+
+  const getHiddenPlayersSection = () => {
+    if (configVisible === 'muted') {
+      return (
+        <div className="options-frame">
+          <div className="options-frame-title">{chrome.i18n.getMessage("optionMutedTab")}</div>
+          <div>{chrome.i18n.getMessage("optionMutedWarning")}</div>
+          <div className="bgext_hidden_games_container">{getMutedConfiguration()}</div>
+        </div>
+      );
+    }
+
+    return (
+      <div className="options-frame reduced" onClick={() => _setConfigVisible('muted')}>
+        <div className="options-frame-title">{chrome.i18n.getMessage("optionMutedTab")} {arrow()}</div>
       </div>
     );
   };
@@ -284,7 +323,8 @@ export const OptionsView = ({ config, onChange }: Props) => {
       {getGamesSection()}
       {getHomeSection()}
       {getInProgressSection()}
-      {getHiddenSection()}
+      {getHiddenGamesSection()}
+      {getHiddenPlayersSection()}
       {getAboutSection()}
     </div>
   );

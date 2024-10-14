@@ -45,6 +45,7 @@ interface CustomConfig {
 	dark: DarkModeConfig[];
 	disabled: string[];
 	hidden: string[];
+	muted: string[];
 	floating: string[];
 	onlineMessages?: boolean;
 	floatingRightMenu?: boolean;
@@ -126,6 +127,7 @@ class Configuration {
 			disabled: [],
 			floating: [],
 			hidden: [],
+			muted: [],
 		};
 		this._config = { games: [] };
 	}
@@ -153,6 +155,9 @@ class Configuration {
 		}
 		if (!this._customConfig.hidden) {
 			this._customConfig.hidden = [];
+		}
+		if (!this._customConfig.muted) {
+			this._customConfig.muted = [];
 		}
 		if (!this._customConfig.floating) {
 			this._customConfig.floating = [];
@@ -442,6 +447,30 @@ class Configuration {
 			storageSet({ devTemplates: this._customConfig.devTemplates });
 		}
 		return this.listTemplates();
+	}
+
+	mutePlayer(name: string) {
+		this._customConfig.muted = [
+			...this._customConfig.muted.filter((g) => g !== name),
+			name,
+		];
+		while (this._customConfig.muted.length > 10) {
+			this._customConfig.muted.shift();
+		}
+		storageSet({ muted: this._customConfig.muted });
+		return this.getMutedPlayers();
+	}
+
+	unmutePlayer(name: string) {
+		this._customConfig.muted = [
+			...this._customConfig.muted.filter((g) => g !== name),
+		];
+		storageSet({ muted: this._customConfig.muted });
+		return this.getMutedPlayers();
+	}
+
+	getMutedPlayers() {
+		return this._customConfig.muted;
 	}
 
 	hideGame(name: string) {
