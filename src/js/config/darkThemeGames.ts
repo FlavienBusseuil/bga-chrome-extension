@@ -1713,6 +1713,10 @@ _darkStyleForGame['cucumber'] = `
 .playertablename, .player-name { text-shadow: none !important; }
 `;
 
+_darkStyleForGame['danceofmuses'] = `
+[style="color: blue;"] { color: #6666ff !important; }
+`;
+
 _darkStyleForGame['darkagent'] = `
 .player_board_content [style^="color:black;"] { color: var(--light-80) !important; }
 .pbname input { background-color: var(--dark-20) !important; }
