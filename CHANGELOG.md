@@ -1,5 +1,14 @@
 # Changelog
 
+## [v1.10.2](https://github.com/FlavienBusseuil/bga-chrome-extension/tree/v1.10.2) (2024-10-14)
+
+[Full Changelog](https://github.com/FlavienBusseuil/bga-chrome-extension/compare/v1.10.1...v1.10.2)
+
+**Closed issues:**
+
+- Discord rich status [\#72](https://github.com/FlavienBusseuil/bga-chrome-extension/issues/72)
+- Dark mode inactive buttons still show blue instead of grey [\#70](https://github.com/FlavienBusseuil/bga-chrome-extension/issues/70)
+
 ## [v1.10.1](https://github.com/FlavienBusseuil/bga-chrome-extension/tree/v1.10.1) (2024-10-11)
 
 [Full Changelog](https://github.com/FlavienBusseuil/bga-chrome-extension/compare/v1.10.0...v1.10.1)
