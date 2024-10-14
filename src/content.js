@@ -186,7 +186,7 @@ document.addEventListener('bga_ext_update_config', (data) => {
 		setChatStyle(config);
 	} else if (data.detail.key === 'hideElo') {
 		setEloStyle(config);
-	} else if (data.detail.key === 'muted' && pageType === 'game') {
+	} else if (data.detail.key === 'muted') {
 		refreshMutedPlayers(config);
 	} else if (['home', 'inProgress'].includes(data.detail.key) && pageType === 'general') {
 		localStorage.removeItem('bga-homepage-newsfeed-slots');

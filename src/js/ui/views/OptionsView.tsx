@@ -122,7 +122,7 @@ export const OptionsView = ({ config, onChange }: Props) => {
     return hiddenPlayers.map((name, index) => (
       <div
         className="bgext_hidden_game"
-        key={`game_${index}`}
+        key={`hidden_player_${index}`}
       >
         {name}
         <div className="bgext_hidden_game_close" onClick={() => setHiddenPlayers(config.unmutePlayer(name))}>🗙</div>
@@ -142,7 +142,7 @@ export const OptionsView = ({ config, onChange }: Props) => {
     const textOn = chrome.i18n.getMessage(textOnKey);
     const textOff = chrome.i18n.getMessage(textOffKey);
     const msg = checked ? textOn : textOff;
-    const className = (msg.length > 70) ? 'long_text' : undefined;
+    const className = (msg.length > 71) ? 'long_text' : undefined;
 
     return <Switch checked={checked} textOn={textOn} textOff={textOff} onChange={onChange} disabled={disabled} className={className} />
   };

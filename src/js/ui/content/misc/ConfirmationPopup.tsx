@@ -44,6 +44,7 @@ const ConfirmationPopup = ({ type, confirm, cancel, config }: Props) => {
         <p dangerouslySetInnerHTML={{ __html: chrome.i18n.getMessage("muteText1") }}></p>
         <p dangerouslySetInnerHTML={{ __html: chrome.i18n.getMessage("muteText2") }}></p>
         <p dangerouslySetInnerHTML={{ __html: chrome.i18n.getMessage("deleteGameText2") }}></p>
+        <p dangerouslySetInnerHTML={{ __html: chrome.i18n.getMessage("deleteGameLink") }}></p>
         <div class="bgaext_popup_footer">
           <div className="bgaext_popup_check" onClick={() => setStopWarn(!stopWarn)}>
             <input type="checkbox" checked={stopWarn} />
@@ -68,6 +69,7 @@ const ConfirmationPopup = ({ type, confirm, cancel, config }: Props) => {
       <h2 class="bgaext_popup_title">{chrome.i18n.getMessage("fastStartTitle")}</h2>
       <p dangerouslySetInnerHTML={{ __html: chrome.i18n.getMessage("fastStartText1") }}></p>
       <p dangerouslySetInnerHTML={{ __html: chrome.i18n.getMessage("deleteGameText2") }}></p>
+      <p dangerouslySetInnerHTML={{ __html: chrome.i18n.getMessage("deleteGameLink") }}></p>
       <div className="bgaext_popup_check" onClick={updateAutoOpen}>
         <input type='checkbox' id='check_auto_open' checked={autoOpen} />
         <label>{chrome.i18n.getMessage('optionsAutoOpenOn')}</label>

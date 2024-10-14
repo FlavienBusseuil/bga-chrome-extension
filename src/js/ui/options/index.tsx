@@ -18,6 +18,7 @@ const Options = (props: { config: Configuration }) => {
 	const [css, setCss] = useState(config.getCustomCss());
 	const [tabSelected, setTabSelected] = useState("misc");
 	const [hiddenGames, setHiddenGames] = useState(config.getHiddenGames());
+	const [hiddenPlayers, setHiddenPlayers] = useState<string[]>(config.getMutedPlayers());
 	const [onlineMessages, setOnlineMessages] = useState(config.isOnlineMessagesEnabled());
 	const [eloHidden, setEloHidden] = useState(config.isEloHidden());
 	const [tracking, setTracking] = useState(config.isTrackingEnable());
@@ -335,6 +336,35 @@ const Options = (props: { config: Configuration }) => {
 		);
 	};
 
+	const getMutedConfiguration = () => {
+		return (
+			<>
+				<div className="bgext_options_title">
+					{chrome.i18n.getMessage("optionMutedTab")}
+				</div>
+				<div className="bgext_hidden_games_container">
+					{!hiddenPlayers.length && (
+						<span>
+							{chrome.i18n.getMessage("optionNoMutedPlayer")}
+						</span>
+					)}
+					{hiddenPlayers.length > 0 && hiddenPlayers.map((name, index) => (
+						<div
+							className="bgext_hidden_game"
+							key={`hidden_player_${index}`}
+						>
+							{name}
+							<div className="bgext_hidden_game_close" onClick={() => setHiddenPlayers(config.unmutePlayer(name))} >🗙</div>
+						</div>
+					))}
+				</div>
+				{hiddenPlayers.length > 0 && <div className="bgext_options_warning">
+					{chrome.i18n.getMessage("optionMutedWarning")}
+				</div>}
+			</>
+		);
+	};
+
 	const getNavigationConfiguration = () => {
 		return (
 			<>
@@ -462,12 +492,14 @@ const Options = (props: { config: Configuration }) => {
 						{getTab("misc", chrome.i18n.getMessage("optionMisc"))}
 						{getTab("display", chrome.i18n.getMessage("optionDisplay"))}
 						{getTab("hidden", chrome.i18n.getMessage("optionHiddenTab"))}
+						{getTab("muted", chrome.i18n.getMessage("optionMutedTab"))}
 						{getTab("navigation", chrome.i18n.getMessage("optionNavigationTab"))}
 						{getTab("css", chrome.i18n.getMessage("optionCssTab"))}
 					</div>
 					{tabSelected === "misc" && getMiscConfiguration()}
 					{tabSelected === "display" && getDisplayConfiguration()}
 					{tabSelected === "hidden" && getHiddenConfiguration()}
+					{tabSelected === "muted" && getMutedConfiguration()}
 					{tabSelected === "navigation" && getNavigationConfiguration()}
 					{tabSelected === "css" && getCssConfiguration()}
 				</div>

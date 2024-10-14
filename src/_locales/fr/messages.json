@@ -73,7 +73,7 @@
 		"message": "L'activité des amis est cachée dans le journal des jeux"
 	},
 	"optionEloHiddenOn": {
-		"message": "Le score ELO des joueurs est caché dans les jeux [BETA]"
+		"message": "Le score ELO des joueurs est caché dans les jeux"
 	},
 	"optionEloHiddenOff": {
 		"message": "Le score ELO des joueurs est affiché dans les jeux"
@@ -100,7 +100,7 @@
 		"message": "Joueurs ignorés [BETA]"
 	},
 	"optionNavigationTab": {
-		"message": "Navigation entre les plateaux des joueurs"
+		"message": "Menu de navigation"
 	},
 	"optionCssTab": {
 		"message": "CSS personnalisé"
@@ -220,10 +220,10 @@
 		"message": "Utiliser le lobby par défaut"
 	},
 	"optionsAutoOpenOn": {
-		"message": "Le bouton 'Création rapide' ouvre automatiquement la table aux autres joueurs [BETA]"
+		"message": "Le bouton 'Création rapide' ouvre automatiquement la table aux autres joueurs"
 	},
 	"optionsAutoOpenOff": {
-		"message": "Le bouton 'Création rapide' n'ouvre pas la table aux autres joueurs [BETA]"
+		"message": "Le bouton 'Création rapide' n'ouvre pas la table aux autres joueurs"
 	},
 	"about": {
 		"message": "A propos"
@@ -259,7 +259,7 @@
 		"message": "Ignorer un joueur [BETA]"
 	},
 	"muteText1": {
-		"message": "Vous ne recevrez plus les messages des joueurs ignorés dans les conversations des jeux. Vous pouvez ignorer jusque 10 joueurs."
+		"message": "Vous ne recevrez plus les messages des joueurs ignorés dans les conversations des jeux. Vous pouvez ignorer jusque 10 joueurs et gérer la liste des personnes ignorées dans les options de l'extension."
 	},
 	"muteText2": {
 		"message": "Les autres joueurs seront informés de votre décision d'ignorer un joueur."

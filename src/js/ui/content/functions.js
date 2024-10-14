@@ -24,7 +24,7 @@ const buildMainCss = (code) => {
 		style.innerHTML = `
 		#lrf-bga-extension, .bgaext_overlay { display: none; }
 		.darkmode .bgaext_overlay { display: block; }
-		.bgaext_chat_mute_icon { position: absolute; width: 20px; height: 20px; top: 6px; left: 2px; display: none; }
+		.bgaext_chat_mute_icon { position: absolute; width: 20px; height: 20px; top: 7px; left: 2px; display: none; }
 		.bgaext_chat_hidden { display: none!important; }
 		.bgaext_chat_visible { display: inline!important; }
 		.roundedboxinner:hover .bgaext_chat_mute_icon { cursor: pointer; display: block; }
@@ -50,7 +50,7 @@ const mutePlayer = (config, evt) => {
 		console.info(`[bga extension] Mute player ${playerName}`, mutedPlayers);
 		config.mutePlayer(playerName);
 
-		const msg = `${playerName} has been muted, I will no longer receive their messages. \n[Provided by: https://en.doc.boardgamearena.com/ChromeExtension]`;
+		const msg = `${playerName} has been muted, I will no longer receive their messages. \n[Feature provided by: https://en.doc.boardgamearena.com/ChromeExtension]`;
 		const endPoint = `/table/table/say.html`;
 		const key = new Date().getTime();
 		const body = new URLSearchParams({ table: tableId, msg, noerrortracking: true, "dojo.preventCache": key }).toString();
@@ -81,8 +81,12 @@ const mutePlayer = (config, evt) => {
 };
 
 const refreshMutedPlayers = (config) => {
+	const chatContainer = document.querySelector('#chatbar');
+
 	mutedPlayers = config.getMutedPlayers();
-	mutePlayers(config, document.querySelector('#chatbar'));
+	if (chatContainer) {
+		mutePlayers(config, chatContainer);
+	}
 };
 
 const hideElement = (elt) => {

@@ -73,7 +73,7 @@
 		"message": "The friends' activity is hidden in game logs"
 	},
 	"optionEloHiddenOn": {
-		"message": "Players' ELO scores are hidden in games [BETA]"
+		"message": "Players' ELO scores are hidden in games"
 	},
 	"optionEloHiddenOff": {
 		"message": "Players' ELO scores are displayed in games"
@@ -100,7 +100,7 @@
 		"message": "Muted players [BETA]"
 	},
 	"optionNavigationTab": {
-		"message": "Navigation between players' boards"
+		"message": "Navigation side menu"
 	},
 	"optionCssTab": {
 		"message": "Custom CSS"
@@ -220,10 +220,10 @@
 		"message": "Use the default lobby"
 	},
 	"optionsAutoOpenOn": {
-		"message": "The 'Fast create' button automatically opens the table to other players [BETA]"
+		"message": "The 'Fast create' button automatically opens the table to other players"
 	},
 	"optionsAutoOpenOff": {
-		"message": "The 'Fast create' button does not open the table to other players [BETA]"
+		"message": "The 'Fast create' button does not open the table to other players"
 	},
 	"about": {
 		"message": "About"
@@ -259,7 +259,7 @@
 		"message": "Mute a player [BETA]"
 	},
 	"muteText1": {
-		"message": "You will no longer receive messages from ignored players in game conversations. You can mute up to 10 players."
+		"message": "You will no longer receive messages from ignored players in game conversations. You can mute up to 10 players and manage the ignore list in the extension options."
 	},
 	"muteText2": {
 		"message": "Other players will be informed of your decision to mute a player."
