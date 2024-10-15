@@ -1,6 +1,6 @@
 import { isNumber } from "../../../utils/misc/isNumber";
 import { waitForObj } from "../../../utils/misc/wait";
-import { darkStyleForGame, gamesWithCustomActions, gamesWithCustomBackground, gamesWithCustomDarkMode, gamesWithCustomPanel, gamesWithCustomPlayerStyle, playersBackground, styleForGame } from "../../../config/darkThemeGames";
+import { darkStyleForGame, gamesWithCustomActions, gamesWithCustomBackground, gamesWithCustomDarkMode, gamesWithCustomPanel, gamesWithCustomPlayerStyle, playersBackground, playersBorder, styleForGame } from "../../../config/darkThemeGames";
 import { PlayerData, getPlayersData, getPlayersPossibleColors } from "../players";
 import { cookieName, createStyle, getFile } from "./darkStyleCommonFunctions";
 
@@ -156,7 +156,13 @@ const _setDarkStyleForGame = (gameName: string) => {
           return `${ruleName} { background-color: ${d.darkColor}!important; }`
         });
       }).flat().join(' ') : '';
-      styleComponent.innerHTML = `${completeStyle}${colorsStyle}${backStyle}`;
+      const borderStyle = playersBorder[gameName] ? playersBorder[gameName].map((rule: string) => {
+        return playersData.filter(d => d.darkColor && d.darkColor !== d.color).map(d => {
+          const ruleName = rule.replace('{{player_id}}', d.id.toString());
+          return `${ruleName} { border-color: ${d.darkColor}!important; }`
+        });
+      }).flat().join(' ') : '';
+      styleComponent.innerHTML = `${completeStyle}${colorsStyle}${backStyle}${borderStyle}`;
 
       if (gamesWithCustomPlayerStyle[gameName]) {
         _setPlayersColor(gamesWithCustomPlayerStyle[gameName], playersData);
