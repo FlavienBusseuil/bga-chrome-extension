@@ -85,7 +85,7 @@ const refreshMutedPlayers = (config) => {
 
 	mutedPlayers = config.getMutedPlayers();
 	if (chatContainer) {
-		mutePlayers(config, chatContainer);
+		muteChatAll(config, chatContainer);
 	}
 };
 
@@ -128,41 +128,46 @@ const getMessageText = (container, name) => {
 	return Array.from(container.childNodes || []).map((node) => getMessageText(node, name)).find(v => Boolean(v))?.trim();
 };
 
-const mutePlayers = (config, chatContainer) => {
-	const tables = Array.from(chatContainer.querySelectorAll('.chatwindowtype_table'));
+const muteChatMessage = (config, tableId, msg) => {
+	try {
+		const span = msg.querySelector('.playername');
+		const name = span.innerHTML.trim();
 
-	tables.forEach(t => {
-		const id = t.id.split('_').pop();
-		const messages = Array.from(t.querySelectorAll('.chatlog'));
+		if (mutedPlayers.includes(name)) {
+			hideElement(msg);
+		} else {
+			displayElement(msg);
 
-		messages.forEach(msg => {
-			const span = msg.querySelector('.playername');
-			const name = span.innerHTML.trim();
+			lastMessage[tableId] = { user: span.innerHTML.trim(), color: span.style.color, text: getMessageText(msg, name) };
 
-			if (mutedPlayers.includes(name)) {
-				hideElement(msg);
-			} else {
-				displayElement(msg);
+			const trIcon = msg.querySelector('.translate_icon');
+			if (trIcon) {
+				const muteIconId = trIcon.id.replace('logtr_table', 'mute_icon');
 
-				lastMessage[id] = { user: span.innerHTML.trim(), color: span.style.color, text: getMessageText(msg, name) };
-
-				const trIcon = msg.querySelector('.translate_icon');
-				if (trIcon) {
-					const muteIconId = trIcon.id.replace('logtr_table', 'mute_icon');
-
-					if (!document.getElementById(muteIconId)) {
-						const muteIcon = document.createElement('div');
-						muteIcon.dataset.player = name;
-						muteIcon.dataset.table = id;
-						muteIcon.id = muteIconId;
-						muteIcon.className = 'bgaext_chat_mute_icon';
-						muteIcon.innerHTML = '<i class="fa fa-microphone-slash"></i>';
-						muteIcon.onclick = (evt) => mutePlayer(config, evt);
-						trIcon.parentNode.appendChild(muteIcon);
-					}
+				if (!document.getElementById(muteIconId)) {
+					const muteIcon = document.createElement('div');
+					muteIcon.dataset.player = name;
+					muteIcon.dataset.table = tableId;
+					muteIcon.id = muteIconId;
+					muteIcon.className = 'bgaext_chat_mute_icon';
+					muteIcon.innerHTML = '<i class="fa fa-microphone-slash"></i>';
+					muteIcon.onclick = (evt) => mutePlayer(config, evt);
+					trIcon.parentNode.appendChild(muteIcon);
 				}
 			}
-		});
+		}
+	}
+	catch (error) {
+		console.warn("[bga extension] Can't process chat message", { message: msg.outerHTML, error });
+	}
+};
+
+const muteChatTable = (config, chatTable) => {
+	try {
+		const id = chatTable.id.split('_').pop();
+		const messages = Array.from(chatTable.querySelectorAll('.chatlog'));
+
+		messages.forEach(msg => muteChatMessage(config, id, msg));
 
 		hideMutedPlayerWriting(`is_writing_now_expl_title_table_${id}`, `is_writing_now_title_table_${id}`, `chatwindowlogstitle_content_table_${id}`);
 		hideMutedPlayerWriting(`is_writing_now_expl_table_${id}`, `is_writing_now_table_${id}`, `chatwindowtitlenolink_table_${id}`);
@@ -181,18 +186,35 @@ const mutePlayers = (config, chatContainer) => {
 				previewArea.innerHTML = document.getElementById(`chatwindowlogstitle_content_table_${id}`).innerHTML;
 			}
 		}
-	});
+	}
+	catch (error) {
+		console.warn("[bga extension] Can't process chat table", { table: chatTable.id, error });
+	}
+};
 
-	const prevMessages = Array.from(document.querySelectorAll('.chatwindowpreviewmsg'));
+const muteChatAll = (config, chatContainer) => {
+	try {
+		const tables = Array.from(chatContainer.querySelectorAll('.chatwindowtype_table'));
 
-	prevMessages.forEach(prevMsg => {
-		const span = prevMsg.querySelector('.playername');
-		const name = span.innerHTML.trim();
+		tables.forEach(t => muteChatTable(config, t));
 
-		if (mutedPlayers.includes(name)) {
-			prevMsg.style.display = "none";
-		}
-	});
+		const prevMessages = Array.from(document.querySelectorAll('.chatwindowpreviewmsg'));
+
+		prevMessages.forEach(prevMsg => {
+			const span = prevMsg.querySelector('.playername');
+
+			if (span) {
+				const name = span.innerHTML.trim();
+
+				if (mutedPlayers.includes(name)) {
+					prevMsg.style.display = "none";
+				}
+			}
+		});
+	}
+	catch (error) {
+		console.warn("[bga extension] Can't process chat conversations", error);
+	}
 };
 
 const initChatObserver = (config) => {
@@ -201,7 +223,7 @@ const initChatObserver = (config) => {
 	waitForObj('#chatbar', 5).then(chatContainer => {
 		console.debug('[bga extension] init mute management', mutedPlayers);
 
-		const observer = new MutationObserver(() => mutePlayers(config, chatContainer))
+		const observer = new MutationObserver(() => muteChatAll(config, chatContainer))
 		observer.observe(chatContainer, { childList: true, subtree: true });
 		return observer;
 	});

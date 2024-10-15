@@ -176,15 +176,13 @@ const _setDarkStyle = (mode: string) => {
 
   if (styleComponent) {
     if (mode === "archive") {
+      styleComponent.innerHTML = "";
+
       waitForObj('[href*="table="]', 5).then((elt: any) => {
         const gameName = elt.href.substring(elt.href.lastIndexOf('/') + 1).split('?')[0];
         _setDarkStyleForGame(gameName);
       });
-      styleComponent.innerHTML = "";
-      return;
-    }
-
-    if (mode === "general") {
+    } else if (mode === "general") {
       styleComponent.innerHTML = `${cssContents["dark_theme/background.css"]}${cssContents["dark_theme/icons.css"]}${cssContents["dark_theme/common.css"]}${cssContents["dark_theme/chat.css"]}${cssContents["dark_theme/general.css"]}`;
     } else {
       _setDarkStyleForGame(mode);

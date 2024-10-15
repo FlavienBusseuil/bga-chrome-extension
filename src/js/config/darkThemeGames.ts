@@ -5431,6 +5431,11 @@ _darkStyleForGame['theshipwreckarcana'] = `
 .card_space, .hours_card, .card_back, #deck_next_card_space { filter: brightness(0.9); }
 `;
 
+_darkStyleForGame['thewaytojuliet'] = `
+#board:before { content: ""; background: #00000060; position: absolute; width: 100%; height: 100%; top:0px; left:0px; }
+.card { filter: brightness(0.9); }
+`;
+
 _darkStyleForGame['theyellowhouse'] = `
 body { background-color: #442908; }
 .yh_preview { background-color: var(--dark-back); }
@@ -5880,23 +5885,6 @@ _darkStyleForGame['vultureculture'] = `
 .heading {  background-color: transparent; color: #fff; }
 `;
 
-_darkStyleForGame['welcometo'] = `
-#player_boards .houses-status > svg { filter: invert(1); }
-#player_boards .houses-status > div, #player_boards .refusal-status > div { color: #fff; }
-#layout-control-ratios-range, #layout-control-scoresheet-zoom-range { filter: invert(0.7); }
-#plan-cards-container, #construction-cards-container { background: var(--dark-back); }
-`;
-
-_darkStyleForGame['welcometonewlasvegas'] = `
-#page-content h3 { color: #fff; }
-.modal-content { background-color: var(--dark-20); }
-.close:focus,.close:hover { color: #fff; }
-`;
-
-_darkStyleForGame['wizard'] = `
-.wizLogColor { color: #000; }
-`;
-
 _darkStyleForGame['warchest'] = `
 #team_board_id { background-color: var(--dark-20) !important; }
 `;
@@ -5918,6 +5906,27 @@ _darkStyleForGame['wazabi'] = `
 #direction { filter: invert(0.7); }
 .cards { color: #000; }
 .card_place { background-color: var(--dark-20); }
+`;
+
+_darkStyleForGame['welcometo'] = `
+#player_boards .houses-status > svg { filter: invert(1); }
+#player_boards .houses-status > div, #player_boards .refusal-status > div { color: #fff; }
+#layout-control-ratios-range, #layout-control-scoresheet-zoom-range { filter: invert(0.7); }
+#plan-cards-container, #construction-cards-container { background: var(--dark-back); }
+`;
+
+_darkStyleForGame['welcometonewlasvegas'] = `
+#page-content h3 { color: #fff; }
+.modal-content { background-color: var(--dark-20); }
+.close:focus,.close:hover { color: #fff; }
+`;
+
+_darkStyleForGame['werewolves'] = `
+#lgc_background_image:before { content: ""; background: #00000060; position: absolute; width: 100%; height: 100%; }
+.tooltip_character { border-radius: 16px; }
+.tooltip_character_text { background-color: var(--dark-10); }
+.pc_playername { background-color: var(--dark-10); }
+.notouch-device .pc_spot:hover .pc_playername { background-color: var(--dark-30); }
 `;
 
 _styleForGame['wingspan'] = `
@@ -5942,6 +5951,10 @@ _darkStyleForGame['wingspan'] = `
 #player_board_inner_008000>.player-name,.wsp_player_008000>.wsp_playermat_opponent_label { text-shadow: 1px 0 2px #00000099,0 -1px 2px #00000099,0 1px 2px #00000099,-1px 0 2px #00000099 }
 .player_board_content, .wsp_playerboard_card_icon, .player_score_value { color: var(--light-80); }
 .fa-star:not(.rating_star) { filter: invert(1); }
+`;
+
+_darkStyleForGame['wizard'] = `
+.wizLogColor { color: #000; }
 `;
 
 _darkStyleForGame['wizardsgrimoire'] = `
@@ -5969,6 +5982,7 @@ _darkStyleForGame['wonderfulkingdom'] = `
 
 _darkStyleForGame['wordtraveler'] = `
 html { background-color: var(--dark-40); background-image: none; }
+#wot-disclaimer { color: var(--light-80); }
 `;
 
 _darkStyleForGame['xanadu'] = `
