@@ -285,8 +285,9 @@ export const playersBorder = {
 };
 
 export const gamesWithCustomColors = {
-  terramystica: ['#971923', '#278139', '#70421d', '#1a2126'],
-  terranova: ['#971923', '#278139', '#70421d', '#1a2126'],
+  ageofinnovation: ['#971923', '#278139', '#70421d', '#1a2126', '#f9ae18', '#1d7ddb'],
+  terramystica: ['#971923', '#278139', '#70421d', '#1a2126', '#f9ae18', '#1d7ddb'],
+  terranova: ['#971923', '#278139', '#70421d', '#1a2126', '#f9ae18', '#1d7ddb'],
   nowboarding: ['#000000'],
   lumen: ['#1f3067'],
   nimalia: ['#0000ff', '#ff0000', '#ffa500', '#008000'],
@@ -618,10 +619,14 @@ _darkStyleForGame['ageofcivilization'] = `
 `;
 
 _darkStyleForGame['ageofinnovation'] = `
+#game_board:before, #cult_board:before { content: ""; background: #0000001a; position: absolute; width: 100%; height: 100%; }
 #drafting_players { background-color: var(--dark-30); }
 #drafting_players table { color: var(--light-80); }
 .faction_supply, .player_collections { background-color: var(--dark-back); }
 .player_faction { color: var(--light-80); text-shadow: none; }
+.control_box { background-color: var(--dark-10); }
+.fp_container { text-shadow: 3px 0 3px var(--blue-50), 0 -3px 3px var(--blue-50), 0 3px 3px var(--blue-50), -3px 0 3px var(--blue-50); }
+.fp_container_passed { text-shadow: 3px 0 3px #555, 0 -3px 3px #555, 0 3px 3px #555, -3px 0 3px #555 !important; }
 `;
 
 _darkStyleForGame['agestofrobinhood'] = `
@@ -5312,9 +5317,12 @@ _darkStyleForGame['terramystica'] = `
 `;
 
 _darkStyleForGame['terranova'] = `
+#game_board:before, .faction_board:before { content: ""; background: #0000001a; position: absolute; width: 100%; height: 100%; }
 #faction_selection, .faction_supply { background-color: var(--dark-back); }
 #logs .tmlogs_icon div[class^="trans_"] { border-radius: 12px; }
+.control_box { background-color: var(--dark-20); }
 .faction_selection_item, .player_faction { color: var(--light-80); text-shadow: none; }
+#actions_overview { filter: brightness(0.8); }
 `;
 
 _darkStyleForGame['texasholdem'] = `
