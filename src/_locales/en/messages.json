@@ -238,7 +238,7 @@
 		"message": "The game will no longer appear in the game list or lobby."
 	},
 	"deleteGameText2": {
-		"message": "This is not a feature of the Board Game Arena site, but an add-on managed by a chrome extension you've installed."
+		"message": "This is not a feature of the Board Game Arena site, but an add-on managed by an extension you've installed."
 	},
 	"deleteGameText3": {
 		"message": "You can cancel the deletion of a game in the extension options."

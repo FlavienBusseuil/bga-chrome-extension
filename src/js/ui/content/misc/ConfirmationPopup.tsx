@@ -39,7 +39,7 @@ const ConfirmationPopup = ({ type, confirm, cancel, config }: Props) => {
 
   if (type === 'mute_player') {
     return (
-      <div id="bgaext_popup" className="fast_start">
+      <div id="bgaext_popup">
         <h2 class="bgaext_popup_title">{chrome.i18n.getMessage("mutePlayerTitle")}</h2>
         <p dangerouslySetInnerHTML={{ __html: chrome.i18n.getMessage("muteText1") }}></p>
         <p dangerouslySetInnerHTML={{ __html: chrome.i18n.getMessage("muteText2") }}></p>

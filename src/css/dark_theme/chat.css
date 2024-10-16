@@ -169,3 +169,7 @@ body.mobile_version #chatbar .chatwindowcollapsed {
 #autoChatWhilePressingKey .icon20_suggestion {
   filter: invert(1);
 }
+
+.mobile_version.chatbar_ontop #chatbar_inner:before {
+  background: var(--dark-back);
+}
