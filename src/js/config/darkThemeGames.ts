@@ -271,6 +271,15 @@ export const playersBackground = {
 };
 
 export const playersBorder = {
+  bagofchips: ['#player-table-{{player_id}}'],
+  castlecombo: ['#player-table-{{player_id}}'],
+  jumpdrive: ['#jdr-tableau-{{player_id}}'],
+  daybreak: ['#dbk-hand{{player_id}}'],
+  elawa: ['#player-table-{{player_id}}'],
+  itsawonderfulworld: ['#iww-player{{player_id}}'],
+  pixies: ['#player-table-{{player_id}}'],
+  riverofgold: ['#rog_player_delivered_resizable-{{player_id}}'],
+  skatelegend: ['#player-table-{{player_id}}'],
   treos: ['#gamezone-{{player_id}}'],
   wizardsgrimoire: ['.wg-title.ext_player_{{player_id}}', '#player-table-{{player_id}}-health', '#player-table-{{player_id}} .player-table'],
 };
@@ -3059,12 +3068,6 @@ _darkStyleForGame['itsawonderfulworld'] = `
 .iww-tab { background-color: var(--dark-20); color: var(--light-80); }
 .iww-tab.iww-tab-selected, .iww-tab:not(.iww-tab-selected):hover { background-color: #000; color: #fff; }
 .doubletime_infos { color: #000; }
-[style="border-color: rgb(255, 0, 0); box-shadow: rgb(255, 0, 0) 0px 0px 5px, rgb(255, 0, 0) 0px 0px 10px;"]
-{ border-color: #ff3333 !important; box-shadow: #ff3333 0px 0px 5px, #ff3333 0px 0px 10px !important; }
-[style="border-color: rgb(0, 128, 0); box-shadow: rgb(0, 128, 0) 0px 0px 5px, rgb(0, 128, 0) 0px 0px 10px;"]
-{ border-color: #009e0a  !important; box-shadow: #009e0a 0px 0px 5px, #009e0a 0px 0px 10px !important; }
-[style="border-color: rgb(0, 0, 255); box-shadow: rgb(0, 0, 255) 0px 0px 5px, rgb(0, 0, 255) 0px 0px 10px;"]
-{ border-color: #6666ff !important; box-shadow: #6666ff 0px 0px 5px, #6666ff 0px 0px 10px !important; }
 `;
 
 _darkStyleForGame['iwari'] = `
@@ -3264,7 +3267,7 @@ _darkStyleForGame['lineae'] = `
 `;
 
 _darkStyleForGame['lineit'] = `
-#overall-content:before { content: ""; background: #00000080; position: absolute; width: 100%; height: 100%; }
+#overall-content:before { content: ""; background: #00000030; position: absolute; width: 100%; height: 100%; }
 .player-table { background: var(--dark-back) !important; }
 .name-wrapper { background: var(--dark-20) !important; }
 .player-scored-card, .jackpot-icon { filter: var(--highlight-min); }
@@ -3597,7 +3600,7 @@ _darkStyleForGame['minnesotawhist'] = `
 `;
 
 _darkStyleForGame['mindup'] = `
-#overall-content:before { content: ""; background: #000000A0; position: absolute; width: 100%; height: 100%; }
+#overall-content:before { content: ""; background: #00000060; position: absolute; width: 100%; height: 100%; }
 .darkmode .spectator-mode * { background: transparent !important; }
 #round-counter-row #round-counter-block { background: var(--dark-20); text-shadow: none; }
 .player-table, .player-table .name-wrapper { background-color: var(--dark-20); }
@@ -4523,12 +4526,9 @@ _darkStyleForGame['riverofgold'] = `
 .logs_on_floating_panel #player_config #pin-panel-switch { visibility: hidden; }
 #player_config #help-mode-switch .checkbox:checked+.label, #player_config #pin-panel-switch .checkbox:checked+.label { background-color: var(--blue-70); }
 #player_config #turn_counter_wrapper { background: var(--dark-10); color: var(--light-80); font-weight: normal; }
-.playername_wrapper_ff0000 .playername,.playername_wrapper_ff0000.playername { color: #ff3333!important; }
-.playername_wrapper_008000 .playername,.playername_wrapper_008000.playername { color: #009e0a!important; }
-.playername_wrapper_0000ff .playername,.playername_wrapper_0000ff.playername { color: #6666ff!important; }
-div[style*="border-color: rgb(255, 0, 0)"] { border-color: #ff3333!important; }
-div[style*="border-color: rgb(0, 128, 0)"] { border-color: #009e0a!important; }
-div[style*="border-color: rgb(0, 0, 255)"] { border-color: #6666ff!important; }
+.playername_wrapper_ff0000 .playername,.playername_wrapper_ff0000.playername { color: #ff6565!important; }
+.playername_wrapper_008000 .playername,.playername_wrapper_008000.playername { color: #54aa54!important; }
+.playername_wrapper_0000ff .playername,.playername_wrapper_0000ff.playername { color: #6565ff!important; }
 .rog_tooltip table, .rog_tooltip table th { border: 1px solid #ffffff33; }
 .rog_tooltip table td { border: 1px solid #ffffff33; }
 `;
@@ -5132,6 +5132,7 @@ _darkStyleForGame['streets'] = `
 [style*="color:#ffff00"], [style*="color: #ffff00"], [style*="color:#ffffff"], [style*="color: #ffffff"] { text-shadow:none!important; }
 .tbp-ownerToken { filter: var(--highlight-min); }
 #tbp-board-outer { background: var(--dark-back); }
+.tbp-endGameBanner { background-color: var(--red-10); }
 `;
 
 _darkStyleForGame['stupormundi'] = `
