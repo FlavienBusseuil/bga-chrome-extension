@@ -162,12 +162,25 @@ const muteChatMessage = (config, tableId, msg) => {
 	}
 };
 
+const playPlop = () => {
+	const extAudioTag = document.getElementById('ext_audiosrc_o_alt_Plop');
+	const volumeTag = document.getElementById('soundVolumeControl');
+	const volumeValue = volumeTag ? parseFloat(volumeTag.value) / 100 : 0.5
+
+	if (extAudioTag) {
+		extAudioTag.volume = volumeValue;
+		extAudioTag.play();
+	}
+};
+
 const muteChatTable = (config, chatTable) => {
 	try {
 		const id = chatTable.id.split('_').pop();
 		const messages = Array.from(chatTable.querySelectorAll('.chatlog'));
 
+		const prevLastMessage = lastMessage[id] || { user: '', color: '', text: '' };
 		messages.forEach(msg => muteChatMessage(config, id, msg));
+		const newLastMessage = lastMessage[id] || { user: '', color: '', text: '' };
 
 		hideMutedPlayerWriting(`is_writing_now_expl_title_table_${id}`, `is_writing_now_title_table_${id}`, `chatwindowlogstitle_content_table_${id}`);
 		hideMutedPlayerWriting(`is_writing_now_expl_table_${id}`, `is_writing_now_table_${id}`, `chatwindowtitlenolink_table_${id}`);
@@ -186,17 +199,26 @@ const muteChatTable = (config, chatTable) => {
 				previewArea.innerHTML = document.getElementById(`chatwindowlogstitle_content_table_${id}`).innerHTML;
 			}
 		}
+
+		return (prevLastMessage.text !== newLastMessage.text || prevLastMessage.user !== newLastMessage.user);
 	}
 	catch (error) {
 		console.warn("[bga extension] Can't process chat table", { table: chatTable.id, error });
+		return false;
 	}
 };
 
 const muteChatAll = (config, chatContainer) => {
 	try {
-		const tables = Array.from(chatContainer.querySelectorAll('.chatwindowtype_table'));
+		const audioTag = document.getElementById('audiosrc_o_alt_Plop');
+		if (audioTag) {
+			audioTag.muted = true;
+		}
 
-		tables.forEach(t => muteChatTable(config, t));
+		const tables = Array.from(chatContainer.querySelectorAll('.chatwindowtype_table'));
+		let shouldPlayPlop = false;
+
+		tables.forEach(t => shouldPlayPlop = muteChatTable(config, t) || shouldPlayPlop);
 
 		const prevMessages = Array.from(document.querySelectorAll('.chatwindowpreviewmsg'));
 
@@ -211,6 +233,10 @@ const muteChatAll = (config, chatContainer) => {
 				}
 			}
 		});
+
+		if (shouldPlayPlop) {
+			setTimeout(playPlop, 1);
+		}
 	}
 	catch (error) {
 		console.warn("[bga extension] Can't process chat conversations", error);
@@ -225,6 +251,27 @@ const initChatObserver = (config) => {
 
 		const observer = new MutationObserver(() => muteChatAll(config, chatContainer))
 		observer.observe(chatContainer, { childList: true, subtree: true });
+		return observer;
+	});
+
+	waitForObj('#audiosources', 5).then(audioContainer => {
+		const observer = new MutationObserver(() => {
+			const audioTag = document.getElementById('audiosrc_o_alt_Plop');
+			const extAudioTag = document.getElementById('ext_audiosrc_o_alt_Plop');
+
+			if (audioTag) {
+				audioTag.muted = true;
+				audioTag.volume = 0;
+
+				if (!extAudioTag) {
+					extAudioTag = document.createElement('audio');
+					extAudioTag.src = audioTag.src;
+					extAudioTag.id = 'ext_audiosrc_o_alt_Plop';
+					audioContainer.appendChild(extAudioTag);
+				}
+			}
+		})
+		observer.observe(audioContainer, { childList: true, subtree: true });
 		return observer;
 	});
 };

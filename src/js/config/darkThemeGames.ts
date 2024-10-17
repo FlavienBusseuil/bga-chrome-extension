@@ -158,6 +158,7 @@ export const gamesWithCustomBackground = [
   'spacestationphoenix',
   'spiritsoftheforest',
   'splendor',
+  'splendorexpansions',
   'splendorduel',
   'stella',
   'starfluxx',
@@ -349,6 +350,7 @@ export const gamesWithRecommandedConfig = {
   seasaltpaper: { color: 225, sat: 28 },
   seasons: { color: 0, sat: 10 },
   splendor: { color: 220, sat: 22 },
+  splendorexpansions: { color: 220, sat: 22 },
   tapestry: { color: 220, sat: 22 },
   thefoxintheforest: { color: 0, sat: 8 },
   theyellowhouse: { color: 0, sat: 8 },
@@ -1566,7 +1568,6 @@ _darkStyleForGame['codexnaturalis'] = `
 #overall-content, body { background: none! important; }
 .cn_player-board-first-player-token, .cn_icon { filter: var(--drop-shadow); }
 #logs [style="color:blue;"] { color: #6666ff !important; }
-
 `;
 
 _darkStyleForGame['coinage'] = `
@@ -3228,6 +3229,10 @@ _darkStyleForGame['lamarcheducrabe'] = `
 _darkStyleForGame['lancaster'] = `
 .board_castle_name { background: var(--dark-20); margin-top: 0.5em; padding: 0.3em 1em !important; border-radius: 8px; width: fit-content; }
 #board_main_img, #board_law_img, #board_law img, .board_castle_img, .board_castle_container img { filter: brightness(0.8); }
+`;
+
+_darkStyleForGame['laserreflection'] = `
+.lrf_progress-bar__text { color: #000; }
 `;
 
 _darkStyleForGame['lasvegan'] = `
@@ -5022,7 +5027,14 @@ _darkStyleForGame['spiritsoftheforest'] = `
 
 _darkStyleForGame['splendor'] = `
 #overall-content:before { content: ""; background: #00000080; position: absolute; width: 100%; height: 100%; }
+.player-name>a { background-color: var(--dark-10); border: 2px solid var(--dark-40); }
+.spl_coinpile_counter { background-color: var(--dark-10); border: 1px solid var(--light-70); color: var(--light-80); }
+.spl_log_gem, .spl_log_coin { border-radius: 50%; }
+.spl_cardcount { border-color: var(--light-70)!important; }
+.spl_cardcount.spl_coloreditem.type_C { background: radial-gradient(ellipse, var(--light-50) 30%, var(--dark-10)); }
 `;
+
+_darkStyleForGame['splendorexpansions'] = _darkStyleForGame['splendor'];
 
 _darkStyleForGame['splendorduel'] = `
 #overall-content:before { content: ""; background: #000000bb; position: absolute; width: 100%; height: 100%; }
