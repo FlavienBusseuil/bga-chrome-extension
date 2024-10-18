@@ -71,6 +71,7 @@ const defaultGames: Partial<Game>[] = [
 		name: "wingspan",
 		position: "auto",
 		playerPanel: "aviary_{{player_id}}",
+		iconBackground: "#fff",
 		css: ".desktop_version #wsp_opponent_board_area { padding-left: 40px; }",
 	},
 	{

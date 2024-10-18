@@ -303,6 +303,7 @@ export const gamesWithCustomColors = {
 export const gamesWithRecommandedConfig = {
   abyss: { color: 226, sat: 16 },
   agricola: { color: 100, sat: 12 },
+  arknova: { color: 33, sat: 15 },
   bauer: { color: 0, sat: 15 },
   betta: { color: 180, sat: 20 },
   beyondthesun: { color: 197, sat: 35 },
@@ -856,13 +857,27 @@ _darkStyleForGame['artdecko'] = `
 `;
 
 _darkStyleForGame['arknova'] = `
-#overall-content:before { content: ""; background: #000000B0; position: absolute; width: 100%; height: 100%; }
-.player-name > svg { filter: invert(0.7); }
+#overall-content:before { content: ""; background: #00000080; position: absolute; width: 100%; height: 100%; top:0px; left:0px; }
+.zoo-map-board-background:before, #association-board:before, #workers-reserves:before{ content: ""; background: #00000060; position: absolute; width: 100%; height: 100%; top:0px; left:0px; }
+.zoo-map-board-background, #association-board, #workers-reserves { position: relative; }
+.player-board-cards, .player-board-action-cards, #base-projects-holder, #projects-holder { background: var(--dark-20) !important; }
+.player-board-cards .player-board-inPlay-animals, .player-board-cards .player-board-inPlay-sponsors,
+#association-board-resizable #association-board-container #base-projects-holder .project-holder, #association-board-resizable #association-board-container #projects-holder .project-holder { background: var(--dark-40); }
+.player-name > svg { filter: invert(0.8); }
 .ark-log-card-name { color: #fffafb; }
-#player_boards .arknova-icon, #logs .arknova-icon, #maintitlebar_content .arknova-icon { filter: var(--drop-shadow); }
-.player-info .handCount-holder .scoringHandCount-holder { color: #000; }
+#player_boards .arknova-icon, #logs .arknova-icon, #maintitlebar_content .arknova-icon, #player_boards .player-xtoken, #player_boards .player-handCount { color: var(--light-80); filter: var(--drop-shadow); }
 .dijitTooltipContainer .arknova-icon { filter: var(--highlight); }
-.dijitTooltipContainer .ark-card-bottom, .dijitTooltipContainer .arknova-bonus { color: #000; }
+.dijitTooltipContainer .ark-card-bottom, .dijitTooltipContainer .arknova-bonus,
+.ark-card .ark-card-wrapper .ark-card-middle .ark-card-title-wrapper .ark-card-subtitle,
+.ark-card .ark-card-wrapper .ark-card-middle .ark-card-number, .player-info .handCount-holder .scoringHandCount-holder { color: #000; }
+.log.cancel .roundedbox { background-color: #000 !important; }
+.player-board-cards .player-board-hand, .player-board-cards .player-board-scoring-hand { background: var(--dark-back); }
+.ark-card.zoo-card, .arknova-meeple, .arknova-icon, .building-container, .upgradeNeeded-marker, .zoo-map-association, .zoo-map-bonus-spaces, #reputation-track { filter: brightness(0.9); }
+#btnConfirmChoice { background: linear-gradient(#b6b70b, #898924) !important; border: 1px solid #00334d; }
+#btnConfirmChoice:hover { background: linear-gradient(#b7b70b, #aeae04) !important; }
+.bgabutton:not(.disabled).selected { background: linear-gradient(#0bb76c, #24895d) !important; border: 1px solid #00334d; }
+.bgabutton:not(.disabled).selected:hover { background: linear-gradient(#06ea87, #24895d) !important; }
+#floating-hand-wrapper #floating-hand-button-container #floating-hand-button, #floating-hand-wrapper #floating-hand-button-container #floating-scoring-hand-button { background-color: var(--dark-20); color: var(--light-80); border: 1px solid var(--light-50); }
 `;
 
 _darkStyleForGame['armadora'] = `
@@ -6001,25 +6016,28 @@ _darkStyleForGame['werewolves'] = `
 _styleForGame['wingspan'] = `
 #cde-floating-menu-score > .fa-star { background-image: none !important; filter: none !important; left: 0px; }
 #cde-floating-menu-score > .fa-star:before { content: "\\f005" !important; }
-.wsp_birdtray_largecards #tray_img { background-color: var(--dark-10); }
-#birdtray_label { color: var(--light-80); }
-#goal_board_img, .wsp_card_ontray, .wsp_playermat_img, .wsp_tooltip_bird_img { filter: brightness(0.8); }
 `;
 
 _darkStyleForGame['wingspan'] = `
 .wsp_background_paper body { background: none !important; }
-.wsp_background_paper #overall-content:before { content: ""; background: #000000A0; position: absolute; width: 100%; height: 100%; }
+.wsp_background_paper #overall-content:before { content: ""; background: #000000b3; position: absolute; width: 100%; height: 100%; }
 #spectatorbox { background-color: var(--dark-20) !important; }
 .player_board_content, .wsp_playerboard_card_icon { color: #000; }
-#feeder_outside, #feeder_outside > div { filter: invert(1); }
 .wsp_tooltip_header span[style$="color: #666666"] { color: #ccc !important; }
-#goal_current_round, #goal_title, #goal_forecast_option, .wsp_aviarycounter_turnsleft { color: var(--light-80); }
+#goal_current_round, #goal_title, #goal_forecast_option, .wsp_aviarycounter_turnsleft,
+.player_board_content, .wsp_playerboard_card_icon, .player_score_value, #discard_label, #birdtray_label, .wsp_scoresheet_text { color: var(--light-80); }
 #goal_appendix { color: var(--light-70); }
-#goal_forecast_option_checkbox, #birdtray_zoom { filter: invert(1); }
 .wsp_playermat_opponent_label, .player_board_inner>.player-name, #player_board_inner_ffa500>.player-name,.wsp_player_ffa500>.wsp_playermat_opponent_label,
 #player_board_inner_008000>.player-name,.wsp_player_008000>.wsp_playermat_opponent_label { text-shadow: 1px 0 2px #00000099,0 -1px 2px #00000099,0 1px 2px #00000099,-1px 0 2px #00000099 }
-.player_board_content, .wsp_playerboard_card_icon, .player_score_value { color: var(--light-80); }
-.fa-star:not(.rating_star) { filter: invert(1); }
+.wsp_birdtray_largecards #tray_img { background-color: var(--dark-10); }
+#goal_board_img, .wsp_card_ontray, .wsp_playermat_img, .wsp_tooltip_bird_img, .wsp_card_aviary, #bird_discard,
+#bird_draw, #bonus_discard, #bonus_draw, #logs .wsp_card_notif, .wsp_tooltip_bonus_img, .wsp_dice { filter: brightness(0.9); }
+#wsp_show_underlay { background-color: #000; }
+#goal_forecast_option_checkbox, #birdtray_zoom, .fa-star:not(.rating_star), #feeder_outside, .wsp_scoresheet_img, .wsp_scoresheet_img > * { filter: invert(1); }
+#feeder_outside > div { filter: brightness(0.9) invert(1); }
+.wsp_scoresheet_img { box-shadow: 1px 1px 8px #fff; }
+.wsp_scoresheet_name, .wsp_scoresheet_ffa500, .wsp_scoresheet_008000 { text-shadow: none; }
+.wsp_scoresheet_counter { color: var(--light-80); text-shadow: none; }
 `;
 
 _darkStyleForGame['wizard'] = `
