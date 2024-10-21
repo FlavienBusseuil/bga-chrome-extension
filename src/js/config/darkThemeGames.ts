@@ -297,7 +297,8 @@ export const gamesWithCustomColors = {
   thefoxintheforest: ['#5e3f85'],
   cosmoctopus: ['#20134b'],
   pandemic: ['#252525'],
-  insidejob: ['#0000ff', '#ff0000', '#ffa500', '#773300', '#008000']
+  insidejob: ['#0000ff', '#ff0000', '#ffa500', '#773300', '#008000'],
+  terraformingmars: ['#ff6565', '#6565ff', '#54aa54', '#ffc965'],
 };
 
 export const gamesWithRecommandedConfig = {
@@ -5329,7 +5330,17 @@ _darkStyleForGame['terraformingmars'] = `
 .hand_sorter { background-color: var(--dark-40); color: var(--light-70); border: 1px solid var(--light-50); }
 .hand_sorter .hs_button { border: 1px solid var(--light-70); }
 .hand_sorter .hs_button[data-direction=increase], .hand_sorter .hs_button[data-direction=decrease] { background-color: var(--yellow-10); }
-:root { --color-mapping_ff0000: #ff3333; --color-mapping_0000ff: #6666ff; --color-mapping_008000: #009e0a; }
+:root { --color-mapping_ff0000: #ff6565; --color-mapping_0000ff: #6565ff; --color-mapping_008000: #54aa54; --color-mapping_ffa500: #ffc965; }
+.tooltipcontainer .invalid_prereq .tt_section.tt_prereq .card_tt_effect { color: #ff3333; }
+.plcolor_ff0000 { --plcolor: #ff6565; }
+.plcolor_0000ff { --plcolor: #6565ff; }
+.plcolor_008000 { --plcolor: #54aa54; }
+.plcolor_ffa500 { --plcolor: #ffc965; }
+a#localsettings_restore span { white-space: break-spaces; }
+#localsettings_restore { margin: 8px; }
+.stack_dd_buttons.open { background: var(--dark-20); color: var(--light-80); border: 1px solid var(--light-50); }
+.log .movestamp { color: var(--light-80); }
+.log:hover .movestamp { color: var(--blue-80); }
 `;
 
 _darkStyleForGame['terramystica'] = `
