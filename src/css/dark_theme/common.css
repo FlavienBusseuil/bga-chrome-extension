@@ -73,6 +73,15 @@
   background: linear-gradient(180deg, #248189, #0ba9b7) !important;
 }
 
+.bgabutton:not(.disabled).selected {
+  background: linear-gradient(#0bb76c, #24895d) !important;
+  border: 1px solid #00334d;
+}
+
+.bgabutton:not(.disabled).selected:hover {
+  background: linear-gradient(#06ea87, #24895d) !important;
+}
+
 /* Modales et popin */
 
 .bga-popup-modal__holder.bg-white {

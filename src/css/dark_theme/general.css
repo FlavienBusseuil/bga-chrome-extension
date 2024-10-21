@@ -33,7 +33,8 @@
 .loading_icon,
 #loading,
 #overall_loading,
-.bga-loading-indicator__img {
+.bga-loading-indicator__img,
+#waiting_image {
   filter: invert(0.7) grayscale(1);
 }
 
