@@ -76,6 +76,7 @@ export const gamesWithCustomBackground = [
   'happycity',
   'harmonies',
   'heat',
+  'heatchampionship',
   'insidejob',
   'itsawonderfulworld',
   'iwari',
@@ -274,11 +275,14 @@ export const playersBackground = {
 export const playersBorder = {
   bagofchips: ['#player-table-{{player_id}}'],
   castlecombo: ['#player-table-{{player_id}}'],
-  jumpdrive: ['#jdr-tableau-{{player_id}}'],
   daybreak: ['#dbk-hand{{player_id}}'],
   elawa: ['#player-table-{{player_id}}'],
+  heat: ['#player-table-{{player_id}}'],
+  heatchampionship: ['#player-table-{{player_id}}'],
   itsawonderfulworld: ['#iww-player{{player_id}}'],
+  jumpdrive: ['#jdr-tableau-{{player_id}}'],
   pixies: ['#player-table-{{player_id}}'],
+  refuge: ['#player-table-{{player_id}}'],
   riverofgold: ['#rog_player_delivered_resizable-{{player_id}}'],
   skatelegend: ['#player-table-{{player_id}}'],
   treos: ['#gamezone-{{player_id}}'],
@@ -898,6 +902,9 @@ _darkStyleForGame['arnak'] = `
 .display-deck:hover { background: var(--dark-30); }
 .display-deck:active { background: var(--dark-40); }
 html.darkpanel #player_boards .player-board.player-board.passed {  background-color: var(--dark-0) !important }
+button.layout-button { background: var(--dark-10); border: 1px solid var(--light-70); cursor: pointer; }
+button.layout-button.layout-selected { background: #246175; }
+.card, .arnak-board, .idol { filter: brightness(0.9); }
 `;
 
 _darkStyleForGame['artthief'] = `
@@ -2644,9 +2651,18 @@ _darkStyleForGame['greatwesterntrail'] = `
 .player-board-button-wrapper { top: 0.5em; }
 #gwt_boards_area { gap: 0.5em; }
 .pref-group { background-color: #000; }
-.slider { #666; }
+.slider { background-color: #404347; border: 1px solid #8d8d8d; }
+.slider:before { bottom: 3px; }
 input:checked+.slider, #gwt_layout_wrapper input[type=radio]:checked+label, .block-user-pref-radio input[type=radio]:checked+label { background-color: var(--blue-70); }
 #gwt_layout_wrapper label, .block-user-pref-radio label { background-color: var(--light-50); }
+.fixed-player-board .me.white .player-board-and-tiles:not(.no-fixed), .fixed-player-cards .me.white .player-cards:not(.no-fixed), .shadow-white { box-shadow: 0 0 10px 1px #999; }
+.fixed-player-cards .me .player-cards:not(.no-fixed), .fixed-player-board .player-board-and-tiles:not(.no-fixed) { background-color: var(--dark-back); }
+.fixed-player-cards .me .player-cards:not(.no-fixed) .player-cards-button, .fixed-player-board .player-board-and-tiles:not(.no-fixed) .player-board-button  { background-color: var(--dark-20); border: 1px solid var(--dark-40); box-shadow: 0 2px 3px 1px var(--dark-40); }
+#gwt_deck_info { background-color: var(--dark-10); color: var(--light-80); }
+.gwt-sprite-exchange-token { filter: var(--highlight-min); }
+#gwt_undo_button { border: 1px solid var(--light-50); }
+#gwt_undo_button:hover { border: 1px solid var(--light-70); }
+.fixed-player-board.fixed-player-cards .me { background-color: transparent; }
 `;
 
 _darkStyleForGame['grovesolitaire'] = `
@@ -2850,6 +2866,10 @@ _darkStyleForGame['haiclue'] = `
 _darkStyleForGame['hanabi'] = `
 .bgagame-hanabi #hanabi_prefs .bgabutton_gray { background: var(--dark-10); color: var(--light-80); }
 .bgagame-hanabi #hanabi_prefs .bgabutton_gray:hover { background: var(--dark-30); }
+.active_element.playerhand .playername { background-color: var(--red-10); }
+.active_element.playerhand .playername span { color: var(--light-80); }
+#clue_box { background-color: var(--dark-10); color: var(--light-80); }
+.notouch-device .clue_option:hover { background-color: var(--dark-30); }
 `;
 
 _darkStyleForGame['hanamikoji'] = `
@@ -2897,29 +2917,22 @@ _darkStyleForGame['hearts'] = `
 
 _darkStyleForGame['heat'] = `
 #overall-content:before { content: ""; background: #000000A0; position: absolute; width: 100%; height: 100%; }
-#tables .player-table { background: var(--dark-back); }
-#bga-zoom-controls { filter: invert(0.8); }
+.player-table .player-board:before, #legend-table #legend-board:before { content: ""; background: #00000040; position: absolute; width: 100%; height: 100%; }
+#tables .player-table, .player-table .hand-wrapper { background: var(--dark-back); }
+#bga-zoom-controls { filter: invert(0.9); }
 .player-board .icon { filter: var(--drop-shadow); }
 html.darkpanel #player_boards .player-board.finished { background-color: var(--dark-40) !important; }
 .player-board .order-counter { border: 2px solid var(--light-80); background-color: var(--dark-40); }
 .player-board .order-counter.played { background-color: var(--dark-0); }
 #help-popin .weather-card { box-shadow: none; }
-#table-center #circuit { filter: brightness(0.9); }
+#table-center #circuit, .card { filter: brightness(0.9); }
+.bga-cards_deck-counter.round { background: var(--dark-10); box-shadow: 0 0 2px 1px #fff; color: var(--light-80); }
+#leave-text { background: var(--dark-10); color: var(--light-80); }
+.scorepad-image, .scorepad-image > * { filter: invert(1); }
+.scorepad-image table tr td { text-shadow: none; }
 `;
 
-_darkStyleForGame['heatchampionship'] = `
-#tables .player-table { background: var(--dark-back); }
-#bga-zoom-controls { filter: invert(0.8); }
-.player-board .icon { filter: var(--drop-shadow); }
-html.darkpanel #player_boards .player-board.finished { background-color: var(--dark-40) !important; }
-.player-board .order-counter { border: 2px solid var(--light-80); background-color: var(--dark-40); }
-.player-board .order-counter.played { background-color: var(--dark-0); }
-#help-popin .weather-card { box-shadow: none; }
-#scorepad-image table tr td { text-shadow: none; }
-#scorepad-image { color: #000; }
-#championship-table #championship-circuits { background: var(--dark-10); color: #fff; }
-#table-center #circuit { filter: brightness(0.9); }
-`;
+_darkStyleForGame['heatchampionship'] = _darkStyleForGame['heat'];
 
 _darkStyleForGame['heckinhounds'] = `
 .playertablename, .loaded_font_1 { text-shadow: none; }
@@ -3193,6 +3206,10 @@ _darkStyleForGame['kingoftokyo'] = `
 .kot-card .description-wrapper, .kot-curse-card .description-wrapper, .kot-evolution .description-wrapper, .kot-tile .description-wrapper { color: var(--light-80); }
 .dice-icon { filter: var(--highlight-min); }
 #zoom-wrapper #zoom-controls { filter: invert(0.8); }
+#monster-pick .monster-group { background: var(--dark-back); }
+#popin_showActivatedExpansions { background: var(--dark-10); }
+#popin_showActivatedExpansions h2 { color: var(--light-80); }
+.card, .monster-figure, .monster-board { filter: brightness(0.9); }
 `;
 
 _darkStyleForGame['klaverjassen'] = `
@@ -4136,6 +4153,9 @@ _darkStyleForGame['patchwork'] = `
 .bgabutton .control-image { filter: invert(1); }
 #miniboard_0000ff .empty_icon { background-color: #039fb0; border-color: #fff; }
 #miniboard_ff0000 .empty_icon { background-color: #8d3f25; border-color: #fff; }
+.time_icon { filter: invert(0.9); }
+.market .patch { filter: drop-shadow(2px 2px 2px black) brightness(0.9); }
+.pboard, .scoreboard, .pbutton { filter: brightness(0.9); }
 `;
 
 _darkStyleForGame['pathofcivilization'] = `
@@ -4506,6 +4526,17 @@ g.fa-group { color: #000; }
 _darkStyleForGame['reflectionsinthelookingglass'] = `
 .entireTableClass, .handclass, .layoutdeckclass, .mirrorclass { background: var(--dark-back); }
 #zoomControls { filter: invert(0.7); }
+`;
+
+_darkStyleForGame['refuge'] = `
+#table-center #board:before { content: ""; background: #00000060; position: absolute; width: 100%; height: 100%; top:0px; left: 0px; }
+.tooltip-tile-name { border-bottom: 1px solid #8469c9; color: #8469c9; }
+.card-side, .round-marker { filter: brightness(0.8); }
+#bga-zoom-controls { filter: invert(0.9); }
+#table-center #board #route { background: var(--dark-back); }
+.player-table, .player-table .bag .hand-wrapper { background: var(--dark-back); border: 1px solid var(--light-50); }
+.bga-cards_deck-counter.round { background: var(--dark-10); box-shadow: 0 0 2px 1px var(--light-70); color: var(--light-80); }
+.player-table .name-wrapper { background-color: var(--dark-20) !important; }
 `;
 
 _darkStyleForGame['regicide'] = `
@@ -5023,6 +5054,7 @@ _darkStyleForGame['spacebase'] = `
 .cardToolTip [style*="color:blue"] { color: #6666ff !important; }
 .cardToolTip [style*="color:red"] { color: #ff3333 !important; }
 #logs .icon-small { filter: var(--highlight-min); }
+.card { filter: brightness(0.9); }
 `;
 
 _darkStyleForGame['spaceempires'] = `

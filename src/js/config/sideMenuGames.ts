@@ -1356,6 +1356,12 @@ const defaultGames: Partial<Game>[] = [
 		iconBackgroundDark: "#524d47",
 		css: " "
 	},
+	{
+		name: "refuge",
+		playerPanel: "player-table-{{player_id}}",
+		css: "#bga-jump-to_controls { display: none; } .desktop_version #game_play_area { padding-left: 50px; }",
+	},
+
 ];
 
 export default defaultGames;
