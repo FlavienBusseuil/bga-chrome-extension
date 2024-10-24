@@ -97,7 +97,7 @@
 		"message": "Hidden games"
 	},
 	"optionMutedTab": {
-		"message": "Muted players [BETA]"
+		"message": "Muted players"
 	},
 	"optionNavigationTab": {
 		"message": "Navigation side menu"
@@ -127,7 +127,7 @@
 		"message": "Remove a game from this list to display it on Board Game Arena. (You must reload the page for the changes to be effective)"
 	},
 	"optionNoMutedPlayer": {
-		"message": "No muted player"
+		"message": "No muted player."
 	},
 	"optionMutedWarning": {
 		"message": "You can mute up to 10 players. Remove a player from this list to stop mute them."
@@ -256,13 +256,16 @@
 		"message": "The game will be started with the default settings (and automatically opened to other players if you've set this option)."
 	},
 	"mutePlayerTitle": {
-		"message": "Mute a player [BETA]"
+		"message": "Mute a player"
 	},
 	"muteText1": {
 		"message": "You will no longer receive messages from ignored players in game conversations. You can mute up to 10 players and manage the ignore list in the extension options."
 	},
-	"muteText2": {
-		"message": "Other players will be informed of your decision to mute a player."
+	"muteWarningOn": {
+		"message": "Tell other players about your decision to mute a player."
+	},
+	"muteWarningOff": {
+		"message": "Don not tell other players about your decision to mute a player."
 	},
 	"buttonConfirm": {
 		"message": "Confirm"

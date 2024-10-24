@@ -97,7 +97,7 @@
 		"message": "Jeux cachés"
 	},
 	"optionMutedTab": {
-		"message": "Joueurs ignorés [BETA]"
+		"message": "Joueurs ignorés"
 	},
 	"optionNavigationTab": {
 		"message": "Menu de navigation"
@@ -127,7 +127,7 @@
 		"message": "Retirez un jeu de cette liste pour l'afficher sur Board Game Arena. (Vous devez recharger la page pour que les changements soient effectifs)"
 	},
 	"optionNoMutedPlayer": {
-		"message": "Aucun joueur ignoré"
+		"message": "Aucun joueur ignoré."
 	},
 	"optionMutedWarning": {
 		"message": "Vous pouvez ignorer jusque 10 joueurs. Retirez un joueur de cette liste pour arrêter de l'ignorer."
@@ -256,13 +256,16 @@
 		"message": "Le jeu sera démarré avec les paramètres par défaut (et automatiquement ouvert aux autres joueurs si vous avez configuré cette option)."
 	},
 	"mutePlayerTitle": {
-		"message": "Ignorer un joueur [BETA]"
+		"message": "Ignorer un joueur"
 	},
 	"muteText1": {
 		"message": "Vous ne recevrez plus les messages des joueurs ignorés dans les conversations des jeux. Vous pouvez ignorer jusque 10 joueurs et gérer la liste des personnes ignorées dans les options de l'extension."
 	},
-	"muteText2": {
-		"message": "Les autres joueurs seront informés de votre décision d'ignorer un joueur."
+	"muteWarningOn": {
+		"message": "Informer les autres joueurs de votre décision d'ignorer un joueur."
+	},
+	"muteWarningOff": {
+		"message": "Ne pas informer les autres joueurs de votre décision d'ignorer un joueur."
 	},
 	"buttonConfirm": {
 		"message": "Confirmer"

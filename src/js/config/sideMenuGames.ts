@@ -1361,7 +1361,12 @@ const defaultGames: Partial<Game>[] = [
 		playerPanel: "player-table-{{player_id}}",
 		css: "#bga-jump-to_controls { display: none; } .desktop_version #game_play_area { padding-left: 50px; }",
 	},
-
+	{
+		name: "rumbleplanet",
+		playerPanel: "player-table-{{player_id}}",
+		css: "#bga-jump-to_controls { display: none; }",
+		iconBackgroundDark: "#415b59"
+	},
 ];
 
 export default defaultGames;

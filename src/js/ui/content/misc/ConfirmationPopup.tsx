@@ -14,6 +14,7 @@ interface Props {
 const ConfirmationPopup = ({ type, confirm, cancel, config }: Props) => {
   const [stopWarn, setStopWarn] = useState(false);
   const [autoOpen, setAutoOpen] = useState(config.isAutoOpenEnable());
+  const [muteWarning, setMuteWarning] = useState(config.isMuteWarning());
 
   if (type === 'delete_game') {
     return (
@@ -39,10 +40,13 @@ const ConfirmationPopup = ({ type, confirm, cancel, config }: Props) => {
 
   if (type === 'mute_player') {
     return (
-      <div id="bgaext_popup">
+      <div id="bgaext_popup" className="large">
         <h2 class="bgaext_popup_title">{chrome.i18n.getMessage("mutePlayerTitle")}</h2>
         <p dangerouslySetInnerHTML={{ __html: chrome.i18n.getMessage("muteText1") }}></p>
-        <p dangerouslySetInnerHTML={{ __html: chrome.i18n.getMessage("muteText2") }}></p>
+        <div className="bgaext_popup_check" onClick={() => setMuteWarning(!muteWarning)}>
+          <input type="checkbox" checked={muteWarning} />
+          <label>{chrome.i18n.getMessage("muteWarningOn")}</label>
+        </div>
         <p dangerouslySetInnerHTML={{ __html: chrome.i18n.getMessage("deleteGameText2") }}></p>
         <p dangerouslySetInnerHTML={{ __html: chrome.i18n.getMessage("deleteGameLink") }}></p>
         <div class="bgaext_popup_footer">
@@ -65,15 +69,15 @@ const ConfirmationPopup = ({ type, confirm, cancel, config }: Props) => {
   };
 
   return (
-    <div id="bgaext_popup" className="fast_start">
+    <div id="bgaext_popup" className="huge">
       <h2 class="bgaext_popup_title">{chrome.i18n.getMessage("fastStartTitle")}</h2>
       <p dangerouslySetInnerHTML={{ __html: chrome.i18n.getMessage("fastStartText1") }}></p>
       <p dangerouslySetInnerHTML={{ __html: chrome.i18n.getMessage("deleteGameText2") }}></p>
-      <p dangerouslySetInnerHTML={{ __html: chrome.i18n.getMessage("deleteGameLink") }}></p>
       <div className="bgaext_popup_check" onClick={updateAutoOpen}>
         <input type='checkbox' id='check_auto_open' checked={autoOpen} />
         <label>{chrome.i18n.getMessage('optionsAutoOpenOn')}</label>
       </div>
+      <p dangerouslySetInnerHTML={{ __html: chrome.i18n.getMessage("deleteGameLink") }}></p>
       <div class="bgaext_popup_footer">
         <div className="bgaext_popup_check" onClick={() => setStopWarn(!stopWarn)}>
           <input type="checkbox" checked={stopWarn} />

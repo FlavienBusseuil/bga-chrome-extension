@@ -19,6 +19,7 @@ const Options = (props: { config: Configuration }) => {
 	const [tabSelected, setTabSelected] = useState("misc");
 	const [hiddenGames, setHiddenGames] = useState(config.getHiddenGames());
 	const [hiddenPlayers, setHiddenPlayers] = useState<string[]>(config.getMutedPlayers());
+	const [muteWarning, setMuteWarning] = useState(config.isMuteWarning());
 	const [onlineMessages, setOnlineMessages] = useState(config.isOnlineMessagesEnabled());
 	const [eloHidden, setEloHidden] = useState(config.isEloHidden());
 	const [tracking, setTracking] = useState(config.isTrackingEnable());
@@ -105,8 +106,13 @@ const Options = (props: { config: Configuration }) => {
 	};
 
 	const updateEloHidden = (val: boolean) => {
-		setEloHidden(val);
-		config.setEloHidden(val)
+		setEloHidden(!val);
+		config.setEloHidden(!val)
+	};
+
+	const updateMuteWarning = (val: boolean) => {
+		setMuteWarning(val);
+		config.setMuteWarning(val)
 	};
 
 	const updateTracking = (val: boolean) => {
@@ -241,9 +247,9 @@ const Options = (props: { config: Configuration }) => {
 						onChange={updateOnlineMessages}
 					/>
 					<Switch
-						checked={eloHidden}
-						textOn={chrome.i18n.getMessage("optionEloHiddenOn")}
-						textOff={chrome.i18n.getMessage("optionEloHiddenOff")}
+						checked={!eloHidden}
+						textOn={chrome.i18n.getMessage("optionEloHiddenOff")}
+						textOff={chrome.i18n.getMessage("optionEloHiddenOn")}
 						onChange={updateEloHidden}
 					/>
 				</div>
@@ -361,6 +367,14 @@ const Options = (props: { config: Configuration }) => {
 				{hiddenPlayers.length > 0 && <div className="bgext_options_warning">
 					{chrome.i18n.getMessage("optionMutedWarning")}
 				</div>}
+				<div className="bgext_hidden_games_container">
+					<Switch
+						checked={muteWarning}
+						textOn={chrome.i18n.getMessage("muteWarningOn")}
+						textOff={chrome.i18n.getMessage("muteWarningOff")}
+						onChange={updateMuteWarning}
+					/>
+				</div>
 			</>
 		);
 	};

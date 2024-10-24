@@ -46,6 +46,7 @@ interface CustomConfig {
 	disabled: string[];
 	hidden: string[];
 	muted: string[];
+	muteWarning?: boolean;
 	floating: string[];
 	onlineMessages?: boolean;
 	floatingRightMenu?: boolean;
@@ -127,7 +128,7 @@ class Configuration {
 			disabled: [],
 			floating: [],
 			hidden: [],
-			muted: [],
+			muted: []
 		};
 		this._config = { games: [] };
 	}
@@ -471,6 +472,15 @@ class Configuration {
 
 	getMutedPlayers() {
 		return this._customConfig.muted;
+	}
+
+	setMuteWarning(enable: boolean) {
+		this._customConfig.muteWarning = enable;
+		storageSet({ muteWarning: enable });
+	}
+
+	isMuteWarning() {
+		return this._customConfig.muteWarning === undefined || this._customConfig.muteWarning === true;
 	}
 
 	hideGame(name: string) {

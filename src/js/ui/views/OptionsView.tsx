@@ -24,6 +24,7 @@ export const OptionsView = ({ config, onChange }: Props) => {
   const [inProgressConfig, setInProgressConfig] = useState<InProgressConfig>(config.getInProgressConfig());
   const [hiddenGames, setHiddenGames] = useState<string[]>(config.getHiddenGames());
   const [hiddenPlayers, setHiddenPlayers] = useState<string[]>(config.getMutedPlayers());
+  const [muteWarning, setMuteWarning] = useState(config.isMuteWarning());
   const [configVisible, setConfigVisible] = useState(localStorage.getItem('ext_settings') || 'about');
   const isFirefox = window.navigator.userAgent.toLowerCase().includes('firefox');
 
@@ -38,8 +39,13 @@ export const OptionsView = ({ config, onChange }: Props) => {
   };
 
   const updateEloHidden = (val: boolean) => {
-    setEloHidden(val);
-    config.setEloHidden(val)
+    setEloHidden(!val);
+    config.setEloHidden(!val)
+  };
+
+  const updateMuteWarning = (val: boolean) => {
+    setMuteWarning(val);
+    config.setMuteWarning(val)
   };
 
   const updateTracking = (val: boolean) => {
@@ -142,7 +148,7 @@ export const OptionsView = ({ config, onChange }: Props) => {
     const textOn = chrome.i18n.getMessage(textOnKey);
     const textOff = chrome.i18n.getMessage(textOffKey);
     const msg = checked ? textOn : textOff;
-    const className = (msg.length > 71) ? 'long_text' : undefined;
+    const className = (msg.length > 73) ? 'long_text' : undefined;
 
     return <Switch checked={checked} textOn={textOn} textOff={textOff} onChange={onChange} disabled={disabled} className={className} />
   };
@@ -182,7 +188,7 @@ export const OptionsView = ({ config, onChange }: Props) => {
         <div className="options-frame">
           <div className="options-frame-title">{chrome.i18n.getMessage("optionGamesTitle")}</div>
           {getSwitch(onlineMessages, updateOnlineMessages, "optionFriendsActivityOn", "optionFriendsActivityOff")}
-          {getSwitch(eloHidden, updateEloHidden, "optionEloHiddenOn", "optionEloHiddenOff")}
+          {getSwitch(!eloHidden, updateEloHidden, "optionEloHiddenOff", "optionEloHiddenOn")}
         </div>
       );
     }
@@ -288,7 +294,10 @@ export const OptionsView = ({ config, onChange }: Props) => {
         <div className="options-frame">
           <div className="options-frame-title">{chrome.i18n.getMessage("optionMutedTab")}</div>
           <div>{chrome.i18n.getMessage("optionMutedWarning")}</div>
-          <div className="bgext_hidden_games_container">{getMutedConfiguration()}</div>
+          <div className="col">
+            <div className="bgext_hidden_games_container">{getMutedConfiguration()}</div>
+            {getSwitch(muteWarning, updateMuteWarning, "muteWarningOn", "muteWarningOff")}
+          </div>
         </div>
       );
     }

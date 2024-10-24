@@ -159,7 +159,6 @@ html.dark .options-frame-title {
   display: flex;
   flex-flow: row wrap;
   justify-content: start;
-  padding-top: 1em;
 }
 
 .bgext_hidden_game {
@@ -216,5 +215,11 @@ p {
   padding-right: 1em;
   display: flex;
   flex-flow: row;
+  gap: 0.5em;
+}
+
+.col {
+  display: flex;
+  flex-flow: column;
   gap: 0.5em;
 }

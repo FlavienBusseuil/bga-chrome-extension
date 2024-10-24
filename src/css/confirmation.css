@@ -30,8 +30,12 @@ html.darkmode #bgaext_popup_container {
   background-color: #eee;
 }
 
-#bgaext_popup.fast_start {
+#bgaext_popup.large {
   max-width: 600px;
+}
+
+#bgaext_popup.huge {
+  max-width: 700px;
 }
 
 html.darkmode #bgaext_popup {
@@ -84,7 +88,14 @@ html.darkmode #bgaext_popup {
 }
 
 @media (max-width: 600px) {
-  #bgaext_popup.fast_start {
+  #bgaext_popup.large {
+    max-width: 90%;
+    margin: 0px auto;
+  }
+}
+
+@media (max-width: 700px) {
+  #bgaext_popup.huge {
     max-width: 90%;
     margin: 0px auto;
   }

@@ -307,7 +307,7 @@ a#pageheader_buy {
 }
 
 .player-board .player-hand-card {
-  filter: invert(0.7);
+  filter: invert(0.9);
 }
 
 #seemorelogs {

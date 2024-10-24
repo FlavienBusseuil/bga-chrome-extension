@@ -50,12 +50,14 @@ const mutePlayer = (config, evt) => {
 		console.info(`[bga extension] Mute player ${playerName}`, mutedPlayers);
 		config.mutePlayer(playerName);
 
-		const msg = `${playerName} has been muted, I will no longer receive their messages. \n[Feature provided by: https://en.doc.boardgamearena.com/ChromeExtension]`;
-		const endPoint = `/table/table/say.html`;
-		const key = new Date().getTime();
-		const body = new URLSearchParams({ table: tableId, msg, noerrortracking: true, "dojo.preventCache": key }).toString();
-		const detail = JSON.stringify({ method: 'POST', endPoint, key, body, type: 'say' });
-		document.body.dispatchEvent(new CustomEvent('bga_ext_api_call', { detail }));
+		if (config.isMuteWarning()) {
+			const msg = `${playerName} has been muted, I will no longer receive their messages. \n[Feature provided by: https://en.doc.boardgamearena.com/ChromeExtension]`;
+			const endPoint = `/table/table/say.html`;
+			const key = new Date().getTime();
+			const body = new URLSearchParams({ table: tableId, msg, noerrortracking: true, "dojo.preventCache": key }).toString();
+			const detail = JSON.stringify({ method: 'POST', endPoint, key, body, type: 'say' });
+			document.body.dispatchEvent(new CustomEvent('bga_ext_api_call', { detail }));
+		}
 	};
 
 	if (localStorage.getItem("ext_mute_warning") === "off") {
