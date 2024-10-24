@@ -7,6 +7,8 @@ const greenButton = 'background: linear-gradient(#0bb76c, #24895d) !important; b
 const greenButtonOver = 'background: linear-gradient(#06ea87, #24895d) !important;';
 const yellowButton = 'background: linear-gradient(#b6b70b, #898924) !important; border: 1px solid #00334d !important; color:#fff !important;';
 const yellowButtonOver = 'background: linear-gradient(#b7b70b, #aeae04) !important;';
+const blueButton = 'background: linear-gradient(180deg, #0ba9b7, #248189) !important; color:#fff !important;';
+const blueButtonOver = 'background: linear-gradient(180deg, #06d7ea, #248189) !important;';
 
 export const gamesWithCustomBackground = [
   'afterus',
@@ -892,10 +894,19 @@ _darkStyleForGame['arknova'] = `
 .ark-card .ark-card-wrapper .ark-card-middle .ark-card-number, .player-info .handCount-holder .scoringHandCount-holder { color: #000; }
 .log.cancel .roundedbox { background-color: #000 !important; }
 .player-board-cards .player-board-hand, .player-board-cards .player-board-scoring-hand { background: var(--dark-back); }
-.ark-card.zoo-card, .arknova-meeple, .arknova-icon, .building-container, .upgradeNeeded-marker, .zoo-map-association, .zoo-map-bonus-spaces, #reputation-track { filter: brightness(0.9); }
+.ark-card.zoo-card, .arknova-meeple, .arknova-icon, .building-container, .upgradeNeeded-marker, .zoo-map-association, .zoo-map-bonus-spaces, #reputation-track, .ark-card .ark-card-wrapper { filter: brightness(0.9); }
 #btnConfirmChoice { ${yellowButton} }
 #btnConfirmChoice:hover { ${yellowButtonOver} }
+.action-button.lvl1:not(.disabled) { ${blueButton} }
+.action-button.lvl1:not(.disabled):hover { ${blueButtonOver} }
+.action-button.lvl2:not(.disabled) { ${purpleButton} }
+.action-button.lvl2:not(.disabled):hover { ${purpleButtonOver} }
 #floating-hand-wrapper #floating-hand-button-container #floating-hand-button, #floating-hand-wrapper #floating-hand-button-container #floating-scoring-hand-button { background-color: var(--dark-20); color: var(--light-80); border: 1px solid var(--light-50); }
+#xtoken-modifier-container { border: 1px solid var(--light-50); }
+.ark-card.unselectable { filter: grayscale(80%) !important; }
+.ark-card.selectedToDiscard, .ark-card.selectedToMap10, #pagesubtitle #building-selector .building-container.unplacable { filter: grayscale(1) !important; }
+#xtoken-modifier-container #xtoken-modifier-minus, #xtoken-modifier-container #xtoken-modifier-plus { background: var(--blue-70); }
+.action-cards-summary>div .summary-action-card[data-status="1"] .icon-container .arknova-icon { box-shadow: 0 0 1px 1px #000, 0 0 3px 3px var(--red-30); }
 `;
 
 _darkStyleForGame['armadora'] = `
