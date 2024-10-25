@@ -4864,9 +4864,8 @@ _darkStyleForGame['seasaltpaper'] = `
 `;
 
 _darkStyleForGame['seasons'] = `
-#overall-content:before { content: ""; background: #000000A0; position: absolute; width: 100%; height: 100%; }
-#player_boards .icon_cristal { filter: invert(0.7); }
-#player_boards .invocation_level, #player_boards .hand  { filter: invert(0.7); }
+#overall-content:before { content: ""; background: #0009; position: absolute; width: 100%; height: 100%; }
+#player_boards .icon_cristal, #player_boards .invocation_level, #player_boards .hand, #logs .energy0 { filter: invert(0.9); }
 .cardtooltip .energy0, .cardtooltip .icon_active, .cardtooltip .icon_permanent { filter: var(--highlight); }
 #settings-controls-container { background-color: var(--dark-20); background: var(--dark-20);}
 desktop_version .tableau, .transmutation_bar { filter: brightness(0.9); }
@@ -4939,6 +4938,7 @@ _darkStyleForGame['sevenwondersduel'] = `
 .cardinfos [style$="color: #027234"] { color: #03c95c !important; }
 #mythology_decks_container>div:nth-of-type(4) h3 span { color: #aaa; }
 .swd_title { color: #000; }
+.wonder, #board_container, .list_of_cards, .building_header_small, .draftpool, .progress_token { filter: brightness(0.9); }
 `;
 
 _darkStyleForGame['seotda'] = `
