@@ -2,7 +2,7 @@ import { getUrl } from "../utils/chrome";
 import { waitForObj } from '../utils/misc/wait';
 
 const purpleButton = 'background: linear-gradient(#b70bb7, #892489) !important; border: 1px solid #00334d !important; color:#fff !important;';
-const purpleButtonOver = 'background: linear-gradient(#b70bb7, #892489) !important;';
+const purpleButtonOver = 'background: linear-gradient(#ea06ea, #892489) !important;';
 const greenButton = 'background: linear-gradient(#0bb76c, #24895d) !important; border: 1px solid #004d05 !important; color:#fff !important;';
 const greenButtonOver = 'background: linear-gradient(#06ea87, #24895d) !important;';
 const yellowButton = 'background: linear-gradient(#b6b70b, #898924) !important; border: 1px solid #00334d !important; color:#fff !important;';
@@ -274,7 +274,8 @@ export const gamesWithCustomPlayerStyle = {
   chemicaloverload: '.player-table > h3',
   cannonades: '.player-table .c-title',
   takenokolor: '.player-table .name',
-  myshelfie: '.shelf-name'
+  myshelfie: '.shelf-name',
+  knister: '.knister_plname'
 };
 
 export const playersBackground = {
@@ -310,6 +311,7 @@ export const gamesWithCustomColors = {
   nowboarding: ['#000000'],
   pandemic: ['#252525'],
   parklife: ['#333333'],
+  resist: ['#782520'],
   riverofgold: ['#000000', '#ff0000', '#008000', '#0000ff', '#ffffff'],
   thefoxintheforest: ['#5e3f85'],
   terraformingmars: ['#ff6565', '#6565ff', '#54aa54', '#ffc965'],
@@ -2639,6 +2641,11 @@ _darkStyleForGame['gizmos'] = `
 #logs .gzs_log_token, .dijitTooltipContainer .gzs_tooltip_token { filter: var(--drop-shadow); }
 #gizmos_board .end_banner, #gzs_end_banner, #logs .end_banner, .log .end_banner { background: var(--red-10); border: 2px solid var(--yellow-10); }
 #gizmos_board .card, #gizmos_board .deck, .dijitTooltip .card { box-shadow: 5px 5px 5px #555; }
+#gizmos_board .gizmos_container .player_name { text-shadow: none; background: var(--dark-back); }
+#gizmos_board .gizmos_container .active_player .player_name { box-shadow: -7px -7px 8px var(--green-30), -7px 7px 8px var(--green-30), 7px -7px 8px var(--green-30), 7px 7px 8px var(--green-30); }
+#button_cancel, #button_cancelPick, #button_pass { ${purpleButton} }
+#button_cancel:hover, #button_cancelPick:hover, #button_pass:hover { ${purpleButtonOver}}
+#player_boards .counter_pair:not(.count_0) .counter_token { filter: var(--drop-shadow); }
 `;
 
 _darkStyleForGame['glassroad'] = `
@@ -3224,7 +3231,16 @@ _darkStyleForGame['kingdombuilder'] = `
 `;
 
 _darkStyleForGame['kingdomino'] = `
+body { background: none !important; }
 .player_view, #info { background: var(--dark-back); color: #fff; }
+#kingdom_label { background-color: var(--dark-20); margin: 0px; padding: 10px; }
+div[style*="border-color: #0000ff"] { border-color: #6565ff !important; }
+div[style*="border-color: #008000"] { border-color: #54aa54 !important; }
+div[style*="border-color: #ff1493"] { border-color: #ff65b8 !important; }
+div[style*="border-color: #ffa500"] { border-color: #ffc965 !important; }
+.square:before { background: var(--dark-back); }
+#kingdom:before { background: #272a2f66; }
+#castle, .domino-background { filter: brightness(0.9); }
 `;
 
 _darkStyleForGame['kingsguild'] = `
@@ -3276,6 +3292,11 @@ _darkStyleForGame['knarr'] = `
 #table-center .bga-cards_deck-counter#discard-counter { background-color: var(--dark-40); }
 [style="--player-color: #1e2c36;"] { --player-color:#5b86a4!important; }
 [style="--player-color: #7c5654;"] { --player-color:#7c5654!important; }
+`;
+
+_darkStyleForGame['knister'] = `
+.knister_playerheader { background-color: var(--dark-back); }
+.knister_playersheet { filter: brightness(0.9); }
 `;
 
 _darkStyleForGame['knockoutwhist'] = `
@@ -4501,6 +4522,8 @@ body { background: none !important; }
 .new_design a:link { color: var(--light-70); }
 .player-board, .roundedbox,  .roundedbox .roundedbox_bottomleft, .roundedbox .roundedbox_bottommain, .roundedbox .roundedbox_bottomright,
 .roundedbox .roundedbox_main, .roundedbox .roundedbox_topleft, .roundedbox .roundedbox_topmain, .roundedbox .roundedbox_topright { background-color: transparent; }
+.vp_chip, .tableaucount { filter: var(--highlight-min); }
+.nextCardToPlay { border: 2px solid var(--red-30); }
 `;
 
 _darkStyleForGame['railroadink'] = `
@@ -4597,6 +4620,15 @@ _darkStyleForGame['resarcana'] = `
 #res_roundnumber, .res_counterintext { color: var(--light-80); }
 .res_viewinside { filter: invert(0.7); }
 .res_fulldiscardpile { border: 1px solid var(--light-50); }
+`;
+
+_darkStyleForGame['resist'] = `
+#overall-content:before { content: ""; background: #00000080; position: absolute; width: 100%; height: 100%; top:0px; left: 0px; }
+.maquis_hidden_effect_zone, .maquis_revealed_effect_zone, .mission_data_zone, .enemy_effect_zone { background: var(--dark-10); }
+.bgabutton_blue:not(.disabled)[style="background: saddlebrown; border-color: saddlebrown;"] { ${yellowButton}}
+.bgabutton_blue:not(.disabled)[style="background: saddlebrown; border-color: saddlebrown;"]:hover { ${yellowButtonOver}}
+.bgabutton_blue:not(.disabled)[style="background: rebeccapurple; border-color: rebeccapurple;"] { ${purpleButton}}
+.bgabutton_blue:not(.disabled)[style="background: rebeccapurple; border-color: rebeccapurple;"]:hover { ${purpleButtonOver}}
 `;
 
 _darkStyleForGame['restinpeace'] = `
@@ -5239,6 +5271,7 @@ _darkStyleForGame['stoneage'] = `
 #player_boards .sa_icon { filter: var(--drop-shadow); }
 #diceboard { background-color: var(--dark-back); color: var(--light-80); border: 2px solid var(--dark-10); }
 #sta_finalScore table, #sta_finalScore table * { border-color: var(--light-50) !important; }
+.sta_auto_play_preference_box { background-color: #00224d; }
 `;
 
 _darkStyleForGame['stonks'] = `
@@ -5950,6 +5983,14 @@ _darkStyleForGame['ultimaterailroads'] = `
 .player-name, .player_board_inner, .player_score { background-color: transparent; }
 `;
 
+_darkStyleForGame['umbrella'] = `
+.um_board p { background-color: var(--dark-20); }
+#um_label_left { color: var(--light-80); }
+.bg-point { filter: var(--drop-shadow); }
+.um_board, .um_inter { filter: brightness(0.9); }
+.um_popup_content { background-color: var(--dark-20); }
+`;
+
 _darkStyleForGame['unconditionalsurrender'] = `
 #pagemaintitletext { background: var(--dark-20) !important }
 #pagemaintitletext * { background-color: transparent !important; }
@@ -6148,8 +6189,15 @@ _darkStyleForGame['wingspan'] = `
 
 _darkStyleForGame['wizard'] = `
 .wizLogColor { color: #000; }
-.wizPrefDeckMedieval .wizLogColor1 { color: var(--red-30); }
-.wizPrefDeckMedieval .wizLogColor2 { text-shadow: var(--text-w-shadow); }
+.wizPrefDeckFantasy .wizLogColor1 { background-color: var(--orange-30); }
+.wizPrefDeckFantasy .wizLogColor2 { background-color: var(--green-30); }
+.wizPrefDeckFantasy .wizLogColor3 { background-color: var(--red-30); }
+.wizPrefDeckFantasy .wizLogColor4 { background-color: var(--blue-10); }
+.wizPrefDeckStandard .wizLogColor1, .wizPrefDeckMedieval .wizLogColor1, .wizPrefDeckStandard .wizLogColor3, .wizPrefDeckMedieval .wizLogColor1 { color: var(--red-30); }
+.wizPrefDeckStandard .wizLogColor2, .wizPrefDeckStandard .wizLogColor4, .wizPrefDeckMedieval .wizLogColor2 { text-shadow: var(--text-w-shadow); }
+.wizPrefDeckMedieval .wizLogColor3 { color: var(--violet-80); }
+.wizPrefDeckMedieval .wizLogColor4 { color: var(--green-30); }
+.card .card-sides .card-side, #wizTrumpSelectionColor, #wizScorePad { filter: brightness(0.9); }
 `;
 
 _darkStyleForGame['wizardsgrimoire'] = `
