@@ -146,6 +146,14 @@ spectator-mode .log .roundedbox .playername {
   color: var(--light-70) !important;
 }
 
+.bgabutton_blue {
+  border: 1px solid #36848c;
+}
+
+.bgabutton_red {
+  border: 1px solid #69452e;
+}
+
 .pagesection {
   background: var(--dark-20);
   color: var(--light-80);

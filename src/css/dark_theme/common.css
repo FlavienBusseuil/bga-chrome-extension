@@ -46,12 +46,12 @@
 
 .bgabutton_red:hover,
 .notouch-device .bgabutton_red:hover {
-  background: linear-gradient(180deg, #ff8e47, #84461f)
+  background: linear-gradient(180deg, #ff8e47, #84461f);
 }
 
 .bgabutton_red:active,
 .notouch-device .bgabutton_red:active {
-  background: linear-gradient(180deg, #84461f, #db661f)
+  background: linear-gradient(180deg, #84461f, #db661f);
 }
 
 .bgabutton_blue:not(.disabled),

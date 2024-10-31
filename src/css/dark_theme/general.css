@@ -641,7 +641,9 @@ select.colorselector {
 }
 
 .bgaext_lobby .pageheader_mobile_switcher_wrap .pageheader_menuitem .switcher_zone,
-.bgaext_tournamentlist .pageheader_mobile_switcher_wrap .pageheader_menuitem .switcher_zone {
+.bgaext_tournamentlist .pageheader_mobile_switcher_wrap .pageheader_menuitem .switcher_zone,
+.notouch-device .pageheader_menu_verylarge .pageheader_big_switch:hover #switcher_zone,
+.pageheader_menu_verylarge .dropdown_expanded .pageheader_big_switch #switcher_zone {
   background: linear-gradient(180deg, var(--dark-10) 00%, var(--dark-40) 40%, var(--dark-40) 60%, var(--dark-10) 100%);
   border-left: 1px solid var(--dark-40);
 }
