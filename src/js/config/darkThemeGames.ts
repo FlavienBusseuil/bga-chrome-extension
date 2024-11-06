@@ -2,17 +2,17 @@ import { getUrl } from "../utils/chrome";
 import { waitForObj } from '../utils/misc/wait';
 
 const purpleButton = 'background: linear-gradient(#b70bb7, #892489) !important; border: 1px solid #00334d !important; color:#fff !important;';
-const purpleButtonOver = 'background: linear-gradient(#ea06ea, #892489) !important;';
+const purpleButtonOver = 'background: linear-gradient(#ea06ea, #892489) !important; color:#fff !important;';
 const greenButton = 'background: linear-gradient(#0bb76c, #24895d) !important; border: 1px solid #004d05 !important; color:#fff !important;';
-const greenButtonOver = 'background: linear-gradient(#06ea87, #24895d) !important;';
+const greenButtonOver = 'background: linear-gradient(#06ea87, #24895d) !important; color:#fff !important;';
 const yellowButton = 'background: linear-gradient(#b6b70b, #898924) !important; border: 1px solid #00334d !important; color:#fff !important;';
-const yellowButtonOver = 'background: linear-gradient(#b7b70b, #aeae04) !important;';
+const yellowButtonOver = 'background: linear-gradient(#b7b70b, #aeae04) !important; color:#fff !important;';
 const blueButton = 'background: linear-gradient(180deg, #0ba9b7, #248189) !important; color:#fff !important;';
-const blueButtonOver = 'background: linear-gradient(180deg, #06d7ea, #248189) !important;';
+const blueButtonOver = 'background: linear-gradient(180deg, #06d7ea, #248189) !important; color:#fff !important;';
 const redButton = 'background: linear-gradient(180deg, #b70b0b, #892424) !important; color:#fff !important;';
-const redButtonOver = 'background: linear-gradient(180deg, #ea0606, #892424) !important;';
+const redButtonOver = 'background: linear-gradient(180deg, #ea0606, #892424) !important; color:#fff !important;';
 const orangeButton = 'background: linear-gradient(180deg, #db661f, #84461f) !important; border: 1px solid #69452e; color:#fff !important;';
-const orangeButtonOver = 'background: linear-gradient(180deg, #ff8e47, #84461f) !important;';
+const orangeButtonOver = 'background: linear-gradient(180deg, #ff8e47, #84461f) !important; color:#fff !important;';
 const disabledButton = 'background: #787878 !important; border-color: var(--light-50) !important; color:#fff !important; cursor: not-allowed;';
 
 export const gamesWithCustomBackground = [
@@ -3304,6 +3304,10 @@ body { filter: brightness(0.7); }
 
 _darkStyleForGame['kingdombuilder'] = `
 .player-panel .player-settlements .player-settlements-counter { color: #fff !important; }
+.dijitTooltip .tile-prompt { background-color: var(--dark-10)!important; border: 1px solid var(--light-50); }
+#popin_chooseTile { background-color: var(--dark-0); }
+#popin_chooseTile_contents .tile-prompt { background-color: var(--dark-10); }
+#popin_chooseTile_contents .tile-prompt:hover { background-color: var(--dark-30); }
 `;
 
 _darkStyleForGame['kingdomino'] = `
@@ -4173,6 +4177,8 @@ _darkStyleForGame['odin'] = `
 .a-card.game-area-card { filter: brightness(0.9); }
 .table-container .table-owner-name-container { background-color: var(--dark-back); color: var(--light-80); }
 .table-container .table-owner-name-container .table-owner-player-name { text-shadow: none; }
+.odn-yellow-button { ${orangeButton} }
+.odn-yellow-button:hover { ${orangeButtonOver} }
 `;
 
 _darkStyleForGame['ohseven'] = `
