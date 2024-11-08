@@ -1848,7 +1848,7 @@ select.colorselector {
 .playernotification_not_read,
 #current_tournament,
 div.post[style="background-color: rgb(237, 186, 183);"] {
-  background-color: var(--dark-40) !important;
+  background-color: var(--dark-30) !important;
 }
 
 .panel-arena-history-entry {

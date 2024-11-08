@@ -913,7 +913,7 @@ _darkStyleForGame['arknova'] = `
 .ark-card .ark-card-wrapper .ark-card-middle .ark-card-number, .player-info .handCount-holder .scoringHandCount-holder { color: #000; }
 .log.cancel .roundedbox { background-color: #000 !important; }
 .player-board-cards .player-board-hand, .player-board-cards .player-board-scoring-hand { background: var(--dark-back); }
-.ark-card.zoo-card, .arknova-meeple, .arknova-icon, .building-container, .upgradeNeeded-marker, .zoo-map-association, .zoo-map-bonus-spaces, #reputation-track, .ark-card .ark-card-wrapper { filter: brightness(0.95); }
+.ark-card.zoo-card, .arknova-meeple, .arknova-icon, .building-container, .upgradeNeeded-marker, .zoo-map-association, .zoo-map-bonus-spaces, #reputation-track { filter: brightness(0.95); }
 .bgabutton_red { ${redButton} }
 .bgabutton_red:hover { ${redButtonOver} }
 #btnUndoLastStep { ${orangeButton} }
@@ -5113,7 +5113,9 @@ _darkStyleForGame['shogun'] = `
 `;
 
 _darkStyleForGame['siam'] = `
-.counter_value { color: var(--light-80) !important; }
+#table:before { content: ""; background: #00000040; position: absolute; width: 100%; height: 100%; }
+.mines, .yours { position: relative; }
+.tokens { filter: brightness(0.9); }
 `;
 
 _darkStyleForGame['signorie'] = `
@@ -5165,6 +5167,12 @@ _darkStyleForGame['skyteam'] = `
 .st-action-space-help { background-color: var(--dark-0); color: #fff; }
 .bga-cards_deck-counter.round { background: var(--dark-10); box-shadow: 0 0 2px 1px #fff; color: var(--light-80); }
 .bga-help_popin-button { background: var(--blue-70); }
+#st-flight-log-button, #st-system-buttons #jj-preferences-panel { background: var(--dark-20); }
+#popin_st-flight-log-dialog, #popin_st-flight-log-dialog #popin_st-flight-log-dialog_contents { background: var(--dark-10); }
+#popin_st-flight-log-dialog #popin_st-flight-log-dialog_contents .st-flight-log-row .st-flight-status[data-type=unplayed] { background-color: var(--dark-30); }
+#popin_st-flight-log-dialog #popin_st-flight-log-dialog_contents .st-flight-log-row .st-flight-status[data-type=failure] { background-color: var(--orange-30); }
+#popin_st-flight-log-dialog #popin_st-flight-log-dialog_contents .st-flight-log-row .st-flight-status[data-type=success] { background-color: var(--green-30); }
+jj-preferences-panel #jj-preferences-panel-content .jj-preferences-panel-category-label { background: var(--dark-0); }
 `;
 
 _darkStyleForGame['slide'] = `
