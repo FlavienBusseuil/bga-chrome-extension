@@ -295,6 +295,7 @@ export const playersBorder = {
   castlecombo: ['#player-table-{{player_id}}'],
   daybreak: ['#dbk-hand{{player_id}}'],
   elawa: ['#player-table-{{player_id}}'],
+  flowers: ['#flw_playZone_{{player_id}}'],
   heat: ['#player-table-{{player_id}}'],
   heatchampionship: ['#player-table-{{player_id}}'],
   itsawonderfulworld: ['#iww-player{{player_id}}'],
@@ -2497,6 +2498,8 @@ _darkStyleForGame['flipfreighters'] = `
 
 _darkStyleForGame['flowers'] = `
 .deckCounter { color: var(--light-80); }
+.possibleMove { background-color: var(--dark-back); border: 1px solid var(--light-50); }
+.scoreButterfly { filter: var(--highlight); }
 `;
 
 _darkStyleForGame['flowersmandalagame'] = `
@@ -2626,6 +2629,11 @@ _darkStyleForGame['gaia'] = `
 #movedown, #moveleft, #moveright, #movetop { filter: invert(0.7); }
 `;
 
+_darkStyleForGame['gammelogic'] = `
+.resume[style$="background-color: rgba(255, 255, 255, 0.5);"] { background-color: var(--dark-back)!important; }
+#carddiv:before, #fonddiv_jungle:before { content: ""; background: #00000060; position: absolute; width: 100%; height: 100%; top:0px; left: 0px; }
+`;
+
 _darkStyleForGame['gangofdice'] = `
 #overall-content:before { content: ""; background: #000000A0; position: absolute; width: 100%; height: 100%; top:0px; left: 0px; }
 #god_round h2 { background: var(--dark-back); color: var(--light-80); }
@@ -2744,6 +2752,10 @@ _darkStyleForGame['gnomehollow'] = `
 #overall-content:before { content: ""; background: #000000A0; position: absolute; width: 100%; height: 100%; top:0px; left: 0px; }
 .player-board { background-color: var(--dark-back); }
 .count_mushroom { color: #000; }
+.gh_pan .gh_logo { filter: var(--highlight-min); }
+.sprite { filter: brightness(0.9); }
+.drop-shadow { filter: brightness(0.9) drop-shadow(3px 2px 1px rgba(0, 0, 0, .8)); }
+.aal-popup-overlay .aal-popup-content { background: var(--dark-10); color: var(--light-80); }
 `;
 
 _styleForGame['gravitysuperstar'] = `
@@ -3557,6 +3569,9 @@ _darkStyleForGame['lostseas'] = `
 _darkStyleForGame['loveletter'] = `
 #ll_background:before { content: ""; background: #00000050; position: absolute; width: 100%; height: 100%; top:0px; left: 0px; }
 #explanation_card_content, #explanation_card_content2 { background: var(--dark-20); margin-left: 0px; margin-right: 0px; padding: 10px; color: var(--light-80); }
+.playertable_center .playertablecard { background-color: var(--dark-30); }
+.cardtitle { color: #000; }
+.player_sycophant { color: var(--light-80); }
 `;
 
 _darkStyleForGame['luckynumbers'] = `
@@ -3754,6 +3769,10 @@ _darkStyleForGame['mexica'] = `
 #mex_supply { background-color: var(--dark-back); color: var(--light-80); }
 #mex_board { filter: brightness(0.9); }
 #bga-zoom-wrapper #bga-zoom-controls { filter: invert(0.8); }
+#mex_undo_button { ${redButton} }
+#mex_undo_button:hover { ${redButtonOver} }
+.head_warning { background-color: var(--orange-30); color: var(--light-80); }
+.mex_temple:hover .mex_temple_level { background-color: var(--dark-back); }
 `;
 
 _darkStyleForGame['microdojo'] = `
@@ -4253,6 +4272,10 @@ _darkStyleForGame['orleans'] = `
 .jj-tab-manager-tab span[style*="text-shadow: none;"] { text-shadow: none!important; }
 .jj-ui-hint-box { background-color: var(--dark-40); }
 .orl-additional-board.orl-additional-board-player, .card, .jj-tab-manager .jj-tab-manager-tabs { filter: brightness(0.9); }
+#undoAll,#undoLast,.bgabutton_yellow { ${yellowButton} }
+#undoAll:hover,#undoLast:hover,.bgabutton_yellow:hover { ${yellowButtonOver} }
+.bgabutton.selected { ${greenButton} }
+.bgabutton.selected:hover { ${greenButtonOver} }
 `;
 
 _darkStyleForGame['oxono'] = `
@@ -4676,6 +4699,8 @@ _darkStyleForGame['rallymangt'] = `
 _darkStyleForGame['ratjack'] = `
 .rat_playerName { text-shadow: var(--text-w-shadow); }
 #tokenStock { background-color: var(--dark-back); }
+#rat_discard, .rat_playerArea { border-color: var(--light-70); }
+#rat_discard:before, #deckCount, #discardCount { color: var(--light-70); }
 `;
 
 _darkStyleForGame['rauha'] = `
@@ -4988,8 +5013,6 @@ _darkStyleForGame['seasaltpaper'] = `
 #cards-points-tooltip { color: var(--light-80); }
 #table-center #deck-and-discards .discard-stack { background-color: var(--dark-back); }
 #seasaltpaper-help-button { background: #1f4b7a; }
-.discussion_bubble { background: var(--dark-40); color: var(--light-80); }
-.discussion_bubble:after { border-color: var(--dark-40) transparent; }
 [style="color: darkred;"] { color: #bf4040!important; }
 #table-center, html.expansion #table-center { background: var(--dark-20); border: 2px solid var(--dark-40); }
 #table-center #pick, html.expansion #table-center #pick { background-color: var(--dark-30); }
@@ -5172,7 +5195,7 @@ _darkStyleForGame['skyteam'] = `
 #popin_st-flight-log-dialog #popin_st-flight-log-dialog_contents .st-flight-log-row .st-flight-status[data-type=unplayed] { background-color: var(--dark-30); }
 #popin_st-flight-log-dialog #popin_st-flight-log-dialog_contents .st-flight-log-row .st-flight-status[data-type=failure] { background-color: var(--orange-30); }
 #popin_st-flight-log-dialog #popin_st-flight-log-dialog_contents .st-flight-log-row .st-flight-status[data-type=success] { background-color: var(--green-30); }
-jj-preferences-panel #jj-preferences-panel-content .jj-preferences-panel-category-label { background: var(--dark-0); }
+#jj-preferences-panel #jj-preferences-panel-content .jj-preferences-panel-category-label { background: var(--dark-0); }
 `;
 
 _darkStyleForGame['slide'] = `
@@ -5441,6 +5464,8 @@ _darkStyleForGame['sushigoparty'] = `
 #sushigoparty_menu_wrapper>h1>span { color: var(--light-80); }
 .tooltip_card_text { background-color: var(--dark-20); }
 .tooltip_card_text table { background-color: var(--dark-40); }
+.select_predef_menu { background: var(--dark-10); color: var(--light-80); }
+.block_title, .block_title2 { background: var(--dark-back); }
 `;
 
 _darkStyleForGame['tablut'] = `
@@ -5906,8 +5931,6 @@ _darkStyleForGame['tigriseuphrates'] = `
 `;
 
 _darkStyleForGame['tikal'] = `
-.discussion_bubble { background: var(--dark-20); }
-.discussion_bubble:after { border-color: var(--dark-20) transparent; }
 #tkl_side_area .tkl_panel_counter { background-color: var(--dark-10); border: 2px solid var(--light-50); color: var(--light-80); }
 #tkl_board { filter: brightness(0.9); }
 `;
