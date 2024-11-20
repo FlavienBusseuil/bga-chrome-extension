@@ -1,5 +1,33 @@
 # Changelog
 
+## [v1.10.13](https://github.com/FlavienBusseuil/bga-chrome-extension/tree/v1.10.13) (2024-11-20)
+
+[Full Changelog](https://github.com/FlavienBusseuil/bga-chrome-extension/compare/v1.10.12...v1.10.13)
+
+## [v1.10.12](https://github.com/FlavienBusseuil/bga-chrome-extension/tree/v1.10.12) (2024-11-15)
+
+[Full Changelog](https://github.com/FlavienBusseuil/bga-chrome-extension/compare/v1.10.11...v1.10.12)
+
+**Closed issues:**
+
+- Ark Nova - Dark mode - Blurred projects in card display [\#75](https://github.com/FlavienBusseuil/bga-chrome-extension/issues/75)
+
+## [v1.10.11](https://github.com/FlavienBusseuil/bga-chrome-extension/tree/v1.10.11) (2024-11-08)
+
+[Full Changelog](https://github.com/FlavienBusseuil/bga-chrome-extension/compare/v1.10.10...v1.10.11)
+
+## [v1.10.10](https://github.com/FlavienBusseuil/bga-chrome-extension/tree/v1.10.10) (2024-11-05)
+
+[Full Changelog](https://github.com/FlavienBusseuil/bga-chrome-extension/compare/v1.10.9...v1.10.10)
+
+## [v1.10.9](https://github.com/FlavienBusseuil/bga-chrome-extension/tree/v1.10.9) (2024-10-31)
+
+[Full Changelog](https://github.com/FlavienBusseuil/bga-chrome-extension/compare/v1.10.8...v1.10.9)
+
+**Closed issues:**
+
+- Ark Nova - changes in dark mode [\#74](https://github.com/FlavienBusseuil/bga-chrome-extension/issues/74)
+
 ## [v1.10.8](https://github.com/FlavienBusseuil/bga-chrome-extension/tree/v1.10.8) (2024-10-25)
 
 [Full Changelog](https://github.com/FlavienBusseuil/bga-chrome-extension/compare/v1.10.7...v1.10.8)
