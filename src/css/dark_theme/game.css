@@ -160,6 +160,7 @@ spectator-mode .log .roundedbox .playername {
 
 .bgabutton.disabled {
   border-color: var(--light-50);
+  color: var(--light-70);
 }
 
 .bgabutton_red {

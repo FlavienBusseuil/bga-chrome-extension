@@ -1838,7 +1838,8 @@ select.colorselector {
 }
 
 #server_status_warning_message {
-  background-color: var(--dark-10);
+  background-color: var(--dark-0);
+  border-color: var(--light-50);
 }
 
 .studio-framework-navigation {
