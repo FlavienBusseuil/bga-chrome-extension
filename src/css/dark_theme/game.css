@@ -148,13 +148,15 @@ spectator-mode .log .roundedbox .playername {
   background: linear-gradient(180deg, #248189, #0ba9b7);
 }
 
-.bgabutton_gray {
+.bgabutton_gray,
+.bgabutton_white {
   background: linear-gradient(#606060, #777);
   border: 1px solid #999;
   color: #fff !important;
 }
 
-.bgabutton_gray:hover {
+.bgabutton_gray:hover,
+.bgabutton_white:hover {
   background: linear-gradient(180deg, #727272, #777);
 }
 

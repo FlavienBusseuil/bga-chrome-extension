@@ -1367,6 +1367,10 @@ const defaultGames: Partial<Game>[] = [
 		css: "#bga-jump-to_controls { display: none; }",
 		iconBackgroundDark: "#415b59"
 	},
+	{
+		name: "stonespinearchitects",
+		playerPanel: "sa-player-area-{{player_id}}",
+	},
 ];
 
 export default defaultGames;

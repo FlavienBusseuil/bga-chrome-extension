@@ -195,6 +195,15 @@ select.colorselector {
   background: none !important;
 }
 
+.lobby_invite_friend_remove {
+  color: var(--light-80);
+}
+
+.notouch-device .lobby_invite_friend_remove:hover,
+.notouch-device .lobby_invite_friend_item_member:hover .lobby_invite_friend_remove {
+  color: var(--red-10);
+}
+
 .desktop_version .season-progress-bar-wrap {
   background-color: var(--dark-10);
 }

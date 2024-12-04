@@ -64,6 +64,24 @@
   background: linear-gradient(180deg, #06d7ea, #248189) !important;
 }
 
+.bga-button--teal:not(.disabled) {
+  background: linear-gradient(180deg, #0bb76c, #24895d) !important;
+}
+
+.bga-button--teal:not(.disabled):hover,
+.notouch-device .bga-button--teal:not(.disabled):hover {
+  background: linear-gradient(180deg, #06ea87, #24895d) !important;
+}
+
+.bga-button--purple:not(.disabled) {
+  background: linear-gradient(180deg, #9a0bb7, #782489) !important;
+}
+
+.bga-button--purple:not(.disabled):hover,
+.notouch-device .bga-button--purple:not(.disabled):hover {
+  background: linear-gradient(180deg, #c406ea, #782489) !important;
+}
+
 .notouch-device .bgabutton_blue:not(.disabled):active,
 .bga-button--blue:not(.disabled):active,
 .notouch-device .bga-button--blue:not(.disabled):active {
