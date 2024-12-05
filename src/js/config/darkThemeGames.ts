@@ -179,6 +179,7 @@ export const gamesWithCustomBackground = [
   'splendor',
   'splendorexpansions',
   'splendorduel',
+  'stalkexchange',
   'stella',
   'starfluxx',
   'stonespinearchitects',
@@ -5452,12 +5453,20 @@ _darkStyleForGame['spots'] = `
 .spt-card, .spt-trick { filter: brightness(0.9); }
 `;
 
+_darkStyleForGame['stalkexchange'] = `
+#overall-content:before { content: ""; background: #00000080; position: absolute; width: 100%; height: 100%; }
+.se_player_flowers { background-color: var(--dark-back); }
+.se_zoom_icon { filter: invert(0.9); }
+.se_player_name .ml-6 { color: var(--light-80)!important; }
+#se_btn_undo { ${redButton} }
+#se_btn_undo:hover { ${redButtonOver} }
+`;
+
 _darkStyleForGame['starfluxx'] = `
 #flx-zoom-controls { background-color: var(--dark-20) !important; }
 #flx-zoom-out, #flx-zoom-in { filter: invert(0.7); }
 #pagesection_gameview .whiteblock { color: #000; }
-.flx-table .flx-deck .flx-deck-wrap .flx-toggle, .flx-table .flx-deck .flx-deck-wrap .flx-card-count
-{ color: #fff; background: var(--dark-back); }
+.flx-table .flx-deck .flx-deck-wrap .flx-toggle, .flx-table .flx-deck .flx-deck-wrap .flx-card-count { color: #fff; background: var(--dark-back); }
 `;
 
 _darkStyleForGame['starshipmerchants'] = `
@@ -6501,9 +6510,8 @@ _darkStyleForGame['wonderfulkingdom'] = `
 .wk_zone_title { color: var(--light-70); }
 .wk_stock p, .wk_phase_round { color: var(--light-80); }
 .wk_phase_phases .wk_phase_selected { background-color: var(--dark-40); border: 1px solid var(--light-50); color: var(--light-80); }
-.wk_threat_tooltip_desc { background-color: var(--dark-back); }
+.wk_threat_tooltip_desc, .wk_phase, .wk_zone_color_0, .wk_frozen { background-color: var(--dark-back); }
 .bg-ressource_7 { filter: invert(1); }
-.wk_phase, .wk_zone_color_0 { background-color: var(--dark-back); }
 .wk_phase_phases>div { color: var(--light-70); }
 `;
 
