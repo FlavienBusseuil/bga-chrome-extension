@@ -1371,6 +1371,19 @@ const defaultGames: Partial<Game>[] = [
 		name: "stonespinearchitects",
 		playerPanel: "sa-player-area-{{player_id}}",
 	},
+	{
+		name: "lorenzo",
+		playerPanel: "obrPlayerboardId_{{player_id}}",
+	},
+	{
+		name: "bloodyinn",
+		playerPanel: ".playertablename",
+		boardPanel: "available_burials",
+		boardPanelText: "#available_burials > h1",
+		bottomPanel: "discard",
+		css: "#bga-jump-to_controls { display: none; } .desktop_version #game_play_area { padding-left: 50px; }",
+	},
+
 ];
 
 export default defaultGames;

@@ -23,11 +23,16 @@ const SideMenu = (props: SideMenuProps) => {
 	const { players, gameConfig, config } = props;
 	const [darkMode, setDarkMode] = useState(config.isDarkMode());
 	const [visible, setVisible] = useState(true);
-	const [position, setPosition] = useState(
-		gameConfig.position === "bottom" ? "bottom" : "top",
-	);
+	const [position, setPosition] = useState(gameConfig.position === "bottom" ? "bottom" : "top");
 	const [zoomVisible, setZoomVisible] = useState(false);
 	const [buttonsOrder, setButtonsOrder] = useState("");
+	const [boardButtonText, setBoardButtonText] = useState<string>();
+
+	const getBoardName = () => {
+		if (gameConfig.boardPanelText && !boardButtonText) {
+			setBoardButtonText(document.querySelector(gameConfig.boardPanelText)?.innerHTML);
+		}
+	};
 
 	const setMenuPosition = () => {
 		if (gameConfig.position === "auto") {
@@ -35,9 +40,7 @@ const SideMenu = (props: SideMenuProps) => {
 			setPosition(isMobile ? "bottom" : "top");
 		}
 
-		const isZoomVisible =
-			document.getElementById("globalaction_zoom_wrap")?.style.display ===
-			"inline-block";
+		const isZoomVisible = document.getElementById("globalaction_zoom_wrap")?.style.display === "inline-block";
 		setZoomVisible(isZoomVisible);
 	};
 
@@ -118,6 +121,7 @@ const SideMenu = (props: SideMenuProps) => {
 
 	const getButtonsOrder = () => {
 		checkPlayerPanels();
+		getBoardName();
 
 		if (config.isDarkMode() !== darkMode) {
 			setDarkMode(!darkMode);
@@ -186,13 +190,12 @@ const SideMenu = (props: SideMenuProps) => {
 		});
 
 		if (gameConfig.boardPanel) {
-			const boardName = gameConfig.boardPanelText
-				? document.querySelector(gameConfig.boardPanelText)?.innerHTML
-				: undefined;
+
+
 			const fakePlayer = {
 				fake: true,
 				id: gameConfig.boardPanel,
-				name: boardName || chrome.i18n.getMessage("sideMenuMainBoard"),
+				name: boardButtonText || chrome.i18n.getMessage("sideMenuMainBoard"),
 				avatar: "board",
 				color: "#ffffff",
 				darkColor: "#272a2f"

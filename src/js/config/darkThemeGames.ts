@@ -9,7 +9,7 @@ const yellowButton = 'background: linear-gradient(#b6b70b, #898924) !important; 
 const yellowButtonOver = 'background: linear-gradient(#eaea06, #898924) !important; color:#fff !important;';
 const blueButton = 'background: linear-gradient(180deg, #0ba9b7, #248189) !important; color:#fff !important;';
 const blueButtonOver = 'background: linear-gradient(180deg, #06d7ea, #248189) !important; color:#fff !important;';
-const redButton = 'background: linear-gradient(180deg, #b70b0b, #892424) !important; color:#fff !important;';
+const redButton = 'background: linear-gradient(180deg, #b70b0b, #892424) !important; border: 1px solid #6a2f2f; color:#fff !important;';
 const redButtonOver = 'background: linear-gradient(180deg, #ea0606, #892424) !important; color:#fff !important;';
 const orangeButton = 'background: linear-gradient(180deg, #db661f, #84461f) !important; border: 1px solid #69452e; color:#fff !important;';
 const orangeButtonOver = 'background: linear-gradient(180deg, #ff8e47, #84461f) !important; color:#fff !important;';
@@ -287,7 +287,7 @@ export const gamesWithCustomPlayerStyle = {
   takenokolor: '.player-table .name',
   myshelfie: '.shelf-name',
   knister: '.knister_plname',
-  splitter: '.splitter_plname'
+  splitter: '.splitter_plname',
 };
 
 export const playersBackground = {
@@ -1230,6 +1230,25 @@ _darkStyleForGame['blackjack'] = `
 
 _darkStyleForGame['blockarena'] = `
 .doubleempty { color: var(--light-80); }
+`;
+
+_darkStyleForGame['bloodyinn'] = `
+#available_burials h1, #available_burials h3, #discard h1, #overall_stats_board h3 { color: var(--light-80)!important; }
+#bell { filter: invert(1); }
+.room_ff0000 { border: 4px solid #ff6565; }
+.room_008000 { border: 4px solid #54aa54; }
+.room_0000ff { border: 4px solid #6565ff; }
+.room_ffa500 { border: 4px solid #ffc965; }
+.color_ff0000 { color: #ff6565 !important; }
+.color_008000 { color: #54aa54 !important; }
+.color_0000ff { color: #6565ff !important; }
+.color_ffa500 { color: #ffc965 !important; }
+.room_white { border: 4px solid var(--light-70); }
+.log, .cadaver_icon, .check, .hand_icon { filter: var(--highlight-min); }
+.franc { border-radius: 50%; filter: var(--highlight-min); }
+#undo_btn { ${redButton} }
+#undo_btn:hover { ${redButtonOver} }
+.whiteblock { background: var(--dark-back); color: var(--light-80); }
 `;
 
 _darkStyleForGame['bloodrage'] = `
@@ -3366,6 +3385,11 @@ _darkStyleForGame['kami'] = `
 #playerTables:before { content: ""; background: #00000080; position: absolute; width: 100%; height: 100%; }
 `;
 
+_darkStyleForGame['kamon'] = `
+.black { text-shadow: var(--text-w-shadow); }
+.black_hex { filter: var(--highlight-min); }
+`;
+
 _darkStyleForGame['karvi'] = `
 #game_play_area { color: #fff; }
 #karvi-tab-holder .tab { background-color: var(--dark-20); border: 2px solid var(--light-50); border-left: 0; }
@@ -3627,6 +3651,16 @@ _darkStyleForGame['looot'] = `
 .player_name_holder { background: var(--dark-10) !important; }
 .player_vikings_pool_counter { background: var(--dark-10); color: var(--light-80); }
 .map_hex_holder, .player_board { filter: brightness(0.9); }
+`;
+
+_darkStyleForGame['lorenzo'] = `
+#overall-content:before { content: ""; background: #00000080; position: absolute; width: 100%; height: 100%; top:0px; left: 0px; }
+.obr_select_bonus_tiles { filter: var(--drop-shadow); }
+.obr_player_res_counter, .player_score_value { color: #9d7748; }
+.obr_drafting_wrapper { background-color: var(--dark-back); color: var(--light-80); }
+#obrTowerCardHelpWrapperId, #obrExcoMalusHelpWrapperId { background-color: var(--dark-back); }
+.obr_tower_card_help_inline_wrapper, .obr_exco_malus_help_inline_wrapper { background-color: var(--dark-10); border: 2px solid var(--light-50); color: var(--light-80); }
+#page-title .obr-dice { filter: var(--highlight-min); }
 `;
 
 _darkStyleForGame['lostcities'] = `
