@@ -25,11 +25,12 @@ export const OptionsView = ({ config, onChange }: Props) => {
   const [hiddenGames, setHiddenGames] = useState<string[]>(config.getHiddenGames());
   const [hiddenPlayers, setHiddenPlayers] = useState<string[]>(config.getMutedPlayers());
   const [muteWarning, setMuteWarning] = useState(config.isMuteWarning());
-  const [configVisible, setConfigVisible] = useState(localStorage.getItem('ext_settings') || 'about');
+  //const [configVisible, setConfigVisible] = useState(localStorage.getItem('ext_settings') || 'about');
+  const [configVisible, setConfigVisible] = useState('about');
   const isFirefox = window.navigator.userAgent.toLowerCase().includes('firefox');
 
   const _setConfigVisible = (val: string) => {
-    localStorage.setItem('ext_settings', val);
+    //localStorage.setItem('ext_settings', val);
     setConfigVisible(val);
   };
 
@@ -315,6 +316,7 @@ export const OptionsView = ({ config, onChange }: Props) => {
         <div className="options-frame">
           <div className="options-frame-title">{chrome.i18n.getMessage("about")}</div>
           <div dangerouslySetInnerHTML={{ __html: chrome.i18n.getMessage("aboutText") }}></div>
+          <div className="options-version">Version {chrome.runtime.getManifest().version}</div>
         </div>
       );
     }

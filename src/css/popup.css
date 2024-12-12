@@ -142,6 +142,10 @@ html.dark .options-frame-title {
   background-color: var(--dark-10);
 }
 
+.options-version {
+  text-align: right;
+}
+
 .options-subframe {
   display: flex;
   flex-flow: row nowrap;

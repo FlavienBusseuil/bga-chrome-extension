@@ -22,6 +22,7 @@ export const gamesWithCustomBackground = [
   'altered',
   'ancientknowledge',
   'aniversus',
+  'architectsofamytis',
   'arctic',
   'arknova',
   'arknovamw',
@@ -329,6 +330,7 @@ export const gamesWithCustomColors = {
   parklife: ['#333333'],
   resist: ['#782520'],
   riverofgold: ['#000000', '#ff0000', '#008000', '#0000ff', '#ffffff'],
+  superstore: ['#2d5787', '#613d31', '#f36c45', '#8b4e6e'],
   thefoxintheforest: ['#5e3f85'],
   terraformingmars: ['#ff0000', '#0000ff', '#008000', '#ffa500'],
   terramystica: ['#971923', '#278139', '#70421d', '#1a2126', '#f9ae18', '#1d7ddb'],
@@ -338,6 +340,7 @@ export const gamesWithCustomColors = {
 export const gamesWithRecommandedConfig = {
   abyss: { color: 226, sat: 16 },
   agricola: { color: 100, sat: 12 },
+  architectsofamytis: { color: 16, sat: 10 },
   arknova: { color: 33, sat: 15 },
   arknovamw: { color: 33, sat: 15 },
   bauer: { color: 0, sat: 15 },
@@ -598,6 +601,9 @@ export const gamesWithCustomActions = {
   },
   tapestry: {
     init: () => addInvertOverlay('', true)
+  },
+  superstore: {
+    init: () => addInvertOverlay('player-board ext-overlay', false)
   },
 };
 
@@ -884,6 +890,8 @@ body { background: none !important; }
 _darkStyleForGame['architectsofamytis'] = `
 #actUndo-btn { ${redButton} }
 #actUndo-btn:hover { ${redButtonOver} }
+.aoa-tiles-counter { background-color: var(--dark-10); border-color: var(--light-80); color: var(--light-80); }
+.aoa-pawn[data-color="000000"] { border: 1px solid #fff; border-radius: 50%; }
 `;
 
 _darkStyleForGame['architectsofthewestkingdom'] = `
@@ -1503,6 +1511,7 @@ _darkStyleForGame['castlecombo'] = `
 #popin_bgaHelpDialog .block { background: var(--dark-20); }
 .bga-help_popin-button { background: #30839c; }
 .discount-counter .discount-counter-value { color: #000; }
+#notice { background: var(--dark-20); color: var(--light-80); }
 `;
 
 _darkStyleForGame['castlesofcaleira'] = `
@@ -3129,9 +3138,13 @@ _darkStyleForGame['harmonies'] = `
 
 _darkStyleForGame['harvest'] = `
 .player-name a b, .player-name a[style] { text-shadow: none; }
-.hrv-board-left-inner, .hrv-board-center-inner, .hrv-board-right-inner, .hrv-farmBoard { filter: saturate(0.6); z-index: 1; }
-#hrv-board-left-marketLg, #hrv-board-left-marketSm { filter: saturate(0.6); z-index: 2; }
+.hrv-board-left-inner, .hrv-board-center-inner, .hrv-board-right-inner, .hrv-farmBoard { filter: saturate(0.7); z-index: 1; }
+#hrv-board-left-marketLg, #hrv-board-left-marketSm { filter: saturate(0.7); z-index: 2; }
+.hrv-character, .hrv-sunrise { filter: saturate(0.7); }
 .hrv-icon-worker { z-index: 3; }
+.bgabutton.bgabutton_disabled { ${disabledButton} }
+#hrv-buttonUndo { ${redButton} }
+#hrv-buttonUndo:hover { ${redButtonOver} }
 `;
 
 _darkStyleForGame['hearts'] = `
@@ -5605,6 +5618,23 @@ _darkStyleForGame['supermegaluckybox'] = `
 .smlb_x_icon, .smlb_x_icon .smlb_pb_count { filter: invert(1); }
 `;
 
+_darkStyleForGame['superstore'] = `
+.player-board.ext-overlay { background-attachment: fixed;  background-position: 50%; background-size: cover; }
+.carousel-title[style="color: rgb(45, 87, 135);"] { color: #5c7da2!important; }
+.carousel-title[style="color: rgb(97, 61, 49);"] { color: #a96a55!important; }
+.carousel-title[style="color: rgb(243, 108, 69);"] { color: #f36d46!important; }
+.carousel-title[style="color: rgb(139, 78, 110);"] { color: #9a6480!important; }
+.carousel-content-container[style="border-color: rgb(45, 87, 135);"] { border-color: #5c7da2!important; }
+.carousel-content-container[style="border-color: rgb(97, 61, 49);"] { border-color: #a96a55!important; }
+.carousel-content-container[style="border-color: rgb(243, 108, 69);"] { border-color: #f36d46!important; }
+.carousel-content-container[style="border-color: rgb(139, 78, 110);"] { border-color: #9a6480!important; }
+#carousel .carousel-header button { background-color: var(--dark-0); }
+#carousel .carousel-header button:hover { background-color: var(--dark-10); }
+.player-board .counter, .player-board .player_showcursor, .player-board .player_table_status { color: #8383af; }
+.money-counter span { color: #090; }
+.balloon-help-button { color: var(--light-80); }
+`;
+
 _darkStyleForGame['survive'] = `
 #overall-content:before { content: ""; background: #00000040; position: absolute; width: 100%; height: 100%; }
 .over_contents { background: var(--dark-back); outline: 1px solid var(--light-50); }
@@ -5978,6 +6008,7 @@ _darkStyleForGame['throughtheagesnewstory'] = `
 
 _darkStyleForGame['tulipandrose'] = `
 #info_container { background-color: var(--dark-10); color: var(--light-80); }
+.tnr_highlight { border: 5px solid var(--red-10); }
 `;
 
 _darkStyleForGame['tuned'] = `

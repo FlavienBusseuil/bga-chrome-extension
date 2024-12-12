@@ -1383,6 +1383,10 @@ const defaultGames: Partial<Game>[] = [
 		bottomPanel: "discard",
 		css: "#bga-jump-to_controls { display: none; } .desktop_version #game_play_area { padding-left: 50px; }",
 	},
+	{
+		name: "tulipandrose",
+		playerPanel: "hand_{{player_id}}_block",
+	},
 
 ];
 
