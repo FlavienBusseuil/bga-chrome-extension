@@ -2538,7 +2538,7 @@ _darkStyleForGame['fika'] = `
 `;
 
 _darkStyleForGame['finca'] = `
-#overall-content:before { content: ""; background: #00000060; position: absolute; width: 100%; height: 100%; top:0px; left: 0px; }
+#overall-content:before { content: ""; background: #00000040; position: absolute; width: 100%; height: 100%; top:0px; left: 0px; }
 .fi_playerInfo.small .fi_food_count { color: #000; }
 .fi_food.sprite-w_a .fi_food_count,.fi_food.sprite-w_i .fi_food_count { color: #fff; }
 .fi_playerInfo.small .fi_request_playerInfo { background-color: var(--dark-40); }
@@ -2546,6 +2546,7 @@ _darkStyleForGame['finca'] = `
 .fi_food_storage  { background-color: var(--dark-back); }
 .fi_game_container .fi_main_board .fi_board_img:after { background-color: transparent; }
 .log .timestamp { color: var(--light-80) !important; }
+.fi_food, .fi_playerInfo .fi_request_playerInfo .fi_requestIcon { filter: var(--highlight-min); }
 `;
 
 _darkStyleForGame['fivethreefive'] = `
