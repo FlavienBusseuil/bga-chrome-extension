@@ -4238,6 +4238,14 @@ _darkStyleForGame['ninetynine'] = `
 .bgann_trump_black, .bgann_trump_none { text-shadow: var(--text-w-shadow); }
 `;
 
+_darkStyleForGame['ninjan'] = `
+#overall-content:before { content: ""; background: #00000060; position: absolute; width: 100%; height: 100%; top:0px; left: 0px; }
+.dijitTooltipContainer .tooltip-wrapper { background: transparent; }
+.dijitTooltipContainer .tooltip-wrapper .suits-container .suit-row:after { background-color: #da3d25; }
+.log-arrow { text-shadow: var(--text-w-shadow); }
+.a-card { filter: brightness(0.9); }
+`;
+
 _darkStyleForGame['noah'] = `
 #overall-content:before { content: ""; background: #00000080; position: absolute; width: 100%; height: 100%; }
 #zoom-controls { filter: invert(0.7); }
@@ -4603,6 +4611,20 @@ _darkStyleForGame['pingimus'] = `
 
 _darkStyleForGame['pinochle'] = `
 #pagesection_gameview .whiteblock.playertable.declarer { background: #4d00004d; border: 1px solid var(--dark-back); }
+`;
+
+_darkStyleForGame['piratesofmaracaibo'] = `
+.pom-tab { background-color: var(--dark-20); color: var(--light-80); }
+.pom-tab.pom-tab-selected, .pom-tab:not(.pom-tab-selected):hover { background-color: #000; color: #fff; }
+#pom-tabContents { background-color: var(--dark-back); }
+.pom-tabContent-tabTitle { background: #000; color: var(--light-80); border: 1px solid var(--dark-40); }
+.pom-diceDish { background-color: var(--dark-back); }
+.pom-resize { background: var(--dark-20); border: 1px solid var(--dark-40); color: var(--light-70); }
+.pom-resize:hover { background: #000; }
+.bgabutton_disabled { ${disabledButton} }
+#pom-buttonUndo { ${redButton} }
+#pom-buttonUndo:hover { ${redButtonOver} }
+.pom-explore, .pom-figurehead, .pom-card { filter: brightness(0.9); }
 `;
 
 _darkStyleForGame['piratenkapern'] = `

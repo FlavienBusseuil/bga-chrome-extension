@@ -2114,3 +2114,9 @@ html:not(.bgaext_gamelist) .ext_delete_button {
   color: #000;
   filter: invert(1);
 }
+
+#pagesection_account .grid>div:nth-child(6n),
+#pagesection_account .grid>div:nth-child(6n-1),
+#pagesection_account .grid>div:nth-child(6n-2) {
+  background-color: var(--dark-30) !important;
+}
