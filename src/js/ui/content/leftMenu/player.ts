@@ -26,6 +26,7 @@ export const getPlayerPanelId = (
 	if (gameConfig.playerPanel.indexOf("{{") >= 0) {
 		return gameConfig.playerPanel
 			.replace("{{player_id}}", p.id)
+			.replace("{{player_color}}", p.color.substring(1))
 			.replace("{{player_index}}", index.toString())
 			.replace("{{player_index_1}}", (index + 1).toString());
 	}

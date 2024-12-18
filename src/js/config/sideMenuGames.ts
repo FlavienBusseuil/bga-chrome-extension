@@ -1387,7 +1387,18 @@ const defaultGames: Partial<Game>[] = [
 		name: "tulipandrose",
 		playerPanel: "hand_{{player_id}}_block",
 	},
-
+	{
+		name: "codexnaturalis",
+		playerPanel: "map-player-name-{{player_id}}",
+	},
+	{
+		name: "deliverance",
+		playerPanel: "angel_area_{{player_color}}",
+		boardPanel: "dlv_darkness_board_wrapper",
+		boardPanelText: "#bga-jump-to_dlv_darkness_board > span",
+		bottomPanel: "dlv_demons",
+		css: "#bga-jump-to_controls { display: none; }"
+	},
 ];
 
 export default defaultGames;

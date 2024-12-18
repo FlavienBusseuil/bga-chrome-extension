@@ -2120,3 +2120,15 @@ html:not(.bgaext_gamelist) .ext_delete_button {
 #pagesection_account .grid>div:nth-child(6n-2) {
   background-color: var(--dark-30) !important;
 }
+
+.bgaext_gamereview #chart rect {
+  fill: var(--dark-10);
+}
+
+.bgaext_gamereview #chart line {
+  stroke: var(--light-80);
+}
+
+.bgaext_gamereview #chart div {
+  color: var(--light-80) !important;
+}
