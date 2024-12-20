@@ -56,7 +56,7 @@
   "permissions": [
     "alarms",
     "storage",
-    "declarativeNetRequest"
+    "declarativeNetRequestWithHostAccess"
   ],
   "web_accessible_resources": [
     {

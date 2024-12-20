@@ -55,7 +55,7 @@
   "permissions": [
     "alarms",
     "storage",
-    "declarativeNetRequest",
+    "declarativeNetRequestWithHostAccess",
     "offscreen"
   ],
   "web_accessible_resources": [

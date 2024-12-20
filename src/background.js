@@ -23,7 +23,7 @@ const setDarkModeUrlFilters = (isDarkMode) => {
         addRules: [{
           id: 1,
           action: { type: "block" },
-          condition: { urlFilter: "https://x.boardgamearena.net/data/themereleases/*/img/layout/back-main.jpg" },
+          condition: { urlFilter: "https://*.boardgamearena.net/data/themereleases/*/img/layout/back-main.jpg" },
         },
         {
           id: 2,
@@ -32,7 +32,7 @@ const setDarkModeUrlFilters = (isDarkMode) => {
         }, {
           id: 3,
           action: { type: "block" },
-          condition: { urlFilter: "https://x.boardgamearena.net/data/themereleases/*/img/layout/back-main_games.jpg" },
+          condition: { urlFilter: "https://*.boardgamearena.net/data/themereleases/*/img/layout/back-main_games.jpg" },
         }]
       });
     } else {
