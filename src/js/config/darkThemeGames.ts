@@ -13,6 +13,8 @@ const redButton = 'background: linear-gradient(180deg, #b70b0b, #892424) !import
 const redButtonOver = 'background: linear-gradient(180deg, #ea0606, #892424) !important; color:#fff !important;';
 const orangeButton = 'background: linear-gradient(180deg, #db661f, #84461f) !important; border: 1px solid #69452e; color:#fff !important;';
 const orangeButtonOver = 'background: linear-gradient(180deg, #ff8e47, #84461f) !important; color:#fff !important;';
+const pinkButton = 'background: linear-gradient(180deg, #db1f9c, #841f62) !important; border: 1px solid #69452e; color:#fff !important;';
+const pinkButtonOver = 'background: linear-gradient(180deg, #ff47c2, #841f62) !important; color:#fff !important;';
 const disabledButton = 'background: #787878 !important; border-color: var(--light-50) !important; color:#fff !important; cursor: not-allowed;';
 
 export const gamesWithCustomBackground = [
@@ -100,6 +102,7 @@ export const gamesWithCustomBackground = [
   'iwari',
   'jekyllvshide',
   'jumpdrive',
+  'kado',
   'khiva',
   'kingoftokyo',
   'kiriaitheduel',
@@ -208,7 +211,8 @@ export const gamesWithCustomBackground = [
   'vaalbara',
   'wizardsgrimoire',
   'wonderfulkingdom',
-  'wordtraveler'
+  'wordtraveler',
+  'zenith'
 ];
 
 export const gamesWithCustomPanel = [
@@ -376,6 +380,7 @@ export const gamesWithRecommandedConfig = {
   harmonies: { color: 16, sat: 15 },
   harvest: { color: 128, sat: 22 },
   insidejob: { color: 105, sat: 10 },
+  kado: { color: 30, sat: 15 },
   locomomo: { color: 91, sat: 14 },
   lielow: { color: 13, sat: 15 },
   lineit: { color: 250, sat: 28 },
@@ -3417,6 +3422,17 @@ _darkStyleForGame['kabaleo'] = `
 .base, .mini_piece { filter: var(--drop-shadow); }
 `;
 
+_darkStyleForGame['kado'] = `
+#overall-content:before { content: ""; background: #00000080; position: absolute; width: 100%; height: 100%; top:0px; left: 0px; }
+.kd_header_round { color: var(--light-70); }
+.kd_zone_bg_other { background-color: var(--dark-back); }
+.kd_zone_gifter .kd_zone_bg_other { background-color: var(--dark-40); }
+.kd_invite_icon > div { filter: var(--drop-shadow); }
+.bgabutton_gray { background: #000; }
+.notouch-device .bgabutton_gray:hover { background: var(--dark-10); }
+#kd_banner { background-color: var(--dark-10) !important; color: var(--light-80); }
+`;
+
 _darkStyleForGame['kahuna'] = `
 #round, #card_pool_wrapper { color: #fff; }
 `;
@@ -4956,6 +4972,12 @@ _darkStyleForGame['restinpeace'] = `
 #zoom-in-btn, #zoom-out-btn { filter: invert(0.7); }
 .playmat_on #rip-game-holder #opponent-cards .card-stack, .playmat_on #rip-game-holder #player-cards .card-stack { background: linear-gradient(180deg, hsl(0deg 0% 0% / 40%), hsl(0deg 0% 0% / 0%) 50%); }
 .rip-tooltip { background: var(--dark-10); box-shadow: 0 5px 10px #555; color: var(--light-80); }
+`;
+
+_darkStyleForGame['revive'] = `
+#selection, #supply { background-color: var(--dark-back); }
+#zoomminus, #zoomplus { filter: invert(0.9); }
+.res { filter: var(--highlight-min); }
 `;
 
 _styleForGame['riftforce'] = `
@@ -6714,6 +6736,26 @@ _darkStyleForGame['zefiria'] = `
 .doubleempty { color: #fff; }
 .blueact { filter: invert(0.7); }
 div[id^="plname"]:not(:empty) { background-color: var(--dark-back); border-radius: 8px; }
+`;
+
+_darkStyleForGame['zenith'] = `
+.zn_panel { background-color: var(--dark-back); border: 5px solid var(--dark-10); color: var(--light-80); }*
+.bg-hand { filter: invert(0.9); }
+#zn_board_diplo img, #zn_board_planet img, .zn_tech { filter: brightness(0.9); }
+.bgabutton_blue[style="background-color: rgb(222, 106, 86); color: rgb(0, 0, 0); text-shadow: none;"] { ${redButton} }
+.notouch-device .bgabutton_blue[style="background-color: rgb(222, 106, 86); color: rgb(0, 0, 0); text-shadow: none;"]:not(disabled):hover { ${redButtonOver} }
+.bgabutton_blue[style="background-color: rgb(225, 195, 207); color: rgb(0, 0, 0); text-shadow: none;"] { ${pinkButton} }
+.notouch-device .bgabutton_blue[style="background-color: rgb(225, 195, 207); color: rgb(0, 0, 0); text-shadow: none;"]:not(disabled):hover { ${pinkButtonOver} }
+.bgabutton_blue[style="background-color: rgb(195, 157, 217); color: rgb(0, 0, 0); text-shadow: none;"] { ${purpleButton} }
+.notouch-device .bgabutton_blue[style="background-color: rgb(195, 157, 217); color: rgb(0, 0, 0); text-shadow: none;"]:not(disabled):hover { ${purpleButtonOver} }
+.bgabutton_blue[style="background-color: rgb(254, 232, 147); color: rgb(0, 0, 0); text-shadow: none;"] { ${yellowButton} }
+.notouch-device .bgabutton_blue[style="background-color: rgb(254, 232, 147); color: rgb(0, 0, 0); text-shadow: none;"]:not(disabled):hover { ${yellowButtonOver} }
+.bgabutton_blue[style="background-color: rgb(214, 197, 134); color: rgb(0, 0, 0); text-shadow: none;"] { ${orangeButton} }
+.notouch-device .bgabutton_blue[style="background-color: rgb(214, 197, 134); color: rgb(0, 0, 0); text-shadow: none;"]:not(disabled):hover { ${orangeButtonOver} }
+.bgabutton_blue[style="background-color: rgb(151, 193, 175); color: rgb(0, 0, 0); text-shadow: none;"] { ${greenButton} }
+.notouch-device .bgabutton_blue[style="background-color: rgb(151, 193, 175); color: rgb(0, 0, 0); text-shadow: none;"]:not(disabled):hover { ${greenButtonOver} }
+.bgabutton_blue[style="background-color: rgb(75, 157, 217); color: rgb(0, 0, 0); text-shadow: none;"] { ${blueButton} }
+.notouch-device .bgabutton_blue[style="background-color: rgb(75, 157, 217); color: rgb(0, 0, 0); text-shadow: none;"]:not(disabled):hover { ${blueButtonOver} }
 `;
 
 _darkStyleForGame['zola'] = `

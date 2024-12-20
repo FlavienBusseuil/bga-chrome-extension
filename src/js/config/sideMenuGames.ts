@@ -1399,6 +1399,10 @@ const defaultGames: Partial<Game>[] = [
 		bottomPanel: "dlv_demons",
 		css: "#bga-jump-to_controls { display: none; }"
 	},
+	{
+		name: "revive",
+		playerPanel: "player_{{player_id}}"
+	}
 ];
 
 export default defaultGames;
