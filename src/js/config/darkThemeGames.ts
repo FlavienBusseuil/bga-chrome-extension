@@ -965,8 +965,8 @@ _darkStyleForGame['arknova'] = `
 #player_config #round-counter-wrapper #break-counter-wrapper #break-counter-icon { background: var(--dark-40); }
 #player_config #round-counter-wrapper #break-counter-wrapper #break-counter-icon:before { border-right: 10px solid var(--dark-40); }
 #player_config #round-counter-wrapper #break-counter-wrapper .arknova-icon { filter: var(--highlight-min); }
-#arknovamw-draft { background: var(--dark-20); }
-#arknovamw-draft #arknovamw-draft-picked:not(:empty) { background: #0d2c07; }
+#arknovamw-draft, #arknova-draft { background: var(--dark-20); }
+#arknovamw-draft #arknovamw-draft-picked:not(:empty), #arknova-draft #arknova-draft-picked:not(:empty) { background: #0d2c07; }
 #logs .arknova-icon, #logs .arknovamw-icon,
 #maintitlebar_content .arknova-icon, #maintitlebar_content .arknovamw-icon,
 #gameaction_status_wrap .arknova-icon, #gameaction_status_wrap .arknovamw-icon,
@@ -4535,8 +4535,18 @@ _darkStyleForGame['paxpamir'] = `
 #pp_supply { background-color: var(--dark-20); color: var(--light-80) }
 #pp_discard_pile { border: 4px dashed #fff; }
 .pp_discarded_card { border: 1px solid #fff; }
-.pp_deck_counters_container { background-color: var(--dark-10); }
+.pp_deck_counters_container { background-color: var(--dark-10); border-color: var(--light-70); }
+.pp_log_token.pp_log_token_rupee, .pp_log_token.pp_region_icon { filter: var(--highlight-min); }
+.pp_icon_count { border-color: var(--light-70); background-color: var(--dark-10); color: var(--light-80); }
+.pp_player_hand { background-color: var(--dark-back); color: var(--light-80); }
 #pp_map, #pp_market_board { filter: brightness(0.9); }
+#afghan_button { ${greenButton} }
+#afghan_button:hover { ${greenButtonOver} }
+#british_button { ${pinkButton} }
+#british_button:hover { ${pinkButtonOver} }
+#russian_button { ${yellowButton} }
+#russian_button:hover { ${yellowButtonOver} }
+.pp_player_tableau:before { content: ""; background: #00000080; position: absolute; width: 100%; height: 100%; }
 `;
 
 _darkStyleForGame['paxrenaissance'] = `
@@ -5884,6 +5894,10 @@ a#localsettings_restore span { white-space: break-spaces; }
 #button_undo:hover { ${redButtonOver} }
 .bgabutton_orange { ${orangeButton} }
 .bgabutton_orange:hover { ${orangeButtonOver} }
+.bgabutton_targetcolor { ${blueButton} }
+.bgabutton_targetcolor:hover { ${blueButtonOver} }
+.bgabutton_purple { ${purpleButton} }
+.bgabutton_purple:hover { ${purpleButtonOver} }
 .bgabutton.disabled:hover { background: #4d4d4d; color: #f66; }
 .card { filter: brightness(0.9); }
 `;
@@ -6187,10 +6201,11 @@ _darkStyleForGame['ticketgagnant'] = `
 `;
 
 _darkStyleForGame['tickettoride'] = `
-#overall-content:before { content: ""; background: #000000bb; position: absolute; width: 100%; height: 100%; }
-#map:before { content: ""; background: #00000020; position: absolute; width: 100%; height: 100%; }
+#overall-content:before { content: ""; background: #00000060; position: absolute; width: 100%; height: 100%; }
 .player-table { background: var(--dark-back); }
+#map { filter: brightness(0.8); }
 .train-car-card, #train-car-deck .hidden-pile .deck-level, #train-car-deck #destination-deck-hidden-pile, .stockitem, .train-car-card { filter: brightness(0.9); }
+.player-board:before { opacity: 0.6; }
 `;
 
 _darkStyleForGame['tickettorideeurope'] = _darkStyleForGame['tickettoride'];
