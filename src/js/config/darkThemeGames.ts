@@ -713,7 +713,7 @@ _darkStyleForGame['agricola'] = `
 #logs .meeple-container, #player_boards .meeple-container, .harvest-icon { filter: var(--drop-shadow); }
 .player-card .player-card-resizable .player-card-inner { filter: brightness(0.9); color: #000; }
 .player-board-wrapper .player-board-holder .player-board-name { background-color: var(--dark-back); }
-.log.cancel .roundedbox { background-color: var(--dark-40) !important; }
+#logs .log.cancel .roundedbox { background-color: var(--dark-40) !important; }
 #logs .log.notif_startNewTurn .roundedbox { background: var(--dark-0); }
 #popin_showExchanges:before, #popin_showHelpsheet:before, #popin_showSeedPrompt:before, #popin_showTour:before { content: ""; background: var(--dark-back); position: absolute; width: 100%; height: 100%; top:0px; left: 0px; border-radius: 16px; }
 #popin_showExchanges h2, #popin_showHelpsheet h2, #popin_showSeedPrompt h2, #popin_showTour h2 { position: relative; color: var(--light-80); background: var(--dark-20); }
@@ -947,7 +947,7 @@ _darkStyleForGame['arknova'] = `
 .dijitTooltipContainer .ark-card-bottom, .dijitTooltipContainer .arknova-bonus,
 .ark-card .ark-card-wrapper .ark-card-middle .ark-card-title-wrapper .ark-card-subtitle,
 .ark-card .ark-card-wrapper .ark-card-middle .ark-card-number, .player-info .handCount-holder .scoringHandCount-holder { color: #000; }
-.log.cancel .roundedbox { background-color: #000 !important; }
+#logs .log.cancel .roundedbox { background-color: #000 !important; }
 .player-board-cards .player-board-hand, .player-board-cards .player-board-scoring-hand { background: var(--dark-back); }
 .ark-card.zoo-card, .arknova-meeple, .arknova-icon, .building-container, .upgradeNeeded-marker, .zoo-map-association, .zoo-map-bonus-spaces, #reputation-track { filter: brightness(0.95); }
 .bgabutton_red { ${redButton} }
@@ -1941,7 +1941,7 @@ _darkStyleForGame['crusadersthywillbedone'] = `
 .cru-knightorder-name>div:first-child, .cru-knightorder-description { color: #aaa; }*
 #CRUPlayerAreas, .cru-player-area { filter: invert(1); }
 .cru-context { border: 1px solid var(--light-50); color: var(--light-80); }
-.log.cancel .roundedbox { background-color: var(--dark-30) !important; }
+#logs .log.cancel .roundedbox { background-color: var(--dark-30) !important; }
 `;
 
 _darkStyleForGame['cubirds'] = `
@@ -4457,6 +4457,7 @@ _darkStyleForGame['orleans'] = `
 #undoAll:hover,#undoLast:hover,.bgabutton_yellow:hover { ${yellowButtonOver} }
 .bgabutton.selected { ${greenButton} }
 .bgabutton.selected:hover { ${greenButtonOver} }
+.token { filter: var(--drop-shadow); }
 `;
 
 _darkStyleForGame['oxono'] = `
@@ -6387,9 +6388,15 @@ _darkStyleForGame['tumbleweed'] = `
 _darkStyleForGame['turingmachine'] = `
 html { background: #004d24 !important; }
 #gamemode { color: var(--light-80); }
-#notepad, #guessnb  { background: var(--dark-20); color: #fff }
-.selectable { background-color: #00000055; }
+#notepad, #guessnb  { background: var(--dark-20); color: #fff; }
+.selectable { background-color: #00000055; text-shadow: -1px -1px #0006, 1px 1px #0006, -1px 1px #0006, 1px -1px #0006; }
 .anatooltip { color: var(--dark-10); }
+.txtdown { color: #000; }
+.notepad-right-column .check_id, .notepad-right-column .check_hash { background-color: #1a6537bf; }
+.blue { background-color: #56b3db; }
+.yellow { background-color: #ffbd10; }
+.purple { background-color: #846cb1; }
+.notepad { color: var(--light-80); background-color: var(--dark-20); }
 `;
 
 _darkStyleForGame['turncoats'] = `

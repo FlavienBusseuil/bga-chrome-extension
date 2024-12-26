@@ -112,6 +112,10 @@ spectator-mode .log .roundedbox .playername {
   text-shadow: none;
 }
 
+#logs .log.cancel .roundedbox {
+  background-color: var(--orange-10) !important;
+}
+
 #logs .log .timestamp {
   color: var(--light-80);
 }
@@ -133,6 +137,10 @@ spectator-mode .log .roundedbox .playername {
 
 .log_replayable:hover {
   background-color: var(--dark-back);
+}
+
+.bgabutton {
+  text-shadow: -1px -1px #0004, 1px 1px #0004, -1px 1px #0004, 1px -1px #0004 !important;
 }
 
 .bgabutton_blue {

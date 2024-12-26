@@ -693,7 +693,7 @@ class Configuration {
 		}
 
 		if (!home.smallFeed) {
-			cssList.push(`.bgaext_welcome .bga-homepage__content { grid-template-columns: minmax(0, ${300 * columns}px) minmax(0, 100%) !important; }`);
+			cssList.push(`.bgaext_welcome .desktop_version .bga-homepage__content { grid-template-columns: minmax(0, ${300 * columns}px) minmax(0, 100%) !important; }`);
 		} else if (!home.tournamentsBelow) {
 			cssList.push(`.bgaext_welcome .bga-homepage__content { grid-template-columns: minmax(0, 40%) minmax(0, 60%) !important; }`);
 		}

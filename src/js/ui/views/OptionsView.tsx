@@ -84,6 +84,7 @@ export const OptionsView = ({ config, onChange }: Props) => {
   };
 
   const updateHomeConfig = (param: string, val: boolean) => {
+    debugger;
     const newHomeConfig = { ...homeConfig, [param]: val };
     setHomeConfig(newHomeConfig);
     config.setHomeConfig(newHomeConfig);
@@ -215,7 +216,7 @@ export const OptionsView = ({ config, onChange }: Props) => {
               {getHomeSwitch('header', 'optionsHomeHeader')}
               {getHomeSwitch('latestNews', 'optionsHomeLatest')}
               {getHomeSwitch('smallFeed', 'optionsHomeNewsSmall')}
-              {getSwitch(homeConfig.fewFeeds && homeConfig.tournaments && homeConfig.tournamentsBelow, (val) => updateHomeConfig('fewFeeds', val), "optionsHomeNewsShort", "optionsHomeNewsTall")}
+              {getSwitch(homeConfig.fewFeeds && homeConfig.tournaments && homeConfig.tournamentsBelow, (val) => updateHomeConfig('fewFeeds', val), "optionsHomeNewsShort", "optionsHomeNewsTall", !homeConfig.tournaments || !homeConfig.tournamentsBelow)}
               {getHomeSwitch('tournaments', 'tournaments')}
               {getSwitch(homeConfig.events || homeConfig.recentGames, (val) => updateHomeConfig('events', val), "optionsHomeEventsOn", "optionsHomeEventsOff", homeConfig.recentGames)}
             </div>

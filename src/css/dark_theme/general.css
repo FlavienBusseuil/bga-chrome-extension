@@ -48,6 +48,11 @@
   background-color: var(--dark-20);
 }
 
+.bga-button,
+.bgabutton {
+  text-shadow: -1px -1px #0004, 1px 1px #0004, -1px 1px #0004, 1px -1px #0004;
+}
+
 .bgabutton_blue:not(.disabled) {
   background: linear-gradient(180deg, #0ba9b7, #248189) !important;
 }
@@ -58,6 +63,25 @@
 
 .bgabutton_blue:not(.disabled):active {
   background: linear-gradient(180deg, #248189, #0ba9b7) !important;
+}
+
+.bgabutton_gray,
+.bga-button--gray {
+  background: linear-gradient(#606060, #777) !important;
+  color: #fff !important;
+}
+
+.bgabutton_gray:hover,
+.bga-button--gray:hover {
+  background: linear-gradient(180deg, #727272, #777) !important;
+}
+
+.bga-button--red:not(.disabled) {
+  background: linear-gradient(180deg, #db661f, #84461f) !important;
+}
+
+.bga-button--red:not(.disabled):hover {
+  background: linear-gradient(180deg, #ff8e47, #84461f) !important;
 }
 
 /* Formulaires */
@@ -197,6 +221,17 @@ select.colorselector {
 
 .lobby_invite_friend_remove {
   color: var(--light-80);
+}
+
+.bgaext_lobby .sectiontitle_dropdown {
+  top: 12px;
+}
+
+.bgaext_lobby #favorite_sort_menu_title {
+  background: var(--dark-20);
+  padding: 0.2em 0.5em;
+  border-top-left-radius: 6px;
+  border-top-right-radius: 6px;
 }
 
 .notouch-device .lobby_invite_friend_remove:hover,
