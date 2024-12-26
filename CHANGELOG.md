@@ -1,5 +1,17 @@
 # Changelog
 
+## [v1.10.18](https://github.com/FlavienBusseuil/bga-chrome-extension/tree/v1.10.18) (2024-12-26)
+
+[Full Changelog](https://github.com/FlavienBusseuil/bga-chrome-extension/compare/v1.10.17...v1.10.18)
+
+**Closed issues:**
+
+- "Block content on any page" permission [\#76](https://github.com/FlavienBusseuil/bga-chrome-extension/issues/76)
+
+## [v1.10.17](https://github.com/FlavienBusseuil/bga-chrome-extension/tree/v1.10.17) (2024-12-20)
+
+[Full Changelog](https://github.com/FlavienBusseuil/bga-chrome-extension/compare/v1.10.16...v1.10.17)
+
 ## [v1.10.16](https://github.com/FlavienBusseuil/bga-chrome-extension/tree/v1.10.16) (2024-12-18)
 
 [Full Changelog](https://github.com/FlavienBusseuil/bga-chrome-extension/compare/v1.10.15...v1.10.16)
