@@ -20,6 +20,12 @@ To build the Firefox extension:
 yarn build:ff
 ```
 
+To build the Opera extension:
+
+```bash
+yarn build:op
+```
+
 (Use yarn version 1.22 and node version 20 minimum)
 
 # Contributors

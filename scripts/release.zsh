@@ -18,10 +18,17 @@ yarn build:ff;
 cd build/prod-firefox
 zip -r ../../builds/build-firefox-$TAG.zip *;
 cd ../..
+# production opera build
+yarn build:op;
+# zip opera
+cd build/prod-opera
+zip -r ../../builds/build-opera-$TAG.zip *;
+cd ../..
 # commit changes
 git add package.json;
 git add src/manifest.json;
 git add src/manifest-firefox.json;
+git add src/manifest-opera.json;
 git commit -m 'Update version';
 git push;
 # push Github tag
