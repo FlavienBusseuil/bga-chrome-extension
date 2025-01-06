@@ -152,6 +152,7 @@ export const gamesWithCustomBackground = [
   'pixies',
   'pocketcats',
   'pook',
+  'pyramidoft',
   'qo',
   'quadratacanada',
   'quartermastergeneraleastfront',
@@ -1428,6 +1429,7 @@ _darkStyleForGame['canasta'] = `
 .cardspace { color: #000; }
 .meld_card_counter_wrap { background-color: var(--dark-back); }
 .team_board_wrap { background-color: var(--green-30); }
+.card_1, .card_2 { filter: var(--drop-shadow) brightness(0.9); box-shadow: none; } }
 `;
 
 _darkStyleForGame['cannonades'] = `
@@ -2478,6 +2480,9 @@ _darkStyleForGame['ethnos'] = `
 _darkStyleForGame['euchre'] = `
 .playertable.maker { background: #3f2128bf !important; }
 .playertablename { text-shadow: none; }
+.card { filter: var(--drop-shadow) brightness(0.9); box-shadow: none; }
+.bgabutton_blue[style="background: darkgoldenrod; border-color: darkgoldenrod;"] { ${yellowButton} }
+.bgabutton_blue[style="background: darkgoldenrod; border-color: darkgoldenrod;"]:not(.disabled):hover { ${yellowButtonOver} }
 `;
 
 _darkStyleForGame['evergreen'] = `
@@ -2540,6 +2545,7 @@ _darkStyleForGame['faraway'] = `
 
 _darkStyleForGame['farkle'] = `
 #accumulated_score_wrap, #score_meter, #score_chart { background-color: var(--dark-back); color: var(--light-80); }
+#btnContinueTurn[style="background: gray; border: 1px solid gray;"] { ${disabledButton} }
 `;
 
 _darkStyleForGame['farmclub'] = `
@@ -3108,7 +3114,7 @@ _darkStyleForGame['goodcopbadcop'] = `
 `;
 
 _darkStyleForGame['gostop'] = `
-#overall-content:before { content: ""; background: #000000A0; position: absolute; width: 100%; height: 100%; }
+#overall-content:before { content: ""; background: #00000080; position: absolute; width: 100%; height: 100%; }
 #player_boards td.table_bordered { color: #000; }
 `;
 
@@ -3797,6 +3803,7 @@ _darkStyleForGame['luckynumbers'] = `
 _darkStyleForGame['ludo'] = `
 .dice_table, .board_cell.safety_space { background: var(--dark-back); }
 .dice_table td { color: var(--light-80); }
+#game_board { filter: brightness(0.9); }
 `;
 
 _darkStyleForGame['lumen'] = `
@@ -4204,6 +4211,10 @@ _darkStyleForGame['nachopile'] = `
 .nachosmall, .smallnacho { filter: var(--highlight-min); }
 `;
 
+_darkStyleForGame['nainjaune'] = `
+.card, .stock_card_border { filter: brightness(0.9); }
+`;
+
 _darkStyleForGame['naishi'] = `
 #pagemaintitletext span[style*="background-color:#bbbbbb"] { background-color: transparent !important; }
 .black_token { filter: var(--highlight-min); }
@@ -4286,6 +4297,12 @@ _darkStyleForGame['nextstationtokyo'] = `
 
 _darkStyleForGame['niagara'] = `
 #board { filter: brightness(0.9); }
+`;
+
+_darkStyleForGame['nibble'] = `
+.nib_board, .nib_counter .nib_disc, .card-stock.slot-stock, .nib_separators { filter: brightness(0.8); }
+#bga-zoom-controls { filter: invert(0.8); }
+.nib_collectionTitle { background-color: var(--dark-20); }
 `;
 
 _darkStyleForGame['nicodemus'] = `
@@ -4464,6 +4481,13 @@ _darkStyleForGame['oneohone'] = `
 
 _darkStyleForGame['openfacechinesepoker'] = `
 .name_shadow { text-shadow: none; }
+#pagesection_gameview .whiteblock.playertable { position: relative; }
+#pagesection_gameview .whiteblock.playertable:before { content: ""; position: absolute; width: 100%; height: 100%; top: 0px; left: 0px; }
+#pagesection_gameview .whiteblock.playertable_ff0000:before { background: #ff000026; }
+#pagesection_gameview .whiteblock.playertable_008000:before { background: #00800026; }
+#pagesection_gameview .whiteblock.playertable_0000ff:before { background: #0000ff26; }
+#pagesection_gameview .whiteblock.playertable_982fff:before { background: #982fff26; }
+.stock_card_border { filter: var(--drop-shadow) brightness(0.9); box-shadow: none; }
 `;
 
 _darkStyleForGame['openseason'] = `
@@ -4831,6 +4855,16 @@ _darkStyleForGame['puertorico'] = `
 
 _darkStyleForGame['pugsinmugs'] = `
 .bigcard { box-shadow: 5px 5px 10px 2px #aaa; }
+`;
+
+_darkStyleForGame['pyramidoft'] = `
+#overall-content:before { content: ""; background: #00000080; position: absolute; width: 100%; height: 100%; }
+.py_header_round, .py_header_turns { color: var(--light-80); }
+.py_zone { background-color: var(--dark-back); }
+.py_zone_name.playername { background: var(--dark-20); border-radius: 8px; }
+.py_zone_name.playername[style="color:#444;"] { color: var(--light-70)!important; }
+.py_zone_nobg { background-color: transparent; }
+.py_panel_gem { background-color: var(--dark-0); }
 `;
 
 _darkStyleForGame['qango'] = `
@@ -5622,6 +5656,10 @@ _darkStyleForGame['splendorduel'] = `
 .token .card-sides .card-side { filter: var(--drop-shadow-min); }
 .player-table .hand-wrapper, .privilege-zone:not(:empty) { background: var(--dark-10); }
 .bga-help_popin-button { background-color: #394260; }
+`;
+
+_darkStyleForGame['spiteandmalice'] = `
+.card_1, .card_2 { filter: var(--drop-shadow) brightness(0.9); box-shadow: none; }
 `;
 
 _darkStyleForGame['splito'] = `
