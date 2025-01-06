@@ -63,6 +63,7 @@ interface CustomConfig {
 	inProgress?: InProgressConfig;
 	lobbyRedirect?: boolean;
 	autoOpen?: boolean;
+	solidBack?: boolean;
 };
 
 export interface HomeConfig {
@@ -350,6 +351,15 @@ class Configuration {
 	setAutoOpenEnable(val: boolean) {
 		this._customConfig.autoOpen = val;
 		storageSet({ autoOpen: val });
+	}
+
+	isSolidBackground() {
+		return Boolean(this._customConfig.solidBack);
+	}
+
+	setSolidBackground(val: boolean) {
+		this._customConfig.solidBack = val;
+		storageSet({ solidBack: val });
 	}
 
 	setLeftMenuEnabled(name: string, enable: boolean) {

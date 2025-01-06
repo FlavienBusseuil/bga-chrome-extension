@@ -27,6 +27,7 @@ const Options = (props: { config: Configuration }) => {
 	const [customSoundFile, setCustomSoundFile] = useState(isSoundCustom());
 	const [redirect, setRedirect] = useState(config.isLobbyRedirectionEnable());
 	const [autoOpen, setAutoOpen] = useState(config.isAutoOpenEnable());
+	const [solidBackground, setSolidBackground] = useState(config.isSolidBackground());
 	const [homeConfig, setHomeConfig] = useState(config.getHomeConfig());
 	const [inProgressConfig, setInProgressConfig] = useState(config.getInProgressConfig());
 	const [motionSensitivity, setMotionSensitivity] = useState(config.isMotionSensitivityEnable());
@@ -162,6 +163,11 @@ const Options = (props: { config: Configuration }) => {
 		config.setAutoOpenEnable(val);
 	};
 
+	const updateSolidBackground = (val: boolean) => {
+		setSolidBackground(val);
+		config.setSolidBackground(val);
+	};
+
 	const getHomeSwitch = (param: string, message: string) => {
 		return (
 			<Switch
@@ -234,6 +240,12 @@ const Options = (props: { config: Configuration }) => {
 						textOn={chrome.i18n.getMessage("optionsAutoOpenOn")}
 						textOff={chrome.i18n.getMessage("optionsAutoOpenOff")}
 						onChange={updateAutoOpen}
+					/>
+					<Switch
+						checked={solidBackground}
+						textOn={chrome.i18n.getMessage("optionsSolidBackgroundOn")}
+						textOff={chrome.i18n.getMessage("optionsSolidBackgroundOff")}
+						onChange={updateSolidBackground}
 					/>
 				</div>
 				<div className="bgext_options_title">

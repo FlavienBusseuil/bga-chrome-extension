@@ -225,6 +225,12 @@
 	"optionsAutoOpenOff": {
 		"message": "Le bouton 'Création rapide' n'ouvre pas la table aux autres joueurs"
 	},
+	"optionsSolidBackgroundOn": {
+		"message": "Utiliser un arrière-plan de couleur unie sur tous les écrans"
+	},
+	"optionsSolidBackgroundOff": {
+		"message": "Utiliser l'arrière-plan par défaut"
+	},
 	"about": {
 		"message": "A propos"
 	},

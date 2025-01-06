@@ -126,7 +126,7 @@ const manageLocationChange = (pathname) => {
 	initChatIcon(config);
 	initDarkMode(config, 'general');
 
-	setHtmlClass(pageName);
+	setHtmlClass(pageName, config.isSolidBackground());
 
 	if (pageName.startsWith('gamelist')) {
 		initObserver('gamelist');
@@ -141,7 +141,7 @@ const manageLocationChange = (pathname) => {
 	return 'general';
 };
 
-const setHtmlClass = (mode) => {
+const setHtmlClass = (mode, solidBackground) => {
 	const oldClasses = Array.from(document.documentElement.classList).filter(c => c.startsWith('bgaext'));
 
 	oldClasses.map(oldClass => {
@@ -149,6 +149,10 @@ const setHtmlClass = (mode) => {
 	})
 
 	document.documentElement.classList.add(`bgaext_${mode}`);
+
+	if (solidBackground) {
+		document.documentElement.classList.add('bgaext_solid_back');
+	}
 };
 
 const initPage = () => {
@@ -198,6 +202,12 @@ document.addEventListener('bga_ext_update_config', (data) => {
 		setEloStyle(config);
 	} else if (data.detail.key === 'muted') {
 		refreshMutedPlayers(config);
+	} else if (data.detail.key === 'solidBack') {
+		if (config.isSolidBackground()) {
+			document.documentElement.classList.add('bgaext_solid_back');
+		} else {
+			document.documentElement.classList.remove('bgaext_solid_back');
+		}
 	} else if (['home', 'inProgress'].includes(data.detail.key) && pageType === 'general') {
 		localStorage.removeItem('bga-homepage-newsfeed-slots');
 		localStorage.removeItem('bga-homepageNewsSeen');

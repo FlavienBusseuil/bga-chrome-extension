@@ -20,6 +20,7 @@ export const OptionsView = ({ config, onChange }: Props) => {
   const [motionSensitivity, setMotionSensitivity] = useState(config.isMotionSensitivityEnable());
   const [redirect, setRedirect] = useState(config.isLobbyRedirectionEnable());
   const [autoOpen, setAutoOpen] = useState(config.isAutoOpenEnable());
+  const [solidBackground, setSolidBackground] = useState(config.isSolidBackground());
   const [homeConfig, setHomeConfig] = useState<HomeConfig>(config.getHomeConfig());
   const [inProgressConfig, setInProgressConfig] = useState<InProgressConfig>(config.getInProgressConfig());
   const [hiddenGames, setHiddenGames] = useState<string[]>(config.getHiddenGames());
@@ -81,6 +82,11 @@ export const OptionsView = ({ config, onChange }: Props) => {
   const updateAutoOpen = (val: boolean) => {
     setAutoOpen(val);
     config.setAutoOpenEnable(val);
+  };
+
+  const updateSolidBackground = (val: boolean) => {
+    setSolidBackground(val);
+    config.setSolidBackground(val);
   };
 
   const updateHomeConfig = (param: string, val: boolean) => {
@@ -173,6 +179,7 @@ export const OptionsView = ({ config, onChange }: Props) => {
           {getSwitch(!motionSensitivity, updateFlashing, "optionsFlashingOn", "optionsFlashingOff")}
           {getSwitch(redirect, updateRedirect, "optionsLobbyRedirectOn", "optionsLobbyRedirectOff")}
           {getSwitch(autoOpen, updateAutoOpen, "optionsAutoOpenOn", "optionsAutoOpenOff")}
+          {getSwitch(solidBackground, updateSolidBackground, "optionsSolidBackgroundOn", "optionsSolidBackgroundOff")}
         </div>
       );
     }

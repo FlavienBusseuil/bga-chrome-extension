@@ -2,3 +2,7 @@
 html:not(.bgaext_gamelist) .ext_delete_button {
   display: none;
 }
+
+html.bgaext_solid_back {
+  background: #fff;
+}

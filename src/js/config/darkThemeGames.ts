@@ -427,9 +427,9 @@ const manageBackground = (defBackClass: string, otherBackClasses: string[]) => {
   if (!defBackFound && !otherBackFound) {
     setTimeout(() => manageBackground(defBackClass, otherBackClasses), 50);
   } else if (defBackFound) {
-    document.documentElement.classList.remove("custom_background");
+    document.documentElement.classList.remove("bgaext_cust_back");
   } else {
-    document.documentElement.classList.add("custom_background");
+    document.documentElement.classList.add("bgaext_cust_back");
   }
 };
 
@@ -532,9 +532,9 @@ export const gamesWithCustomActions = {
         if (!document.documentElement.classList.contains("wsp_birdtray_default") && !document.documentElement.classList.contains("wsp_birdtray_largecards")) {
           setTimeout(wingManageBackground, 50);
         } else if (document.documentElement.classList.contains("wsp_background_paper")) {
-          document.documentElement.classList.add("custom_background");
+          document.documentElement.classList.add("bgaext_cust_back");
         } else {
-          document.documentElement.classList.remove("custom_background");
+          document.documentElement.classList.remove("bgaext_cust_back");
         }
       };
 
@@ -560,9 +560,9 @@ export const gamesWithCustomActions = {
         if (back == undefined) {
           setTimeout(manageBackground, 50);
         } else if (back === "2") {
-          document.documentElement.classList.remove("custom_background");
+          document.documentElement.classList.remove("bgaext_cust_back");
         } else {
-          document.documentElement.classList.add("custom_background");
+          document.documentElement.classList.add("bgaext_cust_back");
         }
       };
 

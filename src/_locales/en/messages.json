@@ -225,6 +225,12 @@
 	"optionsAutoOpenOff": {
 		"message": "The 'Fast create' button does not open the table to other players"
 	},
+	"optionsSolidBackgroundOn": {
+		"message": "Use a solid-colour background on all screens"
+	},
+	"optionsSolidBackgroundOff": {
+		"message": "Use default background"
+	},
 	"about": {
 		"message": "About"
 	},
