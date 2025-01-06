@@ -2020,14 +2020,18 @@ _darkStyleForGame['darwinsjourney'] = `
 .darwin-help-table tr:nth-child(2n), .darwin-move-history-table tr:nth-child(2n) { background-color: var(--dark-30); }
 .darwin-goals-panel, .darwin-navigation-panel { background-color: var(--dark-40); }
 input:checked+.darwin-slider { background-color: var(--blue-70); }
-}
 `;
 
 _darkStyleForGame['daybreak'] = `
-.dbk-card-inner { background: var(--dark-20); color: var(--light-80); }
-.dbk-card-inner .dbk-icon-arrow, .tooltiptext .dbk-icon-arrow { filter: invert(0.7); }
+.dbk-card-inner:not(.dbk-card-crisis-back) { background: var(--dark-20); color: var(--light-80); }
+.dbk-card-crisis-back { filter: brightness(0.9); }
+.dbk-card-inner .dbk-icon-arrow, .dbk-card-inner .dbk-icon-player, .tooltiptext .dbk-icon-arrow, .tooltiptext .dbk-icon-player { filter: invert(0.8); }
 .dbk-card-mod { background: var(--dark-10); }
 .dbk-tab, .dbk-tab:not(.dbk-tab-selected):hover, .dbk-tab.dbk-tab-selected { background-color: var(--dark-20); color: var(--light-80); }
+.dbk-voteBlock { background-color: var(--dark-10); }
+.dbk-card-crisis>.dbk-card-inner .dbk-icon-crisisType { border-radius: 5px; border: 1px solid var(--light-50); }
+.dbk-card-qr { color: #000; }
+#logs .dbk-icon-carbon { filter: var(--drop-shadow-min); }
 `;
 
 _darkStyleForGame['deliverance'] = `
@@ -3211,7 +3215,6 @@ _darkStyleForGame['harvest'] = `
 #hrv-board-left-marketLg, #hrv-board-left-marketSm { filter: saturate(0.7); z-index: 2; }
 .hrv-character, .hrv-sunrise { filter: saturate(0.7); }
 .hrv-icon-worker { z-index: 3; }
-.bgabutton.bgabutton_disabled { ${disabledButton} }
 #hrv-buttonUndo { ${redButton} }
 #hrv-buttonUndo:hover { ${redButtonOver} }
 `;
@@ -4721,7 +4724,6 @@ _darkStyleForGame['piratesofmaracaibo'] = `
 .pom-diceDish { background-color: var(--dark-back); }
 .pom-resize { background: var(--dark-20); border: 1px solid var(--dark-40); color: var(--light-70); }
 .pom-resize:hover { background: #000; }
-.bgabutton_disabled { ${disabledButton} }
 #pom-buttonUndo { ${redButton} }
 #pom-buttonUndo:hover { ${redButtonOver} }
 .pom-explore, .pom-figurehead, .pom-card { filter: brightness(0.9); }
