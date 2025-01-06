@@ -2167,3 +2167,7 @@ html:not(.bgaext_gamelist) .ext_delete_button {
 .bgaext_gamereview #chart div {
   color: var(--light-80) !important;
 }
+
+#warning_accepted i {
+  text-shadow: none;
+}

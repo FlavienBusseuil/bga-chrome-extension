@@ -153,6 +153,7 @@ export const gamesWithCustomBackground = [
   'pocketcats',
   'pook',
   'qo',
+  'quadratacanada',
   'quartermastergeneraleastfront',
   'quirkyquarks',
   'restinpeace',
@@ -4790,6 +4791,12 @@ _darkStyleForGame['potionexplosion'] = `
 .cupboard, .discard { border: 1px solid var(--light-50); }
 `;
 
+_darkStyleForGame['potionsofazerland'] = `
+.poa_PopinContainer.displayDiceResult, .poa_PopinContainer.displayOrderPriorityChoice, .poa_PopinContainer.displayRessourceChoice { background: var(--dark-10); border: 1px solid var(--light-50); color: var(--light-80); }
+.poa_tooltip_status { color: var(--light-50); }
+.playerName { background: linear-gradient(90deg, #00000000, #00000000 30%, #000000e6 50%, #00000000 70%, #00000000); }
+`;
+
 _darkStyleForGame['powervacuum'] = `
 #overall-content[style^="background"]:before { content: ""; background: #000000A0; position: absolute; width: 100%; height: 100%; top:0px; left: 0px; }
 `;
@@ -4832,6 +4839,20 @@ _darkStyleForGame['qango'] = `
 
 _darkStyleForGame['qawale'] = `
 .qaw_miniboard { border: 2px solid #897272; }
+`;
+
+_darkStyleForGame['quadratacanada'] = `
+#overall-content:before { content: ""; background: #00000080; position: absolute; width: 100%; height: 100%; }
+#day, #lastTurn { border: 2px solid rgb(255 255 255 / 50%); }
+#day { background-color: var(--dark-back); }
+#lastTurn { background-color: var(--violet-60); }
+.tooltipMultiplicationTable { color: #000; }
+.fa6-mobile-screen { color: var(--light-80); }
+div.board, div.taxiBoard, div.destination, .trophy { filter: brightness(0.9); }
+.bgaimagebutton { border: 2px solid #bdbdbd; }
+div.destination { border: 2px solid rgb(255 255 255 / 50%); }
+div.destination.stockitem_selected { border: 6px solid rgb(255 255 255 / 75%) !important; box-shadow: 1px 1px 7px 3px rgb(255 255 255 / 75%); }
+.math_result, .taxi_math_value { background-color: var(--dark-back); color: var(--light-80); }
 `;
 
 _darkStyleForGame['quantum'] = `

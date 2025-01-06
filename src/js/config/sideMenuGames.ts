@@ -1402,7 +1402,16 @@ const defaultGames: Partial<Game>[] = [
 	{
 		name: "revive",
 		playerPanel: "player_{{player_id}}"
-	}
+	},
+	{
+		name: "potionsofazerland",
+		playerPanel: "playerBoard_{{player_id}}",
+		boardPanel: "poa_mainBoard"
+	},
+	{
+		name: "quadratacanada",
+		playerPanel: "playertable_{{player_index_1}}"
+	},
 ];
 
 export default defaultGames;
