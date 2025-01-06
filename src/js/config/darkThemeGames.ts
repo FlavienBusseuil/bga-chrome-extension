@@ -294,12 +294,14 @@ export const gamesWithCustomPlayerStyle = {
   myshelfie: '.shelf-name',
   knister: '.knister_plname',
   splitter: '.splitter_plname',
-  quartzdice: '.quartz-mining-cart-title > span'
+  quartzdice: '.quartz-mining-cart-title > span',
+  theguildofmerchantexplorers: '.tab_header, .player_board .player_nametag'
 };
 
 export const playersBackground = {
   golems: ['#pl{{player_id}}_label'],
   laserreflection: ['#lrf_container_{{player_id}} .lrf_progress-bar'],
+  thegreatamericanfoxhunt: ['#TGAFH_player_89123556'],
   treos: ['#gamezone-{{player_id}} .player-board-name'],
 };
 
@@ -321,6 +323,7 @@ export const playersBorder = {
   rumbleplanet: ['#player-table-{{player_id}}'],
   skatelegend: ['#player-table-{{player_id}}'],
   treos: ['#gamezone-{{player_id}}'],
+  theguildofmerchantexplorers: ['#tab_header_board_{{player_id}}'],
   wizardsgrimoire: ['.wg-title.ext_player_{{player_id}}', '#player-table-{{player_id}}-health', '#player-table-{{player_id}} .player-table'],
 };
 
@@ -360,6 +363,7 @@ export const gamesWithRecommandedConfig = {
   captainflip: { color: 193, sat: 39 },
   capybarancapybara: { color: 97, sat: 15 },
   castlecombo: { color: 190, sat: 23 },
+  catan: { color: 210, sat: 16 },
   century: { color: 25, sat: 16 },
   conspiracy: { color: 226, sat: 16 },
   cosmosempires: { color: 233, sat: 27 },
@@ -1563,6 +1567,39 @@ _darkStyleForGame['catan'] = `
 .cat_panel_ck_citylevel { color: #000; }
 .cat_metropolis { box-shadow: none; filter: var(--drop-shadow); margin-bottom: 5px; }
 html.darkpanel #player_boards .player-board.cat_activepl { background: var(--dark-30)!important; }
+#cat_tradeawarenessconfig, .cat_tradeawareness { background: var(--dark-back); border: 1px solid var(--light-50); }
+#cat_tradeawareness_currentconf { background: var(--dark-back); }
+#cat_trade_player_wantandoffer, .cat_playertradeoffer { background: linear-gradient(180deg, #1e3148, #1c2e4a); }
+.cat_playertrade_caption, .cat_playerboard_resource_info, .cat_offerplname, .cat_tradeoffer_preview, .cat_tradeoffer_messageline { color: var(--light-80); }
+.cat_arrows_ltr, .cat_arrows_rtl { filter: var(--highlight-min); }
+.cat_resource_counter { background-color: var(--dark-10); border-color: var(--light-80); color: var(--light-80); }
+.cat_playertradeoffer.cat_red { border: 2px solid var(--red-30); }
+.cat_playertradeoffer.cat_orange { border: 2px solid #f79f50; }
+.cat_playertradeoffer.cat_blue { border: 2px solid #31b1e6; }
+.cat_playertradeoffer.cat_brown { border: 2px solid #a0665e; }
+.cat_playertradeoffer.cat_pink { border: 2px solid #e63aec; }
+.cat_playertradeoffer.cat_purple { border: 2px solid #9b3feb; }
+.cat_nameintext.cat_red { color: var(--red-30); }
+.cat_nameintext.cat_orange { color: #f79f50; }
+.cat_nameintext.cat_blue { color: #31b1e6; }
+.cat_nameintext.cat_brown { color: #a0665e; }
+.cat_nameintext.cat_pink { color: #e63aec; }
+.cat_nameintext.cat_green { color: #6ac055; }
+.bgabutton_orange { ${redButton} }
+.bgabutton_orange:hover { ${redButtonOver} }
+#cat_playertrade_button_update { ${greenButton}; border-color: var(--light-80) !important; text-shadow: -1px -1px #0004, 1px 1px #0004, -1px 1px #0004, 1px -1px #0004 !important; }
+#cat_playertrade_button_update:hover { ${greenButtonOver} }
+.cat_button_deal { text-shadow: -1px -1px #0004, 1px 1px #0004, -1px 1px #0004, 1px -1px #0004 !important; }
+.cat_button_deal:not(.cat_button_reject_all) { ${greenButton}; border-color: var(--light-80) !important; }
+.cat_button_deal:not(.cat_button_reject_all):hover { ${greenButtonOver} }
+.cat_button_deal.cat_button_retract, #cat_playertrade_button_cancelupdate { ${redButton}; border-color: var(--light-80) !important; }
+.cat_button_deal.cat_button_retract:hover, #cat_playertrade_button_cancelupdate:hover { ${redButtonOver} }
+.cat_button_deal.cat_button_match { ${blueButton}; border-color: var(--light-80) !important; }
+.cat_button_deal.cat_button_match:hover { ${blueButtonOver} }
+.cat_playertradeoffer.cat_notactionable { background: #333; }
+.cat_alert { color: var(--red-30); }
+.cat_matched { color: var(--green-50); }
+.cat_traderate { color: var(--light-80); }
 `;
 
 _darkStyleForGame['catcafe'] = `
@@ -3328,12 +3365,16 @@ _darkStyleForGame['incangold'] = `
 _darkStyleForGame['innovation'] = `
 .card_name { text-shadow: var(--text-w-shadow); }
 #main_area .bgabutton { color: #000; }
-.hand_container { background-color: transparent; }
-.score_container, .achievement_container, #available_achievements_container, #available_special_achievements_container, #decks_and_title { color: #fff; }
+.hand_container, .achievement_container, .forecast_container, .safe_container, .score_container { background-color: transparent; }
+.score_container, .achievement_container, #available_achievements_container, #available_special_achievements_container,
+#available_standard_achievements_container, #decks_and_title, #junk_container { color: var(--light-80); }
 .action_text, .echo_effect, .reference_card { color: #000; }
 .display_container > div { background-color: var(--dark-back) !important; }
 .dijitTooltipContainer .icon_help { width: 16px; height: 16px; }
+.recto.S.card_back_text { color: #000; }
 `;
+
+_darkStyleForGame['innovationalpha'] = _darkStyleForGame['innovation'];
 
 _darkStyleForGame['inori'] = `
 #ino-board:before { content: ""; background: #00000060; position: absolute; width: 100%; height: 100%; }
@@ -4664,6 +4705,12 @@ _darkStyleForGame['pingimus'] = `
 
 _darkStyleForGame['pinochle'] = `
 #pagesection_gameview .whiteblock.playertable.declarer { background: #4d00004d; border: 1px solid var(--dark-back); }
+`;
+
+_darkStyleForGame['pipeline'] = `
+.ppln_upgradeFlipToken { filter: brightness(0.8); border-radius: 50%; }
+.ppln_valuationCard { background-color: #360; color: var(--light-80); }
+.ppln_valuationTitle { background-color: var(--dark-back); }
 `;
 
 _darkStyleForGame['piratesofmaracaibo'] = `
@@ -6022,14 +6069,19 @@ _darkStyleForGame['thefoxintheforestduet'] = `
 `;
 
 _darkStyleForGame['thegreatamericanfoxhunt'] = `
-[style^="background-color:#aea296;"] { background-color: #564d43 !important; }
-[style^="background-color:#a8b23e;"] { background-color: #595e21 !important; }
-[style^="background-color:#c04746;"] { background-color: #5f2121 !important; }
-[style^="background-color:#f0de41;"] { background-color: #766b0a !important; }
-[style^="background-color:#5663a7;"] { background-color: #2b3254 !important; }
-[style^="background-color:#d150d3;"] { background-color: #651966 !important; }
 .TGAFH-PlayerHand { filter: invert(1); color: #000000; }
 .TGAFH-Turn { background-color: var(--orange-10); }
+`;
+
+_darkStyleForGame['theguildofmerchantexplorers'] = `
+.card.investigate .cardtitle, .card.objective .objective_text { color: #000; }
+#tabbed #gme_tabcontrol .tab_header { background: #000; }
+#tabbed #gme_tabcontrol .tab_header.shown { background: #000; filter: var(--drop-shadow); }
+.player_board .player_nametag { background: var(--dark-10); }
+.bgabutton_orange { ${orangeButton} }
+.bgabutton_orange:hover { ${orangeButtonOver} }
+.bgabutton_green { ${greenButton} }
+.bgabutton_green:hover { ${greenButtonOver} }
 `;
 
 _darkStyleForGame['theisleofcats'] = `
