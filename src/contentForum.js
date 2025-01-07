@@ -18,6 +18,10 @@ const initPage = () => {
   document.documentElement.classList.add('bgaext_forum');
   setDarkStyle(config.isDarkMode(), config.getCustomCss());
   adjustDarkColors();
+
+  if (config.isSolidBackground()) {
+    document.documentElement.classList.add('bgaext_solid_back');
+  }
 };
 
 document.addEventListener('bga_ext_update_config', (data) => {

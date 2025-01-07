@@ -3,43 +3,65 @@ import Configuration from "./js/config/configuration";
 import { addChangeListener } from "./js/utils/chrome";
 
 const config = new Configuration();
-let darkModeConfigured = undefined;
 let redirectConfigured = undefined;
+let solidBackground = undefined;
+let darkMode = undefined;
+let preventMainBack = undefined;
+let preventGameBack = undefined;
 
-const setDarkModeUrlFilters = (isDarkMode) => {
-  if (darkModeConfigured !== isDarkMode) {
-    darkModeConfigured = isDarkMode;
+const setBackgroundFilters = () => {
+  const newPreventMainBack = solidBackground || darkMode;
+  const newPreventGameBack = darkMode;
 
-    if (darkModeConfigured) {
-      console.log("[bga extension] Add filters for dark mode");
-      // rule 1 : prevent display default background just before dark background in dark mode
-      // (could not be replaced because the whole page is NOT reloaded each time we change from dark to light)
-      // rule 2 : replace forum default background in dark mode
-      // (could be replaced because the whole page is reloaded each time we change from dark to light)
-      // rule 3 : replace forum's smileys in dark mode
+  if (preventMainBack !== newPreventMainBack) {
+    preventMainBack = newPreventMainBack;
+
+    if (preventMainBack) {
+      console.log("[bga extension] Add filters to prevent default website background");
+      // rule 1 : prevent display of default background in main site
+      // rule 2 : prevent display of default background in forum
 
       chrome.declarativeNetRequest.updateDynamicRules({
-        removeRuleIds: [1, 2, 3],
+        removeRuleIds: [1, 2],
         addRules: [{
           id: 1,
           action: { type: "block" },
           condition: { urlFilter: "https://*.boardgamearena.net/data/themereleases/*/img/layout/back-main.jpg" },
-        },
-        {
+        }, {
           id: 2,
           action: { type: "block" },
           condition: { urlFilter: "https://forum.boardgamearena.com/styles/prosilver/theme/images/bga/back-main.jpg" },
-        }, {
+        }]
+      });
+    } else {
+      console.log("[bga extension] Remove filters to prevent default website background");
+
+      chrome.declarativeNetRequest.updateDynamicRules({
+        removeRuleIds: [1, 2]
+      });
+    }
+  }
+
+  if (preventGameBack !== newPreventGameBack) {
+    preventGameBack = newPreventGameBack;
+
+    if (preventGameBack) {
+      console.log("[bga extension] Add filters to prevent default game background");
+      // rule 3 : prevent display of default background in games
+
+      chrome.declarativeNetRequest.updateDynamicRules({
+        removeRuleIds: [3],
+        addRules: [{
           id: 3,
           action: { type: "block" },
           condition: { urlFilter: "https://*.boardgamearena.net/data/themereleases/*/img/layout/back-main_games.jpg" },
         }]
       });
     } else {
-      console.log("[bga extension] Remove filters for dark mode");
+      console.log("[bga extension] Remove filters to prevent default game background");
 
       chrome.declarativeNetRequest.updateDynamicRules({
-        removeRuleIds: [1, 2, 3]
+        removeRuleIds: [3]
       });
     }
   }
@@ -51,6 +73,8 @@ const setLobbyUrlFilters = (isRedirectEnable) => {
 
     if (redirectConfigured) {
       console.log("[bga extension] Add filters to redirect to classic lobby");
+      // rule 4 : redirect to classic lobby
+
       chrome.declarativeNetRequest.updateDynamicRules({
         removeRuleIds: [4],
         addRules: [{
@@ -86,15 +110,23 @@ config.init().then(() => {
   chrome.alarms.create("keepAlive1", { when: now + 20000, periodInMinutes: 1 });
   chrome.alarms.create("keepAlive2", { when: now + 40000, periodInMinutes: 1 });
 
-  setDarkModeUrlFilters(config.isDarkMode());
+  darkMode = config.isDarkMode();
+  solidBackground = config.isSolidBackground();
+
+  setBackgroundFilters();
   setLobbyUrlFilters(config.isLobbyRedirectionEnable());
 });
 
 addChangeListener((changes) => {
+  console.log("[bga extension] Changes detected", changes);
+
   if (changes.darkMode) {
-    setDarkModeUrlFilters(changes.darkMode.newValue);
-  }
-  if (changes.lobbyRedirect) {
+    darkMode = changes.darkMode.newValue;
+    setBackgroundFilters();
+  } else if (changes.solidBack) {
+    solidBackground = changes.solidBack.newValue;
+    setBackgroundFilters();
+  } else if (changes.lobbyRedirect) {
     setLobbyUrlFilters(changes.lobbyRedirect.newValue);
   }
 });

@@ -203,11 +203,7 @@ document.addEventListener('bga_ext_update_config', (data) => {
 	} else if (data.detail.key === 'muted') {
 		refreshMutedPlayers(config);
 	} else if (data.detail.key === 'solidBack') {
-		if (config.isSolidBackground()) {
-			document.documentElement.classList.add('bgaext_solid_back');
-		} else {
-			document.documentElement.classList.remove('bgaext_solid_back');
-		}
+		location.reload();
 	} else if (['home', 'inProgress'].includes(data.detail.key) && pageType === 'general') {
 		localStorage.removeItem('bga-homepage-newsfeed-slots');
 		localStorage.removeItem('bga-homepageNewsSeen');
