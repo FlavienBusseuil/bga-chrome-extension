@@ -12,7 +12,7 @@ const isDarkStyle = (mode: string) => {
 const { cssList, mode } = (() => {
   const pageInfo = window.location.pathname.substring(1).split("/");
   if (pageInfo.length >= 2 && isNumber(pageInfo[0])) {
-    return { mode: pageInfo[1], cssList: ["dark_theme/background.css", "dark_theme/common.css", "dark_theme/chat.css", "dark_theme/icons.css", "dark_theme/game.css"] };
+    return { mode: pageInfo[1], cssList: ["light_theme/general.css", "dark_theme/background.css", "dark_theme/common.css", "dark_theme/chat.css", "dark_theme/icons.css", "dark_theme/game.css"] };
   }
 
   if (pageInfo[0] === "tutorial") {
@@ -207,10 +207,12 @@ const _setLightStyle = (mode: string) => {
       return;
     }
 
+    const generalStyle = cssContents["light_theme/general.css"];
+
     if (mode === "general") {
-      styleComponent.innerHTML = cssContents["light_theme/general.css"];
+      styleComponent.innerHTML = generalStyle;
     } else {
-      styleComponent.innerHTML = styleForGame[mode] || "";
+      styleComponent.innerHTML = `${generalStyle}${styleForGame[mode] || ""}`;
       if (gamesWithCustomDarkMode[mode]) {
         document.documentElement.classList.remove(gamesWithCustomDarkMode[mode].className);
       }

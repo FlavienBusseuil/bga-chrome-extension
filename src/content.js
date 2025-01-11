@@ -87,6 +87,12 @@ const manageLocationChange = (pathname) => {
 		}
 
 		initDarkMode(config, gameName);
+
+		if (config.isSolidBackground()) {
+			document.documentElement.classList.add('bgaext_game');
+			document.documentElement.classList.add('bgaext_solid_back');
+		}
+
 		return 'game';
 	}
 

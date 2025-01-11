@@ -7,6 +7,10 @@ html.bgaext_solid_back {
   background: #fff;
 }
 
+html.bgaext_game.bgaext_solid_back {
+  background: #dfb98b;
+}
+
 html.bgaext_forum_visible.bgaext_solid_back,
 html.bgaext_forum_visible.bgaext_solid_back body,
 html.bgaext_forum.bgaext_solid_back body {

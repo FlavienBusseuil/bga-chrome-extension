@@ -6,23 +6,22 @@ const config = new Configuration();
 let redirectConfigured = undefined;
 let solidBackground = undefined;
 let darkMode = undefined;
-let preventMainBack = undefined;
-let preventGameBack = undefined;
+let preventBack = undefined;
 
 const setBackgroundFilters = () => {
-  const newPreventMainBack = solidBackground || darkMode;
-  const newPreventGameBack = darkMode;
+  const newPreventBack = solidBackground || darkMode;
 
-  if (preventMainBack !== newPreventMainBack) {
-    preventMainBack = newPreventMainBack;
+  if (preventBack !== newPreventBack) {
+    preventBack = newPreventBack;
 
-    if (preventMainBack) {
+    if (preventBack) {
       console.log("[bga extension] Add filters to prevent default website background");
       // rule 1 : prevent display of default background in main site
       // rule 2 : prevent display of default background in forum
+      // rule 3 : prevent display of default background in games
 
       chrome.declarativeNetRequest.updateDynamicRules({
-        removeRuleIds: [1, 2],
+        removeRuleIds: [1, 2, 3],
         addRules: [{
           id: 1,
           action: { type: "block" },
@@ -31,37 +30,17 @@ const setBackgroundFilters = () => {
           id: 2,
           action: { type: "block" },
           condition: { urlFilter: "https://forum.boardgamearena.com/styles/prosilver/theme/images/bga/back-main.jpg" },
-        }]
-      });
-    } else {
-      console.log("[bga extension] Remove filters to prevent default website background");
-
-      chrome.declarativeNetRequest.updateDynamicRules({
-        removeRuleIds: [1, 2]
-      });
-    }
-  }
-
-  if (preventGameBack !== newPreventGameBack) {
-    preventGameBack = newPreventGameBack;
-
-    if (preventGameBack) {
-      console.log("[bga extension] Add filters to prevent default game background");
-      // rule 3 : prevent display of default background in games
-
-      chrome.declarativeNetRequest.updateDynamicRules({
-        removeRuleIds: [3],
-        addRules: [{
+        }, {
           id: 3,
           action: { type: "block" },
           condition: { urlFilter: "https://*.boardgamearena.net/data/themereleases/*/img/layout/back-main_games.jpg" },
         }]
       });
     } else {
-      console.log("[bga extension] Remove filters to prevent default game background");
+      console.log("[bga extension] Remove filters to prevent default website background");
 
       chrome.declarativeNetRequest.updateDynamicRules({
-        removeRuleIds: [3]
+        removeRuleIds: [1, 2, 3]
       });
     }
   }

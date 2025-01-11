@@ -226,10 +226,10 @@
 		"message": "Le bouton 'Création rapide' n'ouvre pas la table aux autres joueurs"
 	},
 	"optionsSolidBackgroundOn": {
-		"message": "Utiliser un arrière-plan de couleur unie sur tous les écrans"
+		"message": "L'arrière plan par défaut (planches en bois) est remplacé par un arrière-plan de couleur unie"
 	},
 	"optionsSolidBackgroundOff": {
-		"message": "Utiliser l'arrière-plan par défaut"
+		"message": "Utilisation de l'arrière-plan par défaut"
 	},
 	"about": {
 		"message": "A propos"

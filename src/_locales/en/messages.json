@@ -226,10 +226,10 @@
 		"message": "The 'Fast create' button does not open the table to other players"
 	},
 	"optionsSolidBackgroundOn": {
-		"message": "Use a solid-colour background on all screens"
+		"message": "The default background (wooden planks) is replaced by a solid-colored background"
 	},
 	"optionsSolidBackgroundOff": {
-		"message": "Use default background"
+		"message": "Using the default background"
 	},
 	"about": {
 		"message": "About"

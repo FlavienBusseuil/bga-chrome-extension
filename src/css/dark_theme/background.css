@@ -5,7 +5,7 @@ body.mode_3d {
 }
 
 html.bgaext_solid_back,
-html.bgaext_solid_back body {
+html.bgaext_solid_back:not(.bgaext_game) body {
   background: var(--dark-30) !important
 }
 
