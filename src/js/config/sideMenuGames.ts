@@ -1412,6 +1412,14 @@ const defaultGames: Partial<Game>[] = [
 		name: "quadratacanada",
 		playerPanel: "playertable_{{player_index_1}}"
 	},
+	{
+		name: "deadcells",
+		playerPanel: "dc-beheaded-{{player_id}}-board",
+		boardPanel: "dc-annexe-combat-board-wrapper",
+		boardPanelText: "#dc-scroll-to-annexe-board",
+		bottomPanel: "dc-mutation-board",
+		css: "#dc-scroll-to-boards { display: none; }"
+	},
 ];
 
 export default defaultGames;

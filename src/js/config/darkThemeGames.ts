@@ -56,6 +56,8 @@ export const gamesWithCustomBackground = [
   'concept',
   'conspiracy',
   'darwinsjourney',
+  'deadcells',
+  'dedale',
   'dicycards',
   'dobbleconnect',
   'dogpark',
@@ -76,6 +78,7 @@ export const gamesWithCustomBackground = [
   'evolution',
   'expeditions',
   'explodingkittens',
+  'faraway',
   'federation',
   'fifteendays',
   'finca',
@@ -332,6 +335,7 @@ export const playersBorder = {
 export const gamesWithCustomColors = {
   ageofinnovation: ['#971923', '#278139', '#70421d', '#1a2126', '#f9ae18', '#1d7ddb'],
   cosmoctopus: ['#20134b'],
+  deadcells: ['#3c733a', '#ab3237', '#5c5aa5', '#c97014'],
   deliverance: ['#8b4513', '#ee0000', '#ffd700', '#007f00'],
   harmonies: ['#ff0000', '#008000', '#ffa500', '#0000ff'],
   insidejob: ['#0000ff', '#ff0000', '#ffa500', '#773300', '#008000'],
@@ -369,6 +373,8 @@ export const gamesWithRecommandedConfig = {
   century: { color: 25, sat: 16 },
   conspiracy: { color: 226, sat: 16 },
   cosmosempires: { color: 233, sat: 27 },
+  dedale: { color: 25, sat: 16 },
+  dicedveggies: { color: 25, sat: 16 },
   dicycards: { color: 146, sat: 15 },
   dobro: { color: 216, sat: 25 },
   earth: { color: 130, sat: 20 },
@@ -2037,6 +2043,18 @@ _darkStyleForGame['daybreak'] = `
 #logs .dbk-icon-carbon { filter: var(--drop-shadow-min); }
 `;
 
+_darkStyleForGame['deadcells'] = `
+.dc_beheaded-board-player-name-container { background: var(--dark-10); }
+.dc_damage-icon, .dc_scroll-icon, .dc_vial-icon, .dc_card-back-icon, .dc_potion-icon, .dc_equipment-icon { filter: var(--highlight-min); }
+.dc_damage-icon.dc_icon-grayscale { filter: grayscale(1) opacity(.3) var(--highlight-min); }
+`;
+
+_darkStyleForGame['dedale'] = `
+#overall-content:before { content: ""; background: #00000080; position: absolute; width: 100%; height: 100%; top:0px; left: 0px; }
+.dd_zoom_btn { filter: invert(0.8); }
+.dd_message { color: var(--light-80); }
+`;
+
 _darkStyleForGame['deliverance'] = `
 .color8b4513 { color: #aa7854!important; }
 .coloree0000 { color: #f24545!important; }
@@ -2079,6 +2097,11 @@ _darkStyleForGame['dicedtomatoes'] = `
 .whiteboard { background-color: #000; }
 .dc_black { text-shadow: var(--text-w-shadow); }
 .log_dice { filter: var(--drop-shadow); }
+`;
+
+_darkStyleForGame['dicedveggies'] = `
+#overall-content:before { content: ""; background: #00000090; position: absolute; width: 100%; height: 100%; top:0px; left: 0px; }
+.popup { background-color: var(--dark-back); color: var(--light-80); }
 `;
 
 _darkStyleForGame['dickory'] = `
@@ -2539,8 +2562,12 @@ body { background: none !important; }
 `;
 
 _darkStyleForGame['faraway'] = `
+body { background: var(--dark-40); }
 .fa_zone_desc { color: rgba(255,255,255,.5); }
 #fa_zone_info { color: #fff; }
+.fa_zone[style^="background-color: rgba(0, 0, 0, 0.1);"] { background: var(--dark-20)!important; }
+.fa_region_score { background-color: var(--dark-10); border-color: var(--light-80); color: var(--light-80); }
+.fa_card_back, .fa_card_front { filter: brightness(0.9); }
 `;
 
 _darkStyleForGame['farkle'] = `
@@ -6135,6 +6162,7 @@ _darkStyleForGame['thegreatamericanfoxhunt'] = `
 `;
 
 _darkStyleForGame['theguildofmerchantexplorers'] = `
+#overall-content:before { content: ""; background: #00000060; position: absolute; width: 100%; height: 100%; }
 .card.investigate .cardtitle, .card.objective .objective_text { color: #000; }
 #tabbed #gme_tabcontrol .tab_header { background: #000; }
 #tabbed #gme_tabcontrol .tab_header.shown { background: #000; filter: var(--drop-shadow); }
