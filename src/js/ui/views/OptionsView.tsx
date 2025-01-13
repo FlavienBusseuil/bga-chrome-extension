@@ -90,7 +90,6 @@ export const OptionsView = ({ config, onChange }: Props) => {
   };
 
   const updateHomeConfig = (param: string, val: boolean) => {
-    debugger;
     const newHomeConfig = { ...homeConfig, [param]: val };
     setHomeConfig(newHomeConfig);
     config.setHomeConfig(newHomeConfig);
@@ -225,15 +224,17 @@ export const OptionsView = ({ config, onChange }: Props) => {
               {getHomeSwitch('smallFeed', 'optionsHomeNewsSmall')}
               {getSwitch(homeConfig.fewFeeds && homeConfig.tournaments && homeConfig.tournamentsBelow, (val) => updateHomeConfig('fewFeeds', val), "optionsHomeNewsShort", "optionsHomeNewsTall", !homeConfig.tournaments || !homeConfig.tournamentsBelow)}
               {getHomeSwitch('tournaments', 'tournaments')}
-              {getSwitch(homeConfig.events || homeConfig.recentGames, (val) => updateHomeConfig('events', val), "optionsHomeEventsOn", "optionsHomeEventsOff", homeConfig.recentGames)}
+              {getSwitch(homeConfig.tournamentsBelow && homeConfig.tournaments, (val) => updateHomeConfig('tournamentsBelow', val), "tournamentsBelowOn", "tournamentsBelowOff", !homeConfig.tournaments)}
+              {getHomeSwitch('howToPlay', 'optionsHomeHowToPlay')}
             </div>
             <div>
               {getHomeSwitch('recentGames', 'optionsRecentColumn')}
               {getHomeSwitch('popularGames', 'optionsPopularColumn')}
               {getHomeSwitch('recommandedGames', 'optionsRecommendedColumn')}
               {getHomeSwitch('classicGames', 'optionsClassicGames')}
+              {getSwitch(homeConfig.events || homeConfig.recentGames, (val) => updateHomeConfig('events', val), "optionsHomeEventsOn", "optionsHomeEventsOff", homeConfig.recentGames)}
               {getHomeSwitch('status', 'optionsStatus')}
-              {homeConfig.tournaments && getHomeSwitch('tournamentsBelow', 'tournamentsBelow')}
+              {getHomeSwitch('footer', 'optionsHomeFooter')}
             </div>
           </div>
 

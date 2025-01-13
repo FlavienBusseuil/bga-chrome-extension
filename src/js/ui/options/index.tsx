@@ -288,7 +288,20 @@ const Options = (props: { config: Configuration }) => {
 							disabled={!homeConfig.tournaments || !homeConfig.tournamentsBelow}
 						/>
 						{getHomeSwitch('tournaments', 'tournaments')}
-
+						<Switch
+							checked={homeConfig.tournamentsBelow && homeConfig.tournaments}
+							textOn={chrome.i18n.getMessage("tournamentsBelowOn")}
+							textOff={chrome.i18n.getMessage("tournamentsBelowOff")}
+							onChange={(val) => updateHomeConfig('tournamentsBelow', val)}
+							disabled={!homeConfig.tournaments}
+						/>
+						{getHomeSwitch('howToPlay', 'optionsHomeHowToPlay')}
+					</div>
+					<div>
+						{getHomeSwitch('recentGames', 'optionsRecentColumn')}
+						{getHomeSwitch('popularGames', 'optionsPopularColumn')}
+						{getHomeSwitch('recommandedGames', 'optionsRecommendedColumn')}
+						{getHomeSwitch('classicGames', 'optionsClassicGames')}
 						<Switch
 							checked={homeConfig.events || homeConfig.recentGames}
 							textOn={chrome.i18n.getMessage("optionsHomeEventsOn")}
@@ -296,15 +309,8 @@ const Options = (props: { config: Configuration }) => {
 							onChange={(val) => updateHomeConfig('events', val)}
 							disabled={homeConfig.recentGames}
 						/>
-
-					</div>
-					<div>
-						{getHomeSwitch('recentGames', 'optionsRecentColumn')}
-						{getHomeSwitch('popularGames', 'optionsPopularColumn')}
-						{getHomeSwitch('recommandedGames', 'optionsRecommendedColumn')}
-						{getHomeSwitch('classicGames', 'optionsClassicGames')}
 						{getHomeSwitch('status', 'optionsStatus')}
-						{homeConfig.tournaments && getHomeSwitch('tournamentsBelow', 'tournamentsBelow')}
+						{getHomeSwitch('footer', 'optionsHomeFooter')}
 					</div>
 				</div>
 

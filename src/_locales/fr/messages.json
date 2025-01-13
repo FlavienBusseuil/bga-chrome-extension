@@ -291,6 +291,12 @@
 	"optionsHomeHeaderOff": {
 		"message": "En-tête cachée"
 	},
+	"optionsHomeFooterOn": {
+		"message": "Bas de page visible"
+	},
+	"optionsHomeFooterOff": {
+		"message": "Bas de page caché"
+	},
 	"optionsHomeLatestOn": {
 		"message": "Dernières actualités visibles"
 	},
@@ -308,6 +314,12 @@
 	},
 	"optionsHomeEventsOff": {
 		"message": "Calendrier des jeux caché"
+	},
+	"optionsHomeHowToPlayOn": {
+		"message": "\"Comment jouer à ...\" affiché"
+	},
+	"optionsHomeHowToPlayOff": {
+		"message": "\"Comment jouer à ...\" caché"
 	},
 	"tournamentsOn": {
 		"message": "Tournois visibles"

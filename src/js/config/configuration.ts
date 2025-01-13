@@ -68,7 +68,9 @@ interface CustomConfig {
 
 export interface HomeConfig {
 	header: boolean;
+	footer: boolean;
 	latestNews: boolean;
+	howToPlay: boolean;
 	smallFeed: boolean;
 	fewFeeds: boolean;
 	status: boolean;
@@ -289,9 +291,13 @@ class Configuration {
 	}
 
 	getHomeConfig() {
+		const homeConfig = this._customConfig.home || {} as any;
+
 		return {
 			header: true,
+			footer: true,
 			latestNews: true,
+			howToPlay: homeConfig?.howToPlay === undefined && homeConfig?.latestNews !== undefined ? homeConfig.latestNews : true,
 			smallFeed: true,
 			fewFeeds: true,
 			status: true,
@@ -302,7 +308,7 @@ class Configuration {
 			recommandedGames: true,
 			classicGames: true,
 			events: true,
-			...(this._customConfig.home || {})
+			...homeConfig
 		};
 	}
 
@@ -660,9 +666,16 @@ class Configuration {
 		if (!home.header) {
 			cssList.push('.bgaext_welcome .bga-homepage-header { display: none; }');
 		}
-		if (!home.latestNews) {
-			cssList.push('.bgaext_welcome div:has(>.bga-homepage__out-grid-title) { display: none; }');
+		if (!home.footer) {
+			cssList.push('.bgaext_welcome .bga-homepage__pre-footer { display: none; }');
 		}
+		if (!home.latestNews) {
+			cssList.push('.bgaext_welcome div:has(>.bga-homepage__out-grid-title):has([href="/headlines"]) { display: none; }');
+		}
+		if (!home.howToPlay) {
+			cssList.push('.bgaext_welcome div:has(>.bga-homepage__out-grid-title):has([href="/gamelist?hasTutorialOnly"]) { display: none; }');
+		}
+
 		if (!home.recentGames && !home.popularGames && !home.recommandedGames && !home.classicGames) {
 			cssList.push('.bgaext_welcome .bga-homepage__content { display: flex; }');
 			cssList.push('.bgaext_welcome .bga-homepage__games-section { display: none; }');
@@ -686,7 +699,7 @@ class Configuration {
 				columns = 1;
 			}
 		}
-		if (!home.tournamentsBelow) {
+		if (!home.tournamentsBelow && home.tournaments) {
 			cssList.push('.bgaext_welcome div:has(>.bga-homepage__newsfeed) { flex-flow: row; }');
 			cssList.push('.bgaext_welcome div:has(>.bga-homepage__newsfeed) > div:last-child { flex-grow: 1; min-width: 450px; }');
 

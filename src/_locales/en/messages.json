@@ -291,6 +291,12 @@
 	"optionsHomeHeaderOff": {
 		"message": "Header hidden"
 	},
+	"optionsHomeFooterOn": {
+		"message": "Footer displayed"
+	},
+	"optionsHomeFooterOff": {
+		"message": "Footer hidden"
+	},
 	"optionsHomeLatestOn": {
 		"message": "Latest news displayed"
 	},
@@ -308,6 +314,12 @@
 	},
 	"optionsHomeEventsOff": {
 		"message": "Games calendar hidden"
+	},
+	"optionsHomeHowToPlayOn": {
+		"message": "\"How to play...\" displayed"
+	},
+	"optionsHomeHowToPlayOff": {
+		"message": "\"How to play...\" hidden"
 	},
 	"tournamentsOn": {
 		"message": "Tournaments displayed"
