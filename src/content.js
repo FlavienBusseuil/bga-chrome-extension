@@ -67,6 +67,13 @@ const manageLocationChange = (pathname) => {
 		currentObserver = null;
 	}
 
+	const setSolidBackground = () => {
+		if (config.isSolidBackground()) {
+			document.documentElement.classList.add('bgaext_game');
+			document.documentElement.classList.add('bgaext_solid_back');
+		}
+	};
+
 	if (pageInfo.length >= 2 && isNumber(pageInfo[0])) {
 		initObserver('game');
 
@@ -87,11 +94,7 @@ const manageLocationChange = (pathname) => {
 		}
 
 		initDarkMode(config, gameName);
-
-		if (config.isSolidBackground()) {
-			document.documentElement.classList.add('bgaext_game');
-			document.documentElement.classList.add('bgaext_solid_back');
-		}
+		setSolidBackground();
 
 		return 'game';
 	}
@@ -118,6 +121,7 @@ const manageLocationChange = (pathname) => {
 	if (pageName === 'tutorial') {
 		const gameName = window.location.search.substring(1).split('&').find(p => p.startsWith('game'))?.split('=')[1];
 		initDarkMode(config, gameName);
+		setSolidBackground();
 		return 'general';
 	}
 
@@ -125,6 +129,7 @@ const manageLocationChange = (pathname) => {
 		waitForObj('[href*="table="]', 5).then((elt) => {
 			const gameName = elt.href.substring(elt.href.lastIndexOf('/') + 1).split('?')[0];
 			initDarkMode(config, gameName);
+			setSolidBackground();
 		});
 		return 'general';
 	}

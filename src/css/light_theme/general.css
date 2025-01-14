@@ -3,11 +3,11 @@ html:not(.bgaext_gamelist) .ext_delete_button {
   display: none;
 }
 
-html.bgaext_solid_back {
+html:not(.bgaext_cust_back).bgaext_solid_back {
   background: #fff;
 }
 
-html.bgaext_game.bgaext_solid_back {
+html:not(.bgaext_cust_back).bgaext_game.bgaext_solid_back {
   background: #dfb98b;
 }
 

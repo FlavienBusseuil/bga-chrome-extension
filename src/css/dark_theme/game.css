@@ -168,16 +168,27 @@ spectator-mode .log .roundedbox .playername {
   background: linear-gradient(180deg, #727272, #777);
 }
 
+.bgabutton_red {
+  border: 1px solid #69452e;
+}
+
+.bgabutton_green {
+  background: linear-gradient(#0bb76c, #24895d) !important;
+  border: 1px solid #004d05 !important;
+  color: #fff !important;
+}
+
+.bgabutton_green:hover {
+  background: linear-gradient(#06ea87, #24895d) !important;
+  color: #fff !important;
+}
+
 .bgabutton.disabled,
 .bgabutton_disabled {
   background: #787878 !important;
   border-color: var(--light-50) !important;
   color: #fff !important;
   cursor: not-allowed;
-}
-
-.bgabutton_red {
-  border: 1px solid #69452e;
 }
 
 .pagesection {

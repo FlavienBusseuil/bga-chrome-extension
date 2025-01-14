@@ -17,11 +17,11 @@ const { cssList, mode } = (() => {
 
   if (pageInfo[0] === "tutorial") {
     const mode = window.location.search.substring(1).split('&').find(p => p.startsWith('game'))?.split('=')[1] || 'general';
-    return { mode, cssList: ["dark_theme/background.css", "dark_theme/common.css", "dark_theme/chat.css", "dark_theme/icons.css", "dark_theme/game.css"] };
+    return { mode, cssList: ["light_theme/general.css", "dark_theme/background.css", "dark_theme/common.css", "dark_theme/chat.css", "dark_theme/icons.css", "dark_theme/game.css"] };
   }
 
   if (pageInfo[0] === "archive") {
-    return { mode: "archive", cssList: ["dark_theme/background.css", "dark_theme/common.css", "dark_theme/chat.css", "dark_theme/icons.css", "dark_theme/game.css"] };
+    return { mode: "archive", cssList: ["light_theme/general.css", "dark_theme/background.css", "dark_theme/common.css", "dark_theme/chat.css", "dark_theme/icons.css", "dark_theme/game.css"] };
   }
 
   return { mode: "general", cssList: ["light_theme/general.css", "dark_theme/background.css", "dark_theme/common.css", "dark_theme/chat.css", "dark_theme/icons.css", "dark_theme/general.css"] };
@@ -117,6 +117,10 @@ const _setDarkStyleIfActivated = () => {
     const customActions = gamesWithCustomActions[mode];
     customActions && customActions.init && customActions.init();
 
+    if (gamesWithCustomBackground.includes(mode)) {
+      document.documentElement.classList.add("bgaext_cust_back");
+    }
+
     if (isDarkStyle(mode)) {
       _setDarkStyle(mode);
     } else {
@@ -202,12 +206,12 @@ const _setLightStyle = (mode: string) => {
   console.log("[bga extension] set light mode");
 
   if (styleComponent) {
+    const generalStyle = cssContents["light_theme/general.css"];
+
     if (mode === "archive") {
-      styleComponent.innerHTML = "";
+      styleComponent.innerHTML = generalStyle;
       return;
     }
-
-    const generalStyle = cssContents["light_theme/general.css"];
 
     if (mode === "general") {
       styleComponent.innerHTML = generalStyle;

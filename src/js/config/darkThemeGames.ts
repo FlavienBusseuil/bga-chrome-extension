@@ -148,6 +148,7 @@ export const gamesWithCustomBackground = [
   'oriflamme',
   'origin',
   'orleans',
+  'pandaspin',
   'pandemic',
   'paxrenaissance',
   'photosynthesis',
@@ -164,6 +165,7 @@ export const gamesWithCustomBackground = [
   'raceforthegalaxy',
   'railroadink',
   'railroadinkchallenge',
+  'ratsofwistar',
   'rauha',
   'refuge',
   'resarcana',
@@ -317,6 +319,7 @@ export const playersBorder = {
   daybreak: ['#dbk-hand{{player_id}}'],
   elawa: ['#player-table-{{player_id}}'],
   flowers: ['#flw_playZone_{{player_id}}'],
+  gemsofiridescia: ['#goi_playerZoneContainer\\:{{player_id}}'],
   heat: ['#player-table-{{player_id}}'],
   heatchampionship: ['#player-table-{{player_id}}'],
   itsawonderfulworld: ['#iww-player{{player_id}}'],
@@ -371,6 +374,7 @@ export const gamesWithRecommandedConfig = {
   castlecombo: { color: 190, sat: 23 },
   catan: { color: 210, sat: 16 },
   century: { color: 25, sat: 16 },
+  challengers: { color: 100, sat: 16 },
   conspiracy: { color: 226, sat: 16 },
   cosmosempires: { color: 233, sat: 27 },
   dedale: { color: 25, sat: 16 },
@@ -452,7 +456,11 @@ const addInvertOverlay = (className: string, copyDefaultStyle: boolean) => {
     overlay.style.height = '100%';
     overlay.style.filter = 'invert(1)';
     if (copyDefaultStyle) {
-      overlay.style.background = getComputedStyle(document.documentElement).background;
+      let htmlStyle = getComputedStyle(document.documentElement).background;
+      if (htmlStyle.indexOf('back-main_games') > 0) {
+        htmlStyle = getComputedStyle(document.body).background;
+      }
+      overlay.style.background = htmlStyle;
     }
     overallContent.insertBefore(overlay, overallContent.firstChild);
   });
@@ -624,6 +632,17 @@ export const gamesWithCustomActions = {
   },
   superstore: {
     init: () => addInvertOverlay('player-board ext-overlay', false)
+  },
+  pandaspin: {
+    init: () => addInvertOverlay('', true)
+  },
+  ratsofwistar: {
+    init: () => addInvertOverlay('', true)
+  },
+  gemsofiridescia: {
+    init: () => {
+      manageBackground('', ['goi_thematicBackground']);
+    }
   },
 };
 
@@ -846,14 +865,15 @@ _darkStyleForGame['amerigo'] = `
 #token_look { background-color: var(--dark-20); }
 .amg_look_zone { background-color: #ffffff1a; box-shadow: 0 3px 8px #7b7b7b; }
 .amg_look_zone_title { color: var(--light-80); }
-@media (hover: hover) and (pointer: fine) {
-.amg_clickable:hover, .amg_selected:hover, .amg_silentclickable:hover { fill: #272a2f40; background-color: #272a2f40; }
+@media (hover: hover) and (pointer: fine) { .amg_clickable:hover, .amg_selected:hover, .amg_silentclickable:hover { fill: #272a2f40; background-color: #272a2f40; } }
 #goldpicker { border: 1px solid var(--light-50); }
 #goldadd { cursor: pointer; ${blueButton} }
 #goldadd:hover { ${blueButtonOver} }
 #goldremove { cursor: pointer; ${orangeButton} }
 #goldremove:hover { ${orangeButtonOver} }
 #goldadd.amg_buttondisabled, #goldremove.amg_buttondisabled { background: var(--dark-40) !important; cursor: default; }
+.scorenumber { text-shadow: 1px 0 1px #000, 0 -1px 1px #000, 0 1px 1px #000, -1px 0 1px #000; }
+#amg_scoring_zone { background-color: var(--dark-10); }
 `;
 
 _darkStyleForGame['amyitis'] = `
@@ -1195,8 +1215,6 @@ _darkStyleForGame['beerbread'] = `
 .a_board svg { filter: invert(0.8); }
 #help-mode-switch .label { background-color: var(--dark-40); border: 1px solid var(--light-50); box-sizing: content-box; }
 .bb_icon_text { color: #000; text-shadow: var(--text-w-shadow); }
-.bgabutton_green { ${greenButton} }
-.bgabutton_green:hover { ${greenButtonOver} }
 #player_boards .tooltip-icons { filter: var(--drop-shadow-min); }
 `;
 
@@ -1669,7 +1687,7 @@ _darkStyleForGame['chakra'] = `
 `;
 
 _darkStyleForGame['challengers'] = `
-.challengers-pref-background-dark #overall-content:before, { content: ""; background: #00000080; position: absolute; width: 100%; height: 100%; top:0px; left: 0px; }
+.challengers-pref-background-dark #overall-content:before { content: ""; background: #00000080; position: absolute; width: 100%; height: 100%; top:0px; left: 0px; }
 .cha-log-holder { background: var(--dark-20); color: var(--light-80); }
 .cha-matchup-name-inner, .cha-player-name { background: var(--dark-20); padding: 0.3em 0.5em; border-radius: 8px; }
 .cha-name-404040 { text-shadow: var(--text-w-shadow); }
@@ -2864,6 +2882,12 @@ _darkStyleForGame['gardennation'] = `
 _darkStyleForGame['geekoutmasters'] = `
 .counter, .write1, .write2 { color: #fff; }
 .counter_value[style^="color: rgb(0, 0, 0)"] { color: #fff !important; }
+`;
+
+_darkStyleForGame['gemsofiridescia'] = `
+.goi_thematicBackground #overall-content:before { content: ""; background: #000000A0; position: absolute; width: 100%; height: 100%; top:0px; left: 0px; }
+#bga-zoom-controls { filter: invert(0.8); }
+.goi_cardContent { color: #000; }
 `;
 
 _darkStyleForGame['germanwhist'] = `
@@ -4577,6 +4601,17 @@ _darkStyleForGame['palace'] = `
 #backdrop { background-color: #030; }
 `;
 
+_darkStyleForGame['pandaspin'] = `
+#overall-content { background: var(--dark-40); } /* for archive replay */
+.player_board_config { z-index:1; color: var(--light-80); }
+.ps_deck_icon { filter: var(--highlight-min); }
+.ps_zone { background-color: var(--dark-back); color: var(--light-80); }
+.ps_zone_play p { background-color: var(--dark-10) !important; }
+.ps_help .ps_help_content { color: var(--light-80); }
+.ps_popup_content { background-color: var(--dark-30); border: 1px solid var(--dark-40); }
+.ps_card_back, .ps_card_front { filter: brightness(0.9); }
+`;
+
 _darkStyleForGame['pandemic'] = `
 .player-board-pandemic__title, .player-name { text-shadow: var(--text-w-shadow); }
 .pdm-whiteblock { background-color: var(--dark-back); }
@@ -5049,6 +5084,14 @@ _darkStyleForGame['ratjack'] = `
 #tokenStock { background-color: var(--dark-back); }
 #rat_discard, .rat_playerArea { border-color: var(--light-70); }
 #rat_discard:before, #deckCount, #discardCount { color: var(--light-70); }
+`;
+
+_darkStyleForGame['ratsofwistar'] = `
+#overall-content { background: var(--dark-40); } /* for archive replay */
+#row-map-board-background-single #row-map-board-background-single-background, .row_row_boards_container .row_player_board_background { filter: brightness(0.9); }
+:root { --tooltip-text-color: var(--light-color); --board-default-background: var(--dark-back); --action-notification-background: var(--dark-10); --accent-color-1: #000000ad; --accent-color-1-notransparency: var(--dark-20); --highlighted-element-text-color: var(--light-80); --highlight-color: #007f80; --beige-background: var(--dark-back); }
+.row_player_board_overlay_doors:has(div), .row_player_board_overlay_skilltoken:has(div), .row_player_board_overlay_tents:has(div) { background-color: var(--dark-back); color: var(--light-80); }
+.row_action_list_entry .row_action_list_entry_text { color: var(--light-80); }
 `;
 
 _darkStyleForGame['rauha'] = `
@@ -6169,8 +6212,6 @@ _darkStyleForGame['theguildofmerchantexplorers'] = `
 .player_board .player_nametag { background: var(--dark-10); }
 .bgabutton_orange { ${orangeButton} }
 .bgabutton_orange:hover { ${orangeButtonOver} }
-.bgabutton_green { ${greenButton} }
-.bgabutton_green:hover { ${greenButtonOver} }
 `;
 
 _darkStyleForGame['theisleofcats'] = `
