@@ -33,6 +33,17 @@ const Options = (props: { config: Configuration }) => {
 	const [motionSensitivity, setMotionSensitivity] = useState(config.isMotionSensitivityEnable());
 	const isFirefox = window.navigator.userAgent.toLowerCase().includes('firefox');
 
+	const [yourResultsLeft, setYourResultsLeft] = useState(homeConfig.yourResults !== 'default');
+	const [yourResultsTop, setYourResultsTop] = useState(homeConfig.yourResults === 'leftTop');
+
+	useEffect(() => {
+		const newHomeConfig = { ...homeConfig };
+		newHomeConfig.yourResults = (yourResultsTop && yourResultsLeft) ? 'leftTop' : (yourResultsLeft ? 'leftBottom' : 'default');
+		console.log("yourResults", newHomeConfig.yourResults);
+		setHomeConfig(newHomeConfig);
+		config.setHomeConfig(newHomeConfig);
+	}, [yourResultsLeft, yourResultsTop]);
+
 	const serialize = (game: Game) => {
 		return JSON.stringify(
 			game,
@@ -275,7 +286,7 @@ const Options = (props: { config: Configuration }) => {
 				<div className="bgext_options_title">
 					{chrome.i18n.getMessage("optionsHome")}
 				</div>
-				<div className="bgext_home_container">
+				<div className="bgext_home_container" style={{ paddingBottom: 0 }}>
 					<div>
 						{getHomeSwitch('header', 'optionsHomeHeader')}
 						{getHomeSwitch('latestNews', 'optionsHomeLatest')}
@@ -313,6 +324,20 @@ const Options = (props: { config: Configuration }) => {
 						{getHomeSwitch('footer', 'optionsHomeFooter')}
 					</div>
 				</div>
+				<div className="bgext_misc_container" style={{ paddingTop: 0 }}>
+					<Switch
+						checked={yourResultsLeft}
+						textOn={chrome.i18n.getMessage("optionsHomeYourResultsLeftOn")}
+						textOff={chrome.i18n.getMessage("optionsHomeYourResultsLeftOff")}
+						onChange={setYourResultsLeft}
+					/>
+					{yourResultsLeft && <Switch
+						checked={yourResultsTop}
+						textOn={chrome.i18n.getMessage("optionsHomeYourResultsTopOn")}
+						textOff={chrome.i18n.getMessage("optionsHomeYourResultsTopOff")}
+						onChange={setYourResultsTop}
+					/>}
+				</div >
 
 				<div className="bgext_options_title">
 					{chrome.i18n.getMessage("optionsInProgress")}

@@ -1,5 +1,5 @@
 import React from "preact";
-import { useState } from "preact/hooks";
+import { useEffect, useState } from "preact/hooks";
 
 import Configuration, { HomeConfig, InProgressConfig } from "../../config/configuration";
 import Switch from "../base/Switch";
@@ -29,6 +29,18 @@ export const OptionsView = ({ config, onChange }: Props) => {
   //const [configVisible, setConfigVisible] = useState(localStorage.getItem('ext_settings') || 'about');
   const [configVisible, setConfigVisible] = useState('about');
   const isFirefox = window.navigator.userAgent.toLowerCase().includes('firefox');
+
+  const [yourResultsLeft, setYourResultsLeft] = useState(homeConfig.yourResults !== 'default');
+  const [yourResultsTop, setYourResultsTop] = useState(homeConfig.yourResults === 'leftTop');
+
+  useEffect(() => {
+    const newHomeConfig = { ...homeConfig };
+    newHomeConfig.yourResults = (yourResultsTop && yourResultsLeft) ? 'leftTop' : (yourResultsLeft ? 'leftBottom' : 'default');
+    console.log("yourResults", newHomeConfig.yourResults);
+    setHomeConfig(newHomeConfig);
+    config.setHomeConfig(newHomeConfig);
+    onChange();
+  }, [yourResultsLeft, yourResultsTop]);
 
   const _setConfigVisible = (val: string) => {
     //localStorage.setItem('ext_settings', val);
@@ -236,7 +248,10 @@ export const OptionsView = ({ config, onChange }: Props) => {
               {getHomeSwitch('status', 'optionsStatus')}
               {getHomeSwitch('footer', 'optionsHomeFooter')}
             </div>
+
           </div>
+          {getSwitch(yourResultsLeft, setYourResultsLeft, "optionsHomeYourResultsLeftOn", "optionsHomeYourResultsLeftOff")}
+          {yourResultsLeft && getSwitch(yourResultsTop, setYourResultsTop, "optionsHomeYourResultsTopOn", "optionsHomeYourResultsTopOff")}
 
           <div>{chrome.i18n.getMessage("optionsHomeRefresh")}</div>
         </div>

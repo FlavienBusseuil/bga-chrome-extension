@@ -214,10 +214,10 @@
 		"message": "Tables where you are expected are indicated by a color code and a message"
 	},
 	"optionsLobbyRedirectOn": {
-		"message": "Always redirect to classic lobby when possible"
+		"message": "Hyperlinks are modified to point to the classic lobby (when possible)"
 	},
 	"optionsLobbyRedirectOff": {
-		"message": "Use the default lobby"
+		"message": "Hyperlinks are not modified, the default lobby is used (usually the new one)."
 	},
 	"optionsAutoOpenOn": {
 		"message": "The 'Fast create' button automatically opens the table to other players"
@@ -398,6 +398,18 @@
 	},
 	"optionsInProgressMoreOff": {
 		"message": "'More friends' section hidden"
+	},
+	"optionsHomeYourResultsLeftOn": {
+		"message": "Section 'Vos résultats' affichée à gauche du fil d'actualité"
+	},
+	"optionsHomeYourResultsLeftOff": {
+		"message": "Section 'Vos résultats' affichée uniquement en bas de l'écran"
+	},
+	"optionsHomeYourResultsTopOn": {
+		"message": "Section 'Vos résultats' affichée au dessus de la section des jeux"
+	},
+	"optionsHomeYourResultsTopOff": {
+		"message": "Section 'Vos résultats' affichée en dessous de la section des jeux"
 	},
 	"uploadMp3": {
 		"message": "Upload MP3"

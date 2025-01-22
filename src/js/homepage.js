@@ -30,4 +30,42 @@ const addTournamentsItems = () => {
   }
 };
 
-maximizeTournamentsList();
+const copyResultsArea = () => {
+  const source = document.querySelector('.bga-homepage__pre-footer .homepage-section');
+  const destination = document.querySelector('.bga-homepage__games-section');
+
+  if (source && destination) {
+    const childs = destination.childNodes;
+
+    const destContainerTop = document.createElement("DIV");
+    const destContainerBottom = document.createElement("DIV");
+
+    destContainerTop.id = 'bgaext_your_results_top';
+    destContainerBottom.id = 'bgaext_your_results_bottom';
+
+    destContainerTop.innerHTML = source.innerHTML;
+    destContainerBottom.innerHTML = source.innerHTML;
+
+    destination.insertBefore(destContainerBottom, childs[1]);
+    destination.insertBefore(destContainerTop, childs[0]);
+
+    const observer = new MutationObserver(() => {
+      destContainerTop.innerHTML = source.innerHTML;
+      destContainerBottom.innerHTML = source.innerHTML;
+    })
+    observer.observe(source, { childList: true, subtree: true });
+  } else {
+    setTimeout(copyResultsArea, 50);
+  }
+};
+
+window.addEventListener('message', (evt) => {
+  if (evt.origin === 'https://boardgamearena.com' && evt.data.key === 'bga_ext_home_reset') {
+    copyResultsArea();
+  }
+}, false);
+
+document.addEventListener('DOMContentLoaded', () => {
+  maximizeTournamentsList();
+  setTimeout(copyResultsArea, 100);
+});

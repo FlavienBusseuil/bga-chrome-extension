@@ -81,6 +81,7 @@ export interface HomeConfig {
 	recommandedGames: boolean;
 	classicGames: boolean;
 	events: boolean;
+	yourResults: 'default' | 'leftTop' | 'leftBottom';
 };
 
 export interface InProgressConfig {
@@ -273,7 +274,7 @@ class Configuration {
 	}
 
 	isTrackingEnable() {
-		return this._customConfig.trackTables === undefined || this._customConfig.trackTables;
+		return Boolean(this._customConfig.trackTables);
 	}
 
 	setTrackingEnable(val: boolean) {
@@ -308,6 +309,7 @@ class Configuration {
 			recommandedGames: true,
 			classicGames: true,
 			events: true,
+			yourResults: 'default',
 			...homeConfig
 		};
 	}
@@ -667,7 +669,7 @@ class Configuration {
 			cssList.push('.bgaext_welcome .bga-homepage-header { display: none; }');
 		}
 		if (!home.footer) {
-			cssList.push('.bgaext_welcome .bga-homepage__pre-footer { display: none; }');
+			cssList.push('.bgaext_welcome .bga-homepage__pre-footer { visibility: hidden; height: 1px; }');
 		}
 		if (!home.latestNews) {
 			cssList.push('.bgaext_welcome div:has(>.bga-homepage__out-grid-title):has([href="/headlines"]) { display: none; }');
@@ -676,7 +678,14 @@ class Configuration {
 			cssList.push('.bgaext_welcome div:has(>.bga-homepage__out-grid-title):has([href="/gamelist?hasTutorialOnly"]) { display: none; }');
 		}
 
-		if (!home.recentGames && !home.popularGames && !home.recommandedGames && !home.classicGames) {
+		if (home.yourResults !== 'leftTop') {
+			cssList.push('#bgaext_your_results_top { display: none; }');
+		}
+		if (home.yourResults !== 'leftBottom') {
+			cssList.push('#bgaext_your_results_bottom { display: none; }');
+		}
+
+		if (!home.recentGames && !home.popularGames && !home.recommandedGames && !home.classicGames && home.yourResults === 'default') {
 			cssList.push('.bgaext_welcome .bga-homepage__content { display: flex; }');
 			cssList.push('.bgaext_welcome .bga-homepage__games-section { display: none; }');
 			columns = 0;

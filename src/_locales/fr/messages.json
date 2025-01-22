@@ -214,10 +214,10 @@
 		"message": "Les tables sur lesquels vous êtes attendus sont signalées par un code couleur et un message"
 	},
 	"optionsLobbyRedirectOn": {
-		"message": "Toujours rediriger vers le lobby classique lorsque c'est possible"
+		"message": "Les hyperliens du site sont modifiés pour pointer vers le lobby classique (lorsque c'est possible)"
 	},
 	"optionsLobbyRedirectOff": {
-		"message": "Utiliser le lobby par défaut"
+		"message": "Les hyperliens du site ne sont pas modifiés, le lobby par défaut est utilisé (généralement le nouveau)"
 	},
 	"optionsAutoOpenOn": {
 		"message": "Le bouton 'Création rapide' ouvre automatiquement la table aux autres joueurs"
@@ -398,6 +398,18 @@
 	},
 	"optionsInProgressMoreOff": {
 		"message": "Section 'Plus d'amis' cachée"
+	},
+	"optionsHomeYourResultsLeftOn": {
+		"message": "Section 'Vos résultats' affichée à gauche du fil d'actualité"
+	},
+	"optionsHomeYourResultsLeftOff": {
+		"message": "Section 'Vos résultats' affichée uniquement en bas de l'écran"
+	},
+	"optionsHomeYourResultsTopOn": {
+		"message": "Section 'Vos résultats' affichée au dessus de la section des jeux"
+	},
+	"optionsHomeYourResultsTopOff": {
+		"message": "Section 'Vos résultats' affichée en dessous de la section des jeux"
 	},
 	"uploadMp3": {
 		"message": "Télécharger MP3"

@@ -105,17 +105,17 @@ const manageLocationChange = (pathname) => {
 		return 'blank';
 	}
 
-	if (pageName === 'welcome' && !document.getElementById('ext_homepage')) {
-		const homeConfig = config.getHomeConfig();
-
-		if (homeConfig.tournaments && !homeConfig.tournamentsBelow) {
+	if (pageName === 'welcome') {
+		if (document.getElementById('ext_homepage')) {
+			top.postMessage({ key: 'bga_ext_home_reset' }, 'https://boardgamearena.com/');
+		} else {
 			const script = document.createElement('script');
 			script.id = 'ext_homepage';
 			script.src = `${chrome.runtime.getURL('/js/homepage.js')}?&time=${new Date().getTime()}`;
 			document.head.appendChild(script);
-		}
 
-		waitForObj('.bga-advent-calendar', 10).then(() => buildMainCss(config.getAllCss())).catch(() => { });
+			waitForObj('.bga-advent-calendar', 10).then(() => buildMainCss(config.getAllCss())).catch(() => { });
+		}
 	}
 
 	if (pageName === 'tutorial') {

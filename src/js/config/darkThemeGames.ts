@@ -38,6 +38,7 @@ export const gamesWithCustomBackground = [
   'bigmonster',
   'bloodrage',
   'bossquest',
+  'bunnyboom',
   'bunnykingdom',
   'cannonades',
   'canvas',
@@ -93,6 +94,7 @@ export const gamesWithCustomBackground = [
   'gnomehollow',
   'goblinhood',
   'goldblivion',
+  'goldncrash',
   'gravitysuperstar',
   'greatsplit',
   'grund',
@@ -213,6 +215,7 @@ export const gamesWithCustomBackground = [
   'tuned',
   'turingmachine',
   'twelvechips',
+  'twinkletwinkle',
   'ultimaterailroads',
   'unrest',
   'vaalbara',
@@ -643,6 +646,9 @@ export const gamesWithCustomActions = {
     init: () => {
       manageBackground('', ['goi_thematicBackground']);
     }
+  },
+  bunnyboom: {
+    init: () => addInvertOverlay('', true)
   },
 };
 
@@ -1380,6 +1386,14 @@ _darkStyleForGame['briscola'] = `
 .playertablename, .table_cell { color: #fff; }
 .playertablename { text-shadow: none!important; }
 #game_board { background-color: #004d00; }
+`;
+
+_darkStyleForGame['bunnyboom'] = `
+.darkmode .bgaext_overlay { opacity: 0.8; }
+.bb_zoom_icon { filter: var(--highlight); }
+.flippable-front { filter: brightness(0.9); }
+.aal-popup-overlay .aal-popup-content { background: var(--dark-20); color: var(--light-80); }
+.bb_log_level2 { background-color: var(--dark-back); color: var(--light-80); }
 `;
 
 _darkStyleForGame['bunnykingdom'] = `
@@ -3106,8 +3120,12 @@ div.player-name > a, span.player-name { background-color: transparent !important
 `;
 
 _darkStyleForGame['goldncrash'] = `
+#overall-content:before { content: ""; background: #000000A0; position: absolute; width: 100%; height: 100%; }
 .player-info .hand-counter-wrapper svg { filter: invert(1); }
 #goldncrash-main-container .goldncrash-player-board .columns-zone .column-holder .column-cards-holder { border: 1px dashed var(--light-80); }
+.goldncrash-card .card-inner { filter: brightness(0.9); }
+#popin_showSettings h2, .goldncrash_discard_popin h2, .goldncrash_popin_cards h2, .goldncrash_treasure_popin h2 { background: #4e3b27; color: var(--light-80); }
+#popin_showSettings, .goldncrash_discard_popin, .goldncrash_popin_cards, .goldncrash_treasure_popin { background-color: #62411e; }
 `;
 
 _darkStyleForGame['goldwest'] = `
@@ -4094,6 +4112,12 @@ _darkStyleForGame['mijnlieff'] = `
 .mijnlieff_square.mijnlieff_legal { box-shadow: inset 0 0 10px #b2d0e6; }
 `;
 
+_darkStyleForGame['mindcycling'] = `
+#mcy-country-select-content, #mcy-team-select-dialog { background-color: var(--dark-40); color: var(--light-80); }
+.mcy-player-panel-award-container { box-shadow: inset 0 0 10px 2px rgb(255 255 255 / 50%); }
+#mcy-board, #mcy-info-card { filter: brightness(0.9); }
+`;
+
 _darkStyleForGame['minnesotawhist'] = `
 #logs strong[style="color:black;"] { text-shadow: var(--text-w-shadow); }
 `;
@@ -4813,6 +4837,8 @@ _darkStyleForGame['piratesofmaracaibo'] = `
 .pom-resize:hover { background: #000; }
 #pom-buttonUndo { ${redButton} }
 #pom-buttonUndo:hover { ${redButtonOver} }
+.pom-playerName { text-shadow: none; }
+.pom-round { background: #000; color: var(--light-50); }
 .pom-explore, .pom-figurehead, .pom-card { filter: brightness(0.9); }
 `;
 
@@ -5163,6 +5189,7 @@ _darkStyleForGame['revive'] = `
 #selection, #supply { background-color: var(--dark-back); }
 #zoomminus, #zoomplus { filter: invert(0.9); }
 .res { filter: var(--highlight-min); }
+.card { filter: brightness(0.9); }
 `;
 
 _styleForGame['riftforce'] = `
@@ -5536,6 +5563,12 @@ _darkStyleForGame['shogi'] = `
 _darkStyleForGame['shogun'] = `
 #scrollmap-controls > * { filter: invert(1); }
 #pagesection_gameview .whiteblock.player-name-wrap { background: var(--dark-20); }
+`;
+
+_darkStyleForGame['shutthebox'] = `
+.playertable { background: var(--dark-back); }
+.playertablename span[style^="color:black;"] { color: var(--light-80) !important; text-shadow: none; }
+.box_wrap, .dice_wrap { background: var(--green-10); }
 `;
 
 _darkStyleForGame['siam'] = `
@@ -6599,6 +6632,10 @@ _darkStyleForGame['twelvechips'] = `
 
 _darkStyleForGame['twentyfourseven'] = `
 #tf7_player { background-color: var(--dark-back); }
+`;
+
+_darkStyleForGame['twinkletwinkle'] = `
+.tile_button_confirm, .tile_button_rotate { color: var(--light-80); }
 `;
 
 _darkStyleForGame['twinpalms'] = `
