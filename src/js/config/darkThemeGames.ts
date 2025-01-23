@@ -3735,6 +3735,7 @@ _darkStyleForGame['letsgotojapan'] = `
 .cardrose { background-color: #50162c80; }
 .cardjaune { background-color: #aa782280; }
 .cardpass { background-color: #338a9980; }
+.eye:hover { filter: invert(1); }
 `;
 
 _darkStyleForGame['lewisclark'] = `
