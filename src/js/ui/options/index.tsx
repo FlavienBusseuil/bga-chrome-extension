@@ -1,7 +1,7 @@
 import React from "preact";
 import { useEffect, useState, useMemo } from "preact/hooks";
 
-import Configuration, { Game } from "../../config/configuration";
+import Configuration, { AdvancedHomeConfig, Game } from "../../config/configuration";
 import Switch from "../base/Switch";
 import { updateBadgeAndIcon } from "../../utils/updateBadgeAndIcon";
 
@@ -33,16 +33,14 @@ const Options = (props: { config: Configuration }) => {
 	const [motionSensitivity, setMotionSensitivity] = useState(config.isMotionSensitivityEnable());
 	const isFirefox = window.navigator.userAgent.toLowerCase().includes('firefox');
 
-	const [yourResultsLeft, setYourResultsLeft] = useState(homeConfig.yourResults !== 'default');
-	const [yourResultsTop, setYourResultsTop] = useState(homeConfig.yourResults === 'leftTop');
+	const [advancedHomeConfig, setAdvancedHomeConfig] = useState<AdvancedHomeConfig>(config.getAdvancedHomeConfig());
+	const [advancedHomeHtml, setAdvancedHomeHtml] = useState(advancedHomeConfig.html);
+	const [advancedStatus, setAdvancedStatus] = useState('');
 
-	useEffect(() => {
-		const newHomeConfig = { ...homeConfig };
-		newHomeConfig.yourResults = (yourResultsTop && yourResultsLeft) ? 'leftTop' : (yourResultsLeft ? 'leftBottom' : 'default');
-		console.log("yourResults", newHomeConfig.yourResults);
-		setHomeConfig(newHomeConfig);
-		config.setHomeConfig(newHomeConfig);
-	}, [yourResultsLeft, yourResultsTop]);
+	const _updateAdvanceHomeConfig = (advConfig: AdvancedHomeConfig) => {
+		setAdvancedHomeConfig(advConfig);
+		config.setAdvancedHomeConfig(advConfig);
+	};
 
 	const serialize = (game: Game) => {
 		return JSON.stringify(
@@ -278,7 +276,99 @@ const Options = (props: { config: Configuration }) => {
 				</div>
 			</>
 		);
-	}
+	};
+
+	const getAdvancedCommand = () => {
+		if (advancedHomeConfig.advanced) {
+			const saveHtml = () => {
+				const domParser = new DOMParser();
+				const doc = domParser.parseFromString(advancedHomeHtml, 'application/xml');
+				const parseError = doc.documentElement.querySelector('parsererror');
+
+				if (parseError !== null && parseError.nodeType === Node.ELEMENT_NODE) {
+					setAdvancedStatus('error');
+				} else {
+					_updateAdvanceHomeConfig({ html: advancedHomeHtml, advanced: advancedHomeConfig.advanced })
+					setAdvancedStatus('saved');
+				}
+				setTimeout(() => setAdvancedStatus(''), 2000);
+			};
+
+			if (advancedStatus == '') {
+				return (
+					<div className="options-buttons-container">
+						<button onClick={() => window.open(chrome.i18n.getMessage('htmlHelpPage'), "_blank")}>
+							{chrome.i18n.getMessage('buttonHelp')}
+						</button>
+						&nbsp;
+						<button onClick={saveHtml}>
+							{chrome.i18n.getMessage('buttonSave')}
+						</button>
+					</div>
+				);
+			}
+
+			const text = chrome.i18n.getMessage(advancedStatus == 'saved' ? 'htmlSaved' : 'htmlError');
+			return <div className={`options-buttons-container ${advancedStatus}`}>{text}</div>;
+		}
+
+		return <></>;
+	};
+
+	const getDetailedHomeSection = () => {
+		if (advancedHomeConfig.advanced) {
+			return (
+				<div className="bgext_home_container" style={{ paddingTop: 0 }}>
+					<textarea
+						className="options-textarea"
+						value={advancedHomeHtml}
+						onChange={(evt: any) => setAdvancedHomeHtml(evt.target.value)}
+					/>
+				</div>
+			);
+		}
+
+		return (
+			<div className="bgext_home_container" style={{ paddingTop: 0 }}>
+				<div>
+					{getHomeSwitch('header', 'optionsHomeHeader')}
+					{getHomeSwitch('latestNews', 'optionsHomeLatest')}
+					{getHomeSwitch('smallFeed', 'optionsHomeNewsSmall')}
+					<Switch
+						checked={homeConfig.fewFeeds && homeConfig.tournaments && homeConfig.tournamentsBelow}
+						textOn={chrome.i18n.getMessage("optionsHomeNewsShort")}
+						textOff={chrome.i18n.getMessage("optionsHomeNewsTall")}
+						onChange={(val) => updateHomeConfig('fewFeeds', val)}
+						disabled={!homeConfig.tournaments || !homeConfig.tournamentsBelow}
+					/>
+					{getHomeSwitch('tournaments', 'tournaments')}
+					<Switch
+						checked={homeConfig.tournamentsBelow && homeConfig.tournaments}
+						textOn={chrome.i18n.getMessage("tournamentsBelowOn")}
+						textOff={chrome.i18n.getMessage("tournamentsBelowOff")}
+						onChange={(val) => updateHomeConfig('tournamentsBelow', val)}
+						disabled={!homeConfig.tournaments}
+					/>
+					{getHomeSwitch('howToPlay', 'optionsHomeHowToPlay')}
+				</div>
+				<div>
+					{getHomeSwitch('recentGames', 'optionsRecentColumn')}
+					{getHomeSwitch('popularGames', 'optionsPopularColumn')}
+					{getHomeSwitch('recommandedGames', 'optionsRecommendedColumn')}
+					{getHomeSwitch('classicGames', 'optionsClassicGames')}
+					<Switch
+						checked={homeConfig.events || homeConfig.recentGames}
+						textOn={chrome.i18n.getMessage("optionsHomeEventsOn")}
+						textOff={chrome.i18n.getMessage("optionsHomeEventsOff")}
+						onChange={(val) => updateHomeConfig('events', val)}
+						disabled={homeConfig.recentGames}
+					/>
+					{getHomeSwitch('status', 'optionsStatus')}
+					{getHomeSwitch('footer', 'optionsHomeFooter')}
+				</div>
+			</div>
+		);
+	};
 
 	const getDisplayConfiguration = () => {
 		return (
@@ -286,58 +376,16 @@ const Options = (props: { config: Configuration }) => {
 				<div className="bgext_options_title">
 					{chrome.i18n.getMessage("optionsHome")}
 				</div>
-				<div className="bgext_home_container" style={{ paddingBottom: 0 }}>
-					<div>
-						{getHomeSwitch('header', 'optionsHomeHeader')}
-						{getHomeSwitch('latestNews', 'optionsHomeLatest')}
-						{getHomeSwitch('smallFeed', 'optionsHomeNewsSmall')}
-						<Switch
-							checked={homeConfig.fewFeeds && homeConfig.tournaments && homeConfig.tournamentsBelow}
-							textOn={chrome.i18n.getMessage("optionsHomeNewsShort")}
-							textOff={chrome.i18n.getMessage("optionsHomeNewsTall")}
-							onChange={(val) => updateHomeConfig('fewFeeds', val)}
-							disabled={!homeConfig.tournaments || !homeConfig.tournamentsBelow}
-						/>
-						{getHomeSwitch('tournaments', 'tournaments')}
-						<Switch
-							checked={homeConfig.tournamentsBelow && homeConfig.tournaments}
-							textOn={chrome.i18n.getMessage("tournamentsBelowOn")}
-							textOff={chrome.i18n.getMessage("tournamentsBelowOff")}
-							onChange={(val) => updateHomeConfig('tournamentsBelow', val)}
-							disabled={!homeConfig.tournaments}
-						/>
-						{getHomeSwitch('howToPlay', 'optionsHomeHowToPlay')}
-					</div>
-					<div>
-						{getHomeSwitch('recentGames', 'optionsRecentColumn')}
-						{getHomeSwitch('popularGames', 'optionsPopularColumn')}
-						{getHomeSwitch('recommandedGames', 'optionsRecommendedColumn')}
-						{getHomeSwitch('classicGames', 'optionsClassicGames')}
-						<Switch
-							checked={homeConfig.events || homeConfig.recentGames}
-							textOn={chrome.i18n.getMessage("optionsHomeEventsOn")}
-							textOff={chrome.i18n.getMessage("optionsHomeEventsOff")}
-							onChange={(val) => updateHomeConfig('events', val)}
-							disabled={homeConfig.recentGames}
-						/>
-						{getHomeSwitch('status', 'optionsStatus')}
-						{getHomeSwitch('footer', 'optionsHomeFooter')}
-					</div>
-				</div>
-				<div className="bgext_misc_container" style={{ paddingTop: 0 }}>
+				<div className="bgext_misc_container" style={{ paddingBottom: 0, flexFlow: "row", justifyContent: "space-between" }}>
 					<Switch
-						checked={yourResultsLeft}
-						textOn={chrome.i18n.getMessage("optionsHomeYourResultsLeftOn")}
-						textOff={chrome.i18n.getMessage("optionsHomeYourResultsLeftOff")}
-						onChange={setYourResultsLeft}
+						checked={advancedHomeConfig.advanced}
+						textOn={chrome.i18n.getMessage("optionsHomeAdvancedOn")}
+						textOff={chrome.i18n.getMessage("optionsHomeAdvancedOff")}
+						onChange={() => _updateAdvanceHomeConfig({ html: advancedHomeConfig.html, advanced: !advancedHomeConfig.advanced })}
 					/>
-					{yourResultsLeft && <Switch
-						checked={yourResultsTop}
-						textOn={chrome.i18n.getMessage("optionsHomeYourResultsTopOn")}
-						textOff={chrome.i18n.getMessage("optionsHomeYourResultsTopOff")}
-						onChange={setYourResultsTop}
-					/>}
-				</div >
+					{getAdvancedCommand()}
+				</div>
+				{getDetailedHomeSection()}
 
 				<div className="bgext_options_title">
 					{chrome.i18n.getMessage("optionsInProgress")}

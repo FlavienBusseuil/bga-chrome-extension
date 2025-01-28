@@ -99,6 +99,17 @@ const manageLocationChange = (pathname) => {
 		return 'game';
 	}
 
+	// This is not a game page : load the home page management script
+	if (!document.getElementById('ext_homepage')) {
+		waitForObj('head', 10).then(() => {
+			console.debug("[bga extension] load home page management script");
+			const script = document.createElement('script');
+			script.id = 'ext_homepage';
+			script.src = `${chrome.runtime.getURL('/js/homepage.js')}?&time=${new Date().getTime()}`;
+			document.head.appendChild(script);
+		});
+	}
+
 	const pageName = pageInfo[0] || 'welcome';
 
 	if (pageName === 'blank') {
@@ -106,16 +117,11 @@ const manageLocationChange = (pathname) => {
 	}
 
 	if (pageName === 'welcome') {
-		if (document.getElementById('ext_homepage')) {
-			top.postMessage({ key: 'bga_ext_home_reset' }, 'https://boardgamearena.com/');
-		} else {
-			const script = document.createElement('script');
-			script.id = 'ext_homepage';
-			script.src = `${chrome.runtime.getURL('/js/homepage.js')}?&time=${new Date().getTime()}`;
-			document.head.appendChild(script);
+		// send home display configuration to the home page management script
+		waitForObj('body', 10).then(sendHomeConfiguration);
 
-			waitForObj('.bga-advent-calendar', 10).then(() => buildMainCss(config.getAllCss())).catch(() => { });
-		}
+		// reload css if the advent calendar is displayed
+		waitForObj('.bga-advent-calendar', 10).then(() => buildMainCss(config.getAllCss())).catch(() => { });
 	}
 
 	if (pageName === 'tutorial') {
@@ -166,6 +172,16 @@ const setHtmlClass = (mode, solidBackground) => {
 	}
 };
 
+const sendHomeConfiguration = () => {
+	const homeConfig = { ...config.getHomeConfig(), ...config.getAdvancedHomeConfig() };
+	if (!homeConfig.advanced) {
+		homeConfig.html = "";
+	}
+	const detail = JSON.stringify(homeConfig);
+	console.debug('[bga extension] send home configuration', detail);
+	document.body.dispatchEvent(new CustomEvent('bga_ext_send_homepage_config', { detail }));
+};
+
 const initPage = () => {
 	config.isEmpty() && document.dispatchEvent(new CustomEvent('bga_ext_get_config', {}));
 	addLocationChangeListener(manageLocationChange);
@@ -193,17 +209,12 @@ const initPage = () => {
 				document.body.dispatchEvent(new CustomEvent('bga_ext_api_call', { detail }));
 			}
 		});
+
+		document.body.addEventListener('bga_ext_get_homepage_config', sendHomeConfiguration);
 	});
 };
 
 config.init().then(initPage);
-
-document.addEventListener('bga_ext_set_config', (e) => {
-	const jsonData = e.detail;
-	console.debug('[bga extension] import data from deprecated extension', jsonData);
-	config.import(JSON.parse(jsonData));
-	!config.isEmpty() && location.reload();
-});
 
 document.addEventListener('bga_ext_update_config', (data) => {
 	console.debug('[bga extension] configuration updated', data);
@@ -215,10 +226,18 @@ document.addEventListener('bga_ext_update_config', (data) => {
 		refreshMutedPlayers(config);
 	} else if (data.detail.key === 'solidBack') {
 		location.reload();
-	} else if (['home', 'inProgress'].includes(data.detail.key) && pageType === 'general') {
+	} else if (data.detail.key === 'inProgress') {
+		if (document.documentElement.classList.contains("bgaext_gameinprogress")) {
+			buildMainCss(config.getAllCss());
+		}
+	} else if (data.detail.key === 'home') {
 		localStorage.removeItem('bga-homepage-newsfeed-slots');
 		localStorage.removeItem('bga-homepageNewsSeen');
-		buildMainCss(config.getAllCss());
+
+		if (document.documentElement.classList.contains("bgaext_welcome")) {
+			buildMainCss(config.getAllCss());
+			sendHomeConfiguration();
+		}
 	}
 });
 

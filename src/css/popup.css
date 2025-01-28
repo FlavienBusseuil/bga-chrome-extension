@@ -90,7 +90,7 @@ html.dark .text-gray-600 {
 .options-frame.reduced {
   cursor: pointer;
   margin-top: 0em;
-  padding: 0.7em 1em;
+  padding: 0.5em 1em;
   line-height: 20px;
 }
 
@@ -226,4 +226,31 @@ p {
   display: flex;
   flex-flow: column;
   gap: 0.5em;
+}
+
+.options-textarea {
+  height: 183px;
+  border: 1px solid #888;
+  padding: 0.5em;
+  resize: none;
+  box-shadow: none !important;
+  outline: none !important;
+}
+
+.options-button {
+  padding: 0em 0.5em;
+  border-radius: 6px;
+  color: #fff;
+}
+
+.options-buttons-container {
+  padding: 0em !important;
+}
+
+.options-buttons-container.error {
+  color: #ca0000;
+}
+
+.options-buttons-container.saved {
+  color: #009e0a;
 }

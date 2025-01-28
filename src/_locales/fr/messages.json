@@ -399,22 +399,31 @@
 	"optionsInProgressMoreOff": {
 		"message": "Section 'Plus d'amis' cachée"
 	},
-	"optionsHomeYourResultsLeftOn": {
-		"message": "Section 'Vos résultats' affichée à gauche du fil d'actualité"
+	"optionsHomeAdvancedOn": {
+		"message": "Configuration avancée"
 	},
-	"optionsHomeYourResultsLeftOff": {
-		"message": "Section 'Vos résultats' affichée uniquement en bas de l'écran"
-	},
-	"optionsHomeYourResultsTopOn": {
-		"message": "Section 'Vos résultats' affichée au dessus de la section des jeux"
-	},
-	"optionsHomeYourResultsTopOff": {
-		"message": "Section 'Vos résultats' affichée en dessous de la section des jeux"
+	"optionsHomeAdvancedOff": {
+		"message": "Configuration simplifiée"
 	},
 	"uploadMp3": {
 		"message": "Télécharger MP3"
 	},
 	"play": {
 		"message": "Écouter"
+	},
+	"buttonSave": {
+		"message": "Sauvegarder"
+	},
+	"buttonHelp": {
+		"message": "Aide"
+	},
+	"htmlError": {
+		"message": "Le code html n'est pas valide"
+	},
+	"htmlSaved": {
+		"message": "Code html sauvegardé"
+	},
+	"htmlHelpPage": {
+		"message": "https://fr.doc.boardgamearena.com/ChromeExtension#Configuration_avanc%C3%A9e_de_la_page_d'accueil"
 	}
 }

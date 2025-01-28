@@ -2081,7 +2081,7 @@ iframe#forum_frame {
   background-color: var(--dark-30) !important;
 }
 
-.homepage-section .bg-bga-gray-100 {
+.homepage-section__content .bg-bga-gray-100 {
   background-color: var(--dark-30);
 }
 

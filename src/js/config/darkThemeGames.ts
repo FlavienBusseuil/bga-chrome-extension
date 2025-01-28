@@ -5218,7 +5218,7 @@ _darkStyleForGame['riftvalleyreserve'] = `
 _darkStyleForGame['riverofgold'] = `
 .rog_player_delivered_resizable, .rog_player_hand_resizable { background-color: var(--dark-back); color: var(--light-80); }
 .playername_wrapper_ffffff .playername, .playername_wrapper_ffffff.playername { background-color: transparent !important; }
-#logs .rog_icon_influence, #player_boards .rog_icon_influence { filter: var(--highlight-min); }
+.rog_icon_influence, .rog_icon_ship-3, .rog_icon_bonus-24 { filter: var(--highlight-min); }
 #player_boards .player-name { text-shadow: -1px 0 #000, 0 1px #000, 1px 0 #000, 0 -1px #000}
 #player_config #pin-panel-switch .label { background-color: #697061; }
 .logs_on_floating_panel #player_config #pin-panel-switch { visibility: hidden; }
@@ -5229,6 +5229,13 @@ _darkStyleForGame['riverofgold'] = `
 .playername_wrapper_0000ff .playername,.playername_wrapper_0000ff.playername { color: #6565ff!important; }
 .rog_tooltip table, .rog_tooltip table th { border: 1px solid #ffffff33; }
 .rog_tooltip table td { border: 1px solid #ffffff33; }
+#rog_end_score_recap table { background-color: var(--dark-40); color: var(--light-80); }
+#rog_end_score_recap table thead { background-color: var(--dark-20); }
+.rog_icon[class*="rog_icon_influence-"] { border-radius: 50%; background-color: #fff; }
+#rog_end_score_recap table .rog_score_total { background-color: var(--yellow-10); color: var(--light-80); }
+#rog_end_score_recap table tbody tr { border-color: var(--light-50); }
+.playername_wrapper_ffffff .playername, .playername_wrapper_ffffff.playername { text-shadow: none; }
+#rog_end_warning { background-color: var(--red-10); }
 `;
 
 _darkStyleForGame['rivervalleyglassworks'] = `

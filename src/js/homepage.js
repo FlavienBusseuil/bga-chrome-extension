@@ -30,42 +30,109 @@ const addTournamentsItems = () => {
   }
 };
 
-const copyResultsArea = () => {
-  const source = document.querySelector('.bga-homepage__pre-footer .homepage-section');
-  const destination = document.querySelector('.bga-homepage__games-section');
+const copyHtml = (querySource, queryDest) => {
+  const source = document.querySelector(querySource);
+  const dest = document.querySelector(queryDest);
 
-  if (source && destination) {
-    const childs = destination.childNodes;
-
-    const destContainerTop = document.createElement("DIV");
-    const destContainerBottom = document.createElement("DIV");
-
-    destContainerTop.id = 'bgaext_your_results_top';
-    destContainerBottom.id = 'bgaext_your_results_bottom';
-
-    destContainerTop.innerHTML = source.innerHTML;
-    destContainerBottom.innerHTML = source.innerHTML;
-
-    destination.insertBefore(destContainerBottom, childs[1]);
-    destination.insertBefore(destContainerTop, childs[0]);
-
-    const observer = new MutationObserver(() => {
-      destContainerTop.innerHTML = source.innerHTML;
-      destContainerBottom.innerHTML = source.innerHTML;
-    })
-    observer.observe(source, { childList: true, subtree: true });
-  } else {
-    setTimeout(copyResultsArea, 50);
+  if (dest && source) {
+    dest.innerHTML = source.innerHTML;
   }
 };
 
+const advancedSetPageElements = () => {
+  copyHtml('#bgadef-homepage .homepage-section:has([href*="/gamelist?isRecent"])', '#bgaext-games-recent');
+  copyHtml('#bgadef-homepage .homepage-section:has([href*="/gamelist?isPopular"])', '#bgaext-games-popular');
+  copyHtml('#bgadef-homepage .homepage-section:has([href*="/gamelist?isSuggested"])', '#bgaext-games-suggested');
+  copyHtml('#bgadef-homepage .bga-homepage__games-section > div:last-child', '#bgaext-games-classic');
+  copyHtml('#bgadef-homepage .homepage-section:has([href*="/player?section=recent"])', '#bgaext-newsfeed');
+  copyHtml('#bgadef-homepage .homepage-section:has([href*="tournamentlist"])', '#bgaext-tournaments');
+  copyHtml('#bgadef-homepage [style="grid-area: achievements;"]', '#bgaext-achievements');
+  copyHtml('#bgadef-homepage [style="grid-area: playmore;"]', '#bgaext-playmore');
+  copyHtml('#bgadef-homepage [style="grid-area: leaderboard;"]', '#bgaext-leaderboard');
+  copyHtml('#bgadef-homepage .bga-homepage__service-status-section', '#bgaext-service-status');
+};
+
+let homeConfig;
+let initialized = false;
+let observer = undefined;
+let customMainContent = undefined;
+
+const advancedSetPage = () => {
+  const mainContent = document.querySelector('.bga-homepage');
+
+  if (mainContent) {
+    console.debug("[bga extension] advanced set page");
+    mainContent.id = 'bgadef-homepage';
+
+    if (!customMainContent) {
+      customMainContent = document.createElement('DIV');
+      customMainContent.id = 'bgaext-homepage';
+      customMainContent.className = 'bga-homepage';
+      mainContent.parentNode.appendChild(customMainContent);
+    }
+
+    customMainContent.innerHTML = homeConfig.html;
+    advancedSetPageElements();
+
+    if (!observer) {
+      observer = new MutationObserver(advancedSetPageElements)
+      observer.observe(mainContent, { childList: true, subtree: true });
+    }
+  } else {
+    setTimeout(advancedSetPage, 50);
+  }
+};
+
+const advancedReset = () => {
+  if (observer) {
+    observer.disconnect();
+    observer = undefined;
+  }
+  if (customMainContent) {
+    customMainContent.innerHTML = "";
+    customMainContent.remove();
+    customMainContent = undefined;
+  }
+};
+
+const setPage = () => {
+  advancedReset();
+
+  if (homeConfig.advanced) {
+    advancedSetPage();
+  }
+};
+/*
 window.addEventListener('message', (evt) => {
   if (evt.origin === 'https://boardgamearena.com' && evt.data.key === 'bga_ext_home_reset') {
-    copyResultsArea();
+
+    advancedReset();
+    advancedSetPage();
   }
 }, false);
+*/
 
-document.addEventListener('DOMContentLoaded', () => {
-  maximizeTournamentsList();
-  setTimeout(copyResultsArea, 100);
-});
+const initHomePage = () => {
+  if (initialized) {
+    return;
+  }
+
+  if (document.body) {
+    initialized = true;
+
+    document.body.addEventListener('bga_ext_send_homepage_config', (data) => {
+      const config = JSON.parse(data.detail);
+      homeConfig = config;
+      setPage();
+    });
+    document.body.dispatchEvent(new CustomEvent('bga_ext_get_homepage_config', {}));
+
+    maximizeTournamentsList();
+
+    console.debug('[bga extension] home page management script initialized');
+  } else {
+    setTimeout(initHomePage, 50);
+  }
+};
+
+initHomePage();

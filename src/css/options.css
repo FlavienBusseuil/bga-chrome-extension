@@ -191,6 +191,14 @@ textarea.bgext_options_input {
 	outline: none !important;
 }
 
+textarea.options-textarea {
+	width: 100%;
+	height: 260px;
+	resize: none;
+	box-shadow: none !important;
+	outline: none !important;
+}
+
 div.bgext_options_warning {
 	padding: 0em 2em;
 	text-align: right;

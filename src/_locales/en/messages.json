@@ -399,22 +399,25 @@
 	"optionsInProgressMoreOff": {
 		"message": "'More friends' section hidden"
 	},
-	"optionsHomeYourResultsLeftOn": {
-		"message": "Section 'Vos résultats' affichée à gauche du fil d'actualité"
-	},
-	"optionsHomeYourResultsLeftOff": {
-		"message": "Section 'Vos résultats' affichée uniquement en bas de l'écran"
-	},
-	"optionsHomeYourResultsTopOn": {
-		"message": "Section 'Vos résultats' affichée au dessus de la section des jeux"
-	},
-	"optionsHomeYourResultsTopOff": {
-		"message": "Section 'Vos résultats' affichée en dessous de la section des jeux"
-	},
 	"uploadMp3": {
 		"message": "Upload MP3"
 	},
 	"play": {
 		"message": "Play"
+	},
+	"buttonSave": {
+		"message": "Save"
+	},
+	"buttonHelp": {
+		"message": "Help"
+	},
+	"htmlError": {
+		"message": "Invalid html code"
+	},
+	"htmlSaved": {
+		"message": "Html code saved"
+	},
+	"htmlHelpPage": {
+		"message": "https://en.doc.boardgamearena.com/ChromeExtension#Advanced_home_page_settings"
 	}
 }

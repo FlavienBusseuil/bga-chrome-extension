@@ -1,10 +1,10 @@
 import React from "preact";
-import { useEffect, useState } from "preact/hooks";
+import { useState } from "preact/hooks";
 
-import Configuration, { HomeConfig, InProgressConfig } from "../../config/configuration";
+import Configuration, { AdvancedHomeConfig, HomeConfig, InProgressConfig } from "../../config/configuration";
 import Switch from "../base/Switch";
-import { isSoundCustom, playMp3, removeCustomMp3, uploadCustomMp3 } from "../../utils/misc/mp3";
 import { Button } from "../base/Button";
+import { isSoundCustom, playMp3, removeCustomMp3, uploadCustomMp3 } from "../../utils/misc/mp3";
 
 type Props = {
   config: Configuration,
@@ -30,17 +30,14 @@ export const OptionsView = ({ config, onChange }: Props) => {
   const [configVisible, setConfigVisible] = useState('about');
   const isFirefox = window.navigator.userAgent.toLowerCase().includes('firefox');
 
-  const [yourResultsLeft, setYourResultsLeft] = useState(homeConfig.yourResults !== 'default');
-  const [yourResultsTop, setYourResultsTop] = useState(homeConfig.yourResults === 'leftTop');
+  const [advancedHomeConfig, setAdvancedHomeConfig] = useState<AdvancedHomeConfig>(config.getAdvancedHomeConfig());
+  const [advancedHomeHtml, setAdvancedHomeHtml] = useState(advancedHomeConfig.html);
+  const [advancedStatus, setAdvancedStatus] = useState('');
 
-  useEffect(() => {
-    const newHomeConfig = { ...homeConfig };
-    newHomeConfig.yourResults = (yourResultsTop && yourResultsLeft) ? 'leftTop' : (yourResultsLeft ? 'leftBottom' : 'default');
-    console.log("yourResults", newHomeConfig.yourResults);
-    setHomeConfig(newHomeConfig);
-    config.setHomeConfig(newHomeConfig);
-    onChange();
-  }, [yourResultsLeft, yourResultsTop]);
+  const _updateAdvanceHomeConfig = (advConfig: AdvancedHomeConfig) => {
+    setAdvancedHomeConfig(advConfig);
+    config.setAdvancedHomeConfig(advConfig);
+  };
 
   const _setConfigVisible = (val: string) => {
     //localStorage.setItem('ext_settings', val);
@@ -224,35 +221,93 @@ export const OptionsView = ({ config, onChange }: Props) => {
     return getSwitch(homeConfig[param], (val) => updateHomeConfig(param, val), `${message}On`, `${message}Off`);
   };
 
+  const getAdvancedCommand = () => {
+    if (advancedHomeConfig.advanced) {
+      const saveHtml = () => {
+        const domParser = new DOMParser();
+        const doc = domParser.parseFromString(advancedHomeHtml, 'application/xml');
+        const parseError = doc.documentElement.querySelector('parsererror');
+
+        if (parseError !== null && parseError.nodeType === Node.ELEMENT_NODE) {
+          setAdvancedStatus('error');
+        } else {
+          _updateAdvanceHomeConfig({ html: advancedHomeHtml, advanced: advancedHomeConfig.advanced })
+          setAdvancedStatus('saved');
+        }
+        setTimeout(() => setAdvancedStatus(''), 2000);
+      };
+
+      if (advancedStatus == '') {
+        return (
+          <div className="options-buttons-container">
+            <button
+              className="bg-bgaBlue hover:bg-bgaBlue-light options-button"
+              onClick={() => window.open(chrome.i18n.getMessage('htmlHelpPage'), "_blank")}
+            >
+              {chrome.i18n.getMessage('buttonHelp')}
+            </button>
+            <button
+              className="bg-bgaBlue hover:bg-bgaBlue-light options-button"
+              onClick={saveHtml}
+            >
+              {chrome.i18n.getMessage('buttonSave')}
+            </button>
+          </div>
+        );
+      }
+
+      const text = chrome.i18n.getMessage(advancedStatus == 'saved' ? 'htmlSaved' : 'htmlError');
+      return <div className={`options-buttons-container ${advancedStatus}`}>{text}</div>;
+    }
+
+    return <></>;
+  };
+
+  const getDetailedHomeSection = () => {
+    if (advancedHomeConfig.advanced) {
+      return <textarea
+        className="options-textarea"
+        value={advancedHomeHtml}
+        onChange={(evt: any) => setAdvancedHomeHtml(evt.target.value)}
+      />;
+    }
+
+    return (
+      <>
+        <div className="options-subframe">
+          <div>
+            {getHomeSwitch('header', 'optionsHomeHeader')}
+            {getHomeSwitch('latestNews', 'optionsHomeLatest')}
+            {getHomeSwitch('smallFeed', 'optionsHomeNewsSmall')}
+            {getSwitch(homeConfig.fewFeeds && homeConfig.tournaments && homeConfig.tournamentsBelow, (val) => updateHomeConfig('fewFeeds', val), "optionsHomeNewsShort", "optionsHomeNewsTall", !homeConfig.tournaments || !homeConfig.tournamentsBelow)}
+            {getHomeSwitch('tournaments', 'tournaments')}
+            {getSwitch(homeConfig.tournamentsBelow && homeConfig.tournaments, (val) => updateHomeConfig('tournamentsBelow', val), "tournamentsBelowOn", "tournamentsBelowOff", !homeConfig.tournaments)}
+            {getHomeSwitch('howToPlay', 'optionsHomeHowToPlay')}
+          </div>
+          <div>
+            {getHomeSwitch('recentGames', 'optionsRecentColumn')}
+            {getHomeSwitch('popularGames', 'optionsPopularColumn')}
+            {getHomeSwitch('recommandedGames', 'optionsRecommendedColumn')}
+            {getHomeSwitch('classicGames', 'optionsClassicGames')}
+            {getSwitch(homeConfig.events || homeConfig.recentGames, (val) => updateHomeConfig('events', val), "optionsHomeEventsOn", "optionsHomeEventsOff", homeConfig.recentGames)}
+            {getHomeSwitch('status', 'optionsStatus')}
+            {getHomeSwitch('footer', 'optionsHomeFooter')}
+          </div>
+        </div>
+      </>
+    );
+  };
+
   const getHomeSection = () => {
     if (configVisible === 'home') {
       return (
         <div className="options-frame">
           <div className="options-frame-title">{chrome.i18n.getMessage("optionsHome")}</div>
-          <div className="options-subframe">
-            <div>
-              {getHomeSwitch('header', 'optionsHomeHeader')}
-              {getHomeSwitch('latestNews', 'optionsHomeLatest')}
-              {getHomeSwitch('smallFeed', 'optionsHomeNewsSmall')}
-              {getSwitch(homeConfig.fewFeeds && homeConfig.tournaments && homeConfig.tournamentsBelow, (val) => updateHomeConfig('fewFeeds', val), "optionsHomeNewsShort", "optionsHomeNewsTall", !homeConfig.tournaments || !homeConfig.tournamentsBelow)}
-              {getHomeSwitch('tournaments', 'tournaments')}
-              {getSwitch(homeConfig.tournamentsBelow && homeConfig.tournaments, (val) => updateHomeConfig('tournamentsBelow', val), "tournamentsBelowOn", "tournamentsBelowOff", !homeConfig.tournaments)}
-              {getHomeSwitch('howToPlay', 'optionsHomeHowToPlay')}
-            </div>
-            <div>
-              {getHomeSwitch('recentGames', 'optionsRecentColumn')}
-              {getHomeSwitch('popularGames', 'optionsPopularColumn')}
-              {getHomeSwitch('recommandedGames', 'optionsRecommendedColumn')}
-              {getHomeSwitch('classicGames', 'optionsClassicGames')}
-              {getSwitch(homeConfig.events || homeConfig.recentGames, (val) => updateHomeConfig('events', val), "optionsHomeEventsOn", "optionsHomeEventsOff", homeConfig.recentGames)}
-              {getHomeSwitch('status', 'optionsStatus')}
-              {getHomeSwitch('footer', 'optionsHomeFooter')}
-            </div>
-
+          <div className="row_fullwidth">
+            {getSwitch(advancedHomeConfig.advanced, () => _updateAdvanceHomeConfig({ html: advancedHomeConfig.html, advanced: !advancedHomeConfig.advanced }), "optionsHomeAdvancedOn", "optionsHomeAdvancedOff")}
+            {getAdvancedCommand()}
           </div>
-          {getSwitch(yourResultsLeft, setYourResultsLeft, "optionsHomeYourResultsLeftOn", "optionsHomeYourResultsLeftOff")}
-          {yourResultsLeft && getSwitch(yourResultsTop, setYourResultsTop, "optionsHomeYourResultsTopOn", "optionsHomeYourResultsTopOff")}
-
+          {getDetailedHomeSection()}
           <div>{chrome.i18n.getMessage("optionsHomeRefresh")}</div>
         </div>
       );
