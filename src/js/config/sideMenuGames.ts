@@ -1420,6 +1420,23 @@ const defaultGames: Partial<Game>[] = [
 		bottomPanel: "dc-mutation-board",
 		css: "#dc-scroll-to-boards { display: none; }"
 	},
+	{
+		name: "elpasogwt",
+		playerPanel: "gamezone-{{player_id}}",
+		boardPanel: "secondary-boards"
+	},
+	{
+		name: "fiftyfirststate",
+		playerPanel: "faction_{{player_id}}",
+	},
+	{
+		name: "monsterhex",
+		playerPanel: "mon-player-{{player_id}}",
+	},
+	{
+		name: "pioneerdaysproject",
+		playerPanel: "playerbox-{{player_id}}",
+	},
 ];
 
 export default defaultGames;

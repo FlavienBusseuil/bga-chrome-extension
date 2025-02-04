@@ -282,7 +282,7 @@ const Options = (props: { config: Configuration }) => {
 		if (advancedHomeConfig.advanced) {
 			const saveHtml = () => {
 				const domParser = new DOMParser();
-				const doc = domParser.parseFromString(advancedHomeHtml, 'application/xml');
+				const doc = domParser.parseFromString(`<div>${advancedHomeHtml}</div>`, 'application/xml');
 				const parseError = doc.documentElement.querySelector('parsererror');
 
 				if (parseError !== null && parseError.nodeType === Node.ELEMENT_NODE) {

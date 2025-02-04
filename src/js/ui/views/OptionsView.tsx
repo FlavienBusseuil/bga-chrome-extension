@@ -225,10 +225,11 @@ export const OptionsView = ({ config, onChange }: Props) => {
     if (advancedHomeConfig.advanced) {
       const saveHtml = () => {
         const domParser = new DOMParser();
-        const doc = domParser.parseFromString(advancedHomeHtml, 'application/xml');
+        const doc = domParser.parseFromString(`<div>${advancedHomeHtml}</div>`, 'application/xml');
         const parseError = doc.documentElement.querySelector('parsererror');
 
         if (parseError !== null && parseError.nodeType === Node.ELEMENT_NODE) {
+          console.debug("[bga extension] Html parse error", parseError);
           setAdvancedStatus('error');
         } else {
           _updateAdvanceHomeConfig({ html: advancedHomeHtml, advanced: advancedHomeConfig.advanced })

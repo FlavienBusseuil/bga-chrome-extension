@@ -2,6 +2,37 @@ import equal from "fast-deep-equal";
 import defaultGames from "./sideMenuGames";
 import { addChangeListener, localStorageGet, localStorageSet, storageGet, storageSet } from "../utils/chrome";
 
+const DEF_HOME_HTML = `<style>
+#bgaext-newsfeed .bga-homepage-newsfeed {
+	max-height: 900px;
+	overflow: auto;
+}
+</style>
+<div class='bgaext-flex-col'>
+  <div class='bgaext-flex-row'>
+    <div id='bgaext-tournaments'></div>
+    <div class='bgaext-flex-col'>
+      <div class='bgaext-flex-row'>
+        <div id='bgaext-games-recent'></div>
+        <div id='bgaext-games-popular'></div>
+        <div id='bgaext-games-suggested'></div>
+      </div>
+      <div class='bgaext-flex-row'>
+        <div id='bgaext-achievements'></div>
+        <div id='bgaext-leaderboard'></div>
+      </div>
+    </div>
+    <div class='bgaext-flex-col'>
+      <div id='bgaext-newsfeed'></div>
+      <div id='bgaext-service-status'></div>
+    </div>
+  </div>
+  <div class='bgaext-flex-row'>
+    <div id='bgaext-games-classic'></div>
+    <div id='bgaext-playmore'></div>
+  </div>
+</div>`;
+
 export interface Game {
 	name: string;
 	position: "top" | "bottom" | "auto";
@@ -332,30 +363,7 @@ class Configuration {
 
 		return {
 			advanced: false,
-			html: `<div class='bgaext-flex-col'>
-	<div class='bgaext-flex-row'>
-		<div id='bgaext-tournaments'></div>
-		<div class='bgaext-flex-col'>
-			<div class='bgaext-flex-row'>
-				<div id='bgaext-games-recent'></div>
-				<div id='bgaext-games-popular'></div>
-				<div id='bgaext-games-suggested'></div>
-			</div>
-			<div class='bgaext-flex-row'>
-				<div id='bgaext-achievements'></div>
-				<div id='bgaext-leaderboard'></div>
-			</div>
-		</div>
-		<div class='bgaext-flex-col'>
-			<div id='bgaext-newsfeed'></div>
-			<div id='bgaext-service-status'></div>
-		</div>
-	</div>
-	<div class='bgaext-flex-row'>
-		<div id='bgaext-games-classic'></div>
-		<div id='bgaext-playmore'></div>
-	</div>
-</div>`,
+			html: DEF_HOME_HTML,
 			...homeConfig
 		};
 	}
