@@ -29,6 +29,7 @@ export const gamesWithCustomBackground = [
   'arknova',
   'arknovamw',
   'azul',
+  'azulduel',
   'azulsummerpavilion',
   'bamboozle',
   'battlespiritssaga',
@@ -71,6 +72,7 @@ export const gamesWithCustomBackground = [
   'dvonn',
   'earth',
   'earthabundance',
+  'ekko',
   'eminentdomain',
   'emdomicrocosm',
   'equinox',
@@ -117,6 +119,7 @@ export const gamesWithCustomBackground = [
   'lasvegan',
   'lielow',
   'lineit',
+  'livingforestduel',
   'locomomo',
   'lostexplorers',
   'lostseas',
@@ -198,6 +201,7 @@ export const gamesWithCustomBackground = [
   'stella',
   'starfluxx',
   'stonespinearchitects',
+  'symbiose',
   'taluva',
   'tapestry',
   'thecrew',
@@ -350,6 +354,7 @@ export const gamesWithCustomColors = {
   fiftyfirststate: ['#ff0000', '#0000ff', '#ffa500'],
   harmonies: ['#ff0000', '#008000', '#ffa500', '#0000ff'],
   insidejob: ['#0000ff', '#ff0000', '#ffa500', '#773300', '#008000'],
+  livingforestduel: ['#302879', '#32693b'],
   lumen: ['#1f3067'],
   nimalia: ['#0000ff', '#ff0000', '#ffa500', '#008000'],
   nowboarding: ['#000000'],
@@ -571,11 +576,20 @@ export const gamesWithCustomActions = {
   },
   festival: {
     init: () => {
-      const festManageBackground = () => manageBackground("no-custom-background", ["black-background", "dark-wood-background"]);
+      const festManageBackground = () => manageBackground("no-custom-background", ["custom-background-background", "dark-wood-background"]);
       const input = document.getElementById('fes-background2') as any;
 
       input.addEventListener('change', () => setTimeout(festManageBackground, 1));
       festManageBackground();
+    }
+  },
+  thewhitecastle: {
+    init: () => {
+      const whitecastleManageBackground = () => manageBackground("no-custom-background", ["custom-background"]);
+      const input = document.getElementById('twc-background') as any;
+
+      input.addEventListener('change', () => setTimeout(whitecastleManageBackground, 1));
+      whitecastleManageBackground();
     }
   },
   barrage: {
@@ -1105,6 +1119,12 @@ html:not(.background2) #bga-zoom-controls { filter: invert(1); }
 #factories .factory, .tile { filter:brightness(0.9); }
 `;
 
+_darkStyleForGame['azulduel'] = `
+#overall-content:before { content: ""; background: #000000B0; position: absolute; width: 100%; height: 100%; }
+#bga-zoom-controls { filter: invert(0.8); }
+.card-side, .factory { filter: brightness(0.9); }
+`;
+
 _darkStyleForGame['azulsummerpavilion'] = `
 #overall-content:before { content: ""; background: #000000B0; position: absolute; width: 100%; height: 100%; }
 #bga-zoom-controls button { filter: invert(0.7); }
@@ -1117,6 +1137,11 @@ _darkStyleForGame['azulsummerpavilion'] = `
 .player-name-wrapper { display: none !important; }
 .player-name-wrapper.shift { display: flex !important; }
 .player-table-wrapper .player-name-box { background: var(--dark-20); }
+.factory, #scoring-board, .player-table  { filter: brightness(0.9); }
+[style="--player-color: #0000ff;"] { --player-color: #6666ff !important; }
+[style="--player-color: #ff0000;"] { --player-color: #ff3333 !important; }
+[style="--player-color: #008000;"] { --player-color: #54aa54 !important; }
+[style="--player-color: #ffa500;"] { --player-color: #ffc965 !important; }
 `;
 
 _darkStyleForGame['babet'] = `
@@ -1966,7 +1991,7 @@ _styleForGame['concept'] = `
 `;
 
 _darkStyleForGame['confusinglands'] = `
-.selectcard:before { content: ""; background: #00000080; position: absolute; width: 100%; height: 100%;  }
+.selectcard:before, .card:before { content: ""; background: #00000080; position: absolute; width: 100%; height: 100%;  }
 .selectcard { border: 2px solid #90961d; }
 #selectcardpopdown, #hide { background-color: #5f6819; color: #fff; }
 `;
@@ -2177,6 +2202,10 @@ _darkStyleForGame['dicedtomatoes'] = `
 _darkStyleForGame['dicedveggies'] = `
 #overall-content:before { content: ""; background: #00000090; position: absolute; width: 100%; height: 100%; top:0px; left: 0px; }
 .popup { background-color: var(--dark-back); color: var(--light-80); }
+`;
+
+_darkStyleForGame['dicepyramid'] = `
+#relics, #dice-box { background-color: var(--dark-20); color: var(--light-80); }
 `;
 
 _darkStyleForGame['dickory'] = `
@@ -2496,9 +2525,13 @@ _darkStyleForGame['ekonos'] = `
 `;
 
 _darkStyleForGame['ekko'] = `
+#overall-content:before { content: ""; background: #00000080; position: absolute; width: 100%; height: 100%; }
 .ek_mini { background-color: var(--dark-back); }
 .ek_mini_selected { border: 2px solid var(--red-30); }
 .ek_deck_label p { color: var(--light-80) !important; }
+.ek_banner[style*="background-color: rgba(255, 255, 255, 0.6)"] { background-color: var(--dark-back)!important; color:var(--light-80); }
+.ek_banner[style*="background-color: rgba(255, 255, 0, 0.8)"] { background-color: #666600cc !important; color: var(--light-80); }
+.ek_popup_content { background-color: var(--dark-20); color: var(--light-80); }
 `;
 
 _darkStyleForGame['elawa'] = `
@@ -3805,6 +3838,14 @@ _darkStyleForGame['lasvegan'] = `
 #overall-content { background: var(--dark-back); }
 `;
 
+_darkStyleForGame['leaders'] = `
+.player-board.blackPlayerZone .player-name a { color: #000!important; text-shadow: var(--text-w-shadow); }
+.player-board.whitePlayerZone .player-name a { color: #fff!important; }
+.lds_tooltipName, .lds_tooltipSkill { color: var(--light-80); }
+.lds_tooltipStatus { color: var(--light-50); }
+#lds_mainBoard { filter: brightness(0.9); }
+`;
+
 _darkStyleForGame['legendraiders'] = `
 #tiles_stack_counter { color: var(--light-100); }
 `;
@@ -3894,6 +3935,16 @@ _darkStyleForGame['livingforest'] = `
 body { background: none !important; }
 .icon_fragment { filter: invert(1); }
 .lvf_playerboard_name { background: var(--dark-back); color: #fff; }
+`;
+
+_darkStyleForGame['livingforestduel'] = `
+html { background: #000; }
+html.lfd_thematic_font_on .lfd_player, .player_board_inner .player-name a { text-shadow: #000000 2px 2px 4px; }
+html.lfd_thematic_font_off .lfd_player { text-shadow: #000000 0 0 4px; }
+.discussion_bubble.lfd_bubble.lfd_winterBubble { background-color: var(--dark-10); }
+.player-board.lfd_winter .discussion_bubble:after { border-color: var(--dark-10) transparent !important; }
+#page-title span.lfd_btnCounter.lfd_windResourceTypeCounter, .action-button span.lfd_btnCounter.lfd_windResourceTypeCounter { color: var(--light-80); }
+#page-title .lfd_btnResource.lfd_btnWindResource { filter: invert(0.9) drop-shadow(-2px 2px 2px #00000091) !important; }
 `;
 
 _darkStyleForGame['locomomo'] = `
@@ -6098,6 +6149,17 @@ _darkStyleForGame['sushigoparty'] = `
 .block_title, .block_title2 { background: var(--dark-back); }
 `;
 
+_darkStyleForGame['symbiose'] = `
+#overall-content:before { content: ""; background: #00000080; position: absolute; width: 100%; height: 100%; }
+.nameplayer, .nameplayer_mini_1_3, .nameplayer_mini_1_4, .nameplayer_mini_3_3, .nameplayer_mini_2_4, .nameplayer_mini_3_4, nameplayer_mini_2_2,
+.nameplayer_mini_2_2_duel, .nameplayer_mini_2_2_duel_2, .river, .river2 { background-color: var(--dark-back); }
+[style*="border-top: 2px solid #0000ff;"] { border-color: #6565ff !important; }
+[style*="border-top: 2px solid #ff0000;"] { border-color: #ff6565 !important; }
+[style*="border-top: 2px solid #008000;"] { border-color: #54aa54 !important; }
+[style*="border-top: 2px solid #ffa500;"] { border-color: #ffc965 !important; }
+.scorepad, .scorepad > * { filter: invert(1); }
+`;
+
 _darkStyleForGame['tablut'] = `
 #board:before { content: ""; background: #00000080; position: absolute; width: 100%; height: 100%; }
 .border { color: var(--light-80); }
@@ -6404,6 +6466,24 @@ _darkStyleForGame['theshipwreckarcana'] = `
 _darkStyleForGame['thewaytojuliet'] = `
 #board:before { content: ""; background: #00000060; position: absolute; width: 100%; height: 100%; top:0px; left:0px; }
 .card { filter: brightness(0.9); }
+`;
+
+_darkStyleForGame['thewhitecastle'] = `
+html:not(.no-custom-background) #overall-content:before { content: ""; background: #00000080; position: absolute; width: 100%; height: 100%; }
+#twc-draft-area { background-color: var(--dark-back); }
+.twc-actions-tooltip .twc-actions-tooltip-action-block[data-type=light] { background-color: var(--dark-40); }
+#twc-main-game-panel img, #popin_twcHelpDialog, #popin_twcHelpDialog > *, #popin_twcHelpDialog_title img { filter: invert(1); }
+#jj-preferences-panel #jj-preferences-panel-content .jj-preferences-panel-category-label { background: var(--dark-back); }
+#popin_twcHelpDialog #popin_twcHelpDialog_contents { background-color: var(--dark-back); color: var(--light-80); }
+#popin_twcHelpDialog { border-color: #fff; }
+#popin_twcHelpDialog_title { color: var(--light-80); }
+.twc-icon-art.game-log { filter: var(--highlight-min); }
+.twc-dice-icon { filter: var(--drop-shadow-min); }
+#twc-player-areas .twc-player-area .twc-player-board .twc-player-name-wrapper { background-color: var(--dark-back); }
+.jj-preferences-panel-text { background: var(--dark-20) !important; }
+#undoAll, #undoLast { ${redButton} }
+#undoAll:hover, #undoLast:hover { ${redButtonOver} }
+.twc-main-card, #twc-main-game-board, .twc-player-area { filter: brightness(0.9); }
 `;
 
 _darkStyleForGame['theyellowhouse'] = `
@@ -7023,6 +7103,12 @@ _darkStyleForGame['wizardsgrimoire'] = `
 #wg-phase-selector { border: 2px solid var(--light-70); }
 .player_small_board .icon-wrapper>div.choice { background-color: var(--green-30); }
 .player_small_board .icon-wrapper>div.attacker { background-color: var(--red-30); }
+`;
+
+_darkStyleForGame['wolfandsheeps'] = `
+body { color: var(--light-80); }
+.wsh_playername_wrapper_000000, .wsh_playername_wrapper_000000 .playername { background-color: transparent!important; text-shadow: var(--text-w-shadow); }
+.wsh_playername_wrapper_ffffff, .wsh_playername_wrapper_ffffff .playername { background-color: transparent!important; text-shadow: none; }
 `;
 
 _darkStyleForGame['wonderfulkingdom'] = `

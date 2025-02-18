@@ -1437,6 +1437,10 @@ const defaultGames: Partial<Game>[] = [
 		name: "pioneerdaysproject",
 		playerPanel: "playerbox-{{player_id}}",
 	},
+	{
+		name: "thewhitecastle",
+		playerPanel: "twc-player-area-{{player_id}}",
+	},
 ];
 
 export default defaultGames;

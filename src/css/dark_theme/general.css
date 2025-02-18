@@ -643,15 +643,9 @@ select.colorselector {
   background: var(--dark-20) !important;
 }
 
-
 .bga-dropdown__options .bg-bga-gray-244 .items-center {
   background: var(--dark-20) !important;
 }
-
-/*
-.bga-dropdown__options .bg-bga-gray-244 .items-center>span {
-  color: white;
-}*/
 
 .bg-bga-gray-211 {
   background: var(--dark-20);
@@ -864,11 +858,6 @@ select.colorselector {
   border-color: #2866a4 !important;
 }
 
-/*
-.bga-game-browser__panel .items-center [class*=text-] {
-  color: var(--light-80);
-}*/
-
 .bga-game-filter-tags {
   color: var(--light-80) !important;
 }
@@ -879,6 +868,10 @@ select.colorselector {
 
 .bga-filter-tag--active.bga-filter-tag--type-specific {
   color: #f0f0f0 !important;
+}
+
+.bga-game-filter-tags .arrow {
+  filter: invert(1) hue-rotate(150deg);
 }
 
 .icon_arena {

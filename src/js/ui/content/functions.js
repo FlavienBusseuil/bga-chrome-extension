@@ -9,6 +9,7 @@ import { initDevelopperUI } from './studio/functions';
 import { initGameListObserver } from './gameList/functions';
 import { initDarkMode } from './darkMode/functions';
 import ConfirmationPopup from './misc/ConfirmationPopup';
+import InformationPopup from './misc/InformationPopup';
 import { waitForObj } from '../../utils/misc/wait';
 import shouldFilter from '../../config/filteredLogs';
 
@@ -80,6 +81,51 @@ const mutePlayer = (config, evt) => {
 
 		render(<ConfirmationPopup type='mute_player' confirm={confirm} cancel={close} config={config} />, container);
 	}
+};
+
+const displayInformationPopup = () => {
+	const extInfosDialog = localStorage.getItem("ext_infos_dialog");
+
+	if (extInfosDialog === "off") {
+		return;
+	}
+
+	const now = new Date().getTime();
+	const showDate = parseInt(extInfosDialog || '0', 10);
+
+	if (showDate > now) {
+		//console.log("pas maintenant " + new Date(showDate));
+		return;
+	}
+
+	localStorage.setItem("ext_infos_dialog", now + 8 * 60 * 60 * 1000);
+
+	const container = document.createElement('div');
+	container.id = "bgaext_popup_container";
+	document.body.appendChild(container);
+
+	const close = () => {
+		localStorage.setItem("ext_infos_dialog", "off");
+		container.remove();
+	}
+	const later = () => {
+		container.remove();
+	};
+
+	const isFirefox = window.navigator.userAgent.toLowerCase().includes('firefox');
+	const title = isFirefox ? chrome.i18n.getMessage("infosTitleFirefox") : chrome.i18n.getMessage("infosTitleChrome");
+	const content = (
+		<div>
+			<p>{isFirefox ? chrome.i18n.getMessage("infosSubTitleFirefox") : chrome.i18n.getMessage("infosSubTitleChrome")}</p>
+			<p dangerouslySetInnerHTML={{ __html: chrome.i18n.getMessage("infosLine1") }}></p>
+			<p dangerouslySetInnerHTML={{ __html: chrome.i18n.getMessage("infosLine2") }}></p>
+			<p dangerouslySetInnerHTML={{ __html: chrome.i18n.getMessage("infosLine3") }}></p>
+			<p dangerouslySetInnerHTML={{ __html: chrome.i18n.getMessage("infosLine4") }}></p>
+			<p dangerouslySetInnerHTML={{ __html: chrome.i18n.getMessage("infosLine5") }}></p>
+		</div>
+	);
+
+	render(<InformationPopup title={title} content={content} later={later} close={close} />, container);
 };
 
 const refreshMutedPlayers = (config) => {
@@ -501,5 +547,6 @@ export {
 	initChatIcon,
 	setChatStyle,
 	setEloStyle,
-	initDarkMode
+	initDarkMode,
+	displayInformationPopup
 };

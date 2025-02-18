@@ -6,15 +6,10 @@
 		"message": "Something wrong! 😭"
 	},
 	"report_error": {
-		"message": "You can report this at <a href=\"$href$\">$email$</a>.",
-		"placeholders": {
-			"email": {
-				"content": "$1"
-			},
-			"href": {
-				"content": "$2"
-			}
-		}
+		"message": "You can report this error on <a target='_blank' href='https://boardgamearena.com/forum/viewtopic.php?t=30509'>the forum</a>."
+	},
+	"report_error_ff": {
+		"message": "Please make sure that all permissions have been granted to the extension (right-click on the extension icon, then “Manage extension” and go to the “Permissions” tab). If you are unable to correct this error, please let us know on <a target='_blank' href='https://boardgamearena.com/forum/viewtopic.php?t=30509'>the forum</a>."
 	},
 	"play_new_game": {
 		"message": "Play a New Game"
@@ -271,13 +266,19 @@
 		"message": "Tell other players about your decision to mute a player."
 	},
 	"muteWarningOff": {
-		"message": "Don not tell other players about your decision to mute a player."
+		"message": "Do not tell other players about your decision to mute a player."
 	},
 	"buttonConfirm": {
 		"message": "Confirm"
 	},
 	"buttonCancel": {
 		"message": "Cancel"
+	},
+	"buttonClose": {
+		"message": "Close"
+	},
+	"buttonLater": {
+		"message": "Remind me later"
 	},
 	"my_friends": {
 		"message": "My friends"
@@ -399,6 +400,12 @@
 	"optionsInProgressMoreOff": {
 		"message": "'More friends' section hidden"
 	},
+	"optionsHomeAdvancedOn": {
+		"message": "Advanced configuration"
+	},
+	"optionsHomeAdvancedOff": {
+		"message": "Easy configuration"
+	},
 	"uploadMp3": {
 		"message": "Upload MP3"
 	},
@@ -419,5 +426,32 @@
 	},
 	"htmlHelpPage": {
 		"message": "https://en.doc.boardgamearena.com/ChromeExtension#Advanced_home_page_settings"
+	},
+	"infosTitleChrome": {
+		"message": "Information about 'BGA Chrome Extension'"
+	},
+	"infosTitleFirefox": {
+		"message": "Information about 'BGA Firefox Extension'"
+	},
+	"infosSubTitleChrome": {
+		"message": "Thank you for using the BGA Chrome Extension!"
+	},
+	"infosSubTitleFirefox": {
+		"message": "Thank you for using the BGA Firefox Extension!"
+	},
+	"infosLine1": {
+		"message": "Are you up to date with the latest features added to this extension?"
+	},
+	"infosLine2": {
+		"message": "For example, the addition of the ability to block a user in a game chat, or the ability to define an HTML template for the display of home page elements?"
+	},
+	"infosLine3": {
+		"message": "If you'd like to be kept up to date on the next new features added to the extension, you can join the <a target='_blank' href='https://boardgamearena.com/group?id=17718382' class='bga-link'>Browser Extension Users</a> group, and you'll get news in the homepage news feed."
+	},
+	"infosLine4": {
+		"message": "Of course, you can also check out the <a target='_blank' href='https://en.doc.boardgamearena.com/ChromeExtension' class='bga-link'>extension features</a> at any time and come and chat with the authors on <a target='_blank' href='https://boardgamearena.com/forum/viewtopic.php?t=30509' class='bga-link'>the forum</a>."
+	},
+	"infosLine5": {
+		"message": "Have fun!"
 	}
 }

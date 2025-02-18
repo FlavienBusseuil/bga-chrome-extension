@@ -15,7 +15,8 @@ import {
 	setChatStyle,
 	setEloStyle,
 	initDarkMode,
-	refreshMutedPlayers
+	refreshMutedPlayers,
+	displayInformationPopup
 } from './js/ui/content/functions';
 
 const config = new Configuration();
@@ -198,6 +199,10 @@ const initPage = () => {
 	});
 
 	waitForObj('body', 10).then(() => {
+		if (pageType === 'general') {
+			setTimeout(displayInformationPopup, 2000);
+		}
+
 		document.body.addEventListener('bga_ext_api_result', (data) => {
 			const evtDetail = JSON.parse(data.detail);
 

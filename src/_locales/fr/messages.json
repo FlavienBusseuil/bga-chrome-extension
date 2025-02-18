@@ -6,15 +6,10 @@
 		"message": "Quelque chose cloche 🔔"
 	},
 	"report_error": {
-		"message": "Vous pouvez faire parvenir cette erreur à <a href=\"$href$\">$email$</a>.",
-		"placeholders": {
-			"email": {
-				"content": "$1"
-			},
-			"href": {
-				"content": "$2"
-			}
-		}
+		"message": "Vous pouvez nous faire part de cette erreur sur <a target='_blank' href='https://boardgamearena.com/forum/viewtopic.php?t=30509'>le forum</a>."
+	},
+	"report_error_ff": {
+		"message": "Veuillez d'abord vous assurer que toutes les autorisation ont été accordées à l'extension (Clic droit sur l'icone de l'extension, puis \"Gérer l'extension\" et aller sur l'onglet \"Permissions\"). Si vous ne parvenez pas à corriger cette erreur vous pouvez nous en faire part sur <a target='_blank' href='https://boardgamearena.com/forum/viewtopic.php?t=30509'>le forum</a>."
 	},
 	"play_new_game": {
 		"message": "Démarrer une partie"
@@ -279,6 +274,12 @@
 	"buttonCancel": {
 		"message": "Annuler"
 	},
+	"buttonClose": {
+		"message": "Fermer"
+	},
+	"buttonLater": {
+		"message": "Me le rappeler plus tard"
+	},
 	"my_friends": {
 		"message": "Mes amis"
 	},
@@ -425,5 +426,32 @@
 	},
 	"htmlHelpPage": {
 		"message": "https://fr.doc.boardgamearena.com/ChromeExtension#Configuration_avanc%C3%A9e_de_la_page_d'accueil"
+	},
+	"infosTitleChrome": {
+		"message": "Informations sur 'BGA Chrome Extension'"
+	},
+	"infosTitleFirefox": {
+		"message": "Informations sur 'BGA Firefox Extension'"
+	},
+	"infosSubTitleChrome": {
+		"message": "Merci d'utiliser l'extension BGA Chrome Extension !"
+	},
+	"infosSubTitleFirefox": {
+		"message": "Merci d'utiliser l'extension BGA Firefox Extension !"
+	},
+	"infosLine1": {
+		"message": "Etes vous au courant de ses dernières fonctionnalités ?"
+	},
+	"infosLine2": {
+		"message": "Par exemple l'ajout de la possibilité de bloquer un utilisateur dans le chat d'un jeu, ou encore la possibilité de définir un template au format HTML pour l'affichage des éléments de la page d'accueil ?"
+	},
+	"infosLine3": {
+		"message": "Si vous souhaitez être mis au courant des prochaines nouveautés ajoutées à l'extension, vous pouvez rejoindre le groupe <a target='_blank' href='https://boardgamearena.com/group?id=17718382' class='bga-link'>Browser Extension Users</a> et vous aurez ainsi des nouvelles dans le fil d'actualité de la page d'accueil."
+	},
+	"infosLine4": {
+		"message": "Vous pouvez bien sûr également consulter les <a target='_blank' href='https://fr.doc.boardgamearena.com/ChromeExtension' class='bga-link'>fonctionnalités de l'extension</a> à tout moment et venir discuter avec les auteurs sur <a target='_blank' href='https://boardgamearena.com/forum/viewtopic.php?t=30509' class='bga-link'>le forum</a>."
+	},
+	"infosLine5": {
+		"message": "Amusez-vous bien !"
 	}
 }
