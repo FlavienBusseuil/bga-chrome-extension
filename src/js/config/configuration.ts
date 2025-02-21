@@ -720,6 +720,7 @@ class Configuration {
 			cssList.push('.bgaext-flex-row { display: flex; flex-flow: row nowrap; gap: 2em; justify-content: space-between; }');
 			cssList.push('.bgaext-flex-row > div { flex-grow: 1; }');
 			cssList.push('.bgaext-flex-col { display: flex; flex-flow: column; gap: 1em; }');
+			cssList.push('#bgaext-homepage .bga-generic-game-item:hover .bga-hover-animated-border:before { -webkit-clip-path: circle(142% at bottom left); clip-path: circle(142% at bottom left); }');
 		} else {
 			let columns = 3;
 

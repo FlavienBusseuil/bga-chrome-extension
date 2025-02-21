@@ -213,6 +213,7 @@ export const gamesWithCustomBackground = [
   'talon',
   'theyellowhouse',
   'tinyturbocars',
+  'toybattle',
   'trailblazers',
   'trektwelve',
   'trio',
@@ -671,6 +672,9 @@ export const gamesWithCustomActions = {
   bunnyboom: {
     init: () => addInvertOverlay('', true)
   },
+  toybattle: {
+    init: () => addInvertOverlay('', true)
+  },
 };
 
 const _darkStyleForGame = {};
@@ -755,6 +759,7 @@ _darkStyleForGame['agestofrobinhood'] = `
 #popin_settings_modal h2, #popin_information_modal h2 { background: #433423; color: #fff; }
 #popin_settings_modal_close, #popin_information_modal_close { background-color: #62411e !important; }
 #setting_modal_content, #information_modal_content { color: var(--light-80); }
+#info_panel #info_panel_buttons #help-mode-switch .label { background-color: var(--dark-40); border: 1px solid var(--light-50); }
 .information_modal #information_modal_content .gest_arrow { filter: grayscale(1) invert(1); }
 .gest_plots_and_deeds_container:before { content: ""; background: #000000bb; position: absolute; width: 100%; height: 100%; border-radius: 4px; }
 .gest_plots_and_deeds_container { border: 1px solid var(--light-50); }
@@ -2145,8 +2150,12 @@ _darkStyleForGame['daybreak'] = `
 
 _darkStyleForGame['deadcells'] = `
 .dc_beheaded-board-player-name-container { background: var(--dark-10); }
-.dc_damage-icon, .dc_scroll-icon, .dc_vial-icon, .dc_card-back-icon, .dc_potion-icon, .dc_equipment-icon { filter: var(--highlight-min); }
+.dc_damage-icon, .dc_scroll-icon, .dc_vial-icon, .dc_card-back-icon, .dc_potion-icon, .dc_equipment-icon, #pagemaintitletext .dc_combat-card-back { filter: var(--highlight-min); }
 .dc_damage-icon.dc_icon-grayscale { filter: grayscale(1) opacity(.3) var(--highlight-min); }
+.dc_player-label { background: transparent; filter: none; }
+.dc_player-label[style="color:#000000"] { color: #fff!important; }
+#dc-combat-log { background-color: #152e37; }
+.dc_combat-log-entry.dc_highlighted { background: #59430d; outline: 2px solid #665700; }
 `;
 
 _darkStyleForGame['dedale'] = `
@@ -6728,6 +6737,11 @@ body { background: none !important; }
 
 _darkStyleForGame['tortugasixteensixtyseven'] = `
 #tableEventCardsArea, .tortuga_tooltip_text_container, #myHandArea, #crowsNestVoteCardsContainer { background-color: var(--dark-20); color: var(--light-80); }
+`;
+
+_darkStyleForGame['toybattle'] = `
+.discard { background: #000; }
+.bgaext_overlay { filter: invert(0.75)!important; }
 `;
 
 _darkStyleForGame['trailblazers'] = `

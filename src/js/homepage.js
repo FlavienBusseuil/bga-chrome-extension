@@ -35,6 +35,7 @@ const copyHtml = (querySource, queryDest) => {
   const dest = document.querySelector(queryDest);
 
   if (dest && source) {
+    dest.className = source.className;
     dest.innerHTML = source.innerHTML;
   }
 };

@@ -41,6 +41,36 @@ input[type=range]:focus::-ms-thumb {
   color: var(--light-80);
 }
 
+#topbar.private-alpha-banner__gradient {
+  background: linear-gradient(90deg, #212121, #2a2a2a 30%, var(--dark-10) 65%) !important;
+}
+
+#topbar.alpha-banner__gradient {
+  background: linear-gradient(90deg, #70126f, #80197e 30%, var(--dark-10) 65%) !important;
+}
+
+#topbar.beta-banner__gradient {
+  background: linear-gradient(90deg, #705423, #996300 30%, var(--dark-10) 65%) !important;
+}
+
+.alpha-banner__gradient .topbar_left_content,
+.beta-banner__gradient .topbar_left_content,
+.private-alpha-banner__gradient .topbar_left_content {
+  background: var(--dark-10);
+}
+
+#topbar.private-alpha-banner__gradient .alpha-beta-banner__triangle-corner {
+  background: linear-gradient(132deg, var(--dark-10), var(--dark-10) 50%, rgba(33, 33, 33, .463) 0, rgba(33, 33, 33, 0) 62%);
+}
+
+#topbar.alpha-banner__gradient .alpha-beta-banner__triangle-corner {
+  background: linear-gradient(132deg, var(--dark-10), var(--dark-10) 50%, rgba(112, 18, 111, .463) 0, rgba(112, 18, 111, 0) 62%);
+}
+
+#topbar.beta-banner__gradient .alpha-beta-banner__triangle-corner {
+  background: linear-gradient(132deg, var(--dark-10), var(--dark-10) 50%, rgba(112, 84, 35, .463) 0, rgba(112, 84, 35, 0) 62%);
+}
+
 #ingame_menu_content {
   background: var(--dark-30);
   color: var(--light-100);

@@ -4,6 +4,15 @@
   margin-left: 12px !important;
 }
 
+#topbar.topbar_new_version #bga_extension_dark_mode_icon {
+  padding-top: 7px;
+  margin-left: 0px !important;
+}
+
+#topbar.topbar_new_version #bga_extension_dark_mode_icon:has(.fa-moon-o) {
+  width: 52px;
+}
+
 #topbar .bgaext_darkmode {
   display: flex !important;
   flex-flow: row nowrap !important;
