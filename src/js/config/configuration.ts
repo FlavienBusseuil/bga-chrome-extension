@@ -1,6 +1,12 @@
 import equal from "fast-deep-equal";
 import defaultGames from "./sideMenuGames";
-import { addChangeListener, localStorageGet, localStorageSet, storageGet, storageSet } from "../utils/chrome";
+import {
+	addChangeListener,
+	localStorageGet,
+	localStorageSet,
+	storageGet,
+	storageSet,
+} from "../utils/chrome";
 
 const DEF_HOME_HTML = `<style>
 #bgaext-newsfeed .bga-homepage-newsfeed {
@@ -95,7 +101,7 @@ interface CustomConfig {
 	lobbyRedirect?: boolean;
 	autoOpen?: boolean;
 	solidBack?: boolean;
-};
+}
 
 export interface HomeConfig {
 	header: boolean;
@@ -112,24 +118,25 @@ export interface HomeConfig {
 	recommandedGames: boolean;
 	classicGames: boolean;
 	events: boolean;
-};
+}
 
 export interface AdvancedHomeConfig {
 	advanced: boolean;
 	html: string;
-};
+}
 
 export interface InProgressConfig {
 	emptySections: boolean;
 	playAgain: boolean;
 	discover: boolean;
 	more: boolean;
-};
+	colorfulTables: boolean;
+}
 
 interface LocalConfig {
 	css: string;
 	home?: AdvancedHomeConfig;
-};
+}
 
 class Configuration {
 	_defConfig: { games: Game[] };
@@ -168,13 +175,16 @@ class Configuration {
 			disabled: [],
 			floating: [],
 			hidden: [],
-			muted: []
+			muted: [],
 		};
 		this._config = { games: [] };
 	}
 
 	async init() {
-		const [syncStorage, localStorage] = await Promise.all([storageGet(), localStorageGet()]);
+		const [syncStorage, localStorage] = await Promise.all([
+			storageGet(),
+			localStorageGet(),
+		]);
 
 		this._customConfig = syncStorage;
 		this._localConfig = localStorage;
@@ -207,15 +217,21 @@ class Configuration {
 
 		addChangeListener((changes: any, namespace: string) => {
 			try {
-				for (let [key, { newValue }] of Object.entries(changes) as any) {
+				for (let [key, { newValue }] of Object.entries(
+					changes,
+				) as any) {
 					if (namespace === "local") {
 						this._localConfig[key] = newValue;
 					} else {
 						this._customConfig[key] = newValue;
 					}
-					document.dispatchEvent(new CustomEvent('bga_ext_update_config', { detail: { key } }));
+					document.dispatchEvent(
+						new CustomEvent("bga_ext_update_config", {
+							detail: { key },
+						}),
+					);
 				}
-			} catch (error) { } // not a big deal
+			} catch (error) {} // not a big deal
 		});
 	}
 
@@ -332,13 +348,17 @@ class Configuration {
 	}
 
 	getHomeConfig() {
-		const homeConfig = this._customConfig.home || {} as any;
+		const homeConfig = this._customConfig.home || ({} as any);
 
 		return {
 			header: true,
 			footer: true,
 			latestNews: true,
-			howToPlay: homeConfig?.howToPlay === undefined && homeConfig?.latestNews !== undefined ? homeConfig.latestNews : true,
+			howToPlay:
+				homeConfig?.howToPlay === undefined &&
+				homeConfig?.latestNews !== undefined
+					? homeConfig.latestNews
+					: true,
 			smallFeed: true,
 			fewFeeds: true,
 			status: true,
@@ -349,7 +369,7 @@ class Configuration {
 			recommandedGames: true,
 			classicGames: true,
 			events: true,
-			...homeConfig
+			...homeConfig,
 		};
 	}
 
@@ -359,12 +379,12 @@ class Configuration {
 	}
 
 	getAdvancedHomeConfig() {
-		const homeConfig = this._localConfig.home || {} as any;
+		const homeConfig = this._localConfig.home || ({} as any);
 
 		return {
 			advanced: false,
 			html: DEF_HOME_HTML,
-			...homeConfig
+			...homeConfig,
 		};
 	}
 
@@ -379,8 +399,8 @@ class Configuration {
 			playAgain: true,
 			discover: true,
 			more: true,
-			...(this._customConfig.inProgress || {})
-		}
+			...(this._customConfig.inProgress || {}),
+		};
 	}
 
 	setInProgressConfig(val: InProgressConfig) {
@@ -552,7 +572,10 @@ class Configuration {
 	}
 
 	isMuteWarning() {
-		return this._customConfig.muteWarning === undefined || this._customConfig.muteWarning === true;
+		return (
+			this._customConfig.muteWarning === undefined ||
+			this._customConfig.muteWarning === true
+		);
 	}
 
 	hideGame(name: string) {
@@ -617,9 +640,9 @@ class Configuration {
 
 	getChatStyle() {
 		if (this._customConfig.hideGeneralChat) {
-			return '#bga_extension_chat_icon { color: #c4c4c4; } #chatwindow_general { display: none !important; }';
+			return "#bga_extension_chat_icon { color: #c4c4c4; } #chatwindow_general { display: none !important; }";
 		}
-		return '#bga_extension_chat_icon { color: #01c4ca; } #chatwindow_general { display: inline-block !important; }';
+		return "#bga_extension_chat_icon { color: #01c4ca; } #chatwindow_general { display: inline-block !important; }";
 	}
 
 	isEloHidden() {
@@ -633,9 +656,9 @@ class Configuration {
 
 	getEloStyle() {
 		if (this._customConfig.hideElo) {
-			return '.player_elo_wrap, #game_result .adddetails, #table_stats .row-data:has(> .row-value > .gamerank) { display: none; } '
+			return ".player_elo_wrap, #game_result .adddetails, #table_stats .row-data:has(> .row-value > .gamerank) { display: none; } ";
 		}
-		return '';
+		return "";
 	}
 
 	isDarkMode() {
@@ -648,13 +671,18 @@ class Configuration {
 	}
 
 	getDarkModeColor(gameName: string, def: number) {
-		const mainValue = this._customConfig.darkModeColor === undefined ? -1 : this._customConfig.darkModeColor;
+		const mainValue =
+			this._customConfig.darkModeColor === undefined
+				? -1
+				: this._customConfig.darkModeColor;
 
 		if (gameName === "general" || gameName === "forum") {
 			return mainValue;
 		}
 
-		const result = this._customConfig.dark.find(d => d.name === gameName)?.color;
+		const result = this._customConfig.dark.find(
+			(d) => d.name === gameName,
+		)?.color;
 		return result === undefined ? def || mainValue : result;
 	}
 
@@ -664,22 +692,39 @@ class Configuration {
 			return mainValue;
 		}
 
-		return this._customConfig.dark.find(d => d.name === gameName)?.sat || def || mainValue;
+		return (
+			this._customConfig.dark.find((d) => d.name === gameName)?.sat ||
+			def ||
+			mainValue
+		);
 	}
 
-	setDarkModeColor(gameName: string, darkModeColor: number, darkModeSat: number, forceSave?: boolean) {
+	setDarkModeColor(
+		gameName: string,
+		darkModeColor: number,
+		darkModeSat: number,
+		forceSave?: boolean,
+	) {
 		if (gameName === "general" || gameName === "forum") {
 			this._customConfig.darkModeColor = darkModeColor;
 			this._customConfig.darkModeSat = darkModeSat;
 			storageSet({ darkModeColor, darkModeSat });
 		} else {
-			if (!forceSave && this._customConfig.darkModeColor === darkModeColor && this._customConfig.darkModeSat === darkModeSat) {
+			if (
+				!forceSave &&
+				this._customConfig.darkModeColor === darkModeColor &&
+				this._customConfig.darkModeSat === darkModeSat
+			) {
 				// default config
-				this._customConfig.dark = this._customConfig.dark.filter(d => d.name !== gameName);
+				this._customConfig.dark = this._customConfig.dark.filter(
+					(d) => d.name !== gameName,
+				);
 			} else {
 				this._customConfig.dark = [
-					...this._customConfig.dark.filter(d => d.name !== gameName),
-					{ name: gameName, color: darkModeColor, sat: darkModeSat }
+					...this._customConfig.dark.filter(
+						(d) => d.name !== gameName,
+					),
+					{ name: gameName, color: darkModeColor, sat: darkModeSat },
 				];
 			}
 
@@ -688,7 +733,9 @@ class Configuration {
 	}
 
 	clearDarkModeColor(gameName: string) {
-		this._customConfig.dark = this._customConfig.dark.filter(d => d.name !== gameName);
+		this._customConfig.dark = this._customConfig.dark.filter(
+			(d) => d.name !== gameName,
+		);
 		storageSet({ dark: this._customConfig.dark });
 	}
 
@@ -712,20 +759,32 @@ class Configuration {
 		const cssList: string[] = [];
 
 		if (advHome.advanced) {
-			cssList.push(`.bgaext_welcome .post.bga-hover-for-list { display: block !important; }`);
-			cssList.push('.bgaext_welcome .bga-homepage-header { display: none; }');
-			cssList.push(`#bgadef-homepage { height: 1px; zoom: 0.1; opacity: 0 }`);
-			cssList.push('#bgaext-tournaments { width: 100%; }');
-			cssList.push('#bgaext-homepage { padding: 2em; }');
-			cssList.push('.bgaext-flex-row { display: flex; flex-flow: row nowrap; gap: 2em; justify-content: space-between; }');
-			cssList.push('.bgaext-flex-row > div { flex-grow: 1; }');
-			cssList.push('.bgaext-flex-col { display: flex; flex-flow: column; gap: 1em; }');
-			cssList.push('#bgaext-homepage .bga-generic-game-item:hover .bga-hover-animated-border:before { -webkit-clip-path: circle(142% at bottom left); clip-path: circle(142% at bottom left); }');
+			cssList.push(
+				`.bgaext_welcome .post.bga-hover-for-list { display: block !important; }`,
+			);
+			cssList.push(
+				".bgaext_welcome .bga-homepage-header { display: none; }",
+			);
+			cssList.push(
+				`#bgadef-homepage { height: 1px; zoom: 0.1; opacity: 0 }`,
+			);
+			cssList.push("#bgaext-tournaments { width: 100%; }");
+			cssList.push("#bgaext-homepage { padding: 2em; }");
+			cssList.push(
+				".bgaext-flex-row { display: flex; flex-flow: row nowrap; gap: 2em; justify-content: space-between; }",
+			);
+			cssList.push(".bgaext-flex-row > div { flex-grow: 1; }");
+			cssList.push(
+				".bgaext-flex-col { display: flex; flex-flow: column; gap: 1em; }",
+			);
+			cssList.push(
+				"#bgaext-homepage .bga-generic-game-item:hover .bga-hover-animated-border:before { -webkit-clip-path: circle(142% at bottom left); clip-path: circle(142% at bottom left); }",
+			);
 		} else {
 			let columns = 3;
 
 			// If we want to display events, display the recent games section
-			if (home.events && document.querySelector('.bga-advent-calendar')) {
+			if (home.events && document.querySelector(".bga-advent-calendar")) {
 				home.recentGames = true;
 			}
 
@@ -733,102 +792,171 @@ class Configuration {
 				cssList.push(this._localConfig.css);
 			}
 			if (!home.header) {
-				cssList.push('.bgaext_welcome .bga-homepage-header { display: none; }');
+				cssList.push(
+					".bgaext_welcome .bga-homepage-header { display: none; }",
+				);
 			}
 			if (!home.footer) {
-				cssList.push('.bgaext_welcome .bga-homepage__pre-footer { visibility: hidden; height: 1px; }');
+				cssList.push(
+					".bgaext_welcome .bga-homepage__pre-footer { visibility: hidden; height: 1px; }",
+				);
 			}
 			if (!home.latestNews) {
-				cssList.push('.bgaext_welcome div:has(>.bga-homepage__out-grid-title):has([href="/headlines"]) { display: none; }');
+				cssList.push(
+					'.bgaext_welcome div:has(>.bga-homepage__out-grid-title):has([href="/headlines"]) { display: none; }',
+				);
 			}
 			if (!home.howToPlay) {
-				cssList.push('.bgaext_welcome div:has(>.bga-homepage__out-grid-title):has([href="/gamelist?hasTutorialOnly"]) { display: none; }');
+				cssList.push(
+					'.bgaext_welcome div:has(>.bga-homepage__out-grid-title):has([href="/gamelist?hasTutorialOnly"]) { display: none; }',
+				);
 			}
 
-			if (!home.recentGames && !home.popularGames && !home.recommandedGames && !home.classicGames) {
-				cssList.push('.bgaext_welcome .bga-homepage__content { display: flex; }');
-				cssList.push('.bgaext_welcome .bga-homepage__games-section { display: none; }');
+			if (
+				!home.recentGames &&
+				!home.popularGames &&
+				!home.recommandedGames &&
+				!home.classicGames
+			) {
+				cssList.push(
+					".bgaext_welcome .bga-homepage__content { display: flex; }",
+				);
+				cssList.push(
+					".bgaext_welcome .bga-homepage__games-section { display: none; }",
+				);
 				columns = 0;
 			} else {
 				if (!home.recentGames) {
-					cssList.push('.bgaext_welcome .flex-1:has(>.homepage-section>.homepage-section__title>[href*="/gamelist?isRecent"]) { display: none; }');
+					cssList.push(
+						'.bgaext_welcome .flex-1:has(>.homepage-section>.homepage-section__title>[href*="/gamelist?isRecent"]) { display: none; }',
+					);
 					--columns;
 				}
 				if (!home.popularGames) {
-					cssList.push('.bgaext_welcome .flex-1:has(>.homepage-section>.homepage-section__title>[href*="/gamelist?isPopular"]) { display: none; }');
+					cssList.push(
+						'.bgaext_welcome .flex-1:has(>.homepage-section>.homepage-section__title>[href*="/gamelist?isPopular"]) { display: none; }',
+					);
 					--columns;
 				}
 				if (!home.recommandedGames) {
-					cssList.push('.bgaext_welcome .flex-1:has(>.homepage-section>.homepage-section__title>[href*="/gamelist?isSuggested"]) { display: none; }');
+					cssList.push(
+						'.bgaext_welcome .flex-1:has(>.homepage-section>.homepage-section__title>[href*="/gamelist?isSuggested"]) { display: none; }',
+					);
 					--columns;
 				}
 				if (!home.classicGames) {
-					cssList.push('.bgaext_welcome .bga-homepage__games-section > div:last-child { display: none; }')
+					cssList.push(
+						".bgaext_welcome .bga-homepage__games-section > div:last-child { display: none; }",
+					);
 				} else if (columns === 0) {
 					columns = 1;
 				}
 			}
 			if (!home.tournamentsBelow && home.tournaments) {
-				cssList.push('.bgaext_welcome div:has(>.bga-homepage__newsfeed) { flex-flow: row; }');
-				cssList.push('.bgaext_welcome div:has(>.bga-homepage__newsfeed) > div:last-child { flex-grow: 1; min-width: 450px; }');
+				cssList.push(
+					".bgaext_welcome div:has(>.bga-homepage__newsfeed) { flex-flow: row; }",
+				);
+				cssList.push(
+					".bgaext_welcome div:has(>.bga-homepage__newsfeed) > div:last-child { flex-grow: 1; min-width: 450px; }",
+				);
 
-				cssList.push('.bgaext_welcome .bga-homepage__newsfeed { flex-shrink: 10; }');
-				cssList.push('.bgaext_welcome .bga-homepage__content { gap: 2em !important; }');
+				cssList.push(
+					".bgaext_welcome .bga-homepage__newsfeed { flex-shrink: 10; }",
+				);
+				cssList.push(
+					".bgaext_welcome .bga-homepage__content { gap: 2em !important; }",
+				);
 
 				if (columns === 0) {
-					cssList.push('.bgaext_welcome .bga-homepage__content { flex-flow: column; }');
+					cssList.push(
+						".bgaext_welcome .bga-homepage__content { flex-flow: column; }",
+					);
 				}
 			}
 
 			if (columns === 0 && (home.tournamentsBelow || !home.tournaments)) {
-				cssList.push('.bgaext_welcome .bga-homepage__newsfeed { width: 100%; }');
+				cssList.push(
+					".bgaext_welcome .bga-homepage__newsfeed { width: 100%; }",
+				);
 			}
 
 			if (!home.smallFeed) {
-				cssList.push(`.bgaext_welcome .desktop_version .bga-homepage__content { grid-template-columns: minmax(0, ${300 * columns}px) minmax(0, 100%) !important; }`);
+				cssList.push(
+					`.bgaext_welcome .desktop_version .bga-homepage__content { grid-template-columns: minmax(0, ${300 * columns}px) minmax(0, 100%) !important; }`,
+				);
 			} else if (!home.tournamentsBelow) {
-				cssList.push(`.bgaext_welcome .bga-homepage__content { grid-template-columns: minmax(0, 40%) minmax(0, 60%) !important; }`);
+				cssList.push(
+					`.bgaext_welcome .bga-homepage__content { grid-template-columns: minmax(0, 40%) minmax(0, 60%) !important; }`,
+				);
 			}
 
 			if (!home.fewFeeds || !home.tournaments || !home.tournamentsBelow) {
-				cssList.push(`.bgaext_welcome .post.bga-hover-for-list { display: block !important; }`);
+				cssList.push(
+					`.bgaext_welcome .post.bga-hover-for-list { display: block !important; }`,
+				);
 			}
 
 			if (!home.smallFeed || !home.tournamentsBelow) {
-				cssList.push('.bgaext_welcome .bga-homepage__partner-events-section { display: none; }');
+				cssList.push(
+					".bgaext_welcome .bga-homepage__partner-events-section { display: none; }",
+				);
 			}
 
 			if (!home.status) {
-				cssList.push(`.bgaext_welcome .bga-homepage__service-status-section { display: none; }`);
+				cssList.push(
+					`.bgaext_welcome .bga-homepage__service-status-section { display: none; }`,
+				);
 			}
 			if (!home.tournaments) {
-				cssList.push('.bgaext_welcome div:has(>.homepage-section>.homepage-section__title>[href="/tournamentlist"]) { display: none; }');
-				cssList.push('.bgaext_welcome div:has(>.bga-homepage__newsfeed-controls-wrapper) { display: none; }');
+				cssList.push(
+					'.bgaext_welcome div:has(>.homepage-section>.homepage-section__title>[href="/tournamentlist"]) { display: none; }',
+				);
+				cssList.push(
+					".bgaext_welcome div:has(>.bga-homepage__newsfeed-controls-wrapper) { display: none; }",
+				);
 			}
 			if (columns < 3) {
-				cssList.push(`.bgaext_welcome .bga-homepage__games-section .grid-cols-3 { grid-template-columns: repeat(${columns}, minmax(0, 1fr)); }`);
+				cssList.push(
+					`.bgaext_welcome .bga-homepage__games-section .grid-cols-3 { grid-template-columns: repeat(${columns}, minmax(0, 1fr)); }`,
+				);
 
 				if (columns === 1) {
-					cssList.push('.bgaext_welcome .bga-homepage__discover-section { grid-template-columns: repeat(1, minmax(0, 1fr)) !important; }');
-					cssList.push('.bgaext_welcome .bga-homepage__discover-section>div:last-child { display: none; }');
+					cssList.push(
+						".bgaext_welcome .bga-homepage__discover-section { grid-template-columns: repeat(1, minmax(0, 1fr)) !important; }",
+					);
+					cssList.push(
+						".bgaext_welcome .bga-homepage__discover-section>div:last-child { display: none; }",
+					);
 				}
 			}
 		}
 
 		if (!inProgress.emptySections) {
-			cssList.push('.bgaext_gameinprogress .bga-player-progress-list__section:has(>div.relative>div.relative>div.relative>div.flex.items-center) { display: none; }');
+			cssList.push(
+				".bgaext_gameinprogress .bga-player-progress-list__section:has(>div.relative>div.relative>div.relative>div.flex.items-center) { display: none; }",
+			);
 		}
 		if (!inProgress.playAgain) {
-			cssList.push('.bgaext_gameinprogress #main-content > div:first-child > div:last-child > div:nth-child(1), .bgaext_gameinprogress #main-content > div:first-child > div:last-child > div:nth-child(2), .bgaext_gameinprogress #main-content > div:first-child > div:last-child > div:nth-child(3) { display: none; }');
+			cssList.push(
+				".bgaext_gameinprogress #main-content > div:first-child > div:last-child > div:nth-child(1), .bgaext_gameinprogress #main-content > div:first-child > div:last-child > div:nth-child(2), .bgaext_gameinprogress #main-content > div:first-child > div:last-child > div:nth-child(3) { display: none; }",
+			);
 		}
 		if (!inProgress.discover) {
-			cssList.push('.bgaext_gameinprogress #main-content > div:first-child > div:last-child > div:nth-child(4), .bgaext_gameinprogress #main-content > div:first-child > div:last-child > div:nth-child(5), .bgaext_gameinprogress #main-content > div:first-child > div:last-child > div:nth-child(6) { display: none; }');
+			cssList.push(
+				".bgaext_gameinprogress #main-content > div:first-child > div:last-child > div:nth-child(4), .bgaext_gameinprogress #main-content > div:first-child > div:last-child > div:nth-child(5), .bgaext_gameinprogress #main-content > div:first-child > div:last-child > div:nth-child(6) { display: none; }",
+			);
 		}
 		if (!inProgress.more) {
-			cssList.push('.bgaext_gameinprogress #main-content > div:first-child > div:last-child > div:nth-child(7), .bgaext_gameinprogress #main-content > div:first-child > div:last-child > div:nth-child(8), .bgaext_gameinprogress #main-content > div:first-child > div:last-child > div:nth-child(9) { display: none; }');
+			cssList.push(
+				".bgaext_gameinprogress #main-content > div:first-child > div:last-child > div:nth-child(7), .bgaext_gameinprogress #main-content > div:first-child > div:last-child > div:nth-child(8), .bgaext_gameinprogress #main-content > div:first-child > div:last-child > div:nth-child(9) { display: none; }",
+			);
 		}
 
-		return cssList.join('\n');
+		return cssList.join("\n");
+	}
+
+	isInProgressColorfulTables(): boolean {
+		return this._customConfig.inProgress?.colorfulTables === true;
 	}
 }
 

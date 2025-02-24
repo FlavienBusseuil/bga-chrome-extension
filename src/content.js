@@ -1,7 +1,7 @@
-import Configuration from './js/config/configuration';
-import { isNumber } from './js/utils/misc/isNumber';
-import { waitForObj } from './js/utils/misc/wait';
-import { addLocationChangeListener } from './js/utils/misc/addLocationChangeListener';
+import Configuration from "./js/config/configuration";
+import { isNumber } from "./js/utils/misc/isNumber";
+import { waitForObj } from "./js/utils/misc/wait";
+import { addLocationChangeListener } from "./js/utils/misc/addLocationChangeListener";
 import {
 	buildMainCss,
 	initLogObserver,
@@ -16,21 +16,24 @@ import {
 	setEloStyle,
 	initDarkMode,
 	refreshMutedPlayers,
-	displayInformationPopup
-} from './js/ui/content/functions';
+	displayInformationPopup,
+	setInProgressTableStyle,
+} from "./js/ui/content/functions";
 
 const config = new Configuration();
 let currentObserver = null;
 let pageType = undefined;
 
-if (localStorage.getItem('ext_dark_theme') === 'on') {
+if (localStorage.getItem("ext_dark_theme") === "on") {
 	// hack to avoid light theme flashing
-	const s = document.createElement('style');
-	s.innerHTML = "* { visibility: hidden; }"
+	const s = document.createElement("style");
+	s.innerHTML = "* { visibility: hidden; }";
 	document.documentElement.appendChild(s);
 	window.addEventListener("load", () => {
-		if (window.navigator.userAgent.toLowerCase().includes('firefox')) {
-			setTimeout(() => { s.remove(); }, 500);
+		if (window.navigator.userAgent.toLowerCase().includes("firefox")) {
+			setTimeout(() => {
+				s.remove();
+			}, 500);
 		} else {
 			s.remove();
 		}
@@ -38,7 +41,10 @@ if (localStorage.getItem('ext_dark_theme') === 'on') {
 }
 
 const initObserver = (page) => {
-	currentObserver = page === 'game' ? initLogObserver(config) : initGameListObserver(config, page);
+	currentObserver =
+		page === "game"
+			? initLogObserver(config)
+			: initGameListObserver(config, page);
 	if (!currentObserver) {
 		setTimeout(() => initObserver(page), 500);
 	} else {
@@ -47,12 +53,12 @@ const initObserver = (page) => {
 };
 
 const manageLocationChange = (pathname) => {
-	console.log('[bga extension] load path', pathname);
+	console.log("[bga extension] load path", pathname);
 
-	if (pathname === '/gamepanel' && config.isLobbyRedirectionEnable()) {
-		const params = window.location.search.substring(1).split('&');
-		const gameParam = params.find(p => p.startsWith('game'));
-		const tableParam = params.find(p => p.startsWith('table'));
+	if (pathname === "/gamepanel" && config.isLobbyRedirectionEnable()) {
+		const params = window.location.search.substring(1).split("&");
+		const gameParam = params.find((p) => p.startsWith("game"));
+		const tableParam = params.find((p) => p.startsWith("table"));
 
 		if (gameParam && tableParam) {
 			const redirectUrl = `https://boardgamearena.com/table?${tableParam}&nr=true`;
@@ -61,7 +67,7 @@ const manageLocationChange = (pathname) => {
 		}
 	}
 
-	const pageInfo = pathname.substring(1).split('.')[0].split('/');
+	const pageInfo = pathname.substring(1).split(".")[0].split("/");
 
 	if (currentObserver) {
 		currentObserver.disconnect();
@@ -70,174 +76,218 @@ const manageLocationChange = (pathname) => {
 
 	const setSolidBackground = () => {
 		if (config.isSolidBackground()) {
-			document.documentElement.classList.add('bgaext_game');
-			document.documentElement.classList.add('bgaext_solid_back');
+			document.documentElement.classList.add("bgaext_game");
+			document.documentElement.classList.add("bgaext_solid_back");
 		}
 	};
 
 	if (pageInfo.length >= 2 && isNumber(pageInfo[0])) {
-		initObserver('game');
+		initObserver("game");
 
 		const gameName = pageInfo[1];
 		const gameConfig = config.getGameConfig(gameName);
-		const isMobile = !window.matchMedia || window.matchMedia("only screen and (max-width: 760px)").matches;
+		const isMobile =
+			!window.matchMedia ||
+			window.matchMedia("only screen and (max-width: 760px)").matches;
 
-		if (!isMobile && (config.isGlobalFloatingMenu() || config.isGameFloatingMenu(gameName))) {
+		if (
+			!isMobile &&
+			(config.isGlobalFloatingMenu() ||
+				config.isGameFloatingMenu(gameName))
+		) {
 			setFloatingRightMenu(config, true);
 		}
 
 		buildOptions(config, gameName, gameConfig);
 
 		if (gameConfig) {
-			initLeftMenu(config, gameConfig, config.isLeftMenuEnabled(gameName));
+			initLeftMenu(
+				config,
+				gameConfig,
+				config.isLeftMenuEnabled(gameName),
+			);
 		} else {
-			console.debug(`[bga extension] no configuration found for game ${gameName}`);
+			console.debug(
+				`[bga extension] no configuration found for game ${gameName}`,
+			);
 		}
 
 		initDarkMode(config, gameName);
 		setSolidBackground();
 
-		return 'game';
+		return "game";
 	}
 
 	// This is not a game page : load the home page management script
-	if (!document.getElementById('ext_homepage')) {
-		waitForObj('head', 10).then(() => {
+	if (!document.getElementById("ext_homepage")) {
+		waitForObj("head", 10).then(() => {
 			console.debug("[bga extension] load home page management script");
-			const script = document.createElement('script');
-			script.id = 'ext_homepage';
-			script.src = `${chrome.runtime.getURL('/js/homepage.js')}?&time=${new Date().getTime()}`;
+			const script = document.createElement("script");
+			script.id = "ext_homepage";
+			script.src = `${chrome.runtime.getURL("/js/homepage.js")}?&time=${new Date().getTime()}`;
 			document.head.appendChild(script);
 		});
 	}
 
-	const pageName = pageInfo[0] || 'welcome';
+	const pageName = pageInfo[0] || "welcome";
 
-	if (pageName === 'blank') {
-		return 'blank';
+	if (pageName === "blank") {
+		return "blank";
 	}
 
-	if (pageName === 'welcome') {
+	if (pageName === "welcome") {
 		// send home display configuration to the home page management script
-		waitForObj('body', 10).then(sendHomeConfiguration);
+		waitForObj("body", 10).then(sendHomeConfiguration);
 
 		// reload css if the advent calendar is displayed
-		waitForObj('.bga-advent-calendar', 10).then(() => buildMainCss(config.getAllCss())).catch(() => { });
+		waitForObj(".bga-advent-calendar", 10)
+			.then(() => buildMainCss(config.getAllCss()))
+			.catch(() => {});
 	}
 
-	if (pageName === 'tutorial') {
-		const gameName = window.location.search.substring(1).split('&').find(p => p.startsWith('game'))?.split('=')[1];
+	if (pageName === "tutorial") {
+		const gameName = window.location.search
+			.substring(1)
+			.split("&")
+			.find((p) => p.startsWith("game"))
+			?.split("=")[1];
 		initDarkMode(config, gameName);
 		setSolidBackground();
-		return 'general';
+		return "general";
 	}
 
-	if (pageName === 'archive') {
+	if (pageName === "archive") {
 		waitForObj('[href*="table="]', 5).then((elt) => {
-			const gameName = elt.href.substring(elt.href.lastIndexOf('/') + 1).split('?')[0];
+			const gameName = elt.href
+				.substring(elt.href.lastIndexOf("/") + 1)
+				.split("?")[0];
 			initDarkMode(config, gameName);
 			setSolidBackground();
 		});
-		return 'general';
+		return "general";
 	}
 
 	initChatIcon(config);
-	initDarkMode(config, 'general');
+	initDarkMode(config, "general");
 
 	setHtmlClass(pageName, config.isSolidBackground());
 
-	if (pageName.startsWith('gamelist')) {
-		initObserver('gamelist');
-	} else if (pageName.startsWith('lobby')) {
-		initObserver('lobby');
-	} else if (pageName.startsWith('bug')) {
-		initObserver('other');
+	if (pageName.startsWith("gamelist")) {
+		initObserver("gamelist");
+	} else if (pageName.startsWith("lobby")) {
+		initObserver("lobby");
+	} else if (pageName.startsWith("bug")) {
+		initObserver("other");
 		initDevelopperUI(config);
 	} else {
-		initObserver('other');
+		initObserver("other");
 	}
-	return 'general';
+	return "general";
 };
 
 const setHtmlClass = (mode, solidBackground) => {
-	const oldClasses = Array.from(document.documentElement.classList).filter(c => c.startsWith('bgaext'));
+	const oldClasses = Array.from(document.documentElement.classList).filter(
+		(c) => c.startsWith("bgaext"),
+	);
 
-	oldClasses.map(oldClass => {
+	oldClasses.map((oldClass) => {
 		document.documentElement.classList.remove(oldClass);
-	})
+	});
 
 	document.documentElement.classList.add(`bgaext_${mode}`);
 
 	if (solidBackground) {
-		document.documentElement.classList.add('bgaext_solid_back');
+		document.documentElement.classList.add("bgaext_solid_back");
 	}
 };
 
 const sendHomeConfiguration = () => {
-	const homeConfig = { ...config.getHomeConfig(), ...config.getAdvancedHomeConfig() };
+	const homeConfig = {
+		...config.getHomeConfig(),
+		...config.getAdvancedHomeConfig(),
+	};
 	if (!homeConfig.advanced) {
 		homeConfig.html = "";
 	}
 	const detail = JSON.stringify(homeConfig);
-	console.debug('[bga extension] send home configuration', detail);
-	document.body.dispatchEvent(new CustomEvent('bga_ext_send_homepage_config', { detail }));
+	console.debug("[bga extension] send home configuration", detail);
+	document.body.dispatchEvent(
+		new CustomEvent("bga_ext_send_homepage_config", { detail }),
+	);
 };
 
 const initPage = () => {
-	config.isEmpty() && document.dispatchEvent(new CustomEvent('bga_ext_get_config', {}));
+	config.isEmpty() &&
+		document.dispatchEvent(new CustomEvent("bga_ext_get_config", {}));
 	addLocationChangeListener(manageLocationChange);
 	pageType = manageLocationChange(window.location.pathname);
-	buildMainCss(pageType === 'general' ? config.getAllCss() : config.getCustomCss());
+	buildMainCss(
+		pageType === "general" ? config.getAllCss() : config.getCustomCss(),
+	);
 
-	waitForObj('head', 10).then(() => {
-		const script = document.createElement('script');
-		script.id = 'ext_bga_api';
-		script.src = `${chrome.runtime.getURL('/js/bgaApi.js')}?&time=${new Date().getTime()}`;
+	waitForObj("head", 10).then(() => {
+		const script = document.createElement("script");
+		script.id = "ext_bga_api";
+		script.src = `${chrome.runtime.getURL("/js/bgaApi.js")}?&time=${new Date().getTime()}`;
 		document.head.appendChild(script);
 
 		setEloStyle(config);
+
+		setInProgressTableStyle(config);
 	});
 
-	waitForObj('body', 10).then(() => {
-		if (pageType === 'general') {
+	waitForObj("body", 10).then(() => {
+		if (pageType === "general") {
 			setTimeout(displayInformationPopup, 2000);
 		}
 
-		document.body.addEventListener('bga_ext_api_result', (data) => {
+		document.body.addEventListener("bga_ext_api_result", (data) => {
 			const evtDetail = JSON.parse(data.detail);
 
-			if (evtDetail.type === 'createnew' && config.isAutoOpenEnable()) {
+			if (evtDetail.type === "createnew" && config.isAutoOpenEnable()) {
 				const key = new Date().getTime();
 				const tableId = evtDetail.response.data.table;
 				const endPoint = `/table/table/openTableNow.html?table=${tableId}&dojo.preventCache=${key}`;
-				const detail = JSON.stringify({ method: 'GET', endPoint, key, type: 'openTableNow' });
-				document.body.dispatchEvent(new CustomEvent('bga_ext_api_call', { detail }));
+				const detail = JSON.stringify({
+					method: "GET",
+					endPoint,
+					key,
+					type: "openTableNow",
+				});
+				document.body.dispatchEvent(
+					new CustomEvent("bga_ext_api_call", { detail }),
+				);
 			}
 		});
 
-		document.body.addEventListener('bga_ext_get_homepage_config', sendHomeConfiguration);
+		document.body.addEventListener(
+			"bga_ext_get_homepage_config",
+			sendHomeConfiguration,
+		);
 	});
 };
 
 config.init().then(initPage);
 
-document.addEventListener('bga_ext_update_config', (data) => {
-	console.debug('[bga extension] configuration updated', data);
-	if (data.detail.key === 'hideGeneralChat') {
+document.addEventListener("bga_ext_update_config", (data) => {
+	console.debug("[bga extension] configuration updated", data);
+	if (data.detail.key === "hideGeneralChat") {
 		setChatStyle(config);
-	} else if (data.detail.key === 'hideElo') {
+	} else if (data.detail.key === "hideElo") {
 		setEloStyle(config);
-	} else if (data.detail.key === 'muted') {
+	} else if (data.detail.key === "muted") {
 		refreshMutedPlayers(config);
-	} else if (data.detail.key === 'solidBack') {
+	} else if (data.detail.key === "solidBack") {
 		location.reload();
-	} else if (data.detail.key === 'inProgress') {
-		if (document.documentElement.classList.contains("bgaext_gameinprogress")) {
+	} else if (data.detail.key === "inProgress") {
+		if (
+			document.documentElement.classList.contains("bgaext_gameinprogress")
+		) {
 			buildMainCss(config.getAllCss());
 		}
-	} else if (data.detail.key === 'home') {
-		localStorage.removeItem('bga-homepage-newsfeed-slots');
-		localStorage.removeItem('bga-homepageNewsSeen');
+	} else if (data.detail.key === "home") {
+		localStorage.removeItem("bga-homepage-newsfeed-slots");
+		localStorage.removeItem("bga-homepageNewsSeen");
 
 		if (document.documentElement.classList.contains("bgaext_welcome")) {
 			buildMainCss(config.getAllCss());
@@ -246,10 +296,17 @@ document.addEventListener('bga_ext_update_config', (data) => {
 	}
 });
 
-window.addEventListener('message', (evt) => {
-	if (evt.origin === 'https://forum.boardgamearena.com' && evt.data.key === 'bga_ext_forum_visible') {
-		// hack to avoid light theme flashing
-		console.debug('[bga extension] forum displayed');
-		document.documentElement.classList.add('bgaext_forum_visible');
-	}
-}, false);
+window.addEventListener(
+	"message",
+	(evt) => {
+		if (
+			evt.origin === "https://forum.boardgamearena.com" &&
+			evt.data.key === "bga_ext_forum_visible"
+		) {
+			// hack to avoid light theme flashing
+			console.debug("[bga extension] forum displayed");
+			document.documentElement.classList.add("bgaext_forum_visible");
+		}
+	},
+	false,
+);
