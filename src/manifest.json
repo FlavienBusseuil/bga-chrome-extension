@@ -1,88 +1,79 @@
 {
-  "manifest_version": 3,
-  "name": "Board Game Arena (BGA) Chrome Extension - boardgamearena.com",
-  "short_name": "BGA Chrome Extension",
-  "version": "1.11.3",
-  "action": {
-    "default_popup": "popup.html"
-  },
-  "options_ui": {
-    "page": "options.html"
-  },
-  "default_locale": "en",
-  "description": "__MSG_ext_description__",
-  "icons": {
-    "16": "img/icon-16.png",
-    "48": "img/icon-48.png",
-    "128": "img/icon-128.png"
-  },
-  "content_scripts": [
-    {
-      "matches": [
-        "https://boardgamearena.com/*",
-        "https://studio.boardgamearena.com/*"
-      ],
-      "run_at": "document_start",
-      "js": [
-        "content.js"
-      ],
-      "all_frames": true
-    },
-    {
-      "matches": [
-        "https://forum.boardgamearena.com/*"
-      ],
-      "run_at": "document_start",
-      "js": [
-        "contentForum.js"
-      ],
-      "all_frames": true
-    }
-  ],
-  "author": "Flavien Busseuil & Christophe Delaforge",
-  "homepage_url": "https://github.com/FlavienBusseuil/bga-chrome-extension",
-  "background": {
-    "service_worker": "background.js",
-    "type": "module"
-  },
-  "content_security_policy": {
-    "extension_pages": "script-src 'self'; object-src 'self'"
-  },
-  "host_permissions": [
-    "https://*.boardgamearena.com/*/*",
-    "https://*.boardgamearena.net/*/*"
-  ],
-  "permissions": [
-    "alarms",
-    "storage",
-    "declarativeNetRequestWithHostAccess",
-    "offscreen"
-  ],
-  "web_accessible_resources": [
-    {
-      "resources": [
-        "img/anim-*.png",
-        "img/loading.gif",
-        "img/icon-48.png",
-        "img/icon-grey.png",
-        "css/dark_theme/*.css",
-        "css/light_theme/*.css",
-        "js/homepage.js",
-        "js/bgaApi.js",
-        "sound/myturn.mp3",
-        "offscreen.html"
-      ],
-      "extension_ids": [
-        "*"
-      ],
-      "matches": [
-        "<all_urls>"
-      ]
-    }
-  ],
-  "browser_specific_settings": {
-    "edge": {
-      "browser_action_next_to_addressbar": true
-    }
-  }
+	"manifest_version": 3,
+	"name": "Board Game Arena (BGA) Chrome Extension - boardgamearena.com",
+	"short_name": "BGA Chrome Extension",
+	"version": "1.11.3",
+	"action": {
+		"default_popup": "popup.html"
+	},
+	"options_ui": {
+		"page": "options.html"
+	},
+	"default_locale": "en",
+	"description": "__MSG_ext_description__",
+	"icons": {
+		"16": "img/icon-16.png",
+		"48": "img/icon-48.png",
+		"128": "img/icon-128.png"
+	},
+	"content_scripts": [
+		{
+			"matches": [
+				"https://boardgamearena.com/*",
+				"https://studio.boardgamearena.com/*"
+			],
+			"run_at": "document_start",
+			"js": ["content.js"],
+			"all_frames": true
+		},
+		{
+			"matches": ["https://forum.boardgamearena.com/*"],
+			"run_at": "document_start",
+			"js": ["contentForum.js"],
+			"all_frames": true
+		}
+	],
+	"author": "Flavien Busseuil & Christophe Delaforge",
+	"homepage_url": "https://github.com/FlavienBusseuil/bga-chrome-extension",
+	"background": {
+		"service_worker": "background.js",
+		"type": "module"
+	},
+	"content_security_policy": {
+		"extension_pages": "script-src 'self'; object-src 'self'"
+	},
+	"host_permissions": [
+		"https://*.boardgamearena.com/*/*",
+		"https://*.boardgamearena.net/*/*"
+	],
+	"permissions": [
+		"alarms",
+		"storage",
+		"declarativeNetRequestWithHostAccess",
+		"offscreen"
+	],
+	"web_accessible_resources": [
+		{
+			"resources": [
+				"img/anim-*.png",
+				"img/loading.gif",
+				"img/icon-48.png",
+				"img/icon-grey.png",
+				"css/dark_theme/*.css",
+				"css/light_theme/*.css",
+				"css/colorfulTables.css",
+				"js/homepage.js",
+				"js/bgaApi.js",
+				"sound/myturn.mp3",
+				"offscreen.html"
+			],
+			"extension_ids": ["*"],
+			"matches": ["<all_urls>"]
+		}
+	],
+	"browser_specific_settings": {
+		"edge": {
+			"browser_action_next_to_addressbar": true
+		}
+	}
 }

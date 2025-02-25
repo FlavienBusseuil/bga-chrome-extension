@@ -400,6 +400,9 @@
 	"optionsInProgressMoreOff": {
 		"message": "Section 'Plus d'amis' cachée"
 	},
+	"optionsInProgressColorfulTables": {
+		"message": "Des tables plus colorées"
+	},
 	"optionsHomeAdvancedOn": {
 		"message": "Configuration avancée"
 	},
