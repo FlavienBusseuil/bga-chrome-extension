@@ -55,7 +55,12 @@ html {
 
 		& .bga-table-list-item__details {
 			& .bga-table-list-item__status-mode-icon {
+				background-color: unset;
 				color: var(--gametile-icon-color);
+			}
+
+			& .bga-table-list-item__status-mode-icon-inverse-border {
+				box-shadow: unset;
 			}
 		}
 	}
@@ -65,32 +70,3 @@ html {
 		border: 1px solid var(--gametile-border-color);
 	}
 }
-
-/* .bga-table-list-item {
-	&:has(> .bga-table-list-item__background[style$="rgb(64, 117, 158);"]) {
-		--surface-color: var(--play-gametile-surface-color);
-		--color: var(--play-gametile-color);
-	}
-
-	& .bga-table-list-item__main {
-		background-color: var(--surface-color);
-
-		& .text-bga-gray-78,
-		& .text-base {
-			color: var(--color);
-		}
-	}
-
-	& .bga-table-list-item__players-list {
-		background-color: var(--surface-color);
-	}
-
-	& div.bga-table-list-item__status-mode-icon,
-	& .text-bga-link {
-		color: var(--color);
-	}
-
-	& .bga-table-list-item__status-mode-icon-inverse-border {
-		box-shadow: unset;
-	}
-} */
