@@ -243,6 +243,10 @@ document.addEventListener('bga_ext_update_config', (data) => {
 			buildMainCss(config.getAllCss());
 			sendHomeConfiguration();
 		}
+	} else if (data.detail.key === 'hideSocialMessages') {
+		if (document.documentElement.classList.contains("bgaext_welcome") || document.documentElement.classList.contains("bgaext_player")) {
+			location.reload();
+		}
 	}
 });
 

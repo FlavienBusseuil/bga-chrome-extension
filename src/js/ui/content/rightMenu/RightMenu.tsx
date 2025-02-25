@@ -17,7 +17,12 @@ const setMenuPosition = () => {
 		logContent.style.maxHeight = `${maxHeight}px`;
 		scoreContent.style.top = logContent.style.top;
 		scoreContent.style.maxHeight = logContent.style.maxHeight;
-		scoreContent.style.width = scoreContent.scrollHeight > maxHeight ? "260px" : "240px";
+
+		if (scoreContent.scrollHeight > maxHeight) {
+			scoreContent.classList.add('ext-overflow');
+		} else {
+			scoreContent.classList.remove('ext-overflow');
+		}
 	} else {
 		setTimeout(setMenuPosition, 100);
 	}

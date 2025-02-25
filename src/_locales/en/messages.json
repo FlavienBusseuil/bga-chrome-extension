@@ -118,6 +118,12 @@
 	"optionNoHiddenGames": {
 		"message": "No hidden games"
 	},
+	"optionsClearHiddenGames": {
+		"message": "Clear the list of hidden games"
+	},
+	"optionsClearHiddenGamesConfirm": {
+		"message": "The contents of the above list will be deleted"
+	},
 	"optionHiddenGamesWarning": {
 		"message": "Remove a game from this list to display it on Board Game Arena. (You must reload the page for the changes to be effective)"
 	},
@@ -185,10 +191,10 @@
 		"message": "Settings"
 	},
 	"optionsTrackingOn": {
-		"message": "Tables status tracking enabled (other players see you connected)"
+		"message": "Tables status notification enabled (other players see you online)"
 	},
 	"optionsTrackingOff": {
-		"message": "Tables status tracking disabled"
+		"message": "Tables status notification disabled"
 	},
 	"optionsNotificationSoundOn": {
 		"message": "Sound notification when you are expected on at least one table"
@@ -226,11 +232,17 @@
 	"optionsSolidBackgroundOff": {
 		"message": "Using the default background"
 	},
+	"optionsHideSocialMessagesOn": {
+		"message": "News feed contains only my activity"
+	},
+	"optionsHideSocialMessagesOff": {
+		"message": "News feed contains default information"
+	},
 	"about": {
 		"message": "About"
 	},
 	"aboutText": {
-		"message": "<p>You can consult the list of the extension's features on <a target='_blank' href='https://en.doc.boardgamearena.com/ChromeExtension'>this page</a>.</p><p>You can also come and chat with the authors on <a target='_blank' href='https://boardgamearena.com/forum/viewtopic.php?t=30509'>the forum</a>, tell us about your concerns and make suggestions, or why not just drop us a little word of encouragement. 🙂</p><p>And if you like this extension, you can buy me <a target='_blank' href='https://en.tipeee.com/board-game-arena-chrome-extension'>a cup of coffee</a> ☕.</p><p>Thanks !</p>"
+		"message": "<p>You can consult the help page of this extension on <a target='_blank' href='https://en.doc.boardgamearena.com/ChromeExtension'>this page</a>.</p><p>You can also come and chat with the authors on <a target='_blank' href='https://boardgamearena.com/forum/viewtopic.php?t=30509'>the forum</a>, tell us about your concerns and make suggestions, or why not just drop us a little word of encouragement. 🙂</p><p>And if you like this extension, you can buy me <a target='_blank' href='https://en.tipeee.com/board-game-arena-chrome-extension'>a cup of coffee</a> ☕.</p><p>Thanks !</p>"
 	},
 	"deleteGameTitle": {
 		"message": "Deleting a game"

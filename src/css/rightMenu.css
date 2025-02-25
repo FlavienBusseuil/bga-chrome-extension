@@ -12,13 +12,13 @@ div.bgext_right_menu i {
 	font-size: 14px !important;
 }
 
-.desktop_version #right-side-first-part {
+.desktop_version.logs_on_floating_panel.score_visible #right-side-first-part {
 	max-height: initial;
 	width: 240px;
 }
 
-.desktop_version.logs_on_additional_column #right-side-first-part {
-	width: 240px !important;
+.desktop_version.logs_on_floating_panel.score_visible #right-side-first-part.ext-overflow {
+	width: 260px;
 }
 
 .desktop_version #right-side-second-part {
@@ -36,7 +36,7 @@ div.bgext_right_menu i {
 .desktop_version.logs_on_floating_panel #right-side-first-part,
 .desktop_version.logs_on_floating_panel #right-side-second-part {
 	position: fixed;
-	right: -500px;
+	right: -1500px;
 	overflow-y: auto;
 	overflow-x: hidden;
 	z-index: 1000;
@@ -47,7 +47,7 @@ div.bgext_right_menu i {
 	outline: 1px solid var(--light-50);
 	background-color: rgb(235, 213, 189);
 	width: 260px !important;
-	right: -500px;
+	right: -1500px;
 }
 
 .desktop_version.logs_on_floating_panel.score_visible #right-side-first-part {

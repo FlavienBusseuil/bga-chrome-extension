@@ -28,6 +28,7 @@ const Options = (props: { config: Configuration }) => {
 	const [redirect, setRedirect] = useState(config.isLobbyRedirectionEnable());
 	const [autoOpen, setAutoOpen] = useState(config.isAutoOpenEnable());
 	const [solidBackground, setSolidBackground] = useState(config.isSolidBackground());
+	const [socialMessagesHidden, setSocialMessagesHidden] = useState(config.areSocialMessagesHidden());
 	const [homeConfig, setHomeConfig] = useState(config.getHomeConfig());
 	const [inProgressConfig, setInProgressConfig] = useState(config.getInProgressConfig());
 	const [motionSensitivity, setMotionSensitivity] = useState(config.isMotionSensitivityEnable());
@@ -36,6 +37,8 @@ const Options = (props: { config: Configuration }) => {
 	const [advancedHomeConfig, setAdvancedHomeConfig] = useState<AdvancedHomeConfig>(config.getAdvancedHomeConfig());
 	const [advancedHomeHtml, setAdvancedHomeHtml] = useState(advancedHomeConfig.html);
 	const [advancedStatus, setAdvancedStatus] = useState('');
+
+	const [confirmClear, setConfirmClear] = useState(false);
 
 	const _updateAdvanceHomeConfig = (advConfig: AdvancedHomeConfig) => {
 		setAdvancedHomeConfig(advConfig);
@@ -177,6 +180,11 @@ const Options = (props: { config: Configuration }) => {
 		config.setSolidBackground(val);
 	};
 
+	const updateSocialMessagesHidden = (val: boolean) => {
+		setSocialMessagesHidden(val);
+		config.setSocialMessagesHidden(val);
+	};
+
 	const getHomeSwitch = (param: string, message: string) => {
 		return (
 			<Switch
@@ -255,6 +263,12 @@ const Options = (props: { config: Configuration }) => {
 						textOn={chrome.i18n.getMessage("optionsSolidBackgroundOn")}
 						textOff={chrome.i18n.getMessage("optionsSolidBackgroundOff")}
 						onChange={updateSolidBackground}
+					/>
+					<Switch
+						checked={socialMessagesHidden}
+						textOn={chrome.i18n.getMessage("optionsHideSocialMessagesOn")}
+						textOff={chrome.i18n.getMessage("optionsHideSocialMessagesOff")}
+						onChange={updateSocialMessagesHidden}
 					/>
 				</div>
 				<div className="bgext_options_title">
@@ -404,6 +418,51 @@ const Options = (props: { config: Configuration }) => {
 		);
 	};
 
+	const displayHiddenGamesList = () => {
+		if (hiddenGames.length > 0) {
+			return hiddenGames.map((game, index) => (
+				<div
+					className="bgext_hidden_game"
+					key={`game_${index}`}
+				>
+					{game}
+					<div className="bgext_hidden_game_close" onClick={() => setHiddenGames(config.displayGame(game))} >🗙</div>
+				</div>
+			));
+		}
+		return <span>{chrome.i18n.getMessage("optionNoHiddenGames")}</span>;
+	};
+
+	const displayClearSection = () => {
+		if (confirmClear) {
+			return (
+				<>
+					{chrome.i18n.getMessage("optionsClearHiddenGamesConfirm")}
+					<button onClick={() => setHiddenGames(config.displayAllGames())}>{chrome.i18n.getMessage("buttonConfirm")}</button>
+					<button onClick={() => setConfirmClear(false)}>{chrome.i18n.getMessage("buttonCancel")}</button>
+				</>
+			);
+		}
+
+		return <a href="#" onClick={() => setConfirmClear(true)}>{chrome.i18n.getMessage("optionsClearHiddenGames")}</a>;
+	};
+
+	const displayHiddenGamesText = () => {
+		if (hiddenGames.length > 0) {
+			return (
+				<>
+					<div className="bgext_hidden_games_text">
+						{displayClearSection()}
+					</div>
+					<div className="bgext_options_warning">
+						{chrome.i18n.getMessage("optionHiddenGamesWarning")}
+					</div>
+				</>
+			);
+		}
+		return <></>;
+	};
+
 	const getHiddenConfiguration = () => {
 		return (
 			<>
@@ -411,24 +470,9 @@ const Options = (props: { config: Configuration }) => {
 					{chrome.i18n.getMessage("optionHiddenTitle")}
 				</div>
 				<div className="bgext_hidden_games_container">
-					{!hiddenGames.length && (
-						<span>
-							{chrome.i18n.getMessage("optionNoHiddenGames")}
-						</span>
-					)}
-					{hiddenGames.length > 0 && hiddenGames.map((game, index) => (
-						<div
-							className="bgext_hidden_game"
-							key={`game_${index}`}
-						>
-							{game}
-							<div className="bgext_hidden_game_close" onClick={() => setHiddenGames(config.displayGame(game))} >🗙</div>
-						</div>
-					))}
+					{displayHiddenGamesList()}
 				</div>
-				{hiddenGames.length > 0 && <div className="bgext_options_warning">
-					{chrome.i18n.getMessage("optionHiddenGamesWarning")}
-				</div>}
+				{displayHiddenGamesText()}
 			</>
 		);
 	};

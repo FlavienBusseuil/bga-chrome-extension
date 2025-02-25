@@ -160,6 +160,7 @@ export const gamesWithCustomBackground = [
   'photosynthesis',
   'pingimus',
   'pixies',
+  'planetunknown',
   'pocketcats',
   'pook',
   'pyramidoft',
@@ -318,6 +319,7 @@ export const gamesWithCustomPlayerStyle = {
 export const playersBackground = {
   golems: ['#pl{{player_id}}_label'],
   laserreflection: ['#lrf_container_{{player_id}} .lrf_progress-bar'],
+  nirds: ['#player_table_{{player_id}} .title'],
   thegreatamericanfoxhunt: ['#TGAFH_player_89123556'],
   treos: ['#gamezone-{{player_id}} .player-board-name'],
 };
@@ -336,6 +338,7 @@ export const playersBorder = {
   itsawonderfulworld: ['#iww-player{{player_id}}'],
   jumpdrive: ['#jdr-tableau-{{player_id}}'],
   letsgotojapan: ['#playerhandtitle_{{player_id}}', '#playerhand_{{player_id}}', '#nameplayer_{{player_id}}'],
+  nirds: ['#player_table_{{player_id}}'],
   pioneerdaysproject: ['#playerbox-{{player_id}}'],
   pixies: ['#player-table-{{player_id}}'],
   refuge: ['#player-table-{{player_id}}'],
@@ -392,6 +395,7 @@ export const gamesWithRecommandedConfig = {
   challengers: { color: 100, sat: 16 },
   conspiracy: { color: 226, sat: 16 },
   cosmosempires: { color: 233, sat: 27 },
+  cuttle: { color: 180, sat: 24 },
   dedale: { color: 25, sat: 16 },
   dicedveggies: { color: 25, sat: 16 },
   dicycards: { color: 146, sat: 15 },
@@ -640,7 +644,14 @@ export const gamesWithCustomActions = {
   },
   texasholdem: {
     init: () => {
-      manageBackground("", ["dark-wood-vertical-background", "dark-wood-horizontal-background"]);
+      const manageTexasBackground = () => {
+        if (document.documentElement.classList.contains('dark-wood-vertical-background') || document.documentElement.classList.contains('dark-wood-horizontal-background')) {
+          document.documentElement.classList.add("bgaext_cust_back");
+        } else {
+          document.documentElement.classList.remove("bgaext_cust_back");
+        }
+      };
+      setTimeout(manageTexasBackground, 500);
     }
   },
   spiritsoftheforest: {
@@ -666,7 +677,14 @@ export const gamesWithCustomActions = {
   },
   gemsofiridescia: {
     init: () => {
-      manageBackground('', ['goi_thematicBackground']);
+      const manageGemsBackground = () => {
+        if (document.documentElement.classList.contains('goi_thematicBackground')) {
+          document.documentElement.classList.add("bgaext_cust_back");
+        } else {
+          document.documentElement.classList.remove("bgaext_cust_back");
+        }
+      };
+      setTimeout(manageGemsBackground, 500);
     }
   },
   bunnyboom: {
@@ -674,6 +692,34 @@ export const gamesWithCustomActions = {
   },
   toybattle: {
     init: () => addInvertOverlay('', true)
+  },
+  cuttle: {
+    init: () => {
+      const input1 = document.getElementById('preference_control_100') as any;
+      const input2 = document.getElementById('preference_fontrol_100') as any;
+      const setupManageBackground = () => manageBackground("theme_bga", ["theme_cuttlefish"]);
+
+      input1.addEventListener('change', () => setTimeout(setupManageBackground, 500));
+      input2.addEventListener('change', () => setTimeout(setupManageBackground, 500));
+      setupManageBackground();
+    }
+  },
+  nirds: {
+    init: () => {
+      const input1 = document.getElementById('background-choice') as any;
+      const nirdsManageBackground = () => {
+        if (document.documentElement.classList.contains('spicy')) {
+          document.documentElement.classList.add("bgaext_cust_back");
+        } else {
+          document.documentElement.classList.remove("bgaext_cust_back");
+        }
+      };
+
+      input1.addEventListener('click', () => {
+        setTimeout(nirdsManageBackground, 50);
+      });
+      nirdsManageBackground();
+    }
   },
 };
 
@@ -2118,6 +2164,20 @@ _darkStyleForGame['cucumber'] = `
 .playertablename, .player-name { text-shadow: none !important; }
 `;
 
+_darkStyleForGame['cuttle'] = `
+.theme_cuttlefish #overall-content:before { content: ""; background: #00000060; position: absolute; width: 100%; height: 100%; top:0px; left: 0px; }
+#piles, .playerfield { background-color: #003d00; color: var(--light-70); }
+html.theme_cuttlefish #discardViewWrapper, html.theme_cuttlefish #piles, html.theme_cuttlefish .playerfield, .playertableheader { background-color: #184a4e; color: var(--light-70); }
+#blockableActionLine .blockable-action-note { background-color: var(--dark-back); color: var(--light-80); border: 1px solid var(--dark-40); }
+.player_board_content .playerstatus-container, .playertable, .playereffects { border-color: var(--dark-40); }
+#piles>.pile { border-color: var(--light-50); }
+#cardrules-help-button[data-folded=false] { background-color: var(--dark-20); }
+#cardrules-help-button tr:nth-child(2n) { background-color: var(--dark-10); }
+#cardrules-help-button tr:nth-child(odd) { background-color: var(--dark-40); }
+#cardrules-help-button th { background-color: var(--dark-40); }
+.mygame-card-front { filter: brightness(0.9); }
+`;
+
 _darkStyleForGame['danceofmuses'] = `
 [style="color: blue;"] { color: #6666ff !important; }
 `;
@@ -3003,7 +3063,7 @@ _darkStyleForGame['geekoutmasters'] = `
 `;
 
 _darkStyleForGame['gemsofiridescia'] = `
-.goi_thematicBackground #overall-content:before { content: ""; background: #000000A0; position: absolute; width: 100%; height: 100%; top:0px; left: 0px; }
+.goi_thematicBackground #overall-content:before { content: ""; background: #00000080; position: absolute; width: 100%; height: 100%; top:0px; left: 0px; }
 #bga-zoom-controls { filter: invert(0.8); }
 .goi_cardContent { color: #000; }
 `;
@@ -4588,6 +4648,22 @@ _darkStyleForGame['ninjan'] = `
 .a-card { filter: brightness(0.9); }
 `;
 
+_darkStyleForGame['nirds'] = `
+.spicy #overall-content:before { content: ""; background: #00000080; position: absolute; width: 100%; height: 100%; top:0px; left: 0px; }
+.custom_popin .popin_footer, .custom_popin h2 { background: var(--dark-10); color: var(--light-80); }
+.custom_popin { background-color: var(--dark-30); color: var(--light-80); }
+.title { color: #000; text-shadow: 1px 0 0 #fff, 0 1px 0 #fff, -1px 0 0 #fff, 0 -1px 0 #fff, 1px 1px 0 #fff, -1px 1px 0 #fff, 1px -1px 0 #fff, -1px -1px 0 #fff; }
+.custom_popin h2, .custom_popin .popin_footer { border-color: var(--dark-40); }
+.canRecruit, .player-infos .tactic-counter { color: #000; }
+.player_config_row > :not(#help-mode-switch) svg, .inline-icon.icon-slash, .inline-icon.icon-arrow { filter: invert(0.9); }
+.nrd-card-container .nrd-card-inner, #trading .title { color: #000; }
+#card_choice #market-title { background-color: #5a0c5a; color: var(--light-80); }
+#card_choice { background-color: var(--dark-back); border: 1px solid var(--dark-40); }
+#help-card { background: var(--dark-20); color: var(--light-80); }
+#trading #trading-stock .trade-container { background-color: var(--dark-40); color: var(--light-80); }
+.nrd-card-front { filter: brightness(0.9); }
+`;
+
 _darkStyleForGame['noah'] = `
 #overall-content:before { content: ""; background: #00000080; position: absolute; width: 100%; height: 100%; }
 #zoom-controls { filter: invert(0.7); }
@@ -5042,8 +5118,13 @@ _darkStyleForGame['pixies'] = `
 .round-result th.type { background: #21311b; }
 `;
 
+_styleForGame['planetunknown'] = `
+.desktop_version.logs_on_floating_panel.score_visible #right-side-first-part { width: 350px!important; }
+.desktop_version.logs_on_floating_panel.score_visible #right-side-first-part.ext-overflow { width: 370px!important; }
+`;
+
 _darkStyleForGame['planetunknown'] = `
-#susan-container #susan-exterior { background: var(--dark-0); }
+#susan-container #susan-exterior, #susan-container #susan-exterior > * { filter: invert(1); }
 #susan-container #susan-interior { background: var(--dark-20); }
 #susan-container .susan-space .susan-counter { background: var(--dark-0); color: var(--light-80); border-color: var(--light-80); }
 #popin_chooseCard, #popin_showScores, #popin_showSettings, #popin_showSusan, .planetunknown_popin_cards { background-color: #62411e; }
@@ -5053,6 +5134,9 @@ _darkStyleForGame['planetunknown'] = `
 #popin_showScores #popin_showScores_contents table thead tr th, #popin_showScores #popin_showScores_contents table tbody tr td { color: var(--light-80); }
 #popin_showScores #popin_showScores_contents table tbody tr:nth-child(odd) { background: #433423; }
 #popin_showScores #popin_showScores_contents table thead tr#scores-names, #popin_showScores #popin_showScores_contents table tbody tr#scores-row-total { background-color: var(--dark-40); }
+.pu-player-board-wrapper { background-color: #000; }
+#btnConfirmChoice { ${yellowButton} }
+#btnConfirmChoice:hover { ${yellowButtonOver} }
 `;
 
 _darkStyleForGame['pocketcats'] = `

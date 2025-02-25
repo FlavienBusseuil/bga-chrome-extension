@@ -73,6 +73,15 @@ div.bgext_home_container {
 	padding: 0.5em;
 }
 
+div.bgext_hidden_games_text {
+	display: flex;
+	flex-flow: row;
+	gap: 0.5em;
+	height: 24px;
+	padding-left: 3em;
+	line-height: 24px;
+}
+
 div.bgext_misc_container {
 	flex-flow: column;
 	gap: 0.5em;

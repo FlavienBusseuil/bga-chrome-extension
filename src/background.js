@@ -4,6 +4,7 @@ import { addChangeListener } from "./js/utils/chrome";
 
 const config = new Configuration();
 let redirectConfigured = undefined;
+let newsfeedRedirectConfigured = undefined;
 let solidBackground = undefined;
 let darkMode = undefined;
 let preventBack = undefined;
@@ -60,7 +61,7 @@ const setLobbyUrlFilters = (isRedirectEnable) => {
           id: 4,
           action: { type: "redirect", "redirect": { "regexSubstitution": "https://boardgamearena.com/table?table=\\2&nr=true" } },
           condition: {
-            regexFilter: "^https://boardgamearena.com/gamepanel?game=([a-z]*)&table=([0-9]*)",
+            regexFilter: "^https://boardgamearena\\.com/gamepanel\\?game=([a-z]*)&table=([0-9]*)",
             resourceTypes: ["main_frame"]
           },
         }]
@@ -69,6 +70,39 @@ const setLobbyUrlFilters = (isRedirectEnable) => {
       console.log("[bga extension] Remove filters to redirect to classic lobby");
       chrome.declarativeNetRequest.updateDynamicRules({
         removeRuleIds: [4]
+      });
+    }
+  }
+};
+
+const setNewsfeedFilters = (isRedirectEnable) => {
+  if (newsfeedRedirectConfigured !== isRedirectEnable) {
+    newsfeedRedirectConfigured = isRedirectEnable;
+
+    if (newsfeedRedirectConfigured) {
+      console.log("[bga extension] Add filters to remove social messages from newsfeed");
+      // rule 5 & 6  : remove social messages from newsfeed
+
+      chrome.declarativeNetRequest.updateDynamicRules({
+        removeRuleIds: [5, 6],
+        addRules: [{
+          id: 5,
+          action: { type: "redirect", "redirect": { "regexSubstitution": "https://boardgamearena.com/message/board?type=player&id=\\1&social=false&per_page=\\2&dojo.preventCache=\\3" } },
+          condition: {
+            regexFilter: "^https://boardgamearena\\.com/message/board\\?type=player&id=([0-9]*)&social=true&per_page=([0-9]*)&dojo.preventCache=([0-9]*)"
+          },
+        }, {
+          id: 6,
+          action: { type: "redirect", "redirect": { "regexSubstitution": "https://boardgamearena.com/message/board?type=player&id=\\1&social=false&page=\\2&per_page=\\3&from_time=\\4&from_id=\\5&dojo.preventCache=\\6" } },
+          condition: {
+            regexFilter: "^https://boardgamearena\\.com/message/board\\?type=player&id=([0-9]*)&social=true&page=([0-9]*)&per_page=([0-9]*)&from_time=([0-9]*)&from_id=([0-9]*)&dojo.preventCache=([0-9]*)"
+          }
+        }]
+      });
+    } else {
+      console.log("[bga extension] Remove filters to remove social messages from newsfeed");
+      chrome.declarativeNetRequest.updateDynamicRules({
+        removeRuleIds: [5, 6]
       });
     }
   }
@@ -94,6 +128,7 @@ config.init().then(() => {
 
   setBackgroundFilters();
   setLobbyUrlFilters(config.isLobbyRedirectionEnable());
+  setNewsfeedFilters(config.areSocialMessagesHidden());
 });
 
 addChangeListener((changes) => {
@@ -105,7 +140,7 @@ addChangeListener((changes) => {
   } else if (changes.solidBack) {
     solidBackground = changes.solidBack.newValue;
     setBackgroundFilters();
-  } else if (changes.lobbyRedirect) {
-    setLobbyUrlFilters(changes.lobbyRedirect.newValue);
+  } else if (changes.hideSocialMessages) {
+    setNewsfeedFilters(changes.hideSocialMessages.newValue);
   }
 });

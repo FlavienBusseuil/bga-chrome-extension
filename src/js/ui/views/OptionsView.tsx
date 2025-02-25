@@ -21,6 +21,7 @@ export const OptionsView = ({ config, onChange }: Props) => {
   const [redirect, setRedirect] = useState(config.isLobbyRedirectionEnable());
   const [autoOpen, setAutoOpen] = useState(config.isAutoOpenEnable());
   const [solidBackground, setSolidBackground] = useState(config.isSolidBackground());
+  const [socialMessagesHidden, setSocialMessagesHidden] = useState(config.areSocialMessagesHidden());
   const [homeConfig, setHomeConfig] = useState<HomeConfig>(config.getHomeConfig());
   const [inProgressConfig, setInProgressConfig] = useState<InProgressConfig>(config.getInProgressConfig());
   const [hiddenGames, setHiddenGames] = useState<string[]>(config.getHiddenGames());
@@ -33,6 +34,8 @@ export const OptionsView = ({ config, onChange }: Props) => {
   const [advancedHomeConfig, setAdvancedHomeConfig] = useState<AdvancedHomeConfig>(config.getAdvancedHomeConfig());
   const [advancedHomeHtml, setAdvancedHomeHtml] = useState(advancedHomeConfig.html);
   const [advancedStatus, setAdvancedStatus] = useState('');
+
+  const [confirmClear, setConfirmClear] = useState(false);
 
   const _updateAdvanceHomeConfig = (advConfig: AdvancedHomeConfig) => {
     setAdvancedHomeConfig(advConfig);
@@ -98,6 +101,11 @@ export const OptionsView = ({ config, onChange }: Props) => {
     config.setSolidBackground(val);
   };
 
+  const updateSocialMessagesHidden = (val: boolean) => {
+    setSocialMessagesHidden(val);
+    config.setSocialMessagesHidden(val);
+  };
+
   const updateHomeConfig = (param: string, val: boolean) => {
     const newHomeConfig = { ...homeConfig, [param]: val };
     setHomeConfig(newHomeConfig);
@@ -130,6 +138,33 @@ export const OptionsView = ({ config, onChange }: Props) => {
         <div className="bgext_hidden_game_close" onClick={() => setHiddenGames(config.displayGame(game))}>🗙</div>
       </div>
     ));
+  };
+
+  const getClearHiddenSection = () => {
+    if (!hiddenGames.length) {
+      return <></>;
+    }
+
+    if (confirmClear) {
+      return (
+        <>
+          {chrome.i18n.getMessage("optionsClearHiddenGamesConfirm")}
+          <button
+            className="bg-bgaBlue hover:bg-bgaBlue-light options-button"
+            onClick={() => setHiddenGames(config.displayAllGames())}
+          >
+            {chrome.i18n.getMessage("buttonConfirm")}
+          </button>
+          <button
+            className="bg-bgaBlue hover:bg-bgaBlue-light options-button"
+            onClick={() => setConfirmClear(false)}
+          >
+            {chrome.i18n.getMessage("buttonCancel")}
+          </button>
+        </>
+      );
+    }
+    return <a href="#" onClick={() => setConfirmClear(true)}>{chrome.i18n.getMessage("optionsClearHiddenGames")}</a>;
   };
 
   const getMutedConfiguration = () => {
@@ -188,6 +223,7 @@ export const OptionsView = ({ config, onChange }: Props) => {
           {getSwitch(redirect, updateRedirect, "optionsLobbyRedirectOn", "optionsLobbyRedirectOff")}
           {getSwitch(autoOpen, updateAutoOpen, "optionsAutoOpenOn", "optionsAutoOpenOff")}
           {getSwitch(solidBackground, updateSolidBackground, "optionsSolidBackgroundOn", "optionsSolidBackgroundOff")}
+          {getSwitch(socialMessagesHidden, updateSocialMessagesHidden, "optionsHideSocialMessagesOn", "optionsHideSocialMessagesOff")}
         </div>
       );
     }
@@ -358,6 +394,7 @@ export const OptionsView = ({ config, onChange }: Props) => {
           <div className="options-frame-title">{chrome.i18n.getMessage("optionHiddenTab")}</div>
           <div>{chrome.i18n.getMessage("optionHiddenGamesWarning")}</div>
           <div className="bgext_hidden_games_container">{getHiddenConfiguration()}</div>
+          <div className="bgext_hidden_games_clear_container">{getClearHiddenSection()}</div>
         </div>
       );
     }

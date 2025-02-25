@@ -95,6 +95,7 @@ interface CustomConfig {
 	lobbyRedirect?: boolean;
 	autoOpen?: boolean;
 	solidBack?: boolean;
+	hideSocialMessages?: boolean;
 };
 
 export interface HomeConfig {
@@ -424,6 +425,15 @@ class Configuration {
 		storageSet({ solidBack: val });
 	}
 
+	areSocialMessagesHidden() {
+		return Boolean(this._customConfig.hideSocialMessages);
+	}
+
+	setSocialMessagesHidden(val: boolean) {
+		this._customConfig.hideSocialMessages = val;
+		storageSet({ hideSocialMessages: val });
+	}
+
 	setLeftMenuEnabled(name: string, enable: boolean) {
 		this._customConfig.disabled = this._customConfig.disabled.filter(
 			(n) => n !== name,
@@ -572,6 +582,12 @@ class Configuration {
 		return this.getHiddenGames();
 	}
 
+	displayAllGames() {
+		this._customConfig.hidden = [];
+		storageSet({ hidden: this._customConfig.hidden });
+		return this.getHiddenGames();
+	}
+
 	getHiddenGames() {
 		return this._customConfig.hidden.sort();
 	}
@@ -710,6 +726,11 @@ class Configuration {
 		const advHome = this.getAdvancedHomeConfig();
 		const inProgress = this.getInProgressConfig();
 		const cssList: string[] = [];
+
+		if (this.areSocialMessagesHidden()) {
+			cssList.push(`#playertab-activity { display: none; }`);
+			cssList.push(`#playertab-news { cursor: default; }`);
+		}
 
 		if (advHome.advanced) {
 			cssList.push(`.bgaext_welcome .post.bga-hover-for-list { display: block !important; }`);
