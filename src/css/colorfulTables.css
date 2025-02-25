@@ -1,3 +1,96 @@
-body {
-	background: #ff0000 !important;
+html {
+	color-scheme: light;
+
+	&.darkmode {
+		color-scheme: dark;
+
+		& .bga-table-list-item {
+			/* Extension's current dark theme sets these with !important so changing values instead */
+			--dark-10: var(--gametile-border-color);
+			--dark-20: var(--gametile-surface-color);
+			--dark-40: var(--gametile-surface-color);
+			--light-50: var(--gametile-icon-color);
+		}
+	}
 }
+
+.bga-table-list-item {
+	--gametile-border-color: var(--gametile-type-color);
+	--gametile-color: light-dark(
+		hsl(from var(--gametile-type-color) h s calc(l - 15)),
+		hsl(from var(--gametile-type-color) h s calc(l + 25))
+	);
+	--gametile-icon-color: hsl(
+		from var(--gametile-type-color) h s calc(l + 15)
+	);
+	--gametile-surface-color: light-dark(
+		hsl(from var(--gametile-type-color) h s calc(l + 45)),
+		hsl(from var(--gametile-type-color) h s calc(l - 25))
+	);
+
+	&:has(> .bga-table-list-item__background[style$="rgb(64, 117, 158);"]) {
+		--gametile-type-color: rgb(64, 117, 158);
+	}
+	&:has(> .bga-table-list-item__background[style$="rgb(150, 171, 192);"]) {
+		--gametile-type-color: rgb(150, 171, 192);
+	}
+	&:has(> .bga-table-list-item__background[style$="rgb(88, 78, 161);"]) {
+		--gametile-type-color: rgb(88, 78, 161);
+	}
+	&:has(> .bga-table-list-item__background[style$="rgb(158, 154, 194);"]) {
+		--gametile-type-color: rgb(158, 154, 194);
+	}
+	&:has(> .bga-table-list-item__background[style$="rgb(143, 92, 167);"]) {
+		--gametile-type-color: rgb(143, 92, 167);
+	}
+
+	& .bga-table-list-item__background > div > .bga-table-list-item__main {
+		background-color: var(--gametile-surface-color);
+		border: 1px solid var(--gametile-border-color);
+
+		& .text-bga-gray-78,
+		& .text-base {
+			color: var(--gametile-color);
+		}
+
+		& .bga-table-list-item__details {
+			& .bga-table-list-item__status-mode-icon {
+				color: var(--gametile-icon-color);
+			}
+		}
+	}
+
+	& > div.bga-table-list-item__players-list.flex {
+		background-color: var(--gametile-surface-color);
+		border: 1px solid var(--gametile-border-color);
+	}
+}
+
+/* .bga-table-list-item {
+	&:has(> .bga-table-list-item__background[style$="rgb(64, 117, 158);"]) {
+		--surface-color: var(--play-gametile-surface-color);
+		--color: var(--play-gametile-color);
+	}
+
+	& .bga-table-list-item__main {
+		background-color: var(--surface-color);
+
+		& .text-bga-gray-78,
+		& .text-base {
+			color: var(--color);
+		}
+	}
+
+	& .bga-table-list-item__players-list {
+		background-color: var(--surface-color);
+	}
+
+	& div.bga-table-list-item__status-mode-icon,
+	& .text-bga-link {
+		color: var(--color);
+	}
+
+	& .bga-table-list-item__status-mode-icon-inverse-border {
+		box-shadow: unset;
+	}
+} */
