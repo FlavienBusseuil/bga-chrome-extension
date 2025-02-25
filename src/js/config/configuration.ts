@@ -955,7 +955,7 @@ class Configuration {
 		return cssList.join("\n");
 	}
 
-	isInProgressColorfulTables(): boolean {
+	useInProgressColorfulTables(): boolean {
 		return this._customConfig.inProgress?.colorfulTables === true;
 	}
 }

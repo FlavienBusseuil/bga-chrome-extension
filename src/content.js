@@ -284,6 +284,7 @@ document.addEventListener("bga_ext_update_config", (data) => {
 			document.documentElement.classList.contains("bgaext_gameinprogress")
 		) {
 			buildMainCss(config.getAllCss());
+			setInProgressTableStyle(config);
 		}
 	} else if (data.detail.key === "home") {
 		localStorage.removeItem("bga-homepage-newsfeed-slots");

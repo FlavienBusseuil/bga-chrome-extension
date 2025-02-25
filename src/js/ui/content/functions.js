@@ -654,17 +654,25 @@ const setEloStyle = (config) => {
 };
 
 const setInProgressTableStyle = (config) => {
-	if (config.isInProgressColorfulTables()) {
-		const css = document.getElementById("bgaext-colorfultables-style");
-		if (!css) {
-			const link = document.createElement("link");
-			link.id = "bgaext-colorfultables-style";
-			link.rel = "stylesheet";
-			link.href = `${chrome.runtime.getURL(
-				"/css/colorfulTables.css",
-			)}?&time=${new Date().getTime()}`;
-			document.head.appendChild(link);
+	const useColorfulTables = config.useInProgressColorfulTables();
+	const css = document.getElementById("bgaext-colorfultables-style");
+
+	if (useColorfulTables === false) {
+		if (css !== null) {
+			css.remove();
 		}
+
+		return;
+	}
+
+	if (css === null) {
+		const link = document.createElement("link");
+		link.id = "bgaext-colorfultables-style";
+		link.rel = "stylesheet";
+		link.href = `${chrome.runtime.getURL(
+			"/css/colorfulTables.css",
+		)}?&time=${new Date().getTime()}`;
+		document.head.appendChild(link);
 	}
 };
 
