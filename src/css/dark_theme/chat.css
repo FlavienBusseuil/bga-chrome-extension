@@ -1,6 +1,7 @@
 body.desktop_version #chatbar .chatwindowcollapsed {
   background: var(--dark-10);
   color: var(--light-80);
+  border-color: var(--light-50);
 }
 
 body.mobile_version #chatbar .chatwindowcollapsed {

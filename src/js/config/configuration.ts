@@ -728,22 +728,43 @@ class Configuration {
 		const cssList: string[] = [];
 
 		if (this.areSocialMessagesHidden()) {
-			cssList.push(`#playertab-activity { display: none; }`);
-			cssList.push(`#playertab-news { cursor: default; }`);
+			cssList.push(`#newsfeed .post:not(:has(a[href^="/group"])), #bgaext-newsfeed .post:not(:has(a[href^="/group"])) { display: none!important; }`);
 		}
 
 		if (advHome.advanced) {
-			cssList.push(`.bgaext_welcome .post.bga-hover-for-list { display: block !important; }`);
+			cssList.push('.bgaext_welcome .post.bga-hover-for-list { display: block !important; }');
 			cssList.push('.bgaext_welcome .bga-homepage-header { display: none; }');
-			cssList.push(`#bgadef-homepage { height: 1px; zoom: 0.1; opacity: 0 }`);
-			cssList.push('#bgaext-tournaments { width: 100%; }');
+			cssList.push('#bgadef-homepage { height: 1px; zoom: 0.1; opacity: 0 }');
+			cssList.push('#bgaext-tournaments { min-width: 400px; }');
+			cssList.push('#bgaext-newsfeed .bga-homepage-newsfeed { max-height: 900px; overflow: auto; }');
 			cssList.push('#bgaext-homepage { padding: 2em; }');
-			cssList.push('.bgaext-flex-row { display: flex; flex-flow: row nowrap; gap: 2em; justify-content: space-between; }');
+			cssList.push('.bgaext-flex-row, .bgaext-flex-row-distribution { display: flex; flex-flow: row nowrap; gap: 2em; justify-content: space-between; }');
 			cssList.push('.bgaext-flex-row > div { flex-grow: 1; }');
+			cssList.push('.bgaext-flex-row-distribution > div { flex: 1 1 0; width: 0; }');
+
 			cssList.push('.bgaext-flex-col { display: flex; flex-flow: column; gap: 1em; }');
 			cssList.push('#bgaext-homepage .bga-generic-game-item:hover .bga-hover-animated-border:before { -webkit-clip-path: circle(142% at bottom left); clip-path: circle(142% at bottom left); }');
 		} else {
 			let columns = 3;
+
+			if (!home.fewFeeds) {
+				let maxheight = 0;
+
+				if (home.tournaments && home.tournamentsBelow) {
+					maxheight = 400;
+				} else if (home.classicGames && home.status) {
+					maxheight = 630;
+				} else if (home.classicGames) {
+					maxheight = 790;
+				} else {
+					maxheight = 500;
+				}
+
+				cssList.push(`.bga-homepage-newsfeed { max-height: ${maxheight}px; overflow: auto; }`);
+				if (home.tournaments) {
+					cssList.push(`.homepage-section:has([href*="tournamentlist"]) .homepage-section__content { max-height: ${maxheight + 30}px; overflow: hidden; }`);
+				}
+			}
 
 			// If we want to display events, display the recent games section
 			if (home.events && document.querySelector('.bga-advent-calendar')) {

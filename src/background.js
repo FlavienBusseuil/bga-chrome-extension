@@ -87,13 +87,13 @@ const setNewsfeedFilters = (isRedirectEnable) => {
         removeRuleIds: [5, 6],
         addRules: [{
           id: 5,
-          action: { type: "redirect", "redirect": { "regexSubstitution": "https://boardgamearena.com/message/board?type=player&id=\\1&social=false&per_page=\\2&dojo.preventCache=\\3" } },
+          action: { type: "redirect", "redirect": { "regexSubstitution": "https://boardgamearena.com/message/board?type=player&id=\\1&social=true&per_page=30&dojo.preventCache=\\3" } },
           condition: {
             regexFilter: "^https://boardgamearena\\.com/message/board\\?type=player&id=([0-9]*)&social=true&per_page=([0-9]*)&dojo.preventCache=([0-9]*)"
           },
         }, {
           id: 6,
-          action: { type: "redirect", "redirect": { "regexSubstitution": "https://boardgamearena.com/message/board?type=player&id=\\1&social=false&page=\\2&per_page=\\3&from_time=\\4&from_id=\\5&dojo.preventCache=\\6" } },
+          action: { type: "redirect", "redirect": { "regexSubstitution": "https://boardgamearena.com/message/board?type=player&id=\\1&social=true&page=\\2&per_page=30&from_time=\\4&from_id=\\5&dojo.preventCache=\\6" } },
           condition: {
             regexFilter: "^https://boardgamearena\\.com/message/board\\?type=player&id=([0-9]*)&social=true&page=([0-9]*)&per_page=([0-9]*)&from_time=([0-9]*)&from_id=([0-9]*)&dojo.preventCache=([0-9]*)"
           }

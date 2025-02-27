@@ -233,10 +233,10 @@
 		"message": "Using the default background"
 	},
 	"optionsHideSocialMessagesOn": {
-		"message": "News feed contains only my activity"
+		"message": "News feed contains only groups messages [BETA]"
 	},
 	"optionsHideSocialMessagesOff": {
-		"message": "News feed contains default information"
+		"message": "News feed contains default informations"
 	},
 	"about": {
 		"message": "About"

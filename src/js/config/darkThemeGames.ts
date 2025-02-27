@@ -1592,7 +1592,7 @@ _darkStyleForGame['cannonades'] = `
 `;
 
 _darkStyleForGame['cantstop'] = `
-.diceactions, .dicechoice_plus { color: #fff; }
+#game_board_wrap, .diceactions, .dicechoice_plus { color: var(--light-80); }
 `;
 
 _darkStyleForGame['cantstopexpress'] = `
@@ -5222,6 +5222,8 @@ _darkStyleForGame['pyramidoft'] = `
 .py_zone_name.playername[style="color:#444;"] { color: var(--light-70)!important; }
 .py_zone_nobg { background-color: transparent; }
 .py_panel_gem { background-color: var(--dark-0); }
+.bg-tool_rotate, .bg-tool_rotateanti, .bg-tool_cancel, .bg-tool_confirm { background-color: var(--dark-30); border-radius: 50%; border: 1px solid var(--light-50); }
+.bg-tool_rotate:hover, .bg-tool_rotateanti:hover, .bg-tool_cancel:hover, .bg-tool_confirm:hover { background-color: var(--dark-10); }
 `;
 
 _darkStyleForGame['qango'] = `
@@ -6574,6 +6576,8 @@ html:not(.no-custom-background) #overall-content:before { content: ""; backgroun
 .twc-dice-icon { filter: var(--drop-shadow-min); }
 #twc-player-areas .twc-player-area .twc-player-board .twc-player-name-wrapper { background-color: var(--dark-back); }
 .jj-preferences-panel-text { background: var(--dark-20) !important; }
+.jj-ui-hint-box {  background-color: var(--dark-40); box-shadow: 0 0 2px 1px var(--light-50); }
+#popin_twc-scoresheet-dialog { background: var(--dark-10); }
 #undoAll, #undoLast { ${redButton} }
 #undoAll:hover, #undoLast:hover { ${redButtonOver} }
 .twc-main-card, #twc-main-game-board, .twc-player-area { filter: brightness(0.9); }

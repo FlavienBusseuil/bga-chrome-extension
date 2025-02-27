@@ -233,7 +233,7 @@
 		"message": "Utilisation de l'arrière-plan par défaut"
 	},
 	"optionsHideSocialMessagesOn": {
-		"message": "Le fil d'actualité ne contient que mon actualité"
+		"message": "Le fil d'actualité ne contient que les messages de groupe [BETA]"
 	},
 	"optionsHideSocialMessagesOff": {
 		"message": "Le fil d'actualité contient les informations par défaut"

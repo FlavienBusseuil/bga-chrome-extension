@@ -2078,6 +2078,10 @@ iframe#forum_frame {
   background-color: var(--dark-30);
 }
 
+.bga-homepage a[href="/serverstatus"][style*="background-color: rgb(3, 176, 7)"] {
+  background-color: var(--green-30) !important;
+}
+
 /* Delete button on gamelist page */
 html:not(.bgaext_gamelist) .ext_delete_button {
   display: none;
@@ -2163,4 +2167,26 @@ html:not(.bgaext_gamelist) .ext_delete_button {
 
 #warning_accepted i {
   text-shadow: none;
+}
+
+.bgaext_premium {
+  color: var(--light-80);
+}
+
+.bgaext_premium .bga-premium-page-section--full {
+  background: var(--dark-10) !important;
+}
+
+.bgaext_premium .text-gray-600,
+.bgaext_premium .text-gray-700 {
+  color: var(--light-70);
+}
+
+.bgaext_premium .desktop\:bg-white,
+.bgaext_premium .even\:bg-white:nth-child(2n) {
+  background-color: var(--dark-20);
+}
+
+.bgaext_premium .odd\:bg-gray-100:nth-child(odd) {
+  background-color: var(--dark-30);
 }
