@@ -3877,6 +3877,8 @@ _darkStyleForGame['ladyandthetiger'] = `
 
 _darkStyleForGame['ladyschoice'] = `
 #overall-content { color: var(--light-80); }
+.player-board { background-color: var(--dark-20); }
+.sprite { filter: brightness(0.9); }
 `;
 
 _darkStyleForGame['lagranja'] = `
@@ -5176,6 +5178,7 @@ _darkStyleForGame['potionsofazerland'] = `
 .poa_PopinContainer.displayDiceResult, .poa_PopinContainer.displayOrderPriorityChoice, .poa_PopinContainer.displayRessourceChoice { background: var(--dark-10); border: 1px solid var(--light-50); color: var(--light-80); }
 .poa_tooltip_status { color: var(--light-50); }
 .playerName { background: linear-gradient(90deg, #00000000, #00000000 30%, #000000e6 50%, #00000000 70%, #00000000); }
+#poa_mainBoard, #centralZone, .playerBoard_container, .logElementsContainer .poaVisitorCard, .logElementsContainer .poaMarketCard { filter: brightness(0.9); }
 `;
 
 _darkStyleForGame['powervacuum'] = `
@@ -5419,8 +5422,6 @@ _darkStyleForGame['refuge'] = `
 `;
 
 _darkStyleForGame['regicide'] = `
-#overall-content:before { content: ""; background: #00000060; position: absolute; width: 100%; height: 100%; top:0px; left: 0px; }
-#overall-content { color: var(--light-80); }
 #castle_deck, #discard_pile, #tavern_deck { color: #000; }
 .hand_card_icon.empty { filter: invert(1); }
 html.darkpanel #player_boards .player-board.transparent { background-color: #272a2fcc !important; }
@@ -5755,7 +5756,7 @@ _darkStyleForGame['setup'] = `
 .setup-pref-background-dark #overall-content:before { content: ""; background: #00000080; position: absolute; width: 100%; height: 100%; top:0px; left: 0px; }
 .setup-piece { filter: var(--drop-shadow); }
 .setup-tile-number[data-suit="10"], .setup-tile-suit[data-suit="10"] { text-shadow: var(--text-w-shadow); }
-#setup-board-wrapper { filter: brightness(0.9); }
+#setup-score-holder, .setup-tile { filter: brightness(0.9); }
 `;
 
 _darkStyleForGame['sevenknightsbewitched'] = `
@@ -6543,6 +6544,30 @@ _darkStyleForGame['theisleofcats'] = `
 _darkStyleForGame['thelast'] = `
 #overall-content { background-image: none !important; }
 .player-name, .playertablename { font-weight: normal; }
+`;
+
+_styleForGame['theninedomains'] = `
+.button_sh, .button_sh * { cursor: pointer; }
+#button_text { line-height: 32px; }
+`;
+
+_darkStyleForGame['theninedomains'] = `
+.mini_card, .mini_card_log { filter: invert(1); }
+#help { background-color: var(--dark-10); color: var(--light-80); }
+.colors_icons { border-radius: 50%; }
+.button_sh { ${purpleButton} }
+.button_sh:hover { ${purpleButtonOver} }
+.button_sh:has([style="color:#ff0000"]) { ${redButton} }
+.button_sh:has([style="color:#ff0000"]):hover { ${redButtonOver} }
+.button_sh:has([style="color:#0000ff"]) { ${blueButton} }
+.button_sh:has([style="color:#0000ff"]):hover { ${blueButtonOver} }
+.button_sh:has([style="color:#008000"]) { ${greenButton} }
+.button_sh:has([style="color:#008000"]):hover { ${greenButtonOver} }
+.button_sh:has([style="color:#ffa500"]) { ${orangeButton} }
+.button_sh:has([style="color:#ffa500"]):hover { ${orangeButtonOver} }
+
+.button_sh * { color: #fff!important; }
+.cardontable, .landontable, .stockitem { filter: brightness(0.9); }
 `;
 
 _darkStyleForGame['thenumber'] = `

@@ -88,11 +88,11 @@ div.bgext_misc_container {
 }
 
 div.bgext_home_container>div {
-	flex-grow: 1;
 	display: flex;
 	flex-flow: column;
 	justify-content: start;
 	gap: 0.5em;
+	width: 50%;
 }
 
 div.bgext_css_container {

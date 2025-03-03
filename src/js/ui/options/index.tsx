@@ -408,6 +408,7 @@ const Options = (props: { config: Configuration }) => {
 					<div>
 						{getInProgressSwitch('emptySections', 'optionsInProgressEmpty')}
 						{getInProgressSwitch('discover', 'optionsInProgressDiscover')}
+						{getInProgressSwitch('colorfulTables', 'optionsInProgressColorfulTables')}
 					</div>
 					<div>
 						{getInProgressSwitch('playAgain', 'optionsInProgressReplay')}

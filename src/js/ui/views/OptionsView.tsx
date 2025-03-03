@@ -370,6 +370,7 @@ export const OptionsView = ({ config, onChange }: Props) => {
             <div>
               {getInProgressSwitch('emptySections', 'optionsInProgressEmpty')}
               {getInProgressSwitch('discover', 'optionsInProgressDiscover')}
+              {getInProgressSwitch('colorfulTables', 'optionsInProgressColorfulTables')}
             </div>
             <div>
               {getInProgressSwitch('playAgain', 'optionsInProgressReplay')}

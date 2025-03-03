@@ -1993,17 +1993,21 @@ iframe#forum_frame {
   background-color: var(--dark-20) !important;
 }
 
+.bga-table-list-item__progress-bar-inner {
+  background-color: #0009 !important;
+}
+
 .bga-table-list-item__main .text-bga-gray-141 {
   color: var(--light-50);
 }
 
 .bga-table-list-item__status-mode-icon {
   color: var(--light-50) !important;
-  background-color: var(--dark-40) !important;
+  background-color: var(--dark-20) !important;
 }
 
 .bga-table-list-item__status-mode-icon-inverse-border {
-  box-shadow: 8px 0 0 0 var(--dark-40) !important;
+  box-shadow: 8px 0 0 0 var(--dark-20) !important;
 }
 
 .bgaext_gameinprogress .bg-bga-gray-233.bga-player-progress-list__section {

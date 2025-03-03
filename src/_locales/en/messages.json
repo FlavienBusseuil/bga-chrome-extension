@@ -412,6 +412,12 @@
 	"optionsInProgressMoreOff": {
 		"message": "'More friends' section hidden"
 	},
+	"optionsInProgressColorfulTablesOn": {
+		"message": "More colorful tables"
+	},
+	"optionsInProgressColorfulTablesOff": {
+		"message": "Default table colors"
+	},
 	"optionsHomeAdvancedOn": {
 		"message": "Advanced configuration"
 	},

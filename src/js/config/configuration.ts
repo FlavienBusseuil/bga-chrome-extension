@@ -1,37 +1,7 @@
 import equal from "fast-deep-equal";
 import defaultGames from "./sideMenuGames";
 import { addChangeListener, localStorageGet, localStorageSet, storageGet, storageSet } from "../utils/chrome";
-
-const DEF_HOME_HTML = `<style>
-#bgaext-newsfeed .bga-homepage-newsfeed {
-	max-height: 900px;
-	overflow: auto;
-}
-</style>
-<div class='bgaext-flex-col'>
-  <div class='bgaext-flex-row'>
-    <div id='bgaext-tournaments'></div>
-    <div class='bgaext-flex-col'>
-      <div class='bgaext-flex-row'>
-        <div id='bgaext-games-recent'></div>
-        <div id='bgaext-games-popular'></div>
-        <div id='bgaext-games-suggested'></div>
-      </div>
-      <div class='bgaext-flex-row'>
-        <div id='bgaext-achievements'></div>
-        <div id='bgaext-leaderboard'></div>
-      </div>
-    </div>
-    <div class='bgaext-flex-col'>
-      <div id='bgaext-newsfeed'></div>
-      <div id='bgaext-service-status'></div>
-    </div>
-  </div>
-  <div class='bgaext-flex-row'>
-    <div id='bgaext-games-classic'></div>
-    <div id='bgaext-playmore'></div>
-  </div>
-</div>`;
+import { ADVANCED_HOME_STYLE, COLORFUL_TABLES, DEF_HOME_HTML } from "./configuration.constants";
 
 export interface Game {
 	name: string;
@@ -96,7 +66,7 @@ interface CustomConfig {
 	autoOpen?: boolean;
 	solidBack?: boolean;
 	hideSocialMessages?: boolean;
-};
+}
 
 export interface HomeConfig {
 	header: boolean;
@@ -113,24 +83,25 @@ export interface HomeConfig {
 	recommandedGames: boolean;
 	classicGames: boolean;
 	events: boolean;
-};
+}
 
 export interface AdvancedHomeConfig {
 	advanced: boolean;
 	html: string;
-};
+}
 
 export interface InProgressConfig {
 	emptySections: boolean;
 	playAgain: boolean;
 	discover: boolean;
 	more: boolean;
-};
+	colorfulTables: boolean;
+}
 
 interface LocalConfig {
 	css: string;
 	home?: AdvancedHomeConfig;
-};
+}
 
 class Configuration {
 	_defConfig: { games: Game[] };
@@ -380,6 +351,7 @@ class Configuration {
 			playAgain: true,
 			discover: true,
 			more: true,
+			colorfulTables: false,
 			...(this._customConfig.inProgress || {})
 		}
 	}
@@ -728,22 +700,12 @@ class Configuration {
 		const cssList: string[] = [];
 
 		if (this.areSocialMessagesHidden()) {
-			cssList.push(`#newsfeed .post:not(:has(a[href^="/group"])), #bgaext-newsfeed .post:not(:has(a[href^="/group"])) { display: none!important; }`);
+			cssList.push(`#newsfeed .post:not(:has(a[href^="/group"])), #bgaext-newsfeed .post:not(:has(a[href^="/group"])), .bgaext_welcome .post.bga-hover-for-list:not(:has(a[href^="/group"])) { display: none!important; }`);
+
 		}
 
 		if (advHome.advanced) {
-			cssList.push('.bgaext_welcome .post.bga-hover-for-list { display: block !important; }');
-			cssList.push('.bgaext_welcome .bga-homepage-header { display: none; }');
-			cssList.push('#bgadef-homepage { height: 1px; zoom: 0.1; opacity: 0 }');
-			cssList.push('#bgaext-tournaments { min-width: 400px; }');
-			cssList.push('#bgaext-newsfeed .bga-homepage-newsfeed { max-height: 900px; overflow: auto; }');
-			cssList.push('#bgaext-homepage { padding: 2em; }');
-			cssList.push('.bgaext-flex-row, .bgaext-flex-row-distribution { display: flex; flex-flow: row nowrap; gap: 2em; justify-content: space-between; }');
-			cssList.push('.bgaext-flex-row > div { flex-grow: 1; }');
-			cssList.push('.bgaext-flex-row-distribution > div { flex: 1 1 0; width: 0; }');
-
-			cssList.push('.bgaext-flex-col { display: flex; flex-flow: column; gap: 1em; }');
-			cssList.push('#bgaext-homepage .bga-generic-game-item:hover .bga-hover-animated-border:before { -webkit-clip-path: circle(142% at bottom left); clip-path: circle(142% at bottom left); }');
+			cssList.push(ADVANCED_HOME_STYLE);
 		} else {
 			let columns = 3;
 
@@ -771,9 +733,6 @@ class Configuration {
 				home.recentGames = true;
 			}
 
-			if (this._localConfig.css) {
-				cssList.push(this._localConfig.css);
-			}
 			if (!home.header) {
 				cssList.push('.bgaext_welcome .bga-homepage-header { display: none; }');
 			}
@@ -860,14 +819,26 @@ class Configuration {
 		if (!inProgress.emptySections) {
 			cssList.push('.bgaext_gameinprogress .bga-player-progress-list__section:has(>div.relative>div.relative>div.relative>div.flex.items-center) { display: none; }');
 		}
-		if (!inProgress.playAgain) {
-			cssList.push('.bgaext_gameinprogress #main-content > div:first-child > div:last-child > div:nth-child(1), .bgaext_gameinprogress #main-content > div:first-child > div:last-child > div:nth-child(2), .bgaext_gameinprogress #main-content > div:first-child > div:last-child > div:nth-child(3) { display: none; }');
+		if (!inProgress.playAgain && !inProgress.discover && !inProgress.more) {
+			cssList.push('.bgaext_gameinprogress #main-content > div:first-child > div:last-child > div:nth-child(1), .bgaext_gameinprogress #main-content > div:first-child > div:last-child { display: none; }');
+		} else {
+			if (!inProgress.playAgain) {
+				cssList.push('.bgaext_gameinprogress #main-content > div:first-child > div:last-child > div:nth-child(1), .bgaext_gameinprogress #main-content > div:first-child > div:last-child > div:nth-child(2), .bgaext_gameinprogress #main-content > div:first-child > div:last-child > div:nth-child(3) { display: none; }');
+			}
+			if (!inProgress.discover) {
+				cssList.push('.bgaext_gameinprogress #main-content > div:first-child > div:last-child > div:nth-child(4), .bgaext_gameinprogress #main-content > div:first-child > div:last-child > div:nth-child(5), .bgaext_gameinprogress #main-content > div:first-child > div:last-child > div:nth-child(6) { display: none; }');
+			}
+			if (!inProgress.more) {
+				cssList.push('.bgaext_gameinprogress #main-content > div:first-child > div:last-child > div:nth-child(7), .bgaext_gameinprogress #main-content > div:first-child > div:last-child > div:nth-child(8), .bgaext_gameinprogress #main-content > div:first-child > div:last-child > div:nth-child(9) { display: none; }');
+			}
 		}
-		if (!inProgress.discover) {
-			cssList.push('.bgaext_gameinprogress #main-content > div:first-child > div:last-child > div:nth-child(4), .bgaext_gameinprogress #main-content > div:first-child > div:last-child > div:nth-child(5), .bgaext_gameinprogress #main-content > div:first-child > div:last-child > div:nth-child(6) { display: none; }');
+
+		if (inProgress.colorfulTables) {
+			cssList.push(COLORFUL_TABLES);
 		}
-		if (!inProgress.more) {
-			cssList.push('.bgaext_gameinprogress #main-content > div:first-child > div:last-child > div:nth-child(7), .bgaext_gameinprogress #main-content > div:first-child > div:last-child > div:nth-child(8), .bgaext_gameinprogress #main-content > div:first-child > div:last-child > div:nth-child(9) { display: none; }');
+
+		if (this._localConfig.css) {
+			cssList.push(this._localConfig.css);
 		}
 
 		return cssList.join('\n');
