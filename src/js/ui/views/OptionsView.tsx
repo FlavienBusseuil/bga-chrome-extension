@@ -22,6 +22,7 @@ export const OptionsView = ({ config, onChange }: Props) => {
   const [autoOpen, setAutoOpen] = useState(config.isAutoOpenEnable());
   const [solidBackground, setSolidBackground] = useState(config.isSolidBackground());
   const [socialMessagesHidden, setSocialMessagesHidden] = useState(config.areSocialMessagesHidden());
+  const [chatUserNamesHidden, setChatUserNamesHidden] = useState(config.areChatUserNamesHidden());
   const [homeConfig, setHomeConfig] = useState<HomeConfig>(config.getHomeConfig());
   const [inProgressConfig, setInProgressConfig] = useState<InProgressConfig>(config.getInProgressConfig());
   const [hiddenGames, setHiddenGames] = useState<string[]>(config.getHiddenGames());
@@ -104,6 +105,11 @@ export const OptionsView = ({ config, onChange }: Props) => {
   const updateSocialMessagesHidden = (val: boolean) => {
     setSocialMessagesHidden(val);
     config.setSocialMessagesHidden(val);
+  };
+
+  const updateChatUserNamesHidden = (val: boolean) => {
+    setChatUserNamesHidden(!val);
+    config.setChatUserNamesHidden(!val);
   };
 
   const updateHomeConfig = (param: string, val: boolean) => {
@@ -224,6 +230,7 @@ export const OptionsView = ({ config, onChange }: Props) => {
           {getSwitch(autoOpen, updateAutoOpen, "optionsAutoOpenOn", "optionsAutoOpenOff")}
           {getSwitch(solidBackground, updateSolidBackground, "optionsSolidBackgroundOn", "optionsSolidBackgroundOff")}
           {getSwitch(socialMessagesHidden, updateSocialMessagesHidden, "optionsHideSocialMessagesOn", "optionsHideSocialMessagesOff")}
+          {getSwitch(!chatUserNamesHidden, updateChatUserNamesHidden, "optionsChatUserNameOn", "optionsChatUserNameOff")}
         </div>
       );
     }

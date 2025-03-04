@@ -230,13 +230,19 @@
 		"message": "The default background (wooden planks) is replaced by a solid-colored background"
 	},
 	"optionsSolidBackgroundOff": {
-		"message": "Using the default background"
+		"message": "The default background (wooden planks) is used"
 	},
 	"optionsHideSocialMessagesOn": {
 		"message": "News feed contains only groups messages [BETA]"
 	},
 	"optionsHideSocialMessagesOff": {
 		"message": "News feed contains default informations"
+	},
+	"optionsChatUserNameOn": {
+		"message": "User names in chat are always displayed"
+	},
+	"optionsChatUserNameOff": {
+		"message": "User names in chat are displayed only when necessary"
 	},
 	"about": {
 		"message": "About"

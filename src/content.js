@@ -231,16 +231,18 @@ document.addEventListener('bga_ext_update_config', (data) => {
 		refreshMutedPlayers(config);
 	} else if (data.detail.key === 'solidBack') {
 		location.reload();
-	} else if (data.detail.key === 'inProgress') {
-		if (document.documentElement.classList.contains("bgaext_gameinprogress")) {
+	} else if (data.detail.key === 'inProgress' || data.detail.key === 'hideChatUserNames') {
+		if (pageType === 'general') {
 			buildMainCss(config.getAllCss());
 		}
 	} else if (data.detail.key === 'home') {
 		localStorage.removeItem('bga-homepage-newsfeed-slots');
 		localStorage.removeItem('bga-homepageNewsSeen');
 
-		if (document.documentElement.classList.contains("bgaext_welcome")) {
+		if (pageType === 'general') {
 			buildMainCss(config.getAllCss());
+		}
+		if (document.documentElement.classList.contains("bgaext_welcome")) {
 			sendHomeConfiguration();
 		}
 	} else if (data.detail.key === 'hideSocialMessages') {

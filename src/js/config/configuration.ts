@@ -66,6 +66,7 @@ interface CustomConfig {
 	autoOpen?: boolean;
 	solidBack?: boolean;
 	hideSocialMessages?: boolean;
+	hideChatUserNames?: boolean;
 }
 
 export interface HomeConfig {
@@ -175,6 +176,9 @@ class Configuration {
 		if (!this._customConfig.floating) {
 			this._customConfig.floating = [];
 		}
+		if (this._customConfig.hideChatUserNames === undefined) {
+			this._customConfig.hideChatUserNames = true;
+		}
 		this._merge();
 
 		addChangeListener((changes: any, namespace: string) => {
@@ -185,7 +189,7 @@ class Configuration {
 					} else {
 						this._customConfig[key] = newValue;
 					}
-					document.dispatchEvent(new CustomEvent('bga_ext_update_config', { detail: { key } }));
+					document && document.dispatchEvent(new CustomEvent('bga_ext_update_config', { detail: { key } }));
 				}
 			} catch (error) { } // not a big deal
 		});
@@ -406,6 +410,15 @@ class Configuration {
 		storageSet({ hideSocialMessages: val });
 	}
 
+	areChatUserNamesHidden() {
+		return Boolean(this._customConfig.hideChatUserNames);
+	}
+
+	setChatUserNamesHidden(val: boolean) {
+		this._customConfig.hideChatUserNames = val;
+		storageSet({ hideChatUserNames: val });
+	}
+
 	setLeftMenuEnabled(name: string, enable: boolean) {
 		this._customConfig.disabled = this._customConfig.disabled.filter(
 			(n) => n !== name,
@@ -567,26 +580,11 @@ class Configuration {
 	getHiddenGamesStyle(page: string) {
 		switch (page) {
 			case "gamelist":
-				return this._customConfig.hidden
-					.map(
-						(name) =>
-							`div:has(> a[href="/gamepanel?game=${name}"]), div.bga-game-browser-carousel__block:has(> div > a[href="/gamepanel?game=${name}"]) { display: none; }`,
-					)
-					.join(" ");
+				return this._customConfig.hidden.map(name => `div:has(> a[href="/gamepanel?game=${name}"]), div.bga-game-browser-carousel__block:has(> div > a[href="/gamepanel?game=${name}"]) { display: none; }`).join(" ");
 			case "lobby":
-				return this._customConfig.hidden
-					.map(
-						(name) =>
-							`div:has(> a[href="/gamepanel?game=${name}"]), div.game_box_wrap:has(> div > div > div > a[href="/gamepanel?game=${name}"]) { display: none; }`,
-					)
-					.join(" ");
+				return this._customConfig.hidden.map(name => `div:has(> a[href="/gamepanel?game=${name}"]), div.game_box_wrap:has(> div > div > div > a[href="/gamepanel?game=${name}"]) { display: none; }`).join(" ");
 			default:
-				return this._customConfig.hidden
-					.map(
-						(name) =>
-							`div: has(> a[href = "/gamepanel?game=${name}"]) { display: none; }`,
-					)
-					.join(" ");
+				return this._customConfig.hidden.map(name => `div: has(> a[href = "/gamepanel?game=${name}"]) { display: none; }`).join(" ");
 		}
 	}
 
@@ -701,7 +699,6 @@ class Configuration {
 
 		if (this.areSocialMessagesHidden()) {
 			cssList.push(`#newsfeed .post:not(:has(a[href^="/group"])), #bgaext-newsfeed .post:not(:has(a[href^="/group"])), .bgaext_welcome .post.bga-hover-for-list:not(:has(a[href^="/group"])) { display: none!important; }`);
-
 		}
 
 		if (advHome.advanced) {
@@ -835,6 +832,10 @@ class Configuration {
 
 		if (inProgress.colorfulTables) {
 			cssList.push(COLORFUL_TABLES);
+		}
+
+		if (!this._customConfig.hideChatUserNames) {
+			cssList.push('#chatbar .chatwindow .playername { display: inline !important; }');
 		}
 
 		if (this._localConfig.css) {

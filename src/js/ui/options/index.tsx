@@ -29,6 +29,7 @@ const Options = (props: { config: Configuration }) => {
 	const [autoOpen, setAutoOpen] = useState(config.isAutoOpenEnable());
 	const [solidBackground, setSolidBackground] = useState(config.isSolidBackground());
 	const [socialMessagesHidden, setSocialMessagesHidden] = useState(config.areSocialMessagesHidden());
+	const [chatUserNamesHidden, setChatUserNamesHidden] = useState(config.areChatUserNamesHidden());
 	const [homeConfig, setHomeConfig] = useState(config.getHomeConfig());
 	const [inProgressConfig, setInProgressConfig] = useState(config.getInProgressConfig());
 	const [motionSensitivity, setMotionSensitivity] = useState(config.isMotionSensitivityEnable());
@@ -185,6 +186,11 @@ const Options = (props: { config: Configuration }) => {
 		config.setSocialMessagesHidden(val);
 	};
 
+	const updateChatUserNamesHidden = (val: boolean) => {
+		setChatUserNamesHidden(!val);
+		config.setChatUserNamesHidden(!val);
+	};
+
 	const getHomeSwitch = (param: string, message: string) => {
 		return (
 			<Switch
@@ -268,6 +274,12 @@ const Options = (props: { config: Configuration }) => {
 						checked={socialMessagesHidden}
 						textOn={chrome.i18n.getMessage("optionsHideSocialMessagesOn")}
 						textOff={chrome.i18n.getMessage("optionsHideSocialMessagesOff")}
+						onChange={updateSocialMessagesHidden}
+					/>
+					<Switch
+						checked={!chatUserNamesHidden}
+						textOn={chrome.i18n.getMessage("optionsChatUserNameOn")}
+						textOff={chrome.i18n.getMessage("optionsChatUserNameOff")}
 						onChange={updateSocialMessagesHidden}
 					/>
 				</div>

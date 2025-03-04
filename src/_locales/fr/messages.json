@@ -230,13 +230,19 @@
 		"message": "L'arrière plan par défaut (planches en bois) est remplacé par un arrière-plan de couleur unie"
 	},
 	"optionsSolidBackgroundOff": {
-		"message": "Utilisation de l'arrière-plan par défaut"
+		"message": "L'arrière-plan par défaut (planches en bois) est utilisé"
 	},
 	"optionsHideSocialMessagesOn": {
 		"message": "Le fil d'actualité ne contient que les messages de groupe [BETA]"
 	},
 	"optionsHideSocialMessagesOff": {
 		"message": "Le fil d'actualité contient les informations par défaut"
+	},
+	"optionsChatUserNameOn": {
+		"message": "Le nom des utilisateurs dans le chat est toujours affiché"
+	},
+	"optionsChatUserNameOff": {
+		"message": "Le nom des utilisateurs dans le chat n'est affiché que lorsque c'est nécessaire"
 	},
 	"about": {
 		"message": "A propos"
