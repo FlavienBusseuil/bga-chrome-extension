@@ -1441,6 +1441,14 @@ const defaultGames: Partial<Game>[] = [
 		name: "thewhitecastle",
 		playerPanel: "twc-player-area-{{player_id}}",
 	},
+	{
+		name: "craftingthecosmos",
+		playerPanel: ".ctc_board-section",
+	},
+	{
+		name: "aquatica",
+		playerPanel: "player-table-{{player_id}}",
+	},
 ];
 
 export default defaultGames;

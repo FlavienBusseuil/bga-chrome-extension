@@ -58,6 +58,7 @@ export const gamesWithCustomBackground = [
   'coffee',
   'concept',
   'conspiracy',
+  'craftingthecosmos',
   'darwinsjourney',
   'deadcells',
   'dedale',
@@ -110,6 +111,7 @@ export const gamesWithCustomBackground = [
   'iwari',
   'jekyllvshide',
   'jumpdrive',
+  'jurassicsnack',
   'kado',
   'khiva',
   'kingoftokyo',
@@ -313,7 +315,8 @@ export const gamesWithCustomPlayerStyle = {
   knister: '.knister_plname',
   splitter: '.splitter_plname',
   quartzdice: '.quartz-mining-cart-title > span',
-  theguildofmerchantexplorers: '.tab_header, .player_board .player_nametag'
+  theguildofmerchantexplorers: '.tab_header, .player_board .player_nametag',
+  aquatica: '.player-table-board h3'
 };
 
 export const playersBackground = {
@@ -395,6 +398,7 @@ export const gamesWithRecommandedConfig = {
   challengers: { color: 100, sat: 16 },
   conspiracy: { color: 226, sat: 16 },
   cosmosempires: { color: 233, sat: 27 },
+  craftingthecosmos: { color: 116, sat: 10 },
   cuttle: { color: 180, sat: 24 },
   dedale: { color: 25, sat: 16 },
   dicedveggies: { color: 25, sat: 16 },
@@ -415,6 +419,7 @@ export const gamesWithRecommandedConfig = {
   harmonies: { color: 16, sat: 15 },
   harvest: { color: 128, sat: 22 },
   insidejob: { color: 105, sat: 10 },
+  jurassicsnack: { color: 110, sat: 5 },
   kado: { color: 30, sat: 15 },
   locomomo: { color: 91, sat: 14 },
   lielow: { color: 13, sat: 15 },
@@ -1003,6 +1008,16 @@ body { background: none !important; }
 .aj_sprite { filter: var(--drop-shadow); }
 .aj_playerBlock > div > h3 { background-color: var(--dark-20) !important; }
 #player_boards .plPanelSpan { color: #000; }
+`;
+
+_darkStyleForGame['aquatica'] = `
+#bga-zoom-controls { filter: invert(0.8); }
+.card.manta .front { filter: var(--drop-shadow); }
+.bga-cards_deck-counter.round { background: var(--dark-10); box-shadow: 0 0 2px 1px var(--light-80); color: var(--light-80); }
+.player-table h3 { background-color: var(--dark-10); }
+.scoresheet_container { background-color: var(--dark-20); color: var(--light-80); }
+#lastTurn { background-color: #036; }
+#board, .player-table, #logs .card.character .front { filter: brightness(0.9); }
 `;
 
 _darkStyleForGame['arboretum'] = `
@@ -2113,6 +2128,10 @@ _darkStyleForGame['cradletograve'] = `
 #pagesection_gameview .whiteblock { color: #000; }
 `;
 
+_darkStyleForGame['craftingthecosmos'] = `
+.ctc_player-board-header { background: var(--dark-20); }
+`;
+
 _darkStyleForGame['crazyfarmers'] = `
 #game_play_area .cards {  background-color: #32280166; }
 `;
@@ -2271,6 +2290,15 @@ _darkStyleForGame['dicedtomatoes'] = `
 _darkStyleForGame['dicedveggies'] = `
 #overall-content:before { content: ""; background: #00000090; position: absolute; width: 100%; height: 100%; top:0px; left: 0px; }
 .popup { background-color: var(--dark-back); color: var(--light-80); }
+`;
+
+_darkStyleForGame['dicemission'] = `
+.DMplayerHandHolder { background: var(--dark-back); }
+.DMplayerHandHolder>.DMvertical { color: var(--light-80); }
+.player_board_content img { filter: invert(1) var(--highlight-min); }
+[style="color:black;font-weight:bold;"] { text-shadow: var(--text-w-shadow); }
+.DMphase, .DMround { background-color: var(--dark-40); }
+.DMdie.DMselected>.DMface { box-shadow: 0 0 5px 5px #bbb; }
 `;
 
 _darkStyleForGame['dicepyramid'] = `
@@ -3703,6 +3731,14 @@ _darkStyleForGame['jumpdrive'] = `
 .jdr-icon, .jdr-resource { filter: var(--highlight-min); }
 .dijitTooltipContainer .jdr-card-income, .dijitTooltipContainer .jdr-card-special, .dijitTooltipContainer .jdr-card-vp { color: var(--light-80); }
 .jdr-goalMarker { background: var(--orange-30); }
+`;
+
+_darkStyleForGame['jurassicsnack'] = `
+body { background: #413e25; }
+.js_zone { background-color: var(--dark-back); color: var(--light-80); }
+.js_panel_name { background-color: #000; }
+.js_popup_content { background-color: var(--dark-20); color: var(--light-80); }
+.js_board, .bg-token_back, [class*="bg-token_"] { filter: brightness(0.9); }
 `;
 
 _darkStyleForGame['justone'] = `
