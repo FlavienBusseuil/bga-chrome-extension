@@ -20,6 +20,8 @@ export const OptionsView = ({ config, onChange }: Props) => {
   const [motionSensitivity, setMotionSensitivity] = useState(config.isMotionSensitivityEnable());
   const [redirect, setRedirect] = useState(config.isLobbyRedirectionEnable());
   const [autoOpen, setAutoOpen] = useState(config.isAutoOpenEnable());
+  const [karmaRestriction, setKarmaRestriction] = useState(config.getKarmaRestriction());
+  const [betterPlayerRestriction, setBetterPlayerRestriction] = useState(config.isBetterPlayerRestriction());
   const [solidBackground, setSolidBackground] = useState(config.isSolidBackground());
   const [socialMessagesHidden, setSocialMessagesHidden] = useState(config.areSocialMessagesHidden());
   const [chatUserNamesHidden, setChatUserNamesHidden] = useState(config.areChatUserNamesHidden());
@@ -95,6 +97,16 @@ export const OptionsView = ({ config, onChange }: Props) => {
   const updateAutoOpen = (val: boolean) => {
     setAutoOpen(val);
     config.setAutoOpenEnable(val);
+  };
+
+  const updateKarmaRestriction = (val: boolean) => {
+    setKarmaRestriction(val ? 75 : 0);
+    config.setKarmaRestriction(val ? 75 : 0);
+  };
+
+  const updateBetterPlayerRestriction = (val: boolean) => {
+    setBetterPlayerRestriction(val);
+    config.setBetterPlayerRestriction(val);
   };
 
   const updateSolidBackground = (val: boolean) => {
@@ -227,7 +239,6 @@ export const OptionsView = ({ config, onChange }: Props) => {
           </div>}
           {getSwitch(!motionSensitivity, updateFlashing, "optionsFlashingOn", "optionsFlashingOff")}
           {getSwitch(redirect, updateRedirect, "optionsLobbyRedirectOn", "optionsLobbyRedirectOff")}
-          {getSwitch(autoOpen, updateAutoOpen, "optionsAutoOpenOn", "optionsAutoOpenOff")}
           {getSwitch(solidBackground, updateSolidBackground, "optionsSolidBackgroundOn", "optionsSolidBackgroundOff")}
           {getSwitch(socialMessagesHidden, updateSocialMessagesHidden, "optionsHideSocialMessagesOn", "optionsHideSocialMessagesOff")}
           {getSwitch(!chatUserNamesHidden, updateChatUserNamesHidden, "optionsChatUserNameOn", "optionsChatUserNameOff")}
@@ -395,6 +406,25 @@ export const OptionsView = ({ config, onChange }: Props) => {
     );
   };
 
+  const getFastStartSection = () => {
+    if (configVisible === 'fastStart') {
+      return (
+        <div className="options-frame">
+          <div className="options-frame-title">{chrome.i18n.getMessage("optionsFastCreate")}</div>
+          {getSwitch(autoOpen, updateAutoOpen, "optionsFastCreateAutoOpenOn", "optionsFastCreateAutoOpenOff")}
+          {getSwitch(betterPlayerRestriction, updateBetterPlayerRestriction, "optionsFastCreateBetterOn", "optionsFastCreateBetterOff")}
+          {getSwitch(karmaRestriction > 0, updateKarmaRestriction, "optionsFastCreateKarmaOn", "optionsFastCreateKarmaOff")}
+        </div>
+      );
+    }
+
+    return (
+      <div className="options-frame reduced" onClick={() => _setConfigVisible('fastStart')}>
+        <div className="options-frame-title">{chrome.i18n.getMessage("optionsFastCreate")} {arrow()}</div>
+      </div>
+    );
+  };
+
   const getHiddenGamesSection = () => {
     if (configVisible === 'hidden') {
       return (
@@ -459,6 +489,7 @@ export const OptionsView = ({ config, onChange }: Props) => {
       {getGamesSection()}
       {getHomeSection()}
       {getInProgressSection()}
+      {getFastStartSection()}
       {getHiddenGamesSection()}
       {getHiddenPlayersSection()}
       {getAboutSection()}

@@ -9,11 +9,14 @@ const initBgaApi = () => {
 
       fetch(`${baseUrl}${evtDetail.endPoint}`, { method: evtDetail.method, body: evtDetail.body, headers, credentials: 'same-origin' }).then((response) => {
         response.json().then(json => {
-          if (json.error) {
-            alert(json.error);
-          } else {
-            const detail = JSON.stringify({ key: evtDetail.key, type: evtDetail.type, response: json });
+          if (!json.error) {
+            const detail = JSON.stringify({ key: evtDetail.key, type: evtDetail.type, data: evtDetail.data, response: json });
             document.body.dispatchEvent(new CustomEvent('bga_ext_api_result', { detail }));
+          } else if (evtDetail.errorResult) {
+            const detail = JSON.stringify({ key: evtDetail.key, type: evtDetail.type, data: evtDetail.data, response: evtDetail.errorResult });
+            document.body.dispatchEvent(new CustomEvent('bga_ext_api_result', { detail }));
+          } else {
+            alert(json.error);
           }
         });
       });

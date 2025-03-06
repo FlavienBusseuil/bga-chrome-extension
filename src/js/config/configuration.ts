@@ -64,6 +64,8 @@ interface CustomConfig {
 	inProgress?: InProgressConfig;
 	lobbyRedirect?: boolean;
 	autoOpen?: boolean;
+	karmaRestriction?: number;
+	betterPlayerRestriction?: boolean;
 	solidBack?: boolean;
 	hideSocialMessages?: boolean;
 	hideChatUserNames?: boolean;
@@ -390,6 +392,24 @@ class Configuration {
 	setAutoOpenEnable(val: boolean) {
 		this._customConfig.autoOpen = val;
 		storageSet({ autoOpen: val });
+	}
+
+	getKarmaRestriction() {
+		return this._customConfig.karmaRestriction || 0;
+	}
+
+	setKarmaRestriction(val: number) {
+		this._customConfig.karmaRestriction = val;
+		storageSet({ karmaRestriction: val });
+	}
+
+	isBetterPlayerRestriction() {
+		return Boolean(this._customConfig.betterPlayerRestriction);
+	}
+
+	setBetterPlayerRestriction(val: boolean) {
+		this._customConfig.betterPlayerRestriction = val;
+		storageSet({ betterPlayerRestriction: val });
 	}
 
 	isSolidBackground() {

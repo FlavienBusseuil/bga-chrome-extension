@@ -90,7 +90,7 @@ html.dark .text-gray-600 {
 .options-frame.reduced {
   cursor: pointer;
   margin-top: 0em;
-  padding: 0.5em 1em;
+  padding: 0.45em 1em;
   line-height: 20px;
 }
 
@@ -236,7 +236,7 @@ p {
 }
 
 .options-textarea {
-  height: 183px;
+  height: 145px;
   border: 1px solid #888;
   padding: 0.5em;
   resize: none;

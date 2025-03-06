@@ -220,11 +220,26 @@
 	"optionsLobbyRedirectOff": {
 		"message": "Les hyperliens du site ne sont pas modifiés, le lobby par défaut est utilisé (généralement le nouveau)"
 	},
-	"optionsAutoOpenOn": {
+	"optionsFastCreate": {
+		"message": "Création rapide des jeux"
+	},
+	"optionsFastCreateAutoOpenOn": {
 		"message": "Le bouton 'Création rapide' ouvre automatiquement la table aux autres joueurs"
 	},
-	"optionsAutoOpenOff": {
+	"optionsFastCreateAutoOpenOff": {
 		"message": "Le bouton 'Création rapide' n'ouvre pas la table aux autres joueurs"
+	},
+	"optionsFastCreateKarmaOn": {
+		"message": "Les joueurs n'ayant pas une bonne réputation (< 75%) sont exclus"
+	},
+	"optionsFastCreateKarmaOff": {
+		"message": "Les derniers paramètres de restriction de réputation sont utilisés"
+	},
+	"optionsFastCreateBetterOn": {
+		"message": "Les joueurs d'un niveau supérieur au mien sont exclus"
+	},
+	"optionsFastCreateBetterOff": {
+		"message": "Les derniers paramètres de restriction de niveau de joueur sont utilisés"
 	},
 	"optionsSolidBackgroundOn": {
 		"message": "L'arrière plan par défaut (planches en bois) est remplacé par un arrière-plan de couleur unie"

@@ -220,11 +220,26 @@
 	"optionsLobbyRedirectOff": {
 		"message": "Hyperlinks are not modified, the default lobby is used (usually the new one)."
 	},
-	"optionsAutoOpenOn": {
+	"optionsFastCreate": {
+		"message": "Fast game creation"
+	},
+	"optionsFastCreateAutoOpenOn": {
 		"message": "The 'Fast create' button automatically opens the table to other players"
 	},
-	"optionsAutoOpenOff": {
+	"optionsFastCreateAutoOpenOff": {
 		"message": "The 'Fast create' button does not open the table to other players"
+	},
+	"optionsFastCreateKarmaOn": {
+		"message": "Players with a poor reputation (< 75%) are excluded"
+	},
+	"optionsFastCreateKarmaOff": {
+		"message": "The latest reputation restriction parameters are used"
+	},
+	"optionsFastCreateBetterOn": {
+		"message": "Players above my level are excluded"
+	},
+	"optionsFastCreateBetterOff": {
+		"message": "The latest player level restriction settings are used"
 	},
 	"optionsSolidBackgroundOn": {
 		"message": "The default background (wooden planks) is replaced by a solid-colored background"

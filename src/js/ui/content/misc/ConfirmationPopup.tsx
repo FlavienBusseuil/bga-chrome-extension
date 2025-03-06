@@ -75,7 +75,7 @@ const ConfirmationPopup = ({ type, confirm, cancel, config }: Props) => {
       <p>{chrome.i18n.getMessage("deleteGameText2")}</p>
       <div className="bgaext_popup_check" onClick={updateAutoOpen}>
         <input type='checkbox' id='check_auto_open' checked={autoOpen} />
-        <label>{chrome.i18n.getMessage('optionsAutoOpenOn')}</label>
+        <label>{chrome.i18n.getMessage('optionsFastCreateAutoOpenOn')}</label>
       </div>
       <p dangerouslySetInnerHTML={{ __html: chrome.i18n.getMessage("deleteGameLink") }}></p>
       <div class="bgaext_popup_footer">

@@ -183,6 +183,28 @@ const sendHomeConfiguration = () => {
 	document.body.dispatchEvent(new CustomEvent('bga_ext_send_homepage_config', { detail }));
 };
 
+const setTableAccessLevel = (tableId, level) => {
+	const key = new Date().getTime();
+	const levels = [0, 1, 2, 3, 4, 5, 6].map(l => `level${l}=${level > l}`).join('&');
+	const endPoint = `/table/table/changeTableAccessLevel.html?table=${tableId}&${levels}&dojo.preventCache=${key}`;
+	const detail = JSON.stringify({ method: 'GET', endPoint, key, type: 'changeTableAccessLevel', data: { tableId, level }, errorResult: { data: 'ko' } });
+	document.body.dispatchEvent(new CustomEvent('bga_ext_api_call', { detail }));
+};
+
+const setTableAccessReputation = (tableId, karma) => {
+	const key = new Date().getTime();
+	const endPoint = `/table/table/changeTableAccessReputation.html?table=${tableId}&karma=${karma}&dojo.preventCache=${key}`;
+	const detail = JSON.stringify({ method: 'GET', endPoint, key, type: 'changeTableAccessReputation', data: { tableId } });
+	document.body.dispatchEvent(new CustomEvent('bga_ext_api_call', { detail }));
+};
+
+const setTableOpened = (tableId) => {
+	const key = new Date().getTime();
+	const endPoint = `/table/table/openTableNow.html?table=${tableId}&dojo.preventCache=${key}`;
+	const detail = JSON.stringify({ method: 'GET', endPoint, key, type: 'openTableNow' });
+	document.body.dispatchEvent(new CustomEvent('bga_ext_api_call', { detail }));
+};
+
 const initPage = () => {
 	config.isEmpty() && document.dispatchEvent(new CustomEvent('bga_ext_get_config', {}));
 	addLocationChangeListener(manageLocationChange);
@@ -206,12 +228,31 @@ const initPage = () => {
 		document.body.addEventListener('bga_ext_api_result', (data) => {
 			const evtDetail = JSON.parse(data.detail);
 
-			if (evtDetail.type === 'createnew' && config.isAutoOpenEnable()) {
-				const key = new Date().getTime();
+			console.debug(`[bga extension] Event ${evtDetail.type} received`, evtDetail);
+
+			if (evtDetail.type === 'createnew') {
 				const tableId = evtDetail.response.data.table;
-				const endPoint = `/table/table/openTableNow.html?table=${tableId}&dojo.preventCache=${key}`;
-				const detail = JSON.stringify({ method: 'GET', endPoint, key, type: 'openTableNow' });
-				document.body.dispatchEvent(new CustomEvent('bga_ext_api_call', { detail }));
+				const karmaRestriction = config.getKarmaRestriction();
+
+				if (karmaRestriction > 0) {
+					setTableAccessReputation(tableId, 3);
+				} else if (config.isBetterPlayerRestriction()) {
+					setTableAccessLevel(tableId, 6);
+				} else if (config.isAutoOpenEnable()) {
+					setTableOpened(tableId);
+				}
+			} else if (evtDetail.type === 'changeTableAccessReputation') {
+				if (config.isBetterPlayerRestriction()) {
+					setTableAccessLevel(evtDetail.data.tableId, 6);
+				} else if (config.isAutoOpenEnable()) {
+					setTableOpened(evtDetail.data.tableId);
+				}
+			} else if (evtDetail.type === 'changeTableAccessLevel') {
+				if (evtDetail.response.data === 'ok') {
+					setTableAccessLevel(evtDetail.data.tableId, evtDetail.data.level - 1);
+				} else if (config.isAutoOpenEnable()) {
+					setTableOpened(evtDetail.data.tableId);
+				}
 			}
 		});
 

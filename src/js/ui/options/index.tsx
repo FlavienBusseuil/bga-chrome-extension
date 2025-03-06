@@ -27,6 +27,8 @@ const Options = (props: { config: Configuration }) => {
 	const [customSoundFile, setCustomSoundFile] = useState(isSoundCustom());
 	const [redirect, setRedirect] = useState(config.isLobbyRedirectionEnable());
 	const [autoOpen, setAutoOpen] = useState(config.isAutoOpenEnable());
+	const [karmaRestriction, setKarmaRestriction] = useState(config.getKarmaRestriction());
+	const [betterPlayerRestriction, setBetterPlayerRestriction] = useState(config.isBetterPlayerRestriction());
 	const [solidBackground, setSolidBackground] = useState(config.isSolidBackground());
 	const [socialMessagesHidden, setSocialMessagesHidden] = useState(config.areSocialMessagesHidden());
 	const [chatUserNamesHidden, setChatUserNamesHidden] = useState(config.areChatUserNamesHidden());
@@ -176,6 +178,16 @@ const Options = (props: { config: Configuration }) => {
 		config.setAutoOpenEnable(val);
 	};
 
+	const updateKarmaRestriction = (val: boolean) => {
+		setKarmaRestriction(val ? 75 : 0);
+		config.setKarmaRestriction(val ? 75 : 0);
+	};
+
+	const updateBetterPlayerRestriction = (val: boolean) => {
+		setBetterPlayerRestriction(val);
+		config.setBetterPlayerRestriction(val);
+	};
+
 	const updateSolidBackground = (val: boolean) => {
 		setSolidBackground(val);
 		config.setSolidBackground(val);
@@ -259,12 +271,6 @@ const Options = (props: { config: Configuration }) => {
 						onChange={updateRedirect}
 					/>
 					<Switch
-						checked={autoOpen}
-						textOn={chrome.i18n.getMessage("optionsAutoOpenOn")}
-						textOff={chrome.i18n.getMessage("optionsAutoOpenOff")}
-						onChange={updateAutoOpen}
-					/>
-					<Switch
 						checked={solidBackground}
 						textOn={chrome.i18n.getMessage("optionsSolidBackgroundOn")}
 						textOff={chrome.i18n.getMessage("optionsSolidBackgroundOff")}
@@ -298,6 +304,29 @@ const Options = (props: { config: Configuration }) => {
 						textOn={chrome.i18n.getMessage("optionEloHiddenOff")}
 						textOff={chrome.i18n.getMessage("optionEloHiddenOn")}
 						onChange={updateEloHidden}
+					/>
+				</div>
+				<div className="bgext_options_title">
+					{chrome.i18n.getMessage("optionsFastCreate")}
+				</div>
+				<div className="bgext_misc_container">
+					<Switch
+						checked={autoOpen}
+						textOn={chrome.i18n.getMessage("optionsFastCreateAutoOpenOn")}
+						textOff={chrome.i18n.getMessage("optionsFastCreateAutoOpenOff")}
+						onChange={updateAutoOpen}
+					/>
+					<Switch
+						checked={betterPlayerRestriction}
+						textOn={chrome.i18n.getMessage("optionsFastCreateBetterOn")}
+						textOff={chrome.i18n.getMessage("optionsFastCreateBetterOff")}
+						onChange={updateBetterPlayerRestriction}
+					/>
+					<Switch
+						checked={karmaRestriction > 0}
+						textOn={chrome.i18n.getMessage("optionsFastCreateKarmaOn")}
+						textOff={chrome.i18n.getMessage("optionsFastCreateKarmaOff")}
+						onChange={updateKarmaRestriction}
 					/>
 				</div>
 			</>
