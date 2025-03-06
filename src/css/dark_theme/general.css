@@ -1978,6 +1978,10 @@ iframe#forum_frame {
 
 .bga-table-list-item__main .text-bga-gray-78 {
   color: var(--light-50);
+}
+
+.bga-table-list-item--size-md .bga-table-list-item__main .text-bga-gray-78,
+.bga-table-list-item--size-lg .bga-table-list-item__main .text-bga-gray-78 {
   overflow: visible;
 }
 
