@@ -221,7 +221,7 @@
 		"message": "Hyperlinks are not modified, the default lobby is used (usually the new one)."
 	},
 	"optionsFastCreate": {
-		"message": "Fast game creation"
+		"message": "Fast tables creation"
 	},
 	"optionsFastCreateAutoOpenOn": {
 		"message": "The 'Fast create' button automatically opens the table to other players"
