@@ -73,6 +73,7 @@ export const gamesWithCustomBackground = [
   'dvonn',
   'earth',
   'earthabundance',
+  'easypeasy',
   'ekko',
   'eminentdomain',
   'emdomicrocosm',
@@ -405,6 +406,7 @@ export const gamesWithRecommandedConfig = {
   dicycards: { color: 146, sat: 15 },
   dobro: { color: 216, sat: 25 },
   earth: { color: 130, sat: 20 },
+  easypeasy: { color: 227, sat: 15 },
   enemyanemone: { color: 220, sat: 32 },
   expeditions: { color: 200, sat: 32 },
   feastforodin: { color: 13, sat: 6 },
@@ -2602,6 +2604,16 @@ a.ea-main-action-id-color-3.ea-main-action-id-color-3 div[class^=ea-icon], a.ea-
 
 _darkStyleForGame['earthabundance'] = _darkStyleForGame['earth'];
 
+_darkStyleForGame['easypeasy'] = `
+body { background-color: #403a5f}
+body.ep_down { background-color: #454257; }
+.ep_zone:not(.ep_zone_nobg) { background-color: var(--dark-back-50); }
+.ep_zone_highlight:not(.ep_zone_nobg) { background-color: var(--dark-back); }
+.ep_zone_player_legend_hand, .ep_zone_player_legend_row { color: var(--light-50); }
+.ep_zone_player_sep { border-top: 1px solid var(--light-50); }
+.ep_card_back, .ep_card_front { filter: brightness(0.9); }
+`;
+
 _darkStyleForGame['ecarte'] = `
 .playertablename { text-shadow: none; }
 #pagesection_gameview .playertable.whiteblock.vulnerable { background: #4d000080; }
@@ -3141,6 +3153,11 @@ body { background: none !important; }
 #increaseZoomButton, #decreaseZoomButton { filter: invert(0.7); }
 .zoneWrapper { background: var(--dark-20); }
 .vp_panel, .res_panel, .newHandTile_panel { background-color: var(--dark-20); border-color: var(--dark-40); }
+`;
+
+_darkStyleForGame['ginrummy'] = `
+#overall-content[style^="background"], #overall-content[style^="background"] > * { filter: invert(1); }
+.player-name { text-shadow: none!important; }
 `;
 
 _darkStyleForGame['girafferaffe'] = `
