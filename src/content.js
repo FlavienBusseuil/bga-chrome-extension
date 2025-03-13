@@ -18,6 +18,7 @@ import {
 	refreshMutedPlayers,
 	displayInformationPopup
 } from './js/ui/content/functions';
+import { gamesWithTwoTeams } from "./js/config/darkThemeGames";
 
 const config = new Configuration();
 let currentObserver = null;
@@ -89,7 +90,8 @@ const manageLocationChange = (pathname) => {
 		buildOptions(config, gameName, gameConfig);
 
 		if (gameConfig) {
-			initLeftMenu(config, gameConfig, config.isLeftMenuEnabled(gameName));
+			gamesWithTwoTeams.includes()
+			initLeftMenu(config, gameConfig, config.isLeftMenuEnabled(gameName), gamesWithTwoTeams.includes(gameName));
 		} else {
 			console.debug(`[bga extension] no configuration found for game ${gameName}`);
 		}

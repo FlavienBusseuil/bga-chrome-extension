@@ -1,6 +1,6 @@
 import { isNumber } from "../../../utils/misc/isNumber";
 import { waitForObj } from "../../../utils/misc/wait";
-import { darkStyleForGame, gamesWithCustomActions, gamesWithCustomBackground, gamesWithCustomDarkMode, gamesWithCustomPanel, gamesWithCustomPlayerStyle, playersBackground, playersBorder, styleForGame } from "../../../config/darkThemeGames";
+import { darkStyleForGame, gamesWithCustomActions, gamesWithCustomBackground, gamesWithCustomDarkMode, gamesWithCustomPanel, gamesWithCustomPlayerStyle, gamesWithTwoTeams, playersBackground, playersBorder, styleForGame } from "../../../config/darkThemeGames";
 import { PlayerData, getPlayersData, getPlayersPossibleColors } from "../players";
 import { cookieName, createStyle, getFile } from "./darkStyleCommonFunctions";
 
@@ -149,7 +149,7 @@ const _setDarkStyleForGame = (gameName: string) => {
       document.documentElement.classList.add("darkpanel");
     }
 
-    getPlayersData().then(playersData => {
+    getPlayersData(gamesWithTwoTeams.includes(gameName)).then(playersData => {
       console.debug("[bga extension] players data", playersData);
 
       const possibleColors = [...playersData, ...getPlayersPossibleColors(gameName)];

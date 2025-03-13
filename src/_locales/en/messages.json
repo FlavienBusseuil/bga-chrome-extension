@@ -230,13 +230,13 @@
 		"message": "The 'Fast create' button does not open the table to other players"
 	},
 	"optionsFastCreateKarmaOn": {
-		"message": "Players with a poor reputation (< 75%) are excluded"
+		"message": "Players with a poor reputation (< 75%) are excluded [BETA]"
 	},
 	"optionsFastCreateKarmaOff": {
 		"message": "The latest reputation restriction parameters are used"
 	},
 	"optionsFastCreateBetterOn": {
-		"message": "Players above my level are excluded"
+		"message": "Players above my level are excluded [BETA]"
 	},
 	"optionsFastCreateBetterOff": {
 		"message": "The latest player level restriction settings are used"
@@ -248,7 +248,7 @@
 		"message": "The default background (wooden planks) is used"
 	},
 	"optionsHideSocialMessagesOn": {
-		"message": "News feed contains only groups messages [BETA]"
+		"message": "News feed contains only groups messages"
 	},
 	"optionsHideSocialMessagesOff": {
 		"message": "News feed contains default informations"

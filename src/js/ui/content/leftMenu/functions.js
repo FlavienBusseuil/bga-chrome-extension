@@ -4,9 +4,9 @@ import { getPlayersData } from "../players"
 
 let playersData;
 
-export const initLeftMenu = (config, gameConfig, leftMenuEnable) => {
+export const initLeftMenu = (config, gameConfig, leftMenuEnable, twoTeams) => {
 	document.addEventListener("DOMContentLoaded", () => {
-		getPlayersData().then((data) => {
+		getPlayersData(twoTeams).then((data) => {
 			console.debug("[bga extension] players data", data);
 
 			playersData = data;

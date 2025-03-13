@@ -11,11 +11,11 @@ export interface PlayerData {
   darkEnlight: boolean;
 };
 
-export const getPlayersData = async (): Promise<PlayerData[]> => {
-  return new Promise<PlayerData[]>(resolve => _getPlayersData(resolve, 0));
+export const getPlayersData = async (twoTeams: boolean): Promise<PlayerData[]> => {
+  return new Promise<PlayerData[]>(resolve => _getPlayersData(resolve, twoTeams, 0));
 };
 
-const _getPlayersData = (returnFunc: (data: PlayerData[]) => void, iteration: number) => {
+const _getPlayersData = (returnFunc: (data: PlayerData[]) => void, twoTeams: boolean, iteration: number) => {
   const playerContainers = Array.from(document.querySelectorAll("#player_boards div.player-name[id^=\"player_name_\"]")).filter(elt => elt.id.length > 13 || elt.id === "player_name_7");
   const playerlinks = document.querySelectorAll("#player_boards div.player-name[id^=\"player_name_\"] a[href*=\"/player?id\"]");
   let result: PlayerData[] | undefined = undefined;
@@ -49,8 +49,10 @@ const _getPlayersData = (returnFunc: (data: PlayerData[]) => void, iteration: nu
 
   if (result) {
     const diffColors = Array.from(new Set(result.map(c => c.color)));
+    const target = twoTeams ? 2 : result.length;
 
-    if (diffColors.length === result.length) {
+    if (diffColors.length === target) {
+      // The number of colors match the number of players (or the number of teams)
       document.documentElement.classList.remove("bgaext_get_players_data");
       returnFunc(result);
       return;
@@ -58,7 +60,7 @@ const _getPlayersData = (returnFunc: (data: PlayerData[]) => void, iteration: nu
   }
 
   if (iteration < 25) {
-    setTimeout(() => _getPlayersData(returnFunc, iteration + 1), 100);
+    setTimeout(() => _getPlayersData(returnFunc, twoTeams, iteration + 1), 100);
   } else {
     console.error("Too many iterations in getPlayersData");
     document.documentElement.classList.remove("bgaext_get_players_data");

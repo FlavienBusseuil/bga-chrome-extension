@@ -1449,6 +1449,17 @@ const defaultGames: Partial<Game>[] = [
 		name: "aquatica",
 		playerPanel: "player-table-{{player_id}}",
 	},
+	{
+		name: "bunnydrops",
+		playerPanel: "player-table-{{player_id}}",
+		playerPanelOffset: 50
+	},
+	{
+		name: "cakemaster",
+		playerPanel: ".cm-area-player",
+		bottomPanel: "cm-area-player-aid-container",
+		css: "#cm-button-to-top { display:none; } .desktop_version #game_play_area { margin-left: 50px; }"
+	},
 ];
 
 export default defaultGames;

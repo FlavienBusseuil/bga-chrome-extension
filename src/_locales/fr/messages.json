@@ -230,13 +230,13 @@
 		"message": "Le bouton 'Création rapide' n'ouvre pas la table aux autres joueurs"
 	},
 	"optionsFastCreateKarmaOn": {
-		"message": "Les joueurs n'ayant pas une bonne réputation (< 75%) sont exclus"
+		"message": "Les joueurs n'ayant pas une bonne réputation (< 75%) sont exclus [BETA]"
 	},
 	"optionsFastCreateKarmaOff": {
 		"message": "Les derniers paramètres de restriction de réputation sont utilisés"
 	},
 	"optionsFastCreateBetterOn": {
-		"message": "Les joueurs d'un niveau supérieur au mien sont exclus"
+		"message": "Les joueurs d'un niveau supérieur au mien sont exclus [BETA]"
 	},
 	"optionsFastCreateBetterOff": {
 		"message": "Les derniers paramètres de restriction de niveau de joueur sont utilisés"
@@ -248,7 +248,7 @@
 		"message": "L'arrière-plan par défaut (planches en bois) est utilisé"
 	},
 	"optionsHideSocialMessagesOn": {
-		"message": "Le fil d'actualité ne contient que les messages de groupe [BETA]"
+		"message": "Le fil d'actualité ne contient que les messages de groupe"
 	},
 	"optionsHideSocialMessagesOff": {
 		"message": "Le fil d'actualité contient les informations par défaut"
