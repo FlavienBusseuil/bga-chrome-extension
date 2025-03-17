@@ -69,6 +69,7 @@ interface CustomConfig {
 	solidBack?: boolean;
 	hideSocialMessages?: boolean;
 	hideChatUserNames?: boolean;
+	animatedTitle?: boolean;
 }
 
 export interface HomeConfig {
@@ -626,6 +627,15 @@ class Configuration {
 			return '#bga_extension_chat_icon { color: #c4c4c4; } #chatwindow_general { display: none !important; }';
 		}
 		return '#bga_extension_chat_icon { color: #01c4ca; } #chatwindow_general { display: inline-block !important; }';
+	}
+
+	isAnimatedTitle() {
+		return this._customConfig.animatedTitle === undefined || this._customConfig.animatedTitle;
+	}
+
+	setAnimatedTitle(val: boolean) {
+		this._customConfig.animatedTitle = val;
+		storageSet({ animatedTitle: val });
 	}
 
 	isEloHidden() {

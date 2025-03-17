@@ -103,6 +103,9 @@
 	"optionMiscTitle": {
 		"message": "Paramètres divers"
 	},
+	"optionNotifTitle": {
+		"message": "Notifications"
+	},
 	"optionGamesTitle": {
 		"message": "Paramètres des jeux"
 	},
@@ -253,6 +256,12 @@
 	"optionsHideSocialMessagesOff": {
 		"message": "Le fil d'actualité contient les informations par défaut"
 	},
+	"optionsAnimatedTitleOn": {
+		"message": "Le titre de la page dans les onglets du navigateur est précédé d'une animation lorsque c'est votre tour de jouer (comportement par défaut)"
+	},
+	"optionsAnimatedTitleOff": {
+		"message": "Le titre de la page dans les onglets du navigateur n'est jamais animé"
+	},
 	"optionsChatUserNameOn": {
 		"message": "Le nom des utilisateurs dans le chat est toujours affiché"
 	},
@@ -317,7 +326,7 @@
 		"message": "Mes amis"
 	},
 	"optionsHome": {
-		"message": "Configuration de la page d'accueil"
+		"message": "Page d'accueil"
 	},
 	"optionsHomeHeaderOn": {
 		"message": "En-tête visible"
@@ -407,7 +416,7 @@
 		"message": "Si l'affichage devient étrange après une modification de la configuration, essayez de recharger la page."
 	},
 	"optionsInProgress": {
-		"message": "Configuration de la page des jeux en cours"
+		"message": "Jeux en cours"
 	},
 	"optionsInProgressEmptyOn": {
 		"message": "Sections vides affichées"

@@ -6,6 +6,8 @@ import {
 	buildMainCss,
 	initLogObserver,
 	initChatObserver,
+	initTitleObserver,
+	stopTitleObserver,
 	initLeftMenu,
 	setFloatingRightMenu,
 	initDevelopperUI,
@@ -44,6 +46,10 @@ const initObserver = (page) => {
 		setTimeout(() => initObserver(page), 500);
 	} else {
 		initChatObserver(config);
+
+		if (!config.isAnimatedTitle()) {
+			initTitleObserver();
+		}
 	}
 };
 
@@ -58,7 +64,7 @@ const manageLocationChange = (pathname) => {
 		if (gameParam && tableParam) {
 			const redirectUrl = `https://boardgamearena.com/table?${tableParam}&nr=true`;
 			window.location.replace(redirectUrl);
-			return;
+			return 'general';
 		}
 	}
 
@@ -291,6 +297,12 @@ document.addEventListener('bga_ext_update_config', (data) => {
 	} else if (data.detail.key === 'hideSocialMessages') {
 		if (document.documentElement.classList.contains("bgaext_welcome") || document.documentElement.classList.contains("bgaext_player")) {
 			location.reload();
+		}
+	} else if (data.detail.key === 'animatedTitle') {
+		if (config.isAnimatedTitle()) {
+			stopTitleObserver();
+		} else {
+			initTitleObserver();
 		}
 	}
 });

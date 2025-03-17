@@ -103,6 +103,9 @@
 	"optionMiscTitle": {
 		"message": "Miscellaneous parameters"
 	},
+	"optionNotifTitle": {
+		"message": "Notifications"
+	},
 	"optionGamesTitle": {
 		"message": "Games parameters"
 	},
@@ -253,11 +256,11 @@
 	"optionsHideSocialMessagesOff": {
 		"message": "News feed contains default informations"
 	},
-	"optionsChatUserNameOn": {
-		"message": "User names in chat are always displayed"
+	"optionsAnimatedTitleOn": {
+		"message": "Page title in browser tabs is preceded by an animation when it's your turn to play (default behavior)."
 	},
-	"optionsChatUserNameOff": {
-		"message": "User names in chat are displayed only when necessary"
+	"optionsAnimatedTitleOff": {
+		"message": "Page title in browser tabs is never animated"
 	},
 	"about": {
 		"message": "About"
@@ -317,7 +320,7 @@
 		"message": "My friends"
 	},
 	"optionsHome": {
-		"message": "Home page settings"
+		"message": "Home page"
 	},
 	"optionsHomeHeaderOn": {
 		"message": "Header displayed"
@@ -407,7 +410,7 @@
 		"message": "If the display becomes weird after a configuration change, try reloading the page."
 	},
 	"optionsInProgress": {
-		"message": "Game in progress page settings"
+		"message": "Games in progress"
 	},
 	"optionsInProgressEmptyOn": {
 		"message": "Empty sections displayed"

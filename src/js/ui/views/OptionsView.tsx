@@ -5,6 +5,7 @@ import Configuration, { AdvancedHomeConfig, HomeConfig, InProgressConfig } from 
 import Switch from "../base/Switch";
 import { Button } from "../base/Button";
 import { isSoundCustom, playMp3, removeCustomMp3, uploadCustomMp3 } from "../../utils/misc/mp3";
+import { i18n } from "../../utils/chrome";
 
 type Props = {
   config: Configuration,
@@ -30,6 +31,7 @@ export const OptionsView = ({ config, onChange }: Props) => {
   const [hiddenGames, setHiddenGames] = useState<string[]>(config.getHiddenGames());
   const [hiddenPlayers, setHiddenPlayers] = useState<string[]>(config.getMutedPlayers());
   const [muteWarning, setMuteWarning] = useState(config.isMuteWarning());
+  const [animatedTitle, setAnimatedTitle] = useState(config.isAnimatedTitle());
   //const [configVisible, setConfigVisible] = useState(localStorage.getItem('ext_settings') || 'about');
   const [configVisible, setConfigVisible] = useState('about');
   const isFirefox = window.navigator.userAgent.toLowerCase().includes('firefox');
@@ -58,6 +60,11 @@ export const OptionsView = ({ config, onChange }: Props) => {
   const updateEloHidden = (val: boolean) => {
     setEloHidden(!val);
     config.setEloHidden(!val)
+  };
+
+  const updateAnimatedTitle = (val: boolean) => {
+    setAnimatedTitle(val);
+    config.setAnimatedTitle(val)
   };
 
   const updateMuteWarning = (val: boolean) => {
@@ -142,7 +149,7 @@ export const OptionsView = ({ config, onChange }: Props) => {
     if (!hiddenGames.length) {
       return (
         <span>
-          {chrome.i18n.getMessage("optionNoHiddenGames")}
+          {i18n("optionNoHiddenGames")}
         </span>
       );
     }
@@ -166,30 +173,30 @@ export const OptionsView = ({ config, onChange }: Props) => {
     if (confirmClear) {
       return (
         <>
-          {chrome.i18n.getMessage("optionsClearHiddenGamesConfirm")}
+          {i18n("optionsClearHiddenGamesConfirm")}
           <button
             className="bg-bgaBlue hover:bg-bgaBlue-light options-button"
             onClick={() => setHiddenGames(config.displayAllGames())}
           >
-            {chrome.i18n.getMessage("buttonConfirm")}
+            {i18n("buttonConfirm")}
           </button>
           <button
             className="bg-bgaBlue hover:bg-bgaBlue-light options-button"
             onClick={() => setConfirmClear(false)}
           >
-            {chrome.i18n.getMessage("buttonCancel")}
+            {i18n("buttonCancel")}
           </button>
         </>
       );
     }
-    return <a href="#" onClick={() => setConfirmClear(true)}>{chrome.i18n.getMessage("optionsClearHiddenGames")}</a>;
+    return <a href="#" onClick={() => setConfirmClear(true)}>{i18n("optionsClearHiddenGames")}</a>;
   };
 
   const getMutedConfiguration = () => {
     if (!hiddenPlayers.length) {
       return (
         <span>
-          {chrome.i18n.getMessage("optionNoMutedPlayer")}
+          {i18n("optionNoMutedPlayer")}
         </span>
       );
     }
@@ -214,10 +221,10 @@ export const OptionsView = ({ config, onChange }: Props) => {
   };
 
   const getSwitch = (checked: boolean, onChange: (val: boolean) => void, textOnKey: string, textOffKey: string, disabled?: boolean) => {
-    const textOn = chrome.i18n.getMessage(textOnKey);
-    const textOff = chrome.i18n.getMessage(textOffKey);
+    const textOn = i18n(textOnKey);
+    const textOff = i18n(textOffKey);
     const msg = checked ? textOn : textOff;
-    const className = (msg.length > 73) ? 'long_text' : undefined;
+    const className = (msg.length > 80) ? 'long_text' : undefined;
 
     return <Switch checked={checked} textOn={textOn} textOff={textOff} onChange={onChange} disabled={disabled} className={className} />
   };
@@ -226,18 +233,7 @@ export const OptionsView = ({ config, onChange }: Props) => {
     if (configVisible === 'misc') {
       return (
         <div className="options-frame">
-          <div className="options-frame-title">{chrome.i18n.getMessage("optionMiscTitle")}</div>
-          {getSwitch(tracking, updateTracking, "optionsTrackingOn", "optionsTrackingOff")}
-          {!isFirefox && getSwitch(soundNotification && tracking, updateSoundNotification, "optionsNotificationSoundOn", "optionsNotificationSoundOff", !tracking)}
-          {!isFirefox && <div className="row_fullwidth">
-            {getSwitch(soundNotification && tracking && customSoundFile, updateSoundCustom, "optionsNotificationCustomSoundOn", "optionsNotificationCustomSoundOff", !tracking || !soundNotification)}
-            {tracking && soundNotification && <div>
-              {customSoundFile && <Button {...{ text: chrome.i18n.getMessage("uploadMp3"), className: "small_button", onClick: uploadCustomMp3 }} />}
-              <Button {...{ text: chrome.i18n.getMessage("play"), className: "small_button", onClick: playMp3 }}
-              />
-            </div>}
-          </div>}
-          {getSwitch(!motionSensitivity, updateFlashing, "optionsFlashingOn", "optionsFlashingOff")}
+          <div className="options-frame-title">{i18n("optionMiscTitle")}</div>
           {getSwitch(redirect, updateRedirect, "optionsLobbyRedirectOn", "optionsLobbyRedirectOff")}
           {getSwitch(solidBackground, updateSolidBackground, "optionsSolidBackgroundOn", "optionsSolidBackgroundOff")}
           {getSwitch(socialMessagesHidden, updateSocialMessagesHidden, "optionsHideSocialMessagesOn", "optionsHideSocialMessagesOff")}
@@ -248,7 +244,40 @@ export const OptionsView = ({ config, onChange }: Props) => {
 
     return (
       <div className="options-frame reduced" onClick={() => _setConfigVisible('misc')}>
-        <div className="options-frame-title">{chrome.i18n.getMessage("optionMiscTitle")} {arrow()}</div>
+        <div className="options-frame-title">
+          <span>{i18n("optionMiscTitle")}</span>
+          {arrow()}
+        </div>
+      </div>
+    );
+  };
+
+  const getNotificationsSection = () => {
+    if (configVisible === 'notif') {
+      return (
+        <div className="options-frame">
+          <div className="options-frame-title">{i18n("optionNotifTitle")}</div>
+          {getSwitch(tracking, updateTracking, "optionsTrackingOn", "optionsTrackingOff")}
+          {!isFirefox && getSwitch(soundNotification && tracking, updateSoundNotification, "optionsNotificationSoundOn", "optionsNotificationSoundOff", !tracking)}
+          {!isFirefox && <div className="row_fullwidth">
+            {getSwitch(soundNotification && tracking && customSoundFile, updateSoundCustom, "optionsNotificationCustomSoundOn", "optionsNotificationCustomSoundOff", !tracking || !soundNotification)}
+            {tracking && soundNotification && <div>
+              {customSoundFile && <Button {...{ text: i18n("uploadMp3"), className: "small_button", onClick: uploadCustomMp3 }} />}
+              <Button {...{ text: i18n("play"), className: "small_button", onClick: playMp3 }} />
+            </div>}
+          </div>}
+          {getSwitch(!motionSensitivity, updateFlashing, "optionsFlashingOn", "optionsFlashingOff")}
+          {getSwitch(animatedTitle, updateAnimatedTitle, "optionsAnimatedTitleOn", "optionsAnimatedTitleOff")}
+        </div>
+      );
+    }
+
+    return (
+      <div className="options-frame reduced" onClick={() => _setConfigVisible('notif')}>
+        <div className="options-frame-title">
+          <span>{i18n("optionNotifTitle")}</span>
+          {arrow()}
+        </div>
       </div>
     );
   };
@@ -257,7 +286,7 @@ export const OptionsView = ({ config, onChange }: Props) => {
     if (configVisible === 'games') {
       return (
         <div className="options-frame">
-          <div className="options-frame-title">{chrome.i18n.getMessage("optionGamesTitle")}</div>
+          <div className="options-frame-title">{i18n("optionGamesTitle")}</div>
           {getSwitch(onlineMessages, updateOnlineMessages, "optionFriendsActivityOn", "optionFriendsActivityOff")}
           {getSwitch(!eloHidden, updateEloHidden, "optionEloHiddenOff", "optionEloHiddenOn")}
         </div>
@@ -266,7 +295,10 @@ export const OptionsView = ({ config, onChange }: Props) => {
 
     return (
       <div className="options-frame reduced" onClick={() => _setConfigVisible('games')}>
-        <div className="options-frame-title">{chrome.i18n.getMessage("optionGamesTitle")} {arrow()}</div>
+        <div className="options-frame-title">
+          <span>{i18n("optionGamesTitle")}</span>
+          {arrow()}
+        </div>
       </div>
     );
   };
@@ -297,21 +329,21 @@ export const OptionsView = ({ config, onChange }: Props) => {
           <div className="options-buttons-container">
             <button
               className="bg-bgaBlue hover:bg-bgaBlue-light options-button"
-              onClick={() => window.open(chrome.i18n.getMessage('htmlHelpPage'), "_blank")}
+              onClick={() => window.open(i18n('htmlHelpPage'), "_blank")}
             >
-              {chrome.i18n.getMessage('buttonHelp')}
+              {i18n('buttonHelp')}
             </button>
             <button
               className="bg-bgaBlue hover:bg-bgaBlue-light options-button"
               onClick={saveHtml}
             >
-              {chrome.i18n.getMessage('buttonSave')}
+              {i18n('buttonSave')}
             </button>
           </div>
         );
       }
 
-      const text = chrome.i18n.getMessage(advancedStatus == 'saved' ? 'htmlSaved' : 'htmlError');
+      const text = i18n(advancedStatus == 'saved' ? 'htmlSaved' : 'htmlError');
       return <div className={`options-buttons-container ${advancedStatus}`}>{text}</div>;
     }
 
@@ -357,20 +389,23 @@ export const OptionsView = ({ config, onChange }: Props) => {
     if (configVisible === 'home') {
       return (
         <div className="options-frame">
-          <div className="options-frame-title">{chrome.i18n.getMessage("optionsHome")}</div>
+          <div className="options-frame-title">{i18n("optionsHome")}</div>
           <div className="row_fullwidth">
             {getSwitch(advancedHomeConfig.advanced, () => _updateAdvanceHomeConfig({ html: advancedHomeConfig.html, advanced: !advancedHomeConfig.advanced }), "optionsHomeAdvancedOn", "optionsHomeAdvancedOff")}
             {getAdvancedCommand()}
           </div>
           {getDetailedHomeSection()}
-          <div>{chrome.i18n.getMessage("optionsHomeRefresh")}</div>
+          <div>{i18n("optionsHomeRefresh")}</div>
         </div>
       );
     }
 
     return (
       <div className="options-frame reduced" onClick={() => _setConfigVisible('home')}>
-        <div className="options-frame-title">{chrome.i18n.getMessage("optionsHome")} {arrow()}</div>
+        <div className="options-frame-title">
+          <span>{i18n("optionsHome")}</span>
+          {arrow()}
+        </div>
       </div>
     );
   };
@@ -383,7 +418,7 @@ export const OptionsView = ({ config, onChange }: Props) => {
     if (configVisible === 'inProgress') {
       return (
         <div className="options-frame">
-          <div className="options-frame-title">{chrome.i18n.getMessage("optionsInProgress")}</div>
+          <div className="options-frame-title">{i18n("optionsInProgress")}</div>
           <div className="options-subframe">
             <div>
               {getInProgressSwitch('emptySections', 'optionsInProgressEmpty')}
@@ -401,7 +436,10 @@ export const OptionsView = ({ config, onChange }: Props) => {
 
     return (
       <div className="options-frame reduced" onClick={() => _setConfigVisible('inProgress')}>
-        <div className="options-frame-title">{chrome.i18n.getMessage("optionsInProgress")} {arrow()}</div>
+        <div className="options-frame-title">
+          <span>{i18n("optionsInProgress")}</span>
+          {arrow()}
+        </div>
       </div>
     );
   };
@@ -410,7 +448,7 @@ export const OptionsView = ({ config, onChange }: Props) => {
     if (configVisible === 'fastStart') {
       return (
         <div className="options-frame">
-          <div className="options-frame-title">{chrome.i18n.getMessage("optionsFastCreate")}</div>
+          <div className="options-frame-title">{i18n("optionsFastCreate")}</div>
           {getSwitch(autoOpen, updateAutoOpen, "optionsFastCreateAutoOpenOn", "optionsFastCreateAutoOpenOff")}
           {getSwitch(betterPlayerRestriction, updateBetterPlayerRestriction, "optionsFastCreateBetterOn", "optionsFastCreateBetterOff")}
           {getSwitch(karmaRestriction > 0, updateKarmaRestriction, "optionsFastCreateKarmaOn", "optionsFastCreateKarmaOff")}
@@ -420,7 +458,10 @@ export const OptionsView = ({ config, onChange }: Props) => {
 
     return (
       <div className="options-frame reduced" onClick={() => _setConfigVisible('fastStart')}>
-        <div className="options-frame-title">{chrome.i18n.getMessage("optionsFastCreate")} {arrow()}</div>
+        <div className="options-frame-title">
+          <span>{i18n("optionsFastCreate")}</span>
+          {arrow()}
+        </div>
       </div>
     );
   };
@@ -429,8 +470,8 @@ export const OptionsView = ({ config, onChange }: Props) => {
     if (configVisible === 'hidden') {
       return (
         <div className="options-frame">
-          <div className="options-frame-title">{chrome.i18n.getMessage("optionHiddenTab")}</div>
-          <div>{chrome.i18n.getMessage("optionHiddenGamesWarning")}</div>
+          <div className="options-frame-title">{i18n("optionHiddenTab")}</div>
+          <div>{i18n("optionHiddenGamesWarning")}</div>
           <div className="bgext_hidden_games_container">{getHiddenConfiguration()}</div>
           <div className="bgext_hidden_games_clear_container">{getClearHiddenSection()}</div>
         </div>
@@ -439,7 +480,10 @@ export const OptionsView = ({ config, onChange }: Props) => {
 
     return (
       <div className="options-frame reduced" onClick={() => _setConfigVisible('hidden')}>
-        <div className="options-frame-title">{chrome.i18n.getMessage("optionHiddenTab")} {arrow()}</div>
+        <div className="options-frame-title">
+          <span>{i18n("optionHiddenTab")}</span>
+          {arrow()}
+        </div>
       </div>
     );
   };
@@ -448,8 +492,8 @@ export const OptionsView = ({ config, onChange }: Props) => {
     if (configVisible === 'muted') {
       return (
         <div className="options-frame">
-          <div className="options-frame-title">{chrome.i18n.getMessage("optionMutedTab")}</div>
-          <div>{chrome.i18n.getMessage("optionMutedWarning")}</div>
+          <div className="options-frame-title">{i18n("optionMutedTab")}</div>
+          <div>{i18n("optionMutedWarning")}</div>
           <div className="col">
             <div className="bgext_hidden_games_container">{getMutedConfiguration()}</div>
             {getSwitch(muteWarning, updateMuteWarning, "muteWarningOn", "muteWarningOff")}
@@ -460,7 +504,10 @@ export const OptionsView = ({ config, onChange }: Props) => {
 
     return (
       <div className="options-frame reduced" onClick={() => _setConfigVisible('muted')}>
-        <div className="options-frame-title">{chrome.i18n.getMessage("optionMutedTab")} {arrow()}</div>
+        <div className="options-frame-title">
+          <span>{i18n("optionMutedTab")}</span>
+          {arrow()}
+        </div>
       </div>
     );
   };
@@ -469,8 +516,8 @@ export const OptionsView = ({ config, onChange }: Props) => {
     if (configVisible === 'about') {
       return (
         <div className="options-frame">
-          <div className="options-frame-title">{chrome.i18n.getMessage("about")}</div>
-          <div dangerouslySetInnerHTML={{ __html: chrome.i18n.getMessage("aboutText") }}></div>
+          <div className="options-frame-title">{i18n("about")}</div>
+          <div dangerouslySetInnerHTML={{ __html: i18n("aboutText") }}></div>
           <div className="options-version">Version {chrome.runtime.getManifest().version}</div>
         </div>
       );
@@ -478,7 +525,10 @@ export const OptionsView = ({ config, onChange }: Props) => {
 
     return (
       <div className="options-frame reduced" onClick={() => _setConfigVisible('about')}>
-        <div className="options-frame-title">{chrome.i18n.getMessage("about")} {arrow()}</div>
+        <div className="options-frame-title">
+          <span>{i18n("about")}</span>
+          {arrow()}
+        </div>
       </div>
     );
   };
@@ -486,6 +536,7 @@ export const OptionsView = ({ config, onChange }: Props) => {
   return (
     <div className="options-container">
       {getMiscSection()}
+      {getNotificationsSection()}
       {getGamesSection()}
       {getHomeSection()}
       {getInProgressSection()}

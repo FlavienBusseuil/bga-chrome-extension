@@ -297,7 +297,7 @@ const initChatObserver = (config) => {
 	waitForObj('#chatbar', 5).then(chatContainer => {
 		console.debug('[bga extension] init mute management', mutedPlayers);
 
-		const observer = new MutationObserver(() => muteChatAll(config, chatContainer))
+		const observer = new MutationObserver(() => muteChatAll(config, chatContainer));
 		observer.observe(chatContainer, { childList: true, subtree: true });
 		return observer;
 	});
@@ -318,10 +318,30 @@ const initChatObserver = (config) => {
 					audioContainer.appendChild(extAudioTag);
 				}
 			}
-		})
+		});
 		observer.observe(audioContainer, { childList: true, subtree: true });
 		return observer;
 	});
+};
+
+let titleObserver = undefined;
+
+const initTitleObserver = () => {
+	stopTitleObserver();
+
+	titleObserver = new MutationObserver(() => {
+		if (["◢", "◣", "◣", "◤"].includes(document.title.substring(0, 1))) {
+			document.title = document.title.substring(2);
+		}
+	});
+	titleObserver.observe(document.querySelector("title"), { childList: true, subtree: false });
+};
+
+const stopTitleObserver = () => {
+	if (titleObserver) {
+		titleObserver.disconnect();
+		titleObserver = undefined;
+	}
 };
 
 const initLogObserver = (config) => {
@@ -538,6 +558,8 @@ export {
 	buildMainCss,
 	initLogObserver,
 	initChatObserver,
+	initTitleObserver,
+	stopTitleObserver,
 	refreshMutedPlayers,
 	initLeftMenu,
 	setFloatingRightMenu,
