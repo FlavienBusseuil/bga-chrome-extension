@@ -266,7 +266,7 @@
 		"message": "Le nom des utilisateurs dans le chat est toujours affiché"
 	},
 	"optionsChatUserNameOff": {
-		"message": "Le nom des utilisateurs dans le chat n'est affiché que lorsque c'est nécessaire"
+		"message": "Le nom des utilisateurs dans le chat est caché lorsque c'est possible"
 	},
 	"about": {
 		"message": "A propos"

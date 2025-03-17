@@ -262,6 +262,12 @@
 	"optionsAnimatedTitleOff": {
 		"message": "Page title in browser tabs is never animated"
 	},
+	"optionsChatUserNameOn": {
+		"message": "User names in chat are always displayed"
+	},
+	"optionsChatUserNameOff": {
+		"message": "User names in chat are displayed only when necessary"
+	},
 	"about": {
 		"message": "About"
 	},
