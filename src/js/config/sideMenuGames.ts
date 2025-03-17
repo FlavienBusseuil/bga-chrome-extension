@@ -1460,6 +1460,11 @@ const defaultGames: Partial<Game>[] = [
 		bottomPanel: "cm-area-player-aid-container",
 		css: "#cm-button-to-top { display:none; } .desktop_version #game_play_area { margin-left: 50px; }"
 	},
+	{
+		name: "piratas",
+		playerPanel: "playmat_{{player_id}}",
+		bottomPanel: "discard_wrap"
+	},
 ];
 
 export default defaultGames;

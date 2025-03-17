@@ -331,7 +331,8 @@ export const gamesWithCustomPlayerStyle = {
   quartzdice: '.quartz-mining-cart-title > span',
   theguildofmerchantexplorers: '.tab_header, .player_board .player_nametag',
   aquatica: '.player-table-board h3',
-  elpasogwt: '.player-board-name'
+  elpasogwt: '.player-board-name',
+  piratas: '#playmats .playmat h3'
 };
 
 export const playersBackground = {
@@ -359,6 +360,7 @@ export const playersBorder = {
   letsgotojapan: ['#playerhandtitle_{{player_id}}', '#playerhand_{{player_id}}', '#nameplayer_{{player_id}}'],
   nirds: ['#player_table_{{player_id}}'],
   pioneerdaysproject: ['#playerbox-{{player_id}}'],
+  piratas: ['#playmat_{{player_id}}'],
   pixies: ['#player-table-{{player_id}}'],
   refuge: ['#player-table-{{player_id}}'],
   riverofgold: ['#rog_player_delivered_resizable-{{player_id}}'],
@@ -4422,6 +4424,13 @@ _darkStyleForGame['mexica'] = `
 .mex_temple:hover .mex_temple_level { background-color: var(--dark-back); }
 `;
 
+_darkStyleForGame['mia'] = `
+.chart_row { color: var(--light-80); }
+.playertablename { text-shadow: none; }
+.chart_row>div { background-color: var(--dark-back); }
+.dice { filter: brightness(0.9); }
+`;
+
 _darkStyleForGame['microdojo'] = `
 .doubleempty { color: #fff; }
 [style="color: blue;"] { color: #6666ff !important; }
@@ -5224,6 +5233,13 @@ _darkStyleForGame['pipeline'] = `
 .ppln_upgradeFlipToken { filter: brightness(0.8); border-radius: 50%; }
 .ppln_valuationCard { background-color: #360; color: var(--light-80); }
 .ppln_valuationTitle { background-color: var(--dark-back); }
+`;
+
+_darkStyleForGame['piratas'] = `
+#playmats .playmat h3, .block_title  { background: var(--dark-20); }
+.piratas_tooltip_info span[style="color:black"] { color: var(--light-80)!important; }
+.piratas_table td, .piratas_table th { color: var(--light-80) }
+#playmats .playmat img, #playmats .playmat .playmat_content_card .playmat_card, .cardblock_content .stockitem { filter: brightness(0.9); }
 `;
 
 _darkStyleForGame['piratesofmaracaibo'] = `
@@ -6082,6 +6098,10 @@ _darkStyleForGame['smallworld'] = `
 .sw_combo_infos { color: var(--light-70); }
 `;
 
+_darkStyleForGame['sneferu'] = `
+#sneferu-wrapper { filter: brightness(0.9); }
+`;
+
 _darkStyleForGame['sobek'] = `
 .whiteblock_title { text-shadow: none; background-color: var(--dark-20); padding: 0.5em 1em; border-radius: 8px; }
 .fixed_player_title { height: 32px; }
@@ -6548,6 +6568,7 @@ a#localsettings_restore span { white-space: break-spaces; }
 .bgabutton_purple { ${purpleButton} }
 .bgabutton_purple:hover { ${purpleButtonOver} }
 .bgabutton.disabled:hover { background: #4d4d4d; color: #f66; }
+#terraforming_complete { background: var(--red-10); }
 .card { filter: brightness(0.9); }
 `;
 
@@ -7006,8 +7027,10 @@ _darkStyleForGame['tortugasixteensixtyseven'] = `
 `;
 
 _darkStyleForGame['toybattle'] = `
-.discard { background: #000; }
+#global_big_id:before { content: ""; background: #00000080; position: absolute; width: 100%; height: 100%; }
 .bgaext_overlay { filter: invert(0.75)!important; }
+.tooltip_info { color: var(--blue-50); }
+.board { filter: brightness(0.9); }
 `;
 
 _darkStyleForGame['trailblazers'] = `

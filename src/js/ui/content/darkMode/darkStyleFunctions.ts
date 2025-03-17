@@ -80,9 +80,10 @@ const getDarkColorsStyle = (playersData: PlayerData[]) => {
 };
 
 const _checkContent = (elt: any, text: string) => {
-  const toSearch = text.toLowerCase();
+  const toSearch = text.trim().toLowerCase();
+  const eltContent = elt.innerText.trim().toLowerCase();
 
-  if (elt.innerText.trim().toLowerCase().startsWith(toSearch)) {
+  if (eltContent.startsWith(toSearch) || eltContent.endsWith(toSearch)) {
     return true;
   }
 
