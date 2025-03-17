@@ -69,29 +69,37 @@ html.dark .text-gray-600 {
 
 .options-container {
   display: flex;
-  flex-flow: column;
+  flex-flow: row wrap;
   width: 100%;
   padding: 0.5em;
+  gap: 0.5em;
 }
 
 .options-frame {
   border: 1px solid #000;
   border-radius: 4px;
   padding: 1em;
-  margin: 0.5em;
+  margin-top: 0.5em;
   box-sizing: border-box;
   position: relative;
-  gap: 0.3em;
+  gap: 0.5em;
   display: flex;
-  flex-flow: column;
+  flex-flow: row wrap;
   transition: all .5s linear;
+}
+
+.options-frame:not(.reduced) {
+  width: 100%;
 }
 
 .options-frame.reduced {
   cursor: pointer;
   margin-top: 0em;
-  padding: 0.45em 1em;
+  padding: 0.6em 1em;
   line-height: 20px;
+  flex-grow: 1;
+  flex-shrink: 1;
+  flex-basis: auto;
 }
 
 .options-frame.reduced:hover {
@@ -116,6 +124,10 @@ html.dark .options-frame {
   transition: all .5s linear;
 }
 
+.options-frame-title span {
+  min-width: 150px;
+}
+
 .reduced .options-frame-title {
   position: relative;
   top: 0px;
@@ -123,6 +135,7 @@ html.dark .options-frame {
   display: flex;
   flex-flow: row;
   justify-content: space-between;
+  width: 100%;
 }
 
 .reduced .options-frame-title svg {
@@ -236,12 +249,13 @@ p {
 }
 
 .options-textarea {
-  height: 145px;
+  height: 200px;
   border: 1px solid #888;
   padding: 0.5em;
   resize: none;
   box-shadow: none !important;
   outline: none !important;
+  width: 100%;
 }
 
 .options-button {

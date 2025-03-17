@@ -224,7 +224,7 @@ export const OptionsView = ({ config, onChange }: Props) => {
     const textOn = i18n(textOnKey);
     const textOff = i18n(textOffKey);
     const msg = checked ? textOn : textOff;
-    const className = (msg.length > 80) ? 'long_text' : undefined;
+    const className = (msg.length > 76) ? 'long_text' : undefined;
 
     return <Switch checked={checked} textOn={textOn} textOff={textOff} onChange={onChange} disabled={disabled} className={className} />
   };
