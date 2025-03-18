@@ -62,9 +62,9 @@ div.bgext_right_menu i {
 	display: inline;
 }
 
-.desktop_version .logs_on_floating_panel #logs {
+.desktop_version.logs_on_floating_panel #logs {
 	margin-top: 0px;
-	max-height: 100000px;
+	max-height: none;
 }
 
 .desktop_version.logs_on_floating_panel #seemorelogs {
@@ -73,10 +73,6 @@ div.bgext_right_menu i {
 
 .desktop_version.logs_on_floating_panel #go_to_next_table_inactive_player {
 	margin-left: 5px
-}
-
-.desktop_version .logs_on_floating_panel .mobile_version #cde-floating-menu-log {
-	display: none;
 }
 
 
