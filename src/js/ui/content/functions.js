@@ -117,8 +117,6 @@ const displayInformationPopup = () => {
 	const content = (
 		<div>
 			<p>{isFirefox ? chrome.i18n.getMessage("infosSubTitleFirefox") : chrome.i18n.getMessage("infosSubTitleChrome")}</p>
-			<p dangerouslySetInnerHTML={{ __html: chrome.i18n.getMessage("infosLine1") }}></p>
-			<p dangerouslySetInnerHTML={{ __html: chrome.i18n.getMessage("infosLine2") }}></p>
 			<p dangerouslySetInnerHTML={{ __html: chrome.i18n.getMessage("infosLine3") }}></p>
 			<p dangerouslySetInnerHTML={{ __html: chrome.i18n.getMessage("infosLine4") }}></p>
 			<p dangerouslySetInnerHTML={{ __html: chrome.i18n.getMessage("infosLine5") }}></p>

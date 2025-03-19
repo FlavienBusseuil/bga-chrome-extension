@@ -263,17 +263,21 @@ export const OptionsView = ({ config, onChange }: Props) => {
       return (
         <div className="options-frame">
           <div className="options-frame-title">{i18n("optionNotifTitle")}</div>
-          {getSwitch(tracking, updateTracking, "optionsTrackingOn", "optionsTrackingOff")}
-          {!isFirefox && getSwitch(soundNotification && tracking, updateSoundNotification, "optionsNotificationSoundOn", "optionsNotificationSoundOff", !tracking)}
-          {!isFirefox && <div className="row_fullwidth">
-            {getSwitch(soundNotification && tracking && customSoundFile, updateSoundCustom, "optionsNotificationCustomSoundOn", "optionsNotificationCustomSoundOff", !tracking || !soundNotification)}
-            {tracking && soundNotification && <div>
-              {customSoundFile && <Button {...{ text: i18n("uploadMp3"), className: "small_button", onClick: uploadCustomMp3 }} />}
-              <Button {...{ text: i18n("play"), className: "small_button", onClick: playMp3 }} />
+          <div className="desktop-options">
+            {getSwitch(tracking, updateTracking, "optionsTrackingOn", "optionsTrackingOff")}
+            {!isFirefox && getSwitch(soundNotification && tracking, updateSoundNotification, "optionsNotificationSoundOn", "optionsNotificationSoundOff", !tracking)}
+            {!isFirefox && <div className="row_fullwidth">
+              {getSwitch(soundNotification && tracking && customSoundFile, updateSoundCustom, "optionsNotificationCustomSoundOn", "optionsNotificationCustomSoundOff", !tracking || !soundNotification)}
+              {tracking && soundNotification && <div>
+                {customSoundFile && <Button {...{ text: i18n("uploadMp3"), className: "small_button", onClick: uploadCustomMp3 }} />}
+                <Button {...{ text: i18n("play"), className: "small_button", onClick: playMp3 }} />
+              </div>}
             </div>}
-          </div>}
+          </div>
           {getSwitch(!motionSensitivity, updateFlashing, "optionsFlashingOn", "optionsFlashingOff")}
-          {getSwitch(animatedTitle, updateAnimatedTitle, "optionsAnimatedTitleOn", "optionsAnimatedTitleOff")}
+          <div className="desktop-options">
+            {getSwitch(animatedTitle, updateAnimatedTitle, "optionsAnimatedTitleOn", "optionsAnimatedTitleOff")}
+          </div>
         </div>
       );
     }
@@ -295,7 +299,9 @@ export const OptionsView = ({ config, onChange }: Props) => {
           <div className="options-frame-title">{i18n("optionGamesTitle")}</div>
           {getSwitch(onlineMessages, updateOnlineMessages, "optionFriendsActivityOn", "optionFriendsActivityOff")}
           {getSwitch(!eloHidden, updateEloHidden, "optionEloHiddenOff", "optionEloHiddenOn")}
-          {getSwitch(chatBarAutoHide, updateChatBarAutoHide, "optionsChatAutoHideOn", "optionsChatAutoHideOff")}
+          <div className="desktop-options">
+            {getSwitch(chatBarAutoHide, updateChatBarAutoHide, "optionsChatAutoHideOn", "optionsChatAutoHideOff")}
+          </div>
         </div>
       );
     }
