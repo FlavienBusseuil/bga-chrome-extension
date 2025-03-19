@@ -68,6 +68,7 @@ interface CustomConfig {
 	betterPlayerRestriction?: boolean;
 	solidBack?: boolean;
 	hideSocialMessages?: boolean;
+	chatBarAutoHide?: boolean;
 	hideChatUserNames?: boolean;
 	animatedTitle?: boolean;
 }
@@ -431,6 +432,15 @@ class Configuration {
 		storageSet({ hideSocialMessages: val });
 	}
 
+	isChatBarAutoHide() {
+		return Boolean(this._customConfig.chatBarAutoHide);
+	}
+
+	setChatBarAutoHide(val: boolean) {
+		this._customConfig.chatBarAutoHide = val;
+		storageSet({ chatBarAutoHide: val });
+	}
+
 	areChatUserNamesHidden() {
 		return Boolean(this._customConfig.hideChatUserNames);
 	}
@@ -719,6 +729,21 @@ class Configuration {
 	setCustomCss(code: string) {
 		this._localConfig.css = code;
 		return localStorageSet({ css: code });
+	}
+
+	getGameCss() {
+		const cssList: string[] = [];
+
+		if (this._customConfig.chatBarAutoHide) {
+			cssList.push('.game_interface #chatbardock { transition: top .5s ease 0s; }');
+			cssList.push('.game_interface #chatbardock.bgaext_hidden:not(:has(.expanded)) { top: 0px; }')
+		}
+
+		if (this._localConfig.css) {
+			cssList.push(this._localConfig.css);
+		}
+
+		return cssList.join('\n');
 	}
 
 	getAllCss() {

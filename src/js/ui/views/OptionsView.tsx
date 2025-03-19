@@ -26,6 +26,7 @@ export const OptionsView = ({ config, onChange }: Props) => {
   const [solidBackground, setSolidBackground] = useState(config.isSolidBackground());
   const [socialMessagesHidden, setSocialMessagesHidden] = useState(config.areSocialMessagesHidden());
   const [chatUserNamesHidden, setChatUserNamesHidden] = useState(config.areChatUserNamesHidden());
+  const [chatBarAutoHide, setChatBarAutoHide] = useState(config.isChatBarAutoHide());
   const [homeConfig, setHomeConfig] = useState<HomeConfig>(config.getHomeConfig());
   const [inProgressConfig, setInProgressConfig] = useState<InProgressConfig>(config.getInProgressConfig());
   const [hiddenGames, setHiddenGames] = useState<string[]>(config.getHiddenGames());
@@ -129,6 +130,11 @@ export const OptionsView = ({ config, onChange }: Props) => {
   const updateChatUserNamesHidden = (val: boolean) => {
     setChatUserNamesHidden(!val);
     config.setChatUserNamesHidden(!val);
+  };
+
+  const updateChatBarAutoHide = (val: boolean) => {
+    setChatBarAutoHide(val);
+    config.setChatBarAutoHide(val);
   };
 
   const updateHomeConfig = (param: string, val: boolean) => {
@@ -289,6 +295,7 @@ export const OptionsView = ({ config, onChange }: Props) => {
           <div className="options-frame-title">{i18n("optionGamesTitle")}</div>
           {getSwitch(onlineMessages, updateOnlineMessages, "optionFriendsActivityOn", "optionFriendsActivityOff")}
           {getSwitch(!eloHidden, updateEloHidden, "optionEloHiddenOff", "optionEloHiddenOn")}
+          {getSwitch(chatBarAutoHide, updateChatBarAutoHide, "optionsChatAutoHideOn", "optionsChatAutoHideOff")}
         </div>
       );
     }

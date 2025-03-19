@@ -268,6 +268,12 @@
 	"optionsChatUserNameOff": {
 		"message": "User names in chat are displayed only when necessary"
 	},
+	"optionsChatAutoHideOn": {
+		"message": "The chat bar is only displayed when the mouse is moved over it"
+	},
+	"optionsChatAutoHideOff": {
+		"message": "The chat bar is always displayed"
+	},
 	"about": {
 		"message": "About"
 	},

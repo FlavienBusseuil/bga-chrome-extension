@@ -25,6 +25,7 @@ import { gamesWithTwoTeams } from "./js/config/darkThemeGames";
 const config = new Configuration();
 let currentObserver = null;
 let pageType = undefined;
+let chatbardock = undefined;
 
 if (localStorage.getItem('ext_dark_theme') === 'on') {
 	// hack to avoid light theme flashing
@@ -40,6 +41,23 @@ if (localStorage.getItem('ext_dark_theme') === 'on') {
 	});
 }
 
+const autoHideChat = (e) => {
+	if (chatbardock) {
+		const clientRect = chatbardock.getBoundingClientRect();
+		const minX = clientRect.x - 100;
+		const maxX = clientRect.x + clientRect.width + 100;
+		const minY = clientRect.y - 50;
+
+		if (e.clientX > minX && e.clientX < maxX && e.clientY > minY) {
+			chatbardock.classList.remove('bgaext_hidden');
+		} else {
+			chatbardock.classList.add('bgaext_hidden');
+		}
+	} else {
+		chatbardock = document.querySelector('#chatbardock');
+	}
+};
+
 const initObserver = (page) => {
 	currentObserver = page === 'game' ? initLogObserver(config) : initGameListObserver(config, page);
 	if (!currentObserver) {
@@ -49,6 +67,10 @@ const initObserver = (page) => {
 
 		if (!config.isAnimatedTitle()) {
 			initTitleObserver();
+		}
+
+		if (page === 'game' && config.isChatBarAutoHide()) {
+			document.querySelector('body').addEventListener('mousemove', autoHideChat);
 		}
 	}
 };
@@ -217,7 +239,7 @@ const initPage = () => {
 	config.isEmpty() && document.dispatchEvent(new CustomEvent('bga_ext_get_config', {}));
 	addLocationChangeListener(manageLocationChange);
 	pageType = manageLocationChange(window.location.pathname);
-	buildMainCss(pageType === 'general' ? config.getAllCss() : config.getCustomCss());
+	buildMainCss(pageType === 'general' ? config.getAllCss() : config.getGameCss());
 
 	waitForObj('head', 10).then(() => {
 		const script = document.createElement('script');
@@ -303,6 +325,16 @@ document.addEventListener('bga_ext_update_config', (data) => {
 			stopTitleObserver();
 		} else {
 			initTitleObserver();
+		}
+	} else if (data.detail.key === 'chatBarAutoHide') {
+		if (pageType === 'game') {
+			buildMainCss(config.getGameCss());
+
+			if (config.isChatBarAutoHide()) {
+				document.querySelector('body').addEventListener('mousemove', autoHideChat);
+			} else {
+				document.querySelector('body').removeEventListener('mousemove', autoHideChat);
+			}
 		}
 	}
 });
