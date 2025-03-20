@@ -238,11 +238,20 @@
 	"optionsFastCreateKarmaOff": {
 		"message": "Les derniers paramètres de restriction de réputation sont utilisés"
 	},
-	"optionsFastCreateBetterOn": {
-		"message": "Les joueurs d'un niveau supérieur au mien sont exclus [BETA]"
+	"optionsFastCreateLevelOn": {
+		"message": "La restriction de niveau suivante est appliquée [BETA]"
 	},
-	"optionsFastCreateBetterOff": {
-		"message": "Les derniers paramètres de restriction de niveau de joueur sont utilisés"
+	"optionsFastCreateLevelOff": {
+		"message": "Les derniers paramètres de restriction de niveau sont utilisés"
+	},
+	"optionsFastCreateLevel0": {
+		"message": "Les joueurs plus forts que moi ne sont pas acceptés"
+	},
+	"optionsFastCreateLevel1": {
+		"message": "Seuls les joueurs de mon niveau ±1 sont acceptés"
+	},
+	"optionsFastCreateLevel2": {
+		"message": "Seuls les joueurs de mon niveau ±2 sont acceptés"
 	},
 	"optionsSolidBackgroundOn": {
 		"message": "L'arrière plan par défaut (planches en bois) est remplacé par un arrière-plan de couleur unie"

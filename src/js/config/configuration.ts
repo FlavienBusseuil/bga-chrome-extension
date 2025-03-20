@@ -66,6 +66,7 @@ interface CustomConfig {
 	autoOpen?: boolean;
 	karmaRestriction?: number;
 	betterPlayerRestriction?: boolean;
+	levelPlayerRestriction?: number;
 	solidBack?: boolean;
 	hideSocialMessages?: boolean;
 	chatBarAutoHide?: boolean;
@@ -412,6 +413,15 @@ class Configuration {
 	setBetterPlayerRestriction(val: boolean) {
 		this._customConfig.betterPlayerRestriction = val;
 		storageSet({ betterPlayerRestriction: val });
+	}
+
+	getLevelPlayerRestriction() {
+		return this._customConfig.levelPlayerRestriction || 0;
+	}
+
+	setLevelPlayerRestriction(val: number) {
+		this._customConfig.levelPlayerRestriction = val;
+		storageSet({ levelPlayerRestriction: val });
 	}
 
 	isSolidBackground() {

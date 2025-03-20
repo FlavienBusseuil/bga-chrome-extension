@@ -213,15 +213,25 @@ const sendHomeConfiguration = () => {
 	document.body.dispatchEvent(new CustomEvent('bga_ext_send_homepage_config', { detail }));
 };
 
-const setTableAccessLevel = (tableId, level) => {
+const setTableAccessMaxLevel = (tableId, maxLevel) => {
+	console.debug(`[bga extension] Search my level for table ${tableId}. Is it ${maxLevel}?`);
 	const key = new Date().getTime();
-	const levels = [0, 1, 2, 3, 4, 5, 6].map(l => `level${l}=${level > l}`).join('&');
+	const levels = [0, 1, 2, 3, 4, 5, 6].map(l => `level${l}=${maxLevel > l}`).join('&');
 	const endPoint = `/table/table/changeTableAccessLevel.html?table=${tableId}&${levels}&dojo.preventCache=${key}`;
-	const detail = JSON.stringify({ method: 'GET', endPoint, key, type: 'changeTableAccessLevel', data: { tableId, level }, errorResult: { data: 'ko' } });
+	const detail = JSON.stringify({ method: 'GET', endPoint, key, type: 'changeTableAccessLevel', data: { tableId, level: maxLevel }, errorResult: { data: 'ko' } });
+	document.body.dispatchEvent(new CustomEvent('bga_ext_api_call', { detail }));
+};
+
+const setTableAccessLevels = (tableId, minLevel, maxLevel) => {
+	const key = new Date().getTime();
+	const levels = [0, 1, 2, 3, 4, 5, 6].map(l => `level${l}=${l >= minLevel && l <= maxLevel}`).join('&');
+	const endPoint = `/table/table/changeTableAccessLevel.html?table=${tableId}&${levels}&dojo.preventCache=${key}`;
+	const detail = JSON.stringify({ method: 'GET', endPoint, key, type: 'changeTableAccessLevel', data: { tableId, level: -1 }, errorResult: { data: 'ko' } });
 	document.body.dispatchEvent(new CustomEvent('bga_ext_api_call', { detail }));
 };
 
 const setTableAccessReputation = (tableId, karma) => {
+	console.debug(`[bga extension] Set karma restriction value to ${karma} for table ${tableId}`);
 	const key = new Date().getTime();
 	const endPoint = `/table/table/changeTableAccessReputation.html?table=${tableId}&karma=${karma}&dojo.preventCache=${key}`;
 	const detail = JSON.stringify({ method: 'GET', endPoint, key, type: 'changeTableAccessReputation', data: { tableId } });
@@ -229,6 +239,7 @@ const setTableAccessReputation = (tableId, karma) => {
 };
 
 const setTableOpened = (tableId) => {
+	console.debug(`[bga extension] Open table ${tableId}`);
 	const key = new Date().getTime();
 	const endPoint = `/table/table/openTableNow.html?table=${tableId}&dojo.preventCache=${key}`;
 	const detail = JSON.stringify({ method: 'GET', endPoint, key, type: 'openTableNow' });
@@ -266,22 +277,38 @@ const initPage = () => {
 
 				if (karmaRestriction > 0) {
 					setTableAccessReputation(tableId, 3);
-				} else if (config.isBetterPlayerRestriction()) {
-					setTableAccessLevel(tableId, 6);
+				} else if (config.isBetterPlayerRestriction() || config.getLevelPlayerRestriction()) {
+					setTableAccessMaxLevel(tableId, 6);
 				} else if (config.isAutoOpenEnable()) {
 					setTableOpened(tableId);
 				}
 			} else if (evtDetail.type === 'changeTableAccessReputation') {
-				if (config.isBetterPlayerRestriction()) {
-					setTableAccessLevel(evtDetail.data.tableId, 6);
+				if (config.isBetterPlayerRestriction() || config.getLevelPlayerRestriction()) {
+					setTableAccessMaxLevel(evtDetail.data.tableId, 6);
 				} else if (config.isAutoOpenEnable()) {
 					setTableOpened(evtDetail.data.tableId);
 				}
 			} else if (evtDetail.type === 'changeTableAccessLevel') {
 				if (evtDetail.response.data === 'ok') {
-					setTableAccessLevel(evtDetail.data.tableId, evtDetail.data.level - 1);
-				} else if (config.isAutoOpenEnable()) {
-					setTableOpened(evtDetail.data.tableId);
+					if (evtDetail.data.level > 0) {
+						setTableAccessMaxLevel(evtDetail.data.tableId, evtDetail.data.level - 1);
+					} else if (config.isAutoOpenEnable()) {
+						setTableOpened(evtDetail.data.tableId);
+					}
+				} else {
+					const levelPlayerRestriction = config.getLevelPlayerRestriction();
+					const myLevel = evtDetail.data.level;
+
+					if (levelPlayerRestriction) {
+						const minLevel = Math.max(myLevel - levelPlayerRestriction, 0);
+						const maxLevel = Math.min(myLevel + levelPlayerRestriction, 6);
+
+						console.debug(`[bga extension] My level is ${myLevel}. Set authorized levels between ${minLevel} and ${maxLevel}`);
+						setTableAccessLevels(evtDetail.data.tableId, minLevel, maxLevel);
+					} else if (config.isAutoOpenEnable()) {
+						console.debug(`[bga extension] My level is ${myLevel}. Players with higher level are not allowed`);
+						setTableOpened(evtDetail.data.tableId);
+					}
 				}
 			}
 		});

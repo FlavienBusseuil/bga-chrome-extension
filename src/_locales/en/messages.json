@@ -9,7 +9,7 @@
 		"message": "You can report this error on <a target='_blank' href='https://boardgamearena.com/forum/viewtopic.php?t=30509'>the forum</a>."
 	},
 	"report_error_ff": {
-		"message": "Please make sure that all permissions have been granted to the extension (right-click on the extension icon, then “Manage extension” and go to the “Permissions” tab). If you are unable to correct this error, please let us know on <a target='_blank' href='https://boardgamearena.com/forum/viewtopic.php?t=30509'>the forum</a>."
+		"message": "Please make sure that all permissions have been granted to the extension (right-click on the extension icon, then \"Manage extension\" and go to the \"Permissions\" tab). If you are unable to correct this error, please let us know on <a target='_blank' href='https://boardgamearena.com/forum/viewtopic.php?t=30509'>the forum</a>."
 	},
 	"play_new_game": {
 		"message": "Play a New Game"
@@ -238,11 +238,20 @@
 	"optionsFastCreateKarmaOff": {
 		"message": "The latest reputation restriction parameters are used"
 	},
-	"optionsFastCreateBetterOn": {
-		"message": "Players above my level are excluded [BETA]"
+	"optionsFastCreateLevelOn": {
+		"message": "The following level restriction is applied [BETA]"
 	},
-	"optionsFastCreateBetterOff": {
-		"message": "The latest player level restriction settings are used"
+	"optionsFastCreateLevelOff": {
+		"message": "The latest level restriction parameters are used"
+	},
+	"optionsFastCreateLevel0": {
+		"message": "Players stronger than me are not accepted"
+	},
+	"optionsFastCreateLevel1": {
+		"message": "Only players of my level ±1 are accepted"
+	},
+	"optionsFastCreateLevel2": {
+		"message": "Only players of my level ±2 are accepted"
 	},
 	"optionsSolidBackgroundOn": {
 		"message": "The default background (wooden planks) is replaced by a solid-colored background"

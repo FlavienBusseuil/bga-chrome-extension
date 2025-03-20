@@ -23,6 +23,7 @@ export const OptionsView = ({ config, onChange }: Props) => {
   const [autoOpen, setAutoOpen] = useState(config.isAutoOpenEnable());
   const [karmaRestriction, setKarmaRestriction] = useState(config.getKarmaRestriction());
   const [betterPlayerRestriction, setBetterPlayerRestriction] = useState(config.isBetterPlayerRestriction());
+  const [levelPlayerRestriction, setLevelPlayerRestriction] = useState(config.getLevelPlayerRestriction());
   const [solidBackground, setSolidBackground] = useState(config.isSolidBackground());
   const [socialMessagesHidden, setSocialMessagesHidden] = useState(config.areSocialMessagesHidden());
   const [chatUserNamesHidden, setChatUserNamesHidden] = useState(config.areChatUserNamesHidden());
@@ -36,6 +37,8 @@ export const OptionsView = ({ config, onChange }: Props) => {
   //const [configVisible, setConfigVisible] = useState(localStorage.getItem('ext_settings') || 'about');
   const [configVisible, setConfigVisible] = useState('about');
   const isFirefox = window.navigator.userAgent.toLowerCase().includes('firefox');
+  console.log("init", { betterPlayerRestriction, levelPlayerRestriction });
+  const [playerRestriction, setPlayerRestriction] = useState(betterPlayerRestriction || levelPlayerRestriction > 0);
 
   const [advancedHomeConfig, setAdvancedHomeConfig] = useState<AdvancedHomeConfig>(config.getAdvancedHomeConfig());
   const [advancedHomeHtml, setAdvancedHomeHtml] = useState(advancedHomeConfig.html);
@@ -112,9 +115,21 @@ export const OptionsView = ({ config, onChange }: Props) => {
     config.setKarmaRestriction(val ? 75 : 0);
   };
 
-  const updateBetterPlayerRestriction = (val: boolean) => {
+  const updatePlayerRestriction = (val: boolean) => {
+    setPlayerRestriction(val);
+    setLevelPlayerRestriction(0);
     setBetterPlayerRestriction(val);
+
+    config.setLevelPlayerRestriction(0);
     config.setBetterPlayerRestriction(val);
+  };
+
+  const uplateLevelPlayerRestriction = (val: number) => {
+    setLevelPlayerRestriction(val);
+    setBetterPlayerRestriction(val === 0);
+
+    config.setLevelPlayerRestriction(val);
+    config.setBetterPlayerRestriction(val === 0);
   };
 
   const updateSolidBackground = (val: boolean) => {
@@ -463,7 +478,14 @@ export const OptionsView = ({ config, onChange }: Props) => {
         <div className="options-frame">
           <div className="options-frame-title">{i18n("optionsFastCreate")}</div>
           {getSwitch(autoOpen, updateAutoOpen, "optionsFastCreateAutoOpenOn", "optionsFastCreateAutoOpenOff")}
-          {getSwitch(betterPlayerRestriction, updateBetterPlayerRestriction, "optionsFastCreateBetterOn", "optionsFastCreateBetterOff")}
+          {getSwitch(playerRestriction, updatePlayerRestriction, "optionsFastCreateLevelOn", "optionsFastCreateLevelOff")}
+          {playerRestriction &&
+            <select onChange={(evt: any) => uplateLevelPlayerRestriction(+evt.target?.value)} value={levelPlayerRestriction}>
+              <option value={0}>{i18n('optionsFastCreateLevel0')}</option>
+              <option value={1}>{i18n('optionsFastCreateLevel1')}</option>
+              <option value={2}>{i18n('optionsFastCreateLevel2')}</option>
+            </select>
+          }
           {getSwitch(karmaRestriction > 0, updateKarmaRestriction, "optionsFastCreateKarmaOn", "optionsFastCreateKarmaOff")}
         </div>
       );

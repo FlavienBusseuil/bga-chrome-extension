@@ -75,27 +75,29 @@ export const initGameListObserver = (config, page) => {
 
 		const startGame = () => {
 			const gameId = evt.target.id.split('_').pop();
-			const key = new Date().getTime();
 
-			let obj = evt.target;
-			let gameMode = 'realtime';
+			if (gameId) {
+				let obj = evt.target;
+				let gameMode = 'realtime';
 
-			for (let i = 0; i < 10; i++) {
-				const classes = Array.from(obj.classList);
-				if (classes.includes('gametable_status_asyncinit')) {
-					gameMode = 'async';
-					break;
+				for (let i = 0; i < 10; i++) {
+					const classes = Array.from(obj.classList);
+					if (classes.includes('gametable_status_asyncinit')) {
+						gameMode = 'async';
+						break;
+					}
+					if (classes.includes('gametable_status_init')) {
+						gameMode = 'realtime';
+						break;
+					}
+					obj = obj.parentNode;
 				}
-				if (classes.includes('gametable_status_init')) {
-					gameMode = 'realtime';
-					break;
-				}
-				obj = obj.parentNode;
+
+				const key = new Date().getTime();
+				const endPoint = `/table/table/createnew.html?game=${gameId}&gamemode=${gameMode}&forceManual=true&is_meeting=false&dojo.preventCache=${key}`;
+				const detail = JSON.stringify({ method: 'GET', endPoint, key, type: 'createnew' });
+				document.body.dispatchEvent(new CustomEvent('bga_ext_api_call', { detail }));
 			}
-
-			const endPoint = `/table/table/createnew.html?game=${gameId}&gamemode=${gameMode}&forceManual=true&is_meeting=false&dojo.preventCache=${key}`;
-			const detail = JSON.stringify({ method: 'GET', endPoint, key, type: 'createnew' });
-			document.body.dispatchEvent(new CustomEvent('bga_ext_api_call', { detail }));
 		};
 
 		if (localStorage.getItem("ext_fast_start_warning") === "off") {
