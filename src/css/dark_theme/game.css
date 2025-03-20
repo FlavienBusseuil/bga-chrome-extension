@@ -584,6 +584,10 @@ div[id*="popin"][id$="underlay"] {
   background: var(--red-10);
 }
 
+.game_result_status_important {
+  color: var(--red-10);
+}
+
 /* board game settings in some games (codexnaturalis, forage, ginkgopolis, grovesolitaire, ...) */
 
 .scrollmap_form [type="submit"] {

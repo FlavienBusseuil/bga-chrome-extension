@@ -96,6 +96,7 @@ export const gamesWithCustomBackground = [
   'gangofdice',
   'gangsta',
   'gardennation',
+  'gardenrush',
   'giftoftulips',
   'girafferaffe',
   'gnomehollow',
@@ -1964,6 +1965,12 @@ _darkStyleForGame['chromino'] = `
 .tile.icon { filter: var(--highlight-min); }
 `;
 
+_darkStyleForGame['churn'] = `
+#churn-replace-status, #churn-replace-title { background-color: var(--dark-20); }
+.hex-tile[data-hex=empty] { filter: invert(1); }
+#logs .churn-stone-icon { border-radius: 50%; }
+`;
+
 _darkStyleForGame['cinco'] = `
 .playertablename { color: #fff !important; }
 `;
@@ -3167,6 +3174,14 @@ _darkStyleForGame['gardennation'] = `
 .tooltip-important { color: #ff3333; }
 .card.selected { box-shadow: 0 0 10px 10px #8a4252; }
 #last-round { background-color: var(--red-10); }
+`;
+
+_darkStyleForGame['gardenrush'] = `
+#overall-content:before { content: ""; background: #00000060; position: absolute; width: 100%; height: 100%; top:0px; left: 0px; }
+.gr_help_post { background-color: var(--dark-back); color: var(--light-80); }
+#player_board_config { position: relative; }
+.gr_popup_content { background-color: var(--dark-30); color: var(--light-80); }
+.gr_board img, .gr_scores img, .gr_card_back, .gr_card_front { filter: brightness(0.9); }
 `;
 
 _darkStyleForGame['geekoutmasters'] = `
