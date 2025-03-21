@@ -24,14 +24,6 @@ body {
   font-size: 12px;
 }
 
-@media only screen and (hover: none) and (pointer: coarse) {
-
-  html,
-  body {
-    width: 100% !important;
-  }
-}
-
 .max-result {
   max-height: 472px;
   overflow: auto;
@@ -47,15 +39,15 @@ html.dark body.container {
 }
 
 select {
-  border: 1px solid #000;
-  border-radius: 4px;
   height: 26px;
   padding: 0em 1em;
   margin: 0em 0.5em;
 }
 
-html.dark select {
-  border: 1px solid #fff;
+#group-select {
+  height: 36px;
+  padding: 0em 0.5em;
+  margin: 0px;
 }
 
 html.dark .bg-white {
@@ -336,4 +328,18 @@ html.dark .shadow-md {
 html.dark * {
   --tw-ring-offset-shadow: 0 0 #555;
   --tw-ring-shadow: 0 0 #555;
+}
+
+/* Special style for Android version */
+@media only screen and (hover: none) and (pointer: coarse) {
+
+  html,
+  body {
+    width: 100% !important;
+    max-width: max-content !important;
+  }
+
+  .container {
+    max-width: none;
+  }
 }

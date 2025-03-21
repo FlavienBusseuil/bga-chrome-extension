@@ -147,6 +147,7 @@ export const FriendsView = ({ className, getGroupTables, groups, motionSensitivi
       )}
       <div className={cn(["flex justify-between flex-row gap-2", className || ''])}>
         <select
+          id="group-select"
           className="flex-grow border border-black dark:dark:border-white rounded"
           value={group}
           onChange={(evt) => setGroup(evt.target.value)}

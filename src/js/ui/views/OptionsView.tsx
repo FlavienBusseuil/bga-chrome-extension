@@ -480,7 +480,7 @@ export const OptionsView = ({ config, onChange }: Props) => {
           {getSwitch(autoOpen, updateAutoOpen, "optionsFastCreateAutoOpenOn", "optionsFastCreateAutoOpenOff")}
           {getSwitch(playerRestriction, updatePlayerRestriction, "optionsFastCreateLevelOn", "optionsFastCreateLevelOff")}
           {playerRestriction &&
-            <select onChange={(evt: any) => uplateLevelPlayerRestriction(+evt.target?.value)} value={levelPlayerRestriction}>
+            <select className="border border-black dark:dark:border-white rounded" onChange={(evt: any) => uplateLevelPlayerRestriction(+evt.target?.value)} value={levelPlayerRestriction}>
               <option value={0}>{i18n('optionsFastCreateLevel0')}</option>
               <option value={1}>{i18n('optionsFastCreateLevel1')}</option>
               <option value={2}>{i18n('optionsFastCreateLevel2')}</option>
