@@ -75,8 +75,25 @@ const initObserver = (page) => {
 	}
 };
 
+const setSolidBackground = () => {
+	if (config.isSolidBackground()) {
+		document.documentElement.classList.add('bgaext_game');
+		document.documentElement.classList.add('bgaext_solid_back');
+	}
+};
+
 const manageLocationChange = (pathname) => {
 	console.log('[bga extension] load path', pathname);
+
+	const pageInfo = pathname.substring(1).split('.')[0].split('/');
+
+	if (window.location.hostname === 'studio.boardgamearena.com') {
+		const pageName = pageInfo[0] || 'welcomestudio';
+		setHtmlClass(pageName, config.isSolidBackground());
+		initChatIcon(config);
+		initDarkMode(config, 'general');
+		return 'studio';
+	}
 
 	if (pathname === '/gamepanel' && config.isLobbyRedirectionEnable()) {
 		const params = window.location.search.substring(1).split('&');
@@ -90,19 +107,10 @@ const manageLocationChange = (pathname) => {
 		}
 	}
 
-	const pageInfo = pathname.substring(1).split('.')[0].split('/');
-
 	if (currentObserver) {
 		currentObserver.disconnect();
 		currentObserver = null;
 	}
-
-	const setSolidBackground = () => {
-		if (config.isSolidBackground()) {
-			document.documentElement.classList.add('bgaext_game');
-			document.documentElement.classList.add('bgaext_solid_back');
-		}
-	};
 
 	if (pageInfo.length >= 2 && isNumber(pageInfo[0])) {
 		initObserver('game');
@@ -142,7 +150,6 @@ const manageLocationChange = (pathname) => {
 	}
 
 	const pageName = pageInfo[0] || 'welcome';
-
 	if (pageName === 'blank') {
 		return 'blank';
 	}
@@ -250,7 +257,18 @@ const initPage = () => {
 	config.isEmpty() && document.dispatchEvent(new CustomEvent('bga_ext_get_config', {}));
 	addLocationChangeListener(manageLocationChange);
 	pageType = manageLocationChange(window.location.pathname);
-	buildMainCss(pageType === 'general' ? config.getAllCss() : config.getGameCss());
+
+	switch (pageType) {
+		case 'game':
+			buildMainCss(config.getGameCss());
+			break;
+		case 'studio':
+			buildMainCss(config.geStudioCss());
+			break;
+		default:
+			buildMainCss(config.getAllCss());
+			break;
+	}
 
 	waitForObj('head', 10).then(() => {
 		const script = document.createElement('script');

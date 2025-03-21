@@ -756,6 +756,20 @@ class Configuration {
 		return cssList.join('\n');
 	}
 
+	geStudioCss() {
+		const cssList: string[] = [];
+
+		if (!this._customConfig.hideChatUserNames) {
+			cssList.push('#chatbar .chatwindow .playername { display: inline !important; }');
+		}
+
+		if (this._localConfig.css) {
+			cssList.push(this._localConfig.css);
+		}
+
+		return cssList.join('\n');
+	}
+
 	getAllCss() {
 		const home = this.getHomeConfig();
 		const advHome = this.getAdvancedHomeConfig();

@@ -9,6 +9,10 @@ div.bgext_studio_row {
 	margin: 5px;
 }
 
+.darkmode div.bgext_studio_row {
+	border-color: var(--dark-40);
+}
+
 div.bgext_studio_container {
 	display: flex;
 	flex-flow: row;
@@ -32,7 +36,7 @@ div.bgext_studio_select_container {
 	margin: 4px 0;
 }
 
-div.bgext_studio_select_container > select {
+div.bgext_studio_select_container>select {
 	width: 100%;
 	height: 32px;
 }
@@ -42,6 +46,10 @@ div.bgext_studio_sentences {
 	display: flex;
 	flex-flow: column nowrap;
 	flex-grow: 1;
+}
+
+.darkmode div.bgext_studio_sentences {
+	border-color: var(--dark-40);
 }
 
 div.bgext_studio_sentence {
@@ -55,7 +63,7 @@ div.bgext_studio_sentence_name {
 	width: 150px;
 }
 
-div.bgext_studio_sentence_name > input {
+div.bgext_studio_sentence_name>input {
 	width: 100%;
 	padding: 0.5em;
 }
@@ -66,14 +74,14 @@ div.bgext_studio_sentence_text {
 	padding: 0.5em;
 }
 
-div.bgext_studio_sentence_text > textarea {
+div.bgext_studio_sentence_text>textarea {
 	width: 100%;
 	padding: 0.5em;
 	resize: none;
 	height: 100px;
 }
 
-div.bgext_studio_big_container > textarea {
+div.bgext_studio_big_container>textarea {
 	width: 100%;
 	padding: 0.5em;
 	resize: none;
@@ -88,13 +96,13 @@ div.bgext_studio_sentence_game {
 	padding-left: 20px;
 }
 
-div.bgext_studio_sentence_game > input {
+div.bgext_studio_sentence_game>input {
 	position: absolute;
 	top: 16px;
 	left: 0px;
 }
 
-div.bgext_studio_sentence_game > label {
+div.bgext_studio_sentence_game>label {
 	padding: 1.1em 0.3em 0em 0em;
 }
 
