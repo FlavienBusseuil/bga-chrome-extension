@@ -1669,8 +1669,11 @@ h5 { color: #fff; }
 
 _darkStyleForGame['canvas'] = `
 #overall-content:before { content: ""; background: #00000080; position: absolute; width: 100%; height: 100%; top:0px; left: 0px; }
-.art-card { background-color: #fff; }
+.dijitTooltip .art-card { background-color: var(--light-50); }
 .player-area  .title { color: #000 !important; }
+.bgabutton.bgabutton_blue { ${blueButton}}
+.bgabutton.bgabutton_blue:hover { ${blueButtonOver}}
+.canvas-art-card { filter: brightness(0.9); }
 `;
 
 _darkStyleForGame['capereurope'] = `
@@ -4135,6 +4138,12 @@ _darkStyleForGame['lineit'] = `
 .player-scored-card, .jackpot-icon { filter: var(--highlight-min); }
 `;
 
+_darkStyleForGame['linenumberone'] = `
+#board, .player_board_content .playertrack { filter: brightness(0.9); }
+#button_undo { ${redButton}}
+#button_undo:hover { ${redButtonOver}}
+`;
+
 _darkStyleForGame['linesofaction'] = `
 .bgae_panel .bgae_content .panel { background-color: var(--dark-back); opacity: 1; }
 `;
@@ -4498,10 +4507,6 @@ _darkStyleForGame['mindcycling'] = `
 #mcy-board, #mcy-info-card { filter: brightness(0.9); }
 `;
 
-_darkStyleForGame['minnesotawhist'] = `
-#logs strong[style="color:black;"] { text-shadow: var(--text-w-shadow); }
-`;
-
 _darkStyleForGame['mindup'] = `
 #overall-content:before { content: ""; background: #00000060; position: absolute; width: 100%; height: 100%; }
 .darkmode .spectator-mode * { background: transparent !important; }
@@ -4510,8 +4515,17 @@ _darkStyleForGame['mindup'] = `
 #table-center .slot .player-block { background: var(--dark-20); }
 `;
 
+_darkStyleForGame['mindmgmt'] = `
+#bga_zoom_controls { filter: invert(0.8); }
+.whiteblock_inner { background-color: var(--dark-back); border: 1px solid var(--dark-40); }
+`;
+
 _darkStyleForGame['minirogue'] = `
 .mnr-card { color: #000; }
+`;
+
+_darkStyleForGame['minnesotawhist'] = `
+#logs strong[style="color:black;"] { text-shadow: var(--text-w-shadow); }
 `;
 
 _styleForGame['mlem'] = `
@@ -5034,7 +5048,7 @@ _darkStyleForGame['pandaspin'] = `
 .ps_zone { background-color: var(--dark-back); color: var(--light-80); }
 .ps_zone_play p { background-color: var(--dark-10) !important; }
 .ps_help .ps_help_content { color: var(--light-80); }
-.ps_popup_content { background-color: var(--dark-30); border: 1px solid var(--dark-40); }
+.ps_popup_content { color: var(--light-80); background-color: var(--dark-30); border: 1px solid var(--dark-40); }
 .ps_card_back, .ps_card_front { filter: brightness(0.9); }
 `;
 
@@ -5212,9 +5226,10 @@ _darkStyleForGame['piereighteen'] = `
 
 _darkStyleForGame['pingimus'] = `
 .player-name { text-shadow: none; }
+.similar select { background: #000; }
 .vote label span { background: var(--dark-20); border: 3px solid var(--dark-10); color: var(--light-80); }
 .vote label input:checked+span { background: var(--dark-40); }
-#pingimus_canvas, #pictures img { filter: invert(0.9); }
+#pingimus_canvas, #pictures img { filter: brightness(0.9); }
 #canvas_container { box-shadow: 3px 3px 3px #50505080; }
 #pictures h3 { background: var(--dark-20); color: var(--light-80); }
 .guess.finished { background: var(--green-30); }
@@ -6382,6 +6397,8 @@ _darkStyleForGame['superfantasybrawl'] = `
 
 _darkStyleForGame['supermegaluckybox'] = `
 .smlb_x_icon, .smlb_x_icon .smlb_pb_count { filter: invert(1); }
+.smlb_en .smlb_scorecard { color: #000; filter: brightness(0.9); }
+.smlb_en .smlb_lucky_box, .smlb_number_cards>.stockitem { filter: brightness(0.9); }
 `;
 
 _darkStyleForGame['superstore'] = `
