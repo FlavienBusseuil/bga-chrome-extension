@@ -277,6 +277,12 @@
 	"optionsChatUserNameOff": {
 		"message": "User names in chat are displayed only when necessary"
 	},
+	"optionsChatLightIconsOn": {
+		"message": "Light mode emoticons are used in conversations even when dark mode is activated"
+	},
+	"optionsChatLightIconsOff": {
+		"message": "Dark mode emoticons are used in conversations when dark mode is activated"
+	},
 	"optionsChatAutoHideOn": {
 		"message": "The chat bar is only displayed when the mouse is moved over it"
 	},

@@ -99,64 +99,53 @@ body.mobile_version #chatbar .chatwindowcollapsed {
   background-color: var(--dark-10);
 }
 
+.bgasmiley {
+  background-image: url(data:image/png;base64,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);
+  background-position-x: 20;
+}
+
+.bgaext_chat_light_icons .bgasmiley {
+  background-position-x: 0;
+}
+
 .bgasmiley_smile {
-  background-position: center;
-  background-repeat: no-repeat;
-  background-image: var(--ext-icon-smile);
+  background-position-y: 0px;
 }
 
 .bgasmiley_unsmile {
-  background-position: center;
-  background-repeat: no-repeat;
-  background-image: var(--ext-icon-sad);
+  background-position-y: -20px;
 }
 
 .bgasmiley_blink {
-  background-position: center;
-  background-repeat: no-repeat;
-  background-image: var(--ext-icon-wink);
+  background-position-y: -40px;
 }
 
 .bgasmiley_bigsmile {
-  background-position: center;
-  background-repeat: no-repeat;
-  background-image: var(--ext-icon-smile);
+  background-position-y: -60px;
 }
 
 .bgasmiley_bad {
-  background-position: center;
-  background-repeat: no-repeat;
-  background-image: var(--ext-icon-confused);
+  background-position-y: -80px;
 }
 
 .bgasmiley_shocked {
-  background-position: center;
-  background-repeat: no-repeat;
-  background-image: var(--ext-icon-shocked);
+  background-position-y: -100px;
 }
 
 .bgasmiley_sunglass {
-  background-position: center;
-  background-repeat: no-repeat;
-  background-image: var(--ext-icon-cool);
+  background-position-y: -120px;
 }
 
 .bgasmiley_mischievous {
-  background-position: center;
-  background-repeat: no-repeat;
-  background-image: var(--ext-icon-mischievous);
+  background-position-y: -140px;
 }
 
 .bgasmiley_surprised {
-  background-position: center;
-  background-repeat: no-repeat;
-  background-image: var(--ext-icon-surprised);
+  background-position-y: -160px;
 }
 
 .bgasmiley_blushing {
-  background-position: center;
-  background-repeat: no-repeat;
-  background-image: var(--ext-icon-shy);
+  background-position-y: -180px;
 }
 
 .notouch-device .chatwindowremovec {
