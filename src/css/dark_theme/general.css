@@ -1434,6 +1434,10 @@ select.colorselector {
   background-color: #2b552b;
 }
 
+.bgaext_translation .textarea_status_machine {
+  background-color: #036;
+}
+
 .bgaext_translation .status_empty,
 .bgaext_translation .status_machine,
 .bgaext_translation .status_validated,

@@ -8,6 +8,18 @@ https://addons.mozilla.org/addon/board-game-arena-bga-extension/
 
 ## Installation
 
+Use the following commands:
+```bash
+yarn
+npm install -g win-node-env
+npm install -g concurrently
+```
+
+and to launch the project in dev mode:
+```bash
+yarn dev
+```
+
 To build the Google Chrome extension:
 
 ```bash
