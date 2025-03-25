@@ -89,7 +89,7 @@ const manageLocationChange = (pathname) => {
 
 	if (window.location.hostname === 'studio.boardgamearena.com') {
 		const pageName = pageInfo[0] || 'welcomestudio';
-		setHtmlClass(pageName, config.isSolidBackground(), config.chatLightIcons());
+		setHtmlClass(pageName, config.isSolidBackground());
 		initChatIcon(config);
 		initDarkMode(config, 'general');
 		return 'studio';
@@ -181,7 +181,7 @@ const manageLocationChange = (pathname) => {
 	initChatIcon(config);
 	initDarkMode(config, 'general');
 
-	setHtmlClass(pageName, config.isSolidBackground(), config.chatLightIcons());
+	setHtmlClass(pageName, config.isSolidBackground());
 
 	if (pageName.startsWith('gamelist')) {
 		initObserver('gamelist');
@@ -196,7 +196,7 @@ const manageLocationChange = (pathname) => {
 	return 'general';
 };
 
-const setHtmlClass = (mode, solidBackground, chatLightIcons) => {
+const setHtmlClass = (mode, solidBackground) => {
 	const oldClasses = Array.from(document.documentElement.classList).filter(c => c.startsWith('bgaext'));
 
 	oldClasses.map(oldClass => {
@@ -207,9 +207,6 @@ const setHtmlClass = (mode, solidBackground, chatLightIcons) => {
 
 	if (solidBackground) {
 		document.documentElement.classList.add('bgaext_solid_back');
-	}
-	if (chatLightIcons) {
-		document.documentElement.classList.add('bgaext_chat_light_icons');
 	}
 };
 
@@ -383,12 +380,6 @@ document.addEventListener('bga_ext_update_config', (data) => {
 			} else {
 				document.querySelector('body').removeEventListener('mousemove', autoHideChat);
 			}
-		}
-	} else if (data.detail.key === 'chatLightIcons') {
-		if (config.chatLightIcons()) {
-			document.documentElement.classList.add('bgaext_chat_light_icons');
-		} else {
-			document.documentElement.classList.remove('bgaext_chat_light_icons');
 		}
 	}
 });

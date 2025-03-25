@@ -71,7 +71,6 @@ interface CustomConfig {
 	hideSocialMessages?: boolean;
 	chatBarAutoHide?: boolean;
 	hideChatUserNames?: boolean;
-	chatLightIcons?: boolean;
 	animatedTitle?: boolean;
 }
 
@@ -459,15 +458,6 @@ class Configuration {
 	setChatUserNamesHidden(val: boolean) {
 		this._customConfig.hideChatUserNames = val;
 		storageSet({ hideChatUserNames: val });
-	}
-
-	chatLightIcons() {
-		return Boolean(this._customConfig.chatLightIcons);
-	}
-
-	setChatLightIcons(val: boolean) {
-		this._customConfig.chatLightIcons = val;
-		storageSet({ chatLightIcons: val });
 	}
 
 	setLeftMenuEnabled(name: string, enable: boolean) {

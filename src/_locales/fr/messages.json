@@ -277,12 +277,6 @@
 	"optionsChatUserNameOff": {
 		"message": "Le nom des utilisateurs dans le chat est caché lorsque c'est possible"
 	},
-	"optionsChatLightIconsOn": {
-		"message": "Les émoticônes du mode clair sont utilisées dans les conversations, même si le mode sombre est activé"
-	},
-	"optionsChatLightIconsOff": {
-		"message": "Les émoticônes du mode sombre sont utilisées dans les conversations si le mode sombre est activé"
-	},
 	"optionsChatAutoHideOn": {
 		"message": "La barre de chat est uniquement affichée lors d'un survol par la souris"
 	},
