@@ -3983,6 +3983,7 @@ _darkStyleForGame['kingscraft'] = `
 .skill_icon, .rogue_container { filter: invert(0.9); }
 .player-name { background-color: var(--dark-20) !important; }
 .wrapper { filter: drop-shadow(0 20px 20px #000000) brightness(0.9) !important; }
+.enhance .text { color: black }
 `;
 
 _darkStyleForGame['klaverjassen'] = `
@@ -7040,6 +7041,7 @@ _darkStyleForGame['tobago'] = `
 _darkStyleForGame['toc'] = `
 #icon_first_player, #checkmark { filter: invert(1); }
 .field { border-color: #c9ab69; }
+.log .black { color: white }
 `;
 
 _darkStyleForGame['toepen'] = `
