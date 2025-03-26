@@ -4842,13 +4842,15 @@ _darkStyleForGame['nirds'] = `
 .title { color: #000; text-shadow: 1px 0 0 #fff, 0 1px 0 #fff, -1px 0 0 #fff, 0 -1px 0 #fff, 1px 1px 0 #fff, -1px 1px 0 #fff, 1px -1px 0 #fff, -1px -1px 0 #fff; }
 .custom_popin h2, .custom_popin .popin_footer { border-color: var(--dark-40); }
 .canRecruit, .player-infos .tactic-counter { color: #000; }
-.player_config_row > :not(#help-mode-switch) svg, .inline-icon.icon-slash, .inline-icon.icon-arrow { filter: invert(0.9); }
+.player_config_row > :not(#help-mode-switch) svg { filter: invert(0.9); }
 .nrd-card-container .nrd-card-inner, #trading .title { color: #000; }
 #card_choice #market-title { background-color: #5a0c5a; color: var(--light-80); }
 #card_choice { background-color: var(--dark-back); border: 1px solid var(--dark-40); }
 #help-card { background: var(--dark-20); color: var(--light-80); }
 #trading #trading-stock .trade-container { background-color: var(--dark-40); color: var(--light-80); }
 .nrd-card-front { filter: brightness(0.9); }
+.accept, .reject { color: black }
+.numbered-icon[data-nb]:after { color: black }
 `;
 
 _darkStyleForGame['noah'] = `
@@ -7050,6 +7052,7 @@ _darkStyleForGame['tobago'] = `
 _darkStyleForGame['toc'] = `
 #icon_first_player, #checkmark { filter: invert(1); }
 .field { border-color: #c9ab69; }
+.log .black { color: white }
 `;
 
 _darkStyleForGame['toepen'] = `

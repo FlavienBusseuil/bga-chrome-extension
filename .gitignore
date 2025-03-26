@@ -4,6 +4,7 @@ builds
 secrets.*.js
 yarn-error*
 .vscode
+.vs/
 .DS_Store
 keys/**
 .parcel-cache
