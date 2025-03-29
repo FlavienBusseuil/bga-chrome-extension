@@ -183,7 +183,7 @@ const _setDarkStyleForGame = (gameName: string) => {
 };
 
 const _setDarkStyle = (mode: string) => {
-  console.log("[bga extension] set dark mode");
+  console.log(`[bga extension] set dark mode for ${mode}`);
 
   if (styleComponent) {
     if (mode === "archive") {

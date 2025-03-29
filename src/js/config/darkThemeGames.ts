@@ -213,6 +213,7 @@ export const gamesWithCustomBackground = [
   'tapestry',
   'thecrew',
   'thecrewdeepsea',
+  'thewhitecastle',
   'tickettoride',
   'tickettorideeurope',
   'tikal',
@@ -616,11 +617,19 @@ export const gamesWithCustomActions = {
   },
   thewhitecastle: {
     init: () => {
-      const whitecastleManageBackground = () => manageBackground("no-custom-background", ["custom-background"]);
-      const input = document.getElementById('twc-background') as any;
+      const initWhiteCastle = () => {
+        try {
+          const whitecastleManageBackground = () => manageBackground("no-custom-background", ["custom-background"]);
+          const input = document.getElementById('twc-background') as any;
 
-      input.addEventListener('change', () => setTimeout(whitecastleManageBackground, 1));
-      whitecastleManageBackground();
+          input.addEventListener('change', () => setTimeout(whitecastleManageBackground, 1));
+          whitecastleManageBackground();
+        }
+        catch (ex) {
+          setTimeout(initWhiteCastle, 100);
+        }
+        initWhiteCastle();
+      }
     }
   },
   barrage: {
@@ -3982,7 +3991,8 @@ _darkStyleForGame['kingscraft'] = `
 .player_panel_character, .skill_value { color: var(--light-80) !important; }
 .skill_icon, .rogue_container { filter: invert(0.9); }
 .player-name { background-color: var(--dark-20) !important; }
-.wrapper { filter: drop-shadow(0 20px 20px #000000) brightness(0.9) !important; }
+button.enhance .text, button.trade .text { color: #000; }
+button.enhance:disabled .text, button.trade:disabled .text { color: var(--dark-40); }
 `;
 
 _darkStyleForGame['klaverjassen'] = `
