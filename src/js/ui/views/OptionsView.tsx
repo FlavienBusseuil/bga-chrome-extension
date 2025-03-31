@@ -27,6 +27,7 @@ export const OptionsView = ({ config, onChange }: Props) => {
   const [solidBackground, setSolidBackground] = useState(config.isSolidBackground());
   const [socialMessagesHidden, setSocialMessagesHidden] = useState(config.areSocialMessagesHidden());
   const [chatUserNamesHidden, setChatUserNamesHidden] = useState(config.areChatUserNamesHidden());
+  const [chatLightIcons, setChatLightIcons] = useState(config.chatLightIcons());
   const [chatBarAutoHide, setChatBarAutoHide] = useState(config.isChatBarAutoHide());
   const [homeConfig, setHomeConfig] = useState<HomeConfig>(config.getHomeConfig());
   const [inProgressConfig, setInProgressConfig] = useState<InProgressConfig>(config.getInProgressConfig());
@@ -147,6 +148,11 @@ export const OptionsView = ({ config, onChange }: Props) => {
     config.setChatUserNamesHidden(!val);
   };
 
+  const updateChatLightIcons = (val: boolean) => {
+    setChatLightIcons(val);
+    config.setChatLightIcons(val);
+  };
+
   const updateChatBarAutoHide = (val: boolean) => {
     setChatBarAutoHide(val);
     config.setChatBarAutoHide(val);
@@ -259,6 +265,7 @@ export const OptionsView = ({ config, onChange }: Props) => {
           {getSwitch(solidBackground, updateSolidBackground, "optionsSolidBackgroundOn", "optionsSolidBackgroundOff")}
           {getSwitch(socialMessagesHidden, updateSocialMessagesHidden, "optionsHideSocialMessagesOn", "optionsHideSocialMessagesOff")}
           {getSwitch(!chatUserNamesHidden, updateChatUserNamesHidden, "optionsChatUserNameOn", "optionsChatUserNameOff")}
+          {getSwitch(chatLightIcons, updateChatLightIcons, "optionsChatLightIconsOn", "optionsChatLightIconsOff")}
         </div>
       );
     }
