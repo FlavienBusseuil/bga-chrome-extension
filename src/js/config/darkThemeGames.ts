@@ -135,6 +135,7 @@ export const gamesWithCustomBackground = [
   'mastersofrenaissance',
   'megajackpot',
   'memoir',
+  'mesos',
   'mexica',
   'middleages',
   'mindup',
@@ -257,6 +258,7 @@ export const gamesWithCustomPanel = [
   'lumen',
   'mantisfalls',
   'maracaibo',
+  'mesos',
   'notalone',
   'nowboarding',
   'scythe',
@@ -448,6 +450,7 @@ export const gamesWithRecommandedConfig = {
   lineit: { color: 250, sat: 28 },
   lostseas: { color: 195, sat: 22 },
   lostexplorers: { color: 25, sat: 22 },
+  mesos: { color: 0, sat: 20 },
   mycity: { color: 25, sat: 22 },
   mycityrb: { color: 25, sat: 22 },
   nimalia: { color: 220, sat: 30 },
@@ -608,28 +611,22 @@ export const gamesWithCustomActions = {
   },
   festival: {
     init: () => {
-      const festManageBackground = () => manageBackground("no-custom-background", ["custom-background-background", "dark-wood-background"]);
-      const input = document.getElementById('fes-background2') as any;
-
-      input.addEventListener('change', () => setTimeout(festManageBackground, 1));
-      festManageBackground();
+      waitForObj('#fes-background2', 5).then((input) => {
+        const festManageBackground = () => manageBackground("no-custom-background", ["custom-background-background", "dark-wood-background"]);
+        input.addEventListener('change', () => setTimeout(festManageBackground, 1));
+        festManageBackground();
+      });
     }
   },
   thewhitecastle: {
     init: () => {
-      const initWhiteCastle = () => {
-        try {
-          const whitecastleManageBackground = () => manageBackground("no-custom-background", ["custom-background"]);
-          const input = document.getElementById('twc-background') as any;
+      waitForObj('#preference_control_102', 5).then((input) => {
+        const whitecastleManageBackground = () => manageBackground("no-custom-background", ["custom-background"]);
 
-          input.addEventListener('change', () => setTimeout(whitecastleManageBackground, 1));
-          whitecastleManageBackground();
-        }
-        catch (ex) {
-          setTimeout(initWhiteCastle, 100);
-        }
-        initWhiteCastle();
-      }
+        input.addEventListener('change', () => setTimeout(whitecastleManageBackground, 1));
+        document.getElementById('preference_fontrol_102')?.addEventListener('change', () => setTimeout(whitecastleManageBackground, 1));
+        whitecastleManageBackground();
+      });
     }
   },
   barrage: {
@@ -3991,7 +3988,7 @@ _darkStyleForGame['kingscraft'] = `
 .player_panel_character, .skill_value { color: var(--light-80) !important; }
 .skill_icon, .rogue_container { filter: invert(0.9); }
 .player-name { background-color: var(--dark-20) !important; }
-button.enhance .text, button.trade .text { color: #000; }
+button.enhance .text, button.trade .text, .midSizeDialog div[style*="border-radius: 10px"] { color: #000; }
 button.enhance:disabled .text, button.trade:disabled .text { color: var(--dark-40); }
 `;
 
@@ -4438,6 +4435,22 @@ _darkStyleForGame['memoir'] = `
 _darkStyleForGame['meridians'] = `
 #board, #board > * { filter: invert(1); }
 .meridians_black_stone, .meridians_white_stone { border-radius: 50%; }
+`;
+
+_darkStyleForGame['mesos'] = `
+:root {
+--tooltip-text-color: var(--light-80);
+--important-text-color: var(--red-30);
+--building-area-background-color: var(--dark-back);
+--event-area-background-color: var(--dark-back);
+--character-area-background-color: var(--dark-back);
+--player-board-background-color: var(--dark-back);
+}
+#overall-content:before { content: ""; background: #00000060; position: absolute; width: 100%; height: 100%; top:0px; left: 0px; }
+.player-name > a { text-shadow: none !important; }
+.mes_player_board_cards_characters_column_details { border: 1px solid var(--dark-40); color: var(--light-80); }
+#logs #seemorelogs, #logs #seemorelogs a, #logs .icon32, #logs .icon32 a { filter: none; }
+.bgabutton:hover { filter: none; transform: none; }
 `;
 
 _darkStyleForGame['metro'] = `
@@ -5295,6 +5308,10 @@ _darkStyleForGame['piratesofmaracaibo'] = `
 #pom-buttonUndo:hover { ${redButtonOver} }
 .pom-playerName { text-shadow: none; }
 .pom-round { background: #000; color: var(--light-50); }
+.pom-scoreSheet thead tr:first-child, .pom-scoreSheet tr:nth-child(2n) { background-color: var(--dark-10); }
+.pom-scoreSheet tr:nth-child(odd) { background-color: var(--dark-30); }
+.pom-scoreSheet tr.pom-total { background-color: var(--dark-40); }
+.pom-warn { background-color: var(--red-10); color: var(--light-80); }
 .pom-explore, .pom-figurehead, .pom-card { filter: brightness(0.9); }
 `;
 
@@ -5477,6 +5494,10 @@ _darkStyleForGame['quato'] = `
 .cardspace { color: #000; }
 #overall-content[style="background: linear-gradient(90deg, rgb(224, 80, 32) 0%, rgb(255, 144, 96) 25%, rgb(255, 144, 96) 75%, rgb(224, 80, 32) 100%);"]:before
 { content: ""; background: var(--dark-back); position: absolute; width: 100%; height: 100%; }
+`;
+
+_darkStyleForGame['queenofscots'] = `
+.card, #stack_visual { filter: brightness(0.9); }
 `;
 
 _darkStyleForGame['quetzal'] = `
@@ -5877,6 +5898,12 @@ _darkStyleForGame['sapiens'] = `
 .player-name { text-shadow: none; }
 #startplayer { filter: var(--highlight); }
 .deck_holder .tile, .stockTile, .player_board, .token_pool .token { filter: brightness(0.9); }
+`;
+
+_darkStyleForGame['schafkopf'] = `
+.german_suit_icon { filter: var(--highlight-min); }
+#game_board { background-color: var(--green-30); }
+.playertablename { text-shadow: none; }
 `;
 
 _darkStyleForGame['schnapsen'] = `

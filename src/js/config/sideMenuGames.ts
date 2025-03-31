@@ -1465,6 +1465,15 @@ const defaultGames: Partial<Game>[] = [
 		playerPanel: "playmat_{{player_id}}",
 		bottomPanel: "discard_wrap"
 	},
+	{
+		name: "queenofscots",
+		playerPanel: "player-table-{{player_id}}"
+	},
+	{
+		name: "mesos",
+		playerPanel: "player-board-{{player_id}}",
+		playerPanelOffset: 20
+	},
 ];
 
 export default defaultGames;
