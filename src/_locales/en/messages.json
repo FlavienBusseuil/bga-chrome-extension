@@ -522,5 +522,26 @@
 	},
 	"infosLine5": {
 		"message": "Have fun!"
+	},
+	"troubleshooting": {
+		"message": "Troubleshooting"
+	},
+	"configurationExport": {
+		"message": "Export the current configuration"
+	},
+	"configurationImport": {
+		"message": "Import a configuration file"
+	},
+	"configurationReset": {
+		"message": "Reset the configuration to default settings"
+	},
+	"configurationExported": {
+		"message": "The configuration has been exported to a .json file in your download directory"
+	},
+	"configurationImported": {
+		"message": "Configuration has been successfully imported"
+	},
+	"configurationRestored": {
+		"message": "Default settings have been restored"
 	}
 }

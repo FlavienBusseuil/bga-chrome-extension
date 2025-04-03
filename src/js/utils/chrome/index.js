@@ -26,6 +26,10 @@ export const localStorageSet = async (val) => {
 	return await chrome.storage.local.set(val);
 };
 
+export const localStorageClear = async () => {
+	return await chrome.storage.local.clear();
+};
+
 export const i18n = (key) => {
 	return chrome.i18n.getMessage(key);
 };

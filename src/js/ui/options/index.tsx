@@ -1,13 +1,11 @@
 import React from "preact";
-import { useEffect, useState, useMemo } from "preact/hooks";
+import { useEffect, useState } from "preact/hooks";
+import { getFile } from "easy-file-picker";
 
-import Configuration, { AdvancedHomeConfig, Game } from "../../config/configuration";
-import Switch from "../base/Switch";
-import { updateBadgeAndIcon } from "../../utils/updateBadgeAndIcon";
+import Configuration, { Game } from "../../config/configuration";
+import { i18n } from "../../utils/chrome";
 
 import "../../../css/options.css";
-import "../../../css/switch.css";
-import { isSoundCustom, playMp3, removeCustomMp3, uploadCustomMp3 } from "../../utils/misc/mp3";
 
 const Options = (props: { config: Configuration }) => {
 	const { config } = props;
@@ -17,7 +15,7 @@ const Options = (props: { config: Configuration }) => {
 	const [text, setText] = useState("");
 	const [css, setCss] = useState(config.getCustomCss());
 	const [tabSelected, setTabSelected] = useState("about");
-	const isFirefox = window.navigator.userAgent.toLowerCase().includes('firefox');
+	const [troubleshootingMessage, setTroubleshootingMessage] = useState('');
 
 	const serialize = (game: Game) => {
 		return JSON.stringify(
@@ -87,6 +85,71 @@ const Options = (props: { config: Configuration }) => {
 	const couldReset = changed || (isCustomized && isDefault);
 	const couldDelete = isCustomized && !isDefault;
 
+	const exportFile = (filename: string, json: string) => {
+		const blob = new Blob([json], { type: "text/json" });
+		const link = document.createElement("a");
+
+		link.download = filename;
+		link.href = window.URL.createObjectURL(blob);
+		link.dataset.downloadurl = ["text/json", link.download, link.href].join(":");
+
+		const evt = new MouseEvent("click", {
+			view: window,
+			bubbles: true,
+			cancelable: true,
+		});
+
+		link.dispatchEvent(evt);
+		link.remove()
+	}
+
+	const getTroubleshootingSection = () => {
+		const setMessage = (msg: string) => {
+			setTroubleshootingMessage(i18n(msg));
+			setTimeout(() => setTroubleshootingMessage(''), 2000);
+		};
+
+		const exportClick = () => {
+			exportFile('config.json', config.exportConfig());
+			setMessage('configurationExported');
+		};
+
+		const importClick = () => {
+			getFile({ acceptedExtensions: ['application/json'] }).then((file) => {
+				if (file) {
+					const reader = new FileReader();
+
+					reader.onload = (event: any) => {
+						const fileData = event.target.result as string;
+						config.importConfig(fileData);
+						setMessage('configurationImported');
+					};
+
+					reader.readAsText(file);
+				}
+			});
+		};
+
+		const resetClick = () => {
+			config.resetConfig();
+			setMessage('configurationRestored');
+		};
+
+		return (
+			<>
+				<div className="bgext_options_title">{i18n('troubleshooting')}</div>
+				<div className="bgext_about_container">
+					<div className="bgext_buttons_container">
+						<button onClick={exportClick}>{i18n('ConfigurationExport')}</button>
+						<button onClick={importClick}>{i18n('ConfigurationImport')}</button>
+						<button onClick={resetClick}>{i18n('ConfigurationReset')}</button>
+					</div>
+					<div className="bgext_buttons_container">{troubleshootingMessage}</div>
+				</div>
+			</>
+		);
+	};
+
 	const getAboutSection = () => {
 		return (
 			<>
@@ -94,17 +157,17 @@ const Options = (props: { config: Configuration }) => {
 					BGA Extension
 				</div>
 				<div className="bgext_about_container">
-					<div dangerouslySetInnerHTML={{ __html: chrome.i18n.getMessage("aboutText") }}></div>
+					<div dangerouslySetInnerHTML={{ __html: i18n("aboutText") }}></div>
 				</div>
 			</>
 		);
-	}
+	};
 
 	const getNavigationConfiguration = () => {
 		return (
 			<>
 				<div className="bgext_options_title">
-					{chrome.i18n.getMessage("optionNavigationTitle")}
+					{i18n("optionNavigationTitle")}
 				</div>
 				<div className="bgext_options_container">
 					<div className="bgext_options_gamelist_container">
@@ -141,34 +204,34 @@ const Options = (props: { config: Configuration }) => {
 								style={{ width: "100px" }}
 								onClick={duplicate}
 							>
-								{chrome.i18n.getMessage("optionDuplicate")}
+								{i18n("optionDuplicate")}
 							</button>
 							<button
 								disabled={!couldReset}
 								style={{ width: "100px" }}
 								onClick={reset}
 							>
-								{chrome.i18n.getMessage("optionReset")}
+								{i18n("optionReset")}
 							</button>
 							<button
 								disabled={!couldDelete}
 								style={{ width: "100px" }}
 								onClick={reset}
 							>
-								{chrome.i18n.getMessage("optionDelete")}
+								{i18n("optionDelete")}
 							</button>
 							<button
 								disabled={!changed}
 								style={{ width: "100px" }}
 								onClick={save}
 							>
-								{chrome.i18n.getMessage("optionSave")}
+								{i18n("optionSave")}
 							</button>
 						</div>
 					</div>
 				</div>
 				<div className="bgext_options_warning">
-					{chrome.i18n.getMessage("optionNavigationWarning")}
+					{i18n("optionNavigationWarning")}
 				</div>
 			</>
 		);
@@ -178,7 +241,7 @@ const Options = (props: { config: Configuration }) => {
 		return (
 			<>
 				<div className="bgext_options_title">
-					{chrome.i18n.getMessage("optionCssTitle")}
+					{i18n("optionCssTitle")}
 				</div>
 				<div className="bgext_css_container">
 					<textarea
@@ -194,7 +257,7 @@ const Options = (props: { config: Configuration }) => {
 						style={{ width: "100px" }}
 						onClick={() => config.setCustomCss(css).catch(_ => window.location.reload())}
 					>
-						{chrome.i18n.getMessage("optionSave")}
+						{i18n("optionSave")}
 					</button>
 				</div>
 			</>
@@ -224,12 +287,14 @@ const Options = (props: { config: Configuration }) => {
 			<div className="bgext_options_main">
 				<div className="bgext_options_config_area">
 					<div className="bgext_links_area">
-						{getTab("navigation", chrome.i18n.getMessage("optionNavigationTab"))}
-						{getTab("css", chrome.i18n.getMessage("optionCssTab"))}
-						{getTab("about", chrome.i18n.getMessage("about"))}
+						{getTab("navigation", i18n("optionNavigationTab"))}
+						{getTab("css", i18n("optionCssTab"))}
+						{getTab("troubleshooting", i18n("troubleshooting"))}
+						{getTab("about", i18n("about"))}
 					</div>
 					{tabSelected === "navigation" && getNavigationConfiguration()}
 					{tabSelected === "css" && getCssConfiguration()}
+					{tabSelected === "troubleshooting" && getTroubleshootingSection()}
 					{tabSelected === "about" && getAboutSection()}
 				</div>
 			</div>

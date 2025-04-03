@@ -178,6 +178,14 @@ textarea.options-textarea {
 	}
 }
 
+.bgext_buttons_container {
+	display: flex;
+	flex-flow: row;
+	justify-content: space-evenly;
+	width: 100%;
+	line-height: 32px;
+}
+
 /* Configuration for Firefox */
 @supports (-moz-appearance:none) {
 	body {

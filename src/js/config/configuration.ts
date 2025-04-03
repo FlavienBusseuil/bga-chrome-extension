@@ -1,6 +1,6 @@
 import equal from "fast-deep-equal";
 import defaultGames from "./sideMenuGames";
-import { addChangeListener, localStorageGet, localStorageSet, storageGet, storageSet } from "../utils/chrome";
+import { addChangeListener, localStorageClear, localStorageGet, localStorageSet, storageClear, storageGet, storageSet } from "../utils/chrome";
 import { ADVANCED_HOME_STYLE, COLORFUL_TABLES, DEF_HOME_HTML } from "./configuration.constants";
 
 export interface Game {
@@ -152,18 +152,7 @@ class Configuration {
 		this._config = { games: [] };
 	}
 
-	async init() {
-		const [syncStorage, localStorage] = await Promise.all([storageGet(), localStorageGet()]);
-
-		this._customConfig = syncStorage;
-		this._localConfig = localStorage;
-
-		console.log("[bga extension] config", syncStorage);
-
-		if (!this._customConfig.clientId) {
-			this._customConfig.clientId = self.crypto.randomUUID();
-			storageSet({ clientId: this._customConfig.clientId });
-		}
+	_init() {
 		if (!this._customConfig.games) {
 			this._customConfig.games = [];
 		}
@@ -186,6 +175,22 @@ class Configuration {
 			this._customConfig.hideChatUserNames = true;
 		}
 		this._merge();
+	}
+
+	async init() {
+		const [syncStorage, localStorage] = await Promise.all([storageGet(), localStorageGet()]);
+
+		this._customConfig = syncStorage;
+		this._localConfig = localStorage;
+
+		console.debug("[bga extension] config", syncStorage);
+
+		if (!this._customConfig.clientId) {
+			this._customConfig.clientId = self.crypto.randomUUID();
+			storageSet({ clientId: this._customConfig.clientId });
+		}
+
+		this._init();
 
 		addChangeListener((changes: any, namespace: string) => {
 			try {
@@ -693,7 +698,7 @@ class Configuration {
 		storageSet({ darkMode: val });
 	}
 
-	getDarkModeColor(gameName: string, def: number) {
+	getDarkModeColor(gameName: string, def?: number) {
 		const mainValue = this._customConfig.darkModeColor === undefined ? -1 : this._customConfig.darkModeColor;
 
 		if (gameName === "general" || gameName === "forum") {
@@ -704,7 +709,7 @@ class Configuration {
 		return result === undefined ? def || mainValue : result;
 	}
 
-	getDarkModeSaturation(gameName, def: number) {
+	getDarkModeSaturation(gameName, def?: number) {
 		const mainValue = this._customConfig.darkModeSat || 15;
 		if (gameName === "general" || gameName === "forum") {
 			return mainValue;
@@ -932,6 +937,45 @@ class Configuration {
 		}
 
 		return cssList.join('\n');
+	}
+
+	exportConfig() {
+		return JSON.stringify({
+			local: this._localConfig,
+			custom: this._customConfig
+		}, null, '	');
+	}
+
+	importConfig(jsonConfig: string) {
+		const config = JSON.parse(jsonConfig);
+
+		if (config.local) {
+			this._localConfig = config.local;
+			localStorageClear();
+			localStorageSet(this._localConfig);
+		}
+
+		if (config.custom) {
+			this._customConfig = {
+				...config.custom,
+				clientId: this._customConfig.clientId
+			};
+			storageClear();
+			storageSet(this._customConfig);
+		}
+	}
+
+	resetConfig() {
+		this._localConfig = {} as any;
+		this._customConfig = { clientId: this._customConfig.clientId } as any;
+
+		this._init();
+
+		localStorageClear();
+		localStorageSet(this._localConfig);
+
+		storageClear();
+		storageSet(this._customConfig);
 	}
 }
 

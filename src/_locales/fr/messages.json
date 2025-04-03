@@ -522,5 +522,26 @@
 	},
 	"infosLine5": {
 		"message": "Amusez-vous bien !"
+	},
+	"troubleshooting": {
+		"message": "Dépannage"
+	},
+	"configurationExport": {
+		"message": "Exportation de la configuration"
+	},
+	"configurationImport": {
+		"message": "Importation de la configuration"
+	},
+	"configurationReset": {
+		"message": "Ré-initialisation de la configuration"
+	},
+	"configurationExported": {
+		"message": "La configuration a été exportée dans un fichier .json dans votre répertoire de téléchargement"
+	},
+	"configurationImported": {
+		"message": "La configuration a été importée avec succès"
+	},
+	"configurationRestored": {
+		"message": "Les paramètres par défaut ont été restaurés"
 	}
 }
