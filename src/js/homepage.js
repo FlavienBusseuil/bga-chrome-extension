@@ -53,12 +53,11 @@ const advancedSetPageElements = () => {
   copyHtml('#bgadef-homepage .bga-homepage__service-status-section', '#bgaext-service-status');
 };
 
-let homeConfig;
 let initialized = false;
 let observer = undefined;
 let customMainContent = undefined;
 
-const advancedSetPage = () => {
+const advancedSetPage = (homeConfig) => {
   const mainContent = document.querySelector('.bga-homepage');
 
   if (mainContent) {
@@ -80,7 +79,7 @@ const advancedSetPage = () => {
       observer.observe(mainContent, { childList: true, subtree: true });
     }
   } else {
-    setTimeout(advancedSetPage, 50);
+    setTimeout(() => advancedSetPage(homeConfig), 50);
   }
 };
 
@@ -96,22 +95,13 @@ const advancedReset = () => {
   }
 };
 
-const setPage = () => {
+const setPage = (homeConfig) => {
   advancedReset();
 
   if (homeConfig.advanced) {
-    advancedSetPage();
+    advancedSetPage(homeConfig);
   }
 };
-/*
-window.addEventListener('message', (evt) => {
-  if (evt.origin === 'https://boardgamearena.com' && evt.data.key === 'bga_ext_home_reset') {
-
-    advancedReset();
-    advancedSetPage();
-  }
-}, false);
-*/
 
 const initHomePage = () => {
   if (initialized) {
@@ -123,8 +113,7 @@ const initHomePage = () => {
 
     document.body.addEventListener('bga_ext_send_homepage_config', (data) => {
       const config = JSON.parse(data.detail);
-      homeConfig = config;
-      setPage();
+      setPage(config);
     });
     document.body.dispatchEvent(new CustomEvent('bga_ext_get_homepage_config', {}));
 
