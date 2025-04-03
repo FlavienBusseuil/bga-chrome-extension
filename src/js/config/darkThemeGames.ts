@@ -41,6 +41,7 @@ export const gamesWithCustomBackground = [
   'bossquest',
   'bunnyboom',
   'bunnykingdom',
+  'cafe',
   'cakemaster',
   'cannonades',
   'canvas',
@@ -411,6 +412,7 @@ export const gamesWithRecommandedConfig = {
   betta: { color: 180, sat: 20 },
   beyondthesun: { color: 197, sat: 35 },
   bigmonster: { color: 241, sat: 32 },
+  cafe: { color: 10, sat: 20 },
   carnegie: { color: 169, sat: 10 },
   cartographers: { color: 20, sat: 15 },
   captainflip: { color: 193, sat: 39 },
@@ -1602,6 +1604,13 @@ body { background: none !important; }
 _darkStyleForGame['cacao'] = `
 .player_score_value { color: #000; }
 #jungle_display { background-color: var(--dark-back); border: 5px solid var(--dark-back); }
+`;
+
+_darkStyleForGame['cafe'] = `
+#overall-content:before { content: ""; background: #00000060; position: absolute; width: 100%; height: 100%; top:0px; left: 0px; }
+#ca_action_left { color: var(--light-70); }
+.ca_zoom_btn { filter: invert(0.8); }
+.ca_token_card .sprite { filter: brightness(0.9); }
 `;
 
 _darkStyleForGame['cairocorridor'] = `
@@ -6379,6 +6388,10 @@ _darkStyleForGame['stoneage'] = `
 .sta_auto_play_preference_box { background-color: #00224d; }
 `;
 
+_styleForGame['stonespinearchitects'] = `
+.player-board .player-board-game-specific-content { width: 100%; }
+`;
+
 _darkStyleForGame['stonespinearchitects'] = `
 #overall-content:before { content: ""; background: #00000080; position: absolute; width: 100%; height: 100%; }
 .bgabutton b[style*="background-color: white;"]  { background-color: var(--dark-20)!important; }
@@ -6387,6 +6400,7 @@ _darkStyleForGame['stonespinearchitects'] = `
 #sa-game #sa-player-areas .sa-player-area .sa-player-area-dungeon-wrapper .sa-dungeon-chamber-card-stock .sa-dungeon-chamber-card-stock-slot { background-color: var(--dark-back); }
 #sa-game #sa-player-areas .sa-player-area .sa-player-area-title { text-shadow: none; }
 #sa-game #sa-challenge-card-board:before, #sa-game #sa-market-card-board:before { content: ""; background: #00000080; position: absolute; width: 100%; height: 100%; top:0px; left: 0px; border-radius: 10px; }
+.player-board .player-name { text-shadow: none; }
 .player-board:before { content: ""; background: #00000080; position: absolute; width: 100%; height: 100%; top:0px; left: 0px; border-top-left-radius: 8px; border-bottom-left-radius: 8px; }
 .sa-description-font { color: #000; }
 .sa-token-art.game-log, .sa-icon-art.game-log { filter: var(--drop-shadow); }

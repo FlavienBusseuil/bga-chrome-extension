@@ -100,7 +100,6 @@ const defaultGames: Partial<Game>[] = [
 	{
 		name: "villagers",
 		playerPanel: "vil_village_{{player_id}}",
-		playerPanelOffset: 0,
 		css: ".desktop_version #villages { margin-left: 50px; }",
 	},
 	{
@@ -118,7 +117,6 @@ const defaultGames: Partial<Game>[] = [
 		top: "40vh",
 		boardPanel: "ea-area-common",
 		playerPanel: "ea-area-player-{{player_id}}",
-		playerPanelOffset: 0,
 		css: "#ea-shortcut-area { visibility: hidden; } .ea-player-panel-row:has(>.bx-checkbox-switch>#ea-shortcuts-checkbox) { display: none; }",
 	},
 	{
@@ -126,7 +124,6 @@ const defaultGames: Partial<Game>[] = [
 		top: "40vh",
 		boardPanel: "ea-area-common",
 		playerPanel: "ea-area-player-{{player_id}}",
-		playerPanelOffset: 0,
 		css: "#ea-shortcut-area { visibility: hidden; } .ea-player-panel-row:has(>.bx-checkbox-switch>#ea-shortcuts-checkbox) { display: none; }",
 	},
 	{
@@ -262,7 +259,6 @@ const defaultGames: Partial<Game>[] = [
 		iconBackground: "#ffffff",
 		iconBackgroundDark: "#3c5f77",
 		playerPanel: ".vlb_zone_title > h2 > span:last-child",
-		playerPanelOffset: 0,
 	},
 	{
 		name: "ultimaterailroads",
@@ -1472,7 +1468,11 @@ const defaultGames: Partial<Game>[] = [
 	{
 		name: "mesos",
 		playerPanel: "player-board-{{player_id}}",
-		playerPanelOffset: 20
+		playerPanelOffset: 20,
+		iconBackground: "#bf1135",
+		iconColor: "#eee",
+		iconBackgroundDark: "#952c15",
+		iconColorDark: "#eee",
 	},
 ];
 
