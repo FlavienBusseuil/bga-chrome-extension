@@ -2871,6 +2871,15 @@ _darkStyleForGame['fairytrails'] = `
 body { background: none !important; }
 `;
 
+_styleForGame['falconry'] = `
+.player-board-game-specific-content { width: 100%; }
+`;
+
+_darkStyleForGame['falconry'] = `
+#storage-row { text-shadow: none; color: var(--light-80); }
+.store { background: var(--dark-back); }
+`;
+
 _darkStyleForGame['faraway'] = `
 body { background: var(--dark-40); }
 .fa_zone_desc { color: rgba(255,255,255,.5); }
