@@ -353,6 +353,7 @@ export const playersBorder = {
   bagofchips: ['#player-table-{{player_id}}'],
   bang: ['#bang-player-{{player_id}} .bang-player-container[style^="border: 2px"]'],
   castlecombo: ['#player-table-{{player_id}}'],
+  classifiedinformation: ['#player-guard-{{player_id}}'],
   daybreak: ['#dbk-hand{{player_id}}'],
   elawa: ['#player-table-{{player_id}}'],
   elpasogwt: ['#gamezone-{{player_id}}'],
@@ -2031,6 +2032,11 @@ _darkStyleForGame['clansofcaledonia'] = `
 .active_turn { background: var(--dark-40); }
 table.formResources { background: var(--dark-back); border: 1px solid var(--dark-40); border-collapse: collapse; }
 table.formResources td { padding: 0.2em; }
+`;
+
+_darkStyleForGame['classifiedinformation'] = `
+.bga-cards_deck-counter.round { background: var(--dark-10); box-shadow: 0 0 2px 1px #fff; color: var(--light-80); }
+#game-panel .body { background-color: transparent; }
 `;
 
 _darkStyleForGame['cloudcity'] = `
@@ -6219,10 +6225,11 @@ _darkStyleForGame['solowhist'] = `
 
 _darkStyleForGame['solstis'] = `
 #overall-content:before { content: ""; background: #000000A0; position: absolute; width: 100%; height: 100%; }
+.st_header { position: relative; }
 .st_zone { background-color: var(--dark-back); }
-.st_header { background: var(--dark-30); margin-bottom: 0.2em; }
-#st_layout_change a, #st_layout_change p { color: var(--light-80); }
+#st_layout_change a, #st_layout_change p, .st_help_spirit { color: var(--light-80); }
 .st_label { background-color: var(--dark-10); color: var(--light-80); }
+.st_zone_title .player-name { filter: none; }
 .st_card_alphabg .st_card_back, .st_card_alphabg .st_card_front { filter: brightness(0.9); }
 `;
 
