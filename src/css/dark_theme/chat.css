@@ -44,9 +44,8 @@ body.mobile_version #chatbar .chatwindowcollapsed {
   color: var(--light-100);
 }
 
-#chatbar .timestamp,
-#chatbar .bga-link {
-  color: var(--light-80);
+#chatbar .timestamp {
+  color: var(--light-50);
 }
 
 #chatbar .chatwindowexpanded {
