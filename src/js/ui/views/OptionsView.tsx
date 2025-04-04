@@ -20,6 +20,7 @@ export const OptionsView = ({ config, onChange }: Props) => {
   const [customSoundFile, setCustomSoundFile] = useState(isSoundCustom());
   const [motionSensitivity, setMotionSensitivity] = useState(config.isMotionSensitivityEnable());
   const [redirect, setRedirect] = useState(config.isLobbyRedirectionEnable());
+  const [fastCreate, setFastCreate] = useState(config.isFastCreateEnable());
   const [autoOpen, setAutoOpen] = useState(config.isAutoOpenEnable());
   const [karmaRestriction, setKarmaRestriction] = useState(config.getKarmaRestriction());
   const [betterPlayerRestriction, setBetterPlayerRestriction] = useState(config.isBetterPlayerRestriction());
@@ -104,6 +105,11 @@ export const OptionsView = ({ config, onChange }: Props) => {
   const updateRedirect = (val: boolean) => {
     setRedirect(val);
     config.setLobbyRedirectionEnable(val);
+  };
+
+  const updateFastCreate = (val: boolean) => {
+    setFastCreate(val);
+    config.setFastCreateEnable(val);
   };
 
   const updateAutoOpen = (val: boolean) => {
@@ -484,16 +490,17 @@ export const OptionsView = ({ config, onChange }: Props) => {
       return (
         <div className="options-frame">
           <div className="options-frame-title">{i18n("optionsFastCreate")}</div>
-          {getSwitch(autoOpen, updateAutoOpen, "optionsFastCreateAutoOpenOn", "optionsFastCreateAutoOpenOff")}
-          {getSwitch(playerRestriction, updatePlayerRestriction, "optionsFastCreateLevelOn", "optionsFastCreateLevelOff")}
-          {playerRestriction &&
+          {getSwitch(fastCreate, updateFastCreate, "optionsFastCreateOn", "optionsFastCreateOff")}
+          {getSwitch(autoOpen && fastCreate, updateAutoOpen, "optionsFastCreateAutoOpenOn", "optionsFastCreateAutoOpenOff", !fastCreate)}
+          {getSwitch(playerRestriction && fastCreate, updatePlayerRestriction, "optionsFastCreateLevelOn", "optionsFastCreateLevelOff", !fastCreate)}
+          {playerRestriction && fastCreate &&
             <select className="border border-black dark:dark:border-white rounded" onChange={(evt: any) => uplateLevelPlayerRestriction(+evt.target?.value)} value={levelPlayerRestriction}>
               <option value={0}>{i18n('optionsFastCreateLevel0')}</option>
               <option value={1}>{i18n('optionsFastCreateLevel1')}</option>
               <option value={2}>{i18n('optionsFastCreateLevel2')}</option>
             </select>
           }
-          {getSwitch(karmaRestriction > 0, updateKarmaRestriction, "optionsFastCreateKarmaOn", "optionsFastCreateKarmaOff")}
+          {getSwitch(karmaRestriction > 0 && fastCreate, updateKarmaRestriction, "optionsFastCreateKarmaOn", "optionsFastCreateKarmaOff", !fastCreate)}
         </div>
       );
     }

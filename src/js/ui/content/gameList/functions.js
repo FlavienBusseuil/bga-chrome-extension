@@ -170,25 +170,27 @@ export const initGameListObserver = (config, page) => {
 			}
 		});
 
-		const startButtons = document.querySelectorAll('a[id^="joingame_create_"]');
+		if (config.isFastCreateEnable()) {
+			const startButtons = document.querySelectorAll('a[id^="joingame_create_"]');
 
-		startButtons.forEach(but => {
-			const container = but.parentNode;
-			const id = but.id.replace('join', 'quick');
+			startButtons.forEach(but => {
+				const container = but.parentNode;
+				const id = but.id.replace('join', 'quick');
 
-			if (!document.getElementById(id)) {
-				const quickBut = document.createElement("a");
-				quickBut.id = id;
-				quickBut.className = "bgabutton bgabutton_blue";
-				quickBut.style.display = "inline-block";
-				quickBut.style.marginRight = "4px";
-				quickBut.innerHTML = `${but.innerHTML}&nbsp;<i class="fa fa-bolt"></i>`;
-				quickBut.addEventListener("click", quickStart);
-				container.insertBefore(quickBut, but);
+				if (!document.getElementById(id)) {
+					const quickBut = document.createElement("a");
+					quickBut.id = id;
+					quickBut.className = "bgabutton bgabutton_blue";
+					quickBut.style.display = "inline-block";
+					quickBut.style.marginRight = "4px";
+					quickBut.innerHTML = `${but.innerHTML}&nbsp;<i class="fa fa-bolt"></i>`;
+					quickBut.addEventListener("click", quickStart);
+					container.insertBefore(quickBut, but);
 
-				but.innerHTML = `${but.innerHTML}&nbsp;<i class="fa fa-gear"></i>`;
-			}
-		});
+					but.innerHTML = `${but.innerHTML}&nbsp;<i class="fa fa-gear"></i>`;
+				}
+			});
+		}
 	});
 
 	observer.observe(mainElt, { childList: true, subtree: true });

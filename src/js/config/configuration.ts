@@ -63,6 +63,7 @@ interface CustomConfig {
 	home?: HomeConfig;
 	inProgress?: InProgressConfig;
 	lobbyRedirect?: boolean;
+	fastCreate?: boolean;
 	autoOpen?: boolean;
 	karmaRestriction?: number;
 	betterPlayerRestriction?: boolean;
@@ -392,6 +393,15 @@ class Configuration {
 	setLobbyRedirectionEnable(val: boolean) {
 		this._customConfig.lobbyRedirect = val;
 		storageSet({ lobbyRedirect: val });
+	}
+
+	isFastCreateEnable() {
+		return this._customConfig.fastCreate === undefined || Boolean(this._customConfig.fastCreate);
+	}
+
+	setFastCreateEnable(val: boolean) {
+		this._customConfig.fastCreate = val;
+		storageSet({ fastCreate: val });
 	}
 
 	isAutoOpenEnable() {

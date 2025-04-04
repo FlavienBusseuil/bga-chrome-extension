@@ -226,6 +226,12 @@
 	"optionsFastCreate": {
 		"message": "Fast tables creation"
 	},
+	"optionsFastCreateOn": {
+		"message": "A button to quickly create a table is added next to the classic create button"
+	},
+	"optionsFastCreateOff": {
+		"message": "Fast table creation is disabled"
+	},
 	"optionsFastCreateAutoOpenOn": {
 		"message": "The 'Fast create' button automatically opens the table to other players"
 	},

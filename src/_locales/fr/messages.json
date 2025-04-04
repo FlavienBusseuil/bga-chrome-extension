@@ -226,6 +226,12 @@
 	"optionsFastCreate": {
 		"message": "Création rapide de tables"
 	},
+	"optionsFastCreateOn": {
+		"message": "Un bouton pour créer rapidement une table est ajouté à coté du bouton de création classique"
+	},
+	"optionsFastCreateOff": {
+		"message": "La création rapide table est désactivée"
+	},
 	"optionsFastCreateAutoOpenOn": {
 		"message": "Le bouton 'Création rapide' ouvre automatiquement la table aux autres joueurs"
 	},
@@ -233,13 +239,13 @@
 		"message": "Le bouton 'Création rapide' n'ouvre pas la table aux autres joueurs"
 	},
 	"optionsFastCreateKarmaOn": {
-		"message": "Les joueurs n'ayant pas une bonne réputation (< 75%) sont exclus [BETA]"
+		"message": "Les joueurs n'ayant pas une bonne réputation (< 75%) sont exclus"
 	},
 	"optionsFastCreateKarmaOff": {
 		"message": "Les derniers paramètres de restriction de réputation sont utilisés"
 	},
 	"optionsFastCreateLevelOn": {
-		"message": "La restriction de niveau suivante est appliquée [BETA]"
+		"message": "La restriction de niveau suivante est appliquée"
 	},
 	"optionsFastCreateLevelOff": {
 		"message": "Les derniers paramètres de restriction de niveau sont utilisés"
