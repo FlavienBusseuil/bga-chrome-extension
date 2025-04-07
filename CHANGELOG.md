@@ -1,5 +1,17 @@
 # Changelog
 
+## [v1.11.13](https://github.com/FlavienBusseuil/bga-chrome-extension/tree/v1.11.13) (2025-04-07)
+
+[Full Changelog](https://github.com/FlavienBusseuil/bga-chrome-extension/compare/v1.11.12...v1.11.13)
+
+**Closed issues:**
+
+- Machine translated texts are unreadable with darkmode [\#80](https://github.com/FlavienBusseuil/bga-chrome-extension/issues/80)
+
+## [v1.11.12](https://github.com/FlavienBusseuil/bga-chrome-extension/tree/v1.11.12) (2025-03-31)
+
+[Full Changelog](https://github.com/FlavienBusseuil/bga-chrome-extension/compare/v1.11.11...v1.11.12)
+
 ## [v1.11.11](https://github.com/FlavienBusseuil/bga-chrome-extension/tree/v1.11.11) (2025-03-25)
 
 [Full Changelog](https://github.com/FlavienBusseuil/bga-chrome-extension/compare/v1.11.10...v1.11.11)
