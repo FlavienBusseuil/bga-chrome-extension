@@ -210,6 +210,7 @@ export const gamesWithCustomBackground = [
   'stella',
   'starfluxx',
   'stonespinearchitects',
+  'super',
   'symbiose',
   'taluva',
   'tapestry',
@@ -223,6 +224,7 @@ export const gamesWithCustomBackground = [
   'talon',
   'theyellowhouse',
   'tinyturbocars',
+  'towerup',
   'toybattle',
   'trailblazers',
   'trektwelve',
@@ -474,6 +476,7 @@ export const gamesWithRecommandedConfig = {
   seasons: { color: 0, sat: 10 },
   splendor: { color: 220, sat: 22 },
   splendorexpansions: { color: 220, sat: 22 },
+  super: { color: 250, sat: 15 },
   survive: { color: 225, sat: 28 },
   tapestry: { color: 220, sat: 22 },
   thefoxintheforest: { color: 0, sat: 8 },
@@ -708,6 +711,9 @@ export const gamesWithCustomActions = {
     init: () => addInvertOverlay('', true)
   },
   ratsofwistar: {
+    init: () => addInvertOverlay('', true)
+  },
+  towerup: {
     init: () => addInvertOverlay('', true)
   },
   gemsofiridescia: {
@@ -5499,6 +5505,12 @@ _darkStyleForGame['quartermastergeneraleastfront'] = `
 .QGEFplayer .QGEFpieceContainer { filter: var(--highlight-min); }
 .QGEFflag { border: 1px solid #000; }
 #QGEFregionName { color: var(--light-80); }
+#QGEFplayerDeck-allies img, #QGEFplayerDeck-axis img { filter: var(--highlight); }
+#QGEFzoom {
+input::-webkit-slider-runnable-track { background-color: transparent !important; }
+input::-ms-thumb { background-color: transparent !important; }
+input::-moz-range-thumb { background-color: transparent !important; }
+}
 `;
 
 _darkStyleForGame['quartzdice'] = `
@@ -6456,6 +6468,15 @@ html.darkpanel #player_boards.player-board.stm_player_passed { background: var(-
 .stm_icon_rotate_arrow:hover { opacity: .7; }
 `;
 
+_darkStyleForGame['super'] = `
+#overall-content:before { content: ""; background: #00000060; position: absolute; width: 100%; height: 100%; }
+#boards .player-table .supergame-gamezone .player-board-name { background: var(--dark-back); }
+.tundra .dijitTooltipContainer .midSizeDialog .hints .hint-text+.hint-text:before { color: var(--light-80); }
+#boards .player-table .supergame-gamezone .row-deck .card-stock:after { background-color: #000; border: 3px solid #000; }
+.bga-cards_deck-counter.round { background: var(--dark-20); box-shadow: 0 0 2px 1px #fff; color: var(--light-80); }
+#boards .player-table .supergame-gamezone .playerboard, .card .card-sides .card-side { filter: brightness(0.9); }
+`;
+
 _darkStyleForGame['superfantasybrawl'] = `
 .herocard, .actioncard .fluff, .actioncard .power { color: var(--dark-10); }
 .showHero { background-color: var(--dark-20); }
@@ -7125,6 +7146,15 @@ body { background: none !important; }
 
 _darkStyleForGame['tortugasixteensixtyseven'] = `
 #tableEventCardsArea, .tortuga_tooltip_text_container, #myHandArea, #crowsNestVoteCardsContainer { background-color: var(--dark-20); color: var(--light-80); }
+`;
+
+_darkStyleForGame['towerup'] = `
+#overall-content { color: var(--light-80); }
+.tu_player_board .tu_floor_storage { background-color: hsla(0, 0%, 100%, .15); }
+.aal-popup-overlay .aal-popup-content { background: var(--dark-10); color: var(--light-80); }
+.tu_boards .tu_board_player_wrapper .tu_board_player { filter: brightness(0.9) drop-shadow(2px 2px 2px rgba(255, 255, 255, .8)); }
+.tu_note_unlimited_storage .help { background-color: var(--dark-10); color: var(--light-80); filter: none; border: 1px solid var(--light-50); }
+.tu_token_card .content .flippable-back, .tu_token_card .content .flippable-front { filter: brightness(0.9); }
 `;
 
 _darkStyleForGame['toybattle'] = `

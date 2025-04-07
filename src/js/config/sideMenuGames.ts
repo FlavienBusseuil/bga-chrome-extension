@@ -1474,6 +1474,14 @@ const defaultGames: Partial<Game>[] = [
 		iconBackgroundDark: "#952c15",
 		iconColorDark: "#eee",
 	},
+	{
+		name: "super",
+		playerPanel: "table-{{player_id}}",
+		playerPanelOffset: 20,
+		iconColor: "#eee",
+		iconBackground: "#785e8b",
+		iconBackgroundDark: "#4b3858"
+	},
 ];
 
 export default defaultGames;
