@@ -91,6 +91,12 @@
 	"optionHiddenTab": {
 		"message": "Hidden games"
 	},
+	"optionHiddenOn": {
+		"message": "L'option permettant de cacher un jeu est activée"
+	},
+	"optionHiddenOff": {
+		"message": "L'option permettant de cacher un jeu est désactivée"
+	},
 	"optionMutedTab": {
 		"message": "Muted players"
 	},
@@ -283,11 +289,11 @@
 	"optionsChatUserNameOff": {
 		"message": "User names in chat are displayed only when necessary"
 	},
-	"optionsChatLightIconsOn": {
-		"message": "Light mode emoticons are used in conversations even when dark mode is activated"
-	},
-	"optionsChatLightIconsOff": {
+	"optionsChatDarkIconsOn": {
 		"message": "Dark mode emoticons are used in conversations when dark mode is activated"
+	},
+	"optionsChatDarkIconsOff": {
+		"message": "Light mode emoticons are used in conversations even when dark mode is activated"
 	},
 	"optionsChatAutoHideOn": {
 		"message": "The chat bar is only displayed when the mouse is moved over it"
@@ -302,7 +308,7 @@
 		"message": "<p>You can consult the help page of this extension on <a target='_blank' href='https://en.doc.boardgamearena.com/ChromeExtension'>this page</a>.</p><p>You can also come and chat with the authors on <a target='_blank' href='https://boardgamearena.com/forum/viewtopic.php?t=30509'>the forum</a>, tell us about your concerns and make suggestions, or why not just drop us a little word of encouragement. 🙂</p><p>And if you like this extension, you can buy me <a target='_blank' href='https://en.tipeee.com/board-game-arena-chrome-extension'>a cup of coffee</a> ☕.</p><p>Thanks !</p>"
 	},
 	"deleteGameTitle": {
-		"message": "Deleting a game"
+		"message": "Hide a game"
 	},
 	"deleteGameText1": {
 		"message": "The game will no longer appear in the game list or lobby."
@@ -311,7 +317,7 @@
 		"message": "This is not a feature of the Board Game Arena site, but an add-on managed by an extension you've installed."
 	},
 	"deleteGameText3": {
-		"message": "You can cancel the deletion of a game in the extension options."
+		"message": "You can cancel the deletion of a game in the extension settings."
 	},
 	"deleteGameLink": {
 		"message": "<a target='_blank' href='https://en.doc.boardgamearena.com/ChromeExtension'>View documentation</a>"

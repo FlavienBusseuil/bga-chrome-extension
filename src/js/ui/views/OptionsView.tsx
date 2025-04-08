@@ -28,10 +28,11 @@ export const OptionsView = ({ config, onChange }: Props) => {
   const [solidBackground, setSolidBackground] = useState(config.isSolidBackground());
   const [socialMessagesHidden, setSocialMessagesHidden] = useState(config.areSocialMessagesHidden());
   const [chatUserNamesHidden, setChatUserNamesHidden] = useState(config.areChatUserNamesHidden());
-  const [chatLightIcons, setChatLightIcons] = useState(config.chatLightIcons());
+  const [chatDarkIcons, setChatDarkIcons] = useState(config.chatDarkIcons());
   const [chatBarAutoHide, setChatBarAutoHide] = useState(config.isChatBarAutoHide());
   const [homeConfig, setHomeConfig] = useState<HomeConfig>(config.getHomeConfig());
   const [inProgressConfig, setInProgressConfig] = useState<InProgressConfig>(config.getInProgressConfig());
+  const [isHideGameButtonDisplayed, displayHideGameButton] = useState(config.isHideGameButtonDisplayed());
   const [hiddenGames, setHiddenGames] = useState<string[]>(config.getHiddenGames());
   const [hiddenPlayers, setHiddenPlayers] = useState<string[]>(config.getMutedPlayers());
   const [muteWarning, setMuteWarning] = useState(config.isMuteWarning());
@@ -154,9 +155,9 @@ export const OptionsView = ({ config, onChange }: Props) => {
     config.setChatUserNamesHidden(!val);
   };
 
-  const updateChatLightIcons = (val: boolean) => {
-    setChatLightIcons(val);
-    config.setChatLightIcons(val);
+  const updateChatDarkIcons = (val: boolean) => {
+    setChatDarkIcons(val);
+    config.setChatDarkIcons(val);
   };
 
   const updateChatBarAutoHide = (val: boolean) => {
@@ -176,6 +177,11 @@ export const OptionsView = ({ config, onChange }: Props) => {
     setInProgressConfig(newInProgressConfig);
     config.setInProgressConfig(newInProgressConfig);
     onChange();
+  };
+
+  const updateHideGameButtonDisplay = (val: boolean) => {
+    displayHideGameButton(val);
+    config.displayHideGameButton(val);
   };
 
   const getHiddenConfiguration = () => {
@@ -271,7 +277,7 @@ export const OptionsView = ({ config, onChange }: Props) => {
           {getSwitch(solidBackground, updateSolidBackground, "optionsSolidBackgroundOn", "optionsSolidBackgroundOff")}
           {getSwitch(socialMessagesHidden, updateSocialMessagesHidden, "optionsHideSocialMessagesOn", "optionsHideSocialMessagesOff")}
           {getSwitch(!chatUserNamesHidden, updateChatUserNamesHidden, "optionsChatUserNameOn", "optionsChatUserNameOff")}
-          {getSwitch(chatLightIcons, updateChatLightIcons, "optionsChatLightIconsOn", "optionsChatLightIconsOff")}
+          {getSwitch(chatDarkIcons, updateChatDarkIcons, "optionsChatDarkIconsOn", "optionsChatDarkIconsOff")}
         </div>
       );
     }
@@ -520,6 +526,7 @@ export const OptionsView = ({ config, onChange }: Props) => {
       return (
         <div className="options-frame">
           <div className="options-frame-title">{i18n("optionHiddenTab")}</div>
+          {getSwitch(isHideGameButtonDisplayed, updateHideGameButtonDisplay, "optionHiddenOn", "optionHiddenOff")}
           <div>{i18n("optionHiddenGamesWarning")}</div>
           <div className="bgext_hidden_games_container">{getHiddenConfiguration()}</div>
           <div className="bgext_hidden_games_clear_container">{getClearHiddenSection()}</div>

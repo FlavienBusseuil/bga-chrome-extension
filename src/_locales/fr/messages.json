@@ -91,6 +91,12 @@
 	"optionHiddenTab": {
 		"message": "Jeux cachés"
 	},
+	"optionHiddenOn": {
+		"message": "L'option permettant de cacher un jeu est activée"
+	},
+	"optionHiddenOff": {
+		"message": "L'option permettant de cacher un jeu est désactivée"
+	},
 	"optionMutedTab": {
 		"message": "Joueurs ignorés"
 	},
@@ -283,11 +289,11 @@
 	"optionsChatUserNameOff": {
 		"message": "Le nom des utilisateurs dans le chat est caché lorsque c'est possible"
 	},
-	"optionsChatLightIconsOn": {
-		"message": "Les émoticônes du mode clair sont utilisées dans les conversations, même si le mode sombre est activé"
-	},
-	"optionsChatLightIconsOff": {
+	"optionsChatDarkIconsOn": {
 		"message": "Les émoticônes du mode sombre sont utilisées dans les conversations si le mode sombre est activé"
+	},
+	"optionsChatDarkIconsOff": {
+		"message": "Les émoticônes du mode clair sont utilisées dans les conversations, même si le mode sombre est activé"
 	},
 	"optionsChatAutoHideOn": {
 		"message": "La barre de chat est uniquement affichée lors d'un survol par la souris"
@@ -311,7 +317,7 @@
 		"message": "Ceci n'est pas une fonctionnalité du site Board Game Arena mais un ajout géré par une extension que vous avez installé."
 	},
 	"deleteGameText3": {
-		"message": "Il est possible d'annuler la suppression d'un jeu dans les options de l'extension."
+		"message": "Il est possible d'annuler la suppression d'un jeu dans les paramètres de l'extension."
 	},
 	"deleteGameLink": {
 		"message": "<a target='_blank' href='https://fr.doc.boardgamearena.com/ChromeExtension'>Voir la documentation</a>"

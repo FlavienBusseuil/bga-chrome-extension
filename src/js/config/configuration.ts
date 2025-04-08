@@ -45,6 +45,7 @@ interface CustomConfig {
 	games: Game[];
 	dark: DarkModeConfig[];
 	disabled: string[];
+	hiddenOn?: boolean;
 	hidden: string[];
 	muted: string[];
 	muteWarning?: boolean;
@@ -476,13 +477,13 @@ class Configuration {
 		storageSet({ hideChatUserNames: val });
 	}
 
-	chatLightIcons() {
-		return Boolean(this._customConfig.chatLightIcons);
+	chatDarkIcons() {
+		return this._customConfig.chatLightIcons != undefined && !this._customConfig.chatLightIcons;
 	}
 
-	setChatLightIcons(val: boolean) {
-		this._customConfig.chatLightIcons = val;
-		storageSet({ chatLightIcons: val });
+	setChatDarkIcons(val: boolean) {
+		this._customConfig.chatLightIcons = !val;
+		storageSet({ chatLightIcons: !val });
 	}
 
 	setLeftMenuEnabled(name: string, enable: boolean) {
@@ -614,6 +615,15 @@ class Configuration {
 
 	isMuteWarning() {
 		return this._customConfig.muteWarning === undefined || this._customConfig.muteWarning === true;
+	}
+
+	displayHideGameButton(disp: boolean) {
+		this._customConfig.hiddenOn = disp;
+		storageSet({ hiddenOn: disp });
+	}
+
+	isHideGameButtonDisplayed() {
+		return this._customConfig.hiddenOn === undefined || this._customConfig.hiddenOn === true;
 	}
 
 	hideGame(name: string) {

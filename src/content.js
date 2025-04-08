@@ -75,13 +75,6 @@ const initObserver = (page) => {
 	}
 };
 
-const setSolidBackground = () => {
-	if (config.isSolidBackground()) {
-		document.documentElement.classList.add('bgaext_game');
-		document.documentElement.classList.add('bgaext_solid_back');
-	}
-};
-
 const manageLocationChange = (pathname) => {
 	console.log('[bga extension] load path', pathname);
 
@@ -89,7 +82,7 @@ const manageLocationChange = (pathname) => {
 
 	if (window.location.hostname === 'studio.boardgamearena.com') {
 		const pageName = pageInfo[0] || 'welcomestudio';
-		setHtmlClass(pageName, config.isSolidBackground(), config.chatLightIcons());
+		setHtmlClass(pageName);
 		initChatIcon(config);
 		initDarkMode(config, 'general');
 		return 'studio';
@@ -133,7 +126,7 @@ const manageLocationChange = (pathname) => {
 		}
 
 		initDarkMode(config, gameName);
-		setSolidBackground();
+		setHtmlGameClass();
 
 		return 'game';
 	}
@@ -165,7 +158,7 @@ const manageLocationChange = (pathname) => {
 	if (pageName === 'tutorial') {
 		const gameName = window.location.search.substring(1).split('&').find(p => p.startsWith('game'))?.split('=')[1];
 		initDarkMode(config, gameName);
-		setSolidBackground();
+		setHtmlGameClass();
 		return 'general';
 	}
 
@@ -173,7 +166,7 @@ const manageLocationChange = (pathname) => {
 		waitForObj('[href*="table="]', 5).then((elt) => {
 			const gameName = elt.href.substring(elt.href.lastIndexOf('/') + 1).split('?')[0];
 			initDarkMode(config, gameName);
-			setSolidBackground();
+			setHtmlGameClass();
 		});
 		return 'general';
 	}
@@ -181,7 +174,7 @@ const manageLocationChange = (pathname) => {
 	initChatIcon(config);
 	initDarkMode(config, 'general');
 
-	setHtmlClass(pageName, config.isSolidBackground(), config.chatLightIcons());
+	setHtmlClass(pageName);
 
 	if (pageName.startsWith('gamelist')) {
 		initObserver('gamelist');
@@ -196,7 +189,7 @@ const manageLocationChange = (pathname) => {
 	return 'general';
 };
 
-const setHtmlClass = (mode, solidBackground, chatLightIcons) => {
+const setHtmlClass = (mode) => {
 	const oldClasses = Array.from(document.documentElement.classList).filter(c => c.startsWith('bgaext'));
 
 	oldClasses.map(oldClass => {
@@ -205,11 +198,23 @@ const setHtmlClass = (mode, solidBackground, chatLightIcons) => {
 
 	document.documentElement.classList.add(`bgaext_${mode}`);
 
-	if (solidBackground) {
+	if (config.isSolidBackground()) {
 		document.documentElement.classList.add('bgaext_solid_back');
 	}
-	if (chatLightIcons) {
-		document.documentElement.classList.add('bgaext_chat_light_icons');
+	if (config.chatDarkIcons()) {
+		document.documentElement.classList.add('bgaext_chat_dark_icons');
+	}
+};
+
+const setHtmlGameClass = () => {
+	document.documentElement.classList.add('bgaext_game');
+
+	if (config.isSolidBackground()) {
+		document.documentElement.classList.add('bgaext_solid_back');
+	}
+
+	if (config.chatDarkIcons()) {
+		document.documentElement.classList.add('bgaext_chat_dark_icons');
 	}
 };
 
@@ -385,10 +390,10 @@ document.addEventListener('bga_ext_update_config', (data) => {
 			}
 		}
 	} else if (data.detail.key === 'chatLightIcons') {
-		if (config.chatLightIcons()) {
-			document.documentElement.classList.add('bgaext_chat_light_icons');
+		if (config.chatDarkIcons()) {
+			document.documentElement.classList.add('bgaext_chat_dark_icons');
 		} else {
-			document.documentElement.classList.remove('bgaext_chat_light_icons');
+			document.documentElement.classList.remove('bgaext_chat_dark_icons');
 		}
 	}
 });

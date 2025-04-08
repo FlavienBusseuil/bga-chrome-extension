@@ -147,7 +147,7 @@ export const initGameListObserver = (config, page) => {
 			if (but.classList.contains('bgabutton_blue') || but.classList.contains('bga-button--blue')) {
 				const container = but.parentNode;
 
-				if (!but.classList.contains('bgabutton_medium') && but.href.indexOf('#') < 0 && !container.lastChild.classList?.contains('bgabutton_red')) {
+				if (config.isHideGameButtonDisplayed() && !but.classList.contains('bgabutton_medium') && but.href.indexOf('#') < 0 && !container.lastChild.classList?.contains('bgabutton_red')) {
 					but.style.minWidth = "100px";
 					container.style.boxShadow = "none";
 
