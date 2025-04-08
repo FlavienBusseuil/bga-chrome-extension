@@ -2206,3 +2206,7 @@ html:not(.bgaext_gamelist) .ext_delete_button {
 .bgaext_premium .odd\:bg-gray-100:nth-child(odd) {
   background-color: var(--dark-30);
 }
+
+.own-progress-old-season-description {
+  color: white
+}

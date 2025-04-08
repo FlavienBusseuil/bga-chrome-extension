@@ -3155,7 +3155,7 @@ body { background: none !important; }
 `;
 
 _darkStyleForGame['frenchtarot'] = `
-#icon_first_player_in_panel { filter: invert(1); }
+.icon.first_player { filter: invert(1); }
 .#000 { text-shadow: var(--text-w-shadow); }
 #score_table thead th, #score_table tfoot th, #score_table tfoot td, #score_table tbody tr:nth-of-type(2n)>* { background-color: var(--dark-20) !important; }
 .black { text-shadow: var(--text-w-shadow); }
@@ -4755,6 +4755,7 @@ _darkStyleForGame['nanatoridori'] = `
 #overall-content:before { content: ""; background: #000000A0; position: absolute; width: 100%; height: 100%; }
 #overall-content { color: var(--light-80); }
 .nana_hand { color: #000; }
+.scorecell.score { color: black }
 `;
 
 _darkStyleForGame['nangaparbat'] = `

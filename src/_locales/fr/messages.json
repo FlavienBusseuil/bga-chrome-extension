@@ -314,7 +314,7 @@
 		"message": "Le jeu n'apparaitra plus dans la liste des jeux ni dans le lobby."
 	},
 	"deleteGameText2": {
-		"message": "Ceci n'est pas une fonctionnalité du site Board Game Arena mais un ajout géré par une extension que vous avez installé."
+		"message": "Ceci n'est pas une fonctionnalité du site Board Game Arena mais un ajout géré par une extension que vous avez installée."
 	},
 	"deleteGameText3": {
 		"message": "Il est possible d'annuler la suppression d'un jeu dans les paramètres de l'extension."
