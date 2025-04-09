@@ -1,5 +1,6 @@
 import React from "preact";
 import { useState } from "preact/hooks";
+import { isMobile } from "is-mobile";
 
 import Configuration, { AdvancedHomeConfig, HomeConfig, InProgressConfig } from "../../config/configuration";
 import Switch from "../base/Switch";
@@ -293,11 +294,13 @@ export const OptionsView = ({ config, onChange }: Props) => {
   };
 
   const getNotificationsSection = () => {
+    const desktopVersion = !isMobile();
+
     if (configVisible === 'notif') {
       return (
         <div className="options-frame">
           <div className="options-frame-title">{i18n("optionNotifTitle")}</div>
-          <div className="desktop-options">
+          {desktopVersion && <>
             {getSwitch(tracking, updateTracking, "optionsTrackingOn", "optionsTrackingOff")}
             {!isFirefox && getSwitch(soundNotification && tracking, updateSoundNotification, "optionsNotificationSoundOn", "optionsNotificationSoundOff", !tracking)}
             {!isFirefox && <div className="row_fullwidth">
@@ -307,11 +310,9 @@ export const OptionsView = ({ config, onChange }: Props) => {
                 <Button {...{ text: i18n("play"), className: "small_button", onClick: playMp3 }} />
               </div>}
             </div>}
-          </div>
+          </>}
           {getSwitch(!motionSensitivity, updateFlashing, "optionsFlashingOn", "optionsFlashingOff")}
-          <div className="desktop-options">
-            {getSwitch(animatedTitle, updateAnimatedTitle, "optionsAnimatedTitleOn", "optionsAnimatedTitleOff")}
-          </div>
+          {desktopVersion && getSwitch(animatedTitle, updateAnimatedTitle, "optionsAnimatedTitleOn", "optionsAnimatedTitleOff")}
         </div>
       );
     }
@@ -327,15 +328,15 @@ export const OptionsView = ({ config, onChange }: Props) => {
   };
 
   const getGamesSection = () => {
+    const desktopVersion = !isMobile();
+
     if (configVisible === 'games') {
       return (
         <div className="options-frame">
           <div className="options-frame-title">{i18n("optionGamesTitle")}</div>
           {getSwitch(onlineMessages, updateOnlineMessages, "optionFriendsActivityOn", "optionFriendsActivityOff")}
           {getSwitch(!eloHidden, updateEloHidden, "optionEloHiddenOff", "optionEloHiddenOn")}
-          <div className="desktop-options">
-            {getSwitch(chatBarAutoHide, updateChatBarAutoHide, "optionsChatAutoHideOn", "optionsChatAutoHideOff")}
-          </div>
+          {desktopVersion && getSwitch(chatBarAutoHide, updateChatBarAutoHide, "optionsChatAutoHideOn", "optionsChatAutoHideOff")}
         </div>
       );
     }

@@ -1,3 +1,5 @@
+import { isMobile } from "is-mobile";
+
 import Configuration from './js/config/configuration';
 import { isNumber } from './js/utils/misc/isNumber';
 import { waitForObj } from './js/utils/misc/wait';
@@ -110,9 +112,8 @@ const manageLocationChange = (pathname) => {
 
 		const gameName = pageInfo[1];
 		const gameConfig = config.getGameConfig(gameName);
-		const isMobile = !window.matchMedia || window.matchMedia("only screen and (max-width: 760px)").matches;
 
-		if (!isMobile && (config.isGlobalFloatingMenu() || config.isGameFloatingMenu(gameName))) {
+		if (!isMobile() && (config.isGlobalFloatingMenu() || config.isGameFloatingMenu(gameName))) {
 			setFloatingRightMenu(config, true);
 		}
 

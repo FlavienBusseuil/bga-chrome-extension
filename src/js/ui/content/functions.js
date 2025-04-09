@@ -1,4 +1,6 @@
 import React, { render } from "preact";
+import { isMobile } from "is-mobile";
+
 import {
 	initLeftMenu,
 	buildLeftMenu,
@@ -437,11 +439,10 @@ const buildOptions = (config, gameName, gameConfig) => {
 		return;
 	}
 
-	const isMobile = !window.matchMedia || window.matchMedia("only screen and (max-width: 760px)").matches;
 	const mainPrefTitle = mainMenu.getElementsByTagName('h2')[0];
 	const secondPrefTitle = settings.getElementsByTagName('h2')[0];
 
-	if (!isMobile) {
+	if (!isMobile()) {
 		// Add an option for floating menu
 		const optionFloatingGameSelected = config.isGameFloatingMenu(gameName) ? `selected='selected'` : '';
 		const optionFloatingAlwaysSelected = config.isGlobalFloatingMenu() ? `selected='selected'` : '';

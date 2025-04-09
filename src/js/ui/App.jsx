@@ -1,4 +1,5 @@
 // @flow
+import { isMobile } from "is-mobile";
 
 import type { TableId } from "../types/bga/Table";
 import { setBadge } from "../utils/badge/setBadge";
@@ -89,6 +90,22 @@ export function App({ config }: Props): React$Node {
 			return <OptionsView config={config} onChange={configChange} />;
 		}
 
+		if (isMobile()) {
+			if (activeTab === "tables") {
+				return <TablesView
+					className="w-full"
+					tables={sortedTables}
+					onAcceptInvite={handleAcceptOrDeclineInvite}
+					onDeclineInvite={handleAcceptOrDeclineInvite}
+					motionSensitivityEnable
+				/>;
+			}
+			if (activeTab === "tournaments") {
+				return <TournamentsView className="w-full" tournaments={sortedTournaments} />;
+			}
+			return <FriendsView className="w-full" getGroupTables={getGroupTables} groups={groups} motionSensitivityEnable />;
+		}
+
 		return (
 			<div
 				className={cn([
@@ -103,12 +120,10 @@ export function App({ config }: Props): React$Node {
 						activeTab !== "tables" && "opacity-0",
 						activeTab !== "tables" && "invisible",
 					])}
-					{...{
-						tables: sortedTables,
-						onAcceptInvite: handleAcceptOrDeclineInvite,
-						onDeclineInvite: handleAcceptOrDeclineInvite,
-						motionSensitivityEnable
-					}}
+					tables={sortedTables}
+					onAcceptInvite={handleAcceptOrDeclineInvite}
+					onDeclineInvite={handleAcceptOrDeclineInvite}
+					motionSensitivityEnable
 				/>
 				<TournamentsView
 					className={cn([
@@ -167,7 +182,7 @@ export function App({ config }: Props): React$Node {
 				</Tab>
 				<Tab
 					k="options"
-					fullWidth={false}
+					fullWidth={isMobile()}
 					isActive={activeTab === "options"}
 					onClick={(k) => setActiveTab(k)}
 				>

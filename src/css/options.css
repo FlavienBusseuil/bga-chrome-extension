@@ -184,6 +184,7 @@ textarea.options-textarea {
 	justify-content: space-evenly;
 	width: 100%;
 	line-height: 32px;
+	gap: 0.5em;
 }
 
 /* Configuration for Firefox */

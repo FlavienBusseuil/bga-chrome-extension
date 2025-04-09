@@ -89,6 +89,8 @@ html.dark .text-gray-600 {
 }
 
 .options-frame {
+  display: flex;
+  flex-flow: column;
   border: 1px solid #000;
   border-radius: 4px;
   padding: 1em;
@@ -99,18 +101,6 @@ html.dark .text-gray-600 {
   flex-flow: column;
   gap: 0.5em;
   transition: all .5s linear;
-}
-
-.options-frame .desktop-options {
-  display: flex;
-  flex-flow: column;
-  gap: 0.5em;
-}
-
-@media only screen and (hover: none) and (pointer: coarse) {
-  .options-frame .desktop-options {
-    display: none;
-  }
 }
 
 .options-frame:not(.reduced) {
