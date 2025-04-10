@@ -2,7 +2,7 @@
   "manifest_version": 3,
   "name": "Board Game Arena (BGA) Extension",
   "short_name": "BGA",
-  "version": "1.11.14",
+  "version": "1.11.15",
   "action": {
     "default_popup": "popup.html"
   },
