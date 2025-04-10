@@ -1482,6 +1482,16 @@ const defaultGames: Partial<Game>[] = [
 		iconBackground: "#785e8b",
 		iconBackgroundDark: "#4b3858"
 	},
+	{
+		name: "aiye",
+		playerPanel: "aiye-player-area-{{player_id}}",
+		css: "#bga-jump-to_controls { display: none; } .desktop_version #game_play_area { padding-left: 50px; }",
+	},
+	{
+		name: "tactile",
+		playerPanel: "tableau_{{player_id}}",
+		css: ".desktop_version #game_play_area { padding-left: 50px; } .desktop_version .store, .desktop_version .board { margin-left: 50px; }"
+	},
 ];
 
 export default defaultGames;

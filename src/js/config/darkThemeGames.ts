@@ -251,6 +251,7 @@ export const gamesWithTwoTeams = [
 ];
 
 export const gamesWithCustomPanel = [
+  'aiye',
   'dronesvsseagulls',
   'eminentdomain',
   'emdomicrocosm',
@@ -398,6 +399,7 @@ export const gamesWithCustomColors = {
   riverofgold: ['#000000', '#ff0000', '#008000', '#0000ff', '#ffffff'],
   siam: ['#0000ff', '#ffa500'],
   superstore: ['#2d5787', '#613d31', '#f36c45', '#8b4e6e'],
+  tactile: ['#f10000', '#0f87da', '#f3ac11', '#6ab524'],
   thefoxintheforest: ['#5e3f85'],
   terraformingmars: ['#ff0000', '#0000ff', '#008000', '#ffa500'],
   terramystica: ['#971923', '#278139', '#70421d', '#1a2126', '#f9ae18', '#1d7ddb'],
@@ -407,6 +409,7 @@ export const gamesWithCustomColors = {
 export const gamesWithRecommandedConfig = {
   abyss: { color: 226, sat: 16 },
   agricola: { color: 100, sat: 12 },
+  aiye: { color: 20, sat: 25 },
   architectsofamytis: { color: 16, sat: 10 },
   arknova: { color: 33, sat: 15 },
   arknovamw: { color: 33, sat: 15 },
@@ -889,6 +892,12 @@ _darkStyleForGame['agricola'] = `
 #left-board, #central-board { filter: contrast(1.1) opacity(0.9); }
 #btnUndoLastStep { ${yellowButton} }
 #btnUndoLastStep:hover { ${yellowButtonOver} }
+`;
+
+_darkStyleForGame['aiye'] = `
+#player_boards .player-board, #player_boards .player-board>* { filter: invert(1); }
+.aiye-player-board .card, .aiye-player-board .aiye-player-board-column-count div { filter: var(--highlight-min); }
+#pagesection_gameview .whiteblock { background: var(--dark-back)!important; }
 `;
 
 _darkStyleForGame['akeruption'] = `
@@ -6467,6 +6476,13 @@ html.darkpanel #player_boards.player-board.stm_player_passed { background: var(-
 .stm_icon_rotate_arrow:hover { opacity: .7; }
 `;
 
+_darkStyleForGame['sunrisesunset'] = `
+#page-title { z-index: 1050; }
+#common_table, #player_hand, .bar-container { background-color: var(--dark-back)!important; }
+.card-header { color: var(--light-80)!important; }
+.day li.grid-cell { border-color: var(--light-50)!important; }
+`;
+
 _darkStyleForGame['super'] = `
 #overall-content:before { content: ""; background: #00000060; position: absolute; width: 100%; height: 100%; }
 #boards .player-table .supergame-gamezone .player-board-name { background: var(--dark-back); }
@@ -6546,6 +6562,14 @@ _darkStyleForGame['symbiose'] = `
 _darkStyleForGame['tablut'] = `
 #board:before { content: ""; background: #00000080; position: absolute; width: 100%; height: 100%; }
 .border { color: var(--light-80); }
+`;
+
+_darkStyleForGame['tactile'] = `
+:root { --panel-color: var(--dark-30); }
+.bank { background-color: var(--dark-10); }
+.playerPanelNumber { color: var(--light-80); }
+.tile, .card, .storecard { filter: saturate(0.7); }
+span[style^="color: black;"] { text-shadow: var(--text-w-shadow); }
 `;
 
 _darkStyleForGame['takaraisland'] = `

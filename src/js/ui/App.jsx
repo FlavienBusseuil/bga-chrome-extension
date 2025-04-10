@@ -97,13 +97,13 @@ export function App({ config }: Props): React$Node {
 					tables={sortedTables}
 					onAcceptInvite={handleAcceptOrDeclineInvite}
 					onDeclineInvite={handleAcceptOrDeclineInvite}
-					motionSensitivityEnable
+					motionSensitivityEnable={motionSensitivityEnable}
 				/>;
 			}
 			if (activeTab === "tournaments") {
 				return <TournamentsView className="w-full" tournaments={sortedTournaments} />;
 			}
-			return <FriendsView className="w-full" getGroupTables={getGroupTables} groups={groups} motionSensitivityEnable />;
+			return <FriendsView className="w-full" getGroupTables={getGroupTables} groups={groups} motionSensitivityEnable={motionSensitivityEnable} />;
 		}
 
 		return (
@@ -123,7 +123,7 @@ export function App({ config }: Props): React$Node {
 					tables={sortedTables}
 					onAcceptInvite={handleAcceptOrDeclineInvite}
 					onDeclineInvite={handleAcceptOrDeclineInvite}
-					motionSensitivityEnable
+					motionSensitivityEnable={motionSensitivityEnable}
 				/>
 				<TournamentsView
 					className={cn([
@@ -143,7 +143,7 @@ export function App({ config }: Props): React$Node {
 					])}
 					getGroupTables={getGroupTables}
 					groups={groups}
-					motionSensitivityEnable
+					motionSensitivityEnable={motionSensitivityEnable}
 				/>
 			</div>
 		);
