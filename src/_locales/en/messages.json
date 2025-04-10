@@ -92,10 +92,10 @@
 		"message": "Hidden games"
 	},
 	"optionHiddenOn": {
-		"message": "L'option permettant de cacher un jeu est activée"
+		"message": "The option to hide a game is enabled"
 	},
 	"optionHiddenOff": {
-		"message": "L'option permettant de cacher un jeu est désactivée"
+		"message": "The option to hide a game is disabled"
 	},
 	"optionMutedTab": {
 		"message": "Muted players"
@@ -575,7 +575,7 @@
 		"message": "Screenshot (you can use <a href='https://imgur.com/' target='_blank' class='bga-ext-link' >Imgur.com</a> to upload it and copy/paste the link here)"
 	},
 	"bugReportResult": {
-		"message": "Your bug report has been sent. You can view it, and check the progress of your problem resolution on <a href='/group?id=18063230' target='_blank' class='bga-ext-link'>this page</a>"
+		"message": "Your bug report has been sent. You can view it, and check the progress of your bug resolution on <a href='/group?id=18063230' target='_blank' class='bga-ext-link'>this page</a>"
 	},
 	"bugReportNew": {
 		"message": "New ! You can report a dark mode bug by opening the popup here"

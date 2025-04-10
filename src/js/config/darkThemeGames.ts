@@ -3155,8 +3155,7 @@ body { background: none !important; }
 `;
 
 _darkStyleForGame['frenchtarot'] = `
-#icon_first_player_in_panel { filter: invert(1); }
-.#000 { text-shadow: var(--text-w-shadow); }
+.icon.first_player { filter: invert(1); }
 #score_table thead th, #score_table tfoot th, #score_table tfoot td, #score_table tbody tr:nth-of-type(2n)>* { background-color: var(--dark-20) !important; }
 .black { text-shadow: var(--text-w-shadow); }
 .blue { color: #6666ff !important; }
@@ -4754,7 +4753,7 @@ _darkStyleForGame['naishi'] = `
 _darkStyleForGame['nanatoridori'] = `
 #overall-content:before { content: ""; background: #000000A0; position: absolute; width: 100%; height: 100%; }
 #overall-content { color: var(--light-80); }
-.nana_hand { color: #000; }
+.nana_hand, .scorecell.score { color: #000; }
 `;
 
 _darkStyleForGame['nangaparbat'] = `
@@ -6753,9 +6752,9 @@ _darkStyleForGame['thebrambles'] = `
 
 _darkStyleForGame['thecrew'] = `
 #overall-content:before { content: ""; background: #00000060; position: absolute; width: 100%; height: 100%; }
-#logs span.card-value.#000 { text-shadow: var(--text-w-shadow); }
+#logs span.card-value.black { text-shadow: var(--text-w-shadow); }
 #logs span.card-value { padding-right: 0.2em; }
-#logs span.logicon.#000 { filter: invert(1); }
+#logs span.logicon.black { filter: invert(1); }
 .player-table .player-table-wrapper .player-table-name { background-color: var(--dark-20); }
 .player-table, #discard-container #discard-wrapper, #hand-container, #thecrew-table>div#table-middle>div { background-color: var(--dark-back); }
 .player-table.active { background-color: #4f555fbf; }
@@ -6776,8 +6775,8 @@ _darkStyleForGame['thecrew'] = `
 _darkStyleForGame['thecrewdeepsea'] = `
 #overall-content:before { content: ""; background: #00000060; position: absolute; width: 100%; height: 100%; }
 #logs .notif_startNewMission > div { color: #000 !important; }
-#logs span.card-value.#000 { text-shadow: var(--text-w-shadow); }
-#logs span.logicon.#000 { background-color: #fff; }
+#logs span.card-value.black { text-shadow: var(--text-w-shadow); }
+#logs span.logicon.black { background-color: #fff; }
 .dijitTooltipContents .logicon { filter: var(--highlight-min); }
 .player-table .player-table-name { background-color: var(--dark-20); }
 .player-table, #thecrewdeepsea-table>div#table-middle>div,
