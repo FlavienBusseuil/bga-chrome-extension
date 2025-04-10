@@ -6556,7 +6556,7 @@ _darkStyleForGame['symbiose'] = `
 [style*="border-top: 2px solid #ff0000;"] { border-color: #ff6565 !important; }
 [style*="border-top: 2px solid #008000;"] { border-color: #54aa54 !important; }
 [style*="border-top: 2px solid #ffa500;"] { border-color: #ffc965 !important; }
-.scorepad, .scorepad > * { filter: invert(1); }
+.scorepad { color: #000; filter: invert(1); }
 `;
 
 _darkStyleForGame['tablut'] = `
