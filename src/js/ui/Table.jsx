@@ -1,7 +1,7 @@
 // @flow
 import type { TableId } from "../types/bga/Table";
 
-import { tr } from "../utils/misc/translate";
+import { i18n } from "../utils/chrome";
 import { PlayerList } from "./PlayerList";
 import { TableContent } from "./TableContent";
 import { TableFooter } from "./TableFooter";
@@ -56,14 +56,14 @@ export function Table({
 }: Props): React$Element<typeof Card> {
 	const renderIcons: Array<React$Element<typeof TableIcon>> = [
 		isPartOfTournament ? (
-			<TableIcon title={tr("tournament")}>🏆</TableIcon>
+			<TableIcon title={i18n("tournament")}>🏆</TableIcon>
 		) : null,
-		hasArenaMode ? <TableIcon title={tr("arena")}>🏟</TableIcon> : null,
+		hasArenaMode ? <TableIcon title={i18n("arena")}>🏟</TableIcon> : null,
 		hasTrainingMode ? (
-			<TableIcon title={tr("training")}>🤸</TableIcon>
+			<TableIcon title={i18n("training")}>🤸</TableIcon>
 		) : null,
-		isTurnBased ? null : ( // <TableIcon title={tr("turn_based")}>🕰</TableIcon>
-			<TableIcon title={tr("realtime")}>⚡️</TableIcon>
+		isTurnBased ? null : ( // <TableIcon title={i18n("turn_based")}>🕰</TableIcon>
+			<TableIcon title={i18n("realtime")}>⚡️</TableIcon>
 		),
 	].filter(Boolean);
 
@@ -88,7 +88,7 @@ export function Table({
 						<span
 							className="flex-grow text-gray-600 text-sm leading none"
 							dangerouslySetInnerHTML={{
-								__html: tr("player_invited_you", [
+								__html: i18n("player_invited_you", [
 									`<a class="text-bgaBlue-lighter">${tableCreatorName}</a>`,
 								]),
 							}}
@@ -97,7 +97,7 @@ export function Table({
 
 					// Button({
 					//   className: "shrink-0",
-					//   text: tr("decline"),
+					//   text: i18n("decline"),
 					//   onClick: async () => {
 					//     const { status, error } = await fetch(
 					//       declineInviteLink
@@ -111,7 +111,7 @@ export function Table({
 
 					// Button({
 					//   className: "shrink-0",
-					//   text: tr("accept"),
+					//   text: i18n("accept"),
 					//   onClick: async () => {
 					//     const { status, error } = await fetch(
 					//       acceptInviteLink

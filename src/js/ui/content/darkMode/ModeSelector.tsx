@@ -1,8 +1,10 @@
 import React from "preact";
 import { useState, useEffect } from "preact/hooks";
+import { isMobile } from "is-mobile";
 
 import Configuration from "../../../config/configuration";
 import { gamesWithCustomActions, gamesWithRecommandedConfig } from "../../../config/darkThemeGames";
+import { i18n } from "../../../utils/chrome";
 import { setDarkStyle } from "./darkStyleFunctions";
 import { changeDarkColors } from "./darkColors";
 
@@ -42,9 +44,24 @@ const ModeSelector = (props: ModeSelectorProps) => {
   const [darkMode, setDarkMode] = useState(isDarkMode(config, gameName));
   const [darkColorHue, setDarkColorHue] = useState(config.getDarkModeColor(gameName, recommandedConfig?.color));
   const [darkColorSaturation, setDarkColorSaturation] = useState(config.getDarkModeSaturation(gameName, recommandedConfig?.sat));
-  const [paletteVisible, setPaletteVisible] = useState(false);
+  const [popupVisible, setPopupVisible] = useState(false);
   const [paletteCursorMoving, setPaletteCursorMoving] = useState(false);
   const [saturationCursorMoving, setSaturationCursorMoving] = useState(false);
+  const [formVisible, setFormVisible] = useState(false);
+  const [reportDescription, setReportDescription] = useState('');
+  const [reportScreenshot, setReportScreenshot] = useState('');
+  const [newMessageVisible, setNewMessageVisible] = useState(!isMobile() && gameName !== 'general' && !localStorage.getItem("ext_report_msg"));
+  const [resultVisible, setResultVisible] = useState(false);
+
+  const hideNewMessage = (evt: any) => {
+    setNewMessageVisible(false);
+    localStorage.setItem("ext_report_msg", "off");
+    if (evt) {
+      evt.preventDefault();
+      evt.stopPropagation();
+      evt.stopImmediatePropagation();
+    }
+  }
 
   useEffect(() => setDarkStyle(gameName, darkMode), [gameName, darkMode]);
 
@@ -58,17 +75,17 @@ const ModeSelector = (props: ModeSelectorProps) => {
   }, [darkColorHue, darkColorSaturation]);
 
   useEffect(() => {
-    if (paletteVisible) {
+    if (popupVisible) {
       setPaletteCursorPosition();
       setSaturationCursorPosition();
     }
-  }, [paletteVisible, darkColorHue, darkColorSaturation]);
+  }, [popupVisible, darkColorHue, darkColorSaturation]);
 
   useEffect(() => {
-    if (paletteVisible && paletteCursorMoving) {
+    if (popupVisible && paletteCursorMoving) {
       document.addEventListener('mousemove', paletteCursorMove);
     }
-    if (paletteVisible && saturationCursorMoving) {
+    if (popupVisible && saturationCursorMoving) {
       document.addEventListener('mousemove', saturationCursorMove);
     }
     document.addEventListener('mouseup', cursorMouseUp);
@@ -78,6 +95,23 @@ const ModeSelector = (props: ModeSelectorProps) => {
       document.removeEventListener('mouseup', cursorMouseUp);
     };
   });
+
+  const sendBugReport = () => {
+    if (reportDescription) {
+      const bugType = (gameName === 'general') ? 'Bug report for dark mode' : `Bug report for game "${gameName}"`;
+      const msg = `${bugType}\n\n${reportDescription}\n\n${reportScreenshot}`;
+      const endPoint = '/message/board/add.html';
+      const key = new Date().getTime();
+      const body = new URLSearchParams({ type: 'group', message: msg, id: 18063230, "dojo.preventCache": key } as any).toString();
+      const detail = JSON.stringify({ method: 'POST', endPoint, key, body, type: 'say' });
+      document.body.dispatchEvent(new CustomEvent('bga_ext_api_call', { detail }));
+
+      setReportDescription('');
+      setReportScreenshot('');
+      setResultVisible(true);
+      setFormVisible(false);
+    }
+  }
 
   const setPaletteCursorPosition = () => {
     paletteCursor = document.getElementById("bgaext_palette_cursor");
@@ -108,7 +142,7 @@ const ModeSelector = (props: ModeSelectorProps) => {
     config.setDarkMode(newDarkMode);
 
     if (!newDarkMode) {
-      setPaletteVisible(false);
+      setPopupVisible(false);
     }
 
     const customActions = gamesWithCustomActions[gameName];
@@ -185,8 +219,25 @@ const ModeSelector = (props: ModeSelectorProps) => {
     setSaturationCursorMoving(false);
   }
 
-  const togglePaletteVisible = () => {
-    setPaletteVisible(!paletteVisible);
+  const togglePopupVisible = () => {
+    if (newMessageVisible) {
+      hideNewMessage(undefined);
+    }
+    setFormVisible(false);
+    setResultVisible(false);
+    setPopupVisible(!popupVisible);
+  };
+
+  const getMessageNew = () => {
+    if (newMessageVisible) {
+      return (
+        <span class='bgaext_report_message' onClick={hideNewMessage}>
+          <i class="fa6 fa6-circle-xmark"></i>
+          {i18n('bugReportNew')}
+          <i class="fa fa-arrow-right"></i>
+        </span>
+      );
+    }
   };
 
   const getIcon = () => {
@@ -195,6 +246,7 @@ const ModeSelector = (props: ModeSelectorProps) => {
     if (darkMode) {
       return (
         <span onClick={toggleDarkMode}>
+          {getMessageNew()}
           <i class="fa fa-moon-o" style={style}></i>
         </span>
       );
@@ -213,10 +265,10 @@ const ModeSelector = (props: ModeSelectorProps) => {
     }
 
     const style = (gameName === "general") ? "font-size: 32px; color: #01c4ca; cursor: pointer; padding-right: 0.3em;" : "font-size: 24px; cursor: pointer; padding-right: 0.3em;"
-    const icon = paletteVisible ? <i class="fa fa-caret-up" style={style}></i> : <i class="fa fa-caret-down" style={style}></i>;
+    const icon = popupVisible ? <i class="fa fa-caret-up" style={style}></i> : <i class="fa fa-caret-down" style={style}></i>;
 
     return (
-      <span onClick={togglePaletteVisible}>
+      <span onClick={togglePopupVisible}>
         {icon}
       </span>
     );
@@ -285,38 +337,100 @@ const ModeSelector = (props: ModeSelectorProps) => {
     }
   };
 
+  const getReportForm = () => {
+    if (resultVisible) {
+      return (
+        <>
+          <div className="forms_container">
+            <span dangerouslySetInnerHTML={{ __html: i18n('bugReportResult') }} />
+          </div>
+        </>
+      );
+    }
+
+    if (formVisible) {
+      let updateTimeout: any = 0;
+
+      const updateReportDescription = () => {
+        if (updateTimeout) {
+          clearTimeout(updateTimeout);
+        }
+        updateTimeout = setTimeout(() => setReportDescription((document.getElementById('ext-report-desc') as any).value), 100);
+      }
+
+      return (
+        <>
+          <div className="forms_container">
+            <span>{i18n('bugReportDescription')}</span>
+            <textarea
+              id='ext-report-desc'
+              value={reportDescription}
+              onChange={(evt: any) => setReportDescription(evt.target.value)}
+              onInput={updateReportDescription}
+            />
+            <span dangerouslySetInnerHTML={{ __html: i18n('bugReportScreenshot') }} />
+            <input type="text" value={reportScreenshot} onChange={(evt: any) => setReportScreenshot(evt.target.value)} />
+          </div>
+          <div className="buttons_container">
+            <a href="#" className={`bgabutton bgabutton_blue ${reportDescription ? '' : 'disabled'}`} onClick={sendBugReport}>
+              {i18n('bugReportButtonSend')}
+            </a>
+            <a href="#" className="bgabutton bgabutton_blue" onClick={togglePopupVisible}>
+              {i18n('bugReportButtonCancel')}
+            </a>
+          </div >
+        </>
+      );
+    }
+
+    return (
+      <div className="buttons_container">
+        <a href="#" className="bgabutton bgabutton_blue" onClick={() => setFormVisible(true)}>
+          <i class="fa fa-bug"></i>&nbsp;
+          {i18n('bugReportButtonCreate')}
+        </a>
+      </div>
+    );
+  };
+
   const getPalette = () => {
+    if (formVisible || resultVisible) {
+      return <></>;
+    }
+
     const color1 = `hsl(${darkColorHue}, 4%, 35%)`;
     const color2 = `hsl(${darkColorHue}, 124%, 35%)`;
     const saturationStyle = `background: linear-gradient(90deg, ${color1}, ${color2})`;
+    const resetLinkText = (gameName === "general") ? i18n("darkColorResetMain") : i18n("darkColorResetGame");
 
-    if (paletteVisible && darkMode) {
-      let titleText: string, resetLinkText: string;
+    return (
+      <>
+        <div className="bgaext_palette" draggable={false} onDragStart={() => false}>
+          {getCells()}
+          {getCursor()}
+        </div>
+        {darkColorHue >= 0 && <div className="bgaext_saturation_selector" style={saturationStyle} onClick={saturationClick} draggable={false} onDragStart={() => false}>
+          {getSaturationCursor()}
+        </div>}
+        <div className="bgaext_palette_bottom">
+          {recommandedConfig && <a href="#" className="bga-ext-link" onClick={setRecommanded}>{i18n("darkColorRecommanded")}</a>}
+          {!recommandedConfig && <span></span>}
+          <a href="#" className="bga-ext-link" onClick={reset}>{resetLinkText}</a>
+        </div>
+      </>
+    );
+  };
 
-      if (gameName === "general") {
-        titleText = chrome.i18n.getMessage("darkColorConfigurationMain");
-        resetLinkText = chrome.i18n.getMessage("darkColorResetMain");
-      } else {
-        titleText = chrome.i18n.getMessage("darkColorConfigurationGame");
-        resetLinkText = chrome.i18n.getMessage("darkColorResetGame");
-      }
+  const getPopupContent = () => {
+    if (popupVisible && darkMode) {
+      const titleText = (formVisible || resultVisible) ? i18n('bugReportTitle') : (gameName === "general") ? i18n("darkColorConfigurationMain") : i18n("darkColorConfigurationGame");
 
       return (
         <div id="bgaext_palette_container" draggable={false} onDragStart={() => false}>
           <h2 class="bgaext_palette_title">{titleText}</h2>
-          <div class="bgaext_closeicon" onClick={togglePaletteVisible}><i class="fa fa-times-circle" aria-hidden="true"></i></div>
-          <div className="bgaext_palette" draggable={false} onDragStart={() => false}>
-            {getCells()}
-            {getCursor()}
-          </div>
-          {darkColorHue >= 0 && <div className="bgaext_saturation_selector" style={saturationStyle} onClick={saturationClick} draggable={false} onDragStart={() => false}>
-            {getSaturationCursor()}
-          </div>}
-          <div className="bgaext_palette_bottom">
-            {recommandedConfig && <a href="#" className="bgaext_link" onClick={setRecommanded}>{chrome.i18n.getMessage("darkColorRecommanded")}</a>}
-            {!recommandedConfig && <span></span>}
-            <a href="#" className="bgaext_link" onClick={reset}>{resetLinkText}</a>
-          </div>
+          <div class="bgaext_closeicon" onClick={togglePopupVisible}><i class="fa fa-times-circle" aria-hidden="true"></i></div>
+          {getPalette()}
+          {getReportForm()}
         </div>
       );
     }
@@ -330,7 +444,7 @@ const ModeSelector = (props: ModeSelectorProps) => {
         {getMenuIcon()}
         {getIcon()}
       </span>
-      {getPalette()}
+      {getPopupContent()}
     </>
   );
 };

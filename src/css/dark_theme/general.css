@@ -2206,3 +2206,12 @@ html:not(.bgaext_gamelist) .ext_delete_button {
 .bgaext_premium .odd\:bg-gray-100:nth-child(odd) {
   background-color: var(--dark-30);
 }
+
+/* Login popup */
+.bga-account-manager-form {
+  background: transparent !important;
+}
+
+.bga-account-manager-form input {
+  border: 1px solid var(--light-50) !important;
+}

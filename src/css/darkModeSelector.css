@@ -39,6 +39,58 @@
   gap: 20px;
 }
 
+#bgaext_palette_container .bgabutton {
+  margin: 0px;
+}
+
+#bgaext_palette_container .bgabutton i {
+  color: var(--light-80);
+}
+
+#bgaext_palette_container .bgabutton.disabled {
+  background: #787878 !important;
+  border-color: var(--light-50) !important;
+  color: #fff !important;
+  cursor: not-allowed;
+}
+
+#bgaext_palette_container .buttons_container {
+  display: flex;
+  justify-content: right;
+  width: 100%;
+  gap: 0.5em;
+}
+
+#bgaext_palette_container .forms_container {
+  display: flex;
+  flex-flow: column;
+  gap: 0.5em;
+  width: 600px;
+}
+
+#bgaext_palette_container .forms_container span {
+  font-size: 12px;
+  padding-top: 0.5em;
+}
+
+#bgaext_palette_container .forms_container span.right {
+  text-align: right;
+}
+
+#bgaext_palette_container .forms_container>* {
+  width: 100%;
+}
+
+#bgaext_palette_container textarea {
+  resize: vertical;
+  min-height: 100px;
+  padding: 0.3em;
+}
+
+#bgaext_palette_container input {
+  padding-left: 0.3em;
+}
+
 .mobile_version #bgaext_palette_container {
   right: 0px;
 }
@@ -153,4 +205,30 @@
 
 .darkmode .game_interface #soundControls {
   left: 60px;
+}
+
+#topbar .bgaext_darkmode span.bgaext_report_message {
+  position: absolute !important;
+  top: -5px;
+  right: 45px;
+  overflow: visible;
+  padding: 0.5em !important;
+  border: 1px solid var(--light-50);
+  border-radius: 8px;
+  background: var(--dark-40);
+  cursor: pointer;
+}
+
+#topbar .bgaext_darkmode span.bgaext_report_message i.fa {
+  color: var(--light-80);
+  padding-left: 0.5em;
+}
+
+#topbar .bgaext_darkmode span.bgaext_report_message i.fa6 {
+  color: var(--light-50);
+  padding-right: 0.5em;
+}
+
+#topbar .bgaext_darkmode span.bgaext_report_message:hover i.fa6 {
+  color: var(--light-80);
 }

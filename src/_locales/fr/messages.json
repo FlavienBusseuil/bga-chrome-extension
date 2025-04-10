@@ -161,7 +161,7 @@
 		"message": "Plateau principal"
 	},
 	"reportCreationWarning": {
-		"message": "Vous utilisez une extension de navigateur qui modifie sensiblement le visuel du site et de certains jeux. <br>Si vous avez un problème avec une des <a href='https://fr.doc.boardgamearena.com/ChromeExtension' class='bga-link'>fonctionnalités de l'extension</a>, ne créez pas un rapport, venez plutôt en parler sur le forum !"
+		"message": "Vous utilisez une extension de navigateur qui modifie sensiblement le visuel du site et de certains jeux. <br>Si vous avez un problème avec une des <a href='https://fr.doc.boardgamearena.com/ChromeExtension' target='_blank' class='bga-link'>fonctionnalités de l'extension</a>, ne créez pas un rapport, venez plutôt en parler sur le forum !"
 	},
 	"reportCreationWarningLink": {
 		"message": "ICI"
@@ -555,5 +555,29 @@
 	},
 	"configurationRestored": {
 		"message": "Les paramètres par défaut ont été restaurés"
+	},
+	"bugReportTitle": {
+		"message": "Signaler un bug à propos du mode sombre"
+	},
+	"bugReportButtonCreate": {
+		"message": "Signaler un bug"
+	},
+	"bugReportButtonSend": {
+		"message": "Envoyer le rapport de bug"
+	},
+	"bugReportButtonCancel": {
+		"message": "Annuler"
+	},
+	"bugReportDescription": {
+		"message": "Description (merci de bien préciser le problème ainsi que la façon de le reproduire)"
+	},
+	"bugReportScreenshot": {
+		"message": "Capture d'écran (vous pouvez utiliser <a href='https://imgur.com/' target='_blank' class='bga-ext-link'>Imgur.com</a> pour la télécharger et copier-coller le lien ici)"
+	},
+	"bugReportResult": {
+		"message": "Votre rapport d'erreur a été envoyé. Vous pouvez le consulter, et vérifier l'avancement de la résolution de votre problème sur <a href='/group?id=18063230' target='_blank' class='bga-ext-link'>cette page</a>"
+	},
+	"bugReportNew": {
+		"message": "Nouveau ! Vous pouvez reporter un bug du mode sombre en ouvrant le popup ici"
 	}
 }

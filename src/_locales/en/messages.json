@@ -161,7 +161,7 @@
 		"message": "Main board"
 	},
 	"reportCreationWarning": {
-		"message": "You're using a browser extension that significantly alters the visuals of the site and certain games. If you have a problem with one of <a href='https://en.doc.boardgamearena.com/ChromeExtension' class='bga-link'>the extension's features</a>, please don't create a report, come and talk about it on the forum!"
+		"message": "You're using a browser extension that significantly alters the visuals of the site and certain games. If you have a problem with one of <a href='https://en.doc.boardgamearena.com/ChromeExtension' target='_blank' class='bga-link'>the extension's features</a>, please don't create a report, come and talk about it on the forum!"
 	},
 	"reportCreationWarningLink": {
 		"message": "HERE"
@@ -555,5 +555,29 @@
 	},
 	"configurationRestored": {
 		"message": "Default settings have been restored"
+	},
+	"bugReportTitle": {
+		"message": "Report a bug about dark mode"
+	},
+	"bugReportButtonCreate": {
+		"message": "Report a bug"
+	},
+	"bugReportButtonSend": {
+		"message": "Send the bug report"
+	},
+	"bugReportButtonCancel": {
+		"message": "Cancel"
+	},
+	"bugReportDescription": {
+		"message": "Description (please specify the problem and how to reproduce it)"
+	},
+	"bugReportScreenshot": {
+		"message": "Screenshot (you can use <a href='https://imgur.com/' target='_blank' class='bga-ext-link' >Imgur.com</a> to upload it and copy/paste the link here)"
+	},
+	"bugReportResult": {
+		"message": "Your bug report has been sent. You can view it, and check the progress of your problem resolution on <a href='/group?id=18063230' target='_blank' class='bga-ext-link'>this page</a>"
+	},
+	"bugReportNew": {
+		"message": "New ! You can report a dark mode bug by opening the popup here"
 	}
 }
