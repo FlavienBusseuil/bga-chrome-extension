@@ -75,6 +75,7 @@ interface CustomConfig {
 	hideChatUserNames?: boolean;
 	chatLightIcons?: boolean;
 	animatedTitle?: boolean;
+	areLogTimestampsRemoved?: boolean;
 }
 
 export interface HomeConfig {
@@ -497,8 +498,17 @@ class Configuration {
 		storageSet({ onlineMessages: enable });
 	}
 
+	setAreLogTimestampsRemoved(enable: boolean) {
+		this._customConfig.areLogTimestampsRemoved = enable;
+		storageSet({ areLogTimestampsRemoved: enable });
+	}
+
 	isOnlineMessagesEnabled() {
 		return this._customConfig.onlineMessages || false;
+	}
+
+	areLogTimestampsRemoved() {
+		return this._customConfig.areLogTimestampsRemoved || false;
 	}
 
 	setGlobalFloatingMenu(enable: boolean) {
