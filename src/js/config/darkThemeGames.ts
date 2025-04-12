@@ -56,6 +56,7 @@ export const gamesWithCustomBackground = [
   'century',
   'chromino',
   'clashofdecks',
+  'coatl',
   'codexnaturalis',
   'coffee',
   'concept',
@@ -237,6 +238,7 @@ export const gamesWithCustomBackground = [
   'ultimaterailroads',
   'unrest',
   'vaalbara',
+  'wizardscup',
   'wizardsgrimoire',
   'wonderfulkingdom',
   'wordtraveler',
@@ -252,6 +254,7 @@ export const gamesWithTwoTeams = [
 
 export const gamesWithCustomPanel = [
   'aiye',
+  'coatl',
   'dronesvsseagulls',
   'eminentdomain',
   'emdomicrocosm',
@@ -489,6 +492,7 @@ export const gamesWithRecommandedConfig = {
   turingmachine: { color: 120, sat: 15 },
   twelvechips: { color: 164, sat: 15 },
   ultimaterailroads: { color: 8, sat: 15 },
+  wizardscup: { color: 20, sat: 20 },
 };
 
 const manageBackground = (defBackClass: string, otherBackClasses: string[]) => {
@@ -2084,6 +2088,14 @@ _darkStyleForGame['coalbaron'] = `
 #player_config #round-counter-wrapper { background: var(--dark-10); font-weight: normal; color: var(--light-80); }
 #coalbaron-main-container .coalbaron-board { background-color: #3d2b0f; }
 .coalbaron-meeple.icon-worker { filter: var(--highlight); }
+`;
+
+_darkStyleForGame['coatl'] = `
+#overall-content:before { content: ""; background: #00000080; position: absolute; width: 100%; height: 100%; }
+.player-board:before { content: ""; background: #000000c0; position: absolute; width: 100%; height: 100%; top:0px; left:0px; }
+h2, h3 { color: #ac7620; }
+#logs .log.cancel .roundedbox { background-image: none; }
+#logs .log .timestamp { background-color: transparent; }
 `;
 
 _darkStyleForGame['codexnaturalis'] = `
@@ -7560,6 +7572,25 @@ _darkStyleForGame['wizard'] = `
 .wizPrefDeckMedieval .wizLogColor3 { color: var(--violet-80); }
 .wizPrefDeckMedieval .wizLogColor4 { color: var(--green-30); }
 .card .card-sides .card-side, #wizTrumpSelectionColor, #wizScorePad { filter: brightness(0.9); }
+`;
+
+_darkStyleForGame['wizardscup'] = `
+#overall-content:before { content: ""; background: #00000080; position: absolute; width: 100%; height: 100%; }
+.zone-title { color: #e3a34f; }
+.deck[data-empty=true] { outline: 2px dashed #e3a34f; }
+.player-board[data-player-color=fff]:before { background-color: #bbb; }
+.player-board[data-player-color=fff] { color: #fff; }
+.player-board[data-player-color=fff] .player_score, .player-board[data-player-color=fff] .player_score * { color: #000; }
+#board .duel-zone { background-color: #403a5f; }
+.bga-help_popin-button { background: var(--dark-40); color: var(--light-80); }
+#help-popin ol { background-color: var(--dark-30); }
+#help-popin .powers .power-type { filter: invert(0.88); }
+.element-icon { border-radius: 50%; }
+#player-help-visible-wrapper { position: relative; }
+.card-stock .slot { background: var(--dark-back); }
+div[data-player-color=fff] .slot { box-shadow: 0 0 3px 5px #aaa9; }
+.counters { margin: 15px 0; }
+[style="color: #000;"] { text-shadow: var(--text-w-shadow); }
 `;
 
 _darkStyleForGame['wizardsgrimoire'] = `

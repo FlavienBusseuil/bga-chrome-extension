@@ -1492,6 +1492,11 @@ const defaultGames: Partial<Game>[] = [
 		playerPanel: "tableau_{{player_id}}",
 		css: ".desktop_version #game_play_area { padding-left: 50px; } .desktop_version .store, .desktop_version .board { margin-left: 50px; }"
 	},
+	{
+		name: "coatl",
+		playerPanel: "other_player_area_{{player_id}}",
+	},
+
 ];
 
 export default defaultGames;
