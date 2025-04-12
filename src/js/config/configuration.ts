@@ -75,7 +75,7 @@ interface CustomConfig {
 	hideChatUserNames?: boolean;
 	chatLightIcons?: boolean;
 	animatedTitle?: boolean;
-	areLogTimestampsRemoved?: boolean;
+	hideLogTimestamp?: boolean;
 }
 
 export interface HomeConfig {
@@ -498,17 +498,17 @@ class Configuration {
 		storageSet({ onlineMessages: enable });
 	}
 
-	setAreLogTimestampsRemoved(enable: boolean) {
-		this._customConfig.areLogTimestampsRemoved = enable;
-		storageSet({ areLogTimestampsRemoved: enable });
-	}
-
 	isOnlineMessagesEnabled() {
 		return this._customConfig.onlineMessages || false;
 	}
 
-	areLogTimestampsRemoved() {
-		return this._customConfig.areLogTimestampsRemoved || false;
+	setLogTimestampHidden(val: boolean) {
+		this._customConfig.hideLogTimestamp = val;
+		storageSet({ hideLogTimestamp: val });
+	}
+
+	areLogTimestampsHidden() {
+		return this._customConfig.hideLogTimestamp || false;
 	}
 
 	setGlobalFloatingMenu(enable: boolean) {
@@ -766,6 +766,10 @@ class Configuration {
 		if (this._customConfig.chatBarAutoHide) {
 			cssList.push('.game_interface #chatbardock { transition: top .5s ease 0s; }');
 			cssList.push('.game_interface #chatbardock.bgaext_hidden:not(:has(.expanded)) { top: 0px; }')
+		}
+
+		if (this._customConfig.hideLogTimestamp) {
+			cssList.push('#logs .timestamp { display: none!important; }');
 		}
 
 		if (this._localConfig.css) {

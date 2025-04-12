@@ -381,7 +381,7 @@ document.addEventListener('bga_ext_update_config', (data) => {
 		} else {
 			initTitleObserver();
 		}
-	} else if (data.detail.key === 'chatBarAutoHide') {
+	} else if (['hideLogTimestamp', 'chatBarAutoHide'].includes(data.detail.key)) {
 		if (pageType === 'game') {
 			buildMainCss(config.getGameCss());
 

@@ -65,7 +65,7 @@
 		"message": "Timestamps are removed from game logs"
 	},
 	"optionRemoveLogTimestampsOff": {
-		"message": "Timestamps are displayed in game logs (as usual)"
+		"message": "Timestamps are displayed in game logs (default behavior)"
 	},
 	"optionFriendsActivityOn": {
 		"message": "The friends' activity is displayed in game logs"

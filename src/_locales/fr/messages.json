@@ -65,7 +65,7 @@
 		"message": "Les horodatages sont retirés de l'historique de la partie"
 	},
 	"optionRemoveLogTimestampsOff": {
-		"message": "Les horodatages sont affichés dans l'historique de la partie (comme d'habitude)"
+		"message": "Les horodatages sont affichés dans l'historique de la partie (comportement par défaut)"
 	},
 	"optionFriendsActivityOn": {
 		"message": "L'activité des amis est affichée dans l'historique de la partie"

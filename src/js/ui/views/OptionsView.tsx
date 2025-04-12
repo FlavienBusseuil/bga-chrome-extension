@@ -15,7 +15,7 @@ type Props = {
 
 export const OptionsView = ({ config, onChange }: Props) => {
   const [onlineMessages, setOnlineMessages] = useState(config.isOnlineMessagesEnabled());
-  const [areLogTimestampsRemoved, setAreLogTimestampsRemoved] = useState(config.areLogTimestampsRemoved());
+  const [areLogTimestampsHidden, setLogTimestampHidden] = useState(config.areLogTimestampsHidden());
   const [eloHidden, setEloHidden] = useState(config.isEloHidden());
   const [tracking, setTracking] = useState(config.isTrackingEnable());
   const [soundNotification, setSoundNotification] = useState(config.isSoundNotificationEnable());
@@ -67,8 +67,8 @@ export const OptionsView = ({ config, onChange }: Props) => {
   };
 
   const updateAreLogTimestampsRemoved = (val: boolean) => {
-    setAreLogTimestampsRemoved(val);
-    config.setAreLogTimestampsRemoved(val);
+    setLogTimestampHidden(val);
+    config.setLogTimestampHidden(val);
   }
 
   const updateEloHidden = (val: boolean) => {
@@ -341,7 +341,7 @@ export const OptionsView = ({ config, onChange }: Props) => {
         <div className="options-frame">
           <div className="options-frame-title">{i18n("optionGamesTitle")}</div>
           {getSwitch(onlineMessages, updateOnlineMessages, "optionFriendsActivityOn", "optionFriendsActivityOff")}
-          {getSwitch(areLogTimestampsRemoved, updateAreLogTimestampsRemoved, "optionRemoveLogTimestampsOn", "optionRemoveLogTimestampsOff")}
+          {getSwitch(areLogTimestampsHidden, updateAreLogTimestampsRemoved, "optionRemoveLogTimestampsOn", "optionRemoveLogTimestampsOff")}
           {getSwitch(!eloHidden, updateEloHidden, "optionEloHiddenOff", "optionEloHiddenOn")}
           {desktopVersion && getSwitch(chatBarAutoHide, updateChatBarAutoHide, "optionsChatAutoHideOn", "optionsChatAutoHideOff")}
         </div>
