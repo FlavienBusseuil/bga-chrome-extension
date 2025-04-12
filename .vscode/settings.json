@@ -1,0 +1,9 @@
+{
+    "editor.renderWhitespace": "none",
+    "editor.tabSize": 2,
+    "diffEditor.ignoreTrimWhitespace": true,
+    "editor.formatOnSave": true,
+    "javascript.preferences.quoteStyle": "double",
+    "typescript.preferences.quoteStyle": "double",
+    "files.trimTrailingWhitespace": true,
+}
