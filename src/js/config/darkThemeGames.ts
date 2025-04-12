@@ -4383,6 +4383,14 @@ a[style*="color: #000000"], h3[style*="color: #000000"]>span, span[style*="color
 _darkStyleForGame['maracaibo'] = `
 #mcb-tabContents { background-color: var(--dark-back); }
 .mcb-closable.whiteblock { background: var(--dark-10) !important; }
+#mcb-floatingHand { background-color: var(--dark-10); color: var(--light-70); border: 1px solid var(--dark-40); }
+#mcb-floatingHand .mcb-toggle { background: var(--dark-10); }
+.mcb-scoreSheet thead tr:first-child, .mcb-scoreSheet tr:nth-child(2n), .mcb-scoreSheet tr.mcb-total { background-color: var(--dark-10); }
+.mcb-scoreSheet tr:nth-child(odd) { background-color: var(--dark-40); }
+#mcb-floatingHand .whiteblock:nth-child(2) { border-left: 1px solid var(--light-50); }
+.mcb-scroll-pageTitle { color: #000; }
+.mcb-credit { color: var(--light-70); }
+.mcb-card-frame { filter: brightness(0.9); }
 `;
 
 _darkStyleForGame['marcopolo'] = `
@@ -7083,7 +7091,7 @@ _darkStyleForGame['ticketgagnant'] = `
 _darkStyleForGame['tickettoride'] = `
 #overall-content:before { content: ""; background: #00000060; position: absolute; width: 100%; height: 100%; }
 .player-table { background: var(--dark-back); }
-#map { filter: brightness(0.8); }
+#map:before, #destination-deck:before { content: ""; background: #00000040; position: absolute; width: 100%; height: 100%; top:0px; left: 0px; }
 .train-car-card, #train-car-deck .hidden-pile .deck-level, #train-car-deck #destination-deck-hidden-pile, .stockitem, .train-car-card { filter: brightness(0.9); }
 .player-board:before { opacity: 0.6; }
 `;
