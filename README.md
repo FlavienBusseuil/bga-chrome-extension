@@ -2,9 +2,13 @@
 
 https://chrome.google.com/webstore/detail/bga-chrome-extension/kchnhmpeopknjdjejognciimepllkacb
 
-# BGA Firefox Extension
+# BGA Firefox Add-On
 
 https://addons.mozilla.org/addon/board-game-arena-bga-extension/
+
+# BGA Opera Add-On
+
+https://addons.opera.com/extensions/details/board-game-arena-bga-extension/
 
 ## Installation
 
