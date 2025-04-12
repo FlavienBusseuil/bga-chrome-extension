@@ -208,31 +208,6 @@ class Configuration {
 		});
 	}
 
-	private _sendAnalytics(context: string) {
-		/*
-		const endpoint = "https://www.google-analytics.com/mp/collect";
-		const measurementId = "G-ZDKRET609Q";
-		const apiSecret = "4TThk978Rse1u4xipIDEnw";
-
-		const contextConfig = this._customConfig.dark.find(d => d.name === context);
-		fetch(`${endpoint}?measurement_id=${measurementId}&api_secret=${apiSecret}`, {
-			method: 'POST',
-			body: JSON.stringify({
-				client_id: this._customConfig.clientId,
-				events: [
-					{
-						name: `${context}_${this._customConfig.darkMode ? "dark" : "light"}`,
-						params: {
-							dark_mode_color: this._customConfig.darkMode ? contextConfig?.color || this._customConfig.darkModeColor : -1,
-							dark_mode_sat: this._customConfig.darkMode ? contextConfig?.sat || this._customConfig.darkModeSat : -1,
-						},
-					},
-				],
-			}),
-		});
-		*/
-	}
-
 	private _merge() {
 		const customNames = this._customConfig.games.map((g) => g.name);
 		const defGames = this._defConfig.games.filter(
@@ -259,7 +234,6 @@ class Configuration {
 	}
 
 	getGameConfig(game: string): Game | undefined {
-		this._sendAnalytics(game);
 		return this._config.games.find((c: any) => c.name === game);
 	}
 
