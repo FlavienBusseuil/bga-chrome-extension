@@ -280,6 +280,7 @@ const initPage = () => {
 	}
 
 	waitForObj('head', 10).then(() => {
+		console.debug('[bga extension] bga api script loading...');
 		const script = document.createElement('script');
 		script.id = 'ext_bga_api';
 		script.src = `${chrome.runtime.getURL('/js/bgaApi.js')}?&time=${new Date().getTime()}`;

@@ -77,6 +77,7 @@ export const initGameListObserver = (config, page) => {
 			const gameId = evt.target.id.split('_').pop();
 
 			if (gameId) {
+				console.debug(`[bga extension] Create table for game ${gameId}`);
 				let obj = evt.target;
 				let gameMode = 'realtime';
 
