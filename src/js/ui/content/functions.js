@@ -14,6 +14,7 @@ import ConfirmationPopup from './misc/ConfirmationPopup';
 import InformationPopup from './misc/InformationPopup';
 import { waitForObj } from '../../utils/misc/wait';
 import shouldFilter from '../../config/filteredLogs';
+import Configuration from "../../config/configuration";
 
 const buildMainCss = (code) => {
 	waitForObj('head', 10).then(() => {
@@ -344,7 +345,7 @@ const stopTitleObserver = () => {
 	}
 };
 
-const initLogObserver = (config) => {
+const initLogObserver = (config: Configuration) => {
 	const logsContainer = document.querySelector('#logs');
 
 	if (!logsContainer) {
@@ -352,6 +353,10 @@ const initLogObserver = (config) => {
 	}
 
 	const observer = new MutationObserver(() => {
+		if (config.areLogTimestampsRemoved()) {
+			logsContainer.querySelectorAll(".timestamp").forEach(e => e.remove());
+		}
+
 		if (!config.isOnlineMessagesEnabled()) {
 			logsContainer.childNodes.forEach((elt, index) => {
 				const text = elt.innerHTML;

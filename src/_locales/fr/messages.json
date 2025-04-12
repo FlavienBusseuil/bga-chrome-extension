@@ -61,11 +61,17 @@
 	"no_tournaments": {
 		"message": "Aucun tournoi en cours ou à venir"
 	},
+	"optionRemoveLogTimestampsOn": {
+		"message": "Les horodatages sont retirés de l'historique de la partie"
+	},
+	"optionRemoveLogTimestampsOff": {
+		"message": "Les horodatages sont affichés dans l'historique de la partie (comme d'habitude)"
+	},
 	"optionFriendsActivityOn": {
-		"message": "L'activité des amis est affichée dans le journal des jeux"
+		"message": "L'activité des amis est affichée dans l'historique de la partie"
 	},
 	"optionFriendsActivityOff": {
-		"message": "L'activité des amis est cachée dans le journal des jeux"
+		"message": "L'activité des amis est cachée dans l'historique de la partie"
 	},
 	"optionEloHiddenOn": {
 		"message": "Le score ELO des joueurs est caché dans les jeux"
