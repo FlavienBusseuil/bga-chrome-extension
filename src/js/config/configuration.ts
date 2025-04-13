@@ -207,6 +207,9 @@ class Configuration {
 				}
 			} catch (error) { } // not a big deal
 		});
+
+		// Return explicitly to ensure everything is done
+		return true;
 	}
 
 	private _merge() {

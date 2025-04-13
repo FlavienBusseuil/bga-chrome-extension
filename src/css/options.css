@@ -194,8 +194,22 @@ textarea.options-textarea {
 		font-size: 14px;
 	}
 
-	#bgext_options_tab_navigation {
-		display: none;
+	.bgext_options_container {
+		padding: 0 5px;
+	}
+
+	.bgext_options_gameconfig_container {
+		height: 350px;
+		width: 100%;
+	}
+
+	.bgext_options_gamelist_container {
+		height: 350px;
+	}
+
+	.bgext_options_warning {
+		text-align: center;
+		padding: 0;
 	}
 }
 
