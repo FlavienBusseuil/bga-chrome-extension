@@ -1818,7 +1818,7 @@ _darkStyleForGame['castlesofburgundy'] = `
 
 _darkStyleForGame['catan'] = `
 #ebd-body { background: #005a81; }
-.cat_panel_prim_icons, #player_boards .cat_panel_prim_icons .cat_panel_score { filter: invert(1) !important; }
+.cat_panel_prim_icons, #player_boards .cat_panel_prim_icons .cat_panel_score { filter: var(--drop-shadow-min) !important; }
 #replaylogs .cat_log_token, .log .cat_log_token, .tooltiptext .cat_log_token { filter: var(--drop-shadow); }
 #cat_map_bg { background: none; }
 .cat_img_knight, .cat_barbarians_ship, .cat_arrows_ltr, .cat_arrows_rtl { filter: var(--highlight-min); }
@@ -1829,7 +1829,8 @@ _darkStyleForGame['catan'] = `
 .cat_cardcounter { background: #000; border: 2px solid #fff; color: #fff; }
 .cat_panel_ck_citylevel, .cat_tt { color: #000; }
 .cat_metropolis { box-shadow: none; filter: var(--drop-shadow); margin-bottom: 5px; }
-html.darkpanel #player_boards .player-board.cat_activepl { background: var(--dark-30)!important; }
+html.darkpanel #player_boards.player-board { background: var(--dark-30)!important; }
+html.darkpanel #player_boards .player-board.cat_activepl { background: var(--dark-40)!important; }
 #cat_tradeawarenessconfig, .cat_tradeawareness { background: var(--dark-back); border: 1px solid var(--light-50); }
 #cat_tradeawareness_currentconf { background: var(--dark-back); }
 #cat_trade_player_wantandoffer, .cat_playertradeoffer { background: linear-gradient(180deg, #1e3148, #1c2e4a); }
@@ -1862,6 +1863,7 @@ html.darkpanel #player_boards .player-board.cat_activepl { background: var(--dar
 .cat_alert { color: var(--red-30); }
 .cat_matched { color: var(--green-50); }
 .cat_traderate { color: var(--light-80); }
+#cat_summary { filter: brightness(0.9); }
 `;
 
 _darkStyleForGame['catcafe'] = `
