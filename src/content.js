@@ -15,6 +15,7 @@ import {
 	initDevelopperUI,
 	buildOptions,
 	initGameListObserver,
+	initGamePanelObserver,
 	initChatIcon,
 	setChatStyle,
 	setEloStyle,
@@ -61,7 +62,14 @@ const autoHideChat = (e) => {
 };
 
 const initObserver = (page) => {
-	currentObserver = page === 'game' ? initLogObserver(config) : initGameListObserver(config, page);
+	if (page === 'game') {
+		currentObserver = initLogObserver(config);
+	} else if (page === 'gamepanel') {
+		currentObserver = initGamePanelObserver();
+	} else {
+		currentObserver = initGameListObserver(config, page);
+	}
+
 	if (!currentObserver) {
 		setTimeout(() => initObserver(page), 500);
 	} else {
@@ -177,7 +185,9 @@ const manageLocationChange = (pathname) => {
 
 	setHtmlClass(pageName);
 
-	if (pageName.startsWith('gamelist')) {
+	if (pageName.startsWith('gamepanel')) {
+		initObserver('gamepanel');
+	} else if (pageName.startsWith('gamelist')) {
 		initObserver('gamelist');
 	} else if (pageName.startsWith('lobby')) {
 		initObserver('lobby');

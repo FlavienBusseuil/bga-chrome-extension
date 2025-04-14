@@ -370,6 +370,34 @@ const initLogObserver = (config) => {
 	return observer;
 };
 
+export const initGamePanelObserver = () => {
+	const gaminfoElt = document.querySelector(".block-panel-gaminfo");
+
+	if (!gaminfoElt) {
+		return null;
+	}
+
+	const updateOngoingGameCount = () => {
+		const counterId = "in_progress_games_count";
+
+		const ongoingGameCount = gaminfoElt.querySelectorAll('.bga-table-list-item').length;
+		let counter = document.querySelector(`#${counterId}`);
+
+		if (!counter) {
+			const titleContainer = gaminfoElt.querySelector('.bga-page-section__title');
+			counter = document.createElement("span");
+			counter.id = counterId;
+			titleContainer.appendChild(counter);
+		}
+
+		counter.textContent = `(${ongoingGameCount})`;
+	}
+
+	const observer = new MutationObserver(() => updateOngoingGameCount(gaminfoElt, observer));
+	updateOngoingGameCount(gaminfoElt, observer);
+	return observer;
+};
+
 const buildOption = (
 	title,
 	text,
