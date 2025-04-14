@@ -98,8 +98,8 @@ const ModeSelector = (props: ModeSelectorProps) => {
 
   const sendBugReport = () => {
     if (reportDescription) {
-      const bugType = (gameName === 'general') ? 'Bug report for dark mode' : `Bug report for game "${gameName}"`;
-      const msg = `${bugType}\n\n${reportDescription}\n\n${reportScreenshot}`;
+      const bugType = (gameName === 'general') ? 'Bug report (general)' : `Bug report for game "${gameName}"`;
+      const msg = `${bugType}\n\n${reportDescription}\n\n${reportScreenshot}\n\nBrowser: ${navigator.userAgent}`;
       const endPoint = '/message/board/add.html';
       const key = new Date().getTime();
       const body = new URLSearchParams({ type: 'group', message: msg, id: 18063230, "dojo.preventCache": key } as any).toString();
