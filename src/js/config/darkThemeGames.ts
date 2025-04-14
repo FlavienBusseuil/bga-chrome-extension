@@ -1152,7 +1152,7 @@ _darkStyleForGame['arknova'] = `
 #player_config #round-counter-wrapper #break-counter-wrapper #break-counter-icon { background: var(--dark-40); }
 #player_config #round-counter-wrapper #break-counter-wrapper #break-counter-icon:before { border-right: 10px solid var(--dark-40); }
 #player_config #round-counter-wrapper #break-counter-wrapper .arknova-icon { filter: var(--highlight-min); }
-#arknovamw-draft, #arknova-draft { background: var(--dark-20); }
+#arknovamw-draft, #arknova-draft, #arknova-hold:not(:empty) { background: var(--dark-20); }
 #arknovamw-draft #arknovamw-draft-picked:not(:empty), #arknova-draft #arknova-draft-picked:not(:empty) { background: #0d2c07; }
 #logs .arknova-icon, #logs .arknovamw-icon,
 #maintitlebar_content .arknova-icon, #maintitlebar_content .arknovamw-icon,
