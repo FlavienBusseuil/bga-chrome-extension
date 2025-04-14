@@ -31,10 +31,11 @@ let pageType = undefined;
 let chatbardock = undefined;
 
 if (localStorage.getItem('ext_dark_theme') === 'on') {
-	// hack to avoid light theme flashing
+	// hack to avoid light theme flashing (issue with some games like 'dead cells' if the tag html is hidden)
 	const s = document.createElement('style');
 	s.innerHTML = `html { background: #000000 !important; }
-			body { visibility: hidden !important; }`;
+			html:not(.bgaext_game) body { visibility: hidden !important; }
+			html.bgaext_game * { background: transparent !important; }`;
 	document.documentElement.appendChild(s);
 	window.addEventListener("load", () => {
 		setTimeout(() => {

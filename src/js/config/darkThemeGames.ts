@@ -2727,6 +2727,7 @@ body.ep_down { background-color: #454257; }
 .ep_zone_highlight:not(.ep_zone_nobg) { background-color: var(--dark-back); }
 .ep_zone_player_legend_hand, .ep_zone_player_legend_row { color: var(--light-50); }
 .ep_zone_player_sep { border-top: 1px solid var(--light-50); }
+ep_header p { color: var(--light-80); }
 .ep_card_back, .ep_card_front { filter: brightness(0.9); }
 `;
 
