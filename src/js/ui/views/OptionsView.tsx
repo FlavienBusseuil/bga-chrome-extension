@@ -313,9 +313,9 @@ export const OptionsView = ({ config, onChange }: Props) => {
           <div className="options-frame-title">{i18n("optionNotifTitle")}</div>
           {desktopVersion && <>
             {getSwitch(tracking, updateTracking, "optionsTrackingOn", "optionsTrackingOff")}
-            {!isFirefox && getSwitch(soundNotification && tracking, updateSoundNotification, "optionsNotificationSoundOn", "optionsNotificationSoundOff", !tracking)}
-            {!isFirefox && <div className="row_fullwidth">
-              {getSwitch(soundNotification && tracking && customSoundFile, updateSoundCustom, "optionsNotificationCustomSoundOn", "optionsNotificationCustomSoundOff", !tracking || !soundNotification)}
+            {getSwitch(soundNotification && tracking, updateSoundNotification, "optionsNotificationSoundOn", "optionsNotificationSoundOff", !tracking)}
+            {<div className="row_fullwidth">
+              {getSwitch(soundNotification && tracking && customSoundFile, updateSoundCustom, "optionsNotificationCustomSoundOn", "optionsNotificationCustomSoundOff", isFirefox || !tracking || !soundNotification)}
               {tracking && soundNotification && <div>
                 {customSoundFile && <Button {...{ text: i18n("uploadMp3"), className: "small_button", onClick: uploadCustomMp3 }} />}
                 <Button {...{ text: i18n("play"), className: "small_button", onClick: playMp3 }} />
