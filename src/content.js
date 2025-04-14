@@ -32,14 +32,13 @@ let chatbardock = undefined;
 if (localStorage.getItem('ext_dark_theme') === 'on') {
 	// hack to avoid light theme flashing
 	const s = document.createElement('style');
-	s.innerHTML = "* { visibility: hidden; }"
+	s.innerHTML = `html { background: #000000 !important; }
+			body { visibility: hidden !important; }`;
 	document.documentElement.appendChild(s);
 	window.addEventListener("load", () => {
-		if (window.navigator.userAgent.toLowerCase().includes('firefox')) {
-			setTimeout(() => { s.remove(); }, 500);
-		} else {
+		setTimeout(() => {
 			s.remove();
-		}
+		}, 0);
 	});
 }
 
@@ -403,7 +402,9 @@ document.addEventListener('bga_ext_update_config', (data) => {
 window.addEventListener('message', (evt) => {
 	if (evt.origin === 'https://forum.boardgamearena.com' && evt.data.key === 'bga_ext_forum_visible') {
 		// hack to avoid light theme flashing
-		console.debug('[bga extension] forum displayed');
-		document.documentElement.classList.add('bgaext_forum_visible');
+		setTimeout(() => {
+			console.debug('[bga extension] forum displayed');
+			document.documentElement.classList.add('bgaext_forum_visible');
+		}, 0);
 	}
 }, false);
