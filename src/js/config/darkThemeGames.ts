@@ -6792,7 +6792,7 @@ _darkStyleForGame['theboss'] = `
 _darkStyleForGame['thebrambles'] = `
 .to_translate { font-weight: normal !important; text-shadow: none !important; }
 #player_boards .player-name { text-shadow: none !important; }
-.cardspace { color: #000; }
+.cardspace, #tile_discard_counter { color: #000; }
 .card.empty, .card_back.empty { outline: 2px dotted var(--light-50); }
 `;
 
