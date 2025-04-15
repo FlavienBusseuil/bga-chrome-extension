@@ -40,6 +40,7 @@ const SAT_STEP = 4;
 
 const ModeSelector = (props: ModeSelectorProps) => {
   const { config, gameName } = props;
+  const popupConfig = config.getPopupConfiguration();
   const recommandedConfig = gamesWithRecommandedConfig[gameName];
   const [darkMode, setDarkMode] = useState(isDarkMode(config, gameName));
   const [darkColorHue, setDarkColorHue] = useState(config.getDarkModeColor(gameName, recommandedConfig?.color));
@@ -50,12 +51,13 @@ const ModeSelector = (props: ModeSelectorProps) => {
   const [formVisible, setFormVisible] = useState(false);
   const [reportDescription, setReportDescription] = useState('');
   const [reportScreenshot, setReportScreenshot] = useState('');
-  const [newMessageVisible, setNewMessageVisible] = useState(!isMobile() && gameName !== 'general' && !localStorage.getItem("ext_report_msg"));
+  const [newMessageVisible, setNewMessageVisible] = useState(!isMobile() && gameName !== 'general' && popupConfig.reportMsg);
   const [resultVisible, setResultVisible] = useState(false);
 
   const hideNewMessage = (evt: any) => {
     setNewMessageVisible(false);
-    localStorage.setItem("ext_report_msg", "off");
+    popupConfig.reportMsg = false;
+    config.setPopupConfiguration(popupConfig);
     if (evt) {
       evt.preventDefault();
       evt.stopPropagation();

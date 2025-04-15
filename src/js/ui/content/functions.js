@@ -63,7 +63,9 @@ const mutePlayer = (config, evt) => {
 		}
 	};
 
-	if (localStorage.getItem("ext_mute_warning") === "off") {
+	const popupConfig = config.getPopupConfiguration();
+
+	if (!popupConfig.muteWarning) {
 		doMute();
 	} else {
 		const container = document.createElement('div');
@@ -75,7 +77,8 @@ const mutePlayer = (config, evt) => {
 		}
 		const confirm = (stopWarn) => {
 			if (stopWarn) {
-				localStorage.setItem("ext_mute_warning", "off");
+				popupConfig.muteWarning = false;
+				config.setPopupConfiguration(popupConfig);
 			}
 			doMute();
 			close();
@@ -85,29 +88,31 @@ const mutePlayer = (config, evt) => {
 	}
 };
 
-const displayInformationPopup = () => {
-	const extInfosDialog = localStorage.getItem("ext_infos_dialog");
-
-	if (extInfosDialog === "off") {
+const displayInformationPopup = (config) => {
+	const popupConfig = config.getPopupConfiguration();
+	console.log("displayInformationPopup", popupConfig.infosDialog);
+	if (popupConfig.infosDialog === "off") {
 		return;
 	}
 
 	const now = new Date().getTime();
-	const showDate = parseInt(extInfosDialog || '0', 10);
+	const showDate = parseInt(popupConfig.infosDialog || '0', 10);
 
 	if (showDate > now) {
 		//console.log("pas maintenant " + new Date(showDate));
 		return;
 	}
 
-	localStorage.setItem("ext_infos_dialog", now + 8 * 60 * 60 * 1000);
+	popupConfig.infosDialog = `${now + 8 * 60 * 60 * 1000}`;
+	config.setPopupConfiguration(popupConfig);
 
 	const container = document.createElement('div');
 	container.id = "bgaext_popup_container";
 	document.body.appendChild(container);
 
 	const close = () => {
-		localStorage.setItem("ext_infos_dialog", "off");
+		popupConfig.infosDialog = "off";
+		config.setPopupConfiguration(popupConfig);
 		container.remove();
 	}
 	const later = () => {

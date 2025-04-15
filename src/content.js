@@ -301,7 +301,7 @@ const initPage = () => {
 
 	waitForObj('body', 10).then(() => {
 		if (pageType === 'general') {
-			setTimeout(displayInformationPopup, 2000);
+			setTimeout(() => displayInformationPopup(config), 2000);
 		}
 
 		document.body.addEventListener('bga_ext_api_result', (data) => {

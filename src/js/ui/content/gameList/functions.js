@@ -46,7 +46,9 @@ export const initGameListObserver = (config, page) => {
 	const updateHiddenGameStyle = () => (style.innerHTML = config.getHiddenGamesStyle(page));
 
 	const hideGame = (name) => {
-		if (localStorage.getItem("ext_delete_warning") === "off") {
+		const popupConfig = config.getPopupConfiguration();
+
+		if (!popupConfig.deleteWarning) {
 			config.hideGame(name);
 			updateHiddenGameStyle();
 		} else {
@@ -59,7 +61,8 @@ export const initGameListObserver = (config, page) => {
 			}
 			const confirm = (stopWarn) => {
 				if (stopWarn) {
-					localStorage.setItem("ext_delete_warning", "off");
+					popupConfig.deleteWarning = false;
+					config.setPopupConfiguration(popupConfig);
 				}
 				config.hideGame(name);
 				updateHiddenGameStyle();
@@ -101,7 +104,9 @@ export const initGameListObserver = (config, page) => {
 			}
 		};
 
-		if (localStorage.getItem("ext_fast_start_warning") === "off") {
+		const popupConfig = config.getPopupConfiguration();
+
+		if (!popupConfig.fastStartWarning) {
 			startGame();
 		} else {
 			const container = document.createElement('div');
@@ -113,7 +118,8 @@ export const initGameListObserver = (config, page) => {
 			}
 			const confirm = (stopWarn) => {
 				if (stopWarn) {
-					localStorage.setItem("ext_fast_start_warning", "off");
+					popupConfig.fastStartWarning = false;
+					config.setPopupConfiguration(popupConfig);
 				}
 				startGame();
 				close();

@@ -234,6 +234,17 @@ select.colorselector {
   border-top-right-radius: 6px;
 }
 
+.bgaext_gamepanel .lobby__specific_settings,
+.bgaext_gamepanel .bga-lobby-player-slot__modal-top--highlighted .bga-lobby-player-slot__modal-top-avatar-bg,
+.bgaext_gamepanel .bga-lobby-player-slot__modal-top--highlighted .bga-lobby-player-slot__modal-below-avatar-bg,
+.bgaext_gamepanel .bga-lobby-player-slot__modal-top--highlighted .bga-lobby-player-slot__modal-background-avatar-bg {
+  background: var(--dark-40) !important;
+}
+
+.bgaext_gamepanel .lobby__specific_settings .bga-button--white {
+  background: var(--dark-10) !important;
+}
+
 .notouch-device .lobby_invite_friend_remove:hover,
 .notouch-device .lobby_invite_friend_item_member:hover .lobby_invite_friend_remove {
   color: var(--red-10);

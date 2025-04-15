@@ -100,6 +100,14 @@ export interface AdvancedHomeConfig {
 	html: string;
 }
 
+export interface PopupsConfig {
+	deleteWarning: boolean;
+	fastStartWarning: boolean;
+	muteWarning: boolean;
+	reportMsg: boolean;
+	infosDialog?: string;
+}
+
 export interface InProgressConfig {
 	emptySections: boolean;
 	playAgain: boolean;
@@ -111,6 +119,7 @@ export interface InProgressConfig {
 interface LocalConfig {
 	css: string;
 	home?: AdvancedHomeConfig;
+	popups?: PopupsConfig;
 }
 
 class Configuration {
@@ -177,6 +186,38 @@ class Configuration {
 		if (this._customConfig.hideChatUserNames === undefined) {
 			this._customConfig.hideChatUserNames = true;
 		}
+
+		if (!this._localConfig.popups && localStorage) {
+			const deleteWarning = localStorage.getItem('ext_delete_warning');
+			const fastStartWarning = localStorage.getItem('ext_fast_start_warning');
+			const muteWarning = localStorage.getItem('ext_mute_warning');
+			const reportMsg = localStorage.getItem('ext_report_msg');
+			const infosDialog = localStorage.getItem('ext_infos_dialog') || undefined;
+
+			if (deleteWarning || fastStartWarning || infosDialog || muteWarning || reportMsg) {
+				this.setPopupConfiguration({
+					deleteWarning: deleteWarning !== 'off',
+					fastStartWarning: fastStartWarning !== 'off',
+					muteWarning: muteWarning !== 'off',
+					reportMsg: reportMsg !== 'off',
+					infosDialog
+				});
+
+				localStorage.removeItem('ext_delete_warning');
+				localStorage.removeItem('ext_fast_start_warning');
+				localStorage.removeItem('ext_infos_dialog');
+				localStorage.removeItem('ext_mute_warning');
+				localStorage.removeItem('ext_report_msg');
+			} else {
+				this.setPopupConfiguration({
+					deleteWarning: true,
+					fastStartWarning: true,
+					muteWarning: true,
+					reportMsg: true
+				});
+			}
+		}
+
 		this._merge();
 	}
 
@@ -185,8 +226,6 @@ class Configuration {
 
 		this._customConfig = syncStorage;
 		this._localConfig = localStorage;
-
-		console.debug("[bga extension] config", syncStorage);
 
 		if (!this._customConfig.clientId) {
 			this._customConfig.clientId = self.crypto.randomUUID();
@@ -338,6 +377,20 @@ class Configuration {
 	setAdvancedHomeConfig(val: AdvancedHomeConfig) {
 		this._localConfig.home = val;
 		localStorageSet({ home: val });
+	}
+
+	getPopupConfiguration() {
+		return this._localConfig.popups || {
+			deleteWarning: true,
+			fastStartWarning: true,
+			muteWarning: true,
+			reportMsg: true
+		};
+	}
+
+	setPopupConfiguration(val: PopupsConfig) {
+		this._localConfig.popups = val;
+		localStorageSet({ popups: val });
 	}
 
 	getInProgressConfig() {
