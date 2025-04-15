@@ -1,4 +1,3 @@
-import React from "preact";
 import { useState } from "preact/hooks";
 import { useSyncedState } from '../hooks/useSyncedState';
 import { isMobile } from "is-mobile";
@@ -273,9 +272,9 @@ export const OptionsView = ({ config, onChange }: Props) => {
     const textOn = i18n(textOnKey);
     const textOff = i18n(textOffKey);
     const msg = checked ? textOn : textOff;
-    const className = (msg.length > 76) ? 'long_text' : undefined;
+    const className = (msg.length > 76) ? 'long_text' : '';
 
-    return <Switch checked={checked} textOn={textOn} textOff={textOff} onChange={onChange} disabled={disabled} className={className} />
+    return <Switch checked={checked} textOn={textOn} textOff={textOff} onChange={onChange} disabled={disabled ?? false} className={className} />
   };
 
   const getMiscSection = () => {
@@ -362,7 +361,7 @@ export const OptionsView = ({ config, onChange }: Props) => {
     );
   };
 
-  const getHomeSwitch = (param: string, message: string) => {
+  const getHomeSwitch = (param: keyof HomeConfig, message: string) => {
     return getSwitch(homeConfig[param], (val) => updateHomeConfig(param, val), `${message}On`, `${message}Off`);
   };
 
@@ -469,7 +468,7 @@ export const OptionsView = ({ config, onChange }: Props) => {
     );
   };
 
-  const getInProgressSwitch = (param: string, message: string) => {
+  const getInProgressSwitch = (param: keyof InProgressConfig, message: string) => {
     return getSwitch(inProgressConfig[param], (val) => updateInProgressConfig(param, val), `${message}On`, `${message}Off`);
   };
 
