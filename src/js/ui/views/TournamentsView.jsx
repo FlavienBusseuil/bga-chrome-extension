@@ -5,7 +5,7 @@ import type { TransformedTournament } from "../../types/TransformedTournament";
 import { CardList } from "../base/CardList";
 import { Card } from "../base/Card";
 import { cn } from "../utils/cn";
-import { Button } from "../base/Button.jsx";
+import { Button } from "../base/Button";
 import { bgaUrl } from "../../utils/constants";
 import { i18n } from "../../utils/browser";
 

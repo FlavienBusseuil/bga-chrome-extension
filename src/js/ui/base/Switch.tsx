@@ -1,6 +1,3 @@
-import React from 'preact';
-import { useState } from 'preact/hooks';
-
 type Props = {
   checked: boolean,
   disabled?: boolean,
