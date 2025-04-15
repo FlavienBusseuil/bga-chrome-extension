@@ -1,5 +1,23 @@
 # Changelog
 
+## [v1.11.16](https://github.com/FlavienBusseuil/bga-chrome-extension/tree/v1.11.16) (2025-04-15)
+
+[Full Changelog](https://github.com/FlavienBusseuil/bga-chrome-extension/compare/v1.11.15...v1.11.16)
+
+**Closed issues:**
+
+- The extension seems to break terraforming mars [\#78](https://github.com/FlavienBusseuil/bga-chrome-extension/issues/78)
+
+**Merged pull requests:**
+
+- The brambles dark theme fix \(user report\) [\#93](https://github.com/FlavienBusseuil/bga-chrome-extension/pull/93) ([nalka0](https://github.com/nalka0))
+- Improve light theme flashing fix [\#91](https://github.com/FlavienBusseuil/bga-chrome-extension/pull/91) ([GhoulofGSG9](https://github.com/GhoulofGSG9))
+- Fix zenith dark theme [\#88](https://github.com/FlavienBusseuil/bga-chrome-extension/pull/88) ([nalka0](https://github.com/nalka0))
+- Fix nav side menu options not working at Firefox [\#87](https://github.com/FlavienBusseuil/bga-chrome-extension/pull/87) ([GhoulofGSG9](https://github.com/GhoulofGSG9))
+- Add German translation [\#86](https://github.com/FlavienBusseuil/bga-chrome-extension/pull/86) ([GhoulofGSG9](https://github.com/GhoulofGSG9))
+- Fix dark mode for Ark Nova [\#85](https://github.com/FlavienBusseuil/bga-chrome-extension/pull/85) ([GhoulofGSG9](https://github.com/GhoulofGSG9))
+- Make timestamps removable from game logs [\#84](https://github.com/FlavienBusseuil/bga-chrome-extension/pull/84) ([nalka0](https://github.com/nalka0))
+
 ## [v1.11.15](https://github.com/FlavienBusseuil/bga-chrome-extension/tree/v1.11.15) (2025-04-10)
 
 [Full Changelog](https://github.com/FlavienBusseuil/bga-chrome-extension/compare/v1.11.14...v1.11.15)
