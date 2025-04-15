@@ -2,8 +2,9 @@ import React from "preact";
 import { useState } from "preact/hooks";
 
 import type { TransformedTable } from "../../types/TransformedTable";
-
 import type { TableId } from "../../types/bga/Table";
+
+import { i18n } from "../../utils/browser";
 
 import { PlayerList } from "../PlayerList";
 import { Player } from "../Player";
@@ -47,7 +48,7 @@ export const FriendsView = ({ className, getGroupTables, groups, motionSensitivi
   }
 
   const noGame = () => {
-    const msg = requested ? chrome.i18n.getMessage("no_games_friends") : chrome.i18n.getMessage("search_games_friends");
+    const msg = requested ? i18n("no_games_friends") : i18n("search_games_friends");
     return (
       <div className="flex justify-center flex-col grow" style={{ minHeight: "60px" }}>
         <span class="text-black dark:text-white text-center text-xl">
@@ -152,12 +153,12 @@ export const FriendsView = ({ className, getGroupTables, groups, motionSensitivi
           value={group}
           onChange={(evt) => setGroup(evt.target.value)}
         >
-          <option value="0">{chrome.i18n.getMessage("my_friends")}</option>
+          <option value="0">{i18n("my_friends")}</option>
           {getOptions()}
         </select>
         <Button
           {...{
-            text: chrome.i18n.getMessage("search"),
+            text: i18n("search"),
             className: "flex-grow",
             onClick: search,
           }}

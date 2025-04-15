@@ -1,6 +1,6 @@
 import equal from "fast-deep-equal";
 import defaultGames from "./sideMenuGames";
-import { addChangeListener, localStorageClear, localStorageGet, localStorageSet, storageClear, storageGet, storageSet } from "../utils/chrome";
+import { addChangeListener, localStorageClear, localStorageGet, localStorageSet, storageClear, storageGet, storageSet } from "../utils/browser";
 import { ADVANCED_HOME_STYLE, COLORFUL_TABLES, DEF_HOME_HTML } from "./configuration.constants";
 
 export interface Game {

@@ -1,0 +1,187 @@
+.options-frame-title {
+  background-color: #fefce8;
+}
+
+.options-frame.reduced:hover {
+  background: #fff;
+}
+
+.options-frame.reduced:hover .options-frame-title {
+  background: #fff;
+}
+
+.options-button {
+  color: #fff;
+}
+
+.options-container {
+  display: flex;
+  flex-flow: row wrap;
+  width: 100%;
+  padding: 0.5em;
+  gap: 0.5em;
+}
+
+.options-frame {
+  display: flex;
+  flex-flow: column;
+  border: 1px solid #000;
+  border-radius: 4px;
+  padding: 1.2em;
+  margin-top: 0.5em;
+  box-sizing: border-box;
+  position: relative;
+  display: flex;
+  flex-flow: column;
+  gap: 0.5em;
+  transition: all .5s linear;
+}
+
+.options-frame:not(.reduced) {
+  width: 100%;
+}
+
+.options-frame.reduced {
+  cursor: pointer;
+  margin-top: 0em;
+  padding: 0.6em 1em;
+  line-height: 20px;
+  flex-grow: 1;
+  flex-shrink: 1;
+  flex-basis: auto;
+}
+
+.options-frame-title {
+  position: absolute;
+  top: -11px;
+  left: 1em;
+  padding: 0em 0.5em;
+  font-weight: bold;
+  transition: all .5s linear;
+}
+
+.options-frame-title span {
+  min-width: 150px;
+}
+
+.reduced .options-frame-title {
+  position: relative;
+  top: 0px;
+  left: 0px;
+  display: flex;
+  flex-flow: row;
+  justify-content: space-between;
+  width: 100%;
+}
+
+.reduced .options-frame-title svg {
+  width: 24px;
+  height: 24px;
+}
+
+.options-version {
+  text-align: right;
+}
+
+.options-subframe {
+  display: flex;
+  flex-flow: row nowrap;
+  width: 100%;
+}
+
+.options-subframe>div {
+  width: 50%;
+  gap: 0.2em;
+  display: flex;
+  flex-flow: column;
+}
+
+.bgext_hidden_games_container {
+  display: flex;
+  flex-flow: row wrap;
+  justify-content: start;
+}
+
+.bgext_hidden_games_clear_container {
+  display: flex;
+  flex-flow: row;
+  gap: 0.5em;
+  line-height: 24px;
+}
+
+.bgext_hidden_game {
+  position: relative;
+  margin-right: 5px;
+  margin-top: 5px;
+  font-size: 12px;
+  border: 1px solid #bcd1e1;
+  border-radius: 4px;
+  line-height: 30px;
+  color: #666666;
+  background: #cee7f9;
+  padding-left: 1em;
+  padding-right: 0.5em;
+  cursor: default;
+  height: 32px;
+  gap: 0.5em;
+  display: flex;
+}
+
+.bgext_hidden_game_close {
+  font-weight: bold;
+  cursor: pointer;
+}
+
+.small_button {
+  padding: 0px;
+  width: 100px;
+  line-height: 22px;
+}
+
+.row_fullwidth {
+  width: 100%;
+  display: flex;
+  flex-flow: row;
+  justify-content: space-between;
+}
+
+.row_fullwidth>div:last-child {
+  padding-right: 1em;
+  display: flex;
+  flex-flow: row;
+  gap: 0.5em;
+}
+
+.col {
+  width: 100%;
+  display: flex;
+  flex-flow: column;
+  gap: 0.5em;
+}
+
+.options-textarea {
+  height: 200px;
+  border: 1px solid #888;
+  padding: 0.5em;
+  resize: none;
+  box-shadow: none !important;
+  outline: none !important;
+  width: 100%;
+}
+
+.options-button {
+  padding: 0em 0.5em;
+  border-radius: 6px;
+}
+
+.options-buttons-container {
+  padding: 0em !important;
+}
+
+.options-buttons-container.error {
+  color: #ca0000;
+}
+
+.options-buttons-container.saved {
+  color: #009e0a;
+}

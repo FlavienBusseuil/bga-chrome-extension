@@ -7,6 +7,7 @@ import { Card } from "../base/Card";
 import { cn } from "../utils/cn";
 import { Button } from "../base/Button.jsx";
 import { bgaUrl } from "../../utils/constants";
+import { i18n } from "../../utils/browser";
 
 type Props = {
 	className?: string,
@@ -19,7 +20,7 @@ export function TournamentsView({ className, tournaments }: Props): React$Node {
 			{tournaments.length === 0 && (
 				<div className="flex justify-center flex-col grow" style={{ minHeight: "60px" }}>
 					<span class="text-black dark:text-white text-center text-xl">
-						{chrome.i18n.getMessage("no_tournaments")}
+						{i18n("no_tournaments")}
 					</span>
 				</div>
 			)}
@@ -49,7 +50,7 @@ export function TournamentsView({ className, tournaments }: Props): React$Node {
 			)}
 			<Button
 				{...{
-					text: chrome.i18n.getMessage("play_tournament"),
+					text: i18n("play_tournament"),
 					url: `${bgaUrl}/tournamentlist`,
 				}}
 			/>

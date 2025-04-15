@@ -1,4 +1,5 @@
 import { getFile } from 'easy-file-picker';
+import browser from 'webextension-polyfill';
 
 const localStorageKey = 'sound';
 
@@ -11,13 +12,11 @@ export const removeCustomMp3 = async () => {
 };
 
 export const uploadCustomMp3 = async () => {
-  // Opening the file selection closes the popup context due to Firefox bug
+  // Opening the file selection closes the popup context due to a Firefox bug
   // https://bugzilla.mozilla.org/show_bug.cgi?id=1292701
   const isCalledFromPopup = window.location.pathname.includes('popup');
   if (isCalledFromPopup) {
-    // TODO: Support setting custom sound from extesions options page
-    // browser.runtime.openOptionsPage();
-    window.console.error('[bga extension] Unsupported call of upload custom mp3 from popup context!');
+    browser.runtime.openOptionsPage();
     return;
   }
 

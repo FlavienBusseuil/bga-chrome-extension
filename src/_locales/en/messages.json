@@ -591,5 +591,8 @@
 	},
 	"bugReportNew": {
 		"message": "New ! You can report a dark mode bug by opening the popup here"
+	},
+	"optionGeneralTab": {
+		"message": "General"
 	}
 }

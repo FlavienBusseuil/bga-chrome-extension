@@ -1,6 +1,7 @@
 import { bgPeriodic } from "./js/bgPeriodic";
 import Configuration from "./js/config/configuration";
-import { addChangeListener } from "./js/utils/chrome";
+import { addChangeListener } from "./js/utils/browser";
+import browser from "webextension-polyfill";
 
 const config = new Configuration();
 let redirectConfigured = undefined;
@@ -21,7 +22,7 @@ const setBackgroundFilters = () => {
       // rule 2 : prevent display of default background in forum
       // rule 3 : prevent display of default background in games
 
-      chrome.declarativeNetRequest.updateDynamicRules({
+      browser.declarativeNetRequest.updateDynamicRules({
         removeRuleIds: [1, 2, 3],
         addRules: [{
           id: 1,
@@ -40,7 +41,7 @@ const setBackgroundFilters = () => {
     } else {
       console.log("[bga extension] Remove filters to prevent default website background");
 
-      chrome.declarativeNetRequest.updateDynamicRules({
+      browser.declarativeNetRequest.updateDynamicRules({
         removeRuleIds: [1, 2, 3]
       });
     }
@@ -55,7 +56,7 @@ const setLobbyUrlFilters = (isRedirectEnable) => {
       console.log("[bga extension] Add filters to redirect to classic lobby");
       // rule 4 : redirect to classic lobby
 
-      chrome.declarativeNetRequest.updateDynamicRules({
+      browser.declarativeNetRequest.updateDynamicRules({
         removeRuleIds: [4],
         addRules: [{
           id: 4,
@@ -68,7 +69,7 @@ const setLobbyUrlFilters = (isRedirectEnable) => {
       });
     } else {
       console.log("[bga extension] Remove filters to redirect to classic lobby");
-      chrome.declarativeNetRequest.updateDynamicRules({
+      browser.declarativeNetRequest.updateDynamicRules({
         removeRuleIds: [4]
       });
     }
@@ -83,7 +84,7 @@ const setNewsfeedFilters = (isRedirectEnable) => {
       console.log("[bga extension] Add filters to remove social messages from newsfeed");
       // rule 5 & 6  : remove social messages from newsfeed
 
-      chrome.declarativeNetRequest.updateDynamicRules({
+      browser.declarativeNetRequest.updateDynamicRules({
         removeRuleIds: [5, 6],
         addRules: [{
           id: 5,
@@ -101,7 +102,7 @@ const setNewsfeedFilters = (isRedirectEnable) => {
       });
     } else {
       console.log("[bga extension] Remove filters to remove social messages from newsfeed");
-      chrome.declarativeNetRequest.updateDynamicRules({
+      browser.declarativeNetRequest.updateDynamicRules({
         removeRuleIds: [5, 6]
       });
     }
@@ -110,18 +111,18 @@ const setNewsfeedFilters = (isRedirectEnable) => {
 
 config.init().then(() => {
   // Set alarm to run update every minute
-  chrome.alarms.onAlarm.addListener((evt) => {
+  browser.alarms.onAlarm.addListener((evt) => {
     if (evt.name === "bgPeriodic") {
       bgPeriodic(config);
     }
   });
-  chrome.alarms.create("bgPeriodic", { delayInMinutes: 0, periodInMinutes: 1 });
+  browser.alarms.create("bgPeriodic", { delayInMinutes: 0, periodInMinutes: 1 });
 
   // hack to be sure that the background script will not be terminated after 30 seconds inactivity on FF
   const now = new Date().getTime();
-  chrome.alarms.create("keepAlive0", { delayInMinutes: 0, periodInMinutes: 1 });
-  chrome.alarms.create("keepAlive1", { when: now + 20000, periodInMinutes: 1 });
-  chrome.alarms.create("keepAlive2", { when: now + 40000, periodInMinutes: 1 });
+  browser.alarms.create("keepAlive0", { delayInMinutes: 0, periodInMinutes: 1 });
+  browser.alarms.create("keepAlive1", { when: now + 20000, periodInMinutes: 1 });
+  browser.alarms.create("keepAlive2", { when: now + 40000, periodInMinutes: 1 });
 
   darkMode = config.isDarkMode();
   solidBackground = config.isSolidBackground();

@@ -1,4 +1,5 @@
 // @flow
+import { i18n } from "../utils/browser";
 
 export function Error({
 	errorMessage,
@@ -12,7 +13,7 @@ export function Error({
 	return (
 		<div className="p-2 text-red-600 font-bold">
 			<p>{`${errorMessage} (${errorDetails})`}</p>
-			<p dangerouslySetInnerHTML={{ __html: chrome.i18n.getMessage(message) }}></p>
+			<p dangerouslySetInnerHTML={{ __html: i18n(message) }}></p>
 		</div>
 	);
 }
