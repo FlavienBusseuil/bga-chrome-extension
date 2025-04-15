@@ -187,7 +187,7 @@ class Configuration {
 			this._customConfig.hideChatUserNames = true;
 		}
 
-		if (!this._localConfig.popups && localStorage) {
+		if (localStorage) {
 			const deleteWarning = localStorage.getItem('ext_delete_warning');
 			const fastStartWarning = localStorage.getItem('ext_fast_start_warning');
 			const muteWarning = localStorage.getItem('ext_mute_warning');
@@ -208,13 +208,6 @@ class Configuration {
 				localStorage.removeItem('ext_infos_dialog');
 				localStorage.removeItem('ext_mute_warning');
 				localStorage.removeItem('ext_report_msg');
-			} else {
-				this.setPopupConfiguration({
-					deleteWarning: true,
-					fastStartWarning: true,
-					muteWarning: true,
-					reportMsg: true
-				});
 			}
 		}
 
