@@ -1,10 +1,9 @@
-import React from "preact";
 import { useState, useEffect } from "preact/hooks";
 import { isMobile } from "is-mobile";
 
 import Configuration from "../../../config/configuration";
 import { gamesWithCustomActions, gamesWithRecommandedConfig } from "../../../config/darkThemeGames";
-import { getExtensionVersion, i18n } from "../../../utils/chrome";
+import { getExtensionVersion, i18n } from "../../../utils/browser";
 import { setDarkStyle } from "./darkStyleFunctions";
 import { changeDarkColors } from "./darkColors";
 

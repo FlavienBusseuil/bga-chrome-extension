@@ -3,9 +3,9 @@ import { useEffect, useState } from "preact/hooks";
 import { getFile } from "easy-file-picker";
 
 import Configuration, { Game } from "../../config/configuration";
-import { i18n } from "../../utils/chrome";
-
-import "../../../css/options.css";
+import { i18n } from "../../utils/browser";
+import { OptionsView } from "../views/OptionsView";
+import { useSyncedState } from "../hooks/useSyncedState";
 
 const Options = (props: { config: Configuration }) => {
 	const { config } = props;
@@ -14,8 +14,9 @@ const Options = (props: { config: Configuration }) => {
 	const [changed, setChanged] = useState(false);
 	const [text, setText] = useState("");
 	const [css, setCss] = useState(config.getCustomCss());
-	const [tabSelected, setTabSelected] = useState("about");
+	const [tabSelected, setTabSelected] = useState("general");
 	const [troubleshootingMessage, setTroubleshootingMessage] = useState('');
+	const [hasConfigChange, setConfigChange] = useSyncedState("configChange", false);
 
 	const serialize = (game: Game) => {
 		return JSON.stringify(
@@ -150,19 +151,6 @@ const Options = (props: { config: Configuration }) => {
 		);
 	};
 
-	const getAboutSection = () => {
-		return (
-			<>
-				<div className="bgext_options_title">
-					BGA Extension
-				</div>
-				<div className="bgext_about_container">
-					<div dangerouslySetInnerHTML={{ __html: i18n("aboutText") }}></div>
-				</div>
-			</>
-		);
-	};
-
 	const getNavigationConfiguration = () => {
 		return (
 			<>
@@ -264,6 +252,10 @@ const Options = (props: { config: Configuration }) => {
 		);
 	};
 
+	const getGeneralSection = () => {
+		return <OptionsView config={config} onChange={() => setConfigChange(true)} />;
+	};
+
 	const getTab = (tabId: string, tabText: string) => {
 		return (
 			<div
@@ -287,15 +279,15 @@ const Options = (props: { config: Configuration }) => {
 			<div className="bgext_options_main">
 				<div className="bgext_options_config_area">
 					<div className="bgext_links_area">
+						{getTab("general", i18n("optionGeneralTab"))}
 						{getTab("navigation", i18n("optionNavigationTab"))}
 						{getTab("css", i18n("optionCssTab"))}
 						{getTab("troubleshooting", i18n("troubleshooting"))}
-						{getTab("about", i18n("about"))}
 					</div>
+					{tabSelected === "general" && getGeneralSection()}
 					{tabSelected === "navigation" && getNavigationConfiguration()}
 					{tabSelected === "css" && getCssConfiguration()}
 					{tabSelected === "troubleshooting" && getTroubleshootingSection()}
-					{tabSelected === "about" && getAboutSection()}
 				</div>
 			</div>
 		);

@@ -14,6 +14,7 @@ import ConfirmationPopup from './misc/ConfirmationPopup';
 import InformationPopup from './misc/InformationPopup';
 import { waitForObj } from '../../utils/misc/wait';
 import shouldFilter from '../../config/filteredLogs';
+import { isFirefox, i18n } from '../../utils/browser';
 
 const buildMainCss = (code) => {
 	waitForObj('head', 10).then(() => {
@@ -119,14 +120,13 @@ const displayInformationPopup = (config) => {
 		container.remove();
 	};
 
-	const isFirefox = window.navigator.userAgent.toLowerCase().includes('firefox');
-	const title = isFirefox ? chrome.i18n.getMessage("infosTitleFirefox") : chrome.i18n.getMessage("infosTitleChrome");
+	const title = isFirefox ? i18n("infosTitleFirefox") : i18n("infosTitleChrome");
 	const content = (
 		<div>
-			<p>{isFirefox ? chrome.i18n.getMessage("infosSubTitleFirefox") : chrome.i18n.getMessage("infosSubTitleChrome")}</p>
-			<p dangerouslySetInnerHTML={{ __html: chrome.i18n.getMessage("infosLine3") }}></p>
-			<p dangerouslySetInnerHTML={{ __html: chrome.i18n.getMessage("infosLine4") }}></p>
-			<p dangerouslySetInnerHTML={{ __html: chrome.i18n.getMessage("infosLine5") }}></p>
+			<p>{isFirefox ? i18n("infosSubTitleFirefox") : i18n("infosSubTitleChrome")}</p>
+			<p dangerouslySetInnerHTML={{ __html: i18n("infosLine3") }}></p>
+			<p dangerouslySetInnerHTML={{ __html: i18n("infosLine4") }}></p>
+			<p dangerouslySetInnerHTML={{ __html: i18n("infosLine5") }}></p>
 		</div>
 	);
 
@@ -483,8 +483,8 @@ const buildOptions = (config, gameName, gameConfig) => {
 		// Add an option for floating menu
 		const optionFloatingGameSelected = config.isGameFloatingMenu(gameName) ? `selected='selected'` : '';
 		const optionFloatingAlwaysSelected = config.isGlobalFloatingMenu() ? `selected='selected'` : '';
-		const optionFloatingGame = `<option value='2' ${optionFloatingGameSelected}>${chrome.i18n.getMessage('optionFloatingGame')}</option>`;
-		const optionFloatingAlways = `<option value='3' ${optionFloatingAlwaysSelected}>${chrome.i18n.getMessage('optionFloatingAlways')}</option>`;
+		const optionFloatingGame = `<option value='2' ${optionFloatingGameSelected}>${i18n('optionFloatingGame')}</option>`;
+		const optionFloatingAlways = `<option value='3' ${optionFloatingAlwaysSelected}>${i18n('optionFloatingAlways')}</option>`;
 		const checkFloating = (evt) => {
 			if (evt.target.value === '1') {
 				document.body.classList.add('logs_on_additional_column');
@@ -524,7 +524,7 @@ const buildOptions = (config, gameName, gameConfig) => {
 			document.getElementById('cde_menu_1').value = enable ? '1' : '0';
 			document.getElementById('cde_menu_2').value = enable ? '1' : '0';
 		};
-		const displayLeftMenuText = chrome.i18n.getMessage('optionLeftMenu');
+		const displayLeftMenuText = i18n('optionLeftMenu');
 		buildOption(
 			mainPrefTitle,
 			displayLeftMenuText,

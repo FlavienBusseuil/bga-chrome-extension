@@ -1,3 +1,5 @@
+@import 'options-common.css';
+
 body {
 	font-size: 12px;
 }
@@ -220,15 +222,31 @@ textarea.options-textarea {
 	input,
 	textarea {
 		color-scheme: dark;
+		--dark-10: #1d2023;
+		--dark-20: #272a2f;
+		--dark-30: #35373c;
+		--dark-40: #404347;
+
+		--blue-70: #009aa0;
+
+		--light-50: #8e8e8e;
+		--light-70: #ccc;
+		--light-80: #dcddde;
 	}
 
 	body {
-		background: #000;
+		background: var(--dark-10);
 		color: #fff;
 	}
 
 	.bgext_options_gameitem_selected {
 		background: #0e4871;
+	}
+
+	.bgext_hidden_game {
+		background: var(--dark-40);
+		border: 1px solid var(--light-50);
+		color: var(--light-80);
 	}
 
 	.bgext_options_title {
@@ -246,5 +264,22 @@ textarea.options-textarea {
 
 	textarea {
 		background: transparent;
+	}
+
+	.options-frame {
+		border-color: #fff;
+	}
+
+	.options-frame {
+		border-color: #fff;
+	}
+
+	.options-frame.reduced:hover,
+	.options-frame.reduced:hover .options-frame-title {
+		background: var(--dark-40);
+	}
+
+	.options-frame-title {
+		background-color: var(--dark-10);
 	}
 }

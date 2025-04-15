@@ -3,6 +3,8 @@ import { useState, useEffect } from "preact/hooks";
 import { isMobile } from "is-mobile";
 
 import Configuration, { Game } from "../../../config/configuration";
+import { i18n } from "../../../utils/browser";
+
 import SideMenuItem from "./SideMenuItem";
 import PlayerIcon from "./PlayerIcon";
 import CloseIcon from "./icons/CloseIcon";
@@ -195,7 +197,7 @@ const SideMenu = (props: SideMenuProps) => {
 			const fakePlayer = {
 				fake: true,
 				id: gameConfig.boardPanel,
-				name: boardButtonText || chrome.i18n.getMessage("sideMenuMainBoard"),
+				name: boardButtonText || i18n("sideMenuMainBoard"),
 				avatar: "board",
 				color: "#ffffff",
 				darkColor: "#272a2f"

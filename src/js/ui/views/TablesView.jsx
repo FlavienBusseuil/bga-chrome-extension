@@ -7,6 +7,7 @@ import { Player } from "../Player";
 import { StartNewGameButton } from "../StartNewGameButton";
 import { Table } from "../Table";
 import type { TableId } from "../../types/bga/Table";
+import { i18n } from "../../utils/browser";
 import { CardList } from "../base/CardList";
 import { cn } from "../utils/cn";
 
@@ -30,7 +31,7 @@ export function TablesView({
 			{tables.length === 0 && (
 				<div className="flex justify-center flex-col grow" style={{ minHeight: "60px" }}>
 					<span class="text-black dark:text-white text-center text-xl">
-						{chrome.i18n.getMessage("no_games")}
+						{i18n("no_games")}
 					</span>
 				</div>
 			)}

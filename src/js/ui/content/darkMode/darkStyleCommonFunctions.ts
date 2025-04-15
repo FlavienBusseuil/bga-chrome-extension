@@ -1,4 +1,4 @@
-import { getUrl } from "../../../utils/chrome";
+import { getUrl } from "../../../utils/browser";
 import { waitForObj } from '../../../utils/misc/wait';
 
 const themeStyleId = "ext-theme-style";
