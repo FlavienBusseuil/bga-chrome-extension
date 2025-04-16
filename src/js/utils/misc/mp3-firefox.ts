@@ -11,26 +11,31 @@ export const removeCustomMp3 = async () => {
   localStorage.removeItem(localStorageKey);
 };
 
-export const uploadCustomMp3 = async () => {
+export const uploadCustomMp3 = async (): Promise<boolean> => {
   // Opening the file selection closes the popup context due to a Firefox bug
   // https://bugzilla.mozilla.org/show_bug.cgi?id=1292701
   const isCalledFromPopup = window.location.pathname.includes('popup');
   if (isCalledFromPopup) {
-    browser.runtime.openOptionsPage();
-    return;
+    return false;
   }
 
   const file = await getFile({ acceptedExtensions: ['audio/mp3'] });
+
   if (file) {
     const reader = new FileReader();
 
-    reader.onload = (event: any) => {
-      const fileData = event.target.result;
-      localStorage.setItem(localStorageKey, fileData);
-    };
+    return new Promise((resolve) => {
+      reader.onload = (event: any) => {
+        const fileData = event.target.result;
+        localStorage.setItem(localStorageKey, fileData);
+        resolve(true);
+      };
 
-    reader.readAsDataURL(file);
+      reader.readAsDataURL(file);
+    });
   }
+
+  return false;
 };
 
 export const playMp3 = async () => {

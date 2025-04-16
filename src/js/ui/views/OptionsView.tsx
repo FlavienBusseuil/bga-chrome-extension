@@ -100,10 +100,11 @@ export const OptionsView = ({ config, onChange }: Props) => {
   };
 
   const updateSoundCustom = (val: boolean) => {
-    setCustomSoundFile(val);
-
-    if (!val) {
+    if (val) {
+      uploadCustomMp3().then((result) => {setCustomSoundFile(result);});
+    } else {
       removeCustomMp3();
+      setCustomSoundFile(false);
     }
   };
 
@@ -303,6 +304,8 @@ export const OptionsView = ({ config, onChange }: Props) => {
 
   const getNotificationsSection = () => {
     const desktopVersion = !isMobile();
+    const popupContext = window.location.pathname.includes('popup');
+    const customSound = !(isFirefox && popupContext) // FF does not support file selection in popup
 
     if (configVisible === 'notif') {
       return (
@@ -312,9 +315,9 @@ export const OptionsView = ({ config, onChange }: Props) => {
             {getSwitch(tracking, updateTracking, "optionsTrackingOn", "optionsTrackingOff")}
             {getSwitch(soundNotification && tracking, updateSoundNotification, "optionsNotificationSoundOn", "optionsNotificationSoundOff", !tracking)}
             {<div className="row_fullwidth">
-              {getSwitch(soundNotification && tracking && customSoundFile, updateSoundCustom, "optionsNotificationCustomSoundOn", "optionsNotificationCustomSoundOff", isFirefox || !tracking || !soundNotification)}
+              {getSwitch(soundNotification && tracking && customSoundFile, updateSoundCustom, "optionsNotificationCustomSoundOn", "optionsNotificationCustomSoundOff", !customSound || !tracking || !soundNotification)}
               {tracking && soundNotification && <div>
-                {customSoundFile && <Button {...{ text: i18n("uploadMp3"), className: "small_button", onClick: uploadCustomMp3 }} />}
+                {customSound && customSoundFile && <Button {...{ text: i18n("uploadMp3"), className: "small_button", onClick: uploadCustomMp3 }} />}
                 <Button {...{ text: i18n("play"), className: "small_button", onClick: playMp3 }} />
               </div>}
             </div>}

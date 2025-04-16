@@ -10,9 +10,9 @@
 		"build": "yarn clean; NODE_ENV=production yarn prod:css; yarn prod:parcel",
 		"clean": "rm -rf .parcel-cache/* build/*",
 		"prod:css": "yarn tailwindcss -i ./src/css/base.css -c ./tailwind.config.js -o ./src/css/tailwind.css",
-		"prod:parcel": "yarn parcel build src/manifest.json --target prod --dist-dir ./build --no-source-maps",
-		"prod:parcel:firefox": "yarn parcel build src/manifest.json --target prod-firefox --dist-dir ./build --no-source-maps",
-		"prod:parcel:opera": "yarn parcel build src/manifest.json --target prod-opera --dist-dir ./build --no-source-maps",
+		"prod:parcel": "yarn parcel build src/manifest.json --target prod --dist-dir ./build",
+		"prod:parcel:firefox": "yarn parcel build src/manifest.json --target prod-firefox --dist-dir ./build",
+		"prod:parcel:opera": "yarn parcel build src/manifest.json --target prod-opera --dist-dir ./build",
 		"release": "./scripts/release.zsh",
 		"build:ff": "yarn clean && NODE_ENV=production yarn prod:css && yarn prebuild:firefox && yarn prod:parcel:firefox && yarn postbuild:firefox",
 		"build:op": "yarn clean && NODE_ENV=production yarn prod:css && yarn prebuild:opera && yarn prod:parcel:opera && yarn postbuild:opera",
@@ -32,9 +32,15 @@
 			},
 			"optimize": false
 		},
-		"prod": {},
-		"prod-firefox": {},
-		"prod-opera": {}
+		"prod": {
+			"sourceMap": false
+		},
+		"prod-firefox": {
+			"sourceMap": false
+		},
+		"prod-opera": {
+			"sourceMap": false
+		}
 	},
 	"devDependencies": {
 		"@babel/core": "^7.12.0",
