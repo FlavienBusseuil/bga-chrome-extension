@@ -82,6 +82,12 @@
 	"optionLeftMenu": {
 		"message": "Naviguer entre les plateaux des joueurs"
 	},
+	"optionHideLeftBarOptionOn": {
+		"message": "Ne pas ajouter d'option permettant de naviguer entre les plateaux des joueurs pour les jeux compatibles"
+	},
+	"optionHideLeftBarOptionOff": {
+		"message": "Ajouter une option permettant de naviguer entre les plateaux des joueurs pour les jeux compatibles"
+	},
 	"optionFloatingGame": {
 		"message": "Dans un menu flottant (uniquement pour ce jeu)"
 	},

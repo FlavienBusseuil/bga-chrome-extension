@@ -82,6 +82,12 @@
 	"optionLeftMenu": {
 		"message": "Navigate between players' boards"
 	},
+	"optionHideLeftBarOptionOn": {
+		"message": "Don't add an option allowing navigation between players' boards for compatible games"
+	},
+	"optionHideLeftBarOptionOff": {
+		"message": "Add an option allowing navigation between players' boards for compatible games"
+	},
 	"optionFloatingGame": {
 		"message": "In a floating menu (only for this game)"
 	},
