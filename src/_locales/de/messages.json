@@ -12,10 +12,10 @@
 		"message": "Stelle sicher, dass du der Erweiterung alle nötigen Berechtigung erteilt hast (rechtsklick auf auf das Icon der Erweiterung, dann \"Erweiteruzng verwalten\" und öffne den \"Berechtigungen\" Tab). Falls du den diesen Fehler nicht alleine beheben kannst, kontaktiere uns bitte im <a target='_blank' href='https://boardgamearena.com/forum/viewtopic.php?t=30509'>Forum</a>."
 	},
 	"play_new_game": {
-		"message": "Starte ein neues Spiel"
+		"message": "Neues Spiel starten"
 	},
 	"please_login": {
-		"message": "Bitte melden dich an"
+		"message": "Bitte melde dich auf BGA an"
 	},
 	"player_invited_you": {
 		"message": "$player$ hat dich eingeladen",
@@ -212,10 +212,10 @@
 		"message": "Einstellungen"
 	},
 	"optionsTrackingOn": {
-		"message": "Tisch-Statusmeldung aktiviert (andere Spieler sehen, dass du online bist)"
+		"message": "Tische-Status-Benachrichtigungen aktiviert (du erscheinst anderen Spielern als online)"
 	},
 	"optionsTrackingOff": {
-		"message": "Tisch-Statusmeldung deaktiviert"
+		"message": "Tische-Status-Benachrichtigungen deaktiviert"
 	},
 	"optionsNotificationSoundOn": {
 		"message": "Tonbenachrichtigung, wenn du an mindestens einem Tisch erwartet wirst"
@@ -224,7 +224,7 @@
 		"message": "Tonbenachrichtigung deaktiviert"
 	},
 	"optionsNotificationCustomSoundOn": {
-		"message": "Eigner Ton"
+		"message": "Eigener Ton"
 	},
 	"optionsNotificationCustomSoundOff": {
 		"message": "Standard Ton"
@@ -278,10 +278,10 @@
 		"message": "Nur Spieler mit meinem Level ±2 werden akzeptiert"
 	},
 	"optionsSolidBackgroundOn": {
-		"message": "Der Standard-Hintergrund (Holzpaletten) wird durch einen einfarbigen Hintergrund ersetzt"
+		"message": "Der Standard-Hintergrund (Holzpaneele) wird durch einen einfarbigen Hintergrund ersetzt"
 	},
 	"optionsSolidBackgroundOff": {
-		"message": "Der Standard-Hintergrund (Holzpaletten) wird verwendet"
+		"message": "Der Standard-Hintergrund (Holzpaneele) wird verwendet"
 	},
 	"optionsHideSocialMessagesOn": {
 		"message": "Der News-Feed beinhaltet nur Gruppen-Nachrichten"
