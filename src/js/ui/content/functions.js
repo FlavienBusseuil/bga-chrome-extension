@@ -510,7 +510,7 @@ const buildOptions = (config, gameName, gameConfig) => {
 	}
 
 	// Add a parameter for left menu
-	if (gameConfig) {
+	if (gameConfig && !config.isLeftBarOptionHidden()) {
 		const displayMenu = config.isLeftMenuEnabled(gameName) ? '1' : '0';
 		const toggleDisplayMenu = () => {
 			const enable = !config.isLeftMenuEnabled(gameName);

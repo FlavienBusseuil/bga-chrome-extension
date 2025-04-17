@@ -76,6 +76,7 @@ interface CustomConfig {
 	chatLightIcons?: boolean;
 	animatedTitle?: boolean;
 	hideLogTimestamp?: boolean;
+	hideLeftBarOption?: boolean;
 }
 
 export interface HomeConfig {
@@ -523,7 +524,7 @@ class Configuration {
 	}
 
 	isLeftMenuEnabled(name: string) {
-		return !this._customConfig.disabled.includes(name);
+		return !this.isLeftBarOptionHidden() && !this._customConfig.disabled.includes(name);
 	}
 
 	setGameFloatingMenu(name: string, enable: boolean) {
@@ -558,6 +559,15 @@ class Configuration {
 
 	areLogTimestampsHidden() {
 		return this._customConfig.hideLogTimestamp || false;
+	}
+
+	setHideLeftBarOption(val: boolean) {
+		this._customConfig.hideLeftBarOption = val;
+		storageSet({ hideLeftBarOption: val });
+	}
+
+	isLeftBarOptionHidden() {
+		return this._customConfig.hideLeftBarOption || false;
 	}
 
 	setGlobalFloatingMenu(enable: boolean) {
