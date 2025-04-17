@@ -190,6 +190,7 @@ export const gamesWithCustomBackground = [
   'rumbleplanet',
   'safariwitness',
   'santorini',
+  'scratchandcatch',
   'scythe',
   'seasaltpaper',
   'seasons',
@@ -508,6 +509,21 @@ const manageBackground = (defBackClass: string, otherBackClasses: string[]) => {
   }
 };
 
+const getDefaultBackgroundStyle = (src: HTMLElement) => {
+  const backStyle = getComputedStyle(src).background;
+  return (backStyle.indexOf('back-main_games') > 0 || backStyle.indexOf('none') > 0) ? undefined : backStyle;
+};
+
+const copyDefaultBackgroundStyle = (overlay: HTMLElement, attempt: number) => {
+  const backStyle = getDefaultBackgroundStyle(document.documentElement) || getDefaultBackgroundStyle(document.body);
+
+  if (backStyle) {
+    overlay.style.background = backStyle;
+  } else if (attempt < 20) {
+    setTimeout(() => copyDefaultBackgroundStyle(overlay, attempt + 1), 100);
+  }
+};
+
 const addInvertOverlay = (className: string, copyDefaultStyle: boolean) => {
   waitForObj('#overall-content', 5).then(overallContent => {
     const overlay = document.createElement("DIV");
@@ -519,11 +535,7 @@ const addInvertOverlay = (className: string, copyDefaultStyle: boolean) => {
     overlay.style.height = '100%';
     overlay.style.filter = 'invert(1)';
     if (copyDefaultStyle) {
-      let htmlStyle = getComputedStyle(document.documentElement).background;
-      if (htmlStyle.indexOf('back-main_games') > 0) {
-        htmlStyle = getComputedStyle(document.body).background;
-      }
-      overlay.style.background = htmlStyle;
+      copyDefaultBackgroundStyle(overlay, 0);
     }
     overallContent.insertBefore(overlay, overallContent.firstChild);
   });
@@ -721,6 +733,12 @@ export const gamesWithCustomActions = {
     init: () => addInvertOverlay('', true)
   },
   towerup: {
+    init: () => addInvertOverlay('', true)
+  },
+  scratchandcatch: {
+    init: () => addInvertOverlay('', true)
+  },
+  thehanginggardens: {
     init: () => addInvertOverlay('', true)
   },
   gemsofiridescia: {
@@ -4130,6 +4148,8 @@ _darkStyleForGame['leaders'] = `
 .player-board.whitePlayerZone .player-name a { color: #fff!important; }
 .lds_tooltipName, .lds_tooltipSkill { color: var(--light-80); }
 .lds_tooltipStatus { color: var(--light-50); }
+#button_undo { ${redButton} }
+#button_undo:hover { ${redButtonOver} }
 #lds_mainBoard { filter: brightness(0.9); }
 `;
 
@@ -5170,6 +5190,8 @@ _darkStyleForGame['parklife'] = `
 
 _darkStyleForGame['parks'] = `
 .pks-token.pks-token-resource { color: #000; filter: var(--drop-shadow); }
+#pks-bank { background-color: var(--dark-40); }
+.pks-canteen, .pks-backpack, .pks-passion, .pks-gear, .pks-board { filter: brightness(0.9); }
 `;
 
 _darkStyleForGame['patchwork'] = `
@@ -5982,6 +6004,19 @@ _darkStyleForGame['schroedingerscats'] = `
 #info_box { background-color: var(--violet-60); border: 2px solid var(--violet-80); }
 `;
 
+_darkStyleForGame['scratchandcatch'] = `
+.sc_zone { background-color: var(--dark-back); color: var(--light-80); }
+.sc_zone_nobg { background-color: transparent; }
+#page-content { color: var(--light-80); }
+.bga-help_button.mf_help_button_bg { background-color: var(--dark-20); color: var(--light-80); }
+.sc_help table th { background-color: var(--dark-10); color: var(--blue-50); }
+.sc_help table td { background-color: var(--dark-20); }
+.bg-flea_mini { filter: brightness(1.5); }
+.sc_popup { background-color: var(--dark-back); }
+.sc_popup_content { background-color: var(--dark-20); }
+.sc_final_scoring th, .sc_final_scoring td  { border-color: var(--light-50); }
+`;
+
 _darkStyleForGame['scriptoria'] = `
 #availableLecterns { background-color: var(--dark-back); }
 .pupitrePlayerContainer h2 { color: #fff; }
@@ -6779,6 +6814,16 @@ _darkStyleForGame['thatslife'] = `
 #board:before { content: ""; background: #00000030; position: absolute; width: 100%; height: 100%; border-radius: 8px; }
 .die { filter: brightness(0.9); }
 .main_box { border: 1px solid var(--light-50); }
+`;
+
+_darkStyleForGame['thehanginggardens'] = `
+.player_pyramid .pyramid_content .pyramid_section .pyramid_spot, .player_pyramid .pyramid_content .pyramid_section .pyramid_spot.controlspot { border-color: var(--light-70); }
+.player_pyramid .pyramid_header { background-color: var(--dark-20); color: var(--light-80); }
+#final_score_multi { background: var(--dark-10); color: var(--light-80); }
+#final_score_multi .final_score_table .final_score_multi_entry { border-color: var(--light-50); }
+.solo_comment { background: var(--dark-30); color: var(--light-80); }
+body.scoring #mainboard .board_assembly_middle { background: var(--dark-back); color: var(--light-80); }
+#ebd-body.scoring #mainboard .board_assembly_middle { background: var(--dark-40); }
 `;
 
 _darkStyleForGame['theittybittycardgame'] = `

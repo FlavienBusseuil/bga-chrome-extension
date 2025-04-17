@@ -331,7 +331,7 @@ const defaultGames: Partial<Game>[] = [
 	{
 		name: "parks",
 		boardPanel: "pks-board",
-		playerPanel: "pks-playerBoard{{player_id}}",
+		playerPanel: "pks-inv{{player_id}}",
 	},
 	{
 		name: "rollforthegalaxy",
