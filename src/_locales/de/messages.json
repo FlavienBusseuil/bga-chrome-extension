@@ -83,10 +83,10 @@
 		"message": "Navigiere zwischen den Spieler Bereichen"
 	},
 	"optionHideLeftBarOptionOn": {
-		"message": "The vertical bar for navigating between player boards is disabled for all games"
+		"message": "Das Spieler-Bereiche-Naivigations-Menü ist deaktiviert"
 	},
 	"optionHideLeftBarOptionOff": {
-		"message": "A vertical bar for navigating between player boards is added automatically for compatible games. This bar can be deactivated in the game preferences"
+		"message": "Das Spieler-Bereiche-Navigation-Menü wird zu kompatiblen Spielen hinzugefügt. Es kann in den jeweiligen Spiele-Einstellungen deaktiviert werden"
 	},
 	"optionFloatingGame": {
 		"message": "Als schwebendes Menü (nur für dieses Spiel)"
