@@ -73,8 +73,8 @@ export const OptionsView = ({ config, onChange }: Props) => {
   }
 
   const updateHideLeftBarOption = (val: boolean) => {
-    setHideLeftBarOption(val);
-    config.setHideLeftBarOption(val);
+    setHideLeftBarOption(!val);
+    config.setHideLeftBarOption(!val);
   }
 
   const updateEloHidden = (val: boolean) => {
@@ -350,7 +350,7 @@ export const OptionsView = ({ config, onChange }: Props) => {
           {getSwitch(!eloHidden, updateEloHidden, "optionEloHiddenOff", "optionEloHiddenOn")}
           {desktopVersion && getSwitch(chatBarAutoHide, updateChatBarAutoHide, "optionsChatAutoHideOn", "optionsChatAutoHideOff")}
           {getSwitch(areLogTimestampsHidden, updateAreLogTimestampsRemoved, "optionRemoveLogTimestampsOn", "optionRemoveLogTimestampsOff")}
-          {getSwitch(hideLeftBarOption, updateHideLeftBarOption, "optionHideLeftBarOptionOn", "optionHideLeftBarOptionOff")}
+          {getSwitch(!hideLeftBarOption, updateHideLeftBarOption, "optionHideLeftBarOptionOff", "optionHideLeftBarOptionOn")}
         </div>
       );
     }

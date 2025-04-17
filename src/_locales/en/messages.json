@@ -83,10 +83,10 @@
 		"message": "Navigate between players' boards"
 	},
 	"optionHideLeftBarOptionOn": {
-		"message": "Don't add an option allowing navigation between players' boards for compatible games"
+		"message": "The vertical bar for navigating between player boards is disabled for all games"
 	},
 	"optionHideLeftBarOptionOff": {
-		"message": "Add an option allowing navigation between players' boards for compatible games"
+		"message": "A vertical bar for navigating between player boards is added automatically for compatible games. This bar can be deactivated in the game preferences"
 	},
 	"optionFloatingGame": {
 		"message": "In a floating menu (only for this game)"
