@@ -4248,6 +4248,7 @@ _darkStyleForGame['livingforest'] = `
 body { background: none !important; }
 .icon_fragment { filter: invert(1); }
 .lvf_playerboard_name { background: var(--dark-back); color: #fff; }
+div[id^=lvf_respanel_counter_kodama_] { color: white }
 `;
 
 _darkStyleForGame['livingforestduel'] = `
