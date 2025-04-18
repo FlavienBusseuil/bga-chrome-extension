@@ -188,28 +188,33 @@ class Configuration {
 			this._customConfig.hideChatUserNames = true;
 		}
 
-		if (localStorage) {
-			const deleteWarning = localStorage.getItem('ext_delete_warning');
-			const fastStartWarning = localStorage.getItem('ext_fast_start_warning');
-			const muteWarning = localStorage.getItem('ext_mute_warning');
-			const reportMsg = localStorage.getItem('ext_report_msg');
-			const infosDialog = localStorage.getItem('ext_infos_dialog') || undefined;
+		try {
+			if (localStorage) {
+				const deleteWarning = localStorage.getItem('ext_delete_warning');
+				const fastStartWarning = localStorage.getItem('ext_fast_start_warning');
+				const muteWarning = localStorage.getItem('ext_mute_warning');
+				const reportMsg = localStorage.getItem('ext_report_msg');
+				const infosDialog = localStorage.getItem('ext_infos_dialog') || undefined;
 
-			if (deleteWarning || fastStartWarning || infosDialog || muteWarning || reportMsg) {
-				this.setPopupConfiguration({
-					deleteWarning: deleteWarning !== 'off',
-					fastStartWarning: fastStartWarning !== 'off',
-					muteWarning: muteWarning !== 'off',
-					reportMsg: reportMsg !== 'off',
-					infosDialog
-				});
+				if (deleteWarning || fastStartWarning || infosDialog || muteWarning || reportMsg) {
+					this.setPopupConfiguration({
+						deleteWarning: deleteWarning !== 'off',
+						fastStartWarning: fastStartWarning !== 'off',
+						muteWarning: muteWarning !== 'off',
+						reportMsg: reportMsg !== 'off',
+						infosDialog
+					});
 
-				localStorage.removeItem('ext_delete_warning');
-				localStorage.removeItem('ext_fast_start_warning');
-				localStorage.removeItem('ext_infos_dialog');
-				localStorage.removeItem('ext_mute_warning');
-				localStorage.removeItem('ext_report_msg');
+					localStorage.removeItem('ext_delete_warning');
+					localStorage.removeItem('ext_fast_start_warning');
+					localStorage.removeItem('ext_infos_dialog');
+					localStorage.removeItem('ext_mute_warning');
+					localStorage.removeItem('ext_report_msg');
+				}
 			}
+		}
+		catch (error) {
+			// localstorage is not existing in background script
 		}
 
 		this._merge();
