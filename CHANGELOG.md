@@ -1,5 +1,16 @@
 # Changelog
 
+## [v1.11.18](https://github.com/FlavienBusseuil/bga-chrome-extension/tree/v1.11.18) (2025-04-18)
+
+[Full Changelog](https://github.com/FlavienBusseuil/bga-chrome-extension/compare/v1.11.17...v1.11.18)
+
+**Merged pull requests:**
+
+- Improve light theme flashing fix [\#97](https://github.com/FlavienBusseuil/bga-chrome-extension/pull/97) ([GhoulofGSG9](https://github.com/GhoulofGSG9))
+- Living forest kodama dark theme fix [\#96](https://github.com/FlavienBusseuil/bga-chrome-extension/pull/96) ([nalka0](https://github.com/nalka0))
+- Update german translation for upcoming release [\#95](https://github.com/FlavienBusseuil/bga-chrome-extension/pull/95) ([GhoulofGSG9](https://github.com/GhoulofGSG9))
+- Option to navigate between players becomes optional [\#94](https://github.com/FlavienBusseuil/bga-chrome-extension/pull/94) ([nalka0](https://github.com/nalka0))
+
 ## [v1.11.17](https://github.com/FlavienBusseuil/bga-chrome-extension/tree/v1.11.17) (2025-04-15)
 
 [Full Changelog](https://github.com/FlavienBusseuil/bga-chrome-extension/compare/v1.11.16...v1.11.17)
