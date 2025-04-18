@@ -31,17 +31,12 @@ let pageType = undefined;
 let chatbardock = undefined;
 
 if (localStorage.getItem('ext_dark_theme') === 'on') {
-	// hack to avoid light theme flashing (issue with some games like 'dead cells' if the tag html is hidden)
+	// hack to avoid light theme flashing
+	// FIXME Does not work with some games like 'dead cells' if the tag html is hidden
 	const s = document.createElement('style');
-	s.innerHTML = `html { background: #000000 !important; }
-			html:not(.bgaext_game) body { visibility: hidden !important; }
-			html.bgaext_game * { background: transparent !important; }`;
+	s.innerHTML = `html:not(.darkmode) { background: #000000 !important }
+			html:not(.darkmode) body { visibility: hidden !important }`;
 	document.documentElement.appendChild(s);
-	window.addEventListener("load", () => {
-		setTimeout(() => {
-			s.remove();
-		}, 0);
-	});
 }
 
 const autoHideChat = (e) => {
