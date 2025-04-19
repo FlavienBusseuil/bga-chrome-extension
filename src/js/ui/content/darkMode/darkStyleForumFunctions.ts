@@ -1,9 +1,9 @@
 import { cookieName, createStyle, getFile } from "./darkStyleCommonFunctions";
 
 const cssList = ["dark_theme/background.css", "dark_theme/forum.css", "dark_theme/icons.css", "light_theme/general.css"];
-const cssContents = {};
+const cssContents: Record<string, string> = {};
 let customCssCode = '';
-let styleComponent;
+let styleComponent: HTMLStyleElement;
 
 Promise.all(cssList.map(getFile)).then(fileContents => {
   fileContents.forEach(({ file, content }) => cssContents[file] = content);
