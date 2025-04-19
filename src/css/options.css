@@ -4,6 +4,15 @@ body {
 	font-size: 12px;
 }
 
+/* Undo tailwind preflight styling for buttons */
+button.appearance-auto {
+	background-color: revert;
+	background-image: revert;
+	border: revert;
+	padding: revert;
+	margin: revert;
+}
+
 .bgext_options_main {
 	width: 100%;
 	display: flex;

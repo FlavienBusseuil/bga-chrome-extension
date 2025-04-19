@@ -1,3 +1,5 @@
+import '../../../css/switch.css';
+
 type Props = {
   checked: boolean,
   disabled?: boolean,

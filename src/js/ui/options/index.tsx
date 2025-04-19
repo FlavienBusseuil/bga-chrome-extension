@@ -1,4 +1,3 @@
-import React from "preact";
 import { useEffect, useState } from "preact/hooks";
 import { getFile } from "easy-file-picker";
 
@@ -10,7 +9,7 @@ import { useSyncedState } from "../hooks/useSyncedState";
 const Options = (props: { config: Configuration }) => {
 	const { config } = props;
 	const [list, setList] = useState(config.getGamesList());
-	const [selected, setSelected] = useState(list[0]);
+	const [selected, setSelected] = useState(list[0] as Game);
 	const [changed, setChanged] = useState(false);
 	const [text, setText] = useState("");
 	const [css, setCss] = useState(config.getCustomCss());
@@ -56,7 +55,7 @@ const Options = (props: { config: Configuration }) => {
 		if (newSelected) {
 			setSelected({ ...newSelected });
 		} else {
-			setSelected(list[0]);
+			setSelected(list[0] as Game);
 		}
 	}, [list, selected.name]);
 
@@ -141,9 +140,9 @@ const Options = (props: { config: Configuration }) => {
 				<div className="bgext_options_title">{i18n('troubleshooting')}</div>
 				<div className="bgext_about_container">
 					<div className="bgext_buttons_container">
-						<button onClick={exportClick}>{i18n('ConfigurationExport')}</button>
-						<button onClick={importClick}>{i18n('ConfigurationImport')}</button>
-						<button onClick={resetClick}>{i18n('ConfigurationReset')}</button>
+						<button class={"appearance-auto"} onClick={exportClick}>{i18n('ConfigurationExport')}</button>
+						<button class={"appearance-auto"} onClick={importClick}>{i18n('ConfigurationImport')}</button>
+						<button class={"appearance-auto"} onClick={resetClick}>{i18n('ConfigurationReset')}</button>
 					</div>
 					<div className="bgext_buttons_container">{troubleshootingMessage}</div>
 				</div>
@@ -189,28 +188,28 @@ const Options = (props: { config: Configuration }) => {
 						</div>
 						<div className="bgext_options_row_container">
 							<button
-								style={{ width: "100px" }}
+								class={"appearance-auto w-100px"}
 								onClick={duplicate}
 							>
 								{i18n("optionDuplicate")}
 							</button>
 							<button
+								class={"appearance-auto w-100px"}
 								disabled={!couldReset}
-								style={{ width: "100px" }}
 								onClick={reset}
 							>
 								{i18n("optionReset")}
 							</button>
 							<button
+								class={"appearance-auto w-100px"}
 								disabled={!couldDelete}
-								style={{ width: "100px" }}
 								onClick={reset}
 							>
 								{i18n("optionDelete")}
 							</button>
 							<button
+								class={"appearance-auto w-100px"}
 								disabled={!changed}
-								style={{ width: "100px" }}
 								onClick={save}
 							>
 								{i18n("optionSave")}
@@ -242,7 +241,7 @@ const Options = (props: { config: Configuration }) => {
 				</div>
 				<div className="bgext_css_buttons">
 					<button
-						style={{ width: "100px" }}
+						class={"appearance-auto w-100px"}
 						onClick={() => config.setCustomCss(css).catch(_ => window.location.reload())}
 					>
 						{i18n("optionSave")}
