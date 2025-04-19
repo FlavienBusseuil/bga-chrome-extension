@@ -4,8 +4,8 @@ module.exports = {
 	darkMode: "class",
 	content: [
 		"./src/popup.html",
-		"./src/js/**/*.{js,jsx}",
-		"!./src/js/ui/content/**/*.{js,jsx}",
+		"./src/js/**/*.{js,jsx,ts,tsx}",
+		"!./src/js/ui/content/**/*.{js,jsx,ts,tsx}",
 	],
 	theme: {
 		extend: {

@@ -10,19 +10,24 @@ export const removeCustomMp3 = async () => {
   localStorage.removeItem(localStorageKey);
 };
 
-export const uploadCustomMp3 = async () => {
+export const uploadCustomMp3 = async (): Promise<boolean> => {
   const file = await getFile({ acceptedExtensions: ['audio/mp3'] });
 
   if (file) {
     const reader = new FileReader();
 
-    reader.onload = (event: any) => {
-      const fileData = event.target.result;
-      localStorage.setItem(localStorageKey, fileData);
-    };
+    return new Promise((resolve) => {
+      reader.onload = (event: any) => {
+        const fileData = event.target.result;
+        localStorage.setItem(localStorageKey, fileData);
+        resolve(true);
+      };
 
-    reader.readAsDataURL(file);
+      reader.readAsDataURL(file);
+    });
   }
+
+  return false;
 };
 
 export const playMp3 = async () => {

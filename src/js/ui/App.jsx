@@ -15,7 +15,9 @@ import { FriendsView } from "./views/FriendsView";
 import { OptionsView } from "./views/OptionsView";
 
 import { useState, useEffect, useErrorBoundary } from "preact/hooks";
+import { useSyncedState } from "./hooks/useSyncedState";
 import { updateBadgeAndIcon } from "../utils/updateBadgeAndIcon";
+import { i18n } from "../utils/browser";
 import { useFetch } from "./hooks/useFetch";
 import { Tabs } from "./base/Tabs";
 import { Tab } from "./base/Tab";
@@ -36,6 +38,7 @@ export function App({ config }: Props): React$Node {
 	const [activeTab, setActiveTab] = useState < string > ("tables");
 	const error = fetchError ?? childError;
 	const motionSensitivityEnable = config.isMotionSensitivityEnable();
+	const [hasConfigChange, setConfigChange] = useSyncedState("configChange", false);
 
 	useEffect(fetch, []);
 
@@ -43,7 +46,7 @@ export function App({ config }: Props): React$Node {
 		setBadge({ color: "#dc2626", text: `x` });
 		return (
 			<Error
-				errorMessage={chrome.i18n.getMessage("something_wrong")}
+				errorMessage={i18n("something_wrong")}
 				errorDetails={error.message ?? error}
 			/>
 		);
@@ -77,7 +80,7 @@ export function App({ config }: Props): React$Node {
 
 	const sortedTournaments = sortTournaments(transformedTournaments);
 
-	const configChange = () => {
+	const _configChange = () => {
 		if (config.isTrackingEnable()) {
 			fetch();
 		} else {
@@ -85,9 +88,16 @@ export function App({ config }: Props): React$Node {
 		}
 	};
 
+	useEffect(() => {
+		if (hasConfigChange) {
+			_configChange();
+			setConfigChange(false);
+		}
+	}, [hasConfigChange]);
+
 	const getContent = () => {
 		if (activeTab === "options") {
-			return <OptionsView config={config} onChange={configChange} />;
+			return <OptionsView config={config} onChange={() => setConfigChange(true)} />;
 		}
 
 		if (isMobile()) {
@@ -159,7 +169,7 @@ export function App({ config }: Props): React$Node {
 					onClick={(k) => setActiveTab(k)}
 				>
 					<span className="mr-1">🎲</span>
-					{chrome.i18n.getMessage("tables")} ({sortedTables.length})
+					{i18n("tables")} ({sortedTables.length})
 				</Tab>
 				<Tab
 					k="tournaments"
@@ -168,7 +178,7 @@ export function App({ config }: Props): React$Node {
 					onClick={(k) => setActiveTab(k)}
 				>
 					<span className="mr-1">🏆</span>
-					{chrome.i18n.getMessage("tournaments")} (
+					{i18n("tournaments")} (
 					{sortedTournaments.length})
 				</Tab>
 				<Tab
@@ -178,7 +188,7 @@ export function App({ config }: Props): React$Node {
 					onClick={(k) => setActiveTab(k)}
 				>
 					<span className="mr-1">🙋</span>
-					{chrome.i18n.getMessage("friends")}
+					{i18n("friends")}
 				</Tab>
 				<Tab
 					k="options"
@@ -187,7 +197,7 @@ export function App({ config }: Props): React$Node {
 					onClick={(k) => setActiveTab(k)}
 				>
 					<span className="mr-1">⚙</span>
-					{chrome.i18n.getMessage("options")}
+					{i18n("options")}
 				</Tab>
 			</Tabs>
 

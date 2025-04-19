@@ -1,7 +1,7 @@
 // @flow
 import type { TableId } from "../types/bga/Table";
 
-import { i18n } from "../utils/chrome";
+import { i18n } from "../utils/browser";
 import { PlayerList } from "./PlayerList";
 import { TableContent } from "./TableContent";
 import { TableFooter } from "./TableFooter";
@@ -9,9 +9,7 @@ import { TableHeader } from "./TableHeader";
 import { TableIcon } from "./TableIcon.jsx";
 import { TableIcons } from "./TableIcons.jsx";
 import { TableIndicator } from "./TableIndicator";
-import { Button } from "./base/Button";
 import { Card } from "./base/Card";
-import { cn } from "./utils/cn";
 
 type Props = {
 	tableId: TableId,

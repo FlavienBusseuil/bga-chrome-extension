@@ -1,5 +1,4 @@
-import React from 'preact';
-import { useState } from 'preact/hooks';
+import '../../../css/switch.css';
 
 type Props = {
   checked: boolean,
