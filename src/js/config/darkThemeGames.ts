@@ -3926,7 +3926,7 @@ body { background: #413e25; }
 
 _darkStyleForGame['justone'] = `
 #overall-content, #left-side-wrapper { background: inherit !important; }
-#card-mystery-header, #card-guess-header { color: #fff; }
+#card-mystery-header, #card-guess-header, #card-back-countdown, .clue-reminder-invalid, .clue-reminder-identical { color: #fff; }
 .left-name, .right-name { background: var(--dark-20); border-radius: 8px; padding: 0.3em 0.5em; }
 `;
 
