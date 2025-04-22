@@ -7481,13 +7481,13 @@ _darkStyleForGame['verdant'] = `
 .modal-content { background: var(--dark-0); border: 1px solid var(--dark-40); }
 .tooltip_title { color: var(--green-50); }
 .tooltip_desc { color: var(--green-30); }
-.big-card { filter: brightness(0.9); }
 .close { color: var(--light-80); }
 #verdant_help1 { background: #1f5b60; }
 #verdant_help2 { background: #4c1f60; }
 #verdant_help3 { background: #604c1f; }
 .dijitTooltipContainer, .tundra .dijitTooltipContainer { background-color: #000 !important; }
 .reserve { background: var(--dark-40) !important; border-radius: 8px; }
+.big-card, .room { filter: brightness(0.9); }
 `;
 
 _darkStyleForGame['veronatwist'] = `
