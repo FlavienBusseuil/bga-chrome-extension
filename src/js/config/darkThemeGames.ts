@@ -280,7 +280,15 @@ export const gamesWithCustomPanel = [
   'viticulture'
 ];
 
-export const gamesWithCustomDarkMode = {
+type GameName = string;
+interface GamesWithCustomDarkMode {
+  [gameName: GameName]: {
+    className: string;
+    applyGeneralCss: boolean;
+  };
+}
+
+export const gamesWithCustomDarkMode: GamesWithCustomDarkMode = {
   cakemaster: {
     className: 'bx-background-dark',
     applyGeneralCss: true
@@ -311,7 +319,7 @@ export const gamesWithCustomDarkMode = {
   },
 };
 
-export const gamesWithCustomPlayerStyle = {
+export const gamesWithCustomPlayerStyle: { [gameName: GameName]: string } = {
   almadi: '.playgroundContainer h2',
   arboretum: '.player-table h3.title',
   butterfly: '.playerHand h3',
@@ -348,7 +356,7 @@ export const gamesWithCustomPlayerStyle = {
   piratas: '#playmats .playmat h3'
 };
 
-export const playersBackground = {
+export const playersBackground: { [gameName: GameName]: string[] } = {
   golems: ['#pl{{player_id}}_label'],
   laserreflection: ['#lrf_container_{{player_id}} .lrf_progress-bar'],
   nirds: ['#player_table_{{player_id}} .title'],
@@ -356,7 +364,7 @@ export const playersBackground = {
   treos: ['#gamezone-{{player_id}} .player-board-name'],
 };
 
-export const playersBorder = {
+export const playersBorder: { [gameName: GameName]: string[] } = {
   arboretum: ['#player-table-{{player_id}}', '#player-table-{{player_id}} h3'],
   bagofchips: ['#player-table-{{player_id}}'],
   bang: ['#bang-player-{{player_id}} .bang-player-container[style^="border: 2px"]'],
@@ -387,7 +395,7 @@ export const playersBorder = {
   wizardsgrimoire: ['.wg-title.ext_player_{{player_id}}', '#player-table-{{player_id}}-health', '#player-table-{{player_id}} .player-table'],
 };
 
-export const gamesWithCustomColors = {
+export const gamesWithCustomColors: { [gameName: GameName]: string[] } = {
   ageofinnovation: ['#971923', '#278139', '#70421d', '#1a2126', '#f9ae18', '#1d7ddb'],
   cosmoctopus: ['#20134b'],
   deadcells: ['#3c733a', '#ab3237', '#5c5aa5', '#c97014'],
@@ -413,7 +421,8 @@ export const gamesWithCustomColors = {
   verdant: ['#2d3691']
 };
 
-export const gamesWithRecommandedConfig = {
+interface RecommandedConfig { color: number; sat: number }
+export const gamesWithRecommandedConfig: { [gameName: GameName]: RecommandedConfig } = {
   abyss: { color: 226, sat: 16 },
   agricola: { color: 100, sat: 12 },
   aiye: { color: 20, sat: 25 },
@@ -545,7 +554,9 @@ const addInvertOverlay = (className: string, copyDefaultStyle: boolean) => {
   });
 };
 
-export const gamesWithCustomActions = {
+type CustomActions = { init: () => void, setDarkMode?: (darkMode: boolean) => void, isDarkMode?: () => boolean };
+type GamesWithCustomActions = { [key: string]: CustomActions };
+export const gamesWithCustomActions: GamesWithCustomActions = {
   earth: {
     init: () => {
       const checkbox = document.getElementById("ea-dark-background-checkbox") as any;
@@ -793,8 +804,8 @@ export const gamesWithCustomActions = {
   },
 };
 
-const _darkStyleForGame = {};
-const _styleForGame = {};
+const _darkStyleForGame: { [key: GameName]: string } = {};
+const _styleForGame: { [key: GameName]: string } = {};
 
 _darkStyleForGame['abyss'] = `
 .playmat_on body { background: none !important; background-color: #081020 !important; }

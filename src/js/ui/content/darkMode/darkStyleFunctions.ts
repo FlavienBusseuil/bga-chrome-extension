@@ -9,15 +9,15 @@ const isDarkStyle = (mode: string) => {
   return customActions && customActions.isDarkMode ? customActions.isDarkMode() : localStorage.getItem(cookieName) === "on";
 }
 
-const { cssList, mode } = (() => {
+const { cssList, mode }: { cssList: string[], mode: string } = (() => {
   const pageInfo = window.location.pathname.substring(1).split("/");
-  if (pageInfo.length >= 2 && isNumber(pageInfo[0])) {
-    return { mode: pageInfo[1], cssList: ["light_theme/general.css", "dark_theme/background.css", "dark_theme/common.css", "dark_theme/chat.css", "dark_theme/icons.css", "dark_theme/game.css"] };
+  if (pageInfo.length >= 2 && isNumber(pageInfo[0] as string)) {
+    return { mode: pageInfo[1] as string, cssList: ["light_theme/general.css", "dark_theme/background.css", "dark_theme/common.css", "dark_theme/chat.css", "dark_theme/icons.css", "dark_theme/game.css"] };
   }
 
   if (pageInfo[0] === "tutorial") {
-    const mode = window.location.search.substring(1).split('&').find(p => p.startsWith('game'))?.split('=')[1] || 'general';
-    return { mode, cssList: ["light_theme/general.css", "dark_theme/background.css", "dark_theme/common.css", "dark_theme/chat.css", "dark_theme/icons.css", "dark_theme/game.css"] };
+    const mode = window.location.search.substring(1).split('&').find(p => p.startsWith('game'))?.split('=')[1];
+    return { mode: mode ?? 'general', cssList: ["light_theme/general.css", "dark_theme/background.css", "dark_theme/common.css", "dark_theme/chat.css", "dark_theme/icons.css", "dark_theme/game.css"] };
   }
 
   if (pageInfo[0] === "archive") {
@@ -27,8 +27,29 @@ const { cssList, mode } = (() => {
   return { mode: "general", cssList: ["light_theme/general.css", "dark_theme/background.css", "dark_theme/common.css", "dark_theme/chat.css", "dark_theme/icons.css", "dark_theme/general.css"] };
 })();
 
-const cssContents = {};
-let styleComponent;
+const cssContents: Record<string, string> = {};
+let styleComponent: HTMLStyleElement;
+
+// hack to avoid light theme flashing
+const darkThemeFlickerFixElementId = "ext_dark_theme_flicker_fix";
+const applyBackgroundFlickerFix = () => {
+  // WARNING : not(.bgaext_game) is important for some games ('dead cells' and 'cubirds' for example)
+  const s = document.createElement('style');
+  s.id = darkThemeFlickerFixElementId;
+  s.innerHTML = `html:not(.darkmode) { background: #000000 !important }
+        html:not(.bgaext_game):not(.darkmode) body { visibility: hidden !important; }`;
+  document.documentElement.appendChild(s);
+};
+if (document && isDarkStyle(mode)) {
+  applyBackgroundFlickerFix();
+}
+
+const removeBackgroundFlickerFix = () => {
+  const s = document.getElementById(darkThemeFlickerFixElementId);
+  if (s) {
+    s.remove();
+  }
+}
 
 Promise.all(cssList.map(getFile)).then(fileContents => {
   fileContents.forEach(({ file, content }) => cssContents[file] = content);
@@ -39,7 +60,7 @@ Promise.all(cssList.map(getFile)).then(fileContents => {
 
 const hexToRgb = (hex: string) => {
   var result = /^#?([a-f\d]{2})([a-f\d]{2})([a-f\d]{2})$/i.exec(hex);
-  return result ? `rgb(${parseInt(result[1], 16)}, ${parseInt(result[2], 16)}, ${parseInt(result[3], 16)})` : hex;
+  return result ? `rgb(${parseInt(result[1] as string, 16)}, ${parseInt(result[2] as string, 16)}, ${parseInt(result[3] as string, 16)})` : hex;
 };
 
 const getDarkColorsStyle = (playersData: PlayerData[]) => {
@@ -127,6 +148,7 @@ const _setDarkStyleIfActivated = () => {
     } else {
       _setLightStyle(mode);
     }
+    removeBackgroundFlickerFix();
     initClassObserver(mode);
   }
   catch (error) {
@@ -207,7 +229,7 @@ const _setLightStyle = (mode: string) => {
   console.log("[bga extension] set light mode");
 
   if (styleComponent) {
-    const generalStyle = cssContents["light_theme/general.css"];
+    const generalStyle = cssContents["light_theme/general.css"] as string;
 
     if (mode === "archive") {
       styleComponent.innerHTML = generalStyle;

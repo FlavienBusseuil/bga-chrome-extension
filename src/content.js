@@ -30,21 +30,6 @@ let currentObserver = null;
 let pageType = undefined;
 let chatbardock = undefined;
 
-if (localStorage.getItem('ext_dark_theme') === 'on') {
-	// hack to avoid light theme flashing
-	// WARNING : not(.bgaext_game) is important for some games ('dead cells' and 'cubirds' for example)
-	const s = document.createElement('style');
-	s.innerHTML = `html:not(.darkmode) { background: #000000 !important }
-				html:not(.bgaext_game):not(.darkmode) body { visibility: hidden !important; }`;
-	document.documentElement.appendChild(s);
-	// WARNING : following code is important to be able to go back to light mode
-	window.addEventListener("load", () => {
-		setTimeout(() => {
-			s.remove();
-		}, 500);
-	});
-}
-
 const autoHideChat = (e) => {
 	if (chatbardock) {
 		const clientRect = chatbardock.getBoundingClientRect();
