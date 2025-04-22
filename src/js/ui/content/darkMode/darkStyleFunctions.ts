@@ -32,16 +32,16 @@ let styleComponent: HTMLStyleElement;
 
 // hack to avoid light theme flashing
 const darkThemeFlickerFixElementId = "ext_dark_theme_flicker_fix";
-const applyBackgroundFlickerFix = () => {
-  // WARNING : not(.bgaext_game) is important for some games ('dead cells' and 'cubirds' for example)
+const applyBackgroundFlickerFix = (mode: string) => {
   const s = document.createElement('style');
+  const htmlStyle = 'html { background: #000 !important }';
+  const bodyStyle = (mode == 'general') ? 'body { visibility: hidden !important; }' : '';
   s.id = darkThemeFlickerFixElementId;
-  s.innerHTML = `html:not(.darkmode) { background: #000000 !important }
-        html:not(.bgaext_game):not(.darkmode) body { visibility: hidden !important; }`;
+  s.innerHTML = `${htmlStyle} ${bodyStyle}`;
   document.documentElement.appendChild(s);
 };
 if (document && isDarkStyle(mode)) {
-  applyBackgroundFlickerFix();
+  applyBackgroundFlickerFix(mode);
 }
 
 const removeBackgroundFlickerFix = () => {
