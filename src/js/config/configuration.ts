@@ -2,6 +2,7 @@ import equal from "fast-deep-equal";
 import defaultGames from "./sideMenuGames";
 import { addChangeListener, localStorageClear, localStorageGet, localStorageSet, storageClear, storageGet, storageSet } from "../utils/chrome";
 import { ADVANCED_HOME_STYLE, COLORFUL_TABLES, DEF_HOME_HTML } from "./configuration.constants";
+import { map, MapStore } from "nanostores";
 
 export interface Game {
 	name: string;
@@ -106,7 +107,7 @@ export interface PopupsConfig {
 	fastStartWarning: boolean;
 	muteWarning: boolean;
 	reportMsg: boolean;
-	infosDialog?: string;
+	infosDialog?: string | undefined;
 }
 
 export interface InProgressConfig {
@@ -119,14 +120,14 @@ export interface InProgressConfig {
 
 interface LocalConfig {
 	css: string;
-	home?: AdvancedHomeConfig;
+	home?: AdvancedHomeConfig | {};
 	popups?: PopupsConfig;
 }
 
 class Configuration {
 	_defConfig: { games: Game[] };
-	_customConfig: CustomConfig;
-	_localConfig: LocalConfig;
+	_customConfig: MapStore<CustomConfig>;
+	_localConfig: MapStore<LocalConfig>;
 	_config: { games: Game[] };
 
 	constructor() {
@@ -153,41 +154,21 @@ class Configuration {
 				};
 			}) as Game[],
 		};
-		this._customConfig = {
-			clientId: "",
+		this._customConfig = map<CustomConfig>({
+			clientId: self.crypto.randomUUID(),
 			games: [],
 			dark: [],
 			disabled: [],
-			floating: [],
 			hidden: [],
-			muted: []
-		};
+			muted: [],
+			floating: [],
+			hideChatUserNames: true
+		});
+		this._localConfig = map<LocalConfig>();
 		this._config = { games: [] };
 	}
 
 	_init() {
-		if (!this._customConfig.games) {
-			this._customConfig.games = [];
-		}
-		if (!this._customConfig.dark) {
-			this._customConfig.dark = [];
-		}
-		if (!this._customConfig.disabled) {
-			this._customConfig.disabled = [];
-		}
-		if (!this._customConfig.hidden) {
-			this._customConfig.hidden = [];
-		}
-		if (!this._customConfig.muted) {
-			this._customConfig.muted = [];
-		}
-		if (!this._customConfig.floating) {
-			this._customConfig.floating = [];
-		}
-		if (this._customConfig.hideChatUserNames === undefined) {
-			this._customConfig.hideChatUserNames = true;
-		}
-
 		try {
 			if (localStorage) {
 				const deleteWarning = localStorage.getItem('ext_delete_warning');
@@ -226,11 +207,6 @@ class Configuration {
 		this._customConfig = syncStorage;
 		this._localConfig = localStorage;
 
-		if (!this._customConfig.clientId) {
-			this._customConfig.clientId = self.crypto.randomUUID();
-			storageSet({ clientId: this._customConfig.clientId });
-		}
-
 		this._init();
 
 		addChangeListener((changes: any, namespace: string) => {
@@ -251,28 +227,29 @@ class Configuration {
 	}
 
 	private _merge() {
-		const customNames = this._customConfig.games.map((g) => g.name);
+		const customGames = this._customConfig.get().games
+		const customNames = customGames.map((g) => g.name);
 		const defGames = this._defConfig.games.filter(
 			(g) => !customNames.includes(g.name),
 		);
 
-		this._config.games = [...defGames, ...this._customConfig.games];
+		this._config.games = [...defGames, ...customGames];
 	}
 
 	isEmpty() {
+		const customConfig = this._customConfig.get();
 		return (
-			this._customConfig.floatingRightMenu === undefined &&
-			this._customConfig.devTemplates === undefined &&
-			this._customConfig.onlineMessages === undefined &&
-			!this._customConfig.disabled.length &&
-			!this._customConfig.games.length &&
-			!this._customConfig.floating.length
+			customConfig.floatingRightMenu === undefined &&
+			customConfig.devTemplates === undefined &&
+			customConfig.onlineMessages === undefined &&
+			!customConfig.disabled.length &&
+			!customConfig.games.length &&
+			!customConfig.floating.length
 		);
 	}
 
 	import(customConfig: CustomConfig) {
-		this._customConfig = customConfig;
-		storageSet(customConfig);
+		this._customConfig.set(customConfig);
 	}
 
 	getGameConfig(game: string): Game | undefined {
@@ -290,20 +267,20 @@ class Configuration {
 			return this.resetGame(name);
 		}
 
-		this._customConfig.games = [
-			...this._customConfig.games.filter((g) => g.name !== name),
+		const games = [
+			...this._customConfig.get().games.filter((g) => g.name !== name),
 			game,
-		];
-		storageSet({ games: this._customConfig.games });
+		]
+		this._customConfig.setKey('games', games);
 		this._merge();
 		return this.getGamesList();
 	}
 
 	resetGame(name: string) {
-		this._customConfig.games = this._customConfig.games.filter(
+		let customGames = this._customConfig.get().games;
+		this._customConfig.setKey('games', customGames.filter(
 			(g) => g.name !== name,
-		);
-		storageSet({ games: this._customConfig.games });
+		));
 		this._merge();
 		return this.getGamesList();
 	}
@@ -314,30 +291,28 @@ class Configuration {
 	}
 
 	isCustomized(name: string) {
-		const custGame = this._customConfig.games.find((g) => g.name === name);
+		const custGame = this._customConfig.get().games.find((g) => g.name === name);
 		return !!custGame;
 	}
 
 	isTrackingEnable() {
-		return Boolean(this._customConfig.trackTables);
+		return Boolean(this._customConfig.get().trackTables);
 	}
 
 	setTrackingEnable(val: boolean) {
-		this._customConfig.trackTables = val;
-		storageSet({ trackTables: val });
+		this._customConfig.setKey('trackTables', val);
 	}
 
 	isSoundNotificationEnable() {
-		return Boolean(this._customConfig.soundNotification);
+		return Boolean(this._customConfig.get().soundNotification);
 	}
 
 	setSoundNotificationEnable(val: boolean) {
-		this._customConfig.soundNotification = val;
-		storageSet({ soundNotification: val });
+		this._customConfig.setKey('soundNotification', val);
 	}
 
 	getHomeConfig() {
-		const homeConfig = this._customConfig.home || {} as any;
+		const homeConfig = this._customConfig.get().home || {} as any;
 
 		return {
 			header: true,
@@ -359,12 +334,11 @@ class Configuration {
 	}
 
 	setHomeConfig(val: HomeConfig) {
-		this._customConfig.home = val;
-		storageSet({ home: val });
+		this._customConfig.setKey('home', val);
 	}
 
 	getAdvancedHomeConfig() {
-		const homeConfig = this._localConfig.home || {} as any;
+		const homeConfig = this._localConfig.get().home || {} as any;
 
 		return {
 			advanced: false,
@@ -374,12 +348,11 @@ class Configuration {
 	}
 
 	setAdvancedHomeConfig(val: AdvancedHomeConfig) {
-		this._localConfig.home = val;
-		localStorageSet({ home: val });
+		this._localConfig.setKey('home', val);
 	}
 
 	getPopupConfiguration() {
-		return this._localConfig.popups || {
+		return this._localConfig.get().popups || {
 			deleteWarning: true,
 			fastStartWarning: true,
 			muteWarning: true,
@@ -388,8 +361,7 @@ class Configuration {
 	}
 
 	setPopupConfiguration(val: PopupsConfig) {
-		this._localConfig.popups = val;
-		localStorageSet({ popups: val });
+		this._localConfig.setKey('popups', val);
 	}
 
 	getInProgressConfig() {
@@ -399,213 +371,201 @@ class Configuration {
 			discover: true,
 			more: true,
 			colorfulTables: false,
-			...(this._customConfig.inProgress || {})
+			...(this._customConfig.get().inProgress || {})
 		}
 	}
 
 	setInProgressConfig(val: InProgressConfig) {
-		this._customConfig.inProgress = val;
-		storageSet({ inProgress: val });
+		this._customConfig.setKey('inProgress', val);
+
 	}
 
 	isMotionSensitivityEnable() {
-		return Boolean(this._customConfig.motionSensitivity);
+		return Boolean(this._customConfig.get().motionSensitivity);
 	}
 
 	setMotionSensitivityEnable(val: boolean) {
-		this._customConfig.motionSensitivity = val;
-		storageSet({ motionSensitivity: val });
+		this._customConfig.setKey('motionSensitivity', val);
 	}
 
 	isLobbyRedirectionEnable() {
-		return Boolean(this._customConfig.lobbyRedirect);
+		return Boolean(this._customConfig.get().lobbyRedirect);
 	}
 
 	setLobbyRedirectionEnable(val: boolean) {
-		this._customConfig.lobbyRedirect = val;
-		storageSet({ lobbyRedirect: val });
+		this._customConfig.setKey('lobbyRedirect', val);
 	}
 
 	isFastCreateEnable() {
-		return this._customConfig.fastCreate === undefined || Boolean(this._customConfig.fastCreate);
+		const fastCreate = this._customConfig.get().fastCreate;
+		return fastCreate === undefined || Boolean(fastCreate);
 	}
 
 	setFastCreateEnable(val: boolean) {
-		this._customConfig.fastCreate = val;
-		storageSet({ fastCreate: val });
+		this._customConfig.setKey('fastCreate', val);
 	}
 
 	isAutoOpenEnable() {
-		return Boolean(this._customConfig.autoOpen);
+		return Boolean(this._customConfig.get().autoOpen);
 	}
 
 	setAutoOpenEnable(val: boolean) {
-		this._customConfig.autoOpen = val;
-		storageSet({ autoOpen: val });
+		this._customConfig.setKey('autoOpen', val);
 	}
 
 	getKarmaRestriction() {
-		return this._customConfig.karmaRestriction || 0;
+		return this._customConfig.get().karmaRestriction || 0;
 	}
 
 	setKarmaRestriction(val: number) {
-		this._customConfig.karmaRestriction = val;
-		storageSet({ karmaRestriction: val });
+		this._customConfig.setKey('karmaRestriction', val);
 	}
 
 	isBetterPlayerRestriction() {
-		return Boolean(this._customConfig.betterPlayerRestriction);
+		return Boolean(this._customConfig.get().betterPlayerRestriction);
 	}
 
 	setBetterPlayerRestriction(val: boolean) {
-		this._customConfig.betterPlayerRestriction = val;
-		storageSet({ betterPlayerRestriction: val });
+		this._customConfig.setKey('betterPlayerRestriction', val);
 	}
 
 	getLevelPlayerRestriction() {
-		return this._customConfig.levelPlayerRestriction || 0;
+		return this._customConfig.get().levelPlayerRestriction || 0;
 	}
 
 	setLevelPlayerRestriction(val: number) {
-		this._customConfig.levelPlayerRestriction = val;
-		storageSet({ levelPlayerRestriction: val });
+		this._customConfig.setKey('levelPlayerRestriction', val);
 	}
 
 	isSolidBackground() {
-		return Boolean(this._customConfig.solidBack);
+		return Boolean(this._customConfig.get().solidBack);
 	}
 
 	setSolidBackground(val: boolean) {
-		this._customConfig.solidBack = val;
-		storageSet({ solidBack: val });
+		this._customConfig.setKey('solidBack', val);
 	}
 
 	areSocialMessagesHidden() {
-		return Boolean(this._customConfig.hideSocialMessages);
+		return Boolean(this._customConfig.get().hideSocialMessages);
 	}
 
 	setSocialMessagesHidden(val: boolean) {
-		this._customConfig.hideSocialMessages = val;
-		storageSet({ hideSocialMessages: val });
+		this._customConfig.setKey('hideSocialMessages', val);
 	}
 
 	isChatBarAutoHide() {
-		return Boolean(this._customConfig.chatBarAutoHide);
+		return Boolean(this._customConfig.get().chatBarAutoHide);
 	}
 
 	setChatBarAutoHide(val: boolean) {
-		this._customConfig.chatBarAutoHide = val;
-		storageSet({ chatBarAutoHide: val });
+		this._customConfig.setKey('chatBarAutoHide', val);
 	}
 
 	areChatUserNamesHidden() {
-		return Boolean(this._customConfig.hideChatUserNames);
+		return Boolean(this._customConfig.get().hideChatUserNames);
 	}
 
 	setChatUserNamesHidden(val: boolean) {
-		this._customConfig.hideChatUserNames = val;
-		storageSet({ hideChatUserNames: val });
+		this._customConfig.setKey('hideChatUserNames', val);
 	}
 
 	chatDarkIcons() {
-		return this._customConfig.chatLightIcons != undefined && !this._customConfig.chatLightIcons;
+		const useLightChatIcons = this._customConfig.get().chatLightIcons;
+		return useLightChatIcons != undefined && !useLightChatIcons;
 	}
 
 	setChatDarkIcons(val: boolean) {
-		this._customConfig.chatLightIcons = !val;
-		storageSet({ chatLightIcons: !val });
+		this._customConfig.setKey('chatLightIcons', !val);
 	}
 
 	setLeftMenuEnabled(name: string, enable: boolean) {
-		this._customConfig.disabled = this._customConfig.disabled.filter(
+		let disabledElements = this._customConfig.get().disabled || [];
+		disabledElements = disabledElements.filter(
 			(n) => n !== name,
 		);
 
 		if (!enable) {
-			this._customConfig.disabled.push(name);
+			disabledElements.push(name);
 		}
 
-		storageSet({ disabled: this._customConfig.disabled });
+		this._customConfig.setKey('disabled', disabledElements);
 	}
 
 	isLeftMenuEnabled(name: string) {
-		return !this.isLeftBarOptionHidden() && !this._customConfig.disabled.includes(name);
+		return !this.isLeftBarOptionHidden() && !this._customConfig.get().disabled.includes(name);
 	}
 
 	setGameFloatingMenu(name: string, enable: boolean) {
-		this._customConfig.floating = this._customConfig.floating.filter(
+		let floatingElements = this._customConfig.get().floating || [];
+		floatingElements= floatingElements.filter(
 			(n) => n !== name,
 		);
 
 		if (enable) {
-			this._customConfig.floating.push(name);
+			floatingElements.push(name);
 		}
 
-		storageSet({ floating: this._customConfig.floating });
+		this._customConfig.setKey('floating', floatingElements);
 	}
 
 	isGameFloatingMenu(name: string) {
-		return this._customConfig.floating.includes(name);
+		return this._customConfig.get().floating.includes(name);
 	}
 
 	setOnlineMessagesEnabled(enable: boolean) {
-		this._customConfig.onlineMessages = enable;
-		storageSet({ onlineMessages: enable });
+		this._customConfig.setKey('onlineMessages', enable);
 	}
 
 	isOnlineMessagesEnabled() {
-		return this._customConfig.onlineMessages || false;
+		return this._customConfig.get().onlineMessages || false;
 	}
 
 	setLogTimestampHidden(val: boolean) {
-		this._customConfig.hideLogTimestamp = val;
-		storageSet({ hideLogTimestamp: val });
+		this._customConfig.setKey('hideLogTimestamp', val);
 	}
 
 	areLogTimestampsHidden() {
-		return this._customConfig.hideLogTimestamp || false;
+		return this._customConfig.get().hideLogTimestamp || false;
 	}
 
 	setHideLeftBarOption(val: boolean) {
-		this._customConfig.hideLeftBarOption = val;
-		storageSet({ hideLeftBarOption: val });
+		this._customConfig.setKey('hideLeftBarOption', val);
 	}
 
 	isLeftBarOptionHidden() {
-		return this._customConfig.hideLeftBarOption || false;
+		return this._customConfig.get().hideLeftBarOption || false;
 	}
 
 	setGlobalFloatingMenu(enable: boolean) {
-		this._customConfig.floatingRightMenu = enable;
-		storageSet({ floatingRightMenu: enable });
+		this._customConfig.setKey('floatingRightMenu', enable);
 	}
 
 	isGlobalFloatingMenu() {
-		return this._customConfig.floatingRightMenu === true;
+		return this._customConfig.get().floatingRightMenu === true;
 	}
 
 	listTemplates() {
-		return [...(this._customConfig.devTemplates || [])];
+		return [...(this._customConfig.get().devTemplates || [])];
 	}
 
 	saveTemplates(templates: Template[]) {
-		this._customConfig.devTemplates = [...templates];
-		storageSet({ devTemplates: this._customConfig.devTemplates });
+		this._customConfig.setKey('devTemplates', templates);
 		return this.listTemplates();
 	}
 
 	addTemplate(template: Template) {
-		this._customConfig.devTemplates = [
-			...(this._customConfig.devTemplates || []),
+		const updatedTemplates = [
+			...(this._customConfig.get().devTemplates || []),
 			template,
-		];
-		storageSet({ devTemplates: this._customConfig.devTemplates });
+		]
+		this._customConfig.setKey('devTemplates', updatedTemplates);
 		return this.listTemplates();
 	}
 
 	updateTemplate(oldName: string, oldGame: string, template: Template) {
-		if (this._customConfig.devTemplates) {
-			const oldTemplate = this._customConfig.devTemplates.find(
+		const devTemplates = this._customConfig.get().devTemplates;
+		if (devTemplates) {
+			const oldTemplate = devTemplates.find(
 				(t) => t.name === oldName && t.game === oldGame,
 			);
 
@@ -614,7 +574,8 @@ class Configuration {
 				oldTemplate.name = template.name;
 				oldTemplate.text = template.text;
 
-				storageSet({ devTemplates: this._customConfig.devTemplates });
+				// TODO: does this actually work as intended
+				storageSet({ devTemplates: devTemplates });
 			}
 		}
 
@@ -622,111 +583,103 @@ class Configuration {
 	}
 
 	removeTemplate(template: Template) {
-		if (this._customConfig.devTemplates) {
-			this._customConfig.devTemplates =
-				this._customConfig.devTemplates.filter(
-					(t) => t.name !== template.name || t.game !== template.game,
-				);
-			storageSet({ devTemplates: this._customConfig.devTemplates });
+		const devTemplates = this._customConfig.get().devTemplates;
+		if (devTemplates) {
+			const updatedTemplates = devTemplates.filter((t) => t.name !== template.name || t.game !== template.game);
+			this._customConfig.setKey('devTemplates', updatedTemplates);
 		}
 		return this.listTemplates();
 	}
 
 	mutePlayer(name: string) {
-		this._customConfig.muted = [
-			...this._customConfig.muted.filter((g) => g !== name),
+		let updatedMuteTable = [
+			...this._customConfig.get().muted.filter((g) => g !== name),
 			name,
 		];
-		while (this._customConfig.muted.length > 10) {
-			this._customConfig.muted.shift();
+		while (updatedMuteTable.length > 10) {
+			updatedMuteTable.shift();
 		}
-		storageSet({ muted: this._customConfig.muted });
+		this._customConfig.setKey('muted', updatedMuteTable);
 		return this.getMutedPlayers();
 	}
 
 	unmutePlayer(name: string) {
-		this._customConfig.muted = [
-			...this._customConfig.muted.filter((g) => g !== name),
+		let updatedMuteTable = [
+			...this._customConfig.get().muted.filter((g) => g !== name),
 		];
-		storageSet({ muted: this._customConfig.muted });
+		this._customConfig.setKey('muted', updatedMuteTable);
 		return this.getMutedPlayers();
 	}
 
 	getMutedPlayers() {
-		return this._customConfig.muted;
+		return this._customConfig.get().muted;
 	}
 
 	setMuteWarning(enable: boolean) {
-		this._customConfig.muteWarning = enable;
-		storageSet({ muteWarning: enable });
+		this._customConfig.setKey('muteWarning', enable);
 	}
 
 	isMuteWarning() {
-		return this._customConfig.muteWarning === undefined || this._customConfig.muteWarning === true;
+		const muteWarning = this._customConfig.get().muteWarning;
+		return muteWarning === undefined || muteWarning === true;
 	}
 
 	displayHideGameButton(disp: boolean) {
-		this._customConfig.hiddenOn = disp;
-		storageSet({ hiddenOn: disp });
+		this._customConfig.setKey('hiddenOn', disp);
 	}
 
 	isHideGameButtonDisplayed() {
-		return this._customConfig.hiddenOn === undefined || this._customConfig.hiddenOn === true;
+		const hiddenOn = this._customConfig.get().hiddenOn;
+		return hiddenOn === undefined || hiddenOn === true;
 	}
 
 	hideGame(name: string) {
-		this._customConfig.hidden = [
-			...this._customConfig.hidden.filter((g) => g !== name),
-			name,
-		];
-		storageSet({ hidden: this._customConfig.hidden });
+		const updatedHidden = this._customConfig.get().hidden.filter((g) => g !== name).concat(name);
+		this._customConfig.setKey('hidden', updatedHidden);
 		return this.getHiddenGames();
 	}
 
 	displayGame(name: string) {
-		this._customConfig.hidden = [
-			...this._customConfig.hidden.filter((g) => g !== name),
-		];
-		storageSet({ hidden: this._customConfig.hidden });
+		const updatedHidden = this._customConfig.get().hidden.filter((g) => g !== name);
+		this._customConfig.setKey('hidden', updatedHidden);
 		return this.getHiddenGames();
 	}
 
 	displayAllGames() {
-		this._customConfig.hidden = [];
-		storageSet({ hidden: this._customConfig.hidden });
+		this._customConfig.setKey('hidden', []);
 		return this.getHiddenGames();
 	}
 
 	getHiddenGames() {
-		return this._customConfig.hidden.sort();
+		return this._customConfig.get().hidden.sort();
 	}
 
 	getHiddenGamesStyle(page: string) {
+		const hidden = this._customConfig.get().hidden;
 		switch (page) {
 			case "gamelist":
-				return this._customConfig.hidden.map(name => `div:has(> a[href="/gamepanel?game=${name}"]), div.bga-game-browser-carousel__block:has(> div > a[href="/gamepanel?game=${name}"]) { display: none; }`).join(" ");
+				return hidden.map(name => `div:has(> a[href="/gamepanel?game=${name}"]), div.bga-game-browser-carousel__block:has(> div > a[href="/gamepanel?game=${name}"]) { display: none; }`).join(" ");
 			case "lobby":
-				return this._customConfig.hidden.map(name => `div:has(> a[href="/gamepanel?game=${name}"]), div.game_box_wrap:has(> div > div > div > a[href="/gamepanel?game=${name}"]) { display: none; }`).join(" ");
+				return hidden.map(name => `div:has(> a[href="/gamepanel?game=${name}"]), div.game_box_wrap:has(> div > div > div > a[href="/gamepanel?game=${name}"]) { display: none; }`).join(" ");
 			default:
-				return this._customConfig.hidden.map(name => `div: has(> a[href = "/gamepanel?game=${name}"]) { display: none; }`).join(" ");
+				return hidden.map(name => `div: has(> a[href = "/gamepanel?game=${name}"]) { display: none; }`).join(" ");
 		}
 	}
 
 	isGeneralChatHidden() {
-		return !!this._customConfig.hideGeneralChat;
+		return !!this._customConfig.get().hideGeneralChat;
 	}
 
 	setGeneralChatHidden(val: boolean) {
-		this._customConfig.hideGeneralChat = val;
-		storageSet({ hideGeneralChat: val });
+		this._customConfig.setKey('hideGeneralChat', val);
 	}
 
 	toggleGeneralChatHidden() {
-		this.setGeneralChatHidden(!this._customConfig.hideGeneralChat);
+		this.setGeneralChatHidden(!this._customConfig.get().hideGeneralChat);
 	}
 
 	getChatStyle() {
-		if (this._customConfig.hideGeneralChat) {
+		if (this._customConfig.get().hideGeneralChat) {
 			return '#bga_extension_chat_icon { color: #c4c4c4; } #chatwindow_general { display: none !important; }';
 		}
 		return '#bga_extension_chat_icon { color: #01c4ca; } #chatwindow_general { display: inline-block !important; }';
@@ -737,69 +690,67 @@ class Configuration {
 	}
 
 	setAnimatedTitle(val: boolean) {
-		this._customConfig.animatedTitle = val;
-		storageSet({ animatedTitle: val });
+		this._customConfig.setKey('animatedTitle', val);
 	}
 
 	isEloHidden() {
-		return !!this._customConfig.hideElo;
+		return !!this._customConfig.get().hideElo;
 	}
 
 	setEloHidden(val: boolean) {
-		this._customConfig.hideElo = val;
-		storageSet({ hideElo: val });
+		this._customConfig.setKey('hideElo', val);
 	}
 
 	getEloStyle() {
-		if (this._customConfig.hideElo) {
+		if (this._customConfig.get().hideElo) {
 			return '.player_elo_wrap, #game_result .adddetails, #table_stats .row-data:has(> .row-value > .gamerank) { display: none; } '
 		}
 		return '';
 	}
 
 	isDarkMode() {
-		return !!this._customConfig.darkMode;
+		return !!this._customConfig.get().darkMode;
 	}
 
 	setDarkMode(val: boolean) {
-		this._customConfig.darkMode = val;
-		storageSet({ darkMode: val });
+		this._customConfig.setKey('darkMode', val);
 	}
 
 	getDarkModeColor(gameName: string, def?: number) {
-		const mainValue = this._customConfig.darkModeColor === undefined ? -1 : this._customConfig.darkModeColor;
+		const darkModeColor = this._customConfig.get().darkModeColor;
+		const mainValue = darkModeColor === undefined ? -1 : darkModeColor;
 
 		if (gameName === "general" || gameName === "forum") {
 			return mainValue;
 		}
 
-		const result = this._customConfig.dark.find(d => d.name === gameName)?.color;
+		const result = this._customConfig.get().dark.find(d => d.name === gameName)?.color;
 		return result === undefined ? def || mainValue : result;
 	}
 
 	getDarkModeSaturation(gameName, def?: number) {
-		const mainValue = this._customConfig.darkModeSat || 15;
+		const mainValue = this._customConfig.get().darkModeSat || 15;
 		if (gameName === "general" || gameName === "forum") {
 			return mainValue;
 		}
 
-		return this._customConfig.dark.find(d => d.name === gameName)?.sat || def || mainValue;
+		return this._customConfig.get().dark.find(d => d.name === gameName)?.sat || def || mainValue;
 	}
 
 	setDarkModeColor(gameName: string, darkModeColor: number, darkModeSat: number, forceSave?: boolean) {
 		if (gameName === "general" || gameName === "forum") {
-			this._customConfig.darkModeColor = darkModeColor;
-			this._customConfig.darkModeSat = darkModeSat;
+			this._customConfig.setKey('darkModeColor', darkModeColor);
+			this._customConfig.setKey('darkModeSat', darkModeSat);
 			storageSet({ darkModeColor, darkModeSat });
 		} else {
-			if (!forceSave && this._customConfig.darkModeColor === darkModeColor && this._customConfig.darkModeSat === darkModeSat) {
+			if (!forceSave && this._customConfig.get().darkModeColor === darkModeColor && this._customConfig.get().darkModeSat === darkModeSat) {
 				// default config
-				this._customConfig.dark = this._customConfig.dark.filter(d => d.name !== gameName);
+				this._customConfig.setKey('dark', this._customConfig.get().dark.filter(d => d.name !== gameName));
 			} else {
-				this._customConfig.dark = [
-					...this._customConfig.dark.filter(d => d.name !== gameName),
+				this._customConfig.setKey('dark', [
+					...this._customConfig.get().dark.filter(d => d.name !== gameName),
 					{ name: gameName, color: darkModeColor, sat: darkModeSat }
-				];
+				]);
 			}
 
 			storageSet({ dark: this._customConfig.dark });
@@ -807,37 +758,35 @@ class Configuration {
 	}
 
 	clearDarkModeColor(gameName: string) {
-		this._customConfig.dark = this._customConfig.dark.filter(d => d.name !== gameName);
-		storageSet({ dark: this._customConfig.dark });
+		this._customConfig.setKey('dark', this._customConfig.get().dark.filter(d => d.name !== gameName));
 	}
 
 	isCssCustomized() {
-		return !!this._localConfig.css;
+		return !!this._localConfig.get().css;
 	}
 
 	getCustomCss() {
-		return this._localConfig.css || "";
+		return this._localConfig.get().css || "";
 	}
 
 	setCustomCss(code: string) {
-		this._localConfig.css = code;
-		return localStorageSet({ css: code });
+		this._localConfig.setKey('css', code);
 	}
 
 	getGameCss() {
 		const cssList: string[] = [];
 
-		if (this._customConfig.chatBarAutoHide) {
+		if (this._customConfig.get().chatBarAutoHide) {
 			cssList.push('.game_interface #chatbardock { transition: top .5s ease 0s; }');
 			cssList.push('.game_interface #chatbardock.bgaext_hidden:not(:has(.expanded)) { top: 0px; }')
 		}
 
-		if (this._customConfig.hideLogTimestamp) {
+		if (this._customConfig.get().hideLogTimestamp) {
 			cssList.push('#logs .timestamp { display: none!important; }');
 		}
 
-		if (this._localConfig.css) {
-			cssList.push(this._localConfig.css);
+		if (this._localConfig.get().css) {
+			cssList.push(this._localConfig.get().css);
 		}
 
 		return cssList.join('\n');
@@ -846,12 +795,12 @@ class Configuration {
 	geStudioCss() {
 		const cssList: string[] = [];
 
-		if (!this._customConfig.hideChatUserNames) {
+		if (!this._customConfig.get().hideChatUserNames) {
 			cssList.push('#chatbar .chatwindow .playername { display: inline !important; }');
 		}
 
-		if (this._localConfig.css) {
-			cssList.push(this._localConfig.css);
+		if (this._localConfig.get().css) {
+			cssList.push(this._localConfig.get().css);
 		}
 
 		return cssList.join('\n');
@@ -1022,32 +971,30 @@ class Configuration {
 		const config = JSON.parse(jsonConfig);
 
 		if (config.local) {
-			this._localConfig = config.local;
-			localStorageClear();
-			localStorageSet(this._localConfig);
+			this._localConfig.set(config.local);
 		}
 
 		if (config.custom) {
-			this._customConfig = {
+			this._customConfig.set({
 				...config.custom,
-				clientId: this._customConfig.clientId
-			};
-			storageClear();
-			storageSet(this._customConfig);
+				clientId: this._customConfig.get().clientId
+			});
 		}
 	}
 
 	resetConfig() {
-		this._localConfig = {} as any;
-		this._customConfig = { clientId: this._customConfig.clientId } as any;
+		this._localConfig.set({css: ""});
+		this._customConfig.set({
+			clientId: this._customConfig.get().clientId,
+			games: [],
+			dark: [],
+			disabled: [],
+			hidden: [],
+			muted: [],
+			floating: [],
+			hideChatUserNames: true});
 
 		this._init();
-
-		localStorageClear();
-		localStorageSet(this._localConfig);
-
-		storageClear();
-		storageSet(this._customConfig);
 	}
 }
 
