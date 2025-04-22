@@ -1,5 +1,14 @@
 # Changelog
 
+## [v1.11.19](https://github.com/FlavienBusseuil/bga-chrome-extension/tree/v1.11.19) (2025-04-22)
+
+[Full Changelog](https://github.com/FlavienBusseuil/bga-chrome-extension/compare/v1.11.18...v1.11.19)
+
+**Merged pull requests:**
+
+- Just one dark theme fixes \(user reports\) [\#99](https://github.com/FlavienBusseuil/bga-chrome-extension/pull/99) ([nalka0](https://github.com/nalka0))
+- Move light theme flicker fix into darktheme functions [\#98](https://github.com/FlavienBusseuil/bga-chrome-extension/pull/98) ([GhoulofGSG9](https://github.com/GhoulofGSG9))
+
 ## [v1.11.18](https://github.com/FlavienBusseuil/bga-chrome-extension/tree/v1.11.18) (2025-04-18)
 
 [Full Changelog](https://github.com/FlavienBusseuil/bga-chrome-extension/compare/v1.11.17...v1.11.18)
