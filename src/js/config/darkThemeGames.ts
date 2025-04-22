@@ -239,6 +239,7 @@ export const gamesWithCustomBackground = [
   'ultimaterailroads',
   'unrest',
   'vaalbara',
+  'verdant',
   'wizardscup',
   'wizardsgrimoire',
   'wonderfulkingdom',
@@ -381,6 +382,7 @@ export const playersBorder = {
   skatelegend: ['#player-table-{{player_id}}'],
   treos: ['#gamezone-{{player_id}}'],
   theguildofmerchantexplorers: ['#tab_header_board_{{player_id}}'],
+  verdant: ['#house_{{player_id}}'],
   welcometothemoon: ['#score-sheet-{{player_id}}', '#score-sheet-{{player_id}} .player-name'],
   wizardsgrimoire: ['.wg-title.ext_player_{{player_id}}', '#player-table-{{player_id}}-health', '#player-table-{{player_id}} .player-table'],
 };
@@ -408,6 +410,7 @@ export const gamesWithCustomColors = {
   terraformingmars: ['#ff0000', '#0000ff', '#008000', '#ffa500'],
   terramystica: ['#971923', '#278139', '#70421d', '#1a2126', '#f9ae18', '#1d7ddb'],
   terranova: ['#971923', '#278139', '#70421d', '#1a2126', '#f9ae18', '#1d7ddb'],
+  verdant: ['#2d3691']
 };
 
 export const gamesWithRecommandedConfig = {
@@ -493,6 +496,7 @@ export const gamesWithRecommandedConfig = {
   turingmachine: { color: 120, sat: 15 },
   twelvechips: { color: 164, sat: 15 },
   ultimaterailroads: { color: 8, sat: 15 },
+  verdant: { color: 140, sat: 15 },
   wizardscup: { color: 20, sat: 20 },
 };
 
@@ -7468,6 +7472,22 @@ body { background: none !important; }
 _darkStyleForGame['veletas'] = `
 .coord_label.luis { color: var(--light-70); }
 #board { filter: brightness(0.9); background-color: var(--light-70); }
+`;
+
+_darkStyleForGame['verdant'] = `
+.market-container, .house-container { position: relative; border-radius: 4px; }
+#overall-content:before, .market-container:before, .house-container:before { content: ""; background: #00000080; position: absolute; width: 100%; height: 100%; top:0px; left:0px; }
+.house-name .player-name { text-shadow: 0 0 1px #000, 0 0 2px #000, 0 0 3px #000; }
+.modal-content { background: var(--dark-0); border: 1px solid var(--dark-40); }
+.tooltip_title { color: var(--green-50); }
+.tooltip_desc { color: var(--green-30); }
+.big-card { filter: brightness(0.9); }
+.close { color: var(--light-80); }
+#verdant_help1 { background: #1f5b60; }
+#verdant_help2 { background: #4c1f60; }
+#verdant_help3 { background: #604c1f; }
+.dijitTooltipContainer, .tundra .dijitTooltipContainer { background-color: #000 !important; }
+.reserve { background: var(--dark-40) !important; border-radius: 8px; }
 `;
 
 _darkStyleForGame['veronatwist'] = `
