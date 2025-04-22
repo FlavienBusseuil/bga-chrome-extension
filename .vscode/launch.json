@@ -1,5 +1,5 @@
 {
-	"version": "0.1.0",
+	"version": "0.2.0",
 	"configurations": [
 		{
 			"name": "Launch in Firefox",
@@ -13,6 +13,15 @@
 					"url": "moz-extension://*/*",
 					"path": "${workspaceFolder}/src"
 				}
+			]
+		},
+		{
+			"name": "Launch in Chrome",
+			"type": "chrome",
+			"request": "launch",
+			"url": "https://boardgamearena.com/",
+			"runtimeArgs": [
+				"--load-extension=${workspaceFolder}/build/dev"
 			]
 		}
 	]
