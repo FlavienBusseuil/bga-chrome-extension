@@ -1,0 +1,19 @@
+{
+	"version": "0.1.0",
+	"configurations": [
+		{
+			"name": "Launch in Firefox",
+			"type": "firefox",
+			"request": "launch",
+			"reAttach": true,
+			"url": "https://boardgamearena.com/",
+			"addonPath": "${workspaceFolder}/build/dev",
+			"pathMappings": [
+				{
+					"url": "moz-extension://*/*",
+					"path": "${workspaceFolder}/src"
+				}
+			]
+		}
+	]
+}
