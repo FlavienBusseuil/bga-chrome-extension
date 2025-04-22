@@ -5759,6 +5759,7 @@ _darkStyleForGame['resarcana'] = `
 #res_roundnumber, .res_counterintext { color: var(--light-80); }
 .res_viewinside { filter: invert(0.7); }
 .res_fulldiscardpile { border: 1px solid var(--light-50); }
+#player_chooseactions { background: none }
 `;
 
 _darkStyleForGame['resist'] = `
