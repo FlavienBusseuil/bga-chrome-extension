@@ -90,7 +90,7 @@ const mutePlayer = (config, evt) => {
 
 const displayInformationPopup = (config) => {
 	const popupConfig = config.getPopupConfiguration();
-	console.log("displayInformationPopup", popupConfig.infosDialog);
+
 	if (popupConfig.infosDialog === "off") {
 		return;
 	}

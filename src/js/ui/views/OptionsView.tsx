@@ -43,7 +43,6 @@ export const OptionsView = ({ config, onChange }: Props) => {
   //const [configVisible, setConfigVisible] = useState(localStorage.getItem('ext_settings') || 'about');
   const [configVisible, setConfigVisible] = useState('about');
   const isFirefox = window.navigator.userAgent.toLowerCase().includes('firefox');
-  console.log("init", { betterPlayerRestriction, levelPlayerRestriction });
   const [playerRestriction, setPlayerRestriction] = useState(betterPlayerRestriction || levelPlayerRestriction > 0);
 
   const [advancedHomeConfig, setAdvancedHomeConfig] = useState<AdvancedHomeConfig>(config.getAdvancedHomeConfig());
