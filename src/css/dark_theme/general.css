@@ -2230,3 +2230,9 @@ html:not(.bgaext_gamelist) .ext_delete_button {
 .bga-account-manager-form input {
   border: 1px solid var(--light-50) !important;
 }
+
+/* happy meeple landing page */
+.landing_page_happymeeple .pagesection__content,
+.landing_page_happymeeple b  {
+  color: var(--light-80) !important;
+}
