@@ -7263,6 +7263,7 @@ _darkStyleForGame['towerup'] = `
 .tu_boards .tu_board_player_wrapper .tu_board_player { filter: brightness(0.9) drop-shadow(2px 2px 2px rgba(255, 255, 255, .8)); }
 .tu_note_unlimited_storage .help { background-color: var(--dark-10); color: var(--light-80); filter: none; border: 1px solid var(--light-50); }
 .tu_token_card .content .flippable-back, .tu_token_card .content .flippable-front { filter: brightness(0.9); }
+.tu_counter_value { color: black }
 `;
 
 _darkStyleForGame['toybattle'] = `
