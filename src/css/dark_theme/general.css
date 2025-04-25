@@ -1967,6 +1967,12 @@ iframe#forum_frame {
   color: var(--light-80);
 }
 
+/* award tooltip */
+.awards-list__tooltip {
+  background-color: var(--dark-30) !important;
+  color: var(--light-80) !important;
+}
+
 /* new display of current games */
 .bgaext_gameinprogress .bga-table-list-item,
 .bga-player-menu__bottom .bga-table-list-item,
