@@ -3633,6 +3633,7 @@ _darkStyleForGame['haggis'] = `
 .playertable_ff0000 { background-color: #800000cc !important; }
 .playertable_008000 { background-color: #006600cc !important; }
 .playertable_0000ff { background-color: #000080cc !important; }
+*[style*="color:black"] { text-shadow: var(--text-w-shadow); }
 `;
 
 _darkStyleForGame['haiclue'] = `
