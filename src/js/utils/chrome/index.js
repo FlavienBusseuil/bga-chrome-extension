@@ -33,3 +33,5 @@ export const localStorageClear = async () => {
 export const i18n = (key) => {
 	return chrome.i18n.getMessage(key);
 };
+
+export const getExtensionVersion = () => chrome.runtime.getManifest().version;

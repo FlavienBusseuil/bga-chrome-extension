@@ -6,7 +6,7 @@ import Configuration, { AdvancedHomeConfig, HomeConfig, InProgressConfig } from 
 import Switch from "../base/Switch";
 import { Button } from "../base/Button";
 import { isSoundCustom, playMp3, removeCustomMp3, uploadCustomMp3 } from "../../utils/misc/mp3";
-import { i18n } from "../../utils/chrome";
+import { getExtensionVersion, i18n } from "../../utils/chrome";
 
 type Props = {
   config: Configuration,
@@ -588,7 +588,7 @@ export const OptionsView = ({ config, onChange }: Props) => {
         <div className="options-frame">
           <div className="options-frame-title">{i18n("about")}</div>
           <div dangerouslySetInnerHTML={{ __html: i18n("aboutText") }}></div>
-          <div className="options-version">Version {chrome.runtime.getManifest().version}</div>
+          <div className="options-version">Version {getExtensionVersion()}</div>
         </div>
       );
     }
