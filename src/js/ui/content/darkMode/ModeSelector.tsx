@@ -4,7 +4,7 @@ import { isMobile } from "is-mobile";
 
 import Configuration from "../../../config/configuration";
 import { gamesWithCustomActions, gamesWithRecommandedConfig } from "../../../config/darkThemeGames";
-import { i18n } from "../../../utils/chrome";
+import { getExtensionVersion, i18n } from "../../../utils/chrome";
 import { setDarkStyle } from "./darkStyleFunctions";
 import { changeDarkColors } from "./darkColors";
 
@@ -101,7 +101,7 @@ const ModeSelector = (props: ModeSelectorProps) => {
   const sendBugReport = () => {
     if (reportDescription) {
       const bugType = (gameName === 'general') ? 'Bug report (general)' : `Bug report for game "${gameName}"`;
-      const msg = `${bugType}\n\n${reportDescription}\n\n${reportScreenshot}\n\nBrowser: ${navigator.userAgent}`;
+      const msg = `${bugType}\n\n${reportDescription}\n\n${reportScreenshot}\n\nBrowser: ${navigator.userAgent}\n\nExtension version: ${getExtensionVersion()}`;
       const endPoint = '/message/board/add.html';
       const key = new Date().getTime();
       const body = new URLSearchParams({ type: 'group', message: msg, id: 18063230, "dojo.preventCache": key } as any).toString();
