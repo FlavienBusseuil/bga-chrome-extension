@@ -74,12 +74,12 @@ const RightMenu = (props: RightMenuProps) => {
 		window.addEventListener("resize", setMenuPosition);
 		window.addEventListener("scroll", setMenuPosition);
 		document.addEventListener("click", onClick);
-		document.addEventListener("bga_ext_update_config", onUpdateConfig);
+		window.addEventListener("storage", onUpdateConfig);
 		return () => {
 			window.removeEventListener("resize", setMenuPosition);
 			window.removeEventListener("scroll", setMenuPosition);
 			document.removeEventListener("click", onClick);
-			document.removeEventListener("bga_ext_update_config", onUpdateConfig);
+			window.removeEventListener("storage", onUpdateConfig);
 		};
 	});
 

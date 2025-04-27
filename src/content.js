@@ -343,21 +343,22 @@ const initPage = () => {
 
 config.init().then(initPage);
 
-document.addEventListener('bga_ext_update_config', (data) => {
-	console.debug('[bga extension] configuration updated', data);
-	if (data.detail.key === 'hideGeneralChat') {
+window.addEventListener('storage', (data) => {
+	const key = data.key;
+	console.debug('[bga extension] configuration updated', key);
+	if (key === 'hideGeneralChat') {
 		setChatStyle(config);
-	} else if (data.detail.key === 'hideElo') {
+	} else if (key === 'hideElo') {
 		setEloStyle(config);
-	} else if (data.detail.key === 'muted') {
+	} else if (key === 'muted') {
 		refreshMutedPlayers(config);
-	} else if (data.detail.key === 'solidBack') {
+	} else if (key === 'solidBack') {
 		location.reload();
-	} else if (data.detail.key === 'inProgress' || data.detail.key === 'hideChatUserNames') {
+	} else if (key === 'inProgress' || key === 'hideChatUserNames') {
 		if (pageType === 'general') {
 			buildMainCss(config.getAllCss());
 		}
-	} else if (data.detail.key === 'home') {
+	} else if (key === 'home') {
 		localStorage.removeItem('bga-homepage-newsfeed-slots');
 		localStorage.removeItem('bga-homepageNewsSeen');
 
@@ -367,17 +368,17 @@ document.addEventListener('bga_ext_update_config', (data) => {
 		if (document.documentElement.classList.contains("bgaext_welcome")) {
 			sendHomeConfiguration();
 		}
-	} else if (data.detail.key === 'hideSocialMessages') {
+	} else if (key === 'hideSocialMessages') {
 		if (document.documentElement.classList.contains("bgaext_welcome") || document.documentElement.classList.contains("bgaext_player")) {
 			location.reload();
 		}
-	} else if (data.detail.key === 'animatedTitle') {
+	} else if (key === 'animatedTitle') {
 		if (config.isAnimatedTitle()) {
 			stopTitleObserver();
 		} else {
 			initTitleObserver();
 		}
-	} else if (['hideLogTimestamp', 'chatBarAutoHide'].includes(data.detail.key)) {
+	} else if (['hideLogTimestamp', 'chatBarAutoHide'].includes(key)) {
 		if (pageType === 'game') {
 			buildMainCss(config.getGameCss());
 
@@ -387,7 +388,7 @@ document.addEventListener('bga_ext_update_config', (data) => {
 				document.querySelector('body').removeEventListener('mousemove', autoHideChat);
 			}
 		}
-	} else if (data.detail.key === 'chatLightIcons') {
+	} else if (key === 'chatLightIcons') {
 		if (config.chatDarkIcons()) {
 			document.documentElement.classList.add('bgaext_chat_dark_icons');
 		} else {

@@ -1,8 +1,9 @@
 import equal from "fast-deep-equal";
 import defaultGames from "./sideMenuGames";
-import { addChangeListener, localStorageClear, localStorageGet, localStorageSet, storageClear, storageGet, storageSet } from "../utils/chrome";
 import { ADVANCED_HOME_STYLE, COLORFUL_TABLES, DEF_HOME_HTML } from "./configuration.constants";
-import { map, MapStore } from "nanostores";
+import { allTasks, type MapStore } from "nanostores";
+import { persistentMap } from "./nanostores/storage";
+import { storage } from "webextension-polyfill";
 
 export interface Game {
 	name: string;
@@ -154,7 +155,7 @@ class Configuration {
 				};
 			}) as Game[],
 		};
-		this._customConfig = map<CustomConfig>({
+		this._customConfig = persistentMap<CustomConfig>('customConfig', {
 			clientId: self.crypto.randomUUID(),
 			games: [],
 			dark: [],
@@ -163,12 +164,19 @@ class Configuration {
 			muted: [],
 			floating: [],
 			hideChatUserNames: true
+		}, storage.sync);
+		this._localConfig = persistentMap<LocalConfig>('localConfig', {
+			css: ''
 		});
-		this._localConfig = map<LocalConfig>();
 		this._config = { games: [] };
 	}
-
 	_init() {
+		this.migrateLegacyPopupConfig();
+		this._merge();
+	}
+
+	// Migration of config values of previous versions
+	private migrateLegacyPopupConfig() {
 		try {
 			if (localStorage) {
 				const deleteWarning = localStorage.getItem('ext_delete_warning');
@@ -195,39 +203,31 @@ class Configuration {
 			}
 		}
 		catch (error) {
-			// localstorage is not existing in background script
+			// localstorage not available in background and private mode
 		}
-
-		this._merge();
 	}
 
-	async init() {
-		const [syncStorage, localStorage] = await Promise.all([storageGet(), localStorageGet()]);
+	private async mountStores() {
+		this._customConfig.get();
+		this._localConfig.get();
+		await allTasks();
+	}
 
-		this._customConfig = syncStorage;
-		this._localConfig = localStorage;
+
+	async init() {
+		// TODO: Avoid this if possible, as it defeats the purpose of using lazy stores
+		await this.mountStores();
 
 		this._init();
 
-		addChangeListener((changes: any, namespace: string) => {
-			try {
-				for (let [key, { newValue }] of Object.entries(changes) as any) {
-					if (namespace === "local") {
-						this._localConfig[key] = newValue;
-					} else {
-						this._customConfig[key] = newValue;
-					}
-					document && document.dispatchEvent(new CustomEvent('bga_ext_update_config', { detail: { key } }));
-				}
-			} catch (error) { } // not a big deal
-		});
+		console.debug('[bga extension] init config');
 
-		// Return explicitly to ensure everything is done
 		return true;
 	}
 
 	private _merge() {
-		const customGames = this._customConfig.get().games
+		const customConfig = this._customConfig.get();
+		const customGames = customConfig.games
 		const customNames = customGames.map((g) => g.name);
 		const defGames = this._defConfig.games.filter(
 			(g) => !customNames.includes(g.name),
@@ -246,6 +246,14 @@ class Configuration {
 			!customConfig.games.length &&
 			!customConfig.floating.length
 		);
+	}
+
+	getLocalConfigStorage(): MapStore<LocalConfig> {
+		return this._localConfig;
+	}
+
+	getSyncedConfigStorage(): MapStore<CustomConfig> {
+		return this._customConfig;
 	}
 
 	import(customConfig: CustomConfig) {
@@ -497,7 +505,7 @@ class Configuration {
 
 	setGameFloatingMenu(name: string, enable: boolean) {
 		let floatingElements = this._customConfig.get().floating || [];
-		floatingElements= floatingElements.filter(
+		floatingElements = floatingElements.filter(
 			(n) => n !== name,
 		);
 
@@ -574,8 +582,7 @@ class Configuration {
 				oldTemplate.name = template.name;
 				oldTemplate.text = template.text;
 
-				// TODO: does this actually work as intended
-				storageSet({ devTemplates: devTemplates });
+				this._customConfig.setKey('devTemplates', devTemplates);
 			}
 		}
 
@@ -686,7 +693,8 @@ class Configuration {
 	}
 
 	isAnimatedTitle() {
-		return this._customConfig.animatedTitle === undefined || this._customConfig.animatedTitle;
+		const isAnimatedTitle = this._customConfig.get().animatedTitle;
+		return isAnimatedTitle === undefined || isAnimatedTitle
 	}
 
 	setAnimatedTitle(val: boolean) {
@@ -709,7 +717,8 @@ class Configuration {
 	}
 
 	isDarkMode() {
-		return !!this._customConfig.get().darkMode;
+		const darkMode = this._customConfig.get().darkMode;
+		return !!darkMode;
 	}
 
 	setDarkMode(val: boolean) {
@@ -741,7 +750,6 @@ class Configuration {
 		if (gameName === "general" || gameName === "forum") {
 			this._customConfig.setKey('darkModeColor', darkModeColor);
 			this._customConfig.setKey('darkModeSat', darkModeSat);
-			storageSet({ darkModeColor, darkModeSat });
 		} else {
 			if (!forceSave && this._customConfig.get().darkModeColor === darkModeColor && this._customConfig.get().darkModeSat === darkModeSat) {
 				// default config
@@ -753,7 +761,6 @@ class Configuration {
 				]);
 			}
 
-			storageSet({ dark: this._customConfig.dark });
 		}
 	}
 
@@ -949,12 +956,12 @@ class Configuration {
 			cssList.push(COLORFUL_TABLES);
 		}
 
-		if (!this._customConfig.hideChatUserNames) {
+		if (!this._customConfig.get().hideChatUserNames) {
 			cssList.push('#chatbar .chatwindow .playername { display: inline !important; }');
 		}
 
-		if (this._localConfig.css) {
-			cssList.push(this._localConfig.css);
+		if (this._localConfig.get().css) {
+			cssList.push(this._localConfig.get().css);
 		}
 
 		return cssList.join('\n');
@@ -983,7 +990,7 @@ class Configuration {
 	}
 
 	resetConfig() {
-		this._localConfig.set({css: ""});
+		this._localConfig.set({ css: "" });
 		this._customConfig.set({
 			clientId: this._customConfig.get().clientId,
 			games: [],
@@ -992,7 +999,8 @@ class Configuration {
 			hidden: [],
 			muted: [],
 			floating: [],
-			hideChatUserNames: true});
+			hideChatUserNames: true
+		});
 
 		this._init();
 	}
