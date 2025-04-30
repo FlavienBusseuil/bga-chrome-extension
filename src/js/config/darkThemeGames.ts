@@ -2760,7 +2760,7 @@ body.ep_down { background-color: #454257; }
 .ep_zone_highlight:not(.ep_zone_nobg) { background-color: var(--dark-back); }
 .ep_zone_player_legend_hand, .ep_zone_player_legend_row { color: var(--light-50); }
 .ep_zone_player_sep { border-top: 1px solid var(--light-50); }
-ep_header p { color: var(--light-80); }
+#ep_header_round { color: var(--light-80); }
 .ep_card_back, .ep_card_front { filter: brightness(0.9); }
 `;
 
@@ -6116,6 +6116,7 @@ span.tcoin { color: var(--light-80); }
 .cardinfos [style*="color:#723216"] { color: #e28d69 !important; }
 .cardinfos [style*="color:#0276b1"] { color: #03a9fc !important; }
 .cardinfos [style*="color:#d6040f"] { color: #fc6970 !important; }
+.cardname { color:black }
 `;
 
 _darkStyleForGame['sevenwondersarchitects'] = `
