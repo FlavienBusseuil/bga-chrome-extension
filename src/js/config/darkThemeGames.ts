@@ -2430,6 +2430,10 @@ _darkStyleForGame['diceforge'] = `
 .cards-pile { box-shadow: 0 0 2px 0 #9f9393; }
 `;
 
+_darkStyleForGame['dicehospital'] = `
+.dhc-table_phases { color: black }
+`
+
 _darkStyleForGame['dicedtomatoes'] = `
 #available_dice .title, .rolled_dice_container .title, .dice_hand_container .title { color: #fff; }
 #available_dice, .rolled_dice_container, .dice_hand_container { background-color: var(--dark-back); }
@@ -6671,7 +6675,7 @@ div[style*="--color: #de6393"] { --color: #7e1b41!important; }
 div[style*="--color: #2eb7d7"] { --color: #186d81!important; }
 div[style*="--color: #fdc300"] { --color: #997500!important; }
 div[style*="--color: #68b32e"] { --color: #467a1f!important; }
-.player-table .name { background-color: var(--dark-20); text-shadow: none; }
+.player-table .name, popin_bgaHelpDialog { background-color: var(--dark-20); text-shadow: none; }
 .bga-dice_line-stock.selectable .bga-dice_die6.takenokolor-die.selectable:before { background: var(--dark-back); box-shadow: 0 0 5px 5px #000; }
 `;
 
