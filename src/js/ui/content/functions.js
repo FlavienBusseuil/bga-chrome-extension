@@ -390,6 +390,10 @@ export const initGamePanelObserver = () => {
 
 		if (!counter) {
 			const titleContainer = gaminfoElt.querySelector('.bga-page-section__title');
+			if (!titleContainer) {
+				return;
+			}
+
 			counter = document.createElement("span");
 			counter.id = counterId;
 			titleContainer.appendChild(counter);
