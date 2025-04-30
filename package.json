@@ -29,7 +29,8 @@
 			"sourceMap": {
 				"inline": true,
 				"inlineSources": true
-			}
+			},
+			"optimize": false
 		},
 		"prod": {},
 		"prod-firefox": {},
