@@ -34,7 +34,7 @@ let styleComponent: HTMLStyleElement;
 const darkThemeFlickerFixElementId = "ext_dark_theme_flicker_fix";
 const applyBackgroundFlickerFix = (mode: string) => {
   const s = document.createElement('style');
-  const htmlStyle = 'html { background: #000 !important }';
+  const htmlStyle = 'html { background: #000 !important; }';
   const bodyStyle = (mode == 'general') ? 'body { visibility: hidden !important; }' : '';
   s.id = darkThemeFlickerFixElementId;
   s.innerHTML = `${htmlStyle} ${bodyStyle}`;

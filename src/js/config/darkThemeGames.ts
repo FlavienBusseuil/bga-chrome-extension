@@ -2431,7 +2431,7 @@ _darkStyleForGame['diceforge'] = `
 `;
 
 _darkStyleForGame['dicehospital'] = `
-.dhc-table_phases { color: black }
+.dhc-table_phases { color: #000; }
 `
 
 _darkStyleForGame['dicedtomatoes'] = `
@@ -6121,7 +6121,7 @@ span.tcoin { color: var(--light-80); }
 .cardinfos [style*="color:#723216"] { color: #e28d69 !important; }
 .cardinfos [style*="color:#0276b1"] { color: #03a9fc !important; }
 .cardinfos [style*="color:#d6040f"] { color: #fc6970 !important; }
-.cardname { color:black }
+.cardname { color:#000; }
 `;
 
 _darkStyleForGame['sevenwondersarchitects'] = `
@@ -7269,7 +7269,7 @@ _darkStyleForGame['towerup'] = `
 .tu_boards .tu_board_player_wrapper .tu_board_player { filter: brightness(0.9) drop-shadow(2px 2px 2px rgba(255, 255, 255, .8)); }
 .tu_note_unlimited_storage .help { background-color: var(--dark-10); color: var(--light-80); filter: none; border: 1px solid var(--light-50); }
 .tu_token_card .content .flippable-back, .tu_token_card .content .flippable-front { filter: brightness(0.9); }
-.tu_counter_value { color: black }
+.tu_counter_value { color: #000; }
 `;
 
 _darkStyleForGame['toybattle'] = `
