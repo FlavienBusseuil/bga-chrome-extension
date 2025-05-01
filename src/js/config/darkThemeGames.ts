@@ -187,6 +187,7 @@ export const gamesWithCustomBackground = [
   'resarcana',
   'rollandbump',
   'romirami',
+  'rumblenation',
   'rumbleplanet',
   'safariwitness',
   'santorini',
@@ -249,6 +250,7 @@ export const gamesWithCustomBackground = [
 
 export const gamesWithTwoTeams = [
   'belote',
+  'contractbridge',
   'fivehundred',
   'kaiser',
   'whist',
@@ -800,6 +802,17 @@ export const gamesWithCustomActions: GamesWithCustomActions = {
         setTimeout(nirdsManageBackground, 50);
       });
       nirdsManageBackground();
+    }
+  },
+  orapamine: {
+    init: () => {
+      const input1 = document.getElementById('preference_control_100') as any;
+      const input2 = document.getElementById('preference_fontrol_100') as any;
+      const setupManageBackground = () => manageBackground("", ["orp_pref-thematicBackground-blue", "orp_pref-thematicBackground-red"]);
+
+      input1.addEventListener('change', () => setTimeout(setupManageBackground, 500));
+      input2.addEventListener('change', () => setTimeout(setupManageBackground, 500));
+      setupManageBackground();
     }
   },
 };
@@ -2228,6 +2241,12 @@ _darkStyleForGame['conspiracy'] = `
 #help-popin h1 { color: #fff; }
 #help-popin #alliance { color: var(--yellow-10); }
 #help-popin #alliance .example-wrapper .example { margin-top: 1em; }
+`;
+
+_darkStyleForGame['contractbridge'] = `
+.playertablename { text-shadow: none; }
+[style^="color:black"] { text-shadow: var(--text-w-shadow); }
+.card { filter: brightness(0.9); }
 `;
 
 _darkStyleForGame['copenhagen'] = `
@@ -5112,6 +5131,12 @@ _darkStyleForGame['openseason'] = `
 #zoomControler { filter: invert(0.7); }
 `;
 
+_darkStyleForGame['orapamine'] = `
+:root { --theme-color: #8080ff; }
+.orp_questionLogContainer { background-color: var(--dark-back); }
+.orp_logHighlight, #orp_questionLogContainer { color: var(--light-80); }
+`;
+
 _darkStyleForGame['oriflamme'] = `
 .orf-tip-stack, .orf-tip-card { color: #000; }
 `;
@@ -5927,6 +5952,11 @@ _darkStyleForGame['rttaironage'] = `
 .sc_urn[style="background-color: #ffa500;"], .sc_disaster[style="background-color: #ffa500;"] { background-color: #005aff !important; }
 `;
 
+_darkStyleForGame['rumblenation'] = `
+body { background-color: var(--dark-40); }
+.rb_results_player, .rb_playdice { background-color: var(--dark-back); }
+`;
+
 _darkStyleForGame['rumbleplanet'] = `
 #overall-content:before { content: ""; background: #00000080; position: absolute; width: 100%; height: 100%; top:0px; left: 0px; }
 #map:before { content: ""; background: #00000040; position: absolute; width: 100%; height: 100%; top:0px; left: 0px; }
@@ -6672,7 +6702,6 @@ _darkStyleForGame['takenokolor'] = `
 .rule-block .rules-bonus-grid { background: var(--dark-30); }
 .rule-block .rule-title { border-bottom: 3px dotted var(--red-10); color: var(--red-10); }
 #rules { color: var(--light-80); }
-div[id^=player-table][id$=sheet]:before { content: ""; background: #00000050; position: absolute; width: 100%; height: 100%; }
 div[style*="--color: #de6393"] { --color: #7e1b41!important; }
 div[style*="--color: #2eb7d7"] { --color: #186d81!important; }
 div[style*="--color: #fdc300"] { --color: #997500!important; }
@@ -6909,6 +6938,11 @@ div#end-panel { color: var(--light-80); }
 .book { --book-background: var(--dark-30); --book-cover-color: var(--dark-0); border: 1px solid var(--light-50); }
 .book .open-book { color: var(--light-80); }
 .book .open-book .chapter-title:after, .book .open-book .chapter-title:before { border-color: #fff; }
+#realtime-panel-middle>h2, #distress-panel h2, #tasks>h2, #local-prefs-container .row-data .row-label { color: var(--light-80) !important; }
+.player-table .captain, .player-table .lucky-guy { background-color: var(--dark-20); color: var(--light-80); }
+#mission-overview .overview-bubble { background-color: var(--dark-10); text-shadow: none; }
+#mission-overview #mission-progress { background: var(--dark-30); color: var(--light-80); }
+#mission-overview #mission-zoom { background: var(--dark-40); }
 `;
 
 _darkStyleForGame['thefoxintheforest'] = `
