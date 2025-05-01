@@ -6879,6 +6879,7 @@ _darkStyleForGame['thecrew'] = `
 .book { --book-background: var(--dark-30); }
 .book .open-book { color: var(--light-80); }
 .book .open-book .chapter-title:after, .book .open-book .chapter-title:before { border-color: #fff; }
+#realtime-panel-middle>h2, #tasks>h2, #local-prefs-container .row-data .row-label { color: var(--light-80) !important; }
 #mission-status #mission-counter-wrapper span#mission-counter.special-rule:before { background: var(--orange-30); }
 #thecrew-table>div#table-middle #mission-status #distress { filter: var(--drop-shadow); }
 #thecrew-table>div#table-middle #mission-status { background-color: var(--dark-10); border: 1px solid var(--light-50); }
