@@ -1,5 +1,22 @@
 # Changelog
 
+## [v1.11.20](https://github.com/FlavienBusseuil/bga-chrome-extension/tree/v1.11.20) (2025-05-01)
+
+[Full Changelog](https://github.com/FlavienBusseuil/bga-chrome-extension/compare/v1.11.19...v1.11.20)
+
+**Merged pull requests:**
+
+- 7 wonders and easy peasy dark theme fix [\#114](https://github.com/FlavienBusseuil/bga-chrome-extension/pull/114) ([nalka0](https://github.com/nalka0))
+- Fix: game title counter null checks [\#113](https://github.com/FlavienBusseuil/bga-chrome-extension/pull/113) ([GhoulofGSG9](https://github.com/GhoulofGSG9))
+- Takenokolor and dice hospital dark theme fixes [\#112](https://github.com/FlavienBusseuil/bga-chrome-extension/pull/112) ([nalka0](https://github.com/nalka0))
+- Add extension version number to bug reports [\#108](https://github.com/FlavienBusseuil/bga-chrome-extension/pull/108) ([GhoulofGSG9](https://github.com/GhoulofGSG9))
+- darmode\(haggis\): Apply text shadow to black card names [\#107](https://github.com/FlavienBusseuil/bga-chrome-extension/pull/107) ([GhoulofGSG9](https://github.com/GhoulofGSG9))
+- Apply dark style to award tooltips [\#106](https://github.com/FlavienBusseuil/bga-chrome-extension/pull/106) ([GhoulofGSG9](https://github.com/GhoulofGSG9))
+- tower up dark theme fix [\#104](https://github.com/FlavienBusseuil/bga-chrome-extension/pull/104) ([nalka0](https://github.com/nalka0))
+- Resolve dark mode happymeeple landing page issues [\#103](https://github.com/FlavienBusseuil/bga-chrome-extension/pull/103) ([GhoulofGSG9](https://github.com/GhoulofGSG9))
+- dev: add vsc launch parameters for Firefox [\#102](https://github.com/FlavienBusseuil/bga-chrome-extension/pull/102) ([GhoulofGSG9](https://github.com/GhoulofGSG9))
+- Res arcana dark theme fix \(user report\) [\#101](https://github.com/FlavienBusseuil/bga-chrome-extension/pull/101) ([nalka0](https://github.com/nalka0))
+
 ## [v1.11.19](https://github.com/FlavienBusseuil/bga-chrome-extension/tree/v1.11.19) (2025-04-22)
 
 [Full Changelog](https://github.com/FlavienBusseuil/bga-chrome-extension/compare/v1.11.18...v1.11.19)
