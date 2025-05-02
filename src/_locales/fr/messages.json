@@ -230,10 +230,10 @@
 		"message": "Son par défaut"
 	},
 	"optionsFlashingOn": {
-		"message": "Les tables sur lesquels vous êtes attendus sont signalées par une couleur clignotante"
+		"message": "Les tables sur lesquelles vous êtes attendu sont signalées par une couleur clignotante"
 	},
 	"optionsFlashingOff": {
-		"message": "Les tables sur lesquels vous êtes attendus sont signalées par un code couleur et un message"
+		"message": "Les tables sur lesquelles vous êtes attendu sont signalées par un code couleur et un message"
 	},
 	"optionsLobbyRedirectOn": {
 		"message": "Les hyperliens du site sont modifiés pour pointer vers le lobby classique (lorsque c'est possible)"
