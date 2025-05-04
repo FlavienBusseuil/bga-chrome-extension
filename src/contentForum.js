@@ -24,8 +24,8 @@ const initPage = () => {
   }
 };
 
-document.addEventListener('bga_ext_update_config', (data) => {
-  if (['darkModeColor', 'darkModeSat'].includes(data.detail.key)) {
+window.addEventListener('storage', (data) => {
+  if (['darkModeColor', 'darkModeSat'].includes(data.key)) {
     adjustDarkColors();
   }
 });
