@@ -1,12 +1,12 @@
-import React from "preact";
 import { useState } from "preact/hooks";
+import { useSyncedState } from '../hooks/useSyncedState';
 import { isMobile } from "is-mobile";
 
 import Configuration, { AdvancedHomeConfig, HomeConfig, InProgressConfig } from "../../config/configuration";
 import Switch from "../base/Switch";
 import { Button } from "../base/Button";
 import { isSoundCustom, playMp3, removeCustomMp3, uploadCustomMp3 } from "../../utils/misc/mp3";
-import { getExtensionVersion, i18n } from "../../utils/chrome";
+import { getExtensionVersion, i18n, isFirefox } from "../../utils/browser";
 
 type Props = {
   config: Configuration,
@@ -14,39 +14,37 @@ type Props = {
 };
 
 export const OptionsView = ({ config, onChange }: Props) => {
-  const [onlineMessages, setOnlineMessages] = useState(config.isOnlineMessagesEnabled());
-  const [areLogTimestampsHidden, setLogTimestampHidden] = useState(config.areLogTimestampsHidden());
-  const [hideLeftBarOption, setHideLeftBarOption] = useState(config.isLeftBarOptionHidden());
-  const [eloHidden, setEloHidden] = useState(config.isEloHidden());
-  const [tracking, setTracking] = useState(config.isTrackingEnable());
-  const [soundNotification, setSoundNotification] = useState(config.isSoundNotificationEnable());
-  const [customSoundFile, setCustomSoundFile] = useState(isSoundCustom());
-  const [motionSensitivity, setMotionSensitivity] = useState(config.isMotionSensitivityEnable());
-  const [redirect, setRedirect] = useState(config.isLobbyRedirectionEnable());
-  const [fastCreate, setFastCreate] = useState(config.isFastCreateEnable());
-  const [autoOpen, setAutoOpen] = useState(config.isAutoOpenEnable());
-  const [karmaRestriction, setKarmaRestriction] = useState(config.getKarmaRestriction());
-  const [betterPlayerRestriction, setBetterPlayerRestriction] = useState(config.isBetterPlayerRestriction());
-  const [levelPlayerRestriction, setLevelPlayerRestriction] = useState(config.getLevelPlayerRestriction());
-  const [solidBackground, setSolidBackground] = useState(config.isSolidBackground());
-  const [socialMessagesHidden, setSocialMessagesHidden] = useState(config.areSocialMessagesHidden());
-  const [chatUserNamesHidden, setChatUserNamesHidden] = useState(config.areChatUserNamesHidden());
-  const [chatDarkIcons, setChatDarkIcons] = useState(config.chatDarkIcons());
-  const [chatBarAutoHide, setChatBarAutoHide] = useState(config.isChatBarAutoHide());
-  const [homeConfig, setHomeConfig] = useState<HomeConfig>(config.getHomeConfig());
-  const [inProgressConfig, setInProgressConfig] = useState<InProgressConfig>(config.getInProgressConfig());
-  const [isHideGameButtonDisplayed, displayHideGameButton] = useState(config.isHideGameButtonDisplayed());
-  const [hiddenGames, setHiddenGames] = useState<string[]>(config.getHiddenGames());
-  const [hiddenPlayers, setHiddenPlayers] = useState<string[]>(config.getMutedPlayers());
-  const [muteWarning, setMuteWarning] = useState(config.isMuteWarning());
-  const [animatedTitle, setAnimatedTitle] = useState(config.isAnimatedTitle());
-  //const [configVisible, setConfigVisible] = useState(localStorage.getItem('ext_settings') || 'about');
-  const [configVisible, setConfigVisible] = useState('about');
-  const isFirefox = window.navigator.userAgent.toLowerCase().includes('firefox');
-  const [playerRestriction, setPlayerRestriction] = useState(betterPlayerRestriction || levelPlayerRestriction > 0);
+  const [onlineMessages, setOnlineMessages] = useSyncedState('isOnlineMessagesEnabled', config.isOnlineMessagesEnabled());
+  const [areLogTimestampsHidden, setLogTimestampHidden] = useSyncedState('areLogTimestampsHidden', config.areLogTimestampsHidden());
+  const [hideLeftBarOption, setHideLeftBarOption] = useSyncedState('hideLeftBarOption', config.isLeftBarOptionHidden());
+  const [eloHidden, setEloHidden] = useSyncedState('eloHidden', config.isEloHidden());
+  const [tracking, setTracking] = useSyncedState('tracking', config.isTrackingEnable());
+  const [soundNotification, setSoundNotification] = useSyncedState('soundNotification', config.isSoundNotificationEnable());
+  const [customSoundFile, setCustomSoundFile] = useSyncedState('customSoundFile', isSoundCustom());
+  const [motionSensitivity, setMotionSensitivity] = useSyncedState('motionSensitivity', config.isMotionSensitivityEnable());
+  const [redirect, setRedirect] = useSyncedState('redirect', config.isLobbyRedirectionEnable());
+  const [fastCreate, setFastCreate] = useSyncedState('fastCreate', config.isFastCreateEnable());
+  const [autoOpen, setAutoOpen] = useSyncedState('autoOpen', config.isAutoOpenEnable());
+  const [karmaRestriction, setKarmaRestriction] = useSyncedState('karmaRestriction', config.getKarmaRestriction());
+  const [betterPlayerRestriction, setBetterPlayerRestriction] = useSyncedState('betterPlayerRestriction', config.isBetterPlayerRestriction());
+  const [levelPlayerRestriction, setLevelPlayerRestriction] = useSyncedState('levelPlayerRestriction', config.getLevelPlayerRestriction());
+  const [solidBackground, setSolidBackground] = useSyncedState('solidBackground', config.isSolidBackground());
+  const [socialMessagesHidden, setSocialMessagesHidden] = useSyncedState('socialMessagesHidden', config.areSocialMessagesHidden());
+  const [chatUserNamesHidden, setChatUserNamesHidden] = useSyncedState('chatUserNamesHidden', config.areChatUserNamesHidden());
+  const [chatDarkIcons, setChatDarkIcons] = useSyncedState('chatDarkIcons', config.chatDarkIcons());
+  const [chatBarAutoHide, setChatBarAutoHide] = useSyncedState('chatBarAutoHide', config.isChatBarAutoHide());
+  const [homeConfig, setHomeConfig] = useSyncedState<HomeConfig>('homeConfig', config.getHomeConfig());
+  const [inProgressConfig, setInProgressConfig] = useSyncedState<InProgressConfig>('inProgressConfig', config.getInProgressConfig());
+  const [isHideGameButtonDisplayed, displayHideGameButton] = useSyncedState('isHideGameButtonDisplayed', config.isHideGameButtonDisplayed());
+  const [hiddenGames, setHiddenGames] = useSyncedState<string[]>('hiddenGames', config.getHiddenGames());
+  const [hiddenPlayers, setHiddenPlayers] = useSyncedState<string[]>('hiddenPlayers', config.getMutedPlayers());
+  const [muteWarning, setMuteWarning] = useSyncedState('muteWarning', config.isMuteWarning());
+  const [animatedTitle, setAnimatedTitle] = useSyncedState('animatedTitle', config.isAnimatedTitle());
+  const [configVisible, setConfigVisible] = useSyncedState('configVisible', 'about');
+  const [playerRestriction, setPlayerRestriction] = useSyncedState('playerRestriction', betterPlayerRestriction || levelPlayerRestriction > 0);
 
-  const [advancedHomeConfig, setAdvancedHomeConfig] = useState<AdvancedHomeConfig>(config.getAdvancedHomeConfig());
-  const [advancedHomeHtml, setAdvancedHomeHtml] = useState(advancedHomeConfig.html);
+  const [advancedHomeConfig, setAdvancedHomeConfig] = useSyncedState<AdvancedHomeConfig>('advancedHomeConfig', config.getAdvancedHomeConfig());
+  const [advancedHomeHtml, setAdvancedHomeHtml] = useSyncedState<string>('advancedHomeHtml', advancedHomeConfig.html);
   const [advancedStatus, setAdvancedStatus] = useState('');
 
   const [confirmClear, setConfirmClear] = useState(false);
@@ -57,7 +55,6 @@ export const OptionsView = ({ config, onChange }: Props) => {
   };
 
   const _setConfigVisible = (val: string) => {
-    //localStorage.setItem('ext_settings', val);
     setConfigVisible(val);
   };
 
@@ -103,10 +100,11 @@ export const OptionsView = ({ config, onChange }: Props) => {
   };
 
   const updateSoundCustom = (val: boolean) => {
-    setCustomSoundFile(val);
-
-    if (!val) {
+    if (val) {
+      uploadCustomMp3().then((result) => {setCustomSoundFile(result);});
+    } else {
       removeCustomMp3();
+      setCustomSoundFile(false);
     }
   };
 
@@ -275,9 +273,9 @@ export const OptionsView = ({ config, onChange }: Props) => {
     const textOn = i18n(textOnKey);
     const textOff = i18n(textOffKey);
     const msg = checked ? textOn : textOff;
-    const className = (msg.length > 76) ? 'long_text' : undefined;
+    const className = (msg.length > 76) ? 'long_text' : '';
 
-    return <Switch checked={checked} textOn={textOn} textOff={textOff} onChange={onChange} disabled={disabled} className={className} />
+    return <Switch checked={checked} textOn={textOn} textOff={textOff} onChange={onChange} disabled={disabled ?? false} className={className} />
   };
 
   const getMiscSection = () => {
@@ -306,6 +304,8 @@ export const OptionsView = ({ config, onChange }: Props) => {
 
   const getNotificationsSection = () => {
     const desktopVersion = !isMobile();
+    const popupContext = window.location.pathname.includes('popup');
+    const customSound = !(isFirefox && popupContext) // FF does not support file selection in popup
 
     if (configVisible === 'notif') {
       return (
@@ -313,11 +313,11 @@ export const OptionsView = ({ config, onChange }: Props) => {
           <div className="options-frame-title">{i18n("optionNotifTitle")}</div>
           {desktopVersion && <>
             {getSwitch(tracking, updateTracking, "optionsTrackingOn", "optionsTrackingOff")}
-            {!isFirefox && getSwitch(soundNotification && tracking, updateSoundNotification, "optionsNotificationSoundOn", "optionsNotificationSoundOff", !tracking)}
-            {!isFirefox && <div className="row_fullwidth">
-              {getSwitch(soundNotification && tracking && customSoundFile, updateSoundCustom, "optionsNotificationCustomSoundOn", "optionsNotificationCustomSoundOff", !tracking || !soundNotification)}
+            {getSwitch(soundNotification && tracking, updateSoundNotification, "optionsNotificationSoundOn", "optionsNotificationSoundOff", !tracking)}
+            {<div className="row_fullwidth">
+              {getSwitch(soundNotification && tracking && customSoundFile, updateSoundCustom, "optionsNotificationCustomSoundOn", "optionsNotificationCustomSoundOff", !customSound || !tracking || !soundNotification)}
               {tracking && soundNotification && <div>
-                {customSoundFile && <Button {...{ text: i18n("uploadMp3"), className: "small_button", onClick: uploadCustomMp3 }} />}
+                {customSound && customSoundFile && <Button {...{ text: i18n("uploadMp3"), className: "small_button", onClick: uploadCustomMp3 }} />}
                 <Button {...{ text: i18n("play"), className: "small_button", onClick: playMp3 }} />
               </div>}
             </div>}
@@ -364,7 +364,7 @@ export const OptionsView = ({ config, onChange }: Props) => {
     );
   };
 
-  const getHomeSwitch = (param: string, message: string) => {
+  const getHomeSwitch = (param: keyof HomeConfig, message: string) => {
     return getSwitch(homeConfig[param], (val) => updateHomeConfig(param, val), `${message}On`, `${message}Off`);
   };
 
@@ -471,7 +471,7 @@ export const OptionsView = ({ config, onChange }: Props) => {
     );
   };
 
-  const getInProgressSwitch = (param: string, message: string) => {
+  const getInProgressSwitch = (param: keyof InProgressConfig, message: string) => {
     return getSwitch(inProgressConfig[param], (val) => updateInProgressConfig(param, val), `${message}On`, `${message}Off`);
   };
 

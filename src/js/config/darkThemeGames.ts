@@ -1,4 +1,4 @@
-import { getUrl } from "../utils/chrome";
+import { getUrl } from "../utils/browser";
 import { waitForObj } from '../utils/misc/wait';
 
 const purpleButton = 'background: linear-gradient(#9a0bb7, #782489) !important; border: 1px solid #00334d !important; color:#fff !important;';

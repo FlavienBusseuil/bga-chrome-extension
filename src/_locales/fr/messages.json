@@ -591,5 +591,8 @@
 	},
 	"bugReportNew": {
 		"message": "Nouveau ! Vous pouvez reporter un bug du mode sombre en ouvrant le popup ici"
+	},
+	"optionGeneralTab": {
+		"message": "Générales"
 	}
 }

@@ -1,5 +1,6 @@
 import React from "preact";
 
+import { i18n } from "../../../utils/browser";
 interface Props {
     title: string;
     content: ChildNode;
@@ -15,8 +16,8 @@ const InformationPopup = ({ title, content, later, close }: Props) => {
             <div class="bgaext_popup_footer">
                 <span></span>
                 <div className="bgaext_popup_buttons">
-                    <button class="bgabutton bgabutton_blue" onClick={later}>{chrome.i18n.getMessage("buttonLater")}</button>
-                    <button class="bgabutton bgabutton_blue" onClick={close}>{chrome.i18n.getMessage("buttonClose")}</button>
+                    <button class="bgabutton bgabutton_blue" onClick={later}>{i18n("buttonLater")}</button>
+                    <button class="bgabutton bgabutton_blue" onClick={close}>{i18n("buttonClose")}</button>
                 </div>
             </div>
         </div>

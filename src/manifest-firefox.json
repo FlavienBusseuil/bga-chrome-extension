@@ -71,7 +71,8 @@
         "css/dark_theme/*.css",
         "css/light_theme/*.css",
         "js/homepage.js",
-        "js/bgaApi.js"
+        "js/bgaApi.js",
+        "sound/myturn.mp3"
       ],
       "extension_ids": [
         "*"

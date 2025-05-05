@@ -591,5 +591,8 @@
 	},
 	"bugReportNew": {
 		"message": "Neu! Du kannst Fehler im dunklen Modus nun direkt hier über das Pop-Up melden"
+	},
+	"optionGeneralTab": {
+		"message": "Allgemein"
 	}
 }

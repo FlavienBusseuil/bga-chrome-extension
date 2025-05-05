@@ -1,6 +1,7 @@
 import React, { render } from "preact";
 import Templates from "./Templates";
 import { waitForObj } from '../../../utils/misc/wait';
+import { i18n } from "../../../utils/browser";
 
 export const initDevelopperUI = (config) => {
 	if (document.getElementById("last_reports") || document.getElementById("ext_templates")) {
@@ -16,9 +17,9 @@ export const initDevelopperUI = (config) => {
 			try {
 				const extensionComment = document.createElement("p");
 				const warningSymbol = '<span style="color: red; font-size: 32px;">⚠</span>';
-				const forumLink = `<a href="https://boardgamearena.com/forum/viewtopic.php?t=30509" target='_blank' class="bga-link">>> ${chrome.i18n.getMessage("reportCreationWarningLink")} <<</a>`;
-				const endMessage = config.isCssCustomized() ? `<p>${chrome.i18n.getMessage("reportCreationWarningCss")}</p>` : "";
-				extensionComment.innerHTML = `<p>${warningSymbol} ${chrome.i18n.getMessage("reportCreationWarning")} ${forumLink}</p> ${endMessage}`;
+				const forumLink = `<a href="https://boardgamearena.com/forum/viewtopic.php?t=30509" target='_blank' class="bga-link">>> ${i18n("reportCreationWarningLink")} <<</a>`;
+				const endMessage = config.isCssCustomized() ? `<p>${i18n("reportCreationWarningCss")}</p>` : "";
+				extensionComment.innerHTML = `<p>${warningSymbol} ${i18n("reportCreationWarning")} ${forumLink}</p> ${endMessage}`;
 				firstComment.parentNode.insertBefore(extensionComment, firstComment.nextSibling);
 				return;
 			}
