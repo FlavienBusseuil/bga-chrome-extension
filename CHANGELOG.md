@@ -1,5 +1,14 @@
 # Changelog
 
+## [v1.11.21](https://github.com/FlavienBusseuil/bga-chrome-extension/tree/v1.11.21) (2025-05-05)
+
+[Full Changelog](https://github.com/FlavienBusseuil/bga-chrome-extension/compare/v1.11.20...v1.11.21)
+
+**Merged pull requests:**
+
+- Kingscraft dark theme fix [\#115](https://github.com/FlavienBusseuil/bga-chrome-extension/pull/115) ([nalka0](https://github.com/nalka0))
+- Implement sound notification for Firefox [\#92](https://github.com/FlavienBusseuil/bga-chrome-extension/pull/92) ([GhoulofGSG9](https://github.com/GhoulofGSG9))
+
 ## [v1.11.20](https://github.com/FlavienBusseuil/bga-chrome-extension/tree/v1.11.20) (2025-05-01)
 
 [Full Changelog](https://github.com/FlavienBusseuil/bga-chrome-extension/compare/v1.11.19...v1.11.20)
