@@ -4099,7 +4099,7 @@ _darkStyleForGame['kingscraft'] = `
 .player-name { background-color: var(--dark-20) !important; }
 button.enhance .text, button.trade .text, .midSizeDialog div[style*="border-radius: 10px"] { color: #000; }
 button.enhance:disabled .text, button.trade:disabled .text { color: var(--dark-40); }
-button.switch, .check { background: black!important }
+button.switch, .check { background: var(--dark-10) !important }
 `;
 
 _darkStyleForGame['klaverjassen'] = `
