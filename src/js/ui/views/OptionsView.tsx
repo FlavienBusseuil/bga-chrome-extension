@@ -101,7 +101,7 @@ export const OptionsView = ({ config, onChange }: Props) => {
 
   const updateSoundCustom = (val: boolean) => {
     if (val) {
-      uploadCustomMp3().then((result) => {setCustomSoundFile(result);});
+      uploadCustomMp3().then(setCustomSoundFile);
     } else {
       removeCustomMp3();
       setCustomSoundFile(false);
@@ -278,6 +278,17 @@ export const OptionsView = ({ config, onChange }: Props) => {
     return <Switch checked={checked} textOn={textOn} textOff={textOff} onChange={onChange} disabled={disabled ?? false} className={className} />
   };
 
+  const getCustomSoundSwitch = (canUploadSound: boolean) => {
+    const checked = soundNotification && tracking && customSoundFile;
+    const disabled = !canUploadSound || !tracking || !soundNotification;
+    const warnText = canUploadSound ? '' : `(${i18n('optionsNotificationCustomSoundWarnFF')})`;
+    const textOn = `${i18n('optionsNotificationCustomSoundOn')} ${warnText}`;
+    const textOff = `${i18n('optionsNotificationCustomSoundOff')} ${warnText}`;
+    const className = canUploadSound ? '' : 'long_text'
+
+    return <Switch checked={checked} textOn={textOn} textOff={textOff} onChange={updateSoundCustom} disabled={disabled} className={className} />
+  };
+
   const getMiscSection = () => {
     if (configVisible === 'misc') {
       return (
@@ -305,7 +316,7 @@ export const OptionsView = ({ config, onChange }: Props) => {
   const getNotificationsSection = () => {
     const desktopVersion = !isMobile();
     const popupContext = window.location.pathname.includes('popup');
-    const customSound = !(isFirefox && popupContext) // FF does not support file selection in popup
+    const canUploadSound = !(isFirefox && popupContext) // FF does not support file selection in popup
 
     if (configVisible === 'notif') {
       return (
@@ -315,9 +326,9 @@ export const OptionsView = ({ config, onChange }: Props) => {
             {getSwitch(tracking, updateTracking, "optionsTrackingOn", "optionsTrackingOff")}
             {getSwitch(soundNotification && tracking, updateSoundNotification, "optionsNotificationSoundOn", "optionsNotificationSoundOff", !tracking)}
             {<div className="row_fullwidth">
-              {getSwitch(soundNotification && tracking && customSoundFile, updateSoundCustom, "optionsNotificationCustomSoundOn", "optionsNotificationCustomSoundOff", !customSound || !tracking || !soundNotification)}
+              {getCustomSoundSwitch(canUploadSound)}
               {tracking && soundNotification && <div>
-                {customSound && customSoundFile && <Button {...{ text: i18n("uploadMp3"), className: "small_button", onClick: uploadCustomMp3 }} />}
+                {canUploadSound && customSoundFile && <Button {...{ text: i18n("uploadMp3"), className: "small_button", onClick: uploadCustomMp3 }} />}
                 <Button {...{ text: i18n("play"), className: "small_button", onClick: playMp3 }} />
               </div>}
             </div>}

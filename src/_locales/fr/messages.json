@@ -229,6 +229,9 @@
 	"optionsNotificationCustomSoundOff": {
 		"message": "Son par défaut"
 	},
+	"optionsNotificationCustomSoundWarnFF": {
+		"message": "Ne peut être configuré que dans la page de gestion de l'extension"
+	},
 	"optionsFlashingOn": {
 		"message": "Les tables sur lesquelles vous êtes attendu sont signalées par une couleur clignotante"
 	},
@@ -317,7 +320,7 @@
 		"message": "A propos"
 	},
 	"aboutText": {
-		"message": "<p>Vous pouvez consulter la page d'aide de cette extension sur <a target='_blank' href='https://fr.doc.boardgamearena.com/ChromeExtension'>cette page</a>.</p><p>Vous pouvez également venir discuter avec les auteurs sur <a target='_blank' href='https://boardgamearena.com/forum/viewtopic.php?t=30509'>le forum</a>, nous remonter vos soucis et nous faire vos suggestions, ou pourquoi pas juste venir nous déposer un petit mot d'encouragement. 🙂</p><p>Et si cette extension vous plait, vous pouvez m'offrir <a target='_blank' href='https://fr.tipeee.com/board-game-arena-chrome-extension'>un petit café</a> ☕.</p><p>Merci !</p>"
+		"message": "<p>Vous pouvez consulter la page d'aide de cette extension sur <a target='_blank' href='https://fr.doc.boardgamearena.com/ChromeExtension'>cette page</a>.</p><p>Vous pouvez également venir discuter avec les auteurs sur <a target='_blank' href='https://boardgamearena.com/forum/viewtopic.php?t=30509'>le forum</a>, nous remonter vos soucis et nous faire vos suggestions, ou pourquoi pas juste venir nous déposer un petit mot d'encouragement. 🙂</p><p>Et si cette extension vous plait, vous pouvez m'offrir <a target='_blank' href='https://fr.tipeee.com/board-game-arena-chrome-extension'>un petit café</a> ☕</p><p>Merci !</p>"
 	},
 	"deleteGameTitle": {
 		"message": "Suppression d'un jeu"
@@ -593,6 +596,6 @@
 		"message": "Nouveau ! Vous pouvez reporter un bug du mode sombre en ouvrant le popup ici"
 	},
 	"optionGeneralTab": {
-		"message": "Générales"
+		"message": "Général"
 	}
 }

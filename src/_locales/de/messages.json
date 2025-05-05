@@ -229,6 +229,9 @@
 	"optionsNotificationCustomSoundOff": {
 		"message": "Standard Ton"
 	},
+	"optionsNotificationCustomSoundWarnFF": {
+		"message": "Kann nur auf der Add-on-Verwaltungsseite konfiguriert werden"
+	},
 	"optionsFlashingOn": {
 		"message": "Tische, an denen du erwartet wirst, werden durch eine blinkende Färbung hervorgehoben"
 	},
@@ -257,13 +260,13 @@
 		"message": "Die 'Schnelle Erstellung' Schaltfläche öffnet den Tisch nicht für andere Spieler"
 	},
 	"optionsFastCreateKarmaOn": {
-		"message": "Spieler mit schlechter Reputation (< 75%) werden ausgeschlossen [BETA]"
+		"message": "Spieler mit schlechter Reputation (< 75%) werden ausgeschlossen"
 	},
 	"optionsFastCreateKarmaOff": {
 		"message": "Deine letztgenutzen Reputationskriterien werden verwendet"
 	},
 	"optionsFastCreateLevelOn": {
-		"message": "Die folgenden Level Restriktionen werden verwendet [BETA]"
+		"message": "Die folgenden Level Restriktionen werden verwendet"
 	},
 	"optionsFastCreateLevelOff": {
 		"message": "Deine zuletzt genutzen Level-Restriktionen werden verwendet"
@@ -317,7 +320,7 @@
 		"message": "Über"
 	},
 	"aboutText": {
-		"message": "<p>Du findest die Hilfeseite der Erweiterung auf <a target='_blank' href='https://en.doc.boardgamearena.com/ChromeExtension'>dieser Seite</a>.</p><p>Alternativ kannst du dich direkt mit den Entwicklern im <a target='_blank' href='https://boardgamearena.com/forum/viewtopic.php?t=30509'>Forum</a> austauschen, wir freuen uns über deine Anmerkungen und Vorschläge, oder ein paar Worte der Ermutigung. 🙂</p><p>Und falls du diese Erweiterung magst, kannst du mir gerne einen <a target='_blank' href='https://en.tipeee.com/board-game-arena-chrome-extension'>Kaffee</a> ☕ ausgeben.</p><p>Vielen Dank!</p>"
+		"message": "<p>Du findest die Hilfeseite der Erweiterung auf <a target='_blank' href='https://en.doc.boardgamearena.com/ChromeExtension'>dieser Seite</a>.</p><p>Alternativ kannst du dich direkt mit den Entwicklern im <a target='_blank' href='https://boardgamearena.com/forum/viewtopic.php?t=30509'>Forum</a> austauschen, wir freuen uns über deine Anmerkungen und Vorschläge, oder ein paar Worte der Ermutigung. 🙂</p><p>Und falls du diese Erweiterung magst, kannst du mir gerne einen <a target='_blank' href='https://en.tipeee.com/board-game-arena-chrome-extension'>Kaffee</a> ☕ ausgeben</p><p>Vielen Dank!</p>"
 	},
 	"deleteGameTitle": {
 		"message": "Vestecke ein Spiel"

@@ -21,8 +21,7 @@ button.appearance-auto {
 }
 
 .bgext_options_config_area {
-	border: 1px solid #aaaaaa;
-	border-radius: 8px;
+	border-top: 1px solid #aaaaaa;
 	width: 860px;
 	height: 540px;
 	display: flex;
@@ -169,6 +168,23 @@ textarea.options-textarea {
 	text-align: right;
 }
 
+.bgext_buttons_container {
+	display: flex;
+	flex-flow: row;
+	justify-content: space-evenly;
+	width: 100%;
+	line-height: 32px;
+	gap: 0.5em;
+}
+
+.options-frame-title {
+	background-color: #fff;
+}
+
+.small_button {
+	width: 150px;
+}
+
 /* Configuration for Edge */
 @media (max-width: 400px) {
 	.bgext_options_config_area {
@@ -184,18 +200,13 @@ textarea.options-textarea {
 		margin: 0em 1em;
 	}
 
+	.bgext_buttons_container {
+		flex-flow: column;
+	}
+
 	#bgext_options_tab_navigation {
 		display: none;
 	}
-}
-
-.bgext_buttons_container {
-	display: flex;
-	flex-flow: row;
-	justify-content: space-evenly;
-	width: 100%;
-	line-height: 32px;
-	gap: 0.5em;
 }
 
 /* Configuration for Firefox */
@@ -221,6 +232,14 @@ textarea.options-textarea {
 	.bgext_options_warning {
 		text-align: center;
 		padding: 0;
+	}
+
+	.bgext_options_config_area {
+		border-top: none;
+	}
+
+	.options-frame.reduced {
+		min-width: 50%;
 	}
 }
 
