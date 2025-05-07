@@ -177,6 +177,10 @@ textarea.options-textarea {
 	gap: 0.5em;
 }
 
+.options-frame a {
+	text-decoration: underline;
+}
+
 .options-frame-title {
 	background-color: #fff;
 }
