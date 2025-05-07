@@ -297,6 +297,14 @@ spectator-mode .log .roundedbox .playername {
   text-shadow: var(--text-w-shadow);
 }
 
+#progress-bar__additional-context-wrapper {
+  background-color: var(--dark-20);
+}
+
+#progress-bar__additional-context__text {
+  color: var(--light-80);
+}
+
 .pagesection h2,
 .pagesection h3 {
   background: var(--dark-10);

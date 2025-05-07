@@ -364,6 +364,10 @@ const defaultGames: Partial<Game>[] = [
 		playerPanel: "shelf_{{player_id}}",
 	},
 	{
+		name: "myshelfiedice",
+		playerPanel: ".names",
+	},
+	{
 		name: "carnegie",
 		playerPanel: "company_block_{{player_id}}",
 		iconBackground: "#97a09b",
@@ -1496,7 +1500,16 @@ const defaultGames: Partial<Game>[] = [
 		name: "coatl",
 		playerPanel: "other_player_area_{{player_id}}",
 	},
-
+	{
+		name: "abrachadabra",
+		playerPanel: "playertable_{{player_id}}",
+	},
+	{
+		name: "biomesofnilgiris",
+		playerPanel: "player_{{player_id}}",
+		boardPanel: "playerHandWrapper",
+		boardPanelText: "#playerHandWrapper>div:first-child"
+	},
 ];
 
 export default defaultGames;

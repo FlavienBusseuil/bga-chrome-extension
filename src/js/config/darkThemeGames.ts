@@ -361,6 +361,7 @@ export const gamesWithCustomPlayerStyle: { [gameName: GameName]: string } = {
 export const playersBackground: { [gameName: GameName]: string[] } = {
   golems: ['#pl{{player_id}}_label'],
   laserreflection: ['#lrf_container_{{player_id}} .lrf_progress-bar'],
+  lorenzo: ['#obrPlayerboardId_{{player_id}} .obr_playerboard_name'],
   nirds: ['#player_table_{{player_id}} .title'],
   thegreatamericanfoxhunt: ['#TGAFH_player_89123556'],
   treos: ['#gamezone-{{player_id}} .player-board-name'],
@@ -382,6 +383,7 @@ export const playersBorder: { [gameName: GameName]: string[] } = {
   itsawonderfulworld: ['#iww-player{{player_id}}'],
   jumpdrive: ['#jdr-tableau-{{player_id}}'],
   letsgotojapan: ['#playerhandtitle_{{player_id}}', '#playerhand_{{player_id}}', '#nameplayer_{{player_id}}'],
+  lorenzo: ['#obrPlayerboardId_{{player_id}}'],
   nirds: ['#player_table_{{player_id}}'],
   pioneerdaysproject: ['#playerbox-{{player_id}}'],
   piratas: ['#playmat_{{player_id}}'],
@@ -731,6 +733,14 @@ export const gamesWithCustomActions: GamesWithCustomActions = {
 
 const _darkStyleForGame: { [key: GameName]: string } = {};
 const _styleForGame: { [key: GameName]: string } = {};
+
+_darkStyleForGame['abrachadabra'] = `
+.icons-back[style="background-position: -183px -0px;"] { filter: var(--highlight-min); }
+.bgaext_get_players_data .inactive { filter: none; }
+.winner-hand { background-color: #353814cc; }
+.inactive-hand { background-color: #292b2e66; }
+.card .card-sides .card-side { filter: brightness(0.9); }
+`;
 
 _darkStyleForGame['abyss'] = `
 .playmat_on body { background: none !important; background-color: #081020 !important; }
@@ -1388,6 +1398,19 @@ _darkStyleForGame['bigmonster'] = `
 
 _darkStyleForGame['bigtimesoccer'] = `
 .nbr_yellowcards, .nbr_cards { color: var(--light-80); }
+`;
+
+_darkStyleForGame['biomesofnilgiris'] = `
+#board:before { content: ""; background: #00000040; position: absolute; width: 100%; height: 100%; top:0px; left: 0px; }
+#characterInfo { background: var(--dark-back); }
+.characterAbility { background: var(--dark-10); color: var(--light-80); }
+.characterAbilityHeading, .characterName { color: var(--light-80); text-shadow: none; }
+.action-button.act-btn--disabled { text-shadow: none !important; }
+.action-button#xp-ChosenTokens { color: var(--light-80); }
+.xpToken { border-radius: 50%; }
+#bon-statusBar.visible { background: var(--blue-70); }
+.playerZone .playerBoard, .biome { filter: brightness(0.9); }
+.card, #playerHand .equipment, #playerHand .species, #playerHand--overlay .equipment, #playerHand--overlay .species { filter: brightness(0.9) drop-shadow(2px 2px 1px black); }
 `;
 
 _darkStyleForGame['biomos'] = `
@@ -4245,12 +4268,15 @@ _darkStyleForGame['looot'] = `
 
 _darkStyleForGame['lorenzo'] = `
 #overall-content:before { content: ""; background: #00000080; position: absolute; width: 100%; height: 100%; top:0px; left: 0px; }
+#obrMainboardTopId:before, #obrMainboardBottomId:before, .obr_playerboard:before { content: ""; background: #00000040; position: absolute; width: 100%; height: 100%; top:0px; left: 0px; }
 .obr_select_bonus_tiles { filter: var(--drop-shadow); }
 .obr_player_res_counter, .player_score_value { color: #9d7748; }
 .obr_drafting_wrapper { background-color: var(--dark-back); color: var(--light-80); }
 #obrTowerCardHelpWrapperId, #obrExcoMalusHelpWrapperId { background-color: var(--dark-back); }
 .obr_tower_card_help_inline_wrapper, .obr_exco_malus_help_inline_wrapper { background-color: var(--dark-10); border: 2px solid var(--light-50); color: var(--light-80); }
 #page-title .obr-dice { filter: var(--highlight-min); }
+.obr_playerboard_name { color: #000; }
+:root { --cards-dropshadow: brightness(0.9) drop-shadow(3px 3px 3px #000); }
 `;
 
 _darkStyleForGame['lostcities'] = `
