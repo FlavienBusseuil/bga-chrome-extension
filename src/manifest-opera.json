@@ -63,8 +63,7 @@
   },
   "host_permissions": [
     "https://*.boardgamearena.com/*/*",
-    "https://*.boardgamearena.net/*/*",
-    "https://*.melodice.org/playlist/*/*"
+    "https://*.boardgamearena.net/*/*"
   ],
   "permissions": [
     "alarms",

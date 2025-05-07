@@ -715,8 +715,9 @@ div[id*="popin"][id$="underlay"] {
 
 @supports (-moz-appearance:none) {
   #pagesection_music .pagesection p::after {
-    content: " \A \A If Melodice is not loading, please make sure that all permissions have been granted to the BGA extension (right-click on the extension icon, then \"Manage extension\" and go to the \"Permissions\" tab)";
+    content: " \A \A ⚠ If Melodice is not loading, please make sure that all permissions have been granted to the BGA extension (right-click on the extension icon, then \"Manage extension\" and go to the \"Permissions\" tab)";
     white-space: pre-wrap;
+    color: var(--red-30);
   }
 
   .bgaext_melodice_visible #pagesection_music .pagesection p::after {
