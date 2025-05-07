@@ -423,94 +423,6 @@ export const gamesWithCustomColors: { [gameName: GameName]: string[] } = {
   verdant: ['#2d3691']
 };
 
-interface RecommandedConfig { color: number; sat: number }
-export const gamesWithRecommandedConfig: { [gameName: GameName]: RecommandedConfig } = {
-  abyss: { color: 226, sat: 16 },
-  agricola: { color: 100, sat: 12 },
-  aiye: { color: 20, sat: 25 },
-  architectsofamytis: { color: 16, sat: 10 },
-  arknova: { color: 33, sat: 15 },
-  arknovamw: { color: 33, sat: 15 },
-  bauer: { color: 0, sat: 15 },
-  beerbread: { color: 25, sat: 22 },
-  betta: { color: 180, sat: 20 },
-  beyondthesun: { color: 197, sat: 35 },
-  bigmonster: { color: 241, sat: 32 },
-  cafe: { color: 10, sat: 20 },
-  carnegie: { color: 169, sat: 10 },
-  cartographers: { color: 20, sat: 15 },
-  captainflip: { color: 193, sat: 39 },
-  capybarancapybara: { color: 97, sat: 15 },
-  castlecombo: { color: 190, sat: 23 },
-  catan: { color: 210, sat: 16 },
-  century: { color: 25, sat: 16 },
-  challengers: { color: 100, sat: 16 },
-  conspiracy: { color: 226, sat: 16 },
-  cosmosempires: { color: 233, sat: 27 },
-  craftingthecosmos: { color: 116, sat: 10 },
-  cuttle: { color: 180, sat: 24 },
-  dedale: { color: 25, sat: 16 },
-  dicedveggies: { color: 25, sat: 16 },
-  dicycards: { color: 146, sat: 15 },
-  dobro: { color: 216, sat: 25 },
-  earth: { color: 130, sat: 20 },
-  easypeasy: { color: 227, sat: 15 },
-  enemyanemone: { color: 220, sat: 32 },
-  expeditions: { color: 200, sat: 32 },
-  feastforodin: { color: 13, sat: 6 },
-  festival: { color: 14, sat: 15 },
-  finca: { color: 220, sat: 32 },
-  forbiddenisland: { color: 216, sat: 20 },
-  gardennation: { color: 110, sat: 22 },
-  girafferaffe: { color: 7, sat: 9 },
-  gnomehollow: { color: 116, sat: 12 },
-  goldblivion: { color: 135, sat: 15 },
-  happycity: { color: 219, sat: 25 },
-  harmonies: { color: 16, sat: 15 },
-  harvest: { color: 128, sat: 22 },
-  insidejob: { color: 105, sat: 10 },
-  jurassicsnack: { color: 110, sat: 5 },
-  kado: { color: 30, sat: 15 },
-  locomomo: { color: 91, sat: 14 },
-  lielow: { color: 13, sat: 15 },
-  lineit: { color: 250, sat: 28 },
-  lostseas: { color: 195, sat: 22 },
-  lostexplorers: { color: 25, sat: 22 },
-  mesos: { color: 0, sat: 20 },
-  mycity: { color: 25, sat: 22 },
-  mycityrb: { color: 25, sat: 22 },
-  nimalia: { color: 220, sat: 30 },
-  noah: { color: 220, sat: 22 },
-  oriflamme: { color: 202, sat: 55 },
-  origin: { color: 110, sat: 15 },
-  pacifica: { color: 180, sat: 22 },
-  paxrenaissance: { color: 25, sat: 15 },
-  pescadonovo: { color: 110, sat: 4 },
-  pixies: { color: 95, sat: 15 },
-  pioneerdaysproject: { color: 25, sat: 22 },
-  powervacuum: { color: 0, sat: 15 },
-  regicide: { color: 165, sat: 15 },
-  rumbleplanet: { color: 175, sat: 15 },
-  similo: { color: 115, sat: 10 },
-  scythe: { color: 28, sat: 12 },
-  seasaltpaper: { color: 225, sat: 28 },
-  seasons: { color: 0, sat: 10 },
-  splendor: { color: 220, sat: 22 },
-  splendorexpansions: { color: 220, sat: 22 },
-  super: { color: 250, sat: 15 },
-  survive: { color: 225, sat: 28 },
-  tapestry: { color: 220, sat: 22 },
-  thefoxintheforest: { color: 0, sat: 8 },
-  theyellowhouse: { color: 0, sat: 8 },
-  trailblazers: { color: 130, sat: 22 },
-  tucano: { color: 138, sat: 15 },
-  turingmachine: { color: 120, sat: 15 },
-  twelvechips: { color: 164, sat: 15 },
-  ultimaterailroads: { color: 8, sat: 15 },
-  verdant: { color: 140, sat: 15 },
-  wizardscup: { color: 20, sat: 20 },
-};
-
 const manageBackground = (defBackClass: string, otherBackClasses: string[]) => {
   const defBackFound = document.documentElement.classList.contains(defBackClass);
   const otherBackFound = otherBackClasses.find(c => document.documentElement.classList.contains(c));
@@ -4810,6 +4722,10 @@ _darkStyleForGame['myshelfie'] = `
 #first_player_seat { filter: var(--drop-shadow); }
 #main_area, .shelf-area { filter: brightness(0.9); }
 .shelf-name { background-color: var(--dark-20); }
+`;
+
+_darkStyleForGame['myshelfiedice'] = `
+#overall-content[style*="background-image"]:before { content: ""; background: #00000080; position: absolute; width: 100%; height: 100%; }
 `;
 
 _darkStyleForGame['mythicalstheboardgame'] = `

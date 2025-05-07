@@ -40,6 +40,16 @@
         "contentForum.js"
       ],
       "all_frames": true
+    },
+    {
+      "matches": [
+        "https://melodice.org/playlist/*"
+      ],
+      "run_at": "document_start",
+      "js": [
+        "contentMelodice.js"
+      ],
+      "all_frames": true
     }
   ],
   "author": "Flavien Busseuil & Christophe Delaforge",
@@ -54,7 +64,8 @@
   },
   "host_permissions": [
     "https://*.boardgamearena.com/*/*",
-    "https://*.boardgamearena.net/*/*"
+    "https://*.boardgamearena.net/*/*",
+    "https://*.melodice.org/playlist/*/*"
   ],
   "permissions": [
     "alarms",

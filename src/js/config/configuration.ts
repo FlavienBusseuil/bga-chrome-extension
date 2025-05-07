@@ -106,7 +106,7 @@ export interface PopupsConfig {
 	fastStartWarning: boolean;
 	muteWarning: boolean;
 	reportMsg: boolean;
-	infosDialog?: string;
+	infosDialog: string | undefined;
 }
 
 export interface InProgressConfig {
@@ -777,7 +777,7 @@ class Configuration {
 		return result === undefined ? def || mainValue : result;
 	}
 
-	getDarkModeSaturation(gameName, def?: number) {
+	getDarkModeSaturation(gameName: string, def?: number) {
 		const mainValue = this._customConfig.darkModeSat || 15;
 		if (gameName === "general" || gameName === "forum") {
 			return mainValue;

@@ -30,6 +30,7 @@ const config = new Configuration();
 let currentObserver = null;
 let pageType = undefined;
 let chatbardock = undefined;
+let gameName = '';
 
 const autoHideChat = (e) => {
 	if (chatbardock) {
@@ -105,7 +106,7 @@ const manageLocationChange = (pathname) => {
 	if (pageInfo.length >= 2 && isNumber(pageInfo[0])) {
 		initObserver('game');
 
-		const gameName = pageInfo[1];
+		gameName = pageInfo[1];
 		const gameConfig = config.getGameConfig(gameName);
 
 		if (!isMobile() && (config.isGlobalFloatingMenu() || config.isGameFloatingMenu(gameName))) {
@@ -152,7 +153,7 @@ const manageLocationChange = (pathname) => {
 	}
 
 	if (pageName === 'tutorial') {
-		const gameName = window.location.search.substring(1).split('&').find(p => p.startsWith('game'))?.split('=')[1];
+		gameName = window.location.search.substring(1).split('&').find(p => p.startsWith('game'))?.split('=')[1];
 		initDarkMode(config, gameName);
 		setHtmlGameClass();
 		return 'general';
@@ -160,7 +161,7 @@ const manageLocationChange = (pathname) => {
 
 	if (pageName === 'archive') {
 		waitForObj('[href*="table="]', 5).then((elt) => {
-			const gameName = elt.href.substring(elt.href.lastIndexOf('/') + 1).split('?')[0];
+			gameName = elt.href.substring(elt.href.lastIndexOf('/') + 1).split('?')[0];
 			initDarkMode(config, gameName);
 			setHtmlGameClass();
 		});
@@ -399,10 +400,18 @@ document.addEventListener('bga_ext_update_config', (data) => {
 
 window.addEventListener('message', (evt) => {
 	if (evt.origin === 'https://forum.boardgamearena.com' && evt.data.key === 'bga_ext_forum_visible') {
-		// hack to avoid light theme flashing
+		// hack to avoid light theme flashing for forum
 		setTimeout(() => {
-			console.debug('[bga extension] forum displayed');
+			console.debug('[bga extension] forum iframe displayed');
 			document.documentElement.classList.add('bgaext_forum_visible');
+		}, 0);
+	}
+	if (evt.origin === 'https://melodice.org' && evt.data.key === 'bga_ext_melodice_visible') {
+		evt.source.postMessage({ key: 'bga_ext_game_name', name: gameName }, 'https://melodice.org/');
+		// hack to avoid light theme flashing for melodice
+		setTimeout(() => {
+			console.debug('[bga extension] melodice iframe displayed');
+			document.documentElement.classList.add('bgaext_melodice_visible');
 		}, 0);
 	}
 }, false);

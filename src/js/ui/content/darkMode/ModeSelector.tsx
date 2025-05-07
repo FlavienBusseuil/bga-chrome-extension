@@ -2,7 +2,8 @@ import { useState, useEffect } from "preact/hooks";
 import { isMobile } from "is-mobile";
 
 import Configuration from "../../../config/configuration";
-import { gamesWithCustomActions, gamesWithRecommandedConfig } from "../../../config/darkThemeGames";
+import { gamesWithCustomActions } from "../../../config/darkThemeGames";
+import { gamesWithRecommendedConfig } from "../../../config/darkThemeRecommendedConfig";
 import { getExtensionVersion, i18n } from "../../../utils/browser";
 import { setDarkStyle } from "./darkStyleFunctions";
 import { changeDarkColors } from "./darkColors";
@@ -40,7 +41,7 @@ const SAT_STEP = 4;
 const ModeSelector = (props: ModeSelectorProps) => {
   const { config, gameName } = props;
   const popupConfig = config.getPopupConfiguration();
-  const recommandedConfig = gamesWithRecommandedConfig[gameName];
+  const recommandedConfig = gamesWithRecommendedConfig[gameName];
   const [darkMode, setDarkMode] = useState(isDarkMode(config, gameName));
   const [darkColorHue, setDarkColorHue] = useState(config.getDarkModeColor(gameName, recommandedConfig?.color));
   const [darkColorSaturation, setDarkColorSaturation] = useState(config.getDarkModeSaturation(gameName, recommandedConfig?.sat));

@@ -698,3 +698,26 @@ div[id*="popin"][id$="underlay"] {
 .discussion_bubble:after {
   border-color: var(--dark-10) transparent;
 }
+
+/* hack to avoid light theme flashing */
+
+#melodice_frame {
+  height: 1px !important;
+}
+
+@supports (-moz-appearance:none) {
+  #pagesection_music .pagesection p::after {
+    content: " \A \A If Melodice is not loading, please make sure that all permissions have been granted to the BGA extension (right-click on the extension icon, then \"Manage extension\" and go to the \"Permissions\" tab)";
+    white-space: pre-wrap;
+  }
+
+  .bgaext_melodice_visible #pagesection_music .pagesection p::after {
+    content: "";
+  }
+}
+
+.bgaext_melodice_visible #melodice_frame {
+  height: 1000px !important;
+}
+
+/* end hack to avoid light theme flashing */
