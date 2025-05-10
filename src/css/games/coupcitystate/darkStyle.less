@@ -1,0 +1,13 @@
+@import "../common";
+
+#myactions { color: #fff; }
+.playerhead { text-shadow: none; background-color: var(--dark-back); padding: 0.1em 0.3em; border-radius: 4px; }
+.placemat[style="color: #000000"] .playerhead { text-shadow: var(--text-w-shadow); }
+.placemat.eliminated { border-color: var(--light-50); }
+.action { background: var(--dark-20); }
+.action:hover, .action.pending, .placemat:hover, .placemat.selected { background: var(--dark-40); }
+#circle { background: var(--dark-back); }
+#deck { text-shadow: none; color: var(--light-80); }
+.character-name, .faction-name { border: 1px solid var(--light-50); padding-top: 0.2em; margin-bottom: 0.2em; }
+.balloon { background: var(--dark-10); color: var(--light-80); border: 1px solid var(--light-50); }
+.balloon:before { border: none; border-right: 1px solid var(--light-50); border-bottom: 1px solid var(--light-50); background-color: var(--dark-10); bottom: -7px; height: 12px; width: 12px; z-index: -1; transform: rotate(45deg); }

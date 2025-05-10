@@ -1,0 +1,15 @@
+@import "../common";
+
+#overall-content:before { content: ""; background: #000000A0; position: absolute; width: 100%; height: 100%; }
+.counters, #central-board-counter-wrapper { color: var(--light-80); }
+.card-stock .slot { background: hsl(0deg 0% 11.5% / 40%); outline: 1px solid hsl(0deg 0% 54.37% / 40%); }
+#generalactions .show-player-tableau a { color: var(--light-80); }
+.active-zone .border { background: linear-gradient(90deg, #4e453b99 20%, #4e453b99 40%, #00000033 50%, #00000033 55%, #51493e10 70%, #4e453b99); background-size: 200% auto; }
+.player-table .player-name { text-shadow: none; background: var(--dark-20); height: 20px; padding: 0.2em 0.5em; border-radius: 6px; }
+.show-player-tableau, #generalactions { filter: invert(0.9); }
+#player-help-visible-wrapper .player-help-visible { position: relative; filter: brightness(0.9); }
+.card .card-sides .card-side { filter: brightness(0.9); }
+.player-board[data-player-color=ff0000]:before { background-color: #800000; }
+.player-board[data-player-color="008000"]:before { background-color: #060; }
+.player-board[data-player-color="0000ff"]:before { background-color: #000080; }
+.player-board[data-player-color=ffa500]:before { background-color: #996300; }

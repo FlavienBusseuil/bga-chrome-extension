@@ -1,0 +1,16 @@
+@import "../common";
+
+#end_game_banner { position: relative; z-index: 2; background-color: var(--red-10); border: 3px solid var(--red-30); color: var(--light-80); }
+.rtta_pBoard { background-color: var(--dark-30); }
+.rtta_player_score { background-color: var(--dark-40); }
+.player_mat:before { content: ""; background: #00000080; position: fixed; width: 100%; height: 100%; top: 0px; left: 0px; }
+.rtta_scoreCard { background-color: #000; color: var(--light-80); border: 7px solid var(--dark-back); }
+#infoIcon { background-color: var(--dark-10); border: 2px solid var(--light-50); color: var(--light-80); }
+.sc_dice_grid, .sc_dice_grid > div, #sc_ports_pop, #sc_ports_pop > div, #sc_ports_urn, #sc_ports_urn > div, #sc_provinces, #sc_provinces > div,
+#sc_monument_0, #sc_monument_0 > div, #sc_monument_1, #sc_monument_1 > div, #sc_monument_2, #sc_monument_2 > div, #sc_monument_3, #sc_monument_3 > div, #sc_monument_4, #sc_monument_4 > div,
+.sc_urn, .sc_dev_title_costs, .population, .star, .sc_disaster, .sc_sizer_wrapper { filter: invert(1); }
+.sc_monument_score_prime { border: 1px solid #fff; }
+.sc_urn[style="background-color: rgb(255, 0, 0);"], .sc_disaster[style="background-color: rgb(255, 0, 0);"] { background-color: rgb(0, 255, 255) !important; }
+.sc_urn[style="background-color: rgb(0, 0, 255);"], .sc_disaster[style="background-color: rgb(0, 0, 255);"] { background-color: rgb(255, 255, 0) !important; }
+.sc_urn[style="background-color: rgb(0, 128, 0);"], .sc_disaster[style="background-color: rgb(0, 128, 0);"] { background-color: rgb(255, 128, 255) !important; }
+.sc_urn[style="background-color: #ffa500;"], .sc_disaster[style="background-color: #ffa500;"] { background-color: #005aff !important; }

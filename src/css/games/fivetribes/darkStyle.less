@@ -1,0 +1,12 @@
+@import "../common";
+
+#ft_player_hand, .ft_player_djinns { background-color: var(--dark-back); }
+.ft_rsrc_card, .ft_tile { filter: brightness(0.9); }
+.ft_counter.ft_slot_counter { z-index: 1; }
+.ft_notselectable { filter: grayscale(.3); opacity: .6; }
+:not(.disabled) { #ft_btn_undo, #ft_btn_score { .greenButton(); }
+#ft_btn_undo:hover, #ft_btn_score:hover { .greenButtonOver(); }
+#ft_btn_skip { .purpleButton(); }
+#ft_btn_skip:hover { .purpleButtonOver(); } }
+.ft_selectable, .ft_selected, .ft_turnselected { outline-color: #29a329 !important; }
+.ft_activatable { outline-color: var(--blue-50) !important; }

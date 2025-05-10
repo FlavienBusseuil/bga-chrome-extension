@@ -1,6 +1,6 @@
 import { isNumber } from "../../../utils/misc/isNumber";
 import { waitForObj } from "../../../utils/misc/wait";
-import { darkStyleForGame, gamesWithCustomActions, gamesWithCustomBackground, gamesWithCustomDarkMode, gamesWithCustomPanel, gamesWithCustomPlayerStyle, gamesWithTwoTeams, playersBackground, playersBorder, styleForGame } from "../../../config/darkThemeGames";
+import { gamesWithCustomActions, gamesWithCustomBackground, gamesWithCustomDarkMode, gamesWithCustomPanel, gamesWithCustomPlayerStyle, gamesWithTwoTeams, getDarkStyleForGame, getStyleForGame, playersBackground, playersBorder } from "../../../config/darkThemeGames";
 import { PlayerData, getPlayersData, getPlayersPossibleColors } from "../players";
 import { cookieName, createStyle, getFile } from "./darkStyleCommonFunctions";
 
@@ -161,8 +161,8 @@ const _setDarkStyleForGame = (gameName: string) => {
   const classToAdd = gamesWithCustomDarkMode[gameName]?.className;
 
   if (applyGeneralCss) {
-    const gameStyle = styleForGame[gameName] || "";
-    const gameDarkStyle = darkStyleForGame[gameName] || "";
+    const gameStyle = getStyleForGame(gameName) || "";
+    const gameDarkStyle = getDarkStyleForGame(gameName) || "";
     const backStyle = gamesWithCustomBackground.includes(gameName) ? "" : cssContents["dark_theme/background.css"];
 
     const completeStyle = `${backStyle}${cssContents["dark_theme/icons.css"]}${cssContents["dark_theme/common.css"]}${cssContents["dark_theme/chat.css"]}${cssContents["dark_theme/game.css"]}${gameDarkStyle}${gameStyle}`;
@@ -196,7 +196,7 @@ const _setDarkStyleForGame = (gameName: string) => {
       }
     });
   } else {
-    styleComponent.innerHTML = styleForGame[gameName] || "";
+    styleComponent.innerHTML = getStyleForGame(gameName) || "";
   }
 
   if (classToAdd) {
@@ -239,7 +239,8 @@ const _setLightStyle = (mode: string) => {
     if (mode === "general") {
       styleComponent.innerHTML = generalStyle;
     } else {
-      styleComponent.innerHTML = `${generalStyle}${styleForGame[mode] || ""}`;
+      const gameStyle = getStyleForGame(mode) || "";
+      styleComponent.innerHTML = `${generalStyle}${gameStyle}`;
       if (gamesWithCustomDarkMode[mode]) {
         document.documentElement.classList.remove(gamesWithCustomDarkMode[mode].className);
       }
