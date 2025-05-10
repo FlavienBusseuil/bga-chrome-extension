@@ -79,6 +79,7 @@
         "img/icon-48.png",
         "img/icon-grey.png",
         "css/dark_theme/*.css",
+        "css/dark_theme/*.less",
         "css/light_theme/*.css",
         "css/games/*/*.less",
         "js/homepage.js",

@@ -1,6 +1,7 @@
 @import "../common";
+@import "../../dark_theme/background-image.less";
 
 #btn_user_prefs { filter: invert(1); }
 .block-user-pref-radio label { background-color: #111; }
-//FIXME #map_container { background-image: url(${getUrl('img/dark_theme/background.jpg')}); }
+#map_container { background-image: @darkBackgroundImage; }
 .tile.icon { filter: var(--highlight-min); }

@@ -1,0 +1,19 @@
+@import 'background-image.less';
+
+html:not(.bgaext_cust_back):not(.bgaext_solid_back),
+html:not(.bgaext_cust_back):not(.bgaext_solid_back) body,
+body.mode_3d {
+  background: @darkBackgroundImage;
+}
+
+html.bgaext_solid_back:not(.bgaext_cust_back),
+html.bgaext_solid_back:not(.bgaext_game) body {
+  background: var(--dark-30) !important
+}
+
+html.bga-white-background,
+html.bga-white-background body,
+html.bgaext_admin,
+html.bgaext_admin body {
+  background: var(--dark-0) !important
+}
