@@ -2662,7 +2662,7 @@ _darkStyleForGame['dragonwood'] = `
 .roll_dice_button[style="background-color: rgb(0, 255, 0);"] { background-color: #006600 !important; }
 .roll_dice_button { background-color: #006600; }
 .ac_icon, .c_icon { filter: var(--highlight-min); }
-.sidehead-tooltip, .summary-tooltip { color: var(--light-80); }
+.sidehead-tooltip, .summary-tooltip, .text-tooltip { color: var(--light-80); }
 `;
 
 _darkStyleForGame['dronesvsseagulls'] = `
