@@ -43,3 +43,16 @@ export const i18n = (key: string): string => {
 };
 
 export const getExtensionVersion = () => browser.runtime.getManifest().version;
+
+export const checkIfResourcePathExists = (path: string): boolean => {
+	const manifest = browser.runtime.getManifest();
+	const resources = manifest.web_accessible_resources;
+	if (resources) {
+		for (const resource of resources) {
+			if (typeof resource !== 'string' && resource.resources && resource.resources.includes(path)) {
+				return true;
+			}
+		}
+	}
+	return false;
+}

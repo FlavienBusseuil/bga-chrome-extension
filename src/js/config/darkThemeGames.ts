@@ -714,36 +714,3 @@ export const gamesWithCustomActions: GamesWithCustomActions = {
     }
   },
 };
-
-export function getDarkStyleForGame(gameName: string): string {
-  return getCSSForGame(gameName, 'darkStyle.css');
-}
-
-export function getStyleForGame(gameName: string): string {
-  return getCSSForGame(gameName, 'style.css');
-}
-
-function getCSSForGame(gameName: string, cssName: string): string {
-  const url = getUrl(`css/games/${gameName}/${cssName}`);
-
-  const xhr = new XMLHttpRequest();
-  xhr.open('GET', url, false); // Synchronous request
-  try {
-    xhr.send();
-    if (xhr.status === 200) {
-      return replaceLocalURL(xhr.responseText);
-    }
-  } catch (e) {
-    console.error('[bga-ext] Error fetching game style:', e);
-  }
-
-  return '';
-}
-
-// Replaces any url(local://..) with extension based local url
-function replaceLocalURL(css: string) {
-  return css.replace(/url\(local:\/\/([^)]+)\)/g, (_, p1) => {
-    const url = getUrl(p1);
-    return `url(${url})`;
-  });
-}

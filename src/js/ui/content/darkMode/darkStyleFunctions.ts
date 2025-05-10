@@ -1,6 +1,6 @@
 import { isNumber } from "../../../utils/misc/isNumber";
 import { waitForObj } from "../../../utils/misc/wait";
-import { gamesWithCustomActions, gamesWithCustomBackground, gamesWithCustomDarkMode, gamesWithCustomPanel, gamesWithCustomPlayerStyle, gamesWithTwoTeams, getDarkStyleForGame, getStyleForGame, playersBackground, playersBorder } from "../../../config/darkThemeGames";
+import { gamesWithCustomActions, gamesWithCustomBackground, gamesWithCustomDarkMode, gamesWithCustomPanel, gamesWithCustomPlayerStyle, gamesWithTwoTeams, playersBackground, playersBorder } from "../../../config/darkThemeGames";
 import { PlayerData, getPlayersData, getPlayersPossibleColors } from "../players";
 import { cookieName, createStyle, getFile } from "./darkStyleCommonFunctions";
 
@@ -51,7 +51,7 @@ const removeBackgroundFlickerFix = () => {
   }
 }
 
-Promise.all(cssList.map(getFile)).then(fileContents => {
+Promise.all(cssList.map(file => getFile(file))).then(fileContents => {
   fileContents.forEach(({ file, content }) => cssContents[file] = content);
 
   styleComponent = createStyle();
@@ -156,47 +156,74 @@ const _setDarkStyleIfActivated = () => {
   }
 };
 
+const _applyDarkStyleForGame = (gameName: string,) => {
+  const gameStyle = cssContents['games/${gameName}/style.css'] || "";
+  const gameDarkStyle = cssContents['games/${gameName}/darkStyle.css'] || "";
+  const backStyle = gamesWithCustomBackground.includes(gameName) ? "" : cssContents["dark_theme/background.css"];
+
+  const completeStyle = `${backStyle}${cssContents["dark_theme/icons.css"]}${cssContents["dark_theme/common.css"]}${cssContents["dark_theme/chat.css"]}${cssContents["dark_theme/game.css"]}${gameDarkStyle}${gameStyle}`;
+  styleComponent.innerHTML = completeStyle;
+
+  if (!gamesWithCustomPanel.includes(gameName)) {
+    document.documentElement.classList.add("darkpanel");
+  }
+
+  getPlayersData(gamesWithTwoTeams.includes(gameName)).then(playersData => {
+    console.debug("[bga extension] players data", playersData);
+
+    const possibleColors = [...playersData, ...getPlayersPossibleColors(gameName)];
+    const colorsStyle = getDarkColorsStyle(possibleColors);
+    const backStyle = playersBackground[gameName] ? playersBackground[gameName].map((rule: string) => {
+      return playersData.filter(d => d.darkColor && d.darkColor !== d.color).map(d => {
+        const ruleName = rule.replace('{{player_id}}', d.id.toString());
+        return `${ruleName} { background-color: ${d.darkColor}!important; }`
+      });
+    }).flat().join(' ') : '';
+    const borderStyle = playersBorder[gameName] ? playersBorder[gameName].map((rule: string) => {
+      return playersData.filter(d => d.darkColor && d.darkColor !== d.color).map(d => {
+        const ruleName = rule.replace('{{player_id}}', d.id.toString());
+        return `${ruleName} { border-color: ${d.darkColor}!important; }`
+      });
+    }).flat().join(' ') : '';
+    styleComponent.innerHTML = `${completeStyle}${colorsStyle}${backStyle}${borderStyle}`;
+
+    if (gamesWithCustomPlayerStyle[gameName]) {
+      _setPlayersColor(gamesWithCustomPlayerStyle[gameName], playersData);
+    }
+  });
+}
+
+
 const _setDarkStyleForGame = (gameName: string) => {
   const applyGeneralCss = !gamesWithCustomDarkMode[gameName] || gamesWithCustomDarkMode[gameName].applyGeneralCss;
   const classToAdd = gamesWithCustomDarkMode[gameName]?.className;
 
   if (applyGeneralCss) {
-    const gameStyle = getStyleForGame(gameName) || "";
-    const gameDarkStyle = getDarkStyleForGame(gameName) || "";
-    const backStyle = gamesWithCustomBackground.includes(gameName) ? "" : cssContents["dark_theme/background.css"];
+    const gameStyleFile = `games/${gameName}/style.css`;
+    const gameDarkStyleFile = `games/${gameName}/darkStyle.css`;
+    const gameStyle = cssContents[gameStyleFile];
+    const gameDarkStyle = cssContents[gameDarkStyleFile];
 
-    const completeStyle = `${backStyle}${cssContents["dark_theme/icons.css"]}${cssContents["dark_theme/common.css"]}${cssContents["dark_theme/chat.css"]}${cssContents["dark_theme/game.css"]}${gameDarkStyle}${gameStyle}`;
-    styleComponent.innerHTML = completeStyle;
+    if (gameStyle === undefined || gameDarkStyle === undefined) {
+      Promise.all([gameStyleFile, gameDarkStyleFile].map(file => getFile(file, true))).then(fileContents => {
+        fileContents.forEach(({ file, content }) => cssContents[file] = content);
 
-    if (!gamesWithCustomPanel.includes(gameName)) {
-      document.documentElement.classList.add("darkpanel");
+        _applyDarkStyleForGame(gameName);
+      });
+    } else {
+      _applyDarkStyleForGame(gameName);
     }
-
-    getPlayersData(gamesWithTwoTeams.includes(gameName)).then(playersData => {
-      console.debug("[bga extension] players data", playersData);
-
-      const possibleColors = [...playersData, ...getPlayersPossibleColors(gameName)];
-      const colorsStyle = getDarkColorsStyle(possibleColors);
-      const backStyle = playersBackground[gameName] ? playersBackground[gameName].map((rule: string) => {
-        return playersData.filter(d => d.darkColor && d.darkColor !== d.color).map(d => {
-          const ruleName = rule.replace('{{player_id}}', d.id.toString());
-          return `${ruleName} { background-color: ${d.darkColor}!important; }`
-        });
-      }).flat().join(' ') : '';
-      const borderStyle = playersBorder[gameName] ? playersBorder[gameName].map((rule: string) => {
-        return playersData.filter(d => d.darkColor && d.darkColor !== d.color).map(d => {
-          const ruleName = rule.replace('{{player_id}}', d.id.toString());
-          return `${ruleName} { border-color: ${d.darkColor}!important; }`
-        });
-      }).flat().join(' ') : '';
-      styleComponent.innerHTML = `${completeStyle}${colorsStyle}${backStyle}${borderStyle}`;
-
-      if (gamesWithCustomPlayerStyle[gameName]) {
-        _setPlayersColor(gamesWithCustomPlayerStyle[gameName], playersData);
-      }
-    });
   } else {
-    styleComponent.innerHTML = getStyleForGame(gameName) || "";
+    const gameStyle = cssContents[`games/${gameName}/style.css`]
+    if (gameStyle === undefined) {
+      getFile(`games/${gameName}/style.css`, true).then(fileContent => {
+        cssContents[fileContent.file] = fileContent.content;
+        styleComponent.innerHTML = fileContent.content || "";
+      });
+    }
+    else {
+      styleComponent.innerHTML = gameStyle;
+    }
   }
 
   if (classToAdd) {
@@ -225,9 +252,14 @@ const _setDarkStyle = (mode: string) => {
   document.documentElement.classList.add("darkmode");
 };
 
-const _setLightStyle = (mode: string) => {
-  console.log("[bga extension] set light mode");
+const _applyLightStyleForGame = (generalStyle: string, gameStyle?: string) => {
+  styleComponent.innerHTML = `${generalStyle}${gameStyle || ''}`;
+  if (gamesWithCustomDarkMode[mode]) {
+    document.documentElement.classList.remove(gamesWithCustomDarkMode[mode].className);
+  }
+}
 
+const _setLightStyle = (mode: string) => {
   if (styleComponent) {
     const generalStyle = cssContents["light_theme/general.css"] as string;
 
@@ -239,10 +271,11 @@ const _setLightStyle = (mode: string) => {
     if (mode === "general") {
       styleComponent.innerHTML = generalStyle;
     } else {
-      const gameStyle = getStyleForGame(mode) || "";
-      styleComponent.innerHTML = `${generalStyle}${gameStyle}`;
-      if (gamesWithCustomDarkMode[mode]) {
-        document.documentElement.classList.remove(gamesWithCustomDarkMode[mode].className);
+      const gameStyle = cssContents[`games/${mode}/style.css`];
+      if (gameStyle === undefined) {
+        getFile(`games/${mode}/style.css`, false).then(fileContents => { cssContents[fileContents.file] = fileContents.content; _applyLightStyleForGame(generalStyle, fileContents.content); });
+      } else {
+        _applyLightStyleForGame(generalStyle, gameStyle);
       }
     }
   }
