@@ -1,0 +1,17 @@
+@import "../common";
+
+#pp_supply { background-color: var(--dark-20); color: var(--light-80) }
+#pp_discard_pile { border: 4px dashed #fff; }
+.pp_discarded_card { border: 1px solid #fff; }
+.pp_deck_counters_container { background-color: var(--dark-10); border-color: var(--light-70); }
+.pp_log_token.pp_log_token_rupee, .pp_log_token.pp_region_icon { filter: var(--highlight-min); }
+.pp_icon_count { border-color: var(--light-70); background-color: var(--dark-10); color: var(--light-80); }
+.pp_player_hand { background-color: var(--dark-back); color: var(--light-80); }
+#pp_map, #pp_market_board { filter: brightness(0.9); }
+#afghan_button { .greenButton(); }
+#afghan_button:hover { .greenButtonOver(); }
+#british_button { .pinkButton(); }
+#british_button:hover { .pinkButtonOver(); }
+#russian_button { .yellowButton(); }
+#russian_button:hover { .yellowButtonOver(); }
+.pp_player_tableau:before { content: ""; background: #00000080; position: absolute; width: 100%; height: 100%; }

@@ -1,0 +1,27 @@
+@import "../common";
+
+#overall-content:before { content: ""; background: #000000A0; position: absolute; width: 100%; height: 100%; }
+#central-board .turn-action-container .turn-number, #show-expedition { filter: invert(1); }
+#player_config #round-counter-wrapper { background-color: #000; }
+.caverna-meeple { filter: var(--highlight-min); }
+#floating-building-boards-wrapper[data-open=bonus] #floating-building-buttons .building-board-button[data-id=bonus],
+#floating-building-boards-wrapper[data-open=dwellings] #floating-building-buttons .building-board-button[data-id=dwellings],
+#floating-building-boards-wrapper[data-open=food] #floating-building-buttons .building-board-button[data-id=food],
+#floating-building-boards-wrapper[data-open=materials] #floating-building-buttons .building-board-button[data-id=materials]
+{ background: #000; color: #e6e7e9; }
+.action-header, .building-title, .building-desc { color: #000; }
+.caverna-building[data-type=StartDwelling] .building-resizable { box-shadow: none; }
+.caverna-building[data-type=StartDwelling] .building-resizable > div { color: #fff !important; }
+.player-board-wrapper .player-board-holder .resources-bar-holder .player-board-name { background-color: var(--dark-20); }
+.player-board-wrapper .player-board-holder .resources-bar-holder { background: var(--dark-30); border-top-left-radius: 8px; border-top-right-radius: 8px; }
+.cavernaBuilding_popin, .caverna_popin:not(#popin_showScores) { background-image: none; }
+.caverna_popin:not(#popin_showScores) h2, .cavernaBuilding_popin h2 { background-color: #404347; color: var(--light-80); }
+#popin_showTour.caverna_popin #tour-slider-container .slide .bubble { background: var(--dark-10); border: 2px solid var(--light-50); }
+#popin_showTour.caverna_popin #tour-slide-footer { background-color: var(--dark-10); }
+#popin_showTour.caverna_popin #tour-slider-container .slide .tour-remark { background: var(--dark-back); }
+#popin_showRuby.caverna_popin, #popin_showExpedition.caverna_popin, #popin_showScores.caverna_popin { background: var(--dark-10); color: var(--light-80); }
+#popin_showScores.caverna_popin #popin_showScores_contents table tbody tr { background-color: var(--dark-20); color: var(--light-80); }
+#popin_showScores.caverna_popin #popin_showScores_contents table tbody tr:nth-child(odd) { background-color: var(--dark-40); }
+#popin_showScores.caverna_popin #popin_showScores_contents table tbody tr td .scoring-entry i,#popin_showScores.caverna_popin #popin_showScores_contents table tbody tr td .scoring-subentry i { color: var(--light-50); }
+#popin_showScores.caverna_popin #popin_showScores_contents table tbody tr td .scoring-subentries { border: none; }
+#players-scores * { border-color: var(--light-50) !important; }

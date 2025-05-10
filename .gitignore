@@ -8,3 +8,4 @@ keys/**
 .parcel-cache
 /local/
 .vs
+dist
