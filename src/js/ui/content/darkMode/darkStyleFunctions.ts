@@ -157,9 +157,11 @@ const _setDarkStyleIfActivated = () => {
 };
 
 const _applyDarkStyleForGame = (gameName: string,) => {
-  const gameStyle = cssContents['games/${gameName}/style.css'] || "";
-  const gameDarkStyle = cssContents['games/${gameName}/darkStyle.css'] || "";
+  const gameStyle = cssContents[`games/${gameName}/style.css`] || "";
+  const gameDarkStyle = cssContents[`games/${gameName}/darkStyle.css`] || "";
   const backStyle = gamesWithCustomBackground.includes(gameName) ? "" : cssContents["dark_theme/background.css"];
+
+  console.debug(`[bga extension] applying dark style for game`, gameName, gameStyle !== "", gameDarkStyle !== "", backStyle !== "");
 
   const completeStyle = `${backStyle}${cssContents["dark_theme/icons.css"]}${cssContents["dark_theme/common.css"]}${cssContents["dark_theme/chat.css"]}${cssContents["dark_theme/game.css"]}${gameDarkStyle}${gameStyle}`;
   styleComponent.innerHTML = completeStyle;
