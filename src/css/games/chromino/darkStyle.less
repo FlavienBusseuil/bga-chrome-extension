@@ -1,7 +1,18 @@
 @import "../common";
-@import "../../dark_theme/shared/background-image.less";
 
-#btn_user_prefs { filter: invert(1); }
-.block-user-pref-radio label { background-color: #111; }
-#map_container { background-image: @darkBackgroundImage; }
-.tile.icon { filter: var(--highlight-min); }
+#btn_user_prefs {
+	filter: invert(1);
+}
+
+.block-user-pref-radio label {
+	background-color: #111;
+}
+
+#map_container {
+	background-image: none;
+	background-color: var(--dark-30);
+}
+
+.tile.icon {
+	filter: var(--highlight-min);
+}
