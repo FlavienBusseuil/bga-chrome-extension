@@ -44,15 +44,9 @@ export const i18n = (key: string): string => {
 
 export const getExtensionVersion = () => browser.runtime.getManifest().version;
 
+const cleanPath = (path: string) => (path.startsWith('/')) ? path.substring(1) : path;
+const resources = new Set(browser.runtime.getManifest().web_accessible_resources?.filter(r => typeof r !== 'string').map(r => r.resources.map(cleanPath)).flat() || []);
+
 export const checkIfResourcePathExists = (path: string): boolean => {
-	const manifest = browser.runtime.getManifest();
-	const resources = manifest.web_accessible_resources;
-	if (resources) {
-		for (const resource of resources) {
-			if (typeof resource !== 'string' && resource.resources && resource.resources.includes(path)) {
-				return true;
-			}
-		}
-	}
-	return false;
-}
+	return resources.has(cleanPath(path));
+};
