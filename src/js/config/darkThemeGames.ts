@@ -1,4 +1,3 @@
-import { getUrl } from "../utils/browser";
 import { waitForObj } from '../utils/misc/wait';
 
 export const gamesWithCustomBackground = [
@@ -385,6 +384,7 @@ export const playersBorder: { [gameName: GameName]: string[] } = {
 
 export const gamesWithCustomColors: { [gameName: GameName]: string[] } = {
   ageofinnovation: ['#971923', '#278139', '#70421d', '#1a2126', '#f9ae18', '#1d7ddb'],
+  altay: ['#000000', '#ebb41b', '#e12129', '#00a7d2', '#47a34b'],
   cosmoctopus: ['#20134b'],
   deadcells: ['#3c733a', '#ab3237', '#5c5aa5', '#c97014'],
   deliverance: ['#8b4513', '#ee0000', '#ffd700', '#007f00'],

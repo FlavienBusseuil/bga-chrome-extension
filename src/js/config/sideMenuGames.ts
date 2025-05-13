@@ -1510,6 +1510,10 @@ const defaultGames: Partial<Game>[] = [
 		boardPanel: "playerHandWrapper",
 		boardPanelText: "#playerHandWrapper>div:first-child"
 	},
+	{
+		name: "altay",
+		playerPanel: "ALTAYplayerArea-{{player_id}}",
+	},
 ];
 
 export default defaultGames;

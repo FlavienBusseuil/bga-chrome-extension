@@ -47,6 +47,4 @@ export const getExtensionVersion = () => browser.runtime.getManifest().version;
 const cleanPath = (path: string) => (path.startsWith('/')) ? path.substring(1) : path;
 const resources = new Set(browser.runtime.getManifest().web_accessible_resources?.filter(r => typeof r !== 'string').map(r => r.resources.map(cleanPath)).flat() || []);
 
-export const checkIfResourcePathExists = (path: string): boolean => {
-	return resources.has(cleanPath(path));
-};
+export const checkIfResourcePathExists = (path: string): boolean => resources.has(cleanPath(path));
