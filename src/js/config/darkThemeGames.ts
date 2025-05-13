@@ -71,6 +71,7 @@ export const gamesWithCustomBackground = [
   'expeditions',
   'explodingkittens',
   'faraway',
+  'fateoffellowship',
   'federation',
   'fifteendays',
   'finca',
@@ -304,6 +305,26 @@ export const gamesWithCustomDarkMode: GamesWithCustomDarkMode = {
   },
 };
 
+interface GamesWithCustomBackground {
+  [gameName: GameName]: string[];
+}
+
+export const gamesWithConditionalCustomBackground: GamesWithCustomBackground = {
+  apiary: ['custom-background'],
+  challengers: ['challengers-pref-background-dark'],
+  cuttle: ['theme_cuttlefish'],
+  festival: ['black-background', 'dark-wood-background'],
+  gemsofiridescia: ['goi_thematicBackground'],
+  nirds: ['spicy'],
+  orapamine: ['orp_pref-thematicBackground-blue', 'orp_pref-thematicBackground-red'],
+  rollintotown: ['rt-pref-background-dark'],
+  setup: ['setup-pref-background-dark'],
+  supermegaluckybox: ['smlb_background'],
+  texasholdem: ['dark-wood-vertical-background', 'dark-wood-horizontal-background'],
+  thewhitecastle: ['custom-background'],
+  wingspan: ['wsp_background_paper'],
+};
+
 export const gamesWithCustomPlayerStyle: { [gameName: GameName]: string } = {
   almadi: '.playgroundContainer h2',
   arboretum: '.player-table h3.title',
@@ -409,22 +430,6 @@ export const gamesWithCustomColors: { [gameName: GameName]: string[] } = {
   verdant: ['#2d3691']
 };
 
-const manageBackground = (defBackClass: string, otherBackClasses: string[]) => {
-  const defBackFound = defBackClass ? document.documentElement.classList.contains(defBackClass) : true;
-  const otherBackFound = otherBackClasses.find(c => document.documentElement.classList.contains(c));
-
-  if (!defBackFound && !otherBackFound) {
-    console.debug("[bga extension] Manage background : no class found");
-    setTimeout(() => manageBackground(defBackClass, otherBackClasses), 50);
-  } else if (otherBackFound) {
-    console.debug("[bga extension] Manage background : cust class found");
-    document.documentElement.classList.add("bgaext_cust_back");
-  } else {
-    console.debug("[bga extension] Manage background : def class found");
-    document.documentElement.classList.remove("bgaext_cust_back");
-  }
-};
-
 const getDefaultBackgroundStyle = (src: HTMLElement) => {
   const backStyle = getComputedStyle(src).background;
   return (backStyle.indexOf('back-main_games') > 0 || backStyle.indexOf('none') > 0) ? undefined : backStyle;
@@ -528,68 +533,13 @@ export const gamesWithCustomActions: GamesWithCustomActions = {
     },
     init: () => { }
   },
-  supermegaluckybox: {
-    init: () => {
-      manageBackground("smlb_bga_background", ["smlb_background"]);
-    }
-  },
-  wingspan: {
-    init: () => {
-      const input1 = document.getElementById('preference_control_101') as any;
-      const input2 = document.getElementById('preference_fontrol_101') as any;
-      const wingManageBackground = () => {
-        if (!document.documentElement.classList.contains("wsp_birdtray_default") && !document.documentElement.classList.contains("wsp_birdtray_largecards")) {
-          setTimeout(wingManageBackground, 50);
-        } else if (document.documentElement.classList.contains("wsp_background_paper")) {
-          document.documentElement.classList.add("bgaext_cust_back");
-        } else {
-          document.documentElement.classList.remove("bgaext_cust_back");
-        }
-      };
-
-      input1.addEventListener('change', () => setTimeout(wingManageBackground, 500));
-      input2.addEventListener('change', () => setTimeout(wingManageBackground, 500));
-      wingManageBackground();
-    }
-  },
-  festival: {
-    init: () => {
-      waitForObj('#fes-background2', 5).then((input) => {
-        const festManageBackground = () => manageBackground("no-custom-background", ["black-background", "dark-wood-background"]);
-        input.addEventListener('change', () => setTimeout(festManageBackground, 100));
-        festManageBackground();
-      });
-    }
-  },
-  apiary: {
-    init: () => {
-      waitForObj('#preference_control_102', 5).then((input) => {
-        const apiaryManageBackground = () => manageBackground("no-custom-background", ["custom-background"]);
-
-        input.addEventListener('change', () => setTimeout(apiaryManageBackground, 100));
-        document.getElementById('preference_fontrol_102')?.addEventListener('change', () => setTimeout(apiaryManageBackground, 100));
-        apiaryManageBackground();
-      });
-    }
-  },
-  thewhitecastle: {
-    init: () => {
-      waitForObj('#preference_control_102', 5).then((input) => {
-        const whitecastleManageBackground = () => manageBackground("no-custom-background", ["custom-background"]);
-
-        input.addEventListener('change', () => setTimeout(whitecastleManageBackground, 100));
-        document.getElementById('preference_fontrol_102')?.addEventListener('change', () => setTimeout(whitecastleManageBackground, 100));
-        whitecastleManageBackground();
-      });
-    }
-  },
   barrage: {
     init: () => {
       const input = document.getElementById('setting-background') as any;
       const barrageManageBackground = () => {
         const back = document.body.dataset.background;
-        if (back == undefined) {
-          setTimeout(manageBackground, 50);
+        if (back === undefined) {
+          setTimeout(barrageManageBackground, 50);
         } else if (back === "2") {
           document.documentElement.classList.remove("bgaext_cust_back");
         } else {
@@ -599,45 +549,6 @@ export const gamesWithCustomActions: GamesWithCustomActions = {
 
       input.addEventListener('change', () => setTimeout(barrageManageBackground, 100));
       barrageManageBackground();
-    }
-  },
-  challengers: {
-    init: () => {
-      manageBackground("challengers-pref-background-normal", ["challengers-pref-background-dark"]);
-    }
-  },
-  rollintotown: {
-    init: () => {
-      const input1 = document.getElementById('preference_control_101') as any;
-      const input2 = document.getElementById('preference_fontrol_101') as any;
-      const rollManageBackground = () => manageBackground("rt-pref-background-normal", ["rt-pref-background-dark"]);
-
-      input1.addEventListener('change', () => setTimeout(rollManageBackground, 500));
-      input2.addEventListener('change', () => setTimeout(rollManageBackground, 500));
-      rollManageBackground();
-    }
-  },
-  setup: {
-    init: () => {
-      const input1 = document.getElementById('preference_control_103') as any;
-      const input2 = document.getElementById('preference_fontrol_103') as any;
-      const setupManageBackground = () => manageBackground("setup-pref-background-normal", ["setup-pref-background-dark"]);
-
-      input1.addEventListener('change', () => setTimeout(setupManageBackground, 500));
-      input2.addEventListener('change', () => setTimeout(setupManageBackground, 500));
-      setupManageBackground();
-    }
-  },
-  texasholdem: {
-    init: () => {
-      const manageTexasBackground = () => {
-        if (document.documentElement.classList.contains('dark-wood-vertical-background') || document.documentElement.classList.contains('dark-wood-horizontal-background')) {
-          document.documentElement.classList.add("bgaext_cust_back");
-        } else {
-          document.documentElement.classList.remove("bgaext_cust_back");
-        }
-      };
-      setTimeout(manageTexasBackground, 500);
     }
   },
   spiritsoftheforest: {
@@ -670,63 +581,10 @@ export const gamesWithCustomActions: GamesWithCustomActions = {
   thehanginggardens: {
     init: () => addInvertOverlay('', true)
   },
-  gemsofiridescia: {
-    init: () => {
-      const manageGemsBackground = () => {
-        if (document.documentElement.classList.contains('goi_thematicBackground')) {
-          document.documentElement.classList.add("bgaext_cust_back");
-        } else {
-          document.documentElement.classList.remove("bgaext_cust_back");
-        }
-      };
-      setTimeout(manageGemsBackground, 500);
-    }
-  },
   bunnyboom: {
     init: () => addInvertOverlay('', true)
   },
   toybattle: {
     init: () => addInvertOverlay('', true)
-  },
-  cuttle: {
-    init: () => {
-      const input1 = document.getElementById('preference_control_100') as any;
-      const input2 = document.getElementById('preference_fontrol_100') as any;
-      const setupManageBackground = () => manageBackground("theme_bga", ["theme_cuttlefish"]);
-
-      input1.addEventListener('change', () => setTimeout(setupManageBackground, 500));
-      input2.addEventListener('change', () => setTimeout(setupManageBackground, 500));
-      setupManageBackground();
-    }
-  },
-  nirds: {
-    init: () => {
-      const input1 = document.getElementById('background-choice') as any;
-      const nirdsManageBackground = () => {
-        if (document.documentElement.classList.contains('spicy')) {
-          document.documentElement.classList.add("bgaext_cust_back");
-        } else {
-          document.documentElement.classList.remove("bgaext_cust_back");
-        }
-      };
-
-      input1.addEventListener('click', () => {
-        setTimeout(nirdsManageBackground, 50);
-      });
-      nirdsManageBackground();
-    }
-  },
-  orapamine: {
-    init: () => {
-      waitForObj('#orp_board', 5).then(() => {
-        const input1 = document.getElementById('preference_control_100') as any;
-        const input2 = document.getElementById('preference_fontrol_100') as any;
-        const setupManageBackground = () => manageBackground("", ["orp_pref-thematicBackground-blue", "orp_pref-thematicBackground-red"]);
-
-        input1.addEventListener('change', () => setTimeout(setupManageBackground, 500));
-        input2.addEventListener('change', () => setTimeout(setupManageBackground, 500));
-        setTimeout(setupManageBackground, 500);
-      });
-    }
   },
 };

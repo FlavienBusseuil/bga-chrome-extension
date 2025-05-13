@@ -1518,6 +1518,11 @@ const defaultGames: Partial<Game>[] = [
 		name: "apiary",
 		playerPanel: "ap-player-area-{{player_id}}",
 	},
+	{
+		name: "fateoffellowship",
+		playerPanel: ".playername.fo_zone_title",
+	},
+
 ];
 
 export default defaultGames;

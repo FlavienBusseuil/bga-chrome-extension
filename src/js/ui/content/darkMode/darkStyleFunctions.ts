@@ -1,6 +1,6 @@
 import { isNumber } from "../../../utils/misc/isNumber";
 import { waitForObj } from "../../../utils/misc/wait";
-import { gamesWithCustomActions, gamesWithCustomBackground, gamesWithCustomDarkMode, gamesWithCustomPanel, gamesWithCustomPlayerStyle, gamesWithTwoTeams, playersBackground, playersBorder } from "../../../config/darkThemeGames";
+import { gamesWithConditionalCustomBackground, gamesWithCustomActions, gamesWithCustomBackground, gamesWithCustomDarkMode, gamesWithCustomPanel, gamesWithCustomPlayerStyle, gamesWithTwoTeams, playersBackground, playersBorder } from "../../../config/darkThemeGames";
 import { PlayerData, getPlayersData, getPlayersPossibleColors } from "../players";
 import { cookieName, createStyle, getFile } from "./darkStyleCommonFunctions";
 
@@ -316,6 +316,18 @@ const initClassObserver = (mode: string) => {
       }
       if (customDarkClass && !document.documentElement.classList.contains(customDarkClass)) {
         document.documentElement.classList.add(customDarkClass);
+      }
+
+      const classesList = gamesWithConditionalCustomBackground[mode];
+
+      if (classesList) {
+        if (classesList.find(c => document.documentElement.classList.contains(c))) {
+          if (!document.documentElement.classList.contains("bgaext_cust_back")) {
+            document.documentElement.classList.add("bgaext_cust_back");
+          }
+        } else if (document.documentElement.classList.contains("bgaext_cust_back")) {
+          document.documentElement.classList.remove("bgaext_cust_back");
+        }
       }
     } else {
       if (document.documentElement.classList.contains("darkmode")) {
