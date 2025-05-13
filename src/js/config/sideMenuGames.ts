@@ -1514,6 +1514,10 @@ const defaultGames: Partial<Game>[] = [
 		name: "altay",
 		playerPanel: "ALTAYplayerArea-{{player_id}}",
 	},
+	{
+		name: "apiary",
+		playerPanel: "ap-player-area-{{player_id}}",
+	},
 ];
 
 export default defaultGames;

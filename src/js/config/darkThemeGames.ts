@@ -202,7 +202,6 @@ export const gamesWithCustomBackground = [
   'tapestry',
   'thecrew',
   'thecrewdeepsea',
-  'thewhitecastle',
   'tickettoride',
   'tickettorideeurope',
   'tikal',
@@ -241,6 +240,7 @@ export const gamesWithTwoTeams = [
 
 export const gamesWithCustomPanel = [
   'aiye',
+  'apiary',
   'coatl',
   'dronesvsseagulls',
   'eminentdomain',
@@ -410,15 +410,18 @@ export const gamesWithCustomColors: { [gameName: GameName]: string[] } = {
 };
 
 const manageBackground = (defBackClass: string, otherBackClasses: string[]) => {
-  const defBackFound = document.documentElement.classList.contains(defBackClass);
+  const defBackFound = defBackClass ? document.documentElement.classList.contains(defBackClass) : true;
   const otherBackFound = otherBackClasses.find(c => document.documentElement.classList.contains(c));
 
   if (!defBackFound && !otherBackFound) {
+    console.debug("[bga extension] Manage background : no class found");
     setTimeout(() => manageBackground(defBackClass, otherBackClasses), 50);
-  } else if (defBackFound) {
-    document.documentElement.classList.remove("bgaext_cust_back");
-  } else {
+  } else if (otherBackFound) {
+    console.debug("[bga extension] Manage background : cust class found");
     document.documentElement.classList.add("bgaext_cust_back");
+  } else {
+    console.debug("[bga extension] Manage background : def class found");
+    document.documentElement.classList.remove("bgaext_cust_back");
   }
 };
 
@@ -552,9 +555,20 @@ export const gamesWithCustomActions: GamesWithCustomActions = {
   festival: {
     init: () => {
       waitForObj('#fes-background2', 5).then((input) => {
-        const festManageBackground = () => manageBackground("no-custom-background", ["custom-background-background", "dark-wood-background"]);
-        input.addEventListener('change', () => setTimeout(festManageBackground, 1));
+        const festManageBackground = () => manageBackground("no-custom-background", ["black-background", "dark-wood-background"]);
+        input.addEventListener('change', () => setTimeout(festManageBackground, 100));
         festManageBackground();
+      });
+    }
+  },
+  apiary: {
+    init: () => {
+      waitForObj('#preference_control_102', 5).then((input) => {
+        const apiaryManageBackground = () => manageBackground("no-custom-background", ["custom-background"]);
+
+        input.addEventListener('change', () => setTimeout(apiaryManageBackground, 100));
+        document.getElementById('preference_fontrol_102')?.addEventListener('change', () => setTimeout(apiaryManageBackground, 100));
+        apiaryManageBackground();
       });
     }
   },
@@ -563,8 +577,8 @@ export const gamesWithCustomActions: GamesWithCustomActions = {
       waitForObj('#preference_control_102', 5).then((input) => {
         const whitecastleManageBackground = () => manageBackground("no-custom-background", ["custom-background"]);
 
-        input.addEventListener('change', () => setTimeout(whitecastleManageBackground, 1));
-        document.getElementById('preference_fontrol_102')?.addEventListener('change', () => setTimeout(whitecastleManageBackground, 1));
+        input.addEventListener('change', () => setTimeout(whitecastleManageBackground, 100));
+        document.getElementById('preference_fontrol_102')?.addEventListener('change', () => setTimeout(whitecastleManageBackground, 100));
         whitecastleManageBackground();
       });
     }
@@ -583,7 +597,7 @@ export const gamesWithCustomActions: GamesWithCustomActions = {
         }
       };
 
-      input.addEventListener('change', () => setTimeout(barrageManageBackground, 1));
+      input.addEventListener('change', () => setTimeout(barrageManageBackground, 100));
       barrageManageBackground();
     }
   },
@@ -704,13 +718,15 @@ export const gamesWithCustomActions: GamesWithCustomActions = {
   },
   orapamine: {
     init: () => {
-      const input1 = document.getElementById('preference_control_100') as any;
-      const input2 = document.getElementById('preference_fontrol_100') as any;
-      const setupManageBackground = () => manageBackground("", ["orp_pref-thematicBackground-blue", "orp_pref-thematicBackground-red"]);
+      waitForObj('#orp_board', 5).then(() => {
+        const input1 = document.getElementById('preference_control_100') as any;
+        const input2 = document.getElementById('preference_fontrol_100') as any;
+        const setupManageBackground = () => manageBackground("", ["orp_pref-thematicBackground-blue", "orp_pref-thematicBackground-red"]);
 
-      input1.addEventListener('change', () => setTimeout(setupManageBackground, 500));
-      input2.addEventListener('change', () => setTimeout(setupManageBackground, 500));
-      setupManageBackground();
+        input1.addEventListener('change', () => setTimeout(setupManageBackground, 500));
+        input2.addEventListener('change', () => setTimeout(setupManageBackground, 500));
+        setTimeout(setupManageBackground, 500);
+      });
     }
   },
 };
