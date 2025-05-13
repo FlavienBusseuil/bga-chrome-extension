@@ -130,7 +130,7 @@ const manageLocationChange = (pathname) => {
 
 	// This is not a game page : load the home page management script
 	if (!document.getElementById('ext_homepage')) {
-		waitForObj('head', 10).then(() => {
+		waitForObj('head').then(() => {
 			console.debug("[bga extension] load home page management script");
 			const script = document.createElement('script');
 			script.id = 'ext_homepage';
@@ -146,10 +146,10 @@ const manageLocationChange = (pathname) => {
 
 	if (pageName === 'welcome') {
 		// send home display configuration to the home page management script
-		waitForObj('body', 10).then(sendHomeConfiguration);
+		waitForObj('body').then(sendHomeConfiguration);
 
 		// reload css if the advent calendar is displayed
-		waitForObj('.bga-advent-calendar', 10).then(() => buildMainCss(config.getAllCss())).catch(() => { });
+		waitForObj('.bga-advent-calendar', 2000).then(() => buildMainCss(config.getAllCss())).catch(() => { });
 	}
 
 	if (pageName === 'tutorial') {
@@ -160,7 +160,7 @@ const manageLocationChange = (pathname) => {
 	}
 
 	if (pageName === 'archive') {
-		waitForObj('[href*="table="]', 5).then((elt) => {
+		waitForObj('[href*="table="]').then((elt) => {
 			gameName = elt.href.substring(elt.href.lastIndexOf('/') + 1).split('?')[0];
 			initDarkMode(config, gameName);
 			setHtmlGameClass();
@@ -277,7 +277,7 @@ const initPage = () => {
 			break;
 	}
 
-	waitForObj('head', 10).then(() => {
+	waitForObj('head').then(() => {
 		console.debug('[bga extension] bga api script loading...');
 		const script = document.createElement('script');
 		script.id = 'ext_bga_api';
@@ -287,7 +287,7 @@ const initPage = () => {
 		setEloStyle(config);
 	});
 
-	waitForObj('body', 10).then(() => {
+	waitForObj('body').then(() => {
 		if (pageType === 'general') {
 			setTimeout(() => displayInformationPopup(config), 2000);
 		}

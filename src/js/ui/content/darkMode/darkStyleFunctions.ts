@@ -240,7 +240,7 @@ const _setDarkStyle = (mode: string) => {
     if (mode === "archive") {
       styleComponent.innerHTML = "";
 
-      waitForObj('[href*="table="]', 5).then((elt: any) => {
+      waitForObj('[href*="table="]').then((elt: any) => {
         const gameName = elt.href.substring(elt.href.lastIndexOf('/') + 1).split('?')[0];
         _setDarkStyleForGame(gameName);
       });

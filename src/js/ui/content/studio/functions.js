@@ -4,14 +4,9 @@ import { waitForObj } from '../../../utils/misc/wait';
 import { i18n } from "../../../utils/browser";
 
 export const initDevelopperUI = (config) => {
-	if (document.getElementById("last_reports") || document.getElementById("ext_templates")) {
-		// display of reports list, or templates list already displayed, nothing to do
-		return;
-	}
-
 	if (window.location.search.startsWith("?id=0")) {
 		// creation of a bug report
-		waitForObj(".pagesection__content > p", 10).then((firstComment) => {
+		waitForObj(".pagesection__content > p", 1000).then((firstComment) => {
 			console.log("[bga extension] creation of a bug report");
 
 			try {
@@ -27,6 +22,11 @@ export const initDevelopperUI = (config) => {
 				window.location.reload();
 			}
 		});
+		return;
+	}
+
+	if (document.getElementById("last_reports") || document.getElementById("ext_templates")) {
+		// display of reports list, or templates list already displayed, nothing to do
 		return;
 	}
 

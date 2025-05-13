@@ -17,7 +17,7 @@ import shouldFilter from '../../config/filteredLogs';
 import { isFirefox, i18n } from '../../utils/browser';
 
 const buildMainCss = (code) => {
-	waitForObj('head', 10).then(() => {
+	waitForObj('head').then(() => {
 		let style = document.getElementById('cde_bga_ext');
 
 		if (!style) {
@@ -296,19 +296,37 @@ const muteChatAll = (config, chatContainer) => {
 	}
 };
 
+let chatbarObserver;
+let audiosourcesObserver;
+
 const initChatObserver = (config) => {
 	mutedPlayers = config.getMutedPlayers();
 
-	waitForObj('#chatbar', 5).then(chatContainer => {
+	waitForObj('#chatbar').then(chatContainer => {
 		console.debug('[bga extension] init mute management', mutedPlayers);
 
-		const observer = new MutationObserver(() => muteChatAll(config, chatContainer));
-		observer.observe(chatContainer, { childList: true, subtree: true });
-		return observer;
+		try {
+			if (chatbarObserver) {
+				chatbarObserver.disconnect();
+			}
+		} catch (error) {
+			console.warn(`[bga extension] can't disconnect previous chatbar observer`);
+		}
+
+		chatbarObserver = new MutationObserver(() => muteChatAll(config, chatContainer));
+		chatbarObserver.observe(chatContainer, { childList: true, subtree: true });
 	});
 
-	waitForObj('#audiosources', 5).then(audioContainer => {
-		const observer = new MutationObserver(() => {
+	waitForObj('#audiosources').then(audioContainer => {
+		try {
+			if (audiosourcesObserver) {
+				audiosourcesObserver.disconnect();
+			}
+		} catch (error) {
+			console.warn(`[bga extension] can't disconnect previous audiosources observer`);
+		}
+
+		audiosourcesObserver = new MutationObserver(() => {
 			const audioTag = document.getElementById('audiosrc_o_alt_Plop');
 			const extAudioTag = document.getElementById('ext_audiosrc_o_alt_Plop');
 
@@ -324,8 +342,7 @@ const initChatObserver = (config) => {
 				}
 			}
 		});
-		observer.observe(audioContainer, { childList: true, subtree: true });
-		return observer;
+		audiosourcesObserver.observe(audioContainer, { childList: true, subtree: true });
 	});
 };
 
@@ -550,7 +567,7 @@ const initChatIcon = (config) => {
 	const chatIconId = 'bga_extension_chat_icon';
 
 	if (!document.getElementById(chatIconId)) {
-		waitForObj('.bga-friends-icon', 10).then((friendsElt) => {
+		waitForObj('.bga-friends-icon').then((friendsElt) => {
 			const container = friendsElt.parentNode;
 
 			const chatElt = document.createElement('div');

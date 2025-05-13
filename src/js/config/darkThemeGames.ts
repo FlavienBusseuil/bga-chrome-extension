@@ -446,7 +446,7 @@ const copyDefaultBackgroundStyle = (overlay: HTMLElement, attempt: number) => {
 };
 
 const addInvertOverlay = (className: string, copyDefaultStyle: boolean) => {
-  waitForObj('#overall-content', 5).then(overallContent => {
+  waitForObj('#overall-content').then(overallContent => {
     const overlay = document.createElement("DIV");
     overlay.className = `bgaext_overlay ${className}`;
     overlay.style.position = 'absolute';

@@ -35,7 +35,7 @@ export const createStyle = () => {
   const styleComponent = document.createElement("style");
   styleComponent.id = themeStyleId;
 
-  waitForObj('head', 10).then(() => {
+  waitForObj('head').then(() => {
     document.head.appendChild(styleComponent);
   });
 

@@ -5,7 +5,7 @@ import { waitForObj } from '../../../utils/misc/wait';
 export const setFloatingRightMenu = (config, val) => {
 	const menuContainerId = "cde-floating-menu";
 
-	waitForObj('#gotonexttable_wrap', 10).then((pageTitle) => {
+	waitForObj('#gotonexttable_wrap', 1000).then((pageTitle) => {
 		if (val) {
 			document.body.classList.add("logs_on_floating_panel");
 		} else {

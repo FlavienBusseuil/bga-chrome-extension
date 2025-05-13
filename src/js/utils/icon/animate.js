@@ -1,6 +1,11 @@
 // @flow
 
-import { wait } from "../misc/wait";
+async function wait(ms): Promise<void> {
+	return new Promise((resolve) => {
+		setTimeout(resolve, ms);
+	});
+}
+
 
 type Props = {
 	images: Array<{
