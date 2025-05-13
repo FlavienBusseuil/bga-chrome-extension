@@ -593,7 +593,7 @@
 		"message": "Dein Fehlerbericht wurde abgeschickt. Du kannst den aktuellen Status des Berichts auf <a href='/group?id=18063230' target='_blank' class='bga-ext-link'>dieser Seite</a> verfolgen. "
 	},
 	"bugReportNew": {
-		"message": "Neu! Du kannst Fehler im dunklen Modus nun direkt hier über das Pop-Up melden"
+		"message": "Du kannst Fehler im dunklen Modus nun direkt hier über das Pop-Up melden"
 	},
 	"optionGeneralTab": {
 		"message": "Allgemein"

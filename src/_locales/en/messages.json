@@ -593,7 +593,7 @@
 		"message": "Your bug report has been sent. You can view it, and check the progress of your bug resolution on <a href='/group?id=18063230' target='_blank' class='bga-ext-link'>this page</a>"
 	},
 	"bugReportNew": {
-		"message": "New ! You can report a dark mode bug by opening the popup here"
+		"message": "You can report a dark mode bug by opening the popup here"
 	},
 	"optionGeneralTab": {
 		"message": "General"
