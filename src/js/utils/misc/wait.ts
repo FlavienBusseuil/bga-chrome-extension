@@ -7,14 +7,14 @@ type Waiter = {
 
 class Wait {
 	observer: MutationObserver;
+	observerStarted: boolean;
 	waiting: Record<string, Waiter[]>
 
 	constructor() {
 		this.waiting = {};
+		this.observerStarted = false;
 		this.observer = new MutationObserver(() => {
 			const keys = Object.keys(this.waiting);
-
-			//console.debug(`[bga extension] wait for ${keys.length} elements`, keys);
 
 			if (keys.length) {
 				const timestamp = new Date().getTime();
@@ -47,9 +47,26 @@ class Wait {
 						}
 					}
 				});
+			} else {
+				this.stopObserver();
 			}
 		});
-		this.observer.observe(document.documentElement, { childList: true, subtree: true, attributes: true });
+	}
+
+	private startObserver() {
+		if (!this.observerStarted) {
+			console.debug('[bga extension] start objects observer');
+			this.observerStarted = true;
+			this.observer.observe(document.documentElement, { childList: true, subtree: true, attributes: true });
+		}
+	}
+
+	private stopObserver() {
+		if (this.observerStarted) {
+			console.debug('[bga extension] stop objects observer');
+			this.observerStarted = false;
+			this.observer.disconnect();
+		}
 	}
 
 	async for(selector: string, timeout?: number) {
@@ -59,6 +76,8 @@ class Wait {
 			console.debug(`[bga extension] wait for elt '${selector}'`, { result: true, delay: '0ms' });
 			return elt;
 		}
+
+		this.startObserver();
 
 		if (!this.waiting[selector]) {
 			this.waiting[selector] = [];
