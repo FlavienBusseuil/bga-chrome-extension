@@ -25,9 +25,11 @@ const Switch = ({ checked, disabled, textOn, textOff, onChange, className }: Pro
           <span className="bgaext_slider round" />
         </label>
       </div>
-      <span className='bgaext_switch_text'>
-        {checked ? textOn : textOff}
-      </span>
+      <div>
+        <span className='bgaext_switch_text'>
+          {checked ? textOn : textOff}
+        </span>
+      </div>
     </div>
   );
 }

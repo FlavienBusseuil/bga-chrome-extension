@@ -82,17 +82,21 @@
   text-align: right;
 }
 
-.options-subframe {
+.options-twocolumns {
   display: flex;
-  flex-flow: row nowrap;
+  flex-flow: row wrap;
   width: 100%;
+  gap: 0.5em 0em;
 }
 
-.options-subframe>div {
+.options-twocolumns .bgaext_switch_container {
   width: 50%;
-  gap: 0.2em;
-  display: flex;
-  flex-flow: column;
+}
+
+@media (max-width: 400px) {
+  .options-twocolumns .bgaext_switch_container {
+    width: 100%;
+  }
 }
 
 .bgext_hidden_games_container {

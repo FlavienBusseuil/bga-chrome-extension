@@ -100,11 +100,7 @@ html.darkmode .bgaext_switch_container.checked .bgaext_slider:before {
 }
 
 .bgaext_switch_text {
-  line-height: 24px;
+  line-height: 12px;
   cursor: pointer;
   font-size: 12px;
-}
-
-.long_text .bgaext_switch_text {
-  line-height: 12px;
 }

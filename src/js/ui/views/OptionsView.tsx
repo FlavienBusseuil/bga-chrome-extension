@@ -272,10 +272,8 @@ export const OptionsView = ({ config, onChange }: Props) => {
   const getSwitch = (checked: boolean, onChange: (val: boolean) => void, textOnKey: string, textOffKey: string, disabled?: boolean) => {
     const textOn = i18n(textOnKey);
     const textOff = i18n(textOffKey);
-    const msg = checked ? textOn : textOff;
-    const className = (msg.length > 76) ? 'long_text' : '';
 
-    return <Switch checked={checked} textOn={textOn} textOff={textOff} onChange={onChange} disabled={disabled ?? false} className={className} />
+    return <Switch checked={checked} textOn={textOn} textOff={textOff} onChange={onChange} disabled={disabled ?? false} />
   };
 
   const getCustomSoundSwitch = (canUploadSound: boolean) => {
@@ -284,9 +282,8 @@ export const OptionsView = ({ config, onChange }: Props) => {
     const warnText = canUploadSound ? '' : `(${i18n('optionsNotificationCustomSoundWarnFF')})`;
     const textOn = `${i18n('optionsNotificationCustomSoundOn')} ${warnText}`;
     const textOff = `${i18n('optionsNotificationCustomSoundOff')} ${warnText}`;
-    const className = canUploadSound ? '' : 'long_text'
 
-    return <Switch checked={checked} textOn={textOn} textOff={textOff} onChange={updateSoundCustom} disabled={disabled} className={className} />
+    return <Switch checked={checked} textOn={textOn} textOff={textOff} onChange={updateSoundCustom} disabled={disabled} />
   };
 
   const getMiscSection = () => {
@@ -433,25 +430,21 @@ export const OptionsView = ({ config, onChange }: Props) => {
 
     return (
       <>
-        <div className="options-subframe">
-          <div>
-            {getHomeSwitch('header', 'optionsHomeHeader')}
-            {getHomeSwitch('latestNews', 'optionsHomeLatest')}
-            {getHomeSwitch('smallFeed', 'optionsHomeNewsSmall')}
-            {getSwitch(homeConfig.fewFeeds && homeConfig.tournaments && homeConfig.tournamentsBelow, (val) => updateHomeConfig('fewFeeds', val), "optionsHomeNewsShort", "optionsHomeNewsTall", !homeConfig.tournaments || !homeConfig.tournamentsBelow)}
-            {getHomeSwitch('tournaments', 'tournaments')}
-            {getSwitch(homeConfig.tournamentsBelow && homeConfig.tournaments, (val) => updateHomeConfig('tournamentsBelow', val), "tournamentsBelowOn", "tournamentsBelowOff", !homeConfig.tournaments)}
-            {getHomeSwitch('howToPlay', 'optionsHomeHowToPlay')}
-          </div>
-          <div>
-            {getHomeSwitch('recentGames', 'optionsRecentColumn')}
-            {getHomeSwitch('popularGames', 'optionsPopularColumn')}
-            {getHomeSwitch('recommandedGames', 'optionsRecommendedColumn')}
-            {getHomeSwitch('classicGames', 'optionsClassicGames')}
-            {getSwitch(homeConfig.events || homeConfig.recentGames, (val) => updateHomeConfig('events', val), "optionsHomeEventsOn", "optionsHomeEventsOff", homeConfig.recentGames)}
-            {getHomeSwitch('status', 'optionsStatus')}
-            {getHomeSwitch('footer', 'optionsHomeFooter')}
-          </div>
+        <div className="options-twocolumns">
+          {getHomeSwitch('header', 'optionsHomeHeader')}
+          {getHomeSwitch('recentGames', 'optionsRecentColumn')}
+          {getHomeSwitch('latestNews', 'optionsHomeLatest')}
+          {getHomeSwitch('popularGames', 'optionsPopularColumn')}
+          {getHomeSwitch('smallFeed', 'optionsHomeNewsSmall')}
+          {getSwitch(homeConfig.fewFeeds && homeConfig.tournaments && homeConfig.tournamentsBelow, (val) => updateHomeConfig('fewFeeds', val), "optionsHomeNewsShort", "optionsHomeNewsTall", !homeConfig.tournaments || !homeConfig.tournamentsBelow)}
+          {getHomeSwitch('recommandedGames', 'optionsRecommendedColumn')}
+          {getHomeSwitch('classicGames', 'optionsClassicGames')}
+          {getHomeSwitch('tournaments', 'tournaments')}
+          {getSwitch(homeConfig.tournamentsBelow && homeConfig.tournaments, (val) => updateHomeConfig('tournamentsBelow', val), "tournamentsBelowOn", "tournamentsBelowOff", !homeConfig.tournaments)}
+          {getSwitch(homeConfig.events || homeConfig.recentGames, (val) => updateHomeConfig('events', val), "optionsHomeEventsOn", "optionsHomeEventsOff", homeConfig.recentGames)}
+          {getHomeSwitch('status', 'optionsStatus')}
+          {getHomeSwitch('howToPlay', 'optionsHomeHowToPlay')}
+          {getHomeSwitch('footer', 'optionsHomeFooter')}
         </div>
       </>
     );
@@ -491,16 +484,12 @@ export const OptionsView = ({ config, onChange }: Props) => {
       return (
         <div className="options-frame">
           <div className="options-frame-title">{i18n("optionsInProgress")}</div>
-          <div className="options-subframe">
-            <div>
-              {getInProgressSwitch('emptySections', 'optionsInProgressEmpty')}
-              {getInProgressSwitch('discover', 'optionsInProgressDiscover')}
-              {getInProgressSwitch('colorfulTables', 'optionsInProgressColorfulTables')}
-            </div>
-            <div>
-              {getInProgressSwitch('playAgain', 'optionsInProgressReplay')}
-              {getInProgressSwitch('more', 'optionsInProgressMore')}
-            </div>
+          <div className="options-twocolumns">
+            {getInProgressSwitch('emptySections', 'optionsInProgressEmpty')}
+            {getInProgressSwitch('playAgain', 'optionsInProgressReplay')}
+            {getInProgressSwitch('discover', 'optionsInProgressDiscover')}
+            {getInProgressSwitch('more', 'optionsInProgressMore')}
+            {getInProgressSwitch('colorfulTables', 'optionsInProgressColorfulTables')}
           </div>
         </div>
       );
