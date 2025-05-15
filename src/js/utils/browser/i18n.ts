@@ -11,13 +11,13 @@ class I18N {
 	}
 
 	private async getLabels(locale: string): Promise<Record<string, string> | undefined> {
-		const path = `/custom_locales/${locale}.locale`;
+		const path = `/locales/${locale}.json`;
 		const url = getUrl(path);
 
 		try {
 			const response = await fetch(url);
-			const content = await response.text();
-			return JSON.parse(content);
+			const content = await response.json();
+			return content;
 		}
 		catch (error) {
 			console.error('[bga extension] Error setting locale', { error, url });

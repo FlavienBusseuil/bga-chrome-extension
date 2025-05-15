@@ -84,7 +84,7 @@
         "js/homepage.js",
         "js/bgaApi.js",
         "sound/myturn.mp3",
-        "custom_locales/*.locale"
+        "locales/*.json"
       ],
       "extension_ids": [
         "*"
