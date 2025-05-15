@@ -37,51 +37,6 @@ export const localStorageClear = async (): Promise<void> => {
 	return await browser.storage.local.clear();
 };
 
-class I18N {
-	curLocale: string;
-	labels: Record<string, string> | undefined;
-
-	constructor() {
-		this.curLocale = '';
-		this.labels = undefined;
-	}
-
-	private async getLabels(locale: string): Promise<Record<string, string> | undefined> {
-		const path = `/custom_locales/${locale}.locale`;
-		const url = getUrl(path);
-
-		try {
-			const response = await fetch(url);
-			const content = await response.text();
-			return JSON.parse(content);
-		}
-		catch (error) {
-			console.error('[bga extension] Error setting locale', { error, url });
-			return undefined;
-		}
-	}
-
-	async setLocale(locale: string) {
-		if (this.curLocale !== locale) {
-			this.labels = await this.getLabels(locale);
-			this.curLocale = locale;
-		}
-	}
-
-	getMessage(key: string) {
-		if (this.labels) {
-			return this.labels[key] || browser.i18n.getMessage(key);
-		}
-		return browser.i18n.getMessage(key);
-	}
-}
-
-const i18Instance = new I18N();
-
-export const i18n = (key: string): string => i18Instance.getMessage(key);
-export const setI18nLocale = async (locale: string) => i18Instance.setLocale(locale);
-export const getI18nDefaultLocale = () => browser.i18n.getMessage('current_locale');
-
 export const getExtensionVersion = () => browser.runtime.getManifest().version;
 
 const cleanPath = (path: string) => (path.startsWith('/')) ? path.substring(1) : path;

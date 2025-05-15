@@ -1,4 +1,5 @@
-import { i18n, isFirefox } from "../utils/browser";
+import { isFirefox } from "../utils/browser";
+import { i18n } from "../utils/browser/i18n";
 
 interface ErrorProps {
   errorMessage: string;

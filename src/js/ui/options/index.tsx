@@ -2,7 +2,7 @@ import { useEffect, useState } from "preact/hooks";
 import { getFile } from "easy-file-picker";
 
 import Configuration, { Game } from "../../config/configuration";
-import { i18n } from "../../utils/browser";
+import { i18n } from "../../utils/browser/i18n";
 import { OptionsView } from "../views/OptionsView";
 import { useSyncedState } from "../hooks/useSyncedState";
 

@@ -17,7 +17,7 @@ import { OptionsView } from "./views/OptionsView";
 import { useState, useEffect, useErrorBoundary } from "preact/hooks";
 import { useSyncedState } from "./hooks/useSyncedState";
 import { updateBadgeAndIcon } from "../utils/updateBadgeAndIcon";
-import { i18n } from "../utils/browser";
+import { i18n } from "../utils/browser/i18n";
 import { useFetch } from "./hooks/useFetch";
 import { Tabs } from "./base/Tabs";
 import { Tab } from "./base/Tab";
