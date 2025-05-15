@@ -86,9 +86,7 @@ export function Table({
 						<span
 							className="flex-grow text-gray-600 text-sm leading none"
 							dangerouslySetInnerHTML={{
-								__html: i18n("player_invited_you", [
-									`<a class="text-bgaBlue-lighter">${tableCreatorName}</a>`,
-								]),
+								__html: i18n("player_invited_you").replace('$player$', `<a class="text-bgaBlue-lighter">${tableCreatorName}</a>`),
 							}}
 						></span>
 					)

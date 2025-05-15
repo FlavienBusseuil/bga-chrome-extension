@@ -83,7 +83,8 @@
         "css/games/*/*.less",
         "js/homepage.js",
         "js/bgaApi.js",
-        "sound/myturn.mp3"
+        "sound/myturn.mp3",
+        "custom_locales/*.locale"
       ],
       "extension_ids": [
         "*"

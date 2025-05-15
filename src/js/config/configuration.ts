@@ -1,6 +1,6 @@
 import equal from "fast-deep-equal";
 import defaultGames from "./sideMenuGames";
-import { addChangeListener, localStorageClear, localStorageGet, localStorageSet, storageClear, storageGet, storageSet } from "../utils/browser";
+import { addChangeListener, localStorageClear, localStorageGet, localStorageSet, i18n, setI18nLocale, getI18nDefaultLocale, storageClear, storageGet, storageSet } from "../utils/browser";
 import { ADVANCED_HOME_STYLE, COLORFUL_TABLES, DEF_HOME_HTML } from "./configuration.constants";
 
 export interface Game {
@@ -42,6 +42,7 @@ export interface Template {
 
 interface CustomConfig {
 	clientId: string;
+	locale?: string;
 	games: Game[];
 	dark: DarkModeConfig[];
 	disabled: string[];
@@ -197,6 +198,10 @@ class Configuration {
 		this._customConfig = syncStorage;
 		this._localConfig = localStorage;
 
+		this._customConfig.locale ||= getI18nDefaultLocale();
+
+		await setI18nLocale(this._customConfig.locale);
+
 		if (!this._customConfig.clientId) {
 			this._customConfig.clientId = self.crypto.randomUUID();
 			storageSet({ clientId: this._customConfig.clientId });
@@ -244,6 +249,16 @@ class Configuration {
 	import(customConfig: CustomConfig) {
 		this._customConfig = customConfig;
 		storageSet(customConfig);
+	}
+
+	getLocale() {
+		return this._customConfig.locale || i18n('current_locale');
+	}
+
+	async setLocale(val: string) {
+		this._customConfig.locale = val;
+		storageSet({ locale: val });
+		await setI18nLocale(val);
 	}
 
 	getGameConfig(game: string): Game | undefined {

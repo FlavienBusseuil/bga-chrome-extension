@@ -15,7 +15,8 @@ const Options = (props: { config: Configuration }) => {
 	const [css, setCss] = useState(config.getCustomCss());
 	const [tabSelected, setTabSelected] = useState("general");
 	const [troubleshootingMessage, setTroubleshootingMessage] = useState('');
-	const [hasConfigChange, setConfigChange] = useSyncedState("configChange", false);
+	const [, setConfigChange] = useSyncedState("configChange", false);
+	const [locale] = useSyncedState('locale', config.getLocale());
 
 	const serialize = (game: Game) => {
 		return JSON.stringify(
@@ -140,9 +141,9 @@ const Options = (props: { config: Configuration }) => {
 				<div className="bgext_options_title">{i18n('troubleshooting')}</div>
 				<div className="bgext_about_container">
 					<div className="bgext_buttons_container">
-						<button class={"appearance-auto"} onClick={exportClick}>{i18n('ConfigurationExport')}</button>
-						<button class={"appearance-auto"} onClick={importClick}>{i18n('ConfigurationImport')}</button>
-						<button class={"appearance-auto"} onClick={resetClick}>{i18n('ConfigurationReset')}</button>
+						<button class={"appearance-auto"} onClick={exportClick}>{i18n('configurationExport')}</button>
+						<button class={"appearance-auto"} onClick={importClick}>{i18n('configurationImport')}</button>
+						<button class={"appearance-auto"} onClick={resetClick}>{i18n('configurationReset')}</button>
 					</div>
 					<div className="bgext_buttons_container">{troubleshootingMessage}</div>
 				</div>
@@ -277,7 +278,7 @@ const Options = (props: { config: Configuration }) => {
 		return (
 			<div className="bgext_options_main">
 				<div className="bgext_options_config_area">
-					<div className="bgext_links_area">
+					<div key={`options_${locale}`} className="bgext_links_area">
 						{getTab("general", i18n("optionGeneralTab"))}
 						{getTab("navigation", i18n("optionNavigationTab"))}
 						{getTab("css", i18n("optionCssTab"))}

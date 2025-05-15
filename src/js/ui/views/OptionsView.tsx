@@ -14,6 +14,7 @@ type Props = {
 };
 
 export const OptionsView = ({ config, onChange }: Props) => {
+  const [locale, setLocale] = useSyncedState('locale', config.getLocale());
   const [onlineMessages, setOnlineMessages] = useSyncedState('isOnlineMessagesEnabled', config.isOnlineMessagesEnabled());
   const [areLogTimestampsHidden, setLogTimestampHidden] = useSyncedState('areLogTimestampsHidden', config.areLogTimestampsHidden());
   const [hideLeftBarOption, setHideLeftBarOption] = useSyncedState('hideLeftBarOption', config.isLeftBarOptionHidden());
@@ -48,6 +49,10 @@ export const OptionsView = ({ config, onChange }: Props) => {
   const [advancedStatus, setAdvancedStatus] = useState('');
 
   const [confirmClear, setConfirmClear] = useState(false);
+
+  const updateLocale = (locale: string) => {
+    config.setLocale(locale).then(() => setLocale(locale));
+  }
 
   const _updateAdvanceHomeConfig = (advConfig: AdvancedHomeConfig) => {
     setAdvancedHomeConfig(advConfig);
@@ -142,7 +147,7 @@ export const OptionsView = ({ config, onChange }: Props) => {
     config.setBetterPlayerRestriction(val);
   };
 
-  const uplateLevelPlayerRestriction = (val: number) => {
+  const updateLevelPlayerRestriction = (val: number) => {
     setLevelPlayerRestriction(val);
     setBetterPlayerRestriction(val === 0);
 
@@ -291,6 +296,14 @@ export const OptionsView = ({ config, onChange }: Props) => {
       return (
         <div className="options-frame">
           <div className="options-frame-title">{i18n("optionMiscTitle")}</div>
+          <div className="options-line">
+            <span>{i18n('current_locale')}</span>
+            <select className="border border-black dark:dark:border-white rounded" onChange={(evt: any) => updateLocale(evt.target?.value)} value={locale}>
+              <option value='en'>English</option>
+              <option value='fr'>Français</option>
+              <option value='de'>Deutsch</option>
+            </select>
+          </div>
           {getSwitch(redirect, updateRedirect, "optionsLobbyRedirectOn", "optionsLobbyRedirectOff")}
           {getSwitch(solidBackground, updateSolidBackground, "optionsSolidBackgroundOn", "optionsSolidBackgroundOff")}
           {getSwitch(socialMessagesHidden, updateSocialMessagesHidden, "optionsHideSocialMessagesOn", "optionsHideSocialMessagesOff")}
@@ -514,7 +527,7 @@ export const OptionsView = ({ config, onChange }: Props) => {
           {getSwitch(autoOpen && fastCreate, updateAutoOpen, "optionsFastCreateAutoOpenOn", "optionsFastCreateAutoOpenOff", !fastCreate)}
           {getSwitch(playerRestriction && fastCreate, updatePlayerRestriction, "optionsFastCreateLevelOn", "optionsFastCreateLevelOff", !fastCreate)}
           {playerRestriction && fastCreate &&
-            <select className="border border-black dark:dark:border-white rounded" onChange={(evt: any) => uplateLevelPlayerRestriction(+evt.target?.value)} value={levelPlayerRestriction}>
+            <select className="border border-black dark:dark:border-white rounded" onChange={(evt: any) => updateLevelPlayerRestriction(+evt.target?.value)} value={levelPlayerRestriction}>
               <option value={0}>{i18n('optionsFastCreateLevel0')}</option>
               <option value={1}>{i18n('optionsFastCreateLevel1')}</option>
               <option value={2}>{i18n('optionsFastCreateLevel2')}</option>

@@ -8,7 +8,7 @@
 		"dev:css": "yarn tailwindcss -i ./src/css/base.css -c ./tailwind.config.js -o src/css/tailwind.css --watch",
 		"dev:parcel": "yarn parcel watch src/manifest.json --target dev --dist-dir ./build",
 		"build": "yarn clean && NODE_ENV=production yarn prod:css && yarn prod:parcel",
-		"clean": "rm -rf .parcel-cache/* build/*",
+		"clean": "rimraf .parcel-cache/ build/",
 		"prod:css": "yarn tailwindcss -i ./src/css/base.css -c ./tailwind.config.js -o ./src/css/tailwind.css",
 		"prod:parcel": "yarn parcel build src/manifest.json --target prod --dist-dir ./build",
 		"prod:parcel:firefox": "yarn parcel build src/manifest.json --target prod-firefox --dist-dir ./build",
@@ -16,10 +16,10 @@
 		"release": "./scripts/release.zsh",
 		"build:ff": "yarn clean && NODE_ENV=production yarn prod:css && yarn prebuild:firefox && yarn prod:parcel:firefox && yarn postbuild:firefox",
 		"build:op": "yarn clean && NODE_ENV=production yarn prod:css && yarn prebuild:opera && yarn prod:parcel:opera && yarn postbuild:opera",
-		"prebuild:firefox": "mv src/manifest.json src/manifest-chrome.json && mv src/manifest-firefox.json src/manifest.json && mv src/js/utils/misc/mp3.ts src/js/utils/misc/mp3-chrome.ts && mv src/js/utils/misc/mp3-firefox.ts src/js/utils/misc/mp3.ts",
-		"postbuild:firefox": "mv src/manifest.json src/manifest-firefox.json && mv src/manifest-chrome.json src/manifest.json && mv src/js/utils/misc/mp3.ts src/js/utils/misc/mp3-firefox.ts && mv src/js/utils/misc/mp3-chrome.ts src/js/utils/misc/mp3.ts",
-		"prebuild:opera": "mv src/manifest.json src/manifest-chrome.json && mv src/manifest-opera.json src/manifest.json",
-		"postbuild:opera": "mv src/manifest.json src/manifest-opera.json && mv src/manifest-chrome.json src/manifest.json"
+		"prebuild:firefox": "move-file src/manifest.json src/manifest-chrome.json && move-file src/manifest-firefox.json src/manifest.json && move-file src/js/utils/misc/mp3.ts src/js/utils/misc/mp3-chrome.ts && move-file src/js/utils/misc/mp3-firefox.ts src/js/utils/misc/mp3.ts",
+		"postbuild:firefox": "move-file src/manifest.json src/manifest-firefox.json && move-file src/manifest-chrome.json src/manifest.json && move-file src/js/utils/misc/mp3.ts src/js/utils/misc/mp3-firefox.ts && move-file src/js/utils/misc/mp3-chrome.ts src/js/utils/misc/mp3.ts",
+		"prebuild:opera": "move-file src/manifest.json src/manifest-chrome.json && move-file src/manifest-opera.json src/manifest.json",
+		"postbuild:opera": "move-file src/manifest.json src/manifest-opera.json && move-file src/manifest-chrome.json src/manifest.json"
 	},
 	"browserslist": [
 		"last 2 versions, not dead, > 0.2%"
@@ -58,7 +58,9 @@
 		"prettier": "^3.3.3",
 		"tailwindcss": "3.4.13",
 		"tailwindcss-cli": "0.1.2",
-		"webextension-polyfill": "^0.12.0"
+		"webextension-polyfill": "^0.12.0",
+		"rimraf": "^6.0.1",
+		"move-file-cli": "^3.0.0"
 	},
 	"dependencies": {
 		"easy-file-picker": "^1.1.0",

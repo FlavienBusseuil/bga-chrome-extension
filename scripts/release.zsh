@@ -10,19 +10,19 @@ TAG=v$(node scripts/getVersion.js);
 yarn build;
 # zip
 cd build/prod
-zip -r ../../builds/build-$TAG.zip *;
+zip -9 -r ../../builds/build-$TAG.zip *;
 cd ../..
 # production firefox build
 yarn build:ff;
 # zip firefox
 cd build/prod-firefox
-zip -r ../../builds/build-firefox-$TAG.zip *;
+zip -9 -r ../../builds/build-firefox-$TAG.zip *;
 cd ../..
 # production opera build
 yarn build:op;
 # zip opera
 cd build/prod-opera
-zip -r ../../builds/build-opera-$TAG.zip *;
+zip -9 -r ../../builds/build-opera-$TAG.zip *;
 cd ../..
 # commit changes
 git add package.json;

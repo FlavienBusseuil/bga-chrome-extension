@@ -149,6 +149,11 @@
   justify-content: space-between;
 }
 
+.options-line {
+  display: flex;
+  gap: 0.5em;
+}
+
 .row_fullwidth>div:last-child {
   padding-right: 1em;
   display: flex;
