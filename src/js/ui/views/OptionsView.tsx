@@ -299,9 +299,9 @@ export const OptionsView = ({ config, onChange }: Props) => {
           <div className="options-line">
             <span>{i18n('current_locale')}</span>
             <select className="border border-black dark:dark:border-white rounded" onChange={(evt: any) => updateLocale(evt.target?.value)} value={locale}>
-              <option value='en'>English</option>
-              <option value='fr'>Français</option>
-              <option value='de'>Deutsch</option>
+              <option value='en'>English 🇬🇧</option>
+              <option value='fr'>Français 🇫🇷</option>
+              <option value='de'>Deutsch 🇩🇪</option>
             </select>
           </div>
           {getSwitch(redirect, updateRedirect, "optionsLobbyRedirectOn", "optionsLobbyRedirectOff")}
