@@ -2,7 +2,7 @@
 
 import { bgaUrl } from "../utils/constants";
 import { Button } from "./base/Button";
-import { i18n } from "../utils/browser";
+import { i18n } from "../utils/browser/i18n";
 
 export function StartNewGameButton(): React$Element<typeof Button> {
 	return (

@@ -1,4 +1,4 @@
-import React, { render } from "preact";
+import { render } from "preact";
 import { isMobile } from "is-mobile";
 
 import {
@@ -14,7 +14,8 @@ import ConfirmationPopup from './misc/ConfirmationPopup';
 import InformationPopup from './misc/InformationPopup';
 import { waitForObj } from '../../utils/misc/wait';
 import shouldFilter from '../../config/filteredLogs';
-import { isFirefox, i18n } from '../../utils/browser';
+import { isFirefox } from '../../utils/browser';
+import { i18n } from "../../utils/browser/i18n";
 
 const buildMainCss = (code) => {
 	waitForObj('head').then(() => {

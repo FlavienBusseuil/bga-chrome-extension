@@ -1,6 +1,4 @@
-import React from "preact";
-
-import { i18n } from "../../../utils/browser";
+import { i18n } from "../../../utils/browser/i18n";
 interface Props {
     title: string;
     content: ChildNode;

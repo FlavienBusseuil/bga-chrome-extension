@@ -1,3 +1,8 @@
 {
-  "extends": "@parcel/config-webextension"
+  "extends": "@parcel/config-webextension",
+  "transformers": {
+    "src/locales/*.json": [
+      "./src/libs/parcel/parcel-transformer-minify-json.js"
+    ]
+  }
 }

@@ -1,9 +1,8 @@
-import React from "preact";
 import { useState } from "preact/hooks";
 
 import "../../../../css/confirmation.css";
 import Configuration from "../../../config/configuration";
-import { i18n } from "../../../utils/browser";
+import { i18n } from "../../../utils/browser/i18n";
 
 interface Props {
   type: 'delete_game' | 'fast_create' | 'mute_player'

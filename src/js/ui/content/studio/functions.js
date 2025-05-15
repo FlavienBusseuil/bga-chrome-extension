@@ -1,7 +1,7 @@
 import React, { render } from "preact";
 import Templates from "./Templates";
 import { waitForObj } from '../../../utils/misc/wait';
-import { i18n } from "../../../utils/browser";
+import { i18n } from "../../../utils/browser/i18n";
 
 export const initDevelopperUI = (config) => {
 	if (window.location.search.startsWith("?id=0")) {

@@ -1,9 +1,8 @@
-import React from "preact";
 import { useState, useEffect } from "preact/hooks";
 import { isMobile } from "is-mobile";
 
 import Configuration, { Game } from "../../../config/configuration";
-import { i18n } from "../../../utils/browser";
+import { i18n } from "../../../utils/browser/i18n";
 
 import SideMenuItem from "./SideMenuItem";
 import PlayerIcon from "./PlayerIcon";

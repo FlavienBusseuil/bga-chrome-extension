@@ -7,7 +7,7 @@ import { Player } from "../Player";
 import { StartNewGameButton } from "../StartNewGameButton";
 import { Table } from "../Table";
 import type { TableId } from "../../types/bga/Table";
-import { i18n } from "../../utils/browser";
+import { i18n } from "../../utils/browser/i18n";
 import { CardList } from "../base/CardList";
 import { cn } from "../utils/cn";
 

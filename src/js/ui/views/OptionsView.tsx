@@ -6,7 +6,8 @@ import Configuration, { AdvancedHomeConfig, HomeConfig, InProgressConfig } from 
 import Switch from "../base/Switch";
 import { Button } from "../base/Button";
 import { isSoundCustom, playMp3, removeCustomMp3, uploadCustomMp3 } from "../../utils/misc/mp3";
-import { getExtensionVersion, i18n, isFirefox } from "../../utils/browser";
+import { getExtensionVersion, isFirefox } from "../../utils/browser";
+import { i18n } from "../../utils/browser/i18n";
 
 type Props = {
   config: Configuration,
@@ -299,9 +300,9 @@ export const OptionsView = ({ config, onChange }: Props) => {
           <div className="options-line">
             <span>{i18n('current_locale')}</span>
             <select className="border border-black dark:dark:border-white rounded" onChange={(evt: any) => updateLocale(evt.target?.value)} value={locale}>
-              <option value='en'>English</option>
-              <option value='fr'>Français</option>
-              <option value='de'>Deutsch</option>
+              <option value='en'>English 🇬🇧</option>
+              <option value='fr'>Français 🇫🇷</option>
+              <option value='de'>Deutsch 🇩🇪</option>
             </select>
           </div>
           {getSwitch(redirect, updateRedirect, "optionsLobbyRedirectOn", "optionsLobbyRedirectOff")}

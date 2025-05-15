@@ -4,7 +4,8 @@ import { isMobile } from "is-mobile";
 import Configuration from "../../../config/configuration";
 import { gamesWithCustomActions } from "../../../config/darkThemeGames";
 import { gamesWithRecommendedConfig } from "../../../config/darkThemeRecommendedConfig";
-import { getExtensionVersion, i18n } from "../../../utils/browser";
+import { getExtensionVersion } from "../../../utils/browser";
+import { i18n } from "../../../utils/browser/i18n";
 import { setDarkStyle } from "./darkStyleFunctions";
 import { changeDarkColors } from "./darkColors";
 

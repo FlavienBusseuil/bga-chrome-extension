@@ -1,10 +1,9 @@
-import React from "preact";
 import { useState } from "preact/hooks";
 
 import type { TransformedTable } from "../../types/TransformedTable";
 import type { TableId } from "../../types/bga/Table";
 
-import { i18n } from "../../utils/browser";
+import { i18n } from "../../utils/browser/i18n";
 
 import { PlayerList } from "../PlayerList";
 import { Player } from "../Player";

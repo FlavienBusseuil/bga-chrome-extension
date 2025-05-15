@@ -7,7 +7,7 @@ import { Card } from "../base/Card";
 import { cn } from "../utils/cn";
 import { Button } from "../base/Button";
 import { bgaUrl } from "../../utils/constants";
-import { i18n } from "../../utils/browser";
+import { i18n } from "../../utils/browser/i18n";
 
 type Props = {
 	className?: string,
