@@ -1,5 +1,15 @@
 # Changelog
 
+## [v1.12.0](https://github.com/FlavienBusseuil/bga-chrome-extension/tree/v1.12.0) (2025-05-15)
+
+[Full Changelog](https://github.com/FlavienBusseuil/bga-chrome-extension/compare/v1.11.22...v1.12.0)
+
+**Merged pull requests:**
+
+- Tweak for language selector [\#119](https://github.com/FlavienBusseuil/bga-chrome-extension/pull/119) ([GhoulofGSG9](https://github.com/GhoulofGSG9))
+- Dedale dark theme fix [\#118](https://github.com/FlavienBusseuil/bga-chrome-extension/pull/118) ([nalka0](https://github.com/nalka0))
+- chore: JIT game specific styles \(issue \#100\) [\#117](https://github.com/FlavienBusseuil/bga-chrome-extension/pull/117) ([GhoulofGSG9](https://github.com/GhoulofGSG9))
+
 ## [v1.11.22](https://github.com/FlavienBusseuil/bga-chrome-extension/tree/v1.11.22) (2025-05-07)
 
 [Full Changelog](https://github.com/FlavienBusseuil/bga-chrome-extension/compare/v1.11.21...v1.11.22)
