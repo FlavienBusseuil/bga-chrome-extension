@@ -2,7 +2,7 @@ import equal from "fast-deep-equal";
 import defaultGames from "./sideMenuGames";
 import { addChangeListener, localStorageClear, localStorageGet, localStorageSet, storageClear, storageGet, storageSet } from "../utils/browser";
 import { i18n, setI18nLocale, getI18nDefaultLocale } from "../utils/browser/i18n";
-import { ADVANCED_HOME_STYLE, COLORFUL_TABLES, DEF_HOME_HTML } from "./configuration.constants";
+import { ADVANCED_HOME_STYLE, ARENA_DISABLED_GAMES, COLORFUL_TABLES, DEF_HOME_HTML } from "./configuration.constants";
 
 export interface Game {
 	name: string;
@@ -66,6 +66,7 @@ interface CustomConfig {
 	home?: HomeConfig;
 	inProgress?: InProgressConfig;
 	lobbyRedirect?: boolean;
+	hideDisabledArenaGames?: boolean;
 	fastCreate?: boolean;
 	autoOpen?: boolean;
 	karmaRestriction?: number;
@@ -411,6 +412,15 @@ class Configuration {
 	setLobbyRedirectionEnable(val: boolean) {
 		this._customConfig.lobbyRedirect = val;
 		storageSet({ lobbyRedirect: val });
+	}
+
+	areDisabledArenaGamesHidden() {
+		return Boolean(this._customConfig.hideDisabledArenaGames);
+	}
+
+	hideDisabledArenaGames(val: boolean) {
+		this._customConfig.hideDisabledArenaGames = val;
+		storageSet({ hideDisabledArenaGames: val });
 	}
 
 	isFastCreateEnable() {
@@ -852,6 +862,10 @@ class Configuration {
 
 		if (this.areSocialMessagesHidden()) {
 			cssList.push(`#newsfeed .post:not(:has(a[href^="/group"])), #bgaext-newsfeed .post:not(:has(a[href^="/group"])), .bgaext_welcome .post.bga-hover-for-list:not(:has(a[href^="/group"])) { display: none!important; }`);
+		}
+
+		if (this.areDisabledArenaGamesHidden()) {
+			cssList.push(ARENA_DISABLED_GAMES);
 		}
 
 		if (advHome.advanced) {

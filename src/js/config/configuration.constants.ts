@@ -170,3 +170,14 @@ html:not(.darkmode) {
     }
 }
 `;
+
+export const ARENA_DISABLED_GAMES = `
+.rankingmode_arena .game_box_wrap:has(.disable_ranking),
+.rankingmode_arena .game_box_wrap:has(.alpha_game),
+.rankingmode_arena .game_box_wrap:has(.beta_game),
+.rankingmode_arena .game_box_wrap:has(.beginner),
+.rankingmode_arena .game_box_wrap:has(.howtoplay),
+.rankingmode_arena .lobby_section:has(.suggestion_othergames) {
+    display: none !important;
+}
+`;

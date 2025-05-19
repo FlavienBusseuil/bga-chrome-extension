@@ -25,6 +25,7 @@ export const OptionsView = ({ config, onChange }: Props) => {
   const [customSoundFile, setCustomSoundFile] = useSyncedState('customSoundFile', isSoundCustom());
   const [motionSensitivity, setMotionSensitivity] = useSyncedState('motionSensitivity', config.isMotionSensitivityEnable());
   const [redirect, setRedirect] = useSyncedState('redirect', config.isLobbyRedirectionEnable());
+  const [hideDisabledArenaGame, setHideDisabledArenaGame] = useSyncedState('hideDisabledArenaGame', config.areDisabledArenaGamesHidden());
   const [fastCreate, setFastCreate] = useSyncedState('fastCreate', config.isFastCreateEnable());
   const [autoOpen, setAutoOpen] = useSyncedState('autoOpen', config.isAutoOpenEnable());
   const [karmaRestriction, setKarmaRestriction] = useSyncedState('karmaRestriction', config.getKarmaRestriction());
@@ -123,6 +124,11 @@ export const OptionsView = ({ config, onChange }: Props) => {
     setRedirect(val);
     config.setLobbyRedirectionEnable(val);
   };
+
+  const updateHideDisabledArenaGame = (val: boolean) => {
+    setHideDisabledArenaGame(val);
+    config.hideDisabledArenaGames(val);
+  }
 
   const updateFastCreate = (val: boolean) => {
     setFastCreate(val);
@@ -306,6 +312,7 @@ export const OptionsView = ({ config, onChange }: Props) => {
             </select>
           </div>
           {getSwitch(redirect, updateRedirect, "optionsLobbyRedirectOn", "optionsLobbyRedirectOff")}
+          {getSwitch(hideDisabledArenaGame, updateHideDisabledArenaGame, "optionsHideDisabledArenaGameOn", "optionsHideDisabledArenaGameOff")}
           {getSwitch(solidBackground, updateSolidBackground, "optionsSolidBackgroundOn", "optionsSolidBackgroundOff")}
           {getSwitch(socialMessagesHidden, updateSocialMessagesHidden, "optionsHideSocialMessagesOn", "optionsHideSocialMessagesOff")}
           {getSwitch(!chatUserNamesHidden, updateChatUserNamesHidden, "optionsChatUserNameOn", "optionsChatUserNameOff")}

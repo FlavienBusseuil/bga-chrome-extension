@@ -103,6 +103,8 @@
   "optionsChatDarkIconsOff": "Emoticons im hellen Modus werden in Unterhaltungen verwendet, auch wenn der dunkle Modus aktiviert ist",
   "optionsChatAutoHideOn": "Die Chatleiste wird nur angezeigt, wenn die Maus darüber bewegt wird",
   "optionsChatAutoHideOff": "Die Chatleiste wird immer angezeigt",
+  "optionsHideDisabledArenaGameOn": "Spiele, die man im Arena-Modus nicht spielen kann, werden ausgeblendet",
+  "optionsHideDisabledArenaGameOff": "Spiele, die du im Arena-Modus nicht spielen kannst, werden ausgegraut (Standardverhalten)",
   "about": "Über",
   "aboutText": "<p>Du findest die Hilfeseite der Erweiterung auf <a target='_blank' href='https://en.doc.boardgamearena.com/ChromeExtension'>dieser Seite</a>.</p><p>Alternativ kannst du dich direkt mit den Entwicklern im <a target='_blank' href='https://boardgamearena.com/forum/viewtopic.php?t=30509'>Forum</a> austauschen, wir freuen uns über deine Anmerkungen und Vorschläge, oder ein paar Worte der Ermutigung. 🙂</p><p>Und falls du diese Erweiterung magst, kannst du mir gerne einen <a target='_blank' href='https://en.tipeee.com/board-game-arena-chrome-extension'>Kaffee</a> ☕ ausgeben</p><p>Vielen Dank!</p>",
   "deleteGameTitle": "Vestecke ein Spiel",
