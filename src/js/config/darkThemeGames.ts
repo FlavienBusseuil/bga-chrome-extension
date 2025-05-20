@@ -249,6 +249,7 @@ export const gamesWithCustomPanel = [
   'envelopesofcash',
   'festival',
   'fromage',
+  'galacticera',
   'gnomehollow',
   'lumen',
   'mantisfalls',

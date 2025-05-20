@@ -32,6 +32,20 @@
 	color: var(--light-80);
 }
 
+.pick-evolution-cards {
+	background: var(--dark-back);
+	box-shadow: 0 0 5px 5px #4d4d4dcc;
+}
+
+.pick-evolution-cards:before {
+	border-color: #000 transparent;
+}
+
+.pick-evolution-cards .kot-evolution .description-wrapper,
+#see-monster-evolutions .kot-evolution .description-wrapper {
+	color: #000;
+}
+
 .dice-icon {
 	filter: var(--highlight-min);
 }
@@ -57,4 +71,13 @@
 .monster-figure,
 .monster-board {
 	filter: brightness(0.9);
+}
+
+.autoSkipPlayEvolutionBubble .autoSkipPlayEvolution-option .label-detail.spe-warning {
+	color: var(--red-10);
+}
+
+.card .card-sides .card-side {
+	box-shadow: none;
+	filter: var(--drop-shadow);
 }
