@@ -1522,7 +1522,17 @@ const defaultGames: Partial<Game>[] = [
 		name: "fateoffellowship",
 		playerPanel: ".playername.fo_zone_title",
 	},
-
+	{
+		name: "kokeshi",
+		playerPanel: "kokeshi-artisan-board-{{player_id}}",
+	},
+	{
+		name: "coffeerush",
+		playerPanel: "player_zone_{{player_id}}",
+		css: ".desktop_version #game_play_area { padding-left: 0px; }",
+		iconBackgroundDark: "#4b3621",
+		iconBorderDark: "#fff",
+	},
 ];
 
 export default defaultGames;

@@ -42,6 +42,7 @@ export const gamesWithCustomBackground = [
   'coatl',
   'codexnaturalis',
   'coffee',
+  'coffeerush',
   'concept',
   'conspiracy',
   'craftingthecosmos',
@@ -72,6 +73,7 @@ export const gamesWithCustomBackground = [
   'explodingkittens',
   'faraway',
   'fateoffellowship',
+  'fauxraccords',
   'federation',
   'fifteendays',
   'finca',
@@ -381,6 +383,7 @@ export const playersBorder: { [gameName: GameName]: string[] } = {
   daybreak: ['#dbk-hand{{player_id}}'],
   elawa: ['#player-table-{{player_id}}'],
   elpasogwt: ['#gamezone-{{player_id}}'],
+  fled: ['#fled_player-area-{{player_id}}'],
   flowers: ['#flw_playZone_{{player_id}}'],
   gemsofiridescia: ['#goi_playerZoneContainer\\:{{player_id}}'],
   heat: ['#player-table-{{player_id}}'],
@@ -437,7 +440,7 @@ const getDefaultBackgroundStyle = (src: HTMLElement) => {
 };
 
 const copyDefaultBackgroundStyle = (overlay: HTMLElement, attempt: number) => {
-  const backStyle = getDefaultBackgroundStyle(document.documentElement) || getDefaultBackgroundStyle(document.body);
+  const backStyle = getDefaultBackgroundStyle(document.documentElement) || getDefaultBackgroundStyle(document.body) || getDefaultBackgroundStyle(document.querySelector('#overall-content') || document.body);
 
   if (backStyle) {
     overlay.style.background = backStyle;
@@ -551,6 +554,9 @@ export const gamesWithCustomActions: GamesWithCustomActions = {
       input.addEventListener('change', () => setTimeout(barrageManageBackground, 100));
       barrageManageBackground();
     }
+  },
+  coffeerush: {
+    init: () => addInvertOverlay('', true)
   },
   spiritsoftheforest: {
     init: () => addInvertOverlay('spiritsoftheforest_background', false)
