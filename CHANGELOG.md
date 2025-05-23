@@ -1,5 +1,18 @@
 # Changelog
 
+## [v1.12.1](https://github.com/FlavienBusseuil/bga-chrome-extension/tree/v1.12.1) (2025-05-23)
+
+[Full Changelog](https://github.com/FlavienBusseuil/bga-chrome-extension/compare/v1.12.0...v1.12.1)
+
+**Closed issues:**
+
+- darkmode: Game music tab always uses light theme [\#111](https://github.com/FlavienBusseuil/bga-chrome-extension/issues/111)
+- chore: load game specific styling rules just in time [\#100](https://github.com/FlavienBusseuil/bga-chrome-extension/issues/100)
+
+**Merged pull requests:**
+
+- Space station phoenix dark theme fix \(user report\) [\#120](https://github.com/FlavienBusseuil/bga-chrome-extension/pull/120) ([nalka0](https://github.com/nalka0))
+
 ## [v1.12.0](https://github.com/FlavienBusseuil/bga-chrome-extension/tree/v1.12.0) (2025-05-15)
 
 [Full Changelog](https://github.com/FlavienBusseuil/bga-chrome-extension/compare/v1.11.22...v1.12.0)
