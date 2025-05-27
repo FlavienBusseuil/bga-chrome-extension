@@ -39,6 +39,7 @@ export function App({ config }: Props): React$Node {
 	const error = fetchError ?? childError;
 	const motionSensitivityEnable = config.isMotionSensitivityEnable();
 	const [hasConfigChange, setConfigChange] = useSyncedState("configChange", false);
+	const [locale] = useSyncedState('locale', config.getLocale());
 
 	useEffect(fetch, []);
 
@@ -169,7 +170,7 @@ export function App({ config }: Props): React$Node {
 
 	return (
 		<>
-			<Tabs className="mb-1">
+			<Tabs className="mb-1" key={`tabs_${locale}`}>
 				<Tab
 					k="tables"
 					fullWidth={true}
