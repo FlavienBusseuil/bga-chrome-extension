@@ -167,7 +167,7 @@
   "optionsInProgressColorfulTablesOff": "Standard Tisch-Farben",
   "optionsHomeAdvancedOn": "Erweiterte Konfiguration",
   "optionsHomeAdvancedOff": "Einfache Konfiguration",
-  "optionsHomeWarning": "The \"News & Events\" area will not be displayed with this layout.<br>If you wish, you can display it using <a href='#'>advanced configuration</a>.",
+  "optionsHomeWarning": "Der Bereich \"Neuigkeiten & Veranstaltungen\" wird mit dieser Konfiguration ausgeblendet.<br>Falls gewünscht, kannst du den Bereich mit der <a href='#'>erweiterten Konfiguration</a> wieder einblenden.",
   "uploadMp3": "MP3 hochladen",
   "play": "Abspielen",
   "buttonSave": "Speichern",
