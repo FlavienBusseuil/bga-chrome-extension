@@ -167,6 +167,7 @@
   "optionsInProgressColorfulTablesOff": "Tables peu colorées (par défaut)",
   "optionsHomeAdvancedOn": "Configuration avancée",
   "optionsHomeAdvancedOff": "Configuration simplifiée",
+  "optionsHomeWarning": "La zone \"Actualités & Évènements\" ne s'affichera pas avec cette mise en page.<br>Si vous la souhaitez, vous pouvez l'afficher en utilisant la <a href='#'>configuration avancée</a>.",
   "uploadMp3": "Télécharger MP3",
   "play": "Écouter",
   "buttonSave": "Sauvegarder",

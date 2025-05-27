@@ -456,13 +456,12 @@ export const OptionsView = ({ config, onChange }: Props) => {
           {getHomeSwitch('recentGames', 'optionsRecentColumn')}
           {getHomeSwitch('latestNews', 'optionsHomeLatest')}
           {getHomeSwitch('popularGames', 'optionsPopularColumn')}
-          {getHomeSwitch('smallFeed', 'optionsHomeNewsSmall')}
-          {getSwitch(homeConfig.fewFeeds && homeConfig.tournaments && homeConfig.tournamentsBelow, (val) => updateHomeConfig('fewFeeds', val), "optionsHomeNewsShort", "optionsHomeNewsTall", !homeConfig.tournaments || !homeConfig.tournamentsBelow)}
           {getHomeSwitch('recommandedGames', 'optionsRecommendedColumn')}
           {getHomeSwitch('classicGames', 'optionsClassicGames')}
+          {getHomeSwitch('smallFeed', 'optionsHomeNewsSmall')}
+          {getSwitch(homeConfig.fewFeeds && homeConfig.tournaments && homeConfig.tournamentsBelow, (val) => updateHomeConfig('fewFeeds', val), "optionsHomeNewsShort", "optionsHomeNewsTall", !homeConfig.tournaments || !homeConfig.tournamentsBelow)}
           {getHomeSwitch('tournaments', 'tournaments')}
           {getSwitch(homeConfig.tournamentsBelow && homeConfig.tournaments, (val) => updateHomeConfig('tournamentsBelow', val), "tournamentsBelowOn", "tournamentsBelowOff", !homeConfig.tournaments)}
-          {getSwitch(homeConfig.events || homeConfig.recentGames, (val) => updateHomeConfig('events', val), "optionsHomeEventsOn", "optionsHomeEventsOff", homeConfig.recentGames)}
           {getHomeSwitch('status', 'optionsStatus')}
           {getHomeSwitch('howToPlay', 'optionsHomeHowToPlay')}
           {getHomeSwitch('footer', 'optionsHomeFooter')}
@@ -470,6 +469,22 @@ export const OptionsView = ({ config, onChange }: Props) => {
       </>
     );
   };
+
+  const getWarning = () => {
+    console.debug("smallFeed", homeConfig.smallFeed);
+    console.debug("tournamentsBelow", homeConfig.tournamentsBelow);
+
+    if ((!homeConfig.smallFeed || !homeConfig.tournamentsBelow) && (!advancedHomeConfig.advanced)) {
+      const warningSymbol = '<span style="color: red; font-size: 16px;">⚠</span>';
+      const text = `${warningSymbol} ${i18n("optionsHomeWarning")}`;
+      return <div dangerouslySetInnerHTML={{ __html: text }} onClick={(evt) => {
+        _updateAdvanceHomeConfig({ html: advancedHomeConfig.html, advanced: true });
+        evt.stopPropagation();
+      }} />;
+    }
+
+    return <>{i18n("optionsHomeRefresh")}</>;
+  }
 
   const getHomeSection = () => {
     if (configVisible === 'home') {
@@ -481,7 +496,7 @@ export const OptionsView = ({ config, onChange }: Props) => {
             {getAdvancedCommand()}
           </div>
           {getDetailedHomeSection()}
-          <div>{i18n("optionsHomeRefresh")}</div>
+          {getWarning()}
         </div>
       );
     }

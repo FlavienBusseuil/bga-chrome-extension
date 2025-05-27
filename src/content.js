@@ -147,9 +147,6 @@ const manageLocationChange = (pathname) => {
 	if (pageName === 'welcome') {
 		// send home display configuration to the home page management script
 		waitForObj('body').then(sendHomeConfiguration);
-
-		// reload css if the advent calendar is displayed
-		waitForObj('.bga-advent-calendar', 2000).then(() => buildMainCss(config.getAllCss())).catch(() => { });
 	}
 
 	if (pageName === 'tutorial') {

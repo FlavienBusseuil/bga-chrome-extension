@@ -1,12 +1,19 @@
 export const DEF_HOME_HTML = `<style>
 #bgaext-newsfeed .bga-homepage-newsfeed {
-	max-height: 900px;
+	max-height: 1020px;
 	overflow: auto;
+}
+#bgaext-tournaments .bga-homepage-tournaments-agenda {
+  max-height: 700px;
+  overflow: auto;
 }
 </style>
 <div class='bgaext-flex-col'>
   <div class='bgaext-flex-row'>
-    <div id='bgaext-tournaments'></div>
+    <div class='bgaext-flex-col'>
+      <div id='bgaext-partners-events'></div>
+      <div id='bgaext-tournaments'></div>
+    </div>
     <div class='bgaext-flex-col'>
       <div class='bgaext-flex-row'>
         <div id='bgaext-games-recent'></div>

@@ -96,7 +96,6 @@ export interface HomeConfig {
 	popularGames: boolean;
 	recommandedGames: boolean;
 	classicGames: boolean;
-	events: boolean;
 }
 
 export interface AdvancedHomeConfig {
@@ -341,7 +340,6 @@ class Configuration {
 			popularGames: true,
 			recommandedGames: true,
 			classicGames: true,
-			events: true,
 			...homeConfig
 		};
 	}
@@ -892,11 +890,6 @@ class Configuration {
 				}
 			}
 
-			// If we want to display events, display the recent games section
-			if (home.events && document.querySelector('.bga-advent-calendar')) {
-				home.recentGames = true;
-			}
-
 			if (!home.header) {
 				cssList.push('.bgaext_welcome .bga-homepage-header { display: none; }');
 			}
@@ -920,7 +913,7 @@ class Configuration {
 					--columns;
 				}
 				if (!home.popularGames) {
-					cssList.push('.bgaext_welcome .flex-1:has(>.homepage-section>.homepage-section__title>[href*="/gamelist?isPopular"]) { display: none; }');
+					cssList.push('.bgaext_welcome .flex-1:has(>.homepage-section>.homepage-section__title>[href*="/gamelist?isTrending"]) { display: none; }');
 					--columns;
 				}
 				if (!home.recommandedGames) {

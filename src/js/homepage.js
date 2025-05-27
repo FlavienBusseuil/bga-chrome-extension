@@ -56,7 +56,7 @@ const _init = () => {
 
   const advancedSetPageElements = () => {
     copyHtml('#bgadef-homepage .homepage-section:has([href*="/gamelist?isRecent"])', '#bgaext-games-recent');
-    copyHtml('#bgadef-homepage .homepage-section:has([href*="/gamelist?isPopular"])', '#bgaext-games-popular');
+    copyHtml('#bgadef-homepage .homepage-section:has([href*="/gamelist?isTrending"])', '#bgaext-games-popular');
     copyHtml('#bgadef-homepage .homepage-section:has([href*="/gamelist?isSuggested"])', '#bgaext-games-suggested');
     copyHtml('#bgadef-homepage .bga-homepage__games-section > div:last-child', '#bgaext-games-classic');
     copyHtml('#bgadef-homepage .homepage-section:has([href*="/player?section=recent"])', '#bgaext-newsfeed');
@@ -65,6 +65,7 @@ const _init = () => {
     copyHtml('#bgadef-homepage [style="grid-area: playmore;"]', '#bgaext-playmore');
     copyHtml('#bgadef-homepage [style="grid-area: leaderboard;"]', '#bgaext-leaderboard');
     copyHtml('#bgadef-homepage .bga-homepage__service-status-section', '#bgaext-service-status');
+    copyHtml('#bgadef-homepage .bga-homepage__partner-events-section', '#bgaext-partners-events');
   };
 
   let observer = undefined;

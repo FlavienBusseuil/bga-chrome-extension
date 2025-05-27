@@ -167,6 +167,7 @@
   "optionsInProgressColorfulTablesOff": "Default table colors",
   "optionsHomeAdvancedOn": "Advanced configuration",
   "optionsHomeAdvancedOff": "Easy configuration",
+  "optionsHomeWarning": "The \"News & Events\" area will not be displayed with this layout.<br>If you wish, you can display it using <a href='#'>advanced configuration</a>.",
   "uploadMp3": "Upload MP3",
   "play": "Play",
   "buttonSave": "Save",
