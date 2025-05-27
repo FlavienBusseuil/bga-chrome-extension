@@ -15,7 +15,7 @@ import { Loading } from "../Loading";
 
 type Props = {
   className?: string,
-  getGroupTables: (groupId: string) => Promise<TransformedTable[]>,
+  getGroupTables?: (groupId: string) => Promise<TransformedTable[]>,
   groups: { id: string, name: string }[],
   motionSensitivityEnable: boolean
 };
@@ -30,10 +30,12 @@ export const FriendsView = ({ className, getGroupTables, groups, motionSensitivi
   const search = () => {
     setLoading(true);
     setRequested(true);
-    getGroupTables(group).then(tables => {
-      setTables(tables);
-      setLoading(false);
-    });
+    if (getGroupTables) {
+      getGroupTables(group).then(tables => {
+        setTables(tables);
+        setLoading(false);
+      });
+    }
   }
 
   if (loading) {

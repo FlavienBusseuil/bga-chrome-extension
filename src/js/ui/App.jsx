@@ -42,44 +42,6 @@ export function App({ config }: Props): React$Node {
 
 	useEffect(fetch, []);
 
-	if (error) {
-		setBadge({ color: "#dc2626", text: `x` });
-		return (
-			<Error
-				errorMessage={i18n("something_wrong")}
-				errorDetails={error.message ?? error}
-			/>
-		);
-	}
-
-	if (result === null) {
-		return <Loading />;
-	}
-
-	if (result.isLoggedOut) {
-		setBadge({ color: "#757575", text: `-` });
-		return <LoginButton />;
-	}
-
-	const {
-		nbWaitingTables,
-		nbPendingInvites,
-		transformedTables,
-		transformedTournaments,
-		getGroupTables,
-		groups,
-	} = result;
-
-	const sortedTables = sortTables(transformedTables);
-	updateBadgeAndIcon({
-		nbWaitingTables,
-		nbPendingInvites,
-		tracking: config.isTrackingEnable(),
-		soundNotification: config.isTrackingEnable() && config.isSoundNotificationEnable()
-	});
-
-	const sortedTournaments = sortTournaments(transformedTournaments);
-
 	const _configChange = () => {
 		if (config.isTrackingEnable()) {
 			fetch();
@@ -95,9 +57,55 @@ export function App({ config }: Props): React$Node {
 		}
 	}, [hasConfigChange]);
 
+	if (error) {
+		setBadge({ color: "#dc2626", text: `x` });
+		return (
+			<Error
+				errorMessage={i18n("something_wrong")}
+				errorDetails={error.message ?? error}
+			/>
+		);
+	}
+
+	let sortedTables, sortedTournaments, getGroupTables, groups;
+
+	if (result) {
+		if (result.isLoggedOut) {
+			setBadge({ color: "#757575", text: `-` });
+			return <LoginButton />;
+		}
+
+		const {
+			nbWaitingTables,
+			nbPendingInvites,
+			transformedTables,
+			transformedTournaments,
+		} = result;
+
+		updateBadgeAndIcon({
+			nbWaitingTables,
+			nbPendingInvites,
+			tracking: config.isTrackingEnable(),
+			soundNotification: config.isTrackingEnable() && config.isSoundNotificationEnable()
+		});
+
+		getGroupTables = result.getGroupTables;
+		groups = result.groups;
+		sortedTables = sortTables(transformedTables);
+		sortedTournaments = sortTournaments(transformedTournaments);
+	} else {
+		sortedTables = [];
+		sortedTournaments = [];
+		groups = [];
+	}
+
 	const getContent = () => {
 		if (activeTab === "options") {
 			return <OptionsView config={config} onChange={() => setConfigChange(true)} />;
+		}
+
+		if (result === null) {
+			return <Loading />;
 		}
 
 		if (isMobile()) {
