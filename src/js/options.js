@@ -1,8 +1,8 @@
 import React, { render } from "preact";
 import Options from "./ui/options";
-import Configuration from "./config/configuration";
+import ConfigurationWithGames from "./config/configurationWithGames";
 
-const config = new Configuration();
+const config = new ConfigurationWithGames();
 
 document.addEventListener("DOMContentLoaded", () => {
 	const container = document.createElement("div");

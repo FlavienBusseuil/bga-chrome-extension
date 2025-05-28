@@ -1,45 +1,7 @@
-import equal from "fast-deep-equal";
-import defaultGames from "./sideMenuGames";
 import { addChangeListener, localStorageClear, localStorageGet, localStorageSet, storageClear, storageGet, storageSet } from "../utils/browser";
 import { i18n, setI18nLocale, getI18nDefaultLocale } from "../utils/browser/i18n";
 import { ADVANCED_HOME_STYLE, ARENA_DISABLED_GAMES, COLORFUL_TABLES, DEF_HOME_HTML } from "./configuration.constants";
-
-export interface Game {
-	name: string;
-	position: "top" | "bottom" | "auto";
-	top?: string;
-	bottom?: string;
-	left: string;
-	boardPanel?: string;
-	boardPanelOffset?: number;
-	boardPanelText?: string;
-	myPanel?: string;
-	playerPanel: string;
-	playerPanelOffset: number;
-	bottomPanel?: string;
-	bottomPanelOffset?: number;
-	iconBackground: string;
-	iconBackgroundDark: string;
-	iconBorder: string;
-	iconBorderDark: string;
-	iconColor: string;
-	iconColorDark: string;
-	iconShadow: string;
-	iconShadowDark: string;
-	css?: string;
-}
-
-export interface DarkModeConfig {
-	name: string;
-	color: number;
-	sat: number;
-}
-
-export interface Template {
-	name: string;
-	text: string;
-	game: string;
-}
+import { DarkModeConfig, Game, Template } from "./models";
 
 interface CustomConfig {
 	clientId: string;
@@ -126,35 +88,11 @@ interface LocalConfig {
 }
 
 class Configuration {
-	_defConfig: { games: Game[] };
 	_customConfig: CustomConfig;
 	_localConfig: LocalConfig;
 	_config: { games: Game[] };
 
 	constructor() {
-		this._defConfig = {
-			games: defaultGames.map((game) => {
-				return {
-					iconBackground: "#ebd5bd",
-					iconBackgroundDark: "#666",
-					iconBorder: "transparent",
-					iconBorderDark: "transparent",
-					iconColor: "#222",
-					iconColorDark: "#eee",
-					iconShadow: "#000",
-					iconShadowDark: "#000",
-					position: "top",
-					top: "75px",
-					bottom: "auto",
-					boardPanelOffset: 5,
-					playerPanelOffset: 5,
-					bottomPanelOffset: 5,
-					left: "0.5em",
-					css: ".desktop_version #game_play_area { padding-left: 50px; }",
-					...game,
-				};
-			}) as Game[],
-		};
 		this._customConfig = {
 			clientId: "",
 			games: [],
@@ -189,8 +127,6 @@ class Configuration {
 		if (this._customConfig.hideChatUserNames === undefined) {
 			this._customConfig.hideChatUserNames = true;
 		}
-
-		this._merge();
 	}
 
 	async init() {
@@ -227,15 +163,6 @@ class Configuration {
 		return true;
 	}
 
-	private _merge() {
-		const customNames = this._customConfig.games.map((g) => g.name);
-		const defGames = this._defConfig.games.filter(
-			(g) => !customNames.includes(g.name),
-		);
-
-		this._config.games = [...defGames, ...this._customConfig.games];
-	}
-
 	isEmpty() {
 		return (
 			this._customConfig.floatingRightMenu === undefined &&
@@ -268,36 +195,6 @@ class Configuration {
 
 	getGamesList(): Game[] {
 		return this._config.games.sort((a, b) => a.name.localeCompare(b.name));
-	}
-
-	saveGame(name: string, game: Game) {
-		const defGame = this._defConfig.games.find((g) => g.name === name);
-
-		if (defGame && equal(game, defGame)) {
-			return this.resetGame(name);
-		}
-
-		this._customConfig.games = [
-			...this._customConfig.games.filter((g) => g.name !== name),
-			game,
-		];
-		storageSet({ games: this._customConfig.games });
-		this._merge();
-		return this.getGamesList();
-	}
-
-	resetGame(name: string) {
-		this._customConfig.games = this._customConfig.games.filter(
-			(g) => g.name !== name,
-		);
-		storageSet({ games: this._customConfig.games });
-		this._merge();
-		return this.getGamesList();
-	}
-
-	isDefault(name: string) {
-		const defGame = this._defConfig.games.find((g) => g.name === name);
-		return !!defGame;
 	}
 
 	isCustomized(name: string) {

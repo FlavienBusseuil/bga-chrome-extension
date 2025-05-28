@@ -1,7 +1,7 @@
 import { isMobile } from "is-mobile";
 import { runtime } from "webextension-polyfill";
 
-import Configuration from './js/config/configuration';
+import ConfigurationWithGames from './js/config/configurationWithGames';
 import { isNumber } from './js/utils/misc/isNumber';
 import { waitForObj } from './js/utils/misc/wait';
 import { addLocationChangeListener } from './js/utils/misc/addLocationChangeListener';
@@ -26,7 +26,7 @@ import {
 } from './js/ui/content/functions';
 import { gamesWithTwoTeams } from "./js/config/darkThemeGames";
 
-const config = new Configuration();
+const config = new ConfigurationWithGames();
 let currentObserver = null;
 let pageType = undefined;
 let chatbardock = undefined;
