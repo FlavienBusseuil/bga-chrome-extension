@@ -1,9 +1,9 @@
+import { ComponentChildren } from "preact";
 import { cn } from "../utils/cn";
-import type { Tab } from "./Tab";
 
 interface TabsProps {
   className?: string;
-  children: typeof Tab;
+  children: ComponentChildren;
 }
 
 export function Tabs({ children, className }: TabsProps) {

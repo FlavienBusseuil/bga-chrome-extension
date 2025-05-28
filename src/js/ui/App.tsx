@@ -1,4 +1,3 @@
-// @flow
 import { isMobile } from "is-mobile";
 
 import type { TableId } from "../types/bga/Table";
@@ -22,6 +21,8 @@ import { useFetch } from "./hooks/useFetch";
 import { Tabs } from "./base/Tabs";
 import { Tab } from "./base/Tab";
 import { cn } from "./utils/cn";
+import { TransformedTable } from "../types/TransformedTable";
+import { TransformedTournament } from "../types/TransformedTournament";
 
 async function handleAcceptOrDeclineInvite(tableId: TableId) {
 	// TODO: https://github.com/FlavienBusseuil/bga-chrome-extension/projects/1
@@ -32,16 +33,39 @@ type Props = {
 	config: Configuration,
 };
 
-export function App({ config }: Props): React$Node {
+export const App = ({ config }: Props) => {
 	const [fetch, { error: fetchError, result }] = useFetch();
-	const [childError, resetChildError] = useErrorBoundary();
-	const [activeTab, setActiveTab] = useState < string > ("tables");
+	const [childError] = useErrorBoundary();
+	const [activeTab, setActiveTab] = useState<string>("tables");
 	const error = fetchError ?? childError;
 	const motionSensitivityEnable = config.isMotionSensitivityEnable();
 	const [hasConfigChange, setConfigChange] = useSyncedState("configChange", false);
 	const [locale] = useSyncedState('locale', config.getLocale());
+	const [sortedTables, setSortedTables] = useState<TransformedTable[]>([]);
+	const [sortedTournaments, setSortedTournaments] = useState<TransformedTournament[]>([]);
 
 	useEffect(fetch, []);
+
+	useEffect(() => {
+		if (result && !result.isLoggedOut) {
+			const {
+				nbWaitingTables,
+				nbPendingInvites,
+				transformedTables,
+				transformedTournaments
+			} = result;
+
+			updateBadgeAndIcon({
+				nbWaitingTables,
+				nbPendingInvites,
+				tracking: config.isTrackingEnable(),
+				soundNotification: config.isTrackingEnable() && config.isSoundNotificationEnable()
+			});
+
+			setSortedTables(sortTables(transformedTables));
+			setSortedTournaments(sortTournaments(transformedTournaments));
+		}
+	}, [result]);
 
 	const _configChange = () => {
 		if (config.isTrackingEnable()) {
@@ -68,36 +92,9 @@ export function App({ config }: Props): React$Node {
 		);
 	}
 
-	let sortedTables, sortedTournaments, getGroupTables, groups;
-
-	if (result) {
-		if (result.isLoggedOut) {
-			setBadge({ color: "#757575", text: `-` });
-			return <LoginButton />;
-		}
-
-		const {
-			nbWaitingTables,
-			nbPendingInvites,
-			transformedTables,
-			transformedTournaments,
-		} = result;
-
-		updateBadgeAndIcon({
-			nbWaitingTables,
-			nbPendingInvites,
-			tracking: config.isTrackingEnable(),
-			soundNotification: config.isTrackingEnable() && config.isSoundNotificationEnable()
-		});
-
-		getGroupTables = result.getGroupTables;
-		groups = result.groups;
-		sortedTables = sortTables(transformedTables);
-		sortedTournaments = sortTournaments(transformedTournaments);
-	} else {
-		sortedTables = [];
-		sortedTournaments = [];
-		groups = [];
+	if (result?.isLoggedOut) {
+		setBadge({ color: "#757575", text: `-` });
+		return <LoginButton />;
 	}
 
 	const getContent = () => {
@@ -122,7 +119,7 @@ export function App({ config }: Props): React$Node {
 			if (activeTab === "tournaments") {
 				return <TournamentsView className="w-full" tournaments={sortedTournaments} />;
 			}
-			return <FriendsView className="w-full" getGroupTables={getGroupTables} groups={groups} motionSensitivityEnable={motionSensitivityEnable} />;
+			return <FriendsView className="w-full" getGroupTables={result.getGroupTables} groups={result.groups} motionSensitivityEnable={motionSensitivityEnable} />;
 		}
 
 		return (
@@ -160,8 +157,8 @@ export function App({ config }: Props): React$Node {
 						activeTab !== "friends" && "opacity-0",
 						activeTab !== "friends" && "invisible",
 					])}
-					getGroupTables={getGroupTables}
-					groups={groups}
+					getGroupTables={result.getGroupTables}
+					groups={result.groups}
 					motionSensitivityEnable={motionSensitivityEnable}
 				/>
 			</div>

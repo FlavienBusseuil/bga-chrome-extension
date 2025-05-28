@@ -1,33 +1,32 @@
-// @flow
-
 import type { TransformedTable } from "../../types/TransformedTable";
 import type { TransformedTournament } from "../../types/TransformedTournament";
-import type { FetchResult } from "../../utils/init/fetch";
+import type { Group } from "../../types/bga/Group";
 
 import { fetch } from "../../utils/init/fetch";
 
 import { transformTables } from "../../utils/init/transformTables";
 import { transformTournaments } from "../../utils/init/transformTournaments";
 
-import { useState, useEffect, useErrorBoundary } from "preact/hooks";
+import { useState } from "preact/hooks";
 
 type Result =
 	| {
 		isLoggedOut: true,
 	}
 	| {
+		isLoggedOut: false,
 		nbPendingInvites: number,
 		nbWaitingTables: number,
 		transformedTables: Array<TransformedTable>,
 		transformedTournaments: Array<TransformedTournament>,
 		getGroupTables: (groupId: string) => Promise<Array<TransformedTable>>,
-		groups: string[]
+		groups: Group[]
 	};
-type Output = [() => void, { result: null | Result, error: ?Error }];
+type Output = [() => void, { result: Result | null, error: Error | null }];
 
 export function useFetch(): Output {
-	const [result, setResult] = useState < null | Result > (null);
-	const [error, setError] = useState <? Error > (null);
+	const [result, setResult] = useState<null | Result>(null);
+	const [error, setError] = useState<Error | null>(null);
 
 	const handleFetch = () => {
 		fetch()
@@ -53,6 +52,7 @@ export function useFetch(): Output {
 					});
 
 					setResult({
+						isLoggedOut: false,
 						nbPendingInvites,
 						nbWaitingTables,
 						transformedTables,

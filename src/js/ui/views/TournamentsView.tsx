@@ -1,5 +1,3 @@
-// @flow
-
 import type { TransformedTournament } from "../../types/TransformedTournament";
 
 import { CardList } from "../base/CardList";
@@ -14,9 +12,9 @@ type Props = {
 	tournaments: Array<TransformedTournament>,
 };
 
-export function TournamentsView({ className, tournaments }: Props): React$Node {
+export const TournamentsView = ({ className, tournaments }: Props) => {
 	return (
-		<div className={cn(["flex justify-between flex-col gap-2", className])}>
+		<div className={cn(["flex justify-between flex-col gap-2", className || ''])}>
 			{tournaments.length === 0 && (
 				<div className="flex justify-center flex-col grow" style={{ minHeight: "60px" }}>
 					<span class="text-black dark:text-white text-center text-xl">
@@ -26,7 +24,7 @@ export function TournamentsView({ className, tournaments }: Props): React$Node {
 			)}
 			{tournaments.length > 0 && (
 				<div className="max-result">
-					<CardList className={className}>
+					<CardList className={className || ''}>
 						{tournaments.map(
 							({ gameImg, championshipName, name, link, date }) => (
 								<Card onClick={() => window.open(link, "_blank")}>

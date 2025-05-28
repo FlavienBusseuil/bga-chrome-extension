@@ -1,5 +1,3 @@
-// @flow
-
 import type { TransformedTable } from "../../types/TransformedTable";
 
 import { PlayerList } from "../PlayerList";
@@ -14,20 +12,20 @@ import { cn } from "../utils/cn";
 type Props = {
 	className?: string,
 	tables: Array<TransformedTable>,
-	onAcceptInvite: (TableId) => Promise<void>,
-	onDeclineInvite: (TableId) => Promise<void>,
+	onAcceptInvite: (arg: TableId) => Promise<void>,
+	onDeclineInvite: (arg: TableId) => Promise<void>,
 	motionSensitivityEnable: boolean,
 };
 
-export function TablesView({
+export const TablesView = ({
 	className,
 	tables,
 	onAcceptInvite,
 	onDeclineInvite,
 	motionSensitivityEnable
-}: Props): React$Node {
+}: Props) => {
 	return (
-		<div className={cn(["flex justify-between flex-col gap-2", className])}>
+		<div className={cn(["flex justify-between flex-col gap-2", className || ''])}>
 			{tables.length === 0 && (
 				<div className="flex justify-center flex-col grow" style={{ minHeight: "60px" }}>
 					<span class="text-black dark:text-white text-center text-xl">

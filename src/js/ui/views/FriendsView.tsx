@@ -12,11 +12,12 @@ import { Table } from "../Table";
 import { CardList } from "../base/CardList";
 import { cn } from "../utils/cn";
 import { Loading } from "../Loading";
+import type { Group } from "../../types/bga/Group";
 
 type Props = {
   className?: string,
-  getGroupTables?: (groupId: string) => Promise<TransformedTable[]>,
-  groups: { id: string, name: string }[],
+  getGroupTables: ((groupId: string) => Promise<TransformedTable[]>) | undefined,
+  groups: Group[],
   motionSensitivityEnable: boolean
 };
 
@@ -30,6 +31,7 @@ export const FriendsView = ({ className, getGroupTables, groups, motionSensitivi
   const search = () => {
     setLoading(true);
     setRequested(true);
+    debugger;
     if (getGroupTables) {
       getGroupTables(group).then(tables => {
         setTables(tables);
@@ -152,7 +154,7 @@ export const FriendsView = ({ className, getGroupTables, groups, motionSensitivi
           id="group-select"
           className="flex-grow border border-black dark:dark:border-white rounded"
           value={group}
-          onChange={(evt) => setGroup(evt.target.value)}
+          onChange={(evt: any) => evt.target && setGroup(evt.target.value)}
         >
           <option value="0">{i18n("my_friends")}</option>
           {getOptions()}

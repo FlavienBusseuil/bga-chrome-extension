@@ -1,9 +1,9 @@
+import { ComponentChildren } from "preact";
 import { cn } from "../utils/cn";
-import { Card } from "./Card";
 
 interface CardListProps {
   className?: string;
-  children: typeof Card;
+  children: ComponentChildren;
 }
 
 export function CardList({ className, children }: CardListProps) {

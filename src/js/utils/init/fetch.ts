@@ -1,8 +1,8 @@
-// @flow
 import type { PlayerId } from "../../types/bga/Player";
 
 import type { GlobalUserInfos } from "../../types/bga/queries/GameInProgress";
 import type { Table } from "../../types/bga/queries/TableManager";
+import type { Group } from "../../types/bga/Group";
 
 import { fetchActivityForPlayer } from "../fetch/fetchActivityForPlayer";
 import { fetchCurrentPlayer } from "../fetch/fetchCurrentPlayer";
@@ -17,6 +17,7 @@ import { fetchRequestToken } from "../fetch/fetchRequestToken";
 
 export type FetchResult =
 	| {
+		isLoggedOut: false
 		nbWaitingTables: number,
 		nbPendingInvites: number,
 		currentPlayerId: PlayerId,
@@ -24,8 +25,8 @@ export type FetchResult =
 		translations: Translations,
 		tournaments: Array<Tournament>,
 		tables: Array<Table>,
-		getGroupsTables: (groupId: string) => Promise<Array<Table>>,
-		groups: string[],
+		getGroupTables: (groupId: string) => Promise<Array<Table>>,
+		groups: Group[],
 	}
 	| { isLoggedOut: true };
 
@@ -48,12 +49,12 @@ export async function fetch(): Output {
 	}
 
 	const friends = Object.keys(globalUserInfos.friends);
-	const groups = Object.keys(globalUserInfos.group_types)
+	const groups: Group[] = Object.keys(globalUserInfos.group_types)
 		.filter(groupId => globalUserInfos.group_types[groupId] === "normal")
-		.map(groupId => ({ id: groupId, name: globalUserInfos.group_names[groupId] }))
-		.filter(g => !g.name.endsWith("players"));
+		.map(groupId => ({ id: groupId, name: globalUserInfos.group_names[groupId] || '' }))
+		.filter(g => g.name && !g.name.endsWith("players"));
 
-	groups.sort((a, b) => a.name.localeCompare(b.name));
+	groups.sort((a, b) => (a.name || '').localeCompare(b.name || ''));
 
 	// Fetch number of waiting tables, global translation, friends and tables
 	const [activityForPlayer, translations, tables] = await Promise.all([
@@ -74,7 +75,7 @@ export async function fetch(): Output {
 
 	const { nbWaitingTables } = activityForPlayer;
 
-	const playersByGroups = {};
+	const playersByGroups: Record<string, any> = {};
 
 	const isTablePlayersMatching = (t: Table, players: string[]) => {
 		return players.includes(t.table_creator) && !Object.keys(t.players).includes(currentPlayerId);
@@ -104,25 +105,19 @@ export async function fetch(): Output {
 		let players = groupId === "0" ? friends : playersByGroups[groupId];
 
 		if (!players) {
-			players = await fetchGroupPlayers(groupId);
+			players = await fetchGroupPlayers(+groupId);
 			playersByGroups[groupId] = players;
 		}
 
 		return await getPlayersTables(players);
 	};
 
-	const nbPendingInvites = tables.reduce(
-		(total, table) =>
-			total +
-			(table.players[String(currentPlayer.id)].table_status === "expected"
-				? 1
-				: 0),
-		0,
-	);
+	const nbPendingInvites = tables.reduce((total, table) => total + (table.players[currentPlayer.id]?.table_status === "expected" ? 1 : 0), 0);
 
 	const tournaments = await fetchTournaments({ requestToken });
 
 	return {
+		isLoggedOut: false,
 		nbWaitingTables,
 		nbPendingInvites,
 		currentPlayerId,
