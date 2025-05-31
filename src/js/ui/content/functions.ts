@@ -14,7 +14,6 @@ import ConfirmationPopup from './misc/ConfirmationPopup';
 import InformationPopup from './misc/InformationPopup';
 import { waitForObj } from '../../utils/misc/wait';
 import shouldFilter from '../../config/filteredLogs';
-import { isFirefox } from '../../utils/browser';
 import { i18n } from "../../utils/browser/i18n";
 import type Configuration from "~/js/config/configuration";
 import type { Game as GameConfig } from "~/js/config/models";
@@ -99,7 +98,7 @@ const mutePlayer = (config: Configuration, evt: MouseEvent) => {
 			close();
 		};
 
-		render(<ConfirmationPopup type='mute_player' confirm={confirm} cancel={close} config={config} />, container);
+		render(ConfirmationPopup({ type: 'mute_player', confirm, cancel: close, config }), container);
 	}
 };
 
@@ -134,17 +133,7 @@ const displayInformationPopup = (config: Configuration) => {
 		container.remove();
 	};
 
-	const title = isFirefox ? i18n("infosTitleFirefox") : i18n("infosTitleChrome");
-	const content = (
-		<div>
-			<p>{isFirefox ? i18n("infosSubTitleFirefox") : i18n("infosSubTitleChrome")}</p>
-			<p dangerouslySetInnerHTML={{ __html: i18n("infosLine3") }}></p>
-			<p dangerouslySetInnerHTML={{ __html: i18n("infosLine4") }}></p>
-			<p dangerouslySetInnerHTML={{ __html: i18n("infosLine5") }}></p>
-		</div>
-	);
-
-	render(<InformationPopup title={title} content={content} later={later} close={close} />, container);
+	render(InformationPopup({ later, close }), container);
 };
 
 const refreshMutedPlayers = (config: Configuration) => {
