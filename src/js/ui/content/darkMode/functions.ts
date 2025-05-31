@@ -1,7 +1,7 @@
-import React, { render } from "preact";
+import { render } from "preact";
 import ModeSelector from "./ModeSelector";
-
-const getContainer = (gameName) => {
+import type Configuration from "../../../config/configuration";
+const getContainer = (gameName: string) => {
   if (gameName === "general") {
     const friendsElt = document.querySelector('.bga-friends-icon');
 
@@ -21,7 +21,7 @@ const getContainer = (gameName) => {
   return soundIcon;
 };
 
-const initDarkMode = (config, gameName) => {
+const initDarkMode = (config: Configuration, gameName: string) => {
   const darkModeIconId = 'bga_extension_dark_mode_icon';
 
   if (!document.getElementById(darkModeIconId)) {
@@ -35,19 +35,16 @@ const initDarkMode = (config, gameName) => {
     const darkElt = document.createElement('div');
     darkElt.id = darkModeIconId;
     darkElt.className = "upperrightmenu_item";
-    container.parentNode.insertBefore(darkElt, container);
+    container.parentNode!.insertBefore(darkElt, container);
 
     if (gameName === "general") {
       const sepElt = document.createElement('div');
       sepElt.className = "ml-1 tablet:ml-6";
-      container.parentNode.insertBefore(sepElt, container);
+      container.parentNode!.insertBefore(sepElt, container);
     }
 
     render(
-      <ModeSelector
-        config={config}
-        gameName={gameName}
-      />,
+      ModeSelector({ config, gameName }),
       darkElt,
     );
   }
