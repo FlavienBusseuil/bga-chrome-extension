@@ -38,7 +38,7 @@
       ],
       "run_at": "document_start",
       "js": [
-        "contentForum.js"
+        "contentForum.ts"
       ],
       "all_frames": true
     },
@@ -48,7 +48,7 @@
       ],
       "run_at": "document_start",
       "js": [
-        "contentMelodice.js"
+        "contentMelodice.ts"
       ],
       "all_frames": true
     }
