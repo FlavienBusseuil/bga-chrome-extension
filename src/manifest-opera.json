@@ -82,7 +82,7 @@
         "css/dark_theme/*.less",
         "css/light_theme/*.less",
         "css/games/*/*.less",
-        "js/homepage.js",
+        "js/homepage.ts",
         "js/bgaApi.js",
         "sound/myturn.mp3",
         "offscreen.html",
