@@ -70,7 +70,7 @@ export interface PopupsConfig {
 	fastStartWarning: boolean;
 	muteWarning: boolean;
 	reportMsg: boolean;
-	infosDialog: string | undefined;
+	infosDialog?: string;
 }
 
 export interface InProgressConfig {

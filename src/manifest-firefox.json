@@ -27,7 +27,7 @@
       ],
       "run_at": "document_start",
       "js": [
-        "content.js"
+        "content.ts"
       ],
       "all_frames": true
     },
