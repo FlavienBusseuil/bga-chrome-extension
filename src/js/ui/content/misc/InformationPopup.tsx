@@ -1,12 +1,21 @@
 import { i18n } from "../../../utils/browser/i18n";
+import { isFirefox } from '../../../utils/browser';
 interface Props {
-    title: string;
-    content: ChildNode;
     later: () => void;
     close: () => void;
 }
 
-const InformationPopup = ({ title, content, later, close }: Props) => {
+const title = isFirefox ? i18n("infosTitleFirefox") : i18n("infosTitleChrome");
+const content = (
+    <div>
+        <p>{isFirefox ? i18n("infosSubTitleFirefox") : i18n("infosSubTitleChrome")}</p>
+        <p dangerouslySetInnerHTML={{ __html: i18n("infosLine3") }}></p>
+        <p dangerouslySetInnerHTML={{ __html: i18n("infosLine4") }}></p>
+        <p dangerouslySetInnerHTML={{ __html: i18n("infosLine5") }}></p>
+    </div>
+);
+
+const InformationPopup = ({ later, close }: Props) => {
     return (
         <div id="bgaext_popup" className="large">
             <h2 class="bgaext_popup_title">{title}</h2>

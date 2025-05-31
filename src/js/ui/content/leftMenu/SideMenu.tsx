@@ -1,7 +1,6 @@
 import { useState, useEffect } from "preact/hooks";
 import { isMobile } from "is-mobile";
 
-import Configuration, { Game } from "../../../config/configuration";
 import { i18n } from "../../../utils/browser/i18n";
 
 import SideMenuItem from "./SideMenuItem";
@@ -10,12 +9,15 @@ import CloseIcon from "./icons/CloseIcon";
 import TopArrowIcon from "./icons/TopArrowIcon";
 import SandwichIcon from "./icons/SandwichIcon";
 import Avatar from "./Avatar";
-import { Player, getPlayerPanelId } from "./player";
+import { type Player, getPlayerPanelId } from "./player";
+
+import type Configuration from "../../../config/configuration";
+import type { Game } from "../../../config/models";
 
 import "../../../../css/leftMenu.css";
 
 interface SideMenuProps {
-	players: [Player];
+	players: Player[];
 	panel: string;
 	gameConfig: Game;
 	config: Configuration;
@@ -94,7 +96,7 @@ const SideMenu = (props: SideMenuProps) => {
 		if (elt.innerHTML.indexOf(name) >= 0) {
 			return true;
 		}
-		if (elt.attributes && elt.attributes['data-title'] && elt.attributes['data-title'].value === name) {
+		if (elt.getAttribute('data-title') === name) {
 			return true;
 		}
 		return false;
@@ -174,7 +176,7 @@ const SideMenu = (props: SideMenuProps) => {
 	};
 
 	const getButtons = () => {
-		const elements = {};
+		const elements: Record<string, any> = {};
 
 		players.forEach((p, index) => {
 			const id = getPlayerPanelId(gameConfig, p, index);
@@ -195,7 +197,7 @@ const SideMenu = (props: SideMenuProps) => {
 
 			const fakePlayer = {
 				fake: true,
-				id: gameConfig.boardPanel,
+				id: Number(gameConfig.boardPanel),
 				name: boardButtonText || i18n("sideMenuMainBoard"),
 				avatar: "board",
 				color: "#ffffff",
@@ -216,7 +218,7 @@ const SideMenu = (props: SideMenuProps) => {
 		if (gameConfig.bottomPanel) {
 			const fakePlayer = {
 				fake: true,
-				id: gameConfig.bottomPanel,
+				id: Number(gameConfig.bottomPanel),
 				name: "",
 				avatar: "bottom",
 				color: "#ffffff",

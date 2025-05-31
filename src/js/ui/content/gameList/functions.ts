@@ -1,7 +1,9 @@
-import React, { render } from "preact";
+import { render } from "preact";
 import ConfirmationPopup from "../misc/ConfirmationPopup";
 
-const createHiddenGameStyle = (content) => {
+import type Configuration from "~/js/config/configuration";
+
+const createHiddenGameStyle = (content: string) => {
 	const hiddenStyleId = "cde-hidden-games-style";
 
 	let style = document.getElementById(hiddenStyleId);
@@ -17,25 +19,33 @@ const createHiddenGameStyle = (content) => {
 };
 
 let pageNotFoundError = false;
-let links = [];
-let lastLink = undefined;
+let links: NodeListOf<HTMLAnchorElement> | undefined;
+let lastLink: string| undefined;
 
-const linkClick = (evt) => {
-	let elt = evt.target;
-	let loop = 0;
 
-	while (!elt.href && loop < 10) {
-		elt = elt.parentNode;
-		++loop;
-	}
+const findClickableParent = (element: HTMLElement, maxDepth = 10): HTMLAnchorElement | null => {
+  let current = element;
+  let depth = 0;
 
-	if (elt.href) {
-		lastLink = elt.href;
-		console.debug(`[bga extension] click on ${lastLink}`);
-	}
+  while (current && !('href' in HTMLAnchorElement) && depth < maxDepth) {
+    current = current.parentNode as HTMLElement;
+    depth++;
+  }
+
+  return 'href' in current ? current as HTMLAnchorElement : null;
 };
 
-export const initGameListObserver = (config, page) => {
+const linkClick = (evt: MouseEvent): void => {
+  const target = evt.target as HTMLElement;
+  const clickableElement = findClickableParent(target);
+
+  if (clickableElement?.href) {
+    lastLink = clickableElement.href;
+    console.debug('[bga extension] click on', lastLink);
+  }
+};
+
+export const initGameListObserver = (config: Configuration, page: string) => {
 	const mainElt = document.querySelector("#overall-content");
 
 	if (!mainElt) {
@@ -45,7 +55,7 @@ export const initGameListObserver = (config, page) => {
 	const style = createHiddenGameStyle(config.getHiddenGamesStyle(page));
 	const updateHiddenGameStyle = () => (style.innerHTML = config.getHiddenGamesStyle(page));
 
-	const hideGame = (name) => {
+	const hideGame = (name: string) => {
 		const popupConfig = config.getPopupConfiguration();
 
 		if (!popupConfig.deleteWarning) {
@@ -59,7 +69,7 @@ export const initGameListObserver = (config, page) => {
 			const close = () => {
 				container.remove();
 			}
-			const confirm = (stopWarn) => {
+			const confirm = (stopWarn: boolean) => {
 				if (stopWarn) {
 					popupConfig.deleteWarning = false;
 					config.setPopupConfiguration(popupConfig);
@@ -69,19 +79,20 @@ export const initGameListObserver = (config, page) => {
 				close();
 			};
 
-			render(<ConfirmationPopup type='delete_game' confirm={confirm} cancel={close} config={config} />, container);
+			render(ConfirmationPopup({ type: 'delete_game', confirm, cancel: close, config }), container);
 		}
 	};
 
-	const quickStart = (evt) => {
+	const quickStart = (evt: MouseEvent) => {
 		evt.stopPropagation();
 
 		const startGame = () => {
-			const gameId = evt.target.id.split('_').pop();
+			const target = evt.target as HTMLElement | null;
+			const gameId = target?.id.split('_').pop();
 
 			if (gameId) {
 				console.debug(`[bga extension] Create table for game ${gameId}`);
-				let obj = evt.target;
+				let obj = target as HTMLElement;
 				let gameMode = 'realtime';
 
 				for (let i = 0; i < 10; i++) {
@@ -94,7 +105,7 @@ export const initGameListObserver = (config, page) => {
 						gameMode = 'realtime';
 						break;
 					}
-					obj = obj.parentNode;
+					obj = obj.parentNode as HTMLElement;
 				}
 
 				const key = new Date().getTime();
@@ -116,7 +127,7 @@ export const initGameListObserver = (config, page) => {
 			const close = () => {
 				container.remove();
 			}
-			const confirm = (stopWarn) => {
+			const confirm = (stopWarn: boolean) => {
 				if (stopWarn) {
 					popupConfig.fastStartWarning = false;
 					config.setPopupConfiguration(popupConfig);
@@ -125,7 +136,7 @@ export const initGameListObserver = (config, page) => {
 				close();
 			};
 
-			render(<ConfirmationPopup type='fast_create' confirm={confirm} cancel={close} config={config} />, container);
+			render(ConfirmationPopup({type:'fast_create', confirm, cancel:close, config}), container);
 		}
 	};
 
@@ -134,7 +145,7 @@ export const initGameListObserver = (config, page) => {
 
 		const infoMsg = Array.from(document.querySelectorAll('.head_infomsg_item'));
 
-		if (!pageNotFoundError && infoMsg.find(info => info.innerHTML.startsWith('Page not found'))) {
+		if (!pageNotFoundError && infoMsg.find(info => info.innerHTML.startsWith('Page not found')) && lastLink) {
 			console.log(`[bga extension] page not found error, navigate to ${lastLink}`);
 			pageNotFoundError = true;
 			observer.disconnect();
@@ -142,21 +153,21 @@ export const initGameListObserver = (config, page) => {
 			return;
 		}
 
-		links.forEach(l => l.removeEventListener("click", linkClick));
-		links = document.querySelectorAll('[href]');
+		links?.forEach(l => l.removeEventListener("click", linkClick));
+		links = document.querySelectorAll('[href]') as NodeListOf<HTMLAnchorElement>;
 		links.forEach(l => l.addEventListener("click", linkClick));
 
 		// attempt to fix "Page not found" bug => end
 
-		const gameButtons = document.querySelectorAll('[href^="/gamepanel?game="]');
+		const gameButtons = document.querySelectorAll('[href^="/gamepanel?game="]') as NodeListOf<HTMLAnchorElement>;
 
 		gameButtons.forEach(but => {
 			if (but.classList.contains('bgabutton_blue') || but.classList.contains('bga-button--blue')) {
-				const container = but.parentNode;
+				const container = but.parentNode as HTMLElement;
 
-				if (config.isHideGameButtonDisplayed() && !but.classList.contains('bgabutton_medium') && but.href.indexOf('#') < 0 && !container.lastChild.classList?.contains('bgabutton_red')) {
+				if (config.isHideGameButtonDisplayed() && !but.classList.contains('bgabutton_medium') && but.href.indexOf('#') < 0 && !(container?.lastChild as HTMLElement).classList.contains('bgabutton_red')) {
 					but.style.minWidth = "100px";
-					container.style.boxShadow = "none";
+					container!.style.boxShadow = "none";
 
 					const removeBut = document.createElement("a");
 					removeBut.className = "ext_delete_button bgabutton bgabutton_red bga-button-inner flex-1 truncate";
@@ -164,7 +175,7 @@ export const initGameListObserver = (config, page) => {
 					removeBut.style.margin = "0px 0px 0px 5px";
 					removeBut.style.minWidth = "32px";
 					removeBut.innerHTML = '<div class="flex items-center"><div class="text-center"><i class="fa fa-trash"/></div></div>';
-					removeBut.onclick = () => hideGame(but.href.split("=")[1]);
+					removeBut.onclick = () => hideGame(but.href.split("=")[1] as string);
 					container.appendChild(removeBut);
 				}
 			} else if (config.isLobbyRedirectionEnable()) {
@@ -192,7 +203,7 @@ export const initGameListObserver = (config, page) => {
 					quickBut.style.marginRight = "4px";
 					quickBut.innerHTML = `${but.innerHTML}&nbsp;<i class="fa fa-bolt"></i>`;
 					quickBut.addEventListener("click", quickStart);
-					container.insertBefore(quickBut, but);
+					container!.insertBefore(quickBut, but);
 
 					but.innerHTML = `${but.innerHTML}&nbsp;<i class="fa fa-gear"></i>`;
 				}

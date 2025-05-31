@@ -27,12 +27,12 @@ import {
 import { gamesWithTwoTeams } from "./js/config/darkThemeGames";
 
 const config = new ConfigurationWithGames();
-let currentObserver = null;
-let pageType = undefined;
-let chatbardock = undefined;
+let currentObserver: MutationObserver | null = null;
+let pageType: string;
+let chatbardock: Element | null = null;
 let gameName = '';
 
-const autoHideChat = (e) => {
+const autoHideChat = (e: MouseEvent) => {
 	if (chatbardock) {
 		const clientRect = chatbardock.getBoundingClientRect();
 		const minX = clientRect.x - 100;
@@ -49,7 +49,7 @@ const autoHideChat = (e) => {
 	}
 };
 
-const initObserver = (page) => {
+const initObserver = (page: string) => {
 	if (page === 'game') {
 		currentObserver = initLogObserver(config);
 	} else if (page === 'gamepanel') {
@@ -68,18 +68,18 @@ const initObserver = (page) => {
 		}
 
 		if (page === 'game' && config.isChatBarAutoHide()) {
-			document.querySelector('body').addEventListener('mousemove', autoHideChat);
+			document.querySelector('body')?.addEventListener('mousemove', autoHideChat);
 		}
 	}
 };
 
-const manageLocationChange = (pathname) => {
+const manageLocationChange = (pathname: string) => {
 	console.log('[bga extension] load path', pathname);
 
-	const pageInfo = pathname.substring(1).split('.')[0].split('/');
+	const pageInfo = pathname.substring(1).split('.')[0]?.split('/');
 
 	if (window.location.hostname === 'studio.boardgamearena.com') {
-		const pageName = pageInfo[0] || 'welcomestudio';
+		const pageName = pageInfo && pageInfo[0] || 'welcomestudio';
 		setHtmlClass(pageName);
 		initChatIcon(config);
 		initDarkMode(config, 'general');
@@ -103,10 +103,10 @@ const manageLocationChange = (pathname) => {
 		currentObserver = null;
 	}
 
-	if (pageInfo.length >= 2 && isNumber(pageInfo[0])) {
+	if (pageInfo && pageInfo.length >= 2 && isNumber(pageInfo[0] as string)) {
 		initObserver('game');
 
-		gameName = pageInfo[1];
+		gameName = pageInfo[1] as string;
 		const gameConfig = config.getGameConfig(gameName);
 
 		if (!isMobile() && (config.isGlobalFloatingMenu() || config.isGameFloatingMenu(gameName))) {
@@ -116,7 +116,6 @@ const manageLocationChange = (pathname) => {
 		buildOptions(config, gameName, gameConfig);
 
 		if (gameConfig) {
-			gamesWithTwoTeams.includes()
 			initLeftMenu(config, gameConfig, config.isLeftMenuEnabled(gameName), gamesWithTwoTeams.includes(gameName));
 		} else {
 			console.debug(`[bga extension] no configuration found for game ${gameName}`);
@@ -139,7 +138,7 @@ const manageLocationChange = (pathname) => {
 		});
 	}
 
-	const pageName = pageInfo[0] || 'welcome';
+	const pageName = pageInfo && pageInfo[0] || 'welcome';
 	if (pageName === 'blank') {
 		return 'blank';
 	}
@@ -150,7 +149,7 @@ const manageLocationChange = (pathname) => {
 	}
 
 	if (pageName === 'tutorial') {
-		gameName = window.location.search.substring(1).split('&').find(p => p.startsWith('game'))?.split('=')[1];
+		gameName = window.location.search.substring(1).split('&').find(p => p.startsWith('game'))?.split('=')[1] || 'general';
 		initDarkMode(config, gameName);
 		setHtmlGameClass();
 		return 'general';
@@ -158,7 +157,8 @@ const manageLocationChange = (pathname) => {
 
 	if (pageName === 'archive') {
 		waitForObj('[href*="table="]').then((elt) => {
-			gameName = elt.href.substring(elt.href.lastIndexOf('/') + 1).split('?')[0];
+			const aelt = elt as HTMLAnchorElement;
+			gameName = aelt.href.substring(aelt.href.lastIndexOf('/') + 1).split('?')[0] as string;
 			initDarkMode(config, gameName);
 			setHtmlGameClass();
 		});
@@ -185,7 +185,7 @@ const manageLocationChange = (pathname) => {
 	return 'general';
 };
 
-const setHtmlClass = (mode) => {
+const setHtmlClass = (mode: string) => {
 	const oldClasses = Array.from(document.documentElement.classList).filter(c => c.startsWith('bgaext'));
 
 	oldClasses.map(oldClass => {
@@ -224,7 +224,8 @@ const sendHomeConfiguration = () => {
 	document.body.dispatchEvent(new CustomEvent('bga_ext_send_homepage_config', { detail }));
 };
 
-const setTableAccessMaxLevel = (tableId, maxLevel) => {
+type TableId = string;
+const setTableAccessMaxLevel = (tableId: TableId, maxLevel: number) => {
 	console.debug(`[bga extension] Search my level for table ${tableId}. Is it ${maxLevel}?`);
 	const key = new Date().getTime();
 	const levels = [0, 1, 2, 3, 4, 5, 6].map(l => `level${l}=${maxLevel > l}`).join('&');
@@ -233,7 +234,7 @@ const setTableAccessMaxLevel = (tableId, maxLevel) => {
 	document.body.dispatchEvent(new CustomEvent('bga_ext_api_call', { detail }));
 };
 
-const setTableAccessLevels = (tableId, minLevel, maxLevel) => {
+const setTableAccessLevels = (tableId: TableId, minLevel: number, maxLevel: number) => {
 	const key = new Date().getTime();
 	const levels = [0, 1, 2, 3, 4, 5, 6].map(l => `level${l}=${l >= minLevel && l <= maxLevel}`).join('&');
 	const endPoint = `/table/table/changeTableAccessLevel.html?table=${tableId}&${levels}&dojo.preventCache=${key}`;
@@ -241,7 +242,7 @@ const setTableAccessLevels = (tableId, minLevel, maxLevel) => {
 	document.body.dispatchEvent(new CustomEvent('bga_ext_api_call', { detail }));
 };
 
-const setTableAccessReputation = (tableId, karma) => {
+const setTableAccessReputation = (tableId: TableId, karma: number) => {
 	console.debug(`[bga extension] Set karma restriction value to ${karma} for table ${tableId}`);
 	const key = new Date().getTime();
 	const endPoint = `/table/table/changeTableAccessReputation.html?table=${tableId}&karma=${karma}&dojo.preventCache=${key}`;
@@ -249,7 +250,7 @@ const setTableAccessReputation = (tableId, karma) => {
 	document.body.dispatchEvent(new CustomEvent('bga_ext_api_call', { detail }));
 };
 
-const setTableOpened = (tableId) => {
+const setTableOpened = (tableId: TableId) => {
 	console.debug(`[bga extension] Open table ${tableId}`);
 	const key = new Date().getTime();
 	const endPoint = `/table/table/openTableNow.html?table=${tableId}&dojo.preventCache=${key}`;
@@ -290,7 +291,7 @@ const initPage = () => {
 		}
 
 		document.body.addEventListener('bga_ext_api_result', (data) => {
-			const evtDetail = JSON.parse(data.detail);
+			const evtDetail = JSON.parse((data as CustomEvent).detail);
 
 			console.debug(`[bga extension] Event ${evtDetail.type} received`, evtDetail);
 
@@ -343,20 +344,22 @@ const initPage = () => {
 config.init().then(initPage);
 
 document.addEventListener('bga_ext_update_config', (data) => {
-	console.debug('[bga extension] configuration updated', data);
-	if (data.detail.key === 'hideGeneralChat') {
+	const key = (data as CustomEvent).detail.key as string;
+
+	console.debug('[bga extension] configuration updated', key);
+	if (key === 'hideGeneralChat') {
 		setChatStyle(config);
-	} else if (data.detail.key === 'hideElo') {
+	} else if (key === 'hideElo') {
 		setEloStyle(config);
-	} else if (data.detail.key === 'muted') {
+	} else if (key === 'muted') {
 		refreshMutedPlayers(config);
-	} else if (data.detail.key === 'solidBack') {
+	} else if (key === 'solidBack') {
 		location.reload();
-	} else if (data.detail.key === 'inProgress' || data.detail.key === 'hideChatUserNames' || data.detail.key === 'hideDisabledArenaGames') {
+	} else if (key === 'inProgress' || key === 'hideChatUserNames' || key === 'hideDisabledArenaGames') {
 		if (pageType === 'general') {
 			buildMainCss(config.getAllCss());
 		}
-	} else if (data.detail.key === 'home') {
+	} else if (key === 'home') {
 		localStorage.removeItem('bga-homepage-newsfeed-slots');
 		localStorage.removeItem('bga-homepageNewsSeen');
 
@@ -366,27 +369,27 @@ document.addEventListener('bga_ext_update_config', (data) => {
 		if (document.documentElement.classList.contains("bgaext_welcome")) {
 			sendHomeConfiguration();
 		}
-	} else if (data.detail.key === 'hideSocialMessages') {
+	} else if (key === 'hideSocialMessages') {
 		if (document.documentElement.classList.contains("bgaext_welcome") || document.documentElement.classList.contains("bgaext_player")) {
 			location.reload();
 		}
-	} else if (data.detail.key === 'animatedTitle') {
+	} else if (key === 'animatedTitle') {
 		if (config.isAnimatedTitle()) {
 			stopTitleObserver();
 		} else {
 			initTitleObserver();
 		}
-	} else if (['hideLogTimestamp', 'chatBarAutoHide'].includes(data.detail.key)) {
+	} else if (['hideLogTimestamp', 'chatBarAutoHide'].includes(key)) {
 		if (pageType === 'game') {
 			buildMainCss(config.getGameCss());
 
 			if (config.isChatBarAutoHide()) {
-				document.querySelector('body').addEventListener('mousemove', autoHideChat);
+				document.querySelector('body')?.addEventListener('mousemove', autoHideChat);
 			} else {
-				document.querySelector('body').removeEventListener('mousemove', autoHideChat);
+				document.querySelector('body')?.removeEventListener('mousemove', autoHideChat);
 			}
 		}
-	} else if (data.detail.key === 'chatLightIcons') {
+	} else if (key === 'chatLightIcons') {
 		if (config.chatDarkIcons()) {
 			document.documentElement.classList.add('bgaext_chat_dark_icons');
 		} else {
@@ -404,7 +407,7 @@ window.addEventListener('message', (evt) => {
 		}, 0);
 	}
 	if (evt.origin === 'https://melodice.org' && evt.data.key === 'bga_ext_melodice_visible') {
-		evt.source.postMessage({ key: 'bga_ext_game_name', name: gameName }, 'https://melodice.org/');
+		evt.source?.postMessage({ key: 'bga_ext_game_name', name: gameName }, { targetOrigin: 'https://melodice.org/' });
 		// hack to avoid light theme flashing for melodice
 		setTimeout(() => {
 			console.debug('[bga extension] melodice iframe displayed');

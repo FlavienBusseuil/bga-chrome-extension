@@ -1,8 +1,8 @@
-import React from "preact";
 import { useEffect, useState } from "preact/hooks";
 
+import type Configuration from "../../../config/configuration";
+
 import "../../../../css/rightMenu.css";
-import Configuration from "../../../config/configuration";
 
 const setMenuPosition = () => {
 	const scoreContent = document.getElementById("right-side-first-part");

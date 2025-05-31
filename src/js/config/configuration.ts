@@ -60,7 +60,7 @@ export interface HomeConfig {
 	classicGames: boolean;
 }
 
-export interface AdvancedHomeConfig {
+export interface AdvancedHomeConfig extends HomeConfig {
 	advanced: boolean;
 	html: string;
 }
@@ -70,7 +70,7 @@ export interface PopupsConfig {
 	fastStartWarning: boolean;
 	muteWarning: boolean;
 	reportMsg: boolean;
-	infosDialog: string | undefined;
+	infosDialog?: string;
 }
 
 export interface InProgressConfig {
@@ -103,6 +103,7 @@ class Configuration {
 			muted: []
 		};
 		this._config = { games: [] };
+		this._localConfig = { css: "" };
 	}
 
 	_init() {
@@ -132,8 +133,8 @@ class Configuration {
 	async init() {
 		const [syncStorage, localStorage] = await Promise.all([storageGet(), localStorageGet()]);
 
-		this._customConfig = syncStorage;
-		this._localConfig = localStorage;
+		this._customConfig = syncStorage as CustomConfig; // unsafe cast
+		this._localConfig = localStorage as LocalConfig; // unsafe cast
 
 		this._customConfig.locale ||= getI18nDefaultLocale();
 
@@ -146,17 +147,17 @@ class Configuration {
 
 		this._init();
 
-		addChangeListener((changes: any, namespace: string) => {
+		addChangeListener((changes, namespace) => {
 			try {
-				for (let [key, { newValue }] of Object.entries(changes) as any) {
+				for (let [key, { newValue }] of Object.entries(changes)) {
 					if (namespace === "local") {
-						this._localConfig[key] = newValue;
+						(this._localConfig as Record<keyof LocalConfig, any>)[key as keyof LocalConfig] = newValue; // unsafe cast
 					} else {
-						this._customConfig[key] = newValue;
+						(this._customConfig as Record<keyof CustomConfig, any>)[key as keyof CustomConfig] = newValue; // unsafe cast
 					}
 					document && document.dispatchEvent(new CustomEvent('bga_ext_update_config', { detail: { key } }));
 				}
-			} catch (error) { } // not a big deal
+			} catch (error) { } // not a big deal, catches failing casts
 		});
 
 		// Return explicitly to ensure everything is done
@@ -220,7 +221,7 @@ class Configuration {
 		storageSet({ soundNotification: val });
 	}
 
-	getHomeConfig() {
+	getHomeConfig(): HomeConfig {
 		const homeConfig = this._customConfig.home || {} as any;
 
 		return {
@@ -246,7 +247,7 @@ class Configuration {
 		storageSet({ home: val });
 	}
 
-	getAdvancedHomeConfig() {
+	getAdvancedHomeConfig(): AdvancedHomeConfig {
 		const homeConfig = this._localConfig.home || {} as any;
 
 		return {
