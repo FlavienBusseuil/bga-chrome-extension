@@ -98,7 +98,7 @@ const mutePlayer = (config: Configuration, evt: MouseEvent) => {
 			close();
 		};
 
-		render(ConfirmationPopup({ type: 'mute_player', confirm, cancel: close, config }), container);
+		render(<ConfirmationPopup type='mute_player' confirm={confirm} cancel={close} config={config} />, container);
 	}
 };
 
@@ -133,7 +133,7 @@ const displayInformationPopup = (config: Configuration) => {
 		container.remove();
 	};
 
-	render(InformationPopup({ later, close }), container);
+	render(<InformationPopup later={later} close={close} />, container);
 };
 
 const refreshMutedPlayers = (config: Configuration) => {

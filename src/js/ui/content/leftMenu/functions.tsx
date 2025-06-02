@@ -31,15 +31,7 @@ export const buildLeftMenu = (config: Configuration, gameConfig: Game, enable: b
 		container.style.zIndex = "1000";
 		document.body.appendChild(container);
 
-		render(
-			SideMenu({
-				players: playersData,
-				panel: gameConfig.playerPanel,
-				gameConfig: gameConfig,
-				config: config
-			}),
-			container,
-		);
+		render(<SideMenu players={playersData} panel={gameConfig.playerPanel} gameConfig={gameConfig} config={config} />, container);
 		return;
 	}
 
