@@ -24,7 +24,7 @@ export const setFloatingRightMenu = (config: Configuration, val: boolean) => {
 			container = document.createElement("span");
 			container.id = menuContainerId;
 			pageTitle.parentNode!.appendChild(container);
-			render(RightMenu({config}), container);
+			render(<RightMenu config={config} />, container);
 		}
 	})
 };

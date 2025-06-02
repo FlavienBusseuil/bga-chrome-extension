@@ -42,11 +42,7 @@ const initDarkMode = (config: Configuration, gameName: string) => {
       sepElt.className = "ml-1 tablet:ml-6";
       container.parentNode!.insertBefore(sepElt, container);
     }
-
-    render(
-      ModeSelector({ config, gameName }),
-      darkElt,
-    );
+    render(<ModeSelector config={config} gameName={gameName} />, darkElt);
   }
 };
 

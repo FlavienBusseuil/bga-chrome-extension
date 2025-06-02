@@ -54,6 +54,6 @@ export const initDevelopperUI = (config: Configuration) => {
 
 		console.log(`[bga extension] this is a report for '${gameName}'`);
 
-		render(Templates({config, gameName}), container);
+		render(<Templates config={config} gameName={gameName} />, container);
 	}
 };

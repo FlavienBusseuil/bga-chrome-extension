@@ -20,29 +20,29 @@ const createHiddenGameStyle = (content: string) => {
 
 let pageNotFoundError = false;
 let links: NodeListOf<HTMLAnchorElement> | undefined;
-let lastLink: string| undefined;
+let lastLink: string | undefined;
 
 
 const findClickableParent = (element: HTMLElement, maxDepth = 10): HTMLAnchorElement | null => {
-  let current = element;
-  let depth = 0;
+	let current = element;
+	let depth = 0;
 
-  while (current && !('href' in HTMLAnchorElement) && depth < maxDepth) {
-    current = current.parentNode as HTMLElement;
-    depth++;
-  }
+	while (current && !('href' in HTMLAnchorElement) && depth < maxDepth) {
+		current = current.parentNode as HTMLElement;
+		depth++;
+	}
 
-  return 'href' in current ? current as HTMLAnchorElement : null;
+	return 'href' in current ? current as HTMLAnchorElement : null;
 };
 
 const linkClick = (evt: MouseEvent): void => {
-  const target = evt.target as HTMLElement;
-  const clickableElement = findClickableParent(target);
+	const target = evt.target as HTMLElement;
+	const clickableElement = findClickableParent(target);
 
-  if (clickableElement?.href) {
-    lastLink = clickableElement.href;
-    console.debug('[bga extension] click on', lastLink);
-  }
+	if (clickableElement?.href) {
+		lastLink = clickableElement.href;
+		console.debug('[bga extension] click on', lastLink);
+	}
 };
 
 export const initGameListObserver = (config: Configuration, page: string) => {
@@ -79,7 +79,7 @@ export const initGameListObserver = (config: Configuration, page: string) => {
 				close();
 			};
 
-			render(ConfirmationPopup({ type: 'delete_game', confirm, cancel: close, config }), container);
+			render(<ConfirmationPopup type='delete_game' confirm={confirm} cancel={close} config={config} />, container);
 		}
 	};
 
@@ -136,7 +136,7 @@ export const initGameListObserver = (config: Configuration, page: string) => {
 				close();
 			};
 
-			render(ConfirmationPopup({type:'fast_create', confirm, cancel:close, config}), container);
+			render(<ConfirmationPopup type='fast_create' confirm={confirm} cancel={close} config={config} />, container);
 		}
 	};
 
