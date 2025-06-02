@@ -376,10 +376,12 @@ const initLogObserver = (config) => {
 
 	const observer = new MutationObserver(() => {
 		if (!config.isOnlineMessagesEnabled()) {
-			logsContainer.childNodes.forEach((elt, index) => {
+			const elements = document.querySelectorAll('#logs .log:not(.hidden)');
+
+			elements.forEach((elt, index) => {
 				const text = elt.innerHTML;
 				if (text && text.indexOf('<!--PNS-->') >= 0 && shouldFilter(text)) {
-					logsContainer.removeChild(elt);
+					elt.classList.add('hidden');
 				}
 				if (index > 20) {
 					return;
