@@ -27,7 +27,7 @@
       ],
       "run_at": "document_start",
       "js": [
-        "content.js"
+        "content.ts"
       ],
       "all_frames": true
     },
@@ -37,7 +37,7 @@
       ],
       "run_at": "document_start",
       "js": [
-        "contentForum.js"
+        "contentForum.ts"
       ],
       "all_frames": true
     },
@@ -47,7 +47,7 @@
       ],
       "run_at": "document_start",
       "js": [
-        "contentMelodice.js"
+        "contentMelodice.ts"
       ],
       "all_frames": true
     }
@@ -81,7 +81,7 @@
         "css/dark_theme/*.less",
         "css/light_theme/*.less",
         "css/games/*/*.less",
-        "js/homepage.js",
+        "js/homepage.ts",
         "js/bgaApi.js",
         "sound/myturn.mp3",
         "locales/*.json"

@@ -1,8 +1,7 @@
-import React from "preact";
 import { useState } from "preact/hooks";
 import fontColorContrast from "font-color-contrast";
 
-import { Game } from "../../../config/configuration";
+import type { Game } from "../../../config/models";
 import Avatar from "./Avatar";
 import SideMenuItem from "./SideMenuItem";
 import PlayerName from "./PlayerName";

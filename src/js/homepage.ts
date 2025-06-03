@@ -1,3 +1,5 @@
+import type { AdvancedHomeConfig } from "./config/configuration";
+
 let _initialized = false;
 
 const _init = () => {
@@ -32,19 +34,19 @@ const _init = () => {
 
   const addTournamentsItems = () => {
     if (document.querySelector('.bga-tournament-list-item')) {
-      const but = document.querySelector('.bga-homepage__newsfeed-controls > button:last-child');
+      const but = document.querySelector('.bga-homepage__newsfeed-controls > button:last-child') as HTMLButtonElement | null;
 
       console.debug("[bga extension] add tournaments items");
 
       for (let i = 0; i < 10; i++) {
-        but.click();
+        but?.click();
       }
     } else {
       setTimeout(addTournamentsItems, 50);
     }
   };
 
-  const copyHtml = (querySource, queryDest) => {
+  const copyHtml = (querySource: string, queryDest: string) => {
     const source = document.querySelector(querySource);
     const dest = document.querySelector(queryDest);
 
@@ -68,10 +70,10 @@ const _init = () => {
     copyHtml('#bgadef-homepage .bga-homepage__partner-events-section', '#bgaext-partners-events');
   };
 
-  let observer = undefined;
-  let customMainContent = undefined;
+  let observer: MutationObserver | undefined;
+  let customMainContent: HTMLElement | undefined;
 
-  const advancedSetPage = (homeConfig) => {
+  const advancedSetPage = (homeConfig: AdvancedHomeConfig) => {
     const mainContent = document.querySelector('.bga-homepage');
 
     if (mainContent) {
@@ -82,7 +84,7 @@ const _init = () => {
         customMainContent = document.createElement('DIV');
         customMainContent.id = 'bgaext-homepage';
         customMainContent.className = 'bga-homepage';
-        mainContent.parentNode.appendChild(customMainContent);
+        mainContent.parentNode!.appendChild(customMainContent);
       }
 
       customMainContent.innerHTML = homeConfig.html;
@@ -109,7 +111,7 @@ const _init = () => {
     }
   };
 
-  const setPage = (homeConfig) => {
+  const setPage = (homeConfig: AdvancedHomeConfig) => {
     advancedReset();
 
     if (homeConfig.advanced) {
@@ -118,7 +120,7 @@ const _init = () => {
   };
 
   document.body.addEventListener('bga_ext_send_homepage_config', (data) => {
-    const config = JSON.parse(data.detail);
+    const config = JSON.parse((data as CustomEvent).detail) as AdvancedHomeConfig;
     setPage(config);
   });
   document.body.dispatchEvent(new CustomEvent('bga_ext_get_homepage_config', {}));

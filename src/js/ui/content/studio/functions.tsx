@@ -1,9 +1,10 @@
-import React, { render } from "preact";
+import { render } from "preact";
 import Templates from "./Templates";
 import { waitForObj } from '../../../utils/misc/wait';
 import { i18n } from "../../../utils/browser/i18n";
+import type Configuration from "~/js/config/configuration";
 
-export const initDevelopperUI = (config) => {
+export const initDevelopperUI = (config: Configuration) => {
 	if (window.location.search.startsWith("?id=0")) {
 		// creation of a bug report
 		waitForObj(".pagesection__content > p", 1000).then((firstComment) => {
@@ -15,7 +16,7 @@ export const initDevelopperUI = (config) => {
 				const forumLink = `<a href="https://boardgamearena.com/forum/viewtopic.php?t=30509" target='_blank' class="bga-link">>> ${i18n("reportCreationWarningLink")} <<</a>`;
 				const endMessage = config.isCssCustomized() ? `<p>${i18n("reportCreationWarningCss")}</p>` : "";
 				extensionComment.innerHTML = `<p>${warningSymbol} ${i18n("reportCreationWarning")} ${forumLink}</p> ${endMessage}`;
-				firstComment.parentNode.insertBefore(extensionComment, firstComment.nextSibling);
+				firstComment.parentNode!.insertBefore(extensionComment, firstComment.nextSibling);
 				return;
 			}
 			catch (error) {
@@ -45,9 +46,9 @@ export const initDevelopperUI = (config) => {
 
 		const container = document.createElement("div");
 		container.id = "ext_templates";
-		reportArea.parentNode.insertBefore(container, reportArea);
+		reportArea.parentNode!.insertBefore(container, reportArea);
 
-		const reportName = document.getElementById("report_game_table").firstChild.innerText;
+		const reportName = (document.getElementById("report_game_table")?.firstChild as HTMLElement).innerText;
 		const pos = reportName.lastIndexOf("#");
 		const gameName = reportName.substring(0, pos - 1).trim();
 

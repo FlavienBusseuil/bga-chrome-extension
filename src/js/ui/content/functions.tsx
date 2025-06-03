@@ -14,10 +14,11 @@ import ConfirmationPopup from './misc/ConfirmationPopup';
 import InformationPopup from './misc/InformationPopup';
 import { waitForObj } from '../../utils/misc/wait';
 import shouldFilter from '../../config/filteredLogs';
-import { isFirefox } from '../../utils/browser';
 import { i18n } from "../../utils/browser/i18n";
+import type Configuration from "~/js/config/configuration";
+import type { Game as GameConfig } from "~/js/config/models";
 
-const buildMainCss = (code) => {
+const buildMainCss = (code: string) => {
 	waitForObj('head').then(() => {
 		let style = document.getElementById('cde_bga_ext');
 
@@ -38,20 +39,31 @@ const buildMainCss = (code) => {
 	});
 };
 
-let mutedPlayers = [];
-let lastMessage = {};
+let mutedPlayers: string[] = [];
+interface LastMessage {
+	user: string;
+	color: string;
+	text: string | null;
+}
 
-const mutePlayer = (config, evt) => {
-	let elt = evt.target;
-	let playerName, tableId;
+let lastMessage: Record<string, LastMessage> = {};
+
+const mutePlayer = (config: Configuration, evt: MouseEvent) => {
+	let elt = evt.target as HTMLElement;
+	let playerName: string | undefined, tableId: string | undefined;
 
 	for (let i = 0; i < 10 && !playerName; i++) {
-		playerName = elt.dataset.player;
-		tableId = elt.dataset.table;
-		elt = elt.parentNode;
+		playerName = elt?.dataset?.player;
+		tableId = elt?.dataset?.table;
+		elt = elt?.parentNode as HTMLElement;
 	}
 
 	const doMute = () => {
+		if (!playerName || !tableId) {
+			console.error(`[bga extension] trying to mute invalid player ${playerName}`, tableId, elt); // should never happen
+			return
+		}
+
 		console.info(`[bga extension] Mute player ${playerName}`, mutedPlayers);
 		config.mutePlayer(playerName);
 
@@ -59,7 +71,7 @@ const mutePlayer = (config, evt) => {
 			const msg = `${playerName} has been muted, I will no longer receive their messages. \n[Feature provided by: https://en.doc.boardgamearena.com/ChromeExtension]`;
 			const endPoint = `/table/table/say.html`;
 			const key = new Date().getTime();
-			const body = new URLSearchParams({ table: tableId, msg, noerrortracking: true, "dojo.preventCache": key }).toString();
+			const body = new URLSearchParams({ table: tableId, msg, noerrortracking: 'true', "dojo.preventCache": key.toString() }).toString();
 			const detail = JSON.stringify({ method: 'POST', endPoint, key, body, type: 'say' });
 			document.body.dispatchEvent(new CustomEvent('bga_ext_api_call', { detail }));
 		}
@@ -77,7 +89,7 @@ const mutePlayer = (config, evt) => {
 		const close = () => {
 			container.remove();
 		}
-		const confirm = (stopWarn) => {
+		const confirm = (stopWarn: boolean) => {
 			if (stopWarn) {
 				popupConfig.muteWarning = false;
 				config.setPopupConfiguration(popupConfig);
@@ -90,10 +102,10 @@ const mutePlayer = (config, evt) => {
 	}
 };
 
-const displayInformationPopup = (config) => {
+const displayInformationPopup = (config: Configuration) => {
 	const popupConfig = config.getPopupConfiguration();
 
-	if (popupConfig.infosDialog === "off") {
+	if (popupConfig?.infosDialog === "off") {
 		return;
 	}
 
@@ -121,20 +133,10 @@ const displayInformationPopup = (config) => {
 		container.remove();
 	};
 
-	const title = isFirefox ? i18n("infosTitleFirefox") : i18n("infosTitleChrome");
-	const content = (
-		<div>
-			<p>{isFirefox ? i18n("infosSubTitleFirefox") : i18n("infosSubTitleChrome")}</p>
-			<p dangerouslySetInnerHTML={{ __html: i18n("infosLine3") }}></p>
-			<p dangerouslySetInnerHTML={{ __html: i18n("infosLine4") }}></p>
-			<p dangerouslySetInnerHTML={{ __html: i18n("infosLine5") }}></p>
-		</div>
-	);
-
-	render(<InformationPopup title={title} content={content} later={later} close={close} />, container);
+	render(<InformationPopup later={later} close={close} />, container);
 };
 
-const refreshMutedPlayers = (config) => {
+const refreshMutedPlayers = (config: Configuration) => {
 	const chatContainer = document.querySelector('#chatbar');
 
 	mutedPlayers = config.getMutedPlayers();
@@ -143,7 +145,7 @@ const refreshMutedPlayers = (config) => {
 	}
 };
 
-const hideElement = (elt) => {
+const hideElement = (elt: Element) => {
 	if (!elt.classList.contains('bgaext_chat_hidden')) {
 		elt.classList.add('bgaext_chat_hidden');
 	}
@@ -152,7 +154,7 @@ const hideElement = (elt) => {
 	}
 };
 
-const displayElement = (elt, force) => {
+const displayElement = (elt: Element, force?: boolean) => {
 	if (elt.classList.contains('bgaext_chat_hidden')) {
 		elt.classList.remove('bgaext_chat_hidden');
 	}
@@ -161,12 +163,17 @@ const displayElement = (elt, force) => {
 	}
 };
 
-const hideMutedPlayerWriting = (writingSpanId, writingAreaId, titleAreaId) => {
+const hideMutedPlayerWriting = (writingSpanId: string, writingAreaId: string, titleAreaId: string) => {
 	const writingSpan = document.getElementById(writingSpanId);
 	const writingArea = document.getElementById(writingAreaId);
 	const titleArea = document.getElementById(titleAreaId);
 
-	if (writingArea.style.display === 'none' || !writingSpan.innerHTML || mutedPlayers.find(name => writingSpan.innerHTML.indexOf(name) >= 0)) {
+	if (!writingSpan || !writingArea || !titleArea) {
+		console.error('[bga extension] hideMutedPlayerWriting: missing elements', { writingSpan, writingArea, titleArea }); // should not happen
+		return;
+	}
+
+	if (writingArea.style.display === 'none' || !writingSpan?.innerHTML || mutedPlayers.find(name => writingSpan.innerHTML.indexOf(name) >= 0)) {
 		hideElement(writingArea);
 		displayElement(titleArea, true);
 	} else {
@@ -175,16 +182,16 @@ const hideMutedPlayerWriting = (writingSpanId, writingAreaId, titleAreaId) => {
 	}
 };
 
-const getMessageText = (container, name) => {
+const getMessageText = (container: Element, name: string): string | null => {
 	if (container.nodeName === "#text" && container.nodeValue !== name) {
 		return container.nodeValue;
 	}
-	return Array.from(container.childNodes || []).map((node) => getMessageText(node, name)).find(v => Boolean(v))?.trim();
+	return Array.from(container.childNodes).map((node: ChildNode) => getMessageText(node as Element, name)).find(v => Boolean(v))?.trim() || null;
 };
 
-const muteChatMessage = (config, tableId, msg) => {
+const muteChatMessage = (config: Configuration, tableId: string, msg: Element) => {
 	try {
-		const span = msg.querySelector('.playername');
+		const span = msg.querySelector('.playername') as HTMLElement;
 		const name = span.innerHTML.trim();
 
 		if (mutedPlayers.includes(name)) {
@@ -206,7 +213,7 @@ const muteChatMessage = (config, tableId, msg) => {
 					muteIcon.className = 'bgaext_chat_mute_icon';
 					muteIcon.innerHTML = '<i class="fa fa-microphone-slash"></i>';
 					muteIcon.onclick = (evt) => mutePlayer(config, evt);
-					trIcon.parentNode.appendChild(muteIcon);
+					trIcon.parentNode?.appendChild(muteIcon);
 				}
 			}
 		}
@@ -217,8 +224,8 @@ const muteChatMessage = (config, tableId, msg) => {
 };
 
 const playPlop = () => {
-	const extAudioTag = document.getElementById('ext_audiosrc_o_alt_Plop');
-	const volumeTag = document.getElementById('soundVolumeControl');
+	const extAudioTag = document.getElementById('ext_audiosrc_o_alt_Plop') as HTMLAudioElement | null;
+	const volumeTag = document.getElementById('soundVolumeControl') as HTMLInputElement | null;
 	const volumeValue = volumeTag ? parseFloat(volumeTag.value) / 100 : 0.5
 
 	if (extAudioTag) {
@@ -227,9 +234,9 @@ const playPlop = () => {
 	}
 };
 
-const muteChatTable = (config, chatTable) => {
+const muteChatTable = (config: Configuration, chatTable: Element) => {
 	try {
-		const id = chatTable.id.split('_').pop();
+		const id = chatTable.id.split('_').pop() as string;
 		const messages = Array.from(chatTable.querySelectorAll('.chatlog'));
 
 		const prevLastMessage = lastMessage[id] || { user: '', color: '', text: '' };
@@ -239,18 +246,20 @@ const muteChatTable = (config, chatTable) => {
 		hideMutedPlayerWriting(`is_writing_now_expl_title_table_${id}`, `is_writing_now_title_table_${id}`, `chatwindowlogstitle_content_table_${id}`);
 		hideMutedPlayerWriting(`is_writing_now_expl_table_${id}`, `is_writing_now_table_${id}`, `chatwindowtitlenolink_table_${id}`);
 
-		const previewArea = document.getElementById(`chatwindowtitlenolink_table_${id}`);
-		const previewPlayerSpan = previewArea.querySelector('.playername');
+		const previewArea = document.getElementById(`chatwindowtitlenolink_table_${id}`) as HTMLElement;
+		const previewPlayerSpan = previewArea?.querySelector('.playername') as HTMLElement | null;
 
 		if (previewPlayerSpan) {
 			if (lastMessage[id]) {
 				if (previewPlayerSpan.innerHTML !== lastMessage[id].user) {
 					previewPlayerSpan.innerHTML = lastMessage[id].user;
 					previewPlayerSpan.style.color = lastMessage[id].color;
-					previewPlayerSpan.nextSibling.nodeValue = ` ${lastMessage[id].text}`;
+					if (previewPlayerSpan.nextSibling) {
+						previewPlayerSpan.nextSibling.nodeValue = ` ${lastMessage[id].text}`;
+					}
 				}
 			} else {
-				previewArea.innerHTML = document.getElementById(`chatwindowlogstitle_content_table_${id}`).innerHTML;
+				previewArea.innerHTML = document.getElementById(`chatwindowlogstitle_content_table_${id}`)!.innerHTML;
 			}
 		}
 
@@ -262,9 +271,9 @@ const muteChatTable = (config, chatTable) => {
 	}
 };
 
-const muteChatAll = (config, chatContainer) => {
+const muteChatAll = (config: Configuration, chatContainer: Element) => {
 	try {
-		const audioTag = document.getElementById('audiosrc_o_alt_Plop');
+		const audioTag = document.getElementById('audiosrc_o_alt_Plop') as HTMLAudioElement | null;
 		if (audioTag) {
 			audioTag.muted = true;
 		}
@@ -274,7 +283,7 @@ const muteChatAll = (config, chatContainer) => {
 
 		tables.forEach(t => shouldPlayPlop = muteChatTable(config, t) || shouldPlayPlop);
 
-		const prevMessages = Array.from(document.querySelectorAll('.chatwindowpreviewmsg'));
+		const prevMessages = Array.from(document.querySelectorAll('.chatwindowpreviewmsg') as NodeListOf<HTMLElement>);
 
 		prevMessages.forEach(prevMsg => {
 			const span = prevMsg.querySelector('.playername');
@@ -297,10 +306,10 @@ const muteChatAll = (config, chatContainer) => {
 	}
 };
 
-let chatbarObserver;
-let audiosourcesObserver;
+let chatbarObserver: MutationObserver | undefined;
+let audiosourcesObserver: MutationObserver | undefined;
 
-const initChatObserver = (config) => {
+const initChatObserver = (config: Configuration) => {
 	mutedPlayers = config.getMutedPlayers();
 
 	waitForObj('#chatbar').then(chatContainer => {
@@ -328,15 +337,15 @@ const initChatObserver = (config) => {
 		}
 
 		audiosourcesObserver = new MutationObserver(() => {
-			const audioTag = document.getElementById('audiosrc_o_alt_Plop');
-			const extAudioTag = document.getElementById('ext_audiosrc_o_alt_Plop');
+			const audioTag = document.getElementById('audiosrc_o_alt_Plop') as HTMLAudioElement | null;
+			let extAudioTag = document.getElementById('ext_audiosrc_o_alt_Plop') as HTMLAudioElement | null;
 
 			if (audioTag) {
 				audioTag.muted = true;
 				audioTag.volume = 0;
 
 				if (!extAudioTag) {
-					extAudioTag = document.createElement('audio');
+					extAudioTag = document.createElement('audio') as HTMLAudioElement;
 					extAudioTag.src = audioTag.src;
 					extAudioTag.id = 'ext_audiosrc_o_alt_Plop';
 					audioContainer.appendChild(extAudioTag);
@@ -347,7 +356,7 @@ const initChatObserver = (config) => {
 	});
 };
 
-let titleObserver = undefined;
+let titleObserver: MutationObserver | undefined;
 
 const initTitleObserver = () => {
 	stopTitleObserver();
@@ -357,7 +366,8 @@ const initTitleObserver = () => {
 			document.title = document.title.substring(2);
 		}
 	});
-	titleObserver.observe(document.querySelector("title"), { childList: true, subtree: false });
+	const title = document.querySelector("title");
+	if (title) titleObserver.observe(title, { childList: true, subtree: false });
 };
 
 const stopTitleObserver = () => {
@@ -367,7 +377,7 @@ const stopTitleObserver = () => {
 	}
 };
 
-const initLogObserver = (config) => {
+const initLogObserver = (config: Configuration) => {
 	const logsContainer = document.querySelector('#logs');
 
 	if (!logsContainer) {
@@ -422,20 +432,20 @@ export const initGamePanelObserver = () => {
 		counter.textContent = `(${ongoingGameCount})`;
 	}
 
-	const observer = new MutationObserver(() => updateOngoingGameCount(gaminfoElt, observer));
-	updateOngoingGameCount(gaminfoElt, observer);
+	const observer = new MutationObserver(updateOngoingGameCount);
+	updateOngoingGameCount();
 	return observer;
 };
 
 const buildOption = (
-	title,
-	text,
-	inputId,
-	inputValue,
-	option1,
-	option2,
-	toggleFunc,
-) => {
+	title: HTMLElement,
+	text: string,
+	inputId: string,
+	inputValue: string,
+	option1: string,
+	option2: string,
+	toggleFunc: (evt: Event) => void,
+): void => {
 	const container = document.createElement('div');
 	container.className = 'preference_choice';
 
@@ -479,15 +489,15 @@ const buildOption = (
 		);
 	}
 
-	title.parentNode.insertBefore(container, title.nextSibling);
+	title.parentNode!.insertBefore(container, title.nextSibling);
 };
 
-const buildOptions = (config, gameName, gameConfig) => {
+const buildOptions = (config: Configuration, gameName: string, gameConfig?: GameConfig) => {
 	const histoInputs = [
 		document.getElementById('preference_global_control_logsSecondColumn'),
 		document.getElementById('preference_global_fontrol_logsSecondColumn'),
 	].filter((elt) => !!elt);
-	const infobulleInput = document.getElementById('preference_control_200');
+	const infobulleInput = document.getElementById('preference_control_200') as HTMLSelectElement | null;
 	const mainMenu = document.getElementById('ingame_menu_content');
 	const settings = document.getElementById('pagesection_options');
 
@@ -496,8 +506,8 @@ const buildOptions = (config, gameName, gameConfig) => {
 		return;
 	}
 
-	const mainPrefTitle = mainMenu.getElementsByTagName('h2')[0];
-	const secondPrefTitle = settings.getElementsByTagName('h2')[0];
+	const mainPrefTitle = mainMenu.getElementsByTagName('h2')[0] as HTMLHeadingElement;
+	const secondPrefTitle = settings.getElementsByTagName('h2')[0] as HTMLHeadingElement;
 
 	if (!isMobile()) {
 		// Add an option for floating menu
@@ -505,17 +515,19 @@ const buildOptions = (config, gameName, gameConfig) => {
 		const optionFloatingAlwaysSelected = config.isGlobalFloatingMenu() ? `selected='selected'` : '';
 		const optionFloatingGame = `<option value='2' ${optionFloatingGameSelected}>${i18n('optionFloatingGame')}</option>`;
 		const optionFloatingAlways = `<option value='3' ${optionFloatingAlwaysSelected}>${i18n('optionFloatingAlways')}</option>`;
-		const checkFloating = (evt) => {
-			if (evt.target.value === '1') {
+		const checkFloating = (evt: Event) => {
+			const value = (evt.target as HTMLSelectElement | null)?.value;
+
+			if (value === '1') {
 				document.body.classList.add('logs_on_additional_column');
 			} else {
 				document.body.classList.remove('logs_on_additional_column');
 			}
-			if (evt.target.value === '3') {
+			if (value === '3') {
 				setFloatingRightMenu(config, true);
 				config.setGameFloatingMenu(gameName, false);
 				config.setGlobalFloatingMenu(true);
-			} else if (evt.target.value === '2') {
+			} else if (value === '2') {
 				setFloatingRightMenu(config, true);
 				config.setGameFloatingMenu(gameName, true);
 				config.setGlobalFloatingMenu(false);
@@ -541,8 +553,9 @@ const buildOptions = (config, gameName, gameConfig) => {
 			config.setLeftMenuEnabled(gameName, enable);
 			buildLeftMenu(config, gameConfig, enable);
 			buildLeftMenuCss(gameConfig, enable);
-			document.getElementById('cde_menu_1').value = enable ? '1' : '0';
-			document.getElementById('cde_menu_2').value = enable ? '1' : '0';
+
+			(document.getElementById('cde_menu_1') as HTMLSelectElement).value = enable ? '1' : '0';
+			(document.getElementById('cde_menu_2') as HTMLSelectElement).value = enable ? '1' : '0';
 		};
 		const displayLeftMenuText = i18n('optionLeftMenu');
 		buildOption(
@@ -550,8 +563,8 @@ const buildOptions = (config, gameName, gameConfig) => {
 			displayLeftMenuText,
 			'cde_menu_1',
 			displayMenu,
-			infobulleInput[0].text,
-			infobulleInput[1].text,
+			infobulleInput[0]!.textContent as string,
+			infobulleInput[1]!.textContent as string,
 			toggleDisplayMenu,
 		);
 		buildOption(
@@ -559,14 +572,14 @@ const buildOptions = (config, gameName, gameConfig) => {
 			displayLeftMenuText,
 			'cde_menu_2',
 			displayMenu,
-			infobulleInput[0].text,
-			infobulleInput[1].text,
+			infobulleInput[0]!.textContent as string,
+			infobulleInput[1]!.textContent as string,
 			toggleDisplayMenu,
 		);
 	}
 };
 
-const initChatIcon = (config) => {
+const initChatIcon = (config: Configuration) => {
 	const chatIconId = 'bga_extension_chat_icon';
 
 	if (!document.getElementById(chatIconId)) {
@@ -577,18 +590,18 @@ const initChatIcon = (config) => {
 			chatElt.id = chatIconId;
 			chatElt.innerHTML = `<i class='fa fa-comments' style='font-size: 32px; cursor: pointer;'></i>`;
 			chatElt.onclick = () => config.toggleGeneralChatHidden();
-			container.parentNode.insertBefore(chatElt, container);
+			container!.parentNode?.insertBefore(chatElt, container);
 
 			const sepElt = document.createElement('div');
 			sepElt.className = 'ml-1 tablet:ml-6';
-			container.parentNode.insertBefore(sepElt, container);
+			container!.parentNode?.insertBefore(sepElt, container);
 
 			setChatStyle(config);
 		});
 	}
 };
 
-const setStyle = (id, content) => {
+const setStyle = (id: string, content: string) => {
 	const chatStyleId = id;
 
 	let style = document.getElementById(chatStyleId);
@@ -602,11 +615,11 @@ const setStyle = (id, content) => {
 	style.innerHTML = content;
 }
 
-const setChatStyle = (config) => {
+const setChatStyle = (config: Configuration) => {
 	setStyle('bgaext-chat-style', config.getChatStyle());
 };
 
-const setEloStyle = (config) => {
+const setEloStyle = (config: Configuration) => {
 	setStyle('bgaext-elo-style', config.getEloStyle());
 };
 

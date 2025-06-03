@@ -1,10 +1,13 @@
-import React, { render } from "preact";
+import { render } from "preact";
 import SideMenu from "./SideMenu";
-import { getPlayersData } from "../players"
+import { getPlayersData, PlayerData } from "../players"
 
-let playersData;
+import type Configuration from "~/js/config/configuration";
+import type { Game } from "~/js/config/models";
 
-export const initLeftMenu = (config, gameConfig, leftMenuEnable, twoTeams) => {
+let playersData: PlayerData[] = [];
+
+export const initLeftMenu = (config: Configuration, gameConfig: Game, leftMenuEnable: boolean, twoTeams: boolean) => {
 	document.addEventListener("DOMContentLoaded", () => {
 		getPlayersData(twoTeams).then((data) => {
 			console.debug("[bga extension] players data", data);
@@ -16,7 +19,7 @@ export const initLeftMenu = (config, gameConfig, leftMenuEnable, twoTeams) => {
 	});
 };
 
-export const buildLeftMenu = (config, gameConfig, enable) => {
+export const buildLeftMenu = (config: Configuration, gameConfig: Game, enable: boolean) => {
 	const menuContainerId = "bga_extension_sidebar";
 
 	if (enable) {
@@ -25,34 +28,26 @@ export const buildLeftMenu = (config, gameConfig, enable) => {
 		container.style.position = "fixed";
 		container.style.left = gameConfig.left;
 		container.style.userSelect = "none";
-		container.style.zIndex = 1000;
+		container.style.zIndex = "1000";
 		document.body.appendChild(container);
 
-		render(
-			<SideMenu
-				players={playersData}
-				panel={gameConfig.playerPanel}
-				gameConfig={gameConfig}
-				config={config}
-			/>,
-			container,
-		);
+		render(<SideMenu players={playersData} panel={gameConfig.playerPanel} gameConfig={gameConfig} config={config} />, container);
 		return;
 	}
 
 	const container = document.getElementById(menuContainerId);
 	if (container) {
-		container.parentNode.removeChild(container);
+		container.parentNode?.removeChild(container);
 	}
 };
 
-export const buildLeftMenuCss = (gameConfig, enable) => {
+export const buildLeftMenuCss = (gameConfig: Game, enable: boolean) => {
 	const menuStyleId = "cde-left-menu-style";
 
 	if (!enable) {
 		const style = document.getElementById(menuStyleId);
 		if (style) {
-			style.parentNode.removeChild(style);
+			style.parentNode?.removeChild(style);
 		}
 	} else if (gameConfig.css) {
 		const style = document.createElement("style");

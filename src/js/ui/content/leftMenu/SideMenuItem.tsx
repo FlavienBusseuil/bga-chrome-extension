@@ -1,4 +1,3 @@
-
 import React from "preact";
 
 interface SideMenuItemProps {
