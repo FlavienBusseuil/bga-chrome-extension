@@ -1,5 +1,17 @@
 # Changelog
 
+## [v1.12.3](https://github.com/FlavienBusseuil/bga-chrome-extension/tree/v1.12.3) (2025-06-03)
+
+[Full Changelog](https://github.com/FlavienBusseuil/bga-chrome-extension/compare/v1.12.2...v1.12.3)
+
+**Closed issues:**
+
+- Disable the redirection to classic lobby for arena tables [\#79](https://github.com/FlavienBusseuil/bga-chrome-extension/issues/79)
+
+**Merged pull requests:**
+
+- Refactor: Make content scripts type safe [\#122](https://github.com/FlavienBusseuil/bga-chrome-extension/pull/122) ([GhoulofGSG9](https://github.com/GhoulofGSG9))
+
 ## [v1.12.2](https://github.com/FlavienBusseuil/bga-chrome-extension/tree/v1.12.2) (2025-05-28)
 
 [Full Changelog](https://github.com/FlavienBusseuil/bga-chrome-extension/compare/v1.12.1...v1.12.2)
@@ -88,10 +100,6 @@
 ## [v1.11.16](https://github.com/FlavienBusseuil/bga-chrome-extension/tree/v1.11.16) (2025-04-15)
 
 [Full Changelog](https://github.com/FlavienBusseuil/bga-chrome-extension/compare/v1.11.15...v1.11.16)
-
-**Closed issues:**
-
-- The extension seems to break terraforming mars [\#78](https://github.com/FlavienBusseuil/bga-chrome-extension/issues/78)
 
 **Merged pull requests:**
 
