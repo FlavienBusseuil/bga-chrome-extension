@@ -1533,6 +1533,10 @@ const defaultGames: Partial<Game>[] = [
 		iconBackgroundDark: "#4b3621",
 		iconBorderDark: "#fff",
 	},
+	{
+		name: "thekingofthewoods",
+		playerPanel: ".player-area",
+	},
 ];
 
 export default defaultGames;

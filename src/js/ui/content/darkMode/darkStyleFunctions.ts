@@ -1,6 +1,6 @@
 import { isNumber } from "../../../utils/misc/isNumber";
 import { waitForObj } from "../../../utils/misc/wait";
-import { gamesWithConditionalCustomBackground, gamesWithCustomActions, gamesWithCustomBackground, gamesWithCustomDarkMode, gamesWithCustomPanel, gamesWithCustomPlayerStyle, gamesWithTwoTeams, playersBackground, playersBorder } from "../../../config/darkThemeGames";
+import { gamesWithConditionalCustomBackground, gamesWithCustomActions, gamesWithCustomBackground, gamesWithCustomDarkMode, gamesWithCustomPanel, gamesWithCustomPlayerStyle, gamesWithTwoTeams, playersBackground, playersBorder, playersTextColor } from "../../../config/darkThemeGames";
 import { PlayerData, getPlayersData, getPlayersPossibleColors } from "../players";
 import { cookieName, createStyle, getFile } from "./darkStyleCommonFunctions";
 
@@ -178,16 +178,23 @@ const _applyDarkStyleForGame = (gameName: string,) => {
     const backStyle = playersBackground[gameName] ? playersBackground[gameName].map((rule: string) => {
       return playersData.filter(d => d.darkColor && d.darkColor !== d.color).map(d => {
         const ruleName = rule.replace('{{player_id}}', d.id.toString());
-        return `${ruleName} { background-color: ${d.darkColor}!important; }`
+        return `${ruleName} { background-color: ${d.darkColor}!important; }`;
       });
     }).flat().join(' ') : '';
     const borderStyle = playersBorder[gameName] ? playersBorder[gameName].map((rule: string) => {
       return playersData.filter(d => d.darkColor && d.darkColor !== d.color).map(d => {
         const ruleName = rule.replace('{{player_id}}', d.id.toString());
-        return `${ruleName} { border-color: ${d.darkColor}!important; }`
+        return `${ruleName} { border-color: ${d.darkColor}!important; }`;
       });
     }).flat().join(' ') : '';
-    styleComponent.innerHTML = `${completeStyle}${colorsStyle}${backStyle}${borderStyle}`;
+    const textStyle = playersTextColor[gameName] ? playersTextColor[gameName].map((rule: string) => {
+      return playersData.filter(d => (d.darkColor && d.darkColor !== d.color) || d.darkEnlight).map(d => {
+        const ruleName = rule.replace('{{player_id}}', d.id.toString());
+        const enlightRule = d.darkEnlight ? 'text-shadow: -1px 0 white, 0 1px white, 1px 0 white, 0 -1px white !important;' : '';
+        return `${ruleName} { color: ${d.darkColor || d.color}!important;${enlightRule} }`;
+      });
+    }).flat().join(' ') : '';
+    styleComponent.innerHTML = `${completeStyle}${colorsStyle}${backStyle}${borderStyle}${textStyle}`;
 
     if (gamesWithCustomPlayerStyle[gameName]) {
       _setPlayersColor(gamesWithCustomPlayerStyle[gameName], playersData);

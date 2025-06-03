@@ -402,9 +402,14 @@ export const playersBorder: { [gameName: GameName]: string[] } = {
   skatelegend: ['#player-table-{{player_id}}'],
   treos: ['#gamezone-{{player_id}}'],
   theguildofmerchantexplorers: ['#tab_header_board_{{player_id}}'],
+  upordown: ['#player-table-{{player_id}}'],
   verdant: ['#house_{{player_id}}'],
   welcometothemoon: ['#score-sheet-{{player_id}}', '#score-sheet-{{player_id}} .player-name'],
   wizardsgrimoire: ['.wg-title.ext_player_{{player_id}}', '#player-table-{{player_id}}-health', '#player-table-{{player_id}} .player-table'],
+};
+
+export const playersTextColor: { [gameName: GameName]: string[] } = {
+  upordown: ['#player-table-{{player_id}} .player-table-name'],
 };
 
 export const gamesWithCustomColors: { [gameName: GameName]: string[] } = {
