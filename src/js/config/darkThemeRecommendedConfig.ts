@@ -54,6 +54,7 @@ export const gamesWithRecommendedConfig: { [gameName: GameName]: RecommendedConf
 	lostseas: { color: 195, sat: 22 },
 	lostexplorers: { color: 25, sat: 22 },
 	mesos: { color: 0, sat: 20 },
+	misty: { color: 5, sat: 10 },
 	mycity: { color: 25, sat: 22 },
 	mycityrb: { color: 25, sat: 22 },
 	nimalia: { color: 220, sat: 30 },

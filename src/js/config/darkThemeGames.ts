@@ -127,6 +127,7 @@ export const gamesWithCustomBackground = [
   'mexica',
   'middleages',
   'mindup',
+  'misty',
   'mojo',
   'mountaingoats',
   'mrjack',
