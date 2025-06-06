@@ -1,6 +1,51 @@
-@import "../common";
+.game-table {
+	background-image: none;
+	background-color: var(--dark-back);
+}
 
-.game-table { background-image: none; background-color: var(--dark-back); }
-.game-table [style*="color:black"] { color: var(--light-80) !important; }
-.bg-light { background-image: none; background-color: var(--dark-20); }
-.player-board-info-row { background-color: var(--orange-30); }
+.game-table [style*="color:black"] {
+	color: var(--light-80) !important;
+}
+
+.bg-light {
+	background-image: none;
+	background-color: var(--dark-20);
+}
+
+.player-board-info-row {
+	background-color: var(--orange-30);
+	border-color: var(--light-50);
+}
+
+.is-selectable:hover {
+	border-color: var(--blue-70);
+}
+
+.card-shadow {
+	box-shadow: 2px 2px 3px -1px #bfbfbfbf;
+}
+
+.bg-new,
+.player-table {
+	background: var(--dark-10);
+}
+
+.player-table-head {
+	background-color: var(--dark-20);
+	filter: var(--drop-shadow);
+}
+
+.card-list-item {
+	background-color: var(--orange-30);
+	color: var(--light-80);
+	border-color: var(--light-70);
+}
+
+.game-table,
+#player_tables {
+	border-color: var(--light-50);
+}
+
+.stockitem {
+	filter: brightness(0.9);
+}
