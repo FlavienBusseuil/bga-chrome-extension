@@ -1,12 +1,13 @@
 import { useEffect, useState } from "preact/hooks";
 import { getFile } from "easy-file-picker";
 
-import Configuration, { Game } from "../../config/configuration";
 import { i18n } from "../../utils/browser/i18n";
 import { OptionsView } from "../views/OptionsView";
 import { useSyncedState } from "../hooks/useSyncedState";
+import type ConfigurationWithGames from "../../config/configurationWithGames";
+import type { Game } from "../../config/models";
 
-const Options = (props: { config: Configuration }) => {
+const Options = (props: { config: ConfigurationWithGames }) => {
 	const { config } = props;
 	const [list, setList] = useState(config.getGamesList());
 	const [selected, setSelected] = useState(list[0] as Game);
@@ -265,8 +266,6 @@ const Options = (props: { config: Configuration }) => {
 						? "bgext_link_selected"
 						: "bgext_link"
 				}
-				href="#"
-				selected={tabSelected === tabId}
 				onClick={() => setTabSelected(tabId)}
 			>
 				{tabText}

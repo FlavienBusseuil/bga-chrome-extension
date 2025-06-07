@@ -1,5 +1,4 @@
 import { getFile } from 'easy-file-picker';
-import browser from 'webextension-polyfill';
 
 const localStorageKey = 'sound';
 
