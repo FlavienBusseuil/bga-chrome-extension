@@ -5,17 +5,17 @@ interface Props {
     close: () => void;
 }
 
-const title = isFirefox ? i18n("infosTitleFirefox") : i18n("infosTitleChrome");
-const content = (
-    <div>
-        <p>{isFirefox ? i18n("infosSubTitleFirefox") : i18n("infosSubTitleChrome")}</p>
-        <p dangerouslySetInnerHTML={{ __html: i18n("infosLine3") }}></p>
-        <p dangerouslySetInnerHTML={{ __html: i18n("infosLine4") }}></p>
-        <p dangerouslySetInnerHTML={{ __html: i18n("infosLine5") }}></p>
-    </div>
-);
-
 const InformationPopup = ({ later, close }: Props) => {
+    const title = isFirefox ? i18n("infosTitleFirefox") : i18n("infosTitleChrome");
+    const content = (
+        <div>
+            <p>{isFirefox ? i18n("infosSubTitleFirefox") : i18n("infosSubTitleChrome")}</p>
+            <p dangerouslySetInnerHTML={{ __html: i18n("infosLine3") }}></p>
+            <p dangerouslySetInnerHTML={{ __html: i18n("infosLine4") }}></p>
+            <p dangerouslySetInnerHTML={{ __html: i18n("infosLine5") }}></p>
+        </div>
+    );
+
     return (
         <div id="bgaext_popup" className="large">
             <h2 class="bgaext_popup_title">{title}</h2>
