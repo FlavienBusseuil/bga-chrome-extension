@@ -1,4 +1,4 @@
-import { useState } from "preact/hooks";
+import { useEffect, useState } from "preact/hooks";
 import { useSyncedState } from '../hooks/useSyncedState';
 import { isMobile } from "is-mobile";
 
@@ -8,6 +8,7 @@ import { Button } from "../base/Button";
 import { isSoundCustom, playMp3, removeCustomMp3, uploadCustomMp3 } from "../../utils/misc/mp3";
 import { getExtensionVersion, isFirefox } from "../../utils/browser";
 import { i18n } from "../../utils/browser/i18n";
+import { polyfillCountryFlagEmojis } from "country-flag-emoji-polyfill";
 
 type Props = {
   config: Configuration,
@@ -298,6 +299,10 @@ export const OptionsView = ({ config, onChange }: Props) => {
     return <Switch checked={checked} textOn={textOn} textOff={textOff} onChange={updateSoundCustom} disabled={disabled} />
   };
 
+  useEffect(() => {
+    polyfillCountryFlagEmojis();
+  }, []);
+
   const getMiscSection = () => {
     if (configVisible === 'misc') {
       return (
@@ -305,7 +310,7 @@ export const OptionsView = ({ config, onChange }: Props) => {
           <div className="options-frame-title">{i18n("optionMiscTitle")}</div>
           <div className="options-line">
             <span>{i18n('current_locale')}</span>
-            <select className="border border-black dark:dark:border-white rounded" onChange={(evt: any) => updateLocale(evt.target?.value)} value={locale}>
+            <select className="border border-black dark:dark:border-white rounded flags" onChange={(evt: any) => updateLocale(evt.target?.value)} value={locale}>
               <option value='en'>English 🇬🇧</option>
               <option value='fr'>Français 🇫🇷</option>
               <option value='de'>Deutsch 🇩🇪</option>
