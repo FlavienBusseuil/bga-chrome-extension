@@ -50,7 +50,6 @@
 		"@tailwindcss/cli": "^4.1.7",
 		"@types/chrome": "^0.0.326",
 		"@types/node": "^22.15.30",
-		"@types/webextension-polyfill": "^0.12.3",
 		"autoprefixer": "10.4.21",
 		"concurrently": "9.1.2",
 		"move-file-cli": "^3.0.0",
@@ -59,8 +58,7 @@
 		"preact": "10.26.7",
 		"prettier": "^3.3.3",
 		"rimraf": "^6.0.1",
-		"tailwindcss": "3.4.13",
-		"webextension-polyfill": "^0.12.0"
+		"tailwindcss": "3.4.13"
 	},
 	"dependencies": {
 		"country-flag-emoji-polyfill": "^0.1.8",

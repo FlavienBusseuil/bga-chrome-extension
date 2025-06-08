@@ -51,7 +51,7 @@ export async function bgPeriodic(config: Configuration) {
 				0,
 			);
 
-			updateBadgeAndIcon({ nbPendingInvites, nbWaitingTables, tracking: true, soundNotification: config.isTrackingEnable() && config.isSoundNotificationEnable() });
+			updateBadgeAndIcon({ nbPendingInvites, nbWaitingTables, tracking: true, soundNotification: config.isSoundNotificationEnable() });
 		} else {
 			updateBadgeAndIcon({ nbPendingInvites: 0, nbWaitingTables: 0, tracking: false, soundNotification: false });
 		}

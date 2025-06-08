@@ -1,5 +1,3 @@
-import browser from 'webextension-polyfill';
-
 async function wait(ms: number): Promise<void> {
 	return new Promise((resolve) => {
 		setTimeout(resolve, ms);
@@ -16,8 +14,8 @@ type Props = {
 
 export async function animate({ images }: Props): Promise<void> {
 	for (const { path, timeframe } of images) {
-		const imgPath = browser.runtime.getURL(path);
-		await browser.action.setIcon({ path: imgPath });
+		const imgPath = chrome.runtime.getURL(path);
+		await chrome.action.setIcon({ path: imgPath });
 		await wait(timeframe);
 	}
 }

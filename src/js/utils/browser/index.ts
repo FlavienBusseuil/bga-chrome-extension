@@ -1,45 +1,41 @@
-import browser from 'webextension-polyfill';
-import type { Storage } from 'webextension-polyfill';
-
-export const isFirefox: boolean = browser.runtime.getURL('').startsWith('moz-extension://');
-
 export const storageGet = async (): Promise<Record<string, any>> => {
-	return await browser.storage.sync.get();
+	return await chrome.storage.sync.get();
 };
 
 export const storageSet = async (val: Record<string, any>): Promise<void> => {
-	return await browser.storage.sync.set(val);
+	return await chrome.storage.sync.set(val);
 };
 
 export const storageClear = async (): Promise<void> => {
-	await browser.storage.sync.clear();
+	await chrome.storage.sync.clear();
 };
 
 export const addChangeListener = (
-	func: (changes: Record<string, Storage.StorageChange>, areaName: string) => void
+	func: (changes: Record<string, chrome.storage.StorageChange>, areaName: string) => void
 ): void => {
-	browser.storage.onChanged.addListener(func);
+	chrome.storage.onChanged.addListener(func);
 };
 
 export const getUrl = (localUrl: string): string => {
-	return browser.runtime.getURL(localUrl);
+	return chrome.runtime.getURL(localUrl);
 };
+export const isFirefox: boolean = getUrl('').startsWith('moz-extension://');
 
 export const localStorageGet = async (): Promise<Record<string, any>> => {
-	return await browser.storage.local.get();
+	return await chrome.storage.local.get();
 };
 
 export const localStorageSet = async (val: Record<string, any>): Promise<void> => {
-	return await browser.storage.local.set(val);
+	return await chrome.storage.local.set(val);
 };
 
 export const localStorageClear = async (): Promise<void> => {
-	return await browser.storage.local.clear();
+	return await chrome.storage.local.clear();
 };
 
-export const getExtensionVersion = () => browser.runtime.getManifest().version;
+export const getExtensionVersion = () => chrome.runtime.getManifest().version;
 
 const cleanPath = (path: string) => (path.startsWith('/')) ? path.substring(1) : path;
-const resources = new Set(browser.runtime.getManifest().web_accessible_resources?.filter(r => typeof r !== 'string').map(r => r.resources.map(cleanPath)).flat() || []);
+const resources = new Set(chrome.runtime.getManifest().web_accessible_resources?.filter(r => typeof r !== 'string').map(r => r.resources.map(cleanPath)).flat() || []);
 
 export const checkIfResourcePathExists = (path: string): boolean => resources.has(cleanPath(path));
