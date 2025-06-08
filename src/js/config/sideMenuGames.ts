@@ -1,4 +1,4 @@
-import { Game } from "./configuration";
+import type { Game } from "./models";
 
 const defaultGames: Partial<Game>[] = [
 	{

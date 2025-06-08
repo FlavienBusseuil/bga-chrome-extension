@@ -1,6 +1,10 @@
 const baseUrl = 'https://boardgamearena.com';
 let _initialized = false;
 
+interface BGAConfig {
+  requestToken: string;
+}
+
 const _init = () => {
   if (_initialized) {
     return;
@@ -13,8 +17,15 @@ const _init = () => {
 
   _initialized = true;
 
-  document.body.addEventListener('bga_ext_api_call', (data) => {
+  document.body.addEventListener('bga_ext_api_call', ((data: CustomEvent) => {
     console.debug('[bga extension] call bga api', data);
+
+    const bgaConfig = (window as any).bgaConfig as BGAConfig; // defined by bga webrtc logic
+    if (!bgaConfig || !bgaConfig.requestToken) {
+      console.error('[bga extension] bgaConfig not initialized');
+      return;
+    }
+
     const headers = { 'x-request-token': bgaConfig.requestToken, 'Content-Type': 'application/x-www-form-urlencoded' };
     const evtDetail = JSON.parse(data.detail);
 
@@ -31,7 +42,7 @@ const _init = () => {
         }
       });
     });
-  });
+  }) as EventListener);
 
   console.debug('[bga extension] bga api intialized');
 };

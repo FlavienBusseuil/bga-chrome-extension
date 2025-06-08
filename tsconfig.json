@@ -32,16 +32,20 @@
     "resolveJsonModule": true,
     "skipLibCheck": true,
     "isolatedModules": true,
-
     // Project structure
     "outDir": "./build",
     "rootDir": "./src",
     "baseUrl": "./src",
     "paths": {
-      "~/*": ["*"]
-    }
+      "~/*": [
+        "*"
+      ]
+    },
+    // Types configuration
+    "typeRoots": [
+      "./node_modules/@types"
+    ],
   },
-
   // Only include explicit typescript files as other files (.js or .jsx) use mostly using flow
   "include": [
     "src/**/*.ts",
@@ -49,7 +53,6 @@
     "src/**/*.json"
   ],
   "exclude": [
-    "node_modules",
     "build",
   ]
 }

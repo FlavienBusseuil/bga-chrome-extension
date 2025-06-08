@@ -854,6 +854,15 @@
     "@parcel/plugin" "2.15.2"
     "@parcel/rust" "2.15.2"
 
+"@parcel/transformer-typescript-tsc@^2.15.2":
+  version "2.15.2"
+  resolved "https://registry.yarnpkg.com/@parcel/transformer-typescript-tsc/-/transformer-typescript-tsc-2.15.2.tgz#7e84cfad454828f184ade46c8b46c6701e50e98f"
+  integrity sha512-YsTtFZkH+la27eKmwNDK1X99KFlBWLRe09Qzo8r2uQ9SeGw8yLhA2OdPCioYFnCjG6nVmtYk1tRei0nyORZtYg==
+  dependencies:
+    "@parcel/plugin" "2.15.2"
+    "@parcel/source-map" "^2.1.1"
+    "@parcel/ts-utils" "2.15.2"
+
 "@parcel/transformer-webextension@2.15.2":
   version "2.15.2"
   resolved "https://registry.yarnpkg.com/@parcel/transformer-webextension/-/transformer-webextension-2.15.2.tgz#8cd55b6ca4d5bb41556d59780bd017676faabf57"
@@ -864,6 +873,13 @@
     "@parcel/plugin" "2.15.2"
     "@parcel/utils" "2.15.2"
     content-security-policy-parser "^0.6.0"
+
+"@parcel/ts-utils@2.15.2":
+  version "2.15.2"
+  resolved "https://registry.yarnpkg.com/@parcel/ts-utils/-/ts-utils-2.15.2.tgz#6dca43155c58fd557366ce172977f28dc84e676e"
+  integrity sha512-xdehXMsxjs56+vGamD3vKAO+e8cbUlxUOFPCVz6nuvQ9KfQ+PgpLQwPuPvvGdDkj75YbzCJks19C9lvpIg251g==
+  dependencies:
+    nullthrows "^1.1.1"
 
 "@parcel/types-internal@2.15.2":
   version "2.15.2"
@@ -2826,6 +2842,11 @@ type-fest@^1.0.1, type-fest@^1.2.1, type-fest@^1.2.2:
   version "1.4.0"
   resolved "https://registry.yarnpkg.com/type-fest/-/type-fest-1.4.0.tgz#e9fb813fe3bf1744ec359d55d1affefa76f14be1"
   integrity sha512-yGSza74xk0UG8k+pLh5oeoYirvIiWo5t0/o3zHHAO2tRDiZcxWP7fywNlXhqb6/r6sWvwi+RsyQMWhVLe4BVuA==
+
+typescript@>=3.0.0:
+  version "5.8.3"
+  resolved "https://registry.yarnpkg.com/typescript/-/typescript-5.8.3.tgz#92f8a3e5e3cf497356f4178c34cd65a7f5e8440e"
+  integrity sha512-p1diW6TqL9L07nNxvRMM7hMMw4c5XOo/1ibL4aAIGmSAt9slTE1Xgw5KWuof2uTOvCg9BY7ZRi+GaF+7sfgPeQ==
 
 undici-types@~6.21.0:
   version "6.21.0"

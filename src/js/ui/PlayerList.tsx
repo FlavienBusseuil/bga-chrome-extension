@@ -1,7 +1,7 @@
-import { Player } from "./Player";
+import { ComponentChildren } from "preact";
 
 type Props = {
-	children: Array<typeof Player>,
+	children: ComponentChildren;
 };
 
 export function PlayerList({ children }: Props) {

@@ -1,7 +1,7 @@
+import { ComponentChildren } from "preact";
 import type { TableId } from "../types/bga/Table";
 
 import { i18n } from "../utils/browser/i18n";
-import { PlayerList } from "./PlayerList";
 import { TableContent } from "./TableContent";
 import { TableFooter } from "./TableFooter";
 import { TableHeader } from "./TableHeader";
@@ -25,7 +25,7 @@ type Props = {
 	isPartOfTournament: boolean,
 	isTurnBased: boolean,
 	isWaitingCurrentPlayer: boolean,
-	children: typeof PlayerList,
+	children: ComponentChildren,
 	onAcceptInvite: (tableId: TableId) => Promise<void>,
 	onDeclineInvite: (tableId: TableId) => Promise<void>,
 	motionSensitivityEnable: boolean

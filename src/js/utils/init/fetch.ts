@@ -1,4 +1,4 @@
-import type { PlayerId } from "../../types/bga/Player";
+import { castToString, type PlayerId } from "../../types/bga/Player";
 
 import type { GlobalUserInfos } from "../../types/bga/queries/GameInProgress";
 import type { Table } from "../../types/bga/queries/TableManager";
@@ -78,7 +78,7 @@ export async function fetch(): Output {
 	const playersByGroups: Record<string, any> = {};
 
 	const isTablePlayersMatching = (t: Table, players: string[]) => {
-		return players.includes(t.table_creator) && !Object.keys(t.players).includes(currentPlayerId);
+		return t.table_creator && players.includes(castToString(t.table_creator)) && !Object.keys(t.players).includes(currentPlayerId);
 	};
 
 	const isTableGroupsMatching = (t: Table) => {
@@ -86,7 +86,7 @@ export async function fetch(): Output {
 			return true;
 		}
 		if (t.filter_group_type === 'friend') {
-			return friends.includes(t.admin_id);
+			return t.admin_id && friends.includes(castToString(t.admin_id));
 		}
 		return groups.find(g => g.id === t.filter_group);
 	};

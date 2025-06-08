@@ -1,5 +1,3 @@
-import React from "preact";
-
 const BoardIcon = () => {
 	return (
 		<svg width="32" height="32" viewBox="0 0 500 500" fill="transparent" stroke="currentColor">

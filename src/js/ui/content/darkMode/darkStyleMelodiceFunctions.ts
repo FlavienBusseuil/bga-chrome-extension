@@ -6,7 +6,7 @@ const cssList = ["dark_theme/melodice.css"];
 const cssContents: Record<string, string> = {};
 let customCssCode = '';
 
-Promise.all(cssList.map(getFile)).then(fileContents => {
+Promise.all(cssList.map(file => getFile(file))).then(fileContents => {
 	fileContents.forEach(({ file, content }) => cssContents[file] = content);
 });
 

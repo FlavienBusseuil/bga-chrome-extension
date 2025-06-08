@@ -1,4 +1,5 @@
 // Listen for messages from the extension
+// @ts-ignore
 chrome.runtime.onMessage.addListener((msg) => {
   playAudio(msg.data);
 });

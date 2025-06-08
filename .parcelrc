@@ -3,6 +3,9 @@
   "transformers": {
     "src/locales/*.json": [
       "./src/libs/parcel/parcel-transformer-minify-json.js"
+    ],
+    "*.{ts,tsx}": [
+      "@parcel/transformer-typescript-tsc"
     ]
   }
 }

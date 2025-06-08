@@ -26,7 +26,8 @@ export const FriendsView = ({ className, getGroupTables, groups, motionSensitivi
   const [loading, setLoading] = useState(false);
   const [requested, setRequested] = useState(false);
   const [group, setGroup] = useState("0");
-  const handleAcceptOrDeclineInvite = (tableId: TableId) => { };
+  // @ts-ignore
+  const handleAcceptOrDeclineInvite = (tableId: TableId) => { return Promise.resolve(); };
 
   const search = () => {
     setLoading(true);

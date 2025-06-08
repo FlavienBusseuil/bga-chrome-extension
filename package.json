@@ -10,6 +10,7 @@
 		"build": "yarn clean && NODE_ENV=production yarn prod:css && yarn prod:parcel",
 		"clean": "rimraf .parcel-cache/ build/",
 		"analyze": "yarn parcel build src/manifest.json --reporter @parcel/reporter-bundle-analyzer",
+		"typecheck": "tsc --noEmit",
 		"prod:css": "npx @tailwindcss/cli -i ./src/css/base.css -c ./tailwind.config.js -o ./src/css/tailwind.css",
 		"prod:parcel": "yarn parcel build src/manifest.json --target prod --dist-dir ./build",
 		"prod:parcel:firefox": "yarn parcel build src/manifest.json --target prod-firefox --dist-dir ./build",
@@ -47,6 +48,7 @@
 		"@parcel/config-webextension": "2.15.2",
 		"@parcel/reporter-bundle-analyzer": "^2.15.2",
 		"@parcel/transformer-less": "2.15.2",
+		"@parcel/transformer-typescript-tsc": "^2.15.2",
 		"@tailwindcss/cli": "^4.1.7",
 		"@types/chrome": "^0.0.326",
 		"@types/node": "^22.15.30",
@@ -58,7 +60,8 @@
 		"preact": "10.26.7",
 		"prettier": "^3.3.3",
 		"rimraf": "^6.0.1",
-		"tailwindcss": "3.4.13"
+		"tailwindcss": "3.4.13",
+		"typescript": ">=3.0.0"
 	},
 	"dependencies": {
 		"country-flag-emoji-polyfill": "^0.1.8",

@@ -1,5 +1,3 @@
-import React from "preact";
-
 const TopArrowIcon = () => {
 	return (
 		<svg width="32" height="32" viewBox="-60 0 640 540" fill="currentColor" stroke="currentColor">
