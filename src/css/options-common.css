@@ -195,3 +195,7 @@
 .options-buttons-container.saved {
   color: #009e0a;
 }
+
+.flags, .flags>option {
+  font-family: "Twemoji Country Flags", serif;
+}
