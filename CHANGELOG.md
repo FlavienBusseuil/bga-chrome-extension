@@ -1,5 +1,18 @@
 # Changelog
 
+## [v1.12.4](https://github.com/FlavienBusseuil/bga-chrome-extension/tree/v1.12.4) (2025-06-09)
+
+[Full Changelog](https://github.com/FlavienBusseuil/bga-chrome-extension/compare/v1.12.3...v1.12.4)
+
+**Closed issues:**
+
+- The extension seems to break terraforming mars [\#78](https://github.com/FlavienBusseuil/bga-chrome-extension/issues/78)
+
+**Merged pull requests:**
+
+- tweak: Add font to support country flags at windows [\#125](https://github.com/FlavienBusseuil/bga-chrome-extension/pull/125) ([GhoulofGSG9](https://github.com/GhoulofGSG9))
+- hotfix: display information popup text correctly [\#123](https://github.com/FlavienBusseuil/bga-chrome-extension/pull/123) ([GhoulofGSG9](https://github.com/GhoulofGSG9))
+
 ## [v1.12.3](https://github.com/FlavienBusseuil/bga-chrome-extension/tree/v1.12.3) (2025-06-03)
 
 [Full Changelog](https://github.com/FlavienBusseuil/bga-chrome-extension/compare/v1.12.2...v1.12.3)
