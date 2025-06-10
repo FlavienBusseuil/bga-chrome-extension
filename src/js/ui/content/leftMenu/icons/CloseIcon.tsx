@@ -1,5 +1,3 @@
-import React from "preact";
-
 const CloseIcon = () => {
 	return (
 		<svg width="32" height="32" viewBox="-40 -40 200 200" fill="currentColor" stroke="currentColor">

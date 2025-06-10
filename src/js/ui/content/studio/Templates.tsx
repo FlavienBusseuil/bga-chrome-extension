@@ -1,8 +1,9 @@
-import React from "preact";
 import { useEffect, useState } from "preact/hooks";
 
 import Configuration from "../../../config/configuration";
 import "../../../../css/studio.css";
+
+import type { Template } from "../../../config/models";
 
 interface TemplatesProps {
 	gameName: string;
@@ -59,8 +60,8 @@ const Templates = (props: TemplatesProps) => {
 	};
 
 	const useTemplate = () => {
-		const textArea = document.getElementById("report_log");
-		const templateInput = document.getElementById("templates_input");
+		const textArea = document.getElementById("report_log") as HTMLTextAreaElement;
+		const templateInput = document.getElementById("templates_input") as HTMLInputElement;
 
 		if (textArea && templateInput && templateInput.value) {
 			const selectionStart = textArea.selectionStart;
@@ -115,7 +116,7 @@ const Templates = (props: TemplatesProps) => {
 						<input
 							value={t.name}
 							onChange={(evt) =>
-								updateTemplate(evt.target.value, t.text, t.game)
+								updateTemplate((evt.target as HTMLInputElement).value, t.text, t.game)
 							}
 						/>
 					</div>
@@ -123,7 +124,7 @@ const Templates = (props: TemplatesProps) => {
 						<textarea
 							value={t.text}
 							onChange={(evt) =>
-								updateTemplate(t.name, evt.target.value, t.game)
+								updateTemplate(t.name, (evt.target as HTMLTextAreaElement).value, t.game)
 							}
 						/>
 					</div>
@@ -136,7 +137,7 @@ const Templates = (props: TemplatesProps) => {
 								updateTemplate(
 									t.name,
 									t.text,
-									evt.target.checked ? "all" : gameName,
+									(evt.target as HTMLInputElement).checked ? "all" : gameName,
 								)
 							}
 						/>
@@ -223,7 +224,7 @@ const Templates = (props: TemplatesProps) => {
 						<textarea
 							value={jsonTemplates}
 							onChange={(evt) =>
-								updateJsonTemplates(evt.target.value)
+								updateJsonTemplates((evt.target as HTMLTextAreaElement).value)
 							}
 						/>
 					)}

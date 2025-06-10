@@ -56,7 +56,7 @@
   "author": "Flavien Busseuil & Christophe Delaforge",
   "homepage_url": "https://github.com/FlavienBusseuil/bga-chrome-extension",
   "background": {
-    "service_worker": "background.js",
+    "service_worker": "background.ts",
     "type": "module"
   },
   "content_security_policy": {

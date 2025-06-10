@@ -1,5 +1,5 @@
 import { isMobile } from "is-mobile";
-import { runtime } from "webextension-polyfill";
+import { getUrl } from "./js/utils/browser";
 
 import ConfigurationWithGames from './js/config/configurationWithGames';
 import { isNumber } from './js/utils/misc/isNumber';
@@ -133,7 +133,7 @@ const manageLocationChange = (pathname: string) => {
 			console.debug("[bga extension] load home page management script");
 			const script = document.createElement('script');
 			script.id = 'ext_homepage';
-			script.src = `${runtime.getURL('/js/homepage.js')}?&time=${new Date().getTime()}`;
+			script.src = `${getUrl('/js/homepage.js')}?&time=${new Date().getTime()}`;
 			document.head.appendChild(script);
 		});
 	}
@@ -279,7 +279,7 @@ const initPage = () => {
 		console.debug('[bga extension] bga api script loading...');
 		const script = document.createElement('script');
 		script.id = 'ext_bga_api';
-		script.src = `${runtime.getURL('/js/bgaApi.js')}?&time=${new Date().getTime()}`;
+		script.src = `${getUrl('/js/bgaApi.js')}?&time=${new Date().getTime()}`;
 		document.head.appendChild(script);
 
 		setEloStyle(config);

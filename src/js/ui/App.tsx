@@ -24,6 +24,7 @@ import { cn } from "./utils/cn";
 import { TransformedTable } from "../types/TransformedTable";
 import { TransformedTournament } from "../types/TransformedTournament";
 
+// @ts-ignore
 async function handleAcceptOrDeclineInvite(tableId: TableId) {
 	// TODO: https://github.com/FlavienBusseuil/bga-chrome-extension/projects/1
 	// console.log(tableId);

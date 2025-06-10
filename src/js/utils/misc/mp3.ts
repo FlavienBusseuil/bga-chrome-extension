@@ -38,11 +38,11 @@ export const playMp3 = async () => {
   });
 };
 
-let creating;
+let creating: Promise<void> | null = null;
 const setupOffscreenDocument = async (path: string) => {
   const offscreenUrl = chrome.runtime.getURL(path);
   const existingContexts = await chrome.runtime.getContexts({
-    contextTypes: ["OFFSCREEN_DOCUMENT"],
+    contextTypes: [chrome.runtime.ContextType.OFFSCREEN_DOCUMENT],
     documentUrls: [offscreenUrl],
   });
 
@@ -54,7 +54,7 @@ const setupOffscreenDocument = async (path: string) => {
   } else {
     creating = chrome.offscreen.createDocument({
       url: path,
-      reasons: ["AUDIO_PLAYBACK"],
+      reasons: [chrome.offscreen.Reason.AUDIO_PLAYBACK],
       justification: "Play a notification sound",
     });
     await creating;

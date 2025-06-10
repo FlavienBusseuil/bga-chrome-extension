@@ -1,6 +1,6 @@
 import rgbHex from "rgb-hex";
 
-const rgbToHsl = (r: number, g: number, b: number) => {
+const rgbToHsl = (r: number, g: number, b: number): [number, number, number] => {
   r /= 255;
   g /= 255;
   b /= 255;
@@ -20,7 +20,7 @@ const rgbToHsl = (r: number, g: number, b: number) => {
   ];
 };
 
-const hslToRgb = (h: number, s: number, l: number) => {
+const hslToRgb = (h: number, s: number, l: number): [number, number, number] => {
   s /= 100;
   l /= 100;
   const k = (n: number) => (n + h / 30) % 12;
@@ -32,9 +32,9 @@ const hslToRgb = (h: number, s: number, l: number) => {
 const hexToRgb = (hex: string) => {
   const result = /^#?([a-f\d]{2})([a-f\d]{2})([a-f\d]{2})$/i.exec(hex);
   return result ? {
-    r: parseInt(result[1], 16),
-    g: parseInt(result[2], 16),
-    b: parseInt(result[3], 16)
+    r: parseInt(result[1] as string, 16),
+    g: parseInt(result[2] as string, 16),
+    b: parseInt(result[3] as string, 16)
   } : null;
 }
 

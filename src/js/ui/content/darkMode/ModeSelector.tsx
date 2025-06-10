@@ -241,6 +241,8 @@ const ModeSelector = (props: ModeSelectorProps) => {
         </span>
       );
     }
+    
+    return <></>;
   };
 
   const getIcon = () => {

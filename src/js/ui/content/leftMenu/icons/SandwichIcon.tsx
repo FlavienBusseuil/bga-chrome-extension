@@ -1,5 +1,3 @@
-import React from "preact";
-
 const SandwichIcon = () => {
 	return (
 		<svg width="32" height="32" viewBox="-30 -50 160 180" fill="currentColor" stroke="currentColor">

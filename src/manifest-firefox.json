@@ -56,7 +56,7 @@
   "homepage_url": "https://github.com/FlavienBusseuil/bga-chrome-extension",
   "background": {
     "scripts": [
-      "background.js"
+      "background.ts"
     ]
   },
   "content_security_policy": {

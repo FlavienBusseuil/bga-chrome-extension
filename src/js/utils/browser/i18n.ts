@@ -1,5 +1,4 @@
 import { getUrl } from '../browser';
-import { i18n as browser_i18n } from "webextension-polyfill";
 
 class I18N {
 	curLocale: string;
@@ -34,9 +33,9 @@ class I18N {
 
 	getMessage(key: string) {
 		if (this.labels) {
-			return this.labels[key] || browser_i18n.getMessage(key);
+			return this.labels[key] || chrome.i18n.getMessage(key);
 		}
-		return browser_i18n.getMessage(key);
+		return chrome.i18n.getMessage(key);
 	}
 }
 
@@ -44,4 +43,4 @@ const i18Instance = new I18N();
 
 export const i18n = (key: string): string => i18Instance.getMessage(key);
 export const setI18nLocale = async (locale: string) => i18Instance.setLocale(locale);
-export const getI18nDefaultLocale = () => browser_i18n.getMessage('current_locale');
+export const getI18nDefaultLocale = () => chrome.i18n.getMessage('current_locale');

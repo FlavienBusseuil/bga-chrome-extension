@@ -76,32 +76,32 @@ export const TablesView = ({
 										}}
 									>
 										<PlayerList>
-											{[
-												...players.map(
-													({
-														playerId,
-														playerName,
-														isActivePlayer,
-														isInvitePending,
-													}) => (
-														<Player
-															key={String(playerId)}
-															playerName={playerName}
-															isActivePlayer={
-																isActivePlayer
-															}
-															isInvitePending={
-																isInvitePending
-															}
-														/>
+												{[
+													...players.map(
+														({
+															playerId,
+															playerName,
+															isActivePlayer,
+															isInvitePending,
+														}) => (
+															<Player
+																key={String(playerId)}
+																playerName={playerName}
+																isActivePlayer={
+																	isActivePlayer
+																}
+																isInvitePending={
+																	isInvitePending
+																}
+															/>
+														),
 													),
-												),
-												...Array.from(
-													Array(nbMissingPlayers),
-												).map(() => (
-													<Player playerName="🪑 ..." />
-												)),
-											]}
+													...Array.from(
+														Array(nbMissingPlayers),
+													).map(() => (
+														<Player playerName="🪑 ..." />
+													)),
+												]}
 										</PlayerList>
 									</Table>
 								);

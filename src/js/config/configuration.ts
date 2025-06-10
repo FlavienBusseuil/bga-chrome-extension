@@ -60,7 +60,7 @@ export interface HomeConfig {
 	classicGames: boolean;
 }
 
-export interface AdvancedHomeConfig extends HomeConfig {
+export interface AdvancedHomeConfig {
 	advanced: boolean;
 	html: string;
 }

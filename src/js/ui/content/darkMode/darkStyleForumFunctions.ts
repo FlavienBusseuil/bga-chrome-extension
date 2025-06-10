@@ -5,7 +5,7 @@ const cssContents: Record<string, string> = {};
 let customCssCode = '';
 let styleComponent: HTMLStyleElement;
 
-Promise.all(cssList.map(getFile)).then(fileContents => {
+Promise.all(cssList.map(file => getFile(file))).then(fileContents => {
   fileContents.forEach(({ file, content }) => cssContents[file] = content);
 
   styleComponent = createStyle();
