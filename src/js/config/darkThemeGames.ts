@@ -129,6 +129,7 @@ export const gamesWithCustomBackground = [
   'mindup',
   'misty',
   'mojo',
+  'monstertrick',
   'mountaingoats',
   'mrjack',
   'mycity',
@@ -231,6 +232,7 @@ export const gamesWithCustomBackground = [
   'wizardsgrimoire',
   'wonderfulkingdom',
   'wordtraveler',
+  'yaxha',
   'zenith'
 ];
 
@@ -598,6 +600,9 @@ export const gamesWithCustomActions: GamesWithCustomActions = {
     init: () => addInvertOverlay('', true)
   },
   toybattle: {
+    init: () => addInvertOverlay('', true)
+  },
+  monstertrick: {
     init: () => addInvertOverlay('', true)
   },
 };
