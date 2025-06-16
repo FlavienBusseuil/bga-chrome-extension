@@ -142,5 +142,7 @@ addChangeListener((changes) => {
     setBackgroundFilters();
   } else if (changes.hideSocialMessages) {
     setNewsfeedFilters(changes.hideSocialMessages.newValue as boolean);
+  } else if (changes.lobbyRedirect) {
+    setLobbyUrlFilters(changes.lobbyRedirect.newValue as boolean);
   }
 });
