@@ -83,7 +83,7 @@
         "css/light_theme/*.less",
         "css/games/*/*.less",
         "js/homepage.ts",
-        "js/bgaApi.js",
+        "js/bgaApi.ts",
         "sound/myturn.mp3",
         "offscreen.html",
         "locales/*.json"

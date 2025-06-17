@@ -8,15 +8,24 @@ import type { Game } from "~/js/config/models";
 let playersData: PlayerData[] = [];
 
 export const initLeftMenu = (config: Configuration, gameConfig: Game, leftMenuEnable: boolean, twoTeams: boolean) => {
-	document.addEventListener("DOMContentLoaded", () => {
-		getPlayersData(twoTeams).then((data) => {
-			console.debug("[bga extension] players data", data);
+	let _initialized = false;
 
-			playersData = data;
-			buildLeftMenuCss(gameConfig, leftMenuEnable);
-			buildLeftMenu(config, gameConfig, leftMenuEnable);
-		});
-	});
+	const _init = () => {
+		if (!_initialized) {
+			_initialized = true;
+
+			getPlayersData(twoTeams).then((data) => {
+				console.debug("[bga extension] players data", data);
+
+				playersData = data;
+				buildLeftMenuCss(gameConfig, leftMenuEnable);
+				buildLeftMenu(config, gameConfig, leftMenuEnable);
+			});
+		}
+	}
+
+	document.addEventListener("DOMContentLoaded", _init);
+	setTimeout(_init, 2000);
 };
 
 export const buildLeftMenu = (config: Configuration, gameConfig: Game, enable: boolean) => {

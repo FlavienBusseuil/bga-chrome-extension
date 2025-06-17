@@ -1,7 +1,43 @@
-@import "../common";
+.icon.first_player {
+	filter: grayscale(1) invert(1);
+}
 
-.icon.first_player { filter: invert(1); }
-#score_table thead th, #score_table tfoot th, #score_table tfoot td, #score_table tbody tr:nth-of-type(2n)>* { background-color: var(--dark-20) !important; }
-.black { text-shadow: var(--text-w-shadow); }
-.blue { color: #6666ff !important; }
-.red { color: #ff3333 !important; }
+#right>div {
+	background: var(--dark-back);
+	color: var(--light-80);
+	border: 1px solid var(--dark-40);
+}
+
+#score_table thead th,
+#score_table tfoot th,
+#score_table tfoot td,
+#score_table tbody tr:nth-of-type(2n)>* {
+	background-color: var(--dark-20) !important;
+}
+
+.club-color,
+.spade-color {
+	text-shadow: var(--text-w-shadow);
+}
+
+.trump-color {
+	color: #66f;
+}
+
+.diamond-color,
+.heart-color {
+	color: #f33;
+}
+
+.player-block {
+	background: var(--dark-20) !important;
+}
+
+.player-block-name {
+	text-shadow: none !important;
+}
+
+.icon.trick,
+.icon.dealer {
+	filter: var(--drop-shadow);
+}

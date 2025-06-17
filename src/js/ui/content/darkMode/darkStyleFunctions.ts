@@ -40,8 +40,14 @@ const applyBackgroundFlickerFix = (mode: string) => {
   s.innerHTML = `${htmlStyle} ${bodyStyle}`;
   document.documentElement.appendChild(s);
 };
-if (document && isDarkStyle(mode)) {
-  applyBackgroundFlickerFix(mode);
+
+try {
+  if (document && isDarkStyle(mode)) {
+    applyBackgroundFlickerFix(mode);
+  }
+}
+catch (error) {
+  console.log("[bga extension] Can't apply background flicker fix", error);
 }
 
 const removeBackgroundFlickerFix = () => {
