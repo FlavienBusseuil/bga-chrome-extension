@@ -1,5 +1,13 @@
 # Changelog
 
+## [v1.12.5](https://github.com/FlavienBusseuil/bga-chrome-extension/tree/v1.12.5) (2025-06-17)
+
+[Full Changelog](https://github.com/FlavienBusseuil/bga-chrome-extension/compare/v1.12.4...v1.12.5)
+
+**Merged pull requests:**
+
+- Refactor: Replace all flow files with ts \(ensure type safety\) [\#124](https://github.com/FlavienBusseuil/bga-chrome-extension/pull/124) ([GhoulofGSG9](https://github.com/GhoulofGSG9))
+
 ## [v1.12.4](https://github.com/FlavienBusseuil/bga-chrome-extension/tree/v1.12.4) (2025-06-09)
 
 [Full Changelog](https://github.com/FlavienBusseuil/bga-chrome-extension/compare/v1.12.3...v1.12.4)
