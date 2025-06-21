@@ -1,0 +1,30 @@
+@import "./common";
+
+#D {
+
+	#castle_deck,
+	#discard_pile,
+	#tavern_deck {
+		color: #000;
+	}
+
+	.hand_card_icon.empty {
+		filter: invert(1);
+	}
+
+	html.darkpanel #player_boards .player-board.transparent {
+		background-color: #272a2fcc !important;
+	}
+
+	html.darkpanel #player_boards .player-board.highlight_panel {
+		background-color: rgba(80, 80, 80, .6) !important;
+	}
+
+	html.darkpanel #player_boards .player-board.unselectable_panel {
+		background-color: rgba(255, 0, 0, .3) !important;
+	}
+
+	html.darkpanel #player_boards .player-board.selected_panel {
+		background-color: #0033004d !important;
+	}
+}

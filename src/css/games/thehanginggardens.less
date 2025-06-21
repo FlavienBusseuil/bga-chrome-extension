@@ -1,0 +1,44 @@
+@import "./common";
+
+#D {
+	#board_assembly>div:before {
+		content: "";
+		background: #00000020;
+		position: absolute;
+		width: 100%;
+		height: 100%;
+	}
+
+	.player_pyramid .pyramid_content .pyramid_section .pyramid_spot,
+	.player_pyramid .pyramid_content .pyramid_section .pyramid_spot.controlspot {
+		border-color: var(--light-70);
+	}
+
+	.player_pyramid .pyramid_header {
+		background-color: var(--dark-20);
+		color: var(--light-80);
+	}
+
+	#final_score_multi {
+		background: var(--dark-10);
+		color: var(--light-80);
+	}
+
+	#final_score_multi .final_score_table .final_score_multi_entry {
+		border-color: var(--light-50);
+	}
+
+	.solo_comment {
+		background: var(--dark-30);
+		color: var(--light-80);
+	}
+
+	body.scoring #mainboard .board_assembly_middle {
+		background: var(--dark-back);
+		color: var(--light-80);
+	}
+
+	#ebd-body.scoring #mainboard .board_assembly_middle {
+		background: var(--dark-40);
+	}
+}

@@ -1,0 +1,25 @@
+@import "./common";
+
+#D {
+	#overall-content:before {
+		content: "";
+		background: #00000080;
+		position: absolute;
+		width: 100%;
+		height: 100%;
+	}
+
+	.player_board_inner,
+	#player_boards .player-name,
+	.player_score {
+		background-color: transparent;
+	}
+
+	.roundedbox {
+		background-color: var(--dark-10) !important;
+	}
+
+	#board_tribes .tribe {
+		filter: var(--drop-shadow);
+	}
+}

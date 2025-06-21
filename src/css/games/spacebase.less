@@ -1,0 +1,32 @@
+@import "./common";
+
+#D {
+	.whitebkg {
+		background-color: var(--dark-back);
+	}
+
+	.cardToolTip {
+		background-color: transparent !important;
+	}
+
+	.cardToolTip [style*="color:blue"] {
+		color: #6666ff !important;
+	}
+
+	.cardToolTip [style*="color:red"] {
+		color: #ff3333 !important;
+	}
+
+	#logs .icon-small {
+		filter: var(--highlight-min);
+	}
+
+	.startCardWrap {
+		box-shadow: 0 0 0 2px #000, 0 0 10px 13px var(--yellow-10);
+	}
+
+	.cardImg,
+	.stockCard {
+		filter: brightness(0.9);
+	}
+}

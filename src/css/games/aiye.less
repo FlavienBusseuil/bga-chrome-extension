@@ -1,0 +1,18 @@
+@import "./common";
+
+#D {
+
+	#player_boards .player-board,
+	#player_boards .player-board>* {
+		filter: invert(1);
+	}
+
+	.aiye-player-board .card,
+	.aiye-player-board .aiye-player-board-column-count div {
+		filter: var(--highlight-min);
+	}
+
+	#pagesection_gameview .whiteblock {
+		background: var(--dark-back) !important;
+	}
+}

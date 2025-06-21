@@ -1,7 +1,7 @@
 import { useState } from "preact/hooks";
-import fontColorContrast from "font-color-contrast";
 
 import type { Game } from "../../../config/models";
+import { hexToRgb } from "../../../utils/misc/colors";
 import Avatar from "./Avatar";
 import SideMenuItem from "./SideMenuItem";
 import PlayerName from "./PlayerName";
@@ -71,11 +71,20 @@ const PlayerIcon = (props: PlayerIconProps) => {
 	const getTextColor = (playerColor: string | undefined) => {
 		if (playerColor) {
 			try {
-				return fontColorContrast(playerColor);
+				const color = hexToRgb(playerColor);
+				if (color) {
+					// convert to linear sRGB
+					const [R, G, B] = [color.r, color.g, color.b].map(v => {
+						const c = v / 255;
+						return c <= 0.03928 ? c / 12.92 : Math.pow((c + 0.055) / 1.055, 2.4)
+					});
+					const luminance = 0.2126 * R! + 0.7152 * G! + 0.0722 * B!;
+					return luminance > 0.179 ? "#000" : "#fff";
+				}
 			} catch (error) { }
 		}
 
-		return "#000000";
+		return "#000";
 	};
 
 	const getIcon = () => {

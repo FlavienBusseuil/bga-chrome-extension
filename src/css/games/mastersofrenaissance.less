@@ -1,0 +1,41 @@
+@import "./common";
+
+#D {
+	#overall-content:before {
+		content: "";
+		background: #00000080;
+		position: absolute;
+		width: 100%;
+		height: 100%;
+	}
+
+	#development_cards_grid,
+	#market_grid {
+		background-color: var(--dark-back);
+		color: var(--light-80);
+	}
+
+	#boards>div>div:last-child {
+		background-color: var(--dark-back);
+	}
+
+	#arrow_cont {
+		border-top: 1px solid var(--light-50);
+	}
+
+	.board {
+		filter: brightness(0.9);
+	}
+
+	[style*="--color:#0000ff"] {
+		--color: #6666ff !important;
+	}
+
+	[style*="--color:#008000"] {
+		--color: #009e0a !important;
+	}
+
+	[style*="--color:#ff0000"] {
+		--color: #ff3333 !important;
+	}
+}

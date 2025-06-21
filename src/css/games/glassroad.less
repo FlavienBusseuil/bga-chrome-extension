@@ -1,0 +1,88 @@
+@import "./common";
+
+#D {
+
+	#board_legend_buildable,
+	#board .tile_wrapper[data-buildable="1"]:before,
+	#board_private_tiles .tile_wrapper[data-buildable="1"]:before,
+	.gr_card_player_played_card:before {
+		background: var(--dark-10);
+	}
+
+	.playerboard,
+	#board,
+	.stockitem,
+	.card_container,
+	.tile_container,
+	.card {
+		color: #000;
+	}
+
+	#toggle_history_exandable:link {
+		color: var(--light-80) !important;
+	}
+
+	.gr_playing_order_item {
+		background-color: var(--dark-back);
+		border: 1px solid var(--light-50);
+	}
+
+	.gr_card_current_player {
+		border: 4px solid var(--yellow-10);
+	}
+
+	.spectatorMode .spectator_playerboard_hand_zone {
+		border: 1px solid var(--light-50);
+	}
+
+	#bga-zoom-controls {
+		filter: invert(0.8);
+	}
+
+	.cc_counter {
+		background: var(--dark-40);
+	}
+
+	.token.handSize {
+		filter: invert(0.9);
+	}
+
+	#gr_playing_order .bgabutton,
+	.gr_help_wrapper a.bgabutton {
+		border: 1px solid var(--light-50) !important;
+		color: var(--light-50) !important;
+		background: transparent !important;
+	}
+
+	#gr_playing_order .bgabutton:hover,
+	.gr_help_wrapper a.bgabutton:hover {
+		border: 1px solid var(--light-80) !important;
+		color: var(--light-80) !important;
+	}
+
+	.stock_active_slot .inner_element,
+	.tile_wrapper.active_slot:not(.selected) {
+		border-color: var(--blue-50);
+	}
+
+	.stock_active_slot .inner_element:hover {
+		border-color: var(--blue-70);
+	}
+
+	#button_undo {
+		.redButton();
+	}
+
+	#button_undo:hover {
+		.redButtonOver();
+	}
+
+	.qty-field .value-wrapper {
+		background: var(--dark-10);
+		border: none;
+	}
+
+	#action-panel-errors .action-panel-error {
+		background-color: var(--red-10);
+	}
+}

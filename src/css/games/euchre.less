@@ -1,0 +1,24 @@
+@import "./common";
+
+#D {
+	.playertable.maker {
+		background: #3f2128bf !important;
+	}
+
+	.playertablename {
+		text-shadow: none;
+	}
+
+	.card {
+		filter: var(--drop-shadow) brightness(0.9);
+		box-shadow: none;
+	}
+
+	.bgabutton_blue[style="background: darkgoldenrod; border-color: darkgoldenrod;"] {
+		.yellowButton();
+	}
+
+	.bgabutton_blue[style="background: darkgoldenrod; border-color: darkgoldenrod;"]:not(.disabled):hover {
+		.yellowButtonOver();
+	}
+}

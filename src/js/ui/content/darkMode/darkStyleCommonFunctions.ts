@@ -1,7 +1,7 @@
 import { checkIfResourcePathExists, getUrl } from "../../../utils/browser";
 import { waitForObj } from '../../../utils/misc/wait';
 
-const themeStyleId = "ext-theme-style";
+const themeStyleId = "bgaext-theme-style";
 export const cookieName = "ext_dark_theme";
 
 export const getFile = async (file: string, silentOnFailure: boolean = false) => {
@@ -31,9 +31,11 @@ export const getFile = async (file: string, silentOnFailure: boolean = false) =>
   return { file, content };
 };
 
-export const createStyle = () => {
+export const createStyle = (id?: string) => {
   const styleComponent = document.createElement("style");
-  styleComponent.id = themeStyleId;
+  styleComponent.id = id || themeStyleId;
+
+  console.debug(`[bga extension] Create ${styleComponent.id} style tag`);
 
   waitForObj('head').then(() => {
     document.head.appendChild(styleComponent);

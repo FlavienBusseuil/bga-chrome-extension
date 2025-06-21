@@ -1,0 +1,36 @@
+@import "./common";
+
+#D {
+	#ebd-body {
+		background: none;
+	}
+
+	.cit_toggle-zoom-out,
+	.cit_toggle-zoom-in {
+		background-image: none !important;
+		-webkit-font-smoothing: antialiased;
+		-moz-osx-font-smoothing: grayscale;
+		display: inline-block;
+		font: normal normal normal 14px/1 FontAwesome;
+		font-size: inherit;
+		text-rendering: auto;
+	}
+
+	.cit_toggle-zoom-in:before {
+		content: "\\f00e";
+	}
+
+	.cit_toggle-zoom-out:before {
+		content: "\\f010";
+	}
+
+	.cit_text-ornament-left,
+	.cit_text-ornament-right {
+		filter: invert(0.7);
+	}
+
+	.cit_toggle-min-view-btn {
+		border: 1px solid var(--light-50);
+		color: var(--light-80);
+	}
+}

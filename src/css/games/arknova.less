@@ -1,0 +1,211 @@
+@import "./common";
+
+#D {
+	#overall-content:before {
+		content: "";
+		background: #00000060;
+		position: absolute;
+		width: 100%;
+		height: 100%;
+		top: 0px;
+		left: 0px;
+	}
+
+	.zoo-map-board-background:before,
+	#association-board:before,
+	#workers-reserves:before,
+	#studbooks:before {
+		content: "";
+		background: #00000040;
+		position: absolute;
+		width: 100%;
+		height: 100%;
+		top: 0px;
+		left: 0px;
+	}
+
+	.zoo-map-board-background,
+	#association-board,
+	#workers-reserves {
+		position: relative;
+	}
+
+	.player-board-cards,
+	.player-board-action-cards,
+	#base-projects-holder,
+	#projects-holder {
+		background: var(--dark-20) !important;
+	}
+
+	.player-board-cards .player-board-inPlay-animals,
+	.player-board-cards .player-board-inPlay-sponsors,
+	#association-board-resizable #association-board-container #base-projects-holder .project-holder,
+	#association-board-resizable #association-board-container #projects-holder .project-holder {
+		background: var(--dark-40);
+	}
+
+	.player-name>svg {
+		filter: invert(0.8);
+	}
+
+	.ark-log-card-name {
+		color: #fffafb;
+	}
+
+	.dijitTooltipContainer .arknova-icon,
+	.dijitTooltipContainer .arknovamw-icon {
+		filter: var(--highlight);
+	}
+
+	.dijitTooltipContainer .ark-card-bottom,
+	.dijitTooltipContainer .arknova-bonus,
+	.ark-card .ark-card-wrapper .ark-card-middle .ark-card-title-wrapper .ark-card-subtitle,
+	.ark-card .ark-card-wrapper .ark-card-middle .ark-card-number,
+	.player-info .handCount-holder .scoringHandCount-holder {
+		color: #000;
+	}
+
+	#logs .log.cancel .roundedbox {
+		background-color: #000 !important;
+	}
+
+	.player-board-cards .player-board-hand,
+	.player-board-cards .player-board-scoring-hand {
+		background: var(--dark-back);
+	}
+
+	.ark-card.zoo-card,
+	.arknova-meeple,
+	.arknova-icon,
+	.building-container,
+	.upgradeNeeded-marker,
+	.zoo-map-association,
+	.zoo-map-bonus-spaces,
+	#reputation-track {
+		filter: brightness(0.95);
+	}
+
+	.bgabutton_red {
+		.redButton();
+	}
+
+	.bgabutton_red:hover {
+		.redButtonOver();
+	}
+
+	#btnUndoLastStep {
+		.orangeButton();
+	}
+
+	#btnUndoLastStep:hover {
+		.orangeButtonOver();
+	}
+
+	#btnConfirmChoice {
+		.yellowButton();
+	}
+
+	#btnConfirmChoice:hover {
+		.yellowButtonOver();
+	}
+
+	#floating-hand-wrapper #floating-hand-button-container #floating-hand-button,
+	#floating-hand-wrapper #floating-hand-button-container #floating-scoring-hand-button {
+		background-color: var(--dark-20);
+		color: var(--light-80);
+		border: 1px solid var(--light-50);
+	}
+
+	#xtoken-modifier-container {
+		border: 1px solid var(--light-50);
+	}
+
+	.ark-card.unselectable {
+		filter: grayscale(80%) !important;
+	}
+
+	.ark-card.selectedToDiscard,
+	.ark-card.selectedToMap10,
+	#pagesubtitle #building-selector .building-container.unplacable {
+		filter: grayscale(1) !important;
+	}
+
+	#xtoken-modifier-container #xtoken-modifier-minus,
+	#xtoken-modifier-container #xtoken-modifier-plus {
+		background: var(--blue-70);
+	}
+
+	.action-cards-summary>div .summary-action-card[data-status="1"] .icon-container .arknova-icon {
+		box-shadow: 0 0 1px 1px #000, 0 0 3px 3px var(--red-30);
+	}
+
+	#player_config #round-counter-wrapper #break-counter-wrapper #break-counter-icon {
+		background: var(--dark-40);
+	}
+
+	#player_config #round-counter-wrapper #break-counter-wrapper #break-counter-icon:before {
+		border-right: 10px solid var(--dark-40);
+	}
+
+	#player_config #round-counter-wrapper #break-counter-wrapper .arknova-icon {
+		filter: var(--highlight-min);
+	}
+
+	#arknovamw-draft,
+	#arknova-draft,
+	#arknova-hold:not(:empty) {
+		background: var(--dark-20);
+	}
+
+	#arknovamw-draft #arknovamw-draft-picked:not(:empty),
+	#arknova-draft #arknova-draft-picked:not(:empty) {
+		background: #0d2c07;
+	}
+
+	#logs .arknova-icon,
+	#logs .arknovamw-icon,
+	#maintitlebar_content .arknova-icon,
+	#maintitlebar_content .arknovamw-icon,
+	#gameaction_status_wrap .arknova-icon,
+	#gameaction_status_wrap .arknovamw-icon,
+	#animation-break .arknova-icon,
+	#animation-break .arknovamw-icon {
+		filter: var(--highlight-min);
+	}
+
+	#player_boards .arknova-icon,
+	#player_boards .arknovamw-icon {
+		color: var(--light-80);
+		filter: var(--drop-shadow-min);
+	}
+
+	[data-panel-rows="1"] .arknovamw-icon.icon-conservation,
+	[data-panel-rows="1"] .arknovamw-icon.icon-appeal,
+	[data-panel-rows="1"] .arknova-icon.icon-conservation,
+	[data-panel-rows="1"] .arknova-icon.icon-appeal {
+		color: #000 !important;
+	}
+
+	[data-panel-rows="2"] .player-info .xtoken-holder .player-xtoken,
+	[data-panel-rows="2"] .player-info .handCount-holder .player-handCount {
+		filter: var(--highlight-min);
+	}
+
+	[data-panel-rows="2"] .player-info .handCount-holder.tooMuch .player-handCount {
+		filter: none;
+	}
+
+	[data-panel-rows="2"] .player-info>.icon-money {
+		border: none;
+	}
+
+	.action-cards-summary,
+	.icons-summary {
+		border-top: 1px solid #a3806e;
+	}
+
+	.action-cards-summary>div .summary-action-card:not([data-number="0"]):before,
+	.action-cards-summary>div .summary-action-card:not([data-number="0"]):before {
+		z-index: 1;
+	}
+}

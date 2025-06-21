@@ -1,0 +1,25 @@
+@import "./common";
+
+#D {
+	:root {
+		--panel-color: var(--dark-30);
+	}
+
+	.bank {
+		background-color: var(--dark-10);
+	}
+
+	.playerPanelNumber {
+		color: var(--light-80);
+	}
+
+	.tile,
+	.card,
+	.storecard {
+		filter: saturate(0.7);
+	}
+
+	span[style^="color: black;"] {
+		text-shadow: var(--text-w-shadow);
+	}
+}

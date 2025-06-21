@@ -1,0 +1,82 @@
+@import "./common";
+
+#bx-preference-container>div:first-child,
+#bx-preference-container>div:nth-child(2) {
+	display: none;
+}
+
+#D {
+
+	.cm-area-player,
+	.cm-area-player>span,
+	#bx-preference-container,
+	#cm-area-hand-container {
+		background-color: var(--dark-back);
+	}
+
+	.bx-pill {
+		background-color: var(--dark-40);
+		color: var(--light-80);
+	}
+
+	.cm-area-player>span,
+	#cm-area-hand-container .cm-cake-card-hand-share-container .cm-cake-share-player {
+		text-shadow: none;
+	}
+
+	.cm-area-player details summary,
+	.cm-area-player details .cm-cake-history .cm-cake-history-round,
+	.cm-area-player details .cm-cake-history .cm-cake-history-tasty-score,
+	.cm-cake-container-wrap .cm-cake-container .cm-cake-tasty .cm-cake-tasty-score,
+	.cm-cake-share-player.bx-always-clickable {
+		color: var(--light-80);
+		text-shadow: none;
+	}
+
+	.cm-area-player details .cm-cake-history {
+		border-color: var(--dark-40);
+	}
+
+	.bx-component-help {
+		background-color: var(--blue-70);
+	}
+
+	#cm-area-hand-container .cm-cake-card-hand-share-container {
+		background-color: var(--dark-20)
+	}
+
+	.bx-top-button-invalid:hover {
+		color: var(--light-50) !important;
+	}
+
+	#player_boards .cm-cake-container-wrap .cm-cake-container .cm-cake-quadrant {
+		background-color: #0003;
+	}
+
+	.bx-checkbox-switch i {
+		background-color: var(--light-50);
+	}
+
+	.bx-checkbox-switch i:before {
+		background-color: var(--dark-40);
+	}
+
+	.bx-checkbox-switch i:after {
+		transform: translate3d(4px, 3px, 0);
+		background-color: #fff;
+		height: 20px;
+		width: 20px;
+	}
+
+	.bx-checkbox-switch input:checked+i {
+		background-color: var(--blue-70);
+	}
+
+	.bx-checkbox-switch input:checked+i:after {
+		transform: translate3d(22px, 3px, 0);
+	}
+
+	.cm-card {
+		filter: brightness(0.9);
+	}
+}

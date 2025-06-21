@@ -29,7 +29,7 @@ const hslToRgb = (h: number, s: number, l: number): [number, number, number] => 
   return [255 * f(0), 255 * f(8), 255 * f(4)];
 };
 
-const hexToRgb = (hex: string) => {
+export const hexToRgb = (hex: string) => {
   const result = /^#?([a-f\d]{2})([a-f\d]{2})([a-f\d]{2})$/i.exec(hex);
   return result ? {
     r: parseInt(result[1] as string, 16),

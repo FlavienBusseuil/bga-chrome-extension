@@ -1,0 +1,32 @@
+@import "./common";
+
+#D {
+	#overall-content:before {
+		content: "";
+		background: #00000080;
+		position: absolute;
+		width: 100%;
+		height: 100%;
+		top: 0px;
+		left: 0px;
+	}
+
+	.a_board svg {
+		filter: invert(0.8);
+	}
+
+	#help-mode-switch .label {
+		background-color: var(--dark-40);
+		border: 1px solid var(--light-50);
+		box-sizing: content-box;
+	}
+
+	.bb_icon_text {
+		color: #000;
+		text-shadow: var(--text-w-shadow);
+	}
+
+	#player_boards .tooltip-icons {
+		filter: var(--drop-shadow-min);
+	}
+}

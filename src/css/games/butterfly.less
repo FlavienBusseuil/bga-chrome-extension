@@ -1,0 +1,32 @@
+@import "./common";
+
+#D {
+
+	.playerHand div:not(.captures),
+	#drawDiscard>div:not(#drawWrap) {
+		background-color: var(--dark-20) !important;
+	}
+
+	.captures,
+	#draw {
+		margin-top: 0px !important;
+	}
+
+	#drawWrap {
+		background-color: transparent !important;
+	}
+
+	#commonArea {
+		color: #fff;
+	}
+
+	.Bee,
+	.Bfly,
+	.Crick,
+	.Dfly,
+	.Flower,
+	.Lbug,
+	.Wasp {
+		filter: var(--drop-shadow);
+	}
+}

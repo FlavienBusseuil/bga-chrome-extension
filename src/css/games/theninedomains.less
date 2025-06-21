@@ -1,0 +1,77 @@
+@import "./common";
+
+.button_sh,
+.button_sh * {
+	cursor: pointer;
+}
+
+#button_text {
+	line-height: 32px;
+}
+
+#D {
+
+	.mini_card,
+	.mini_card_log {
+		filter: invert(1);
+	}
+
+	#help {
+		background-color: var(--dark-10);
+		color: var(--light-80);
+	}
+
+	.colors_icons {
+		border-radius: 50%;
+	}
+
+	.button_sh {
+		.purpleButton();
+	}
+
+	.button_sh:hover {
+		.purpleButtonOver();
+	}
+
+	.button_sh:has([style="color:#ff0000"]) {
+		.redButton();
+	}
+
+	.button_sh:has([style="color:#ff0000"]):hover {
+		.redButtonOver();
+	}
+
+	.button_sh:has([style="color:#0000ff"]) {
+		.blueButton();
+	}
+
+	.button_sh:has([style="color:#0000ff"]):hover {
+		.blueButtonOver();
+	}
+
+	.button_sh:has([style="color:#008000"]) {
+		.greenButton();
+	}
+
+	.button_sh:has([style="color:#008000"]):hover {
+		.greenButtonOver();
+	}
+
+	.button_sh:has([style="color:#ffa500"]) {
+		.orangeButton();
+	}
+
+	.button_sh:has([style="color:#ffa500"]):hover {
+		.orangeButtonOver();
+	}
+
+	.button_sh * {
+		color: #fff !important;
+	}
+
+	.cardontable,
+	.landontable,
+	.stockitem {
+		filter: brightness(0.9);
+	}
+}

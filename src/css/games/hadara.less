@@ -1,0 +1,37 @@
+@import "./common";
+
+#D {
+
+	.had_player_p_icon,
+	.had_cards,
+	.had_coins {
+		filter: var(--drop-shadow-min);
+	}
+
+	.had_player_p_icon_1,
+	.had_player_p_icon_2,
+	.had_player_p_icon_3,
+	.had_player_p_icon_0 {
+		filter: none;
+	}
+
+	.dijitTooltipContainer:has(> div > div.had_colony_tile),
+	.dijitTooltipContainer:has(> div > div.had_colony_tile)>div,
+	.dijitTooltipContainer:has(> div > div.had_colony_tile)>div>div {
+		background-color: transparent !important;
+		border: none !important;
+		box-shadow: none !important;
+	}
+
+	.dijitTooltip:has(> div > div > div.had_colony_tile)>div:first-child {
+		display: none;
+	}
+
+	.player-board {
+		background-color: var(--dark-10);
+	}
+
+	.had_game_board_player_name {
+		background: var(--dark-back);
+	}
+}

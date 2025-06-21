@@ -1,0 +1,33 @@
+@import "./common";
+
+#D {
+	:root {
+		--colorCardType: #784421;
+		--colorTooltipBlue: #3a5f5b;
+		--colorTooltipRed: #683331;
+		--colorTooltipGreen: #5d583c;
+		--colorTooltipBeige: #605039;
+	}
+
+	.pgn_Icon {
+		filter: var(--highlight);
+	}
+
+	.playerBoardTasks {
+		filter: saturate(0.7);
+	}
+
+	.pgn_tooltipLine,
+	.pgn_tooltipType,
+	.pgn_tooltipName {
+		color: var(--light-80);
+	}
+
+	#button_undo {
+		.redButton();
+	}
+
+	#button_undo:hover {
+		.redButtonOver();
+	}
+}

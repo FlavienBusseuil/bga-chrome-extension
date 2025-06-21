@@ -1,0 +1,36 @@
+@import "./common";
+
+#D {
+	#overall-content:before {
+		content: "";
+		background: #00000080;
+		position: absolute;
+		width: 100%;
+		height: 100%;
+	}
+
+	#logs .log.notif_clearEndOfRound .roundedbox,
+	#logs .log.notif_startExecutivePhaseStep .roundedbox {
+		background: var(--dark-30);
+	}
+
+	#player_config #round-counter-wrapper {
+		background: var(--dark-10);
+		color: var(--light-80);
+	}
+
+	#player_config #round-phase {
+		background: var(--dark-30);
+		color: var(--light-80);
+	}
+
+	#federation-main-container #federation-left-column #left-column-selectors .display-selector {
+		background: var(--blue-10);
+		color: var(--light-80);
+		border: 1px solid var(--light-50);
+	}
+
+	#federation-main-container #federation-left-column #left-column-selectors .display-selector.active {
+		background: var(--blue-70);
+	}
+}

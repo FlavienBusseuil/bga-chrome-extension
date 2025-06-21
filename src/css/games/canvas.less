@@ -1,0 +1,33 @@
+@import "./common";
+
+#D {
+	#overall-content:before {
+		content: "";
+		background: #00000080;
+		position: absolute;
+		width: 100%;
+		height: 100%;
+		top: 0px;
+		left: 0px;
+	}
+
+	.dijitTooltip .art-card {
+		background-color: var(--light-50);
+	}
+
+	.player-area .title {
+		color: #000 !important;
+	}
+
+	.bgabutton.bgabutton_blue {
+		.blueButton();
+	}
+
+	.bgabutton.bgabutton_blue:hover {
+		.blueButtonOver();
+	}
+
+	.canvas-art-card {
+		filter: brightness(0.9);
+	}
+}

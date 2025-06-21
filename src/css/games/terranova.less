@@ -1,0 +1,36 @@
+@import "./common";
+
+#D {
+
+	#game_board:before,
+	.faction_board:before {
+		content: "";
+		background: #0000001a;
+		position: absolute;
+		width: 100%;
+		height: 100%;
+	}
+
+	#faction_selection,
+	.faction_supply {
+		background-color: var(--dark-back);
+	}
+
+	#logs .tmlogs_icon div[class^="trans_"] {
+		border-radius: 12px;
+	}
+
+	.control_box {
+		background-color: var(--dark-20);
+	}
+
+	.faction_selection_item,
+	.player_faction {
+		color: var(--light-80);
+		text-shadow: none;
+	}
+
+	#actions_overview {
+		filter: brightness(0.9);
+	}
+}

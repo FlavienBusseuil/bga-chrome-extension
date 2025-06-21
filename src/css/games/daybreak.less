@@ -1,0 +1,47 @@
+@import "./common";
+
+#D {
+	.dbk-card-inner:not(.dbk-card-crisis-back) {
+		background: var(--dark-20);
+		color: var(--light-80);
+	}
+
+	.dbk-card-crisis-back {
+		filter: brightness(0.9);
+	}
+
+	.dbk-card-inner .dbk-icon-arrow,
+	.dbk-card-inner .dbk-icon-player,
+	.tooltiptext .dbk-icon-arrow,
+	.tooltiptext .dbk-icon-player {
+		filter: invert(0.8);
+	}
+
+	.dbk-card-mod {
+		background: var(--dark-10);
+	}
+
+	.dbk-tab,
+	.dbk-tab:not(.dbk-tab-selected):hover,
+	.dbk-tab.dbk-tab-selected {
+		background-color: var(--dark-20);
+		color: var(--light-80);
+	}
+
+	.dbk-voteBlock {
+		background-color: var(--dark-10);
+	}
+
+	.dbk-card-crisis>.dbk-card-inner .dbk-icon-crisisType {
+		border-radius: 5px;
+		border: 1px solid var(--light-50);
+	}
+
+	.dbk-card-qr {
+		color: #000;
+	}
+
+	#logs .dbk-icon-carbon {
+		filter: var(--drop-shadow-min);
+	}
+}

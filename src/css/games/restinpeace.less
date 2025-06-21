@@ -1,0 +1,27 @@
+@import "./common";
+
+#D {
+	#overall-content {
+		background-color: var(--dark-back);
+	}
+
+	#rip-game-holder-holder #zoom-panel {
+		background-color: var(--dark-20);
+	}
+
+	#zoom-in-btn,
+	#zoom-out-btn {
+		filter: invert(0.7);
+	}
+
+	.playmat_on #rip-game-holder #opponent-cards .card-stack,
+	.playmat_on #rip-game-holder #player-cards .card-stack {
+		background: linear-gradient(180deg, hsl(0deg 0% 0% / 40%), hsl(0deg 0% 0% / 0%) 50%);
+	}
+
+	.rip-tooltip {
+		background: var(--dark-10);
+		box-shadow: 0 5px 10px #555;
+		color: var(--light-80);
+	}
+}

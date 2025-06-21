@@ -1,0 +1,83 @@
+@import "./common";
+
+#car-scoring-card-scale {
+	padding-top: 0.5em;
+}
+
+#D {
+	#overall-content:before {
+		content: "";
+		background: #00000080;
+		position: absolute;
+		width: 100%;
+		height: 100%;
+	}
+
+	.jj-ui-hint-box {
+		background-color: var(--dark-10);
+	}
+
+	.car-score-track .car-score-track-season .car-score-track-season-cells {
+		background-color: var(--dark-10);
+	}
+
+	.car-score-track .car-score-track-season .fa6-hourglass {
+		background-color: var(--dark-20);
+	}
+
+	.car-score-track .car-score-track-season .car-score-track-season-cell,
+	.car-score-track .car-score-track-season .car-score-track-season-cells,
+	.car-score-track .car-score-track-season .fa6-hourglass {
+		border-color: var(--light-50) !important;
+	}
+
+	.car-sheet-coins-track {
+		background-color: #383b1b40;
+	}
+
+	#undoAll,
+	#undoLast {
+		.yellowButton();
+	}
+
+	#undoAll:hover,
+	#undoLast:hover {
+		.yellowButtonOver();
+	}
+
+	#jj-preferences-panel #jj-preferences-panel-content .jj-preferences-panel-category-label {
+		background: var(--dark-back);
+	}
+
+	.car-explore-card-art:before,
+	.car-sheet:before {
+		content: "";
+		background: #00000040;
+		position: absolute;
+		width: 100%;
+		height: 100%;
+	}
+
+	.car-title-font {
+		text-shadow: -1px 0 #000, 0 1px #000, 1px 0 #000, 0 -1px #000;
+		white-space: nowrap;
+	}
+
+	.car-sheet .car-sheet-player-name-wrapper .car-sheet-player-name {
+		filter: none;
+	}
+
+	.car-sheet .car-sheet-grid-tile-controls .tile-controls-button {
+		background: var(--dark-10);
+		border: 1px solid var(--light-70);
+		color: var(--light-80);
+	}
+
+	.car-sheet .car-sheet-grid-tile-controls[data-invalid=true] .tile-controls-circle {
+		border: 4px dotted var(--red-30);
+	}
+
+	#car-season-scoring-wrapper #car-season-scoring {
+		background-image: none;
+	}
+}

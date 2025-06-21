@@ -1,0 +1,23 @@
+@import "./common";
+
+#D {
+	body {
+		background: none !important;
+	}
+
+	#player_boards .AOCsvg {
+		filter: var(--highlight);
+	}
+
+	#player_boards .AOCplayer-PP:after {
+		color: #fff;
+	}
+
+	.dijitTooltipContainer img:not([src$="ACQUIRING_A_VINEYARD.svg"]) {
+		filter: invert(1);
+	}
+
+	#logs img[style="height:30px;vertical-align:middle;margin:0 10px;"] {
+		filter: invert(1);
+	}
+}

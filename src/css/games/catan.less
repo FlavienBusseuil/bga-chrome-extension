@@ -1,0 +1,226 @@
+@import "./common";
+
+#D {
+	#ebd-body {
+		background: #005a81;
+	}
+
+	.cat_panel_prim_icons,
+	#player_boards .cat_panel_prim_icons .cat_panel_score {
+		filter: var(--drop-shadow-min) !important;
+	}
+
+	#replaylogs .cat_log_token,
+	.log .cat_log_token,
+	.tooltiptext .cat_log_token {
+		filter: var(--drop-shadow);
+	}
+
+	#cat_map_bg {
+		background: none;
+	}
+
+	.cat_img_knight,
+	.cat_barbarians_ship,
+	.cat_arrows_ltr,
+	.cat_arrows_rtl {
+		filter: var(--highlight-min);
+	}
+
+	.cat_ck_param_line {
+		border-bottom: 1px solid var(--light-80);
+	}
+
+	#cat_mapcontrols {
+		background: var(--dark-30);
+		border: none;
+		box-shadow: none;
+		margin: 5px;
+		filter: var(--drop-shadow);
+	}
+
+	#cat_mapcontrols>* {
+		filter: invert(0.7);
+	}
+
+	#cat_devcards_ck {
+		top: 6vh;
+	}
+
+	.cat_cardcounter {
+		background: #000;
+		border: 2px solid #fff;
+		color: #fff;
+	}
+
+	.cat_panel_ck_citylevel,
+	.cat_tt {
+		color: #000;
+	}
+
+	.cat_metropolis {
+		box-shadow: none;
+		filter: var(--drop-shadow);
+		margin-bottom: 5px;
+	}
+
+	html.darkpanel #player_boards.player-board {
+		background: var(--dark-30) !important;
+	}
+
+	html.darkpanel #player_boards .player-board.cat_activepl {
+		background: var(--dark-40) !important;
+	}
+
+	#cat_tradeawarenessconfig,
+	.cat_tradeawareness {
+		background: var(--dark-back);
+		border: 1px solid var(--light-50);
+	}
+
+	#cat_tradeawareness_currentconf {
+		background: var(--dark-back);
+	}
+
+	#cat_trade_player_wantandoffer,
+	.cat_playertradeoffer {
+		background: linear-gradient(180deg, #1e3148, #1c2e4a);
+	}
+
+	.cat_playertrade_caption,
+	.cat_playerboard_resource_info,
+	.cat_offerplname,
+	.cat_tradeoffer_preview,
+	.cat_tradeoffer_messageline {
+		color: var(--light-80);
+	}
+
+	.cat_resource_counter {
+		background-color: var(--dark-10);
+		border-color: var(--light-80);
+		color: var(--light-80);
+	}
+
+	.cat_playertradeoffer.cat_red {
+		border: 2px solid var(--red-30);
+	}
+
+	.cat_playertradeoffer.cat_orange {
+		border: 2px solid #f79f50;
+	}
+
+	.cat_playertradeoffer.cat_blue {
+		border: 2px solid #31b1e6;
+	}
+
+	.cat_playertradeoffer.cat_brown {
+		border: 2px solid #a0665e;
+	}
+
+	.cat_playertradeoffer.cat_pink {
+		border: 2px solid #e63aec;
+	}
+
+	.cat_playertradeoffer.cat_purple {
+		border: 2px solid #9b3feb;
+	}
+
+	.cat_nameintext.cat_red {
+		color: var(--red-30);
+	}
+
+	.cat_nameintext.cat_orange {
+		color: #f79f50;
+	}
+
+	.cat_nameintext.cat_blue {
+		color: #31b1e6;
+	}
+
+	.cat_nameintext.cat_brown {
+		color: #a0665e;
+	}
+
+	.cat_nameintext.cat_pink {
+		color: #e63aec;
+	}
+
+	.cat_nameintext.cat_green {
+		color: #6ac055;
+	}
+
+	.bgabutton_orange {
+		.redButton();
+	}
+
+	.bgabutton_orange:hover {
+		.redButtonOver();
+	}
+
+	#cat_playertrade_button_update {
+		.greenButton();
+		;
+		border-color: var(--light-80) !important;
+		text-shadow: -1px -1px #0004, 1px 1px #0004, -1px 1px #0004, 1px -1px #0004 !important;
+	}
+
+	#cat_playertrade_button_update:hover {
+		.greenButtonOver();
+	}
+
+	.cat_button_deal {
+		text-shadow: -1px -1px #0004, 1px 1px #0004, -1px 1px #0004, 1px -1px #0004 !important;
+	}
+
+	.cat_button_deal:not(.cat_button_reject_all) {
+		.greenButton();
+		;
+		border-color: var(--light-80) !important;
+	}
+
+	.cat_button_deal:not(.cat_button_reject_all):hover {
+		.greenButtonOver();
+	}
+
+	.cat_button_deal.cat_button_retract,
+	#cat_playertrade_button_cancelupdate {
+		.redButton();
+		;
+		border-color: var(--light-80) !important;
+	}
+
+	.cat_button_deal.cat_button_retract:hover,
+	#cat_playertrade_button_cancelupdate:hover {
+		.redButtonOver();
+	}
+
+	.cat_button_deal.cat_button_match {
+		.blueButton();
+		;
+		border-color: var(--light-80) !important;
+	}
+
+	.cat_button_deal.cat_button_match:hover {
+		.blueButtonOver();
+	}
+
+	.cat_playertradeoffer.cat_notactionable {
+		background: #333;
+	}
+
+	.cat_alert {
+		color: var(--red-30);
+	}
+
+	.cat_matched {
+		color: var(--green-50);
+	}
+
+	.cat_traderate {
+		color: var(--light-80);
+	}
+
+	#cat_summary {
+		filter: brightness(0.9);
+	}
+}

@@ -1,0 +1,58 @@
+@import "./common";
+
+#D {
+	:root {
+		--capacity-color: #80ff8a;
+	}
+
+	.sum-used-capacity,
+	.used-capacity {
+		color: #66f;
+	}
+
+	.character {
+		color: #000;
+	}
+
+	#button_undo {
+		.redButton();
+	}
+
+	#button_undo:hover {
+		.redButtonOver();
+	}
+
+	.dice {
+		box-shadow: none;
+		filter: var(--drop-shadow);
+	}
+
+	#score table td.player-name {
+		text-shadow: none;
+	}
+
+	#score .score-row:nth-child(odd) {
+		background: var(--dark-30);
+	}
+
+	#score .score-row:nth-child(2n) {
+		background: var(--dark-20);
+	}
+
+	#score th {
+		background-color: var(--dark-10);
+	}
+
+	#score table td:not(:first-child) {
+		text-shadow: none;
+		color: var(--light-80);
+	}
+
+	#score * {
+		border-color: var(--light-50) !important;
+	}
+
+	#table {
+		background: var(--dark-30);
+	}
+}

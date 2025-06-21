@@ -1,0 +1,48 @@
+@import "./common";
+
+#help-dialog-content {
+	overflow-x: hidden;
+}
+
+#D {
+	#overall-content:before {
+		content: "";
+		background: #000000A0;
+		position: absolute;
+		width: 100%;
+		height: 100%;
+	}
+
+	.bga-help_button,
+	.bga-help_unfolded-content {
+		filter: invert(1);
+		box-shadow: 3px 5px 5px 0 #fff;
+	}
+
+	.icon-technology-writing:before {
+		color: #b7827b;
+	}
+
+	.player-table,
+	#help-popin .help-icon-line {
+		background: var(--dark-back);
+	}
+
+	#table-center .fold-button .fold-button-arrow {
+		background: var(--dark-10);
+		border-radius: 24px;
+	}
+
+	.bga-cards_deck-counter.round {
+		background: var(--dark-10);
+		color: var(--light-80);
+	}
+
+	.player-table .timeline .slot {
+		background: hsla(0, 0%, 100%, .1);
+	}
+
+	#bga-zoom-controls {
+		filter: invert(0.7);
+	}
+}

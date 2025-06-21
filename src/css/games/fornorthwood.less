@@ -1,0 +1,35 @@
+@import "./common";
+
+#D {
+	#overall-content[style^="background"]:before {
+		content: "";
+		background: #000000A0;
+		position: absolute;
+		width: 100%;
+		height: 100%;
+		top: 0px;
+		left: 0px;
+	}
+
+	.card>.card_text {
+		color: #000;
+	}
+
+	span[style*="color:#3c3c3c;"] {
+		color: #999999 !important;
+	}
+
+	#fief_move_left,
+	#fief_move_right {
+		background-color: var(--dark-back);
+		color: var(--light-70);
+	}
+
+	.visiting_space.currently_visiting {
+		background: var(--dark-10);
+	}
+
+	.visiting_space.currently_visiting:after {
+		filter: saturate(3);
+	}
+}

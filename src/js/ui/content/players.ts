@@ -2,6 +2,8 @@ import rgbHex from "rgb-hex";
 import { gamesWithCustomColors } from "../../config/darkThemeGames";
 import { getColorForDarkMode } from "../../utils/misc/colors";
 
+let playersData: PlayerData[] | undefined = undefined;
+
 export interface PlayerData {
   id: number;
   name: string;
@@ -16,6 +18,11 @@ export const getPlayersData = async (twoTeams: boolean): Promise<PlayerData[]> =
 };
 
 const _getPlayersData = (returnFunc: (data: PlayerData[]) => void, twoTeams: boolean, iteration: number, fromStyle?: boolean) => {
+  if (playersData) {
+    returnFunc(playersData);
+    return;
+  }
+
   const playerContainers = Array.from(document.querySelectorAll("#player_boards div.player-name[id^=\"player_name_\"]")).filter(elt => elt.id.length > 13 || elt.id === "player_name_7");
   const playerlinks = document.querySelectorAll("#player_boards div.player-name[id^=\"player_name_\"] a[href*=\"/player?id\"]");
   let result: PlayerData[] | undefined = undefined;
@@ -61,6 +68,7 @@ const _getPlayersData = (returnFunc: (data: PlayerData[]) => void, twoTeams: boo
     if (diffColors.length === target) {
       // The number of colors match the number of players (or the number of teams)
       document.documentElement.classList.remove("bgaext_get_players_data");
+      playersData = result;
       returnFunc(result);
       return;
     }
@@ -76,6 +84,7 @@ const _getPlayersData = (returnFunc: (data: PlayerData[]) => void, twoTeams: boo
   } else {
     console.error("Too many iterations in getPlayersData");
     document.documentElement.classList.remove("bgaext_get_players_data");
+    playersData = result || [];
     returnFunc(result || []);
   }
 };

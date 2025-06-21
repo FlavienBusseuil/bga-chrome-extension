@@ -1,0 +1,28 @@
+@import "./common";
+
+#D {
+	.DMplayerHandHolder {
+		background: var(--dark-back);
+	}
+
+	.DMplayerHandHolder>.DMvertical {
+		color: var(--light-80);
+	}
+
+	.player_board_content img {
+		filter: invert(1) var(--highlight-min);
+	}
+
+	[style="color:black;font-weight:bold;"] {
+		text-shadow: var(--text-w-shadow);
+	}
+
+	.DMphase,
+	.DMround {
+		background-color: var(--dark-40);
+	}
+
+	.DMdie.DMselected>.DMface {
+		box-shadow: 0 0 5px 5px #bbb;
+	}
+}

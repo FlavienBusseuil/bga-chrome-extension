@@ -1,0 +1,28 @@
+@import "./common";
+
+#D {
+
+	#round-counter-row #round-counter-block,
+	.player-table {
+		background: var(--dark-back);
+	}
+
+	.player-played-card,
+	.player-scored-card,
+	.bga-zoom-out-icon,
+	.bga-zoom-in-icon {
+		filter: invert(0.8);
+	}
+
+	.player-helmets {
+		filter: var(--drop-shadow);
+	}
+
+	.dijitTooltipContainer [style="color: darkred"] {
+		color: #ff3333 !important;
+	}
+
+	.card .card-sides .card-side.front {
+		filter: brightness(0.9);
+	}
+}

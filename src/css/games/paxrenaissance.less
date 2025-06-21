@@ -1,0 +1,81 @@
+@import "./common";
+
+#D {
+
+	#pr_open_hands_button .pr_icon,
+	#pr_information_button .pr_icon {
+		filter: invert(0.7);
+	}
+
+	.pr_player_tableau:before {
+		background-color: var(--dark-back);
+	}
+
+	.pr_player_tableau_title {
+		background: var(--dark-back);
+		padding: 0.2em 0.5em;
+		color: var(--light-80);
+		border-radius: 8px;
+	}
+
+	#pr_market_east_deck_container .pr_deck_counter,
+	#pr_market_west_deck_container .pr_deck_counter {
+		background-color: var(--dark-20);
+		color: var(--light-80);
+	}
+
+	.pr_open_hands_modal_player_container,
+	.pr_open_hands_modal h2,
+	.pr_open_hands_modal_cards_container .pr_card,
+	#pr_information_modal_content,
+	#popin_settings_modal>h2,
+	#popin_settings_modal_contents {
+		position: relative;
+	}
+
+	.pr_open_hands_modal_player_container:before,
+	#popin_information_modal_contents:before,
+	#popin_settings_modal:before {
+		content: "";
+		background: var(--dark-back);
+		position: absolute;
+		width: 100%;
+		height: 100%;
+		top: 0px;
+		left: 0px;
+	}
+
+	.pr_open_hands_modal .pr_open_hands_modal_closeicon,
+	#popin_information_modal_close,
+	.pr_settings_modal_closeicon {
+		z-index: 1;
+	}
+
+	.pr_open_hands_modal_player_container .playername,
+	#player_boards .player-name a {
+		text-shadow: 1px 0 0 #000, 0 1px 0 #000, -1px 0 0 #000, 0 -1px 0 #000, 1px 1px 0 #000, -1px 1px 0 #000, 1px -1px 0 #000, -1px -1px 0 #000;
+	}
+
+	#popin_information_modal_contents,
+	#popin_settings_modal {
+		color: var(--light-80);
+	}
+
+	.pr_settings_modal h2 {
+		background-color: var(--dark-20);
+	}
+
+	.pr_information_modal #pr_information_modal_content #pr_battleTable .pr_header,
+	.pr_information_modal #pr_information_modal_content #pr_oneShots .pr_header,
+	.pr_information_modal #pr_information_modal_content #pr_operations .pr_header,
+	.pr_information_modal #pr_information_modal_content #pr_battleTable .pr_cell.pr_light_background,
+	.pr_information_modal #pr_information_modal_content #pr_oneShots .pr_cell.pr_light_background,
+	.pr_information_modal #pr_information_modal_content #pr_operations .pr_cell.pr_light_background {
+		background-color: var(--dark-back);
+	}
+
+	.pr_header,
+	.pr_cell {
+		border-color: var(--light-50) !important;
+	}
+}

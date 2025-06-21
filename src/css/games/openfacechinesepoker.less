@@ -1,0 +1,41 @@
+@import "./common";
+
+#D {
+	.name_shadow {
+		text-shadow: none;
+	}
+
+	#pagesection_gameview .whiteblock.playertable {
+		position: relative;
+	}
+
+	#pagesection_gameview .whiteblock.playertable:before {
+		content: "";
+		position: absolute;
+		width: 100%;
+		height: 100%;
+		top: 0px;
+		left: 0px;
+	}
+
+	#pagesection_gameview .whiteblock.playertable_ff0000:before {
+		background: #ff000026;
+	}
+
+	#pagesection_gameview .whiteblock.playertable_008000:before {
+		background: #00800026;
+	}
+
+	#pagesection_gameview .whiteblock.playertable_0000ff:before {
+		background: #0000ff26;
+	}
+
+	#pagesection_gameview .whiteblock.playertable_982fff:before {
+		background: #982fff26;
+	}
+
+	.stock_card_border {
+		filter: var(--drop-shadow) brightness(0.9);
+		box-shadow: none;
+	}
+}

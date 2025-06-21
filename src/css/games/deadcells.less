@@ -1,0 +1,39 @@
+@import "./common";
+
+#D {
+	.dc_beheaded-board-player-name-container {
+		background: var(--dark-10);
+	}
+
+	.dc_damage-icon,
+	.dc_scroll-icon,
+	.dc_vial-icon,
+	.dc_card-back-icon,
+	.dc_potion-icon,
+	.dc_equipment-icon,
+	#pagemaintitletext .dc_combat-card-back {
+		filter: var(--highlight-min);
+	}
+
+	.dc_damage-icon.dc_icon-grayscale {
+		filter: grayscale(1) opacity(.3) var(--highlight-min);
+	}
+
+	.dc_player-label {
+		background: transparent;
+		filter: none;
+	}
+
+	.dc_player-label[style="color:#000000"] {
+		color: #fff !important;
+	}
+
+	#dc-combat-log {
+		background-color: #152e37;
+	}
+
+	.dc_combat-log-entry.dc_highlighted {
+		background: #59430d;
+		outline: 2px solid #665700;
+	}
+}

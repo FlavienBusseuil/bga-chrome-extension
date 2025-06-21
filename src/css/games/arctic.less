@@ -1,0 +1,50 @@
+@import "./common";
+
+#D {
+	#overall-content:before {
+		content: "";
+		background: #00000080;
+		position: absolute;
+		width: 100%;
+		height: 100%;
+	}
+
+	#pagemaintitletext .arc_picto_wrapper,
+	.dijitTooltip .arc_picto_wrapper {
+		filter: invert(1) grayscale(1) brightness(5);
+	}
+
+	.darkmode #page-title,
+	.arc_whiteblock,
+	.player-board:not(#controls3d_wrap) {
+		background-color: var(--dark-back) !important;
+	}
+
+	#maingameview_menufooter {
+		background: var(--dark-10) !important;
+	}
+
+	.stockitem_unselectable[style*="border: 1px solid rgb(255, 0, 0);"] {
+		border: 1px solid #ff3333 !important;
+		box-shadow: #ff3333 7px 7px 7px 0px !important;
+	}
+
+	.stockitem_unselectable[style*="border: 1px solid rgb(0, 128, 0);"] {
+		border: 1px solid #090 !important;
+		box-shadow: #090 7px 7px 7px 0px !important;
+	}
+
+	.stockitem_unselectable[style*="border: 1px solid rgb(0, 0, 255);"] {
+		border: 1px solid #6666ff !important;
+		box-shadow: #6666ff 7px 7px 7px 0px !important;
+	}
+
+	.stockitem_unselectable[style*="border: 1px solid rgb(255, 165, 0));"] {
+		border: 1px solid #805300 !important;
+		box-shadow: #805300 7px 7px 7px 0px !important;
+	}
+
+	.arc_unavailable:before {
+		background-color: #00000099;
+	}
+}

@@ -1,0 +1,48 @@
+@import "./common";
+
+#D {
+
+	#logs .gzs_log_token,
+	.dijitTooltipContainer .gzs_tooltip_token {
+		filter: var(--drop-shadow);
+	}
+
+	#gizmos_board .end_banner,
+	#gzs_end_banner,
+	#logs .end_banner,
+	.log .end_banner {
+		background: var(--red-10);
+		border: 2px solid var(--yellow-10);
+	}
+
+	#gizmos_board .card,
+	#gizmos_board .deck,
+	.dijitTooltip .card {
+		box-shadow: 5px 5px 5px #555;
+	}
+
+	#gizmos_board .gizmos_container .player_name {
+		text-shadow: none;
+		background: var(--dark-back);
+	}
+
+	#gizmos_board .gizmos_container .active_player .player_name {
+		box-shadow: -7px -7px 8px var(--green-30), -7px 7px 8px var(--green-30), 7px -7px 8px var(--green-30), 7px 7px 8px var(--green-30);
+	}
+
+	#button_cancel,
+	#button_cancelPick,
+	#button_pass {
+		.purpleButton();
+	}
+
+	#button_cancel:hover,
+	#button_cancelPick:hover,
+	#button_pass:hover {
+		.purpleButtonOver();
+	}
+
+	#player_boards .counter_pair:not(.count_0) .counter_token {
+		filter: var(--drop-shadow);
+	}
+}

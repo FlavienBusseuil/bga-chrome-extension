@@ -1,0 +1,47 @@
+@import "./common";
+
+.logs_on_floating_panel .player-board {
+	background-color: #b0d1e9;
+}
+
+#D {
+	#overall-content:before {
+		content: "";
+		background: #000000A0;
+		position: absolute;
+		width: 100%;
+		height: 100%;
+		top: 0px;
+		left: 0px;
+	}
+
+	#cog-icon {
+		fill: var(--light-80);
+	}
+
+	#settings-arrow {
+		border-color: transparent transparent transparent var(--light-80);
+	}
+
+	#settings-arrow:hover {
+		border-color: transparent transparent transparent var(--light-70);
+	}
+
+	.svg-zoom {
+		filter: invert(0.7);
+	}
+
+	.inner_player_board span {
+		text-shadow: none;
+	}
+
+	.tower {
+		filter: var(--highlight-min);
+	}
+
+	#assistant_cards_myhand,
+	#assistant_cards_played {
+		background-color: var(--dark-back);
+		color: var(--light-80);
+	}
+}

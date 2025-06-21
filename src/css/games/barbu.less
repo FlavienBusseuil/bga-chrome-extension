@@ -1,0 +1,57 @@
+@import "./common";
+
+#D {
+	#geronimo tbody tr:hover {
+		background-color: var(--dark-20);
+	}
+
+	#geronimo .go_selectable {
+		background-color: var(--dark-10);
+	}
+
+	#geronimo .go_selectable:hover {
+		background-color: var(--dark-0);
+	}
+
+	.bgabutton_gray[class*=suit]:before {
+		font-size: 24px;
+		line-height: 12px;
+		text-shadow: var(--text-w-shadow);
+	}
+
+	#logs .icon[class*=suit] {
+		background-image: none;
+		text-shadow: var(--text-w-shadow);
+		font-size: 16px;
+		line-height: 14px;
+	}
+
+	.bgabutton_gray.suit1:before {
+		content: "♠";
+		color: #000;
+	}
+
+	.bgabutton_gray.suit1:before,
+	#logs .icon.suit1:before {
+		content: "♠";
+		color: #000;
+	}
+
+	.bgabutton_gray.suit2:before,
+	#logs .icon.suit2:before {
+		content: "♥";
+		color: var(--red-30);
+	}
+
+	.bgabutton_gray.suit3:before,
+	#logs .icon.suit3:before {
+		content: "♣";
+		color: #000;
+	}
+
+	.bgabutton_gray.suit4:before,
+	#logs .icon.suit4:before {
+		content: "♦";
+		color: var(--red-30);
+	}
+}

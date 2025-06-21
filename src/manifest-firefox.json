@@ -80,7 +80,7 @@
         "img/icon-grey.png",
         "css/dark_theme/*.less",
         "css/light_theme/*.less",
-        "css/games/*/*.less",
+        "css/games/*.less",
         "js/homepage.ts",
         "js/bgaApi.ts",
         "sound/myturn.mp3",
