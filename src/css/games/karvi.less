@@ -1,5 +1,9 @@
 @import "./common";
 
+html[data-theme=dark].game_elements_tabs #karvi-tab-holder .tab.selected {
+	background-color: var(--dark-40);
+}
+
 #D {
 	#game_play_area {
 		color: #fff;
@@ -11,8 +15,7 @@
 		border-left: 0;
 	}
 
-	#karvi-tab-holder .tab:hover,
-	html.game_elements_tabs #karvi-tab-holder .tab.selected {
+	#karvi-tab-holder .tab:hover {
 		background-color: var(--dark-40);
 	}
 

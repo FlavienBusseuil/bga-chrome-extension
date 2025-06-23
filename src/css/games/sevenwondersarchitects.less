@@ -1,16 +1,18 @@
 @import "./common";
 
-#D {
-	body {
-		background: none !important;
-	}
-
-	html.darkpanel #player_boards .player-board {
+html[data-theme=dark].darkpanel #player_boards {
+	.player-board {
 		background: var(--dark-30) !important;
 	}
 
-	html.darkpanel #player_boards .player-board.stw_activepl {
+	.player-board.stw_activepl {
 		background: var(--dark-40) !important;
+	}
+}
+
+#D {
+	body {
+		background: none !important;
 	}
 
 	#centralaround.stw_emptypile {
@@ -19,10 +21,6 @@
 
 	.stw_log_icon {
 		filter: var(--drop-shadow);
-	}
-
-	.player-board {
-		background-color: var(--dark-10);
 	}
 
 	.stw_activepl {

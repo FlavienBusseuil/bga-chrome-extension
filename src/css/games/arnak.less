@@ -31,10 +31,6 @@
 		background: var(--dark-40);
 	}
 
-	html.darkpanel #player_boards .player-board.player-board.passed {
-		background-color: var(--dark-0) !important
-	}
-
 	button.layout-button {
 		background: var(--dark-10);
 		border: 1px solid var(--light-70);
@@ -50,4 +46,8 @@
 	.idol {
 		filter: brightness(0.9);
 	}
+}
+
+html[data-theme=dark].darkpanel #player_boards .player-board.player-board.passed {
+	background-color: var(--dark-0) !important
 }

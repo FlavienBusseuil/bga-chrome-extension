@@ -11,20 +11,22 @@
 	.hand_card_icon.empty {
 		filter: invert(1);
 	}
+}
 
-	html.darkpanel #player_boards .player-board.transparent {
+html[data-theme=dark].darkpanel #player_boards {
+	.player-board.transparent {
 		background-color: #272a2fcc !important;
 	}
 
-	html.darkpanel #player_boards .player-board.highlight_panel {
+	.player-board.highlight_panel {
 		background-color: rgba(80, 80, 80, .6) !important;
 	}
 
-	html.darkpanel #player_boards .player-board.unselectable_panel {
+	.player-board.unselectable_panel {
 		background-color: rgba(255, 0, 0, .3) !important;
 	}
 
-	html.darkpanel #player_boards .player-board.selected_panel {
+	.player-board.selected_panel {
 		background-color: #0033004d !important;
 	}
 }

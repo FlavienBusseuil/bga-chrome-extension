@@ -1,12 +1,8 @@
-@import "./common";
+html[data-theme=dark] {
+	background-color: var(--dark-40);
+	background-image: none;
+}
 
-#D {
-	html {
-		background-color: var(--dark-40);
-		background-image: none;
-	}
-
-	#wot-disclaimer {
-		color: var(--light-80);
-	}
+html[data-theme=dark] #wot-disclaimer {
+	color: var(--light-80);
 }

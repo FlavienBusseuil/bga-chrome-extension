@@ -1,5 +1,9 @@
 @import "./common";
 
+html[data-theme=dark].darkpanel #player_boards .player-board.finished {
+	background-color: var(--dark-40) !important;
+}
+
 #D {
 	#overall-content:before {
 		content: "";
@@ -29,10 +33,6 @@
 
 	.player-board .icon {
 		filter: var(--drop-shadow);
-	}
-
-	html.darkpanel #player_boards .player-board.finished {
-		background-color: var(--dark-40) !important;
 	}
 
 	.player-board .order-counter {

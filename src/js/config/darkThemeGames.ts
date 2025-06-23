@@ -265,7 +265,6 @@ export const gamesWithCustomPanel = [
   'notalone',
   'nowboarding',
   'scythe',
-  'sevenwondersarchitects',
   'spacestationphoenix',
   'stonespinearchitects',
   'tickettoride',

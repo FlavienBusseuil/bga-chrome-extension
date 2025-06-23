@@ -1,5 +1,15 @@
 @import "./common";
 
+html[data-theme=dark].darkpanel #player_boards {
+	.player-board {
+		background: var(--dark-30) !important;
+	}
+
+	.player-board.cat_activepl {
+		background: var(--dark-40) !important;
+	}
+}
+
 #D {
 	#ebd-body {
 		background: #005a81;
@@ -62,14 +72,6 @@
 		box-shadow: none;
 		filter: var(--drop-shadow);
 		margin-bottom: 5px;
-	}
-
-	html.darkpanel #player_boards.player-board {
-		background: var(--dark-30) !important;
-	}
-
-	html.darkpanel #player_boards .player-board.cat_activepl {
-		background: var(--dark-40) !important;
 	}
 
 	#cat_tradeawarenessconfig,

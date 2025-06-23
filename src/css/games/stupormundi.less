@@ -1,10 +1,9 @@
 @import "./common";
 
 #D {
-	html.darkpanel #player_boards.player-board.stm_player_passed {
-		background: var(--dark-40) !important;
-	}
 
+	.stm_label_333333,
+	.stm_label_ff0000,
 	.stm_label_0000ff,
 	.stm_label_00cc00,
 	.stm_label_ffa500 {
@@ -31,4 +30,8 @@
 	.stm_icon_rotate_arrow:hover {
 		opacity: .7;
 	}
+}
+
+html[data-theme=dark].darkpanel #player_boards .player-board.stm_player_passed {
+	background: var(--dark-40) !important;
 }

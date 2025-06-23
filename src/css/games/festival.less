@@ -1,15 +1,19 @@
 @import "./common";
 
-#D {
-	html:not(.no-custom-background) #overall-content:before {
-		content: "";
-		background: #00000080;
-		position: absolute;
-		width: 100%;
-		height: 100%;
-	}
+html[data-theme=dark]:not(.no-custom-background) #overall-content:before {
+	content: "";
+	background: #00000080;
+	position: absolute;
+	width: 100%;
+	height: 100%;
+}
 
-	.floating-objectives #fes-objective-crowd-pleaser-row,
+html[data-theme=dark].floating-objectives #fes-objective-crowd-pleaser-row {
+	background: var(--dark-back);
+	border: 1px solid var(--light-50);
+}
+
+#D {
 	#fes-objective-crowd-pleaser-row-pin-button {
 		background: var(--dark-back);
 		border: 1px solid var(--light-50);

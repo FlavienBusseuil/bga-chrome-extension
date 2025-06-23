@@ -1,17 +1,20 @@
 @import "./common";
 
-#D {
-	html {
-		background: #000;
-	}
+html[data-theme=dark] {
+	background: #000;
+}
 
-	html.lfd_thematic_font_on .lfd_player,
+html[data-theme=dark].lfd_thematic_font_on .lfd_player {
+	text-shadow: #000000 2px 2px 4px;
+}
+
+html[data-theme=dark].lfd_thematic_font_off .lfd_player {
+	text-shadow: #000000 0 0 4px;
+}
+
+#D {
 	.player_board_inner .player-name a {
 		text-shadow: #000000 2px 2px 4px;
-	}
-
-	html.lfd_thematic_font_off .lfd_player {
-		text-shadow: #000000 0 0 4px;
 	}
 
 	.discussion_bubble.lfd_bubble.lfd_winterBubble {

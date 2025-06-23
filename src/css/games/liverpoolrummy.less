@@ -1,5 +1,15 @@
 @import "./common";
 
+html[data-theme=dark].darkpanel #player_boards {
+	.player-board.playerBoardBuyer {
+		background: #381e1e !important;
+	}
+
+	.player-board.playerWentDown {
+		background: #1a3d22 !important;
+	}
+}
+
 #D {
 	#handNumber {
 		color: #fff !important;
@@ -10,13 +20,5 @@
 	.prepjoker,
 	.downWhite {
 		color: var(--light-70) !important;
-	}
-
-	html.darkpanel .player-board.playerBoardBuyer {
-		background: #381e1e !important;
-	}
-
-	html.darkpanel .player-board.playerWentDown {
-		background: #1a3d22 !important;
 	}
 }

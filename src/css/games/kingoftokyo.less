@@ -17,13 +17,16 @@
 
 	.kot-card .bottom,
 	.kot-curse-card .bottom,
-	.kot-evolution .bottom,
-	.kot-tile .bottom,
-	.kot-card .bottom>*,
 	.kot-curse-card .bottom>*,
 	.kot-evolution .bottom,
+	.kot-evolution .bottom>*,
+	.kot-tile .bottom,
 	.kot-tile .bottom>* {
 		filter: invert(1);
+	}
+
+	.kot-card[data-design=dark-edition] .bottom {
+		filter: none;
 	}
 
 	.kot-card .description-wrapper,
