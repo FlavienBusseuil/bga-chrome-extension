@@ -1,0 +1,36 @@
+#D {
+	.player .playername {
+		align-items: center;
+		background-color: var(--dark-40);
+	}
+
+	.medium_shadow {
+		box-shadow: 1px 1px 4px 0 rgb(255 255 255 / 40%);
+	}
+
+	#bets button {
+		background: linear-gradient(180deg, #000, #444);
+	}
+
+	#bets button:hover {
+		background: linear-gradient(180deg, #0A0A0A, #333);
+	}
+
+	#bets .checkbox_label {
+		background: linear-gradient(180deg, #000, #333);
+		border: 2px solid #999;
+	}
+
+	#bets #checkbox_container:hover .checkbox_label {
+		background: linear-gradient(180deg, #0A0A0A, #3f3f3f)
+	}
+
+	#bets #safety_checkbox[data-checked=true]+.checkbox_label {
+		background: linear-gradient(180deg, #001a00, #19381a);
+		border-color: #4caf50;
+	}
+
+	#round_counter {
+		color: var(--light-50);
+	}
+}

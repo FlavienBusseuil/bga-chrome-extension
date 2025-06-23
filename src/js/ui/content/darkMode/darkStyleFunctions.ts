@@ -57,7 +57,7 @@ _init().then(() => {
 
     getFile(gameStyleFile, true).then(fileContent => {
       const { file, content } = fileContent;
-      cssContents[file] = content.replace(/#D[^\s]*[ \t]/g, 'html[data-theme=dark] ');
+      cssContents[file] = content.replace(/#D(?=[ .:])/g, 'html[data-theme=dark]');
       gameStyleComponent.innerHTML = cssContents[file];
     });
   }
@@ -173,6 +173,9 @@ const _setPlayersColor = (query: string | undefined, playersData: PlayerData[]) 
 };
 
 const _setDarkStyleIfActivated = () => {
+  const customActions = gamesWithCustomActions[gameName];
+  customActions && customActions.init && customActions.init();
+
   try {
     if (_isDarkStyle()) {
       _setDarkStyle();

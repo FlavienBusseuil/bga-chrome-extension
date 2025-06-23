@@ -100,6 +100,7 @@ export const gamesWithCustomBackground = [
   'harmonies',
   'heat',
   'heatchampionship',
+  'ink',
   'insidejob',
   'itsawonderfulworld',
   'iwari',
@@ -120,6 +121,7 @@ export const gamesWithCustomBackground = [
   'lostexplorers',
   'lostseas',
   'lumen',
+  'luz',
   'maatatahay',
   'mantisfalls',
   'mastersofrenaissance',
@@ -371,6 +373,7 @@ export const gamesWithCustomPlayerStyle: { [gameName: GameName]: string } = {
 
 export const playersBackground: { [gameName: GameName]: string[] } = {
   golems: ['#pl{{player_id}}_label'],
+  ink: ['#player-table-{{player_id}} .name-wrapper'],
   laserreflection: ['#lrf_container_{{player_id}} .lrf_progress-bar'],
   lorenzo: ['#obrPlayerboardId_{{player_id}} .obr_playerboard_name'],
   nirds: ['#player_table_{{player_id}} .title'],
@@ -392,6 +395,7 @@ export const playersBorder: { [gameName: GameName]: string[] } = {
   gemsofiridescia: ['#goi_playerZoneContainer\\:{{player_id}}'],
   heat: ['#player-table-{{player_id}}'],
   heatchampionship: ['#player-table-{{player_id}}'],
+  ink: ['#player-table-{{player_id}}'],
   itsawonderfulworld: ['#iww-player{{player_id}}'],
   jumpdrive: ['#jdr-tableau-{{player_id}}'],
   letsgotojapan: ['#playerhandtitle_{{player_id}}', '#playerhand_{{player_id}}', '#nameplayer_{{player_id}}'],
@@ -459,7 +463,9 @@ const copyDefaultBackgroundStyle = (overlay: HTMLElement, attempt: number) => {
 };
 
 const addInvertOverlay = (className: string, copyDefaultStyle: boolean) => {
+  console.log('!!!!!!!!!!');
   waitForObj('#overall-content').then(overallContent => {
+    console.log('??????????');
     const overlay = document.createElement("DIV");
     overlay.className = `bgaext_overlay ${className}`;
     overlay.style.position = 'absolute';
@@ -604,6 +610,12 @@ export const gamesWithCustomActions: GamesWithCustomActions = {
     init: () => addInvertOverlay('', true)
   },
   monstertrick: {
+    init: () => addInvertOverlay('', true)
+  },
+  ink: {
+    init: () => addInvertOverlay('', true)
+  },
+  luz: {
     init: () => addInvertOverlay('', true)
   },
 };

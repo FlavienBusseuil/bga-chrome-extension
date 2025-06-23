@@ -21,4 +21,25 @@
 		background: var(--dark-10);
 		color: var(--light-70);
 	}
+
+	#popin_ap-scoresheet-dialog,
+	#popin_ap-scoresheet-dialog>* {
+		filter: invert(1);
+	}
+
+	#popin_ap-scoresheet-dialog #ap-scoresheet {
+		background-color: var(--dark-back);
+	}
+
+	#ap-scoresheet {
+
+		.ap-icon-art[data-type="queens-favor"],
+		.ap-icon-art[data-type=carve],
+		.ap-icon-art[data-type=development],
+		.ap-icon-art[data-type=recruit],
+		.ap-icon-art[data-type=farm] {
+			filter: var(--highlight-min);
+			border-radius: 5%;
+		}
+	}
 }
