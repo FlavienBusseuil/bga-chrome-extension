@@ -192,6 +192,7 @@ export const gamesWithCustomBackground = [
   'secretmoon',
   'skyteam',
   'skull',
+  'skullking',
   'similo',
   'smallworld',
   'sobektwoplayers',
@@ -465,9 +466,7 @@ const copyDefaultBackgroundStyle = (overlay: HTMLElement, attempt: number) => {
 };
 
 const addInvertOverlay = (className: string, copyDefaultStyle: boolean) => {
-  console.log('!!!!!!!!!!');
   waitForObj('#overall-content').then(overallContent => {
-    console.log('??????????');
     const overlay = document.createElement("DIV");
     overlay.className = `bgaext_overlay ${className}`;
     overlay.style.position = 'absolute';
