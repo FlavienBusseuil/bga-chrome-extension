@@ -1,4 +1,5 @@
 import { waitForObj } from '../utils/misc/wait';
+import { isFirefox } from "../utils/browser";
 
 export const gamesWithCustomBackground = [
   'afterus',
@@ -468,16 +469,23 @@ const copyDefaultBackgroundStyle = (overlay: HTMLElement, attempt: number) => {
 const addInvertOverlay = (className: string, copyDefaultStyle: boolean) => {
   waitForObj('#overall-content').then(overallContent => {
     const overlay = document.createElement("DIV");
-    overlay.className = `bgaext_overlay ${className}`;
     overlay.style.position = 'absolute';
     overlay.style.top = '0px';
     overlay.style.left = '0px';
     overlay.style.width = '100%';
     overlay.style.height = '100%';
-    overlay.style.filter = 'invert(1)';
-    if (copyDefaultStyle) {
+
+    if (!copyDefaultStyle) {
+      overlay.className = `bgaext_overlay ${className}`;
+      overlay.style.filter = 'invert(1)';
+    } else if (isFirefox) {
+      overlay.style.backgroundColor = 'var(--dark-30)';
+    } else {
+      overlay.className = `bgaext_overlay ${className}`;
+      overlay.style.filter = 'invert(1)';
       copyDefaultBackgroundStyle(overlay, 0);
     }
+
     overallContent.insertBefore(overlay, overallContent.firstChild);
   });
 };

@@ -1,6 +1,7 @@
 import { render } from "preact";
 import ModeSelector from "./ModeSelector";
 import type Configuration from "../../../config/configuration";
+
 const getContainer = (gameName: string) => {
   if (gameName === "general") {
     const friendsElt = document.querySelector('.bga-friends-icon');

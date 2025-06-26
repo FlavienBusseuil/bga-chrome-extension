@@ -82,7 +82,15 @@ const manageLocationChange = (pathname: string) => {
 		const pageName = pageInfo && pageInfo[0] || 'welcomestudio';
 		setHtmlClass(pageName);
 		initChatIcon(config);
-		initDarkMode(config, 'general');
+
+		if (pageInfo && pageInfo.length >= 2 && isNumber(pageInfo[0] as string)) {
+			gameName = pageInfo[1] as string;
+		} else {
+			gameName = 'general';
+		}
+
+		initDarkMode(config, gameName);
+
 		return 'studio';
 	}
 
