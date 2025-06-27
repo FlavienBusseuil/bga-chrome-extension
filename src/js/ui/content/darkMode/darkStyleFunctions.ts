@@ -252,6 +252,8 @@ const _setLightStyle = () => {
   }
 };
 
+let _manageHtmlTagTimeout: any = 0;
+
 const _manageHtmlTag = () => {
   // ensure that the "darkmode" class is well placed for games that used to manage their own dark mode like "Concept"
   // if the game try to remove the class "darkmode", it put it back immediately
@@ -297,7 +299,7 @@ const _manageHtmlTag = () => {
       if (document.documentElement.classList.contains("darkmode")) {
         document.documentElement.classList.remove("darkmode");
       }
-      if (customDarkClass) {
+      if (customDarkClass && document.documentElement.classList.contains(customDarkClass)) {
         document.documentElement.classList.remove(customDarkClass);
       }
       if (document.documentElement.classList.contains("darkpanel")) {
@@ -311,7 +313,12 @@ const _manageHtmlTag = () => {
 };
 
 const _initClassObserver = () => {
-  const observer = new MutationObserver(_manageHtmlTag);
+  const observer = new MutationObserver(() => {
+    if (_manageHtmlTagTimeout) {
+      clearTimeout(_manageHtmlTagTimeout);
+    }
+    _manageHtmlTagTimeout = setTimeout(_manageHtmlTag, 100);
+  });
   observer.observe(document.documentElement, { attributes: true });
   return observer;
 };

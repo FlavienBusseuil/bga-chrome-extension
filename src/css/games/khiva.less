@@ -1,8 +1,16 @@
 @import "./common";
 
 #D {
-	body {
-		filter: brightness(0.7);
+	#overall-content {
+		filter: brightness(0.9);
+	}
+
+	#overall-content:before {
+		content: "";
+		background: #0000001a;
+		position: absolute;
+		width: 100%;
+		height: 100%;
 	}
 
 	.kv_board_path_title {

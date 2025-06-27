@@ -138,6 +138,12 @@ const ModeSelector = (props: ModeSelectorProps) => {
     }
   };
 
+  (window as any).setDarkStyle = (val: boolean) => {
+    if (darkMode !== val) {
+      toggleDarkMode();
+    }
+  };
+
   const toggleDarkMode = () => {
     const newDarkMode = !darkMode;
 
@@ -241,7 +247,7 @@ const ModeSelector = (props: ModeSelectorProps) => {
         </span>
       );
     }
-    
+
     return <></>;
   };
 

@@ -137,6 +137,7 @@ export const gamesWithCustomBackground = [
   'misty',
   'mojo',
   'monstertrick',
+  'moonshine',
   'mountaingoats',
   'mrjack',
   'mycity',
@@ -495,53 +496,65 @@ type GamesWithCustomActions = { [key: string]: CustomActions };
 export const gamesWithCustomActions: GamesWithCustomActions = {
   earth: {
     init: () => {
-      const checkbox = document.getElementById("ea-dark-background-checkbox") as any;
-      const checkboxContainer = checkbox.parentNode.parentNode as any;
-      checkboxContainer.style.display = "none";
+      waitForObj('#ea-dark-background-checkbox').then((checkbox) => {
+        if (checkbox.parentNode) {
+          const checkboxContainer = checkbox.parentNode.parentNode as any;
+          checkboxContainer.style.display = "none";
+        }
+      });
     }
   },
   earthabundance: {
     init: () => {
-      const checkbox = document.getElementById("ea-dark-background-checkbox") as any;
-      const checkboxContainer = checkbox.parentNode.parentNode as any;
-      checkboxContainer.style.display = "none";
+      waitForObj('#ea-dark-background-checkbox').then((checkbox) => {
+        if (checkbox.parentNode) {
+          const checkboxContainer = checkbox.parentNode.parentNode as any;
+          checkboxContainer.style.display = "none";
+        }
+      });
     }
   },
   dronesvsseagulls: {
     init: () => {
-      document.getElementById("tokens_wrap")?.classList.remove("whiteblock");
+      waitForObj('#tokens_wrap', 2000).then((elt) => {
+        elt.classList.remove("whiteblock");
+      });
     }
   },
   hardback: {
     setDarkMode: (darkMode: boolean) => {
       const input = document.getElementById('preference_control_101') as any;
-      input.value = (darkMode) ? "2" : "1";
-      input.dispatchEvent(new Event("change"));
+      const newValue = (darkMode) ? "2" : "1";
+
+      if (input.value !== newValue) {
+        input.value = newValue;
+        input.dispatchEvent(new Event("change"));
+      }
     },
     isDarkMode: () => {
       const input = document.getElementById('preference_control_101') as any;
       return input.value == "2";
     },
     init: () => {
-      const input1 = document.getElementById('preference_control_101') as any;
-      const input2 = document.getElementById('preference_fontrol_101') as any;
-
       const hardbackModeChange = (input: any) => {
         const button = document.getElementById('bga_extension_dark_mode_icon')?.firstChild?.firstChild as any;
 
         if (button) {
           if (input.value === "2" || (input.value === "0" && window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches)) {
-            button.classList.remove('fa-sun-o');
-            button.classList.add('fa-moon-o');
+            (window as any).setDarkStyle(true);
           } else {
-            button.classList.add('fa-sun-o');
-            button.classList.remove('fa-moon-o');
+            (window as any).setDarkStyle(false);
           }
         }
       };
 
-      input1.addEventListener('change', () => hardbackModeChange(input1));
-      input2.addEventListener('change', () => hardbackModeChange(input2));
+      Promise.all([
+        waitForObj('#preference_control_101'),
+        waitForObj('#preference_fontrol_101')
+      ]).then(([input1, input2]) => {
+        input1.addEventListener('change', () => hardbackModeChange(input1));
+        input2.addEventListener('change', () => hardbackModeChange(input2));
+      });
     }
   },
   hydroracers: {
@@ -563,20 +576,21 @@ export const gamesWithCustomActions: GamesWithCustomActions = {
   },
   barrage: {
     init: () => {
-      const input = document.getElementById('setting-background') as any;
-      const barrageManageBackground = () => {
-        const back = document.body.dataset.background;
-        if (back === undefined) {
-          setTimeout(barrageManageBackground, 50);
-        } else if (back === "2") {
-          document.documentElement.classList.remove("bgaext_cust_back");
-        } else {
-          document.documentElement.classList.add("bgaext_cust_back");
-        }
-      };
+      waitForObj('#setting-background').then((input) => {
+        const barrageManageBackground = () => {
+          const back = document.body.dataset.background;
+          if (back === undefined) {
+            setTimeout(barrageManageBackground, 50);
+          } else if (back === "2") {
+            document.documentElement.classList.remove("bgaext_cust_back");
+          } else {
+            document.documentElement.classList.add("bgaext_cust_back");
+          }
+        };
 
-      input.addEventListener('change', () => setTimeout(barrageManageBackground, 100));
-      barrageManageBackground();
+        input.addEventListener('change', () => setTimeout(barrageManageBackground, 100));
+        barrageManageBackground();
+      });
     }
   },
   coffeerush: {
