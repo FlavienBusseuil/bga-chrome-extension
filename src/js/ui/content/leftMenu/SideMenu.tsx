@@ -105,10 +105,10 @@ const SideMenu = (props: SideMenuProps) => {
 	const checkPlayerPanels = () => {
 		if (gameConfig.playerPanel.indexOf("{{") < 0) {
 			const panels = Array.from(document.querySelectorAll(gameConfig.playerPanel));
+
 			players.forEach((p, index) => {
-				let playerPanel = panels.find(
-					(panel) => checkPlayerName(panel, p.name),
-				);
+				let playerPanel = panels.find(panel => checkPlayerName(panel, p.name));
+
 				if (!playerPanel && gameConfig.myPanel) {
 					playerPanel = document.querySelector(gameConfig.myPanel) || undefined;
 				}
@@ -141,36 +141,28 @@ const SideMenu = (props: SideMenuProps) => {
 		}).filter(a => a.pos !== undefined);
 
 		if (gameConfig.boardPanel) {
-			const boardPos = document.getElementById(gameConfig.boardPanel)?.getBoundingClientRect().top || 0;
+			const boardPos = document.getElementById(gameConfig.boardPanel)?.getBoundingClientRect().top;
 
-			if (window.scrollY + boardPos > 200) {
-				const pos = document.getElementById(gameConfig.boardPanel)?.getBoundingClientRect().top;
-				pos !== undefined && toSort.push({
+			if (window.scrollY + (boardPos || 0) > 200) {
+				boardPos !== undefined && toSort.push({
 					id: gameConfig.boardPanel,
 					index: -1,
-					pos
+					pos: boardPos
 				});
 			}
 		}
 
 		if (gameConfig.bottomPanel) {
-			const pos = document.getElementById(gameConfig.bottomPanel)?.getBoundingClientRect().top;
-			pos !== undefined && toSort.push({
+			const bottomPos = document.getElementById(gameConfig.bottomPanel)?.getBoundingClientRect().top;
+
+			bottomPos !== undefined && toSort.push({
 				id: gameConfig.bottomPanel,
 				index: 100,
-				pos
+				pos: bottomPos
 			});
 		}
 
-		toSort.sort((a, b) =>
-			a.pos === b.pos
-				? a.index < b.index
-					? -1
-					: 1
-				: (a.pos || 0) < (b.pos || 0)
-					? -1
-					: 1,
-		);
+		toSort.sort((a, b) => a.pos === b.pos ? a.index < b.index ? -1 : 1 : (a.pos || 0) < (b.pos || 0) ? -1 : 1);
 
 		setButtonsOrder(toSort.map(a => a.id).join("|"));
 	};
@@ -193,11 +185,9 @@ const SideMenu = (props: SideMenuProps) => {
 		});
 
 		if (gameConfig.boardPanel) {
-
-
 			const fakePlayer = {
 				fake: true,
-				id: Number(gameConfig.boardPanel),
+				id: gameConfig.boardPanel,
 				name: boardButtonText || i18n("sideMenuMainBoard"),
 				avatar: "board",
 				color: "#ffffff",
@@ -218,7 +208,7 @@ const SideMenu = (props: SideMenuProps) => {
 		if (gameConfig.bottomPanel) {
 			const fakePlayer = {
 				fake: true,
-				id: Number(gameConfig.bottomPanel),
+				id: gameConfig.bottomPanel,
 				name: "",
 				avatar: "bottom",
 				color: "#ffffff",

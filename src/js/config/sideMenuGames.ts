@@ -1541,6 +1541,12 @@ const defaultGames: Partial<Game>[] = [
 		name: "ink",
 		playerPanel: "player-table-{{player_id}}",
 	},
+	{
+		name: "castleofmadkingludwig",
+		playerPanel: ".ca_hand .ca_label .name",
+		boardPanel: "tab_1",
+		css: ".desktop_version #game_play_area { padding-left: 50px; } .ca_tabs .sprite-bc_icon { display: none; }"
+	},
 ];
 
 export default defaultGames;
