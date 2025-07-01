@@ -238,6 +238,7 @@ export const gamesWithCustomBackground = [
   'unrest',
   'vaalbara',
   'verdant',
+  'verso',
   'wizardscup',
   'wizardsgrimoire',
   'wonderfulkingdom',
@@ -640,6 +641,9 @@ export const gamesWithCustomActions: GamesWithCustomActions = {
     init: () => addInvertOverlay('', true)
   },
   luz: {
+    init: () => addInvertOverlay('', true)
+  },
+  verso: {
     init: () => addInvertOverlay('', true)
   },
 };
