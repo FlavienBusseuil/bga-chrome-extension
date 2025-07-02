@@ -73,6 +73,7 @@ export const gamesWithCustomBackground = [
   'eriantys',
   'escapethecurseofthetemple',
   'evolution',
+  'exhibitiontwentiethcentury',
   'expeditions',
   'explodingkittens',
   'faraway',

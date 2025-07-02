@@ -1547,6 +1547,10 @@ const defaultGames: Partial<Game>[] = [
 		boardPanel: "tab_1",
 		css: ".desktop_version #game_play_area { padding-left: 50px; } .ca_tabs .sprite-bc_icon { display: none; }"
 	},
+	{
+		name: "exhibitiontwentiethcentury",
+		playerPanel: "etc-player-area-{{player_id}}",
+	},
 ];
 
 export default defaultGames;
