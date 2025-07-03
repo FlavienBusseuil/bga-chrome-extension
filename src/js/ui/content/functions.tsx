@@ -34,6 +34,7 @@ const buildMainCss = (code: string) => {
 		.bgaext_chat_hidden { display: none!important; }
 		.bgaext_chat_visible { display: inline!important; }
 		.roundedboxinner:hover .bgaext_chat_mute_icon { cursor: pointer; display: block; }
+		#logs .log.hidden { display: none !important; }
 		${code}
 		`;
 	});
