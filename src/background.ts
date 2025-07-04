@@ -115,7 +115,8 @@ config.init().then(() => {
       bgPeriodic(config);
     }
   });
-  chrome.alarms.create("bgPeriodic", { delayInMinutes: 0, periodInMinutes: 1 });
+  chrome.alarms.create("bgPeriodic", { delayInMinutes: 1, periodInMinutes: 1 });
+  bgPeriodic(config);
 
   // hack to be sure that the background script will not be terminated after 30 seconds inactivity on FF
   const now = new Date().getTime();
