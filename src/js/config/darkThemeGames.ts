@@ -234,6 +234,7 @@ export const gamesWithCustomBackground = [
   'tuned',
   'turingmachine',
   'twelvechips',
+  'twilightimperium',
   'twinkletwinkle',
   'ultimaterailroads',
   'unrest',
@@ -315,11 +316,7 @@ export const gamesWithCustomDarkMode: GamesWithCustomDarkMode = {
   romirami: {
     className: 'bx-background-dark',
     applyGeneralCss: true
-  },
-  twilightimperium: {
-    className: 'dark',
-    applyGeneralCss: false
-  },
+  }
 };
 
 interface GamesWithCustomBackground {
