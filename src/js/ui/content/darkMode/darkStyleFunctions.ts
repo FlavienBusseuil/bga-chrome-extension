@@ -193,11 +193,14 @@ const _setDarkStyleIfActivated = () => {
 };
 
 const _applyDarkStyleForGame = () => {
-  const backStyle = gamesWithCustomBackground.includes(gameName) ? "" : cssContents["dark_theme/background.css"];
+  const applyGeneralCss = !gamesWithCustomDarkMode[gameName] || gamesWithCustomDarkMode[gameName]?.applyGeneralCss;
+  const backStyle = applyGeneralCss && gamesWithCustomBackground.includes(gameName) ? "" : cssContents["dark_theme/background.css"];
 
   console.debug(`[bga extension] applying dark style for game`, { gameName, backStyle: backStyle !== "" });
 
-  themeStyleComponent.innerHTML = `${backStyle}${cssContents["dark_theme/icons.css"]}${cssContents["dark_theme/common.css"]}${cssContents["dark_theme/chat.css"]}${cssContents["dark_theme/game.css"]}`;
+  themeStyleComponent.innerHTML = applyGeneralCss
+    ? `${backStyle}${cssContents["dark_theme/icons.css"]}${cssContents["dark_theme/common.css"]}${cssContents["dark_theme/chat.css"]}${cssContents["dark_theme/game.css"]}`
+    : `${cssContents["dark_theme/icons.css"]}${cssContents["dark_theme/chat.css"]}`;
 
   getPlayersData(gamesWithTwoTeams.includes(gameName)).then(playersData => {
     console.debug("[bga extension] players data", playersData);
