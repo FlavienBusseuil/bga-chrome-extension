@@ -485,7 +485,7 @@ const addInvertOverlay = (className: string, copyDefaultStyle: boolean) => {
       overlay.className = `bgaext_overlay ${className}`;
       overlay.style.filter = 'invert(1)';
     } else if (isFirefox) {
-      overlay.style.backgroundColor = 'var(--dark-30)';
+      overlay.style.backgroundColor = 'var(--dark-40)';
     } else {
       overlay.className = `bgaext_overlay ${className}`;
       overlay.style.filter = 'invert(1)';
