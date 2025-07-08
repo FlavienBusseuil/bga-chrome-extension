@@ -1,6 +1,13 @@
 @import "./common";
 
 #D {
+	body {
+		--color-mapping_ff0000: #ff6565;
+		--color-mapping_0000ff: #6565ff;
+		--color-mapping_008000: #54aa54;
+		--color-mapping_ffa500: #ffc965;
+	}
+
 	.groupline {
 		text-shadow: none;
 	}
@@ -49,52 +56,6 @@
 		background-color: var(--dark-30);
 	}
 
-	.mcompact .player_area,
-	.hand_area .location {
-		background: var(--dark-back);
-	}
-
-	.mcompact .tt_intertitle {
-		background: var(--dark-40);
-	}
-
-	.mcompact .card_tooltipcontainer[data-card-type="1"] .tt_intertitle {
-		background: #356818;
-	}
-
-	.mcompact .card_tooltipcontainer[data-card-type="2"] .tt_intertitle {
-		background: #184268;
-	}
-
-	.mcompact .card_tooltipcontainer[data-card-type="3"] .tt_intertitle {
-		background: #682118;
-	}
-
-	.mcompact .card_tooltipcontainer[data-card-type="4"] .tt_intertitle {
-		background: #5d1868;
-	}
-
-	.mcompact .player_area_name {
-		background: linear-gradient(0deg, var(--dark-40) 0, var(--dark-30) 1%, var(--dark-10) 26%, var(--dark-20) 48%, var(--dark-30) 75%, var(--dark-40));
-		border: 0.3vh solid var(--dark-30);
-	}
-
-	.mcompact .viewcards_button {
-		background: var(--dark-0);
-	}
-
-	.mfull #ebd-body .tooltipcontainer {
-		background-image: none;
-	}
-
-	.mfull .tooltiptitle {
-		box-sizing: border-box;
-	}
-
-	.mfull .playerboard_side_gear:after {
-		color: var(--dark-10);
-	}
-
 	.tracker_passed {
 		color: var(--light-50);
 	}
@@ -138,13 +99,6 @@
 	.hand_sorter .hs_button[data-direction=increase],
 	.hand_sorter .hs_button[data-direction=decrease] {
 		background-color: var(--yellow-10);
-	}
-
-	:root {
-		--color-mapping_ff0000: #ff6565;
-		--color-mapping_0000ff: #6565ff;
-		--color-mapping_008000: #54aa54;
-		--color-mapping_ffa500: #ffc965;
 	}
 
 	.tooltipcontainer .invalid_prereq .tt_section.tt_prereq .card_tt_effect {
@@ -232,5 +186,58 @@
 
 	.card {
 		filter: brightness(0.9);
+	}
+
+	.hand_area .location {
+		background: var(--dark-back);
+	}
+}
+
+#D.mcompact {
+	.player_area {
+		background: var(--dark-back);
+	}
+
+	.tt_intertitle {
+		background: var(--dark-40);
+	}
+
+	.card_tooltipcontainer[data-card-type="1"] .tt_intertitle {
+		background: #356818;
+	}
+
+	.card_tooltipcontainer[data-card-type="2"] .tt_intertitle {
+		background: #184268;
+	}
+
+	.card_tooltipcontainer[data-card-type="3"] .tt_intertitle {
+		background: #682118;
+	}
+
+	.card_tooltipcontainer[data-card-type="4"] .tt_intertitle {
+		background: #5d1868;
+	}
+
+	.player_area_name {
+		background: linear-gradient(0deg, var(--dark-40) 0, var(--dark-30) 1%, var(--dark-10) 26%, var(--dark-20) 48%, var(--dark-30) 75%, var(--dark-40));
+		border: 0.3vh solid var(--dark-30);
+	}
+
+	.viewcards_button {
+		background: var(--dark-0);
+	}
+}
+
+#D.mfull {
+	#ebd-body .tooltipcontainer {
+		background-image: none;
+	}
+
+	.tooltiptitle {
+		box-sizing: border-box;
+	}
+
+	.playerboard_side_gear:after {
+		color: var(--dark-10);
 	}
 }

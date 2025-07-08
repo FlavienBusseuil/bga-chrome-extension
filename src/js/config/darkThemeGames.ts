@@ -83,6 +83,7 @@ export const gamesWithCustomBackground = [
   'fifteendays',
   'finca',
   'flipseven',
+  'fliptoons',
   'flowersmandalagame',
   'forbiddenisland',
   'frenchtarot',
@@ -219,6 +220,7 @@ export const gamesWithCustomBackground = [
   'tapestry',
   'thecrew',
   'thecrewdeepsea',
+  'thehanginggardens',
   'tickettoride',
   'tickettorideeurope',
   'tikal',
@@ -383,6 +385,7 @@ export const playersBackground: { [gameName: GameName]: string[] } = {
   laserreflection: ['#lrf_container_{{player_id}} .lrf_progress-bar'],
   lorenzo: ['#obrPlayerboardId_{{player_id}} .obr_playerboard_name'],
   nirds: ['#player_table_{{player_id}} .title'],
+  qwinto: ['#qwinto-player-board-background-{{player_id}} .qwinto_name_tag'],
   thegreatamericanfoxhunt: ['#TGAFH_player_89123556'],
   treos: ['#gamezone-{{player_id}} .player-board-name'],
 };
@@ -410,6 +413,7 @@ export const playersBorder: { [gameName: GameName]: string[] } = {
   pioneerdaysproject: ['#playerbox-{{player_id}}'],
   piratas: ['#playmat_{{player_id}}'],
   pixies: ['#player-table-{{player_id}}'],
+  qwinto: ['#qwinto-player-board-background-{{player_id}}'],
   refuge: ['#player-table-{{player_id}}'],
   riverofgold: ['#rog_player_delivered_resizable-{{player_id}}'],
   rumbleplanet: ['#player-table-{{player_id}}'],
@@ -643,6 +647,9 @@ export const gamesWithCustomActions: GamesWithCustomActions = {
     init: () => addInvertOverlay('', true)
   },
   verso: {
+    init: () => addInvertOverlay('', true)
+  },
+  fliptoons: {
     init: () => addInvertOverlay('', true)
   },
   newton: {
