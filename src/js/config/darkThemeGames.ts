@@ -147,6 +147,7 @@ export const gamesWithCustomBackground = [
   'mythicbattlesragnarok',
   'newfrontiers',
   'nextstation',
+  'newton',
   'nicodemus',
   'nidavellir',
   'nimalia',
@@ -644,4 +645,23 @@ export const gamesWithCustomActions: GamesWithCustomActions = {
   verso: {
     init: () => addInvertOverlay('', true)
   },
+  newton: {
+    init: () => {
+      waitForObj('#bgaext-game-style').then(() => {
+        const links = document.querySelectorAll('link[rel="stylesheet"]');
+
+        for (const link of links) {
+          const href = link.getAttribute('href');
+
+          if (href && href.endsWith('newton.css')) {
+            const cssUrl = (link as any).href as string;
+            const imgUrl = cssUrl.replace('newton.css', 'img/tiles_sprites.png');
+
+            document.body.style.setProperty("--quick-action-back", `url(${imgUrl})`);
+            return;
+          };
+        }
+      });
+    }
+  }
 };

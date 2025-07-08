@@ -1,6 +1,12 @@
-@import "./common";
-
 #D {
+	#overall-content:before {
+		content: "";
+		background: #00000080;
+		position: absolute;
+		width: 100%;
+		height: 100%;
+	}
+
 	#player_boards hr {
 		border: 1px solid var(--dark-40);
 	}
@@ -25,5 +31,53 @@
 	.player_summary_row .fa.fa-chevron-down,
 	.player_summary_row .fa.fa-chevron-up {
 		color: var(--red-10);
+	}
+
+	.tile-quick-action1,
+	.tile-quick-action2,
+	.tile-quick-action3,
+	.tile-quick-action4,
+	.tile-quick-action5,
+	.tile-quick-action6 {
+		background-image: var(--quick-action-back) !important;
+	}
+
+	.tile-quick-action1 {
+		background-position: 9.41836% .360006%
+	}
+
+	.tile-quick-action1,
+	.tile-quick-action2 {
+		background-size: 1177.01%;
+	}
+
+	.tile-quick-action2 {
+		background-position: 9.41836% 4.90006%
+	}
+
+	.tile-quick-action3 {
+		background-position: 9.41836% 9.30006%
+	}
+
+	.tile-quick-action3,
+	.tile-quick-action4 {
+		background-size: 1177.01%;
+	}
+
+	.tile-quick-action4 {
+		background-position: 9.41836% 14.40006%
+	}
+
+	.tile-quick-action5 {
+		background-position: .25% .2%
+	}
+
+	.tile-quick-action5,
+	.tile-quick-action6 {
+		background-size: 1264%;
+	}
+
+	.tile-quick-action6 {
+		background-position: .25% 4.4%
 	}
 }
