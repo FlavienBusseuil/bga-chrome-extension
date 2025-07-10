@@ -1,11 +1,11 @@
 @import "./common";
 
 #D {
-
 	.card_outline.science_progress,
 	.card_outline:empty,
 	.progress_token_outline {
-		box-shadow: inset 0 0 calc(var(--scale)*4px) calc(var(--scale)*1px) #ffffff80;
+		box-shadow: inset 0 0 calc(var(--scale) * 4px) calc(var(--scale) * 1px)
+			#ffffff80;
 	}
 
 	.end_game_player_name,
@@ -74,7 +74,7 @@
 		color: #03c95c !important;
 	}
 
-	#mythology_decks_container>div:nth-of-type(4) h3 span {
+	#mythology_decks_container > div:nth-of-type(4) h3 span {
 		color: #aaa;
 	}
 
@@ -88,6 +88,20 @@
 	.building_header_small,
 	.draftpool,
 	.progress_token {
-		filter: brightness(0.9);
+		position: relative;
+	}
+
+	.wonder::before,
+	#board_container::before,
+	.list_of_cards::before,
+	.building_header_small::before,
+	.draftpool::before,
+	.progress_token::before {
+		content: "";
+		position: absolute;
+		inset: 0;
+		background: rgba(0, 0, 0, 0.1);
+		pointer-events: none;
+		z-index: 1;
 	}
 }
