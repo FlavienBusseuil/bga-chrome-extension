@@ -49,6 +49,7 @@ export interface Table {
   gameserver: NumberString;
   gamestart: DateString | null;
   has_tournament: BooleanString;
+  tournament_id	: NumberString | null;
   id: TableId;
   level_filter_r: string;
   level_filter: LevelFilter;

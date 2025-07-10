@@ -10,6 +10,7 @@ export interface TransformedTable {
 	hasTrainingMode: boolean,
 	isOpenForPlayers: boolean,
 	isPartOfTournament: boolean,
+	tournamentLink: null | string,
 	isTurnBased: boolean,
 	link: string,
 	nbMaxPlayers: number,
