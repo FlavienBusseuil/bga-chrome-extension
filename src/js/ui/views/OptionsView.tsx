@@ -476,9 +476,6 @@ export const OptionsView = ({ config, onChange }: Props) => {
   };
 
   const getWarning = () => {
-    console.debug("smallFeed", homeConfig.smallFeed);
-    console.debug("tournamentsBelow", homeConfig.tournamentsBelow);
-
     if ((!homeConfig.smallFeed || !homeConfig.tournamentsBelow) && (!advancedHomeConfig.advanced)) {
       const warningSymbol = '<span style="color: red; font-size: 16px;">⚠</span>';
       const text = `${warningSymbol} ${i18n("optionsHomeWarning")}`;

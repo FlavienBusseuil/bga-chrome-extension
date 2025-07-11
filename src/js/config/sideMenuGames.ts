@@ -1551,6 +1551,13 @@ const defaultGames: Partial<Game>[] = [
 		name: "exhibitiontwentiethcentury",
 		playerPanel: "etc-player-area-{{player_id}}",
 	},
+	{
+		name: "vivacatrina",
+		playerPanel: ".mf_playerpanel",
+		iconBackground: "#5d493c",
+		iconBackgroundDark: "#5d493c",
+		iconColor: "#eee"
+	},
 ];
 
 export default defaultGames;

@@ -9,3 +9,4 @@ keys/**
 /local/
 .vs
 dist
+/scripts/renameThemesFiles.js

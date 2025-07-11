@@ -244,6 +244,7 @@ export const gamesWithCustomBackground = [
   'vaalbara',
   'verdant',
   'verso',
+  'vivacatrina',
   'wizardscup',
   'wizardsgrimoire',
   'wonderfulkingdom',
@@ -654,7 +655,7 @@ export const gamesWithCustomActions: GamesWithCustomActions = {
   },
   newton: {
     init: () => {
-      waitForObj('#bgaext-game-style').then(() => {
+      waitForObj('#ntn_draft_masters_area').then(() => {
         const links = document.querySelectorAll('link[rel="stylesheet"]');
 
         for (const link of links) {
@@ -663,6 +664,8 @@ export const gamesWithCustomActions: GamesWithCustomActions = {
           if (href && href.endsWith('newton.css')) {
             const cssUrl = (link as any).href as string;
             const imgUrl = cssUrl.replace('newton.css', 'img/tiles_sprites.png');
+
+            console.debug(`[bga extension] sprites background path is '${imgUrl}'`);
 
             document.body.style.setProperty("--quick-action-back", `url(${imgUrl})`);
             return;
