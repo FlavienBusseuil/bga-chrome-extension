@@ -15,9 +15,9 @@ import InformationPopup from './misc/InformationPopup';
 import { waitForObj } from '../../utils/misc/wait';
 import shouldFilter from '../../config/filteredLogs';
 import { i18n } from "../../utils/browser/i18n";
-import type Configuration from "~/js/config/configuration";
-import type { Game as GameConfig } from "~/js/config/models";
-import { bgaUrl } from "~/js/utils/constants";
+import { bgaUrl } from "../../utils/constants";
+import type Configuration from "../../config/configuration";
+import type { Game as GameConfig } from "../../config/models";
 
 const buildMainCss = (code: string) => {
 	waitForObj('head').then(() => {
