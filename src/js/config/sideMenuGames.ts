@@ -1558,6 +1558,11 @@ const defaultGames: Partial<Game>[] = [
 		iconBackgroundDark: "#5d493c",
 		iconColor: "#eee"
 	},
+	{
+		name: "beyond",
+		playerPanel: "byd-player-{{player_id}}",
+		css: `#byd-players-area { padding-left: 50px; } [style*="transform: scale(0.6)"] #byd-players-area { padding-left: 83px; } [style*="transform: scale(0.8)"] #byd-players-area { padding-left: 63px; } [style*="transform: scale(1.2)"] #byd-players-area { padding-left: 42px; }`
+	},
 ];
 
 export default defaultGames;

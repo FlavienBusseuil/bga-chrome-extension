@@ -19,6 +19,7 @@ export const gamesWithCustomBackground = [
   'battlespiritssaga',
   'beerbread',
   'betta',
+  'beyond',
   'beyondthesun',
   'bigmonster',
   'bloodrage',
@@ -474,6 +475,21 @@ const copyDefaultBackgroundStyle = (overlay: HTMLElement, attempt: number) => {
   }
 };
 
+const getCssPath = (file: string) => {
+  const links = document.querySelectorAll('link[rel="stylesheet"]');
+
+  for (const link of links) {
+    const href = link.getAttribute('href');
+
+    if (href && href.endsWith(file)) {
+      const cssUrl = (link as any).href as string;
+      return cssUrl.replace(file, '');
+    }
+  }
+
+  return '';
+};
+
 const addInvertOverlay = (className: string, copyDefaultStyle: boolean) => {
   waitForObj('#overall-content').then(overallContent => {
     const overlay = document.createElement("DIV");
@@ -657,21 +673,19 @@ export const gamesWithCustomActions: GamesWithCustomActions = {
   newton: {
     init: () => {
       waitForObj('#ntn_draft_masters_area').then(() => {
-        const links = document.querySelectorAll('link[rel="stylesheet"]');
-
-        for (const link of links) {
-          const href = link.getAttribute('href');
-
-          if (href && href.endsWith('newton.css')) {
-            const cssUrl = (link as any).href as string;
-            const imgUrl = cssUrl.replace('newton.css', 'img/tiles_sprites.png');
-
-            console.debug(`[bga extension] sprites background path is '${imgUrl}'`);
-
-            document.body.style.setProperty("--quick-action-back", `url(${imgUrl})`);
-            return;
-          };
-        }
+        const imgUrl = `${getCssPath('newton.css')}img/tiles_sprites.png`;
+        console.debug(`[bga extension] Newton sprites background path is '${imgUrl}'`);
+        document.body.style.setProperty("--quick-action-back", `url(${imgUrl})`);
+      });
+    }
+  },
+  beyond: {
+    init: () => {
+      waitForObj('#byd-game-area').then(() => {
+        const cssPath = getCssPath('beyond.css');
+        console.debug(`[bga extension] Beyond css path is '${cssPath}'`);
+        document.body.style.setProperty("--playmat1", `url(${cssPath}img/BYD_Playmat.jpg)`);
+        document.body.style.setProperty("--playmat2", `url(${cssPath}img/BYD_Playmat2.jpg)`);
       });
     }
   }

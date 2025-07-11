@@ -1,0 +1,29 @@
+#D.byd-playmat-1 .byd-player-area.whiteblock {
+	background-image: var(--playmat1) !important;
+	background-position: 50% !important;
+	background-size: cover !important;
+}
+
+#D.byd-playmat-2 .byd-player-area.whiteblock {
+	background-image: var(--playmat2) !important;
+	background-position: 50% !important;
+	background-size: cover !important;
+}
+
+#D {
+	#overall-content:before {
+		content: "";
+		background: #00000060;
+		position: absolute;
+		width: 100%;
+		height: 100%;
+	}
+
+	.byd-card.byd-icon {
+		filter: var(--highlight-min);
+	}
+
+	.byd-token-img {
+		border-radius: 1px;
+	}
+}
