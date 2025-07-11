@@ -54,6 +54,7 @@ export function transformTable({
 		status,
 		max_player: nbMaxPlayers,
 		has_tournament,
+		tournament_id: tournamentId,
 	} = table;
 
 	return {
@@ -72,6 +73,7 @@ export function transformTable({
 		isOpenForPlayers: ["asyncopen", "open"].includes(status),
 		isTurnBased: ["asyncplay", "asyncopen", "asyncinit"].includes(status),
 		isPartOfTournament: castToBoolean(has_tournament),
+		tournamentLink: `${bgaUrl}/tournament?id=${tournamentId}`,
 		link: `${bgaUrl}/${castNumberStringToString(
 			gameServer,
 		)}/${gameNameKey}?table=${castTableIdToString(tableId)}`,

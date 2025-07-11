@@ -9,6 +9,8 @@ import { TableIcon } from "./TableIcon.jsx";
 import { TableIcons } from "./TableIcons.jsx";
 import { TableIndicator } from "./TableIndicator";
 import { Card } from "./base/Card";
+import { ClickableTableIcon } from "./ClickableTableIcon";
+import { url } from "inspector";
 
 type Props = {
 	tableId: TableId,
@@ -23,6 +25,7 @@ type Props = {
 	isInvitePendingForCurrentPlayer: boolean,
 	isOpenForPlayers: boolean,
 	isPartOfTournament: boolean,
+	tournamentLink: null | string,
 	isTurnBased: boolean,
 	isWaitingCurrentPlayer: boolean,
 	children: ComponentChildren,
@@ -41,6 +44,7 @@ export function Table({
 	isInvitePendingForCurrentPlayer,
 	isOpenForPlayers,
 	isPartOfTournament,
+	tournamentLink,
 	isTurnBased,
 	isWaitingCurrentPlayer,
 	children,
@@ -48,7 +52,7 @@ export function Table({
 }: Props) {
 	const renderIcons = [
 		isPartOfTournament ? (
-			<TableIcon title={i18n("tournament")}>🏆</TableIcon>
+			<ClickableTableIcon title={i18n("tournament")} url={tournamentLink as string}>🏆</ClickableTableIcon>
 		) : null,
 		hasArenaMode ? <TableIcon title={i18n("arena")}>🏟</TableIcon> : null,
 		hasTrainingMode ? (
