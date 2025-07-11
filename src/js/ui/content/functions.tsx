@@ -17,6 +17,7 @@ import shouldFilter from '../../config/filteredLogs';
 import { i18n } from "../../utils/browser/i18n";
 import type Configuration from "~/js/config/configuration";
 import type { Game as GameConfig } from "~/js/config/models";
+import { bgaUrl } from "~/js/utils/constants";
 
 const buildMainCss = (code: string) => {
 	waitForObj('head').then(() => {
@@ -414,7 +415,7 @@ const initGamesObserver = (config: Configuration) => {
 					newButton.id = "backMetasite_btn_ext";
 					button.parentNode.replaceChild(newButton, button);
 					// add new href
-					newButton.href = 'https://boardgamearena.com/lobby';
+					newButton.href = `${bgaUrl}/lobby`;
 					newButton.addEventListener("click", () => window.location.href = newButton.href);
 				}
 			});
