@@ -27,6 +27,8 @@
   "optionLeftMenu": "Naviguer entre les plateaux des joueurs",
   "optionHideLeftBarOptionOn": "La barre verticale permettant de naviguer entre les plateaux des joueurs est désactivée pour tous les jeux",
   "optionHideLeftBarOptionOff": "Une barre verticale permettant de naviguer entre les plateaux des joueurs est ajoutée automatiquement pour les jeux compatibles. Cette barre est désactivable dans les préférences des jeux",
+  "optionsQuitGameToLobbyOn": "Le bouton 'Quitter la table de jeu' redirige vers la page 'lobby'",
+  "optionsQuitGameToLobbyOff": "Le bouton 'Quitter la table de jeu' redirige vers la page d'accueil (comportement par défaut)",
   "optionFloatingGame": "Dans un menu flottant (uniquement pour ce jeu)",
   "optionFloatingAlways": "Dans un menu flottant (pour tous les jeux)",
   "optionMisc": "Divers",

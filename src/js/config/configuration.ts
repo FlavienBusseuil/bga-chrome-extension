@@ -42,6 +42,7 @@ interface CustomConfig {
 	animatedTitle?: boolean;
 	hideLogTimestamp?: boolean;
 	hideLeftBarOption?: boolean;
+	quitGameTo?: 'home' | 'lobby';
 }
 
 export interface HomeConfig {
@@ -475,6 +476,15 @@ class Configuration {
 
 	isGlobalFloatingMenu() {
 		return this._customConfig.floatingRightMenu === true;
+	}
+
+	setQuitGameTo(page: 'home' | 'lobby') {
+		this._customConfig.quitGameTo = page;
+		storageSet({ quitGameTo: page });
+	}
+
+	getQuitGameTo() {
+		return this._customConfig.quitGameTo || 'home';
 	}
 
 	listTemplates() {

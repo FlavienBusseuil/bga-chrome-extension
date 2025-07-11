@@ -27,6 +27,8 @@
   "optionLeftMenu": "Navigiere zwischen den Spieler Bereichen",
   "optionHideLeftBarOptionOn": "Das Spieler-Bereiche-Naivigations-Menü ist deaktiviert",
   "optionHideLeftBarOptionOff": "Das Spieler-Bereiche-Navigation-Menü wird zu kompatiblen Spielen hinzugefügt. Es kann in den jeweiligen Spiele-Einstellungen deaktiviert werden",
+  "optionsQuitGameToLobbyOn": "The button 'Return to main site' redirect to the lobby page",
+  "optionsQuitGameToLobbyOff": "The button 'Return to main site' redirect to the home page (default behavior)",
   "optionFloatingGame": "Als schwebendes Menü (nur für dieses Spiel)",
   "optionFloatingAlways": "Als schwebendes Menü (für alle Spiele)",
   "optionMisc": "Sonstiges",

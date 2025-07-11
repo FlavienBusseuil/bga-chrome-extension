@@ -20,6 +20,7 @@ export const OptionsView = ({ config, onChange }: Props) => {
   const [onlineMessages, setOnlineMessages] = useSyncedState('isOnlineMessagesEnabled', config.isOnlineMessagesEnabled());
   const [areLogTimestampsHidden, setLogTimestampHidden] = useSyncedState('areLogTimestampsHidden', config.areLogTimestampsHidden());
   const [hideLeftBarOption, setHideLeftBarOption] = useSyncedState('hideLeftBarOption', config.isLeftBarOptionHidden());
+  const [quitGameOption, setQuitGameOption] = useSyncedState('quitGameOption', config.getQuitGameTo());
   const [eloHidden, setEloHidden] = useSyncedState('eloHidden', config.isEloHidden());
   const [tracking, setTracking] = useSyncedState('tracking', config.isTrackingEnable());
   const [soundNotification, setSoundNotification] = useSyncedState('soundNotification', config.isSoundNotificationEnable());
@@ -74,12 +75,18 @@ export const OptionsView = ({ config, onChange }: Props) => {
   const updateAreLogTimestampsRemoved = (val: boolean) => {
     setLogTimestampHidden(val);
     config.setLogTimestampHidden(val);
-  }
+  };
 
   const updateHideLeftBarOption = (val: boolean) => {
     setHideLeftBarOption(!val);
     config.setHideLeftBarOption(!val);
-  }
+  };
+
+  const updateQuitGameOption = (val: boolean) => {
+    const redirectTo = val ? "lobby" : "home";
+    setQuitGameOption(redirectTo);
+    config.setQuitGameTo(redirectTo);
+  };
 
   const updateEloHidden = (val: boolean) => {
     setEloHidden(!val);
@@ -384,6 +391,7 @@ export const OptionsView = ({ config, onChange }: Props) => {
           {desktopVersion && getSwitch(chatBarAutoHide, updateChatBarAutoHide, "optionsChatAutoHideOn", "optionsChatAutoHideOff")}
           {getSwitch(areLogTimestampsHidden, updateAreLogTimestampsRemoved, "optionRemoveLogTimestampsOn", "optionRemoveLogTimestampsOff")}
           {getSwitch(!hideLeftBarOption, updateHideLeftBarOption, "optionHideLeftBarOptionOff", "optionHideLeftBarOptionOn")}
+          {getSwitch(quitGameOption === 'lobby', updateQuitGameOption, "optionsQuitGameToLobbyOn", "optionsQuitGameToLobbyOff")}
         </div>
       );
     }

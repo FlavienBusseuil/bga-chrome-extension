@@ -378,7 +378,7 @@ const stopTitleObserver = () => {
 	}
 };
 
-const initLogObserver = (config: Configuration) => {
+const initGamesObserver = (config: Configuration) => {
 	const logsContainer = document.querySelector('#logs');
 
 	if (!logsContainer) {
@@ -402,6 +402,26 @@ const initLogObserver = (config: Configuration) => {
 	});
 
 	observer.observe(logsContainer, { childList: true, subtree: true });
+
+	if (config.getQuitGameTo() === 'lobby') {
+		waitForObj('#generalactions').then((actionsContainer) => {
+			const backObserver = new MutationObserver(() => {
+				const button = actionsContainer.querySelector("#backMetasite_btn");
+
+				if (button && button.parentNode) {
+					// remove all listeners :
+					const newButton = button.cloneNode(true) as HTMLLinkElement;
+					newButton.id = "backMetasite_btn_ext";
+					button.parentNode.replaceChild(newButton, button);
+					// add new href
+					newButton.href = 'https://boardgamearena.com/lobby';
+					newButton.addEventListener("click", () => window.location.href = newButton.href);
+				}
+			});
+
+			backObserver.observe(actionsContainer, { childList: true, subtree: true });
+		});
+	}
 
 	return observer;
 };
@@ -626,7 +646,7 @@ const setEloStyle = (config: Configuration) => {
 
 export {
 	buildMainCss,
-	initLogObserver,
+	initGamesObserver,
 	initChatObserver,
 	initTitleObserver,
 	stopTitleObserver,

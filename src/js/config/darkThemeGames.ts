@@ -37,6 +37,7 @@ export const gamesWithCustomBackground = [
   'castlecombo',
   'castlesofcaleira',
   'castleofmadkingludwig',
+  'catannewenergies',
   'catinthebox',
   'caverna',
   'century',

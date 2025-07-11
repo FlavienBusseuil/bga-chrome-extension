@@ -7,7 +7,7 @@ import { waitForObj } from './js/utils/misc/wait';
 import { addLocationChangeListener } from './js/utils/misc/addLocationChangeListener';
 import {
 	buildMainCss,
-	initLogObserver,
+	initGamesObserver,
 	initChatObserver,
 	initTitleObserver,
 	stopTitleObserver,
@@ -51,7 +51,7 @@ const autoHideChat = (e: MouseEvent) => {
 
 const initObserver = (page: string) => {
 	if (page === 'game') {
-		currentObserver = initLogObserver(config);
+		currentObserver = initGamesObserver(config);
 	} else if (page === 'gamepanel') {
 		currentObserver = initGamePanelObserver();
 	} else {
@@ -164,6 +164,8 @@ const manageLocationChange = (pathname: string) => {
 	}
 
 	if (pageName === 'archive') {
+		initObserver('game');
+
 		waitForObj('[href*="table="]').then((elt) => {
 			const aelt = elt as HTMLAnchorElement;
 			gameName = aelt.href.substring(aelt.href.lastIndexOf('/') + 1).split('?')[0] as string;
