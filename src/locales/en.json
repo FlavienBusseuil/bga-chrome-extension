@@ -27,7 +27,7 @@
   "optionLeftMenu": "Navigate between players' boards",
   "optionHideLeftBarOptionOn": "The vertical bar for navigating between player boards is disabled for all games",
   "optionHideLeftBarOptionOff": "A vertical bar for navigating between player boards is added automatically for compatible games. This bar can be deactivated in the game preferences",
-  "optionsQuitGameToLobbyOn": "The button 'Return to main site' redirect to the lobby page",
+  "optionsQuitGameToLobbyOn": "The button 'Return to main site' redirect to the lobby page [BETA]",
   "optionsQuitGameToLobbyOff": "The button 'Return to main site' redirect to the home page (default behavior)",
   "optionFloatingGame": "In a floating menu (only for this game)",
   "optionFloatingAlways": "In a floating menu (for all games)",
