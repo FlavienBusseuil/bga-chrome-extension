@@ -22,6 +22,7 @@ export const OptionsView = ({ config, onChange }: Props) => {
   const [hideLeftBarOption, setHideLeftBarOption] = useSyncedState('hideLeftBarOption', config.isLeftBarOptionHidden());
   const [quitGameOption, setQuitGameOption] = useSyncedState('quitGameOption', config.getQuitGameTo());
   const [eloHidden, setEloHidden] = useSyncedState('eloHidden', config.isEloHidden());
+  const [arenaEloHidden, setArenaEloHidden] = useSyncedState('arenaEloHidden', config.isArenaEloHidden());
   const [tracking, setTracking] = useSyncedState('tracking', config.isTrackingEnable());
   const [soundNotification, setSoundNotification] = useSyncedState('soundNotification', config.isSoundNotificationEnable());
   const [customSoundFile, setCustomSoundFile] = useSyncedState('customSoundFile', isSoundCustom());
@@ -91,6 +92,11 @@ export const OptionsView = ({ config, onChange }: Props) => {
   const updateEloHidden = (val: boolean) => {
     setEloHidden(!val);
     config.setEloHidden(!val)
+  };
+
+  const updateArenaEloHidden = (val: boolean) => {
+    setArenaEloHidden(!val);
+    config.setArenaEloHidden(!val)
   };
 
   const updateAnimatedTitle = (val: boolean) => {
@@ -388,6 +394,7 @@ export const OptionsView = ({ config, onChange }: Props) => {
           <div className="options-frame-title">{i18n("optionGamesTitle")}</div>
           {getSwitch(onlineMessages, updateOnlineMessages, "optionFriendsActivityOn", "optionFriendsActivityOff")}
           {getSwitch(!eloHidden, updateEloHidden, "optionEloHiddenOff", "optionEloHiddenOn")}
+          {getSwitch(!arenaEloHidden, updateArenaEloHidden, "optionArenaEloHiddenOff", "optionArenaEloHiddenOn")}
           {desktopVersion && getSwitch(chatBarAutoHide, updateChatBarAutoHide, "optionsChatAutoHideOn", "optionsChatAutoHideOff")}
           {getSwitch(areLogTimestampsHidden, updateAreLogTimestampsRemoved, "optionRemoveLogTimestampsOn", "optionRemoveLogTimestampsOff")}
           {getSwitch(!hideLeftBarOption, updateHideLeftBarOption, "optionHideLeftBarOptionOff", "optionHideLeftBarOptionOn")}

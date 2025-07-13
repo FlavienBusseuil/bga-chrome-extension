@@ -19,6 +19,7 @@ interface CustomConfig {
 	devTemplates?: Template[];
 	hideGeneralChat?: boolean;
 	hideElo?: boolean;
+	hideArenaElo?: boolean;
 	darkMode?: boolean;
 	darkModeColor?: number;
 	darkModeSat?: number;
@@ -648,21 +649,40 @@ class Configuration {
 		return !!this._customConfig.hideElo;
 	}
 
+	isArenaEloHidden() {
+		// value null or undefined value hides elo at the arena (default bga behavior)
+		return this._customConfig.hideArenaElo !== false;
+	}
+
 	setEloHidden(val: boolean) {
 		this._customConfig.hideElo = val;
 		storageSet({ hideElo: val });
 	}
 
+	setArenaEloHidden(val: boolean) {
+		this._customConfig.hideArenaElo = val;
+		storageSet({ hideArenaElo: val });
+	}
+
 	getEloStyle() {
-		if (this._customConfig.hideElo) {
-			return '.player_elo_wrap, #game_result .adddetails, #table_stats .row-data:has(> .row-value > .gamerank) { display: none; } '
+		let eloStyle = '';
+
+		if (this.isEloHidden()) {
+			eloStyle += '.player_elo_wrap, #game_result .adddetails, #table_stats .row-data:has(> .row-value > .gamerank) { display: none; } '
 		}
-		return '';
+
+		const showArenaElo = !this.isArenaEloHidden();
+		if (showArenaElo) {
+			eloStyle += '.arena_mode .player_elo_wrap { visibility: visible; display: inline; } '
+		}
+
+		return eloStyle;
 	}
 
 	isDarkMode() {
 		return !!this._customConfig.darkMode;
 	}
+
 
 	setDarkMode(val: boolean) {
 		this._customConfig.darkMode = val;

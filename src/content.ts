@@ -359,7 +359,7 @@ document.addEventListener('bga_ext_update_config', (data) => {
 	console.debug('[bga extension] configuration updated', key);
 	if (key === 'hideGeneralChat') {
 		setChatStyle(config);
-	} else if (key === 'hideElo') {
+	} else if (key === 'hideElo' || key === 'hideArenaElo') {
 		setEloStyle(config);
 	} else if (key === 'muted') {
 		refreshMutedPlayers(config);
