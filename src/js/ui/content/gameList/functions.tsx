@@ -27,7 +27,7 @@ const findClickableParent = (element: HTMLElement, maxDepth = 10): HTMLAnchorEle
 	let current = element;
 	let depth = 0;
 
-	while (current && !('href' in HTMLAnchorElement) && depth < maxDepth) {
+	while (current && !('href' in current) && depth < maxDepth) {
 		current = current.parentNode as HTMLElement;
 		depth++;
 	}
