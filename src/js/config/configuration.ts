@@ -44,6 +44,7 @@ interface CustomConfig {
 	hideLogTimestamp?: boolean;
 	hideLeftBarOption?: boolean;
 	quitGameTo?: 'home' | 'lobby';
+	replayWithAutoStart?: boolean;
 }
 
 export interface HomeConfig {
@@ -486,6 +487,15 @@ class Configuration {
 
 	getQuitGameTo() {
 		return this._customConfig.quitGameTo || 'home';
+	}
+
+	setReplayWithAutoStart(val: boolean) {
+		this._customConfig.replayWithAutoStart = val;
+		storageSet({ replayWithAutoStart: val });
+	}
+
+	replayWithAutoStart() {
+		return this._customConfig.replayWithAutoStart === undefined || this._customConfig.replayWithAutoStart;
 	}
 
 	listTemplates() {

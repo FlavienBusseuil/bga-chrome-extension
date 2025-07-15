@@ -379,7 +379,7 @@ const stopTitleObserver = () => {
 	}
 };
 
-const initGamesObserver = (config: Configuration) => {
+const initGamesObserver = (config: Configuration, gameName: string) => {
 	const logsContainer = document.querySelector('#logs');
 
 	if (!logsContainer) {
@@ -404,19 +404,37 @@ const initGamesObserver = (config: Configuration) => {
 
 	observer.observe(logsContainer, { childList: true, subtree: true });
 
-	if (config.getQuitGameTo() === 'lobby') {
+	const quitToLobby = config.getQuitGameTo() === 'lobby';
+	const preventAutoStart = !config.replayWithAutoStart();
+
+	if (quitToLobby || preventAutoStart) {
 		waitForObj('#generalactions').then((actionsContainer) => {
 			const backObserver = new MutationObserver(() => {
-				const button = actionsContainer.querySelector("#backMetasite_btn");
+				if (quitToLobby) {
+					const backButton = actionsContainer.querySelector("#backMetasite_btn");
 
-				if (button && button.parentNode) {
-					// remove all listeners :
-					const newButton = button.cloneNode(true) as HTMLLinkElement;
-					newButton.id = "backMetasite_btn_ext";
-					button.parentNode.replaceChild(newButton, button);
-					// add new href
-					newButton.href = `${bgaUrl}/lobby`;
-					newButton.addEventListener("click", () => window.location.href = newButton.href);
+					if (backButton && backButton.parentNode) {
+						// remove all listeners :
+						const newButton = backButton.cloneNode(true) as HTMLLinkElement;
+						newButton.id = "backMetasite_btn_ext";
+						backButton.parentNode.replaceChild(newButton, backButton);
+						// add new href
+						newButton.href = `${bgaUrl}/lobby`;
+						newButton.addEventListener("click", () => window.location.href = newButton.href);
+					}
+				}
+
+				if (preventAutoStart) {
+					const replayButton = actionsContainer.querySelector('#createNew_btn');
+					if (replayButton && replayButton.parentNode) {
+						// remove all listeners :
+						const newButton = replayButton.cloneNode(true) as HTMLLinkElement;
+						newButton.id = "createNew_btn_ext";
+						replayButton.parentNode.replaceChild(newButton, replayButton);
+						// add new href
+						newButton.href = `${bgaUrl}/gamepanel?game=${gameName}`;
+						newButton.addEventListener("click", () => window.location.href = newButton.href);
+					}
 				}
 			});
 

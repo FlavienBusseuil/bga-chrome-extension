@@ -31,6 +31,8 @@
   "optionHideLeftBarOptionOff": "Das Spieler-Bereiche-Navigation-Menü wird zu kompatiblen Spielen hinzugefügt. Es kann in den jeweiligen Spiele-Einstellungen deaktiviert werden",
   "optionsQuitGameToLobbyOn": "Die Schaltfläche 'Zurück zur Hauptseite' leitet zur Lobby-Seite weiter [BETA]",
   "optionsQuitGameToLobbyOff": "Die Schaltfläche 'Zurück zur Hauptseite' leitet zur Hauptseite weiter (Standard-Verhalten)",
+  "optionsReplayWithAutoStartOn": "The button 'Play again' automatically restarts a new table (default behavior)",
+  "optionsReplayWithAutoStartOff": "The button 'Play again' redirects to the game page [BETA]",
   "optionFloatingGame": "Als schwebendes Menü (nur für dieses Spiel)",
   "optionFloatingAlways": "Als schwebendes Menü (für alle Spiele)",
   "optionMisc": "Sonstiges",

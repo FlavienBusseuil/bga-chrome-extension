@@ -21,6 +21,7 @@ export const OptionsView = ({ config, onChange }: Props) => {
   const [areLogTimestampsHidden, setLogTimestampHidden] = useSyncedState('areLogTimestampsHidden', config.areLogTimestampsHidden());
   const [hideLeftBarOption, setHideLeftBarOption] = useSyncedState('hideLeftBarOption', config.isLeftBarOptionHidden());
   const [quitGameOption, setQuitGameOption] = useSyncedState('quitGameOption', config.getQuitGameTo());
+  const [replayWithAutoStart, setReplayWithAutoStart] = useSyncedState('replayWithAutoStart', config.replayWithAutoStart());
   const [eloHidden, setEloHidden] = useSyncedState('eloHidden', config.isEloHidden());
   const [arenaEloHidden, setArenaEloHidden] = useSyncedState('arenaEloHidden', config.isArenaEloHidden());
   const [tracking, setTracking] = useSyncedState('tracking', config.isTrackingEnable());
@@ -87,6 +88,11 @@ export const OptionsView = ({ config, onChange }: Props) => {
     const redirectTo = val ? "lobby" : "home";
     setQuitGameOption(redirectTo);
     config.setQuitGameTo(redirectTo);
+  };
+
+  const updateReplayWithAutoStart = (val: boolean) => {
+    setReplayWithAutoStart(val);
+    config.setReplayWithAutoStart(val);
   };
 
   const updateEloHidden = (val: boolean) => {
@@ -399,6 +405,7 @@ export const OptionsView = ({ config, onChange }: Props) => {
           {getSwitch(areLogTimestampsHidden, updateAreLogTimestampsRemoved, "optionRemoveLogTimestampsOn", "optionRemoveLogTimestampsOff")}
           {getSwitch(!hideLeftBarOption, updateHideLeftBarOption, "optionHideLeftBarOptionOff", "optionHideLeftBarOptionOn")}
           {getSwitch(quitGameOption === 'lobby', updateQuitGameOption, "optionsQuitGameToLobbyOn", "optionsQuitGameToLobbyOff")}
+          {getSwitch(replayWithAutoStart, updateReplayWithAutoStart, "optionsReplayWithAutoStartOn", "optionsReplayWithAutoStartOff")}
         </div>
       );
     }

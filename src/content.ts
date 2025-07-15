@@ -51,7 +51,7 @@ const autoHideChat = (e: MouseEvent) => {
 
 const initObserver = (page: string) => {
 	if (page === 'game') {
-		currentObserver = initGamesObserver(config);
+		currentObserver = initGamesObserver(config, gameName);
 	} else if (page === 'gamepanel') {
 		currentObserver = initGamePanelObserver();
 	} else {
@@ -112,9 +112,10 @@ const manageLocationChange = (pathname: string) => {
 	}
 
 	if (pageInfo && pageInfo.length >= 2 && isNumber(pageInfo[0] as string)) {
+		gameName = pageInfo[1] as string;
+
 		initObserver('game');
 
-		gameName = pageInfo[1] as string;
 		const gameConfig = config.getGameConfig(gameName);
 
 		if (!isMobile() && (config.isGlobalFloatingMenu() || config.isGameFloatingMenu(gameName))) {
