@@ -10,7 +10,6 @@ import { TableIcons } from "./TableIcons.jsx";
 import { TableIndicator } from "./TableIndicator";
 import { Card } from "./base/Card";
 import { ClickableTableIcon } from "./ClickableTableIcon";
-import { url } from "inspector";
 
 type Props = {
 	tableId: TableId,
