@@ -1563,6 +1563,10 @@ const defaultGames: Partial<Game>[] = [
 		playerPanel: "byd-player-{{player_id}}",
 		css: `#byd-players-area { padding-left: 50px; } [style*="transform: scale(0.6)"] #byd-players-area { padding-left: 83px; } [style*="transform: scale(0.8)"] #byd-players-area { padding-left: 63px; } [style*="transform: scale(1.2)"] #byd-players-area { padding-left: 42px; }`
 	},
+	{
+		name: "pergola",
+		playerPanel: "pgl-player-area-{{player_id}}",
+	},
 ];
 
 export default defaultGames;

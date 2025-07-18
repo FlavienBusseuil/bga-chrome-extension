@@ -108,6 +108,7 @@ export const gamesWithCustomBackground = [
   'harmonies',
   'heat',
   'heatchampionship',
+  'heythatsmyfish',
   'ink',
   'insidejob',
   'itsawonderfulworld',
@@ -168,6 +169,7 @@ export const gamesWithCustomBackground = [
   'pandaspin',
   'pandemic',
   'paxrenaissance',
+  'pergola',
   'photosynthesis',
   'pingimus',
   'pixies',
@@ -668,6 +670,9 @@ export const gamesWithCustomActions: GamesWithCustomActions = {
     init: () => addInvertOverlay('', true)
   },
   fliptoons: {
+    init: () => addInvertOverlay('', true)
+  },
+  pergola: {
     init: () => addInvertOverlay('', true)
   },
   newton: {
