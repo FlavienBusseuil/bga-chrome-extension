@@ -1,5 +1,13 @@
 # Changelog
 
+## [v1.12.14](https://github.com/FlavienBusseuil/bga-chrome-extension/tree/v1.12.14) (2025-07-18)
+
+[Full Changelog](https://github.com/FlavienBusseuil/bga-chrome-extension/compare/v1.12.13...v1.12.14)
+
+**Merged pull requests:**
+
+- fix: Ensure table icons stay clickable [\#132](https://github.com/FlavienBusseuil/bga-chrome-extension/pull/132) ([GhoulofGSG9](https://github.com/GhoulofGSG9))
+
 ## [v1.12.13](https://github.com/FlavienBusseuil/bga-chrome-extension/tree/v1.12.13) (2025-07-16)
 
 [Full Changelog](https://github.com/FlavienBusseuil/bga-chrome-extension/compare/v1.12.12...v1.12.13)
