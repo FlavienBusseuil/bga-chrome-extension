@@ -1,5 +1,21 @@
 # Changelog
 
+## [v1.12.13](https://github.com/FlavienBusseuil/bga-chrome-extension/tree/v1.12.13) (2025-07-16)
+
+[Full Changelog](https://github.com/FlavienBusseuil/bga-chrome-extension/compare/v1.12.12...v1.12.13)
+
+**Closed issues:**
+
+- Feature Request: Display players ELO in Arena games [\#129](https://github.com/FlavienBusseuil/bga-chrome-extension/issues/129)
+
+**Merged pull requests:**
+
+- translate\(german\): replay button option [\#131](https://github.com/FlavienBusseuil/bga-chrome-extension/pull/131) ([GhoulofGSG9](https://github.com/GhoulofGSG9))
+- feat: toggle for displaying players ELO in arena [\#130](https://github.com/FlavienBusseuil/bga-chrome-extension/pull/130) ([GhoulofGSG9](https://github.com/GhoulofGSG9))
+- translate\(german\): main page redirection option [\#128](https://github.com/FlavienBusseuil/bga-chrome-extension/pull/128) ([GhoulofGSG9](https://github.com/GhoulofGSG9))
+- hotfix\(7wondersduel\): dark style stacking context [\#127](https://github.com/FlavienBusseuil/bga-chrome-extension/pull/127) ([GhoulofGSG9](https://github.com/GhoulofGSG9))
+- feat: Make tournament table icon clickable [\#126](https://github.com/FlavienBusseuil/bga-chrome-extension/pull/126) ([GhoulofGSG9](https://github.com/GhoulofGSG9))
+
 ## [v1.12.12](https://github.com/FlavienBusseuil/bga-chrome-extension/tree/v1.12.12) (2025-07-11)
 
 [Full Changelog](https://github.com/FlavienBusseuil/bga-chrome-extension/compare/v1.12.11...v1.12.12)
