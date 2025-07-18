@@ -240,11 +240,14 @@ const ModeSelector = (props: ModeSelectorProps) => {
   const getMessageNew = () => {
     if (newMessageVisible) {
       return (
-        <span class='bgaext_report_message' onClick={hideNewMessage}>
-          <i class="fa6 fa6-circle-xmark"></i>
-          {i18n('bugReportNew')}
-          <i class="fa fa-arrow-right"></i>
-        </span>
+        <div class='bgaext_report_message' onClick={hideNewMessage}>
+          <span>
+            <i class="fa6 fa6-circle-xmark"></i>
+            {i18n('bugReportNew')}
+            <i class="fa fa-arrow-right"></i>
+          </span>
+          <span>({i18n('bugReportNewDetail')})</span>
+        </div>
       );
     }
 

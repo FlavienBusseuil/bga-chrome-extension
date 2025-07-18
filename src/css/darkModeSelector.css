@@ -207,7 +207,7 @@
   left: 60px;
 }
 
-#topbar .bgaext_darkmode span.bgaext_report_message {
+#topbar .bgaext_darkmode div.bgaext_report_message {
   position: absolute !important;
   top: -5px;
   right: 45px;
@@ -217,18 +217,25 @@
   border-radius: 8px;
   background: var(--dark-40);
   cursor: pointer;
+  display: flex;
+  flex-flow: column;
+  text-align: center;
 }
 
-#topbar .bgaext_darkmode span.bgaext_report_message i.fa {
+#topbar .bgaext_darkmode div.bgaext_report_message i.fa {
   color: var(--light-80);
   padding-left: 0.5em;
 }
 
-#topbar .bgaext_darkmode span.bgaext_report_message i.fa6 {
+#topbar .bgaext_darkmode div.bgaext_report_message i.fa6 {
   color: var(--light-50);
   padding-right: 0.5em;
 }
 
-#topbar .bgaext_darkmode span.bgaext_report_message:hover i.fa6 {
+#topbar .bgaext_darkmode div.bgaext_report_message:hover i.fa6 {
   color: var(--light-80);
+}
+
+#topbar .bgaext_darkmode div.bgaext_report_message>span:last-child {
+  font-size: smaller;
 }

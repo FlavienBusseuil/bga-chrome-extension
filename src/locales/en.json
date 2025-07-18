@@ -205,5 +205,6 @@
   "bugReportScreenshot": "Screenshot (you can use <a href='https://imgur.com/' target='_blank' class='bga-ext-link' >Imgur.com</a> to upload it and copy/paste the link here)",
   "bugReportResult": "Your bug report has been sent. You can view it, and check the progress of your bug resolution on <a href='/group?id=18063230' target='_blank' class='bga-ext-link'>this page</a>",
   "bugReportNew": "You can report a dark mode bug by opening the popup here",
+  "bugReportNewDetail": "If you click on this message it will never be displayed again",
   "optionGeneralTab": "General"
 }
