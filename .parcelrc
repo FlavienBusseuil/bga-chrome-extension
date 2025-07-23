@@ -6,6 +6,10 @@
     ],
     "*.{ts,tsx}": [
       "@parcel/transformer-typescript-tsc"
+    ],
+    "*.less": [
+      "./src/libs/parcel/parcel-transformer-replace-darkmode-context.js",
+      "..."
     ]
   }
 }
