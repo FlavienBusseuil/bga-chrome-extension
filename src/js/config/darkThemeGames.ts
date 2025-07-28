@@ -510,6 +510,7 @@ const addInvertOverlay = (className: string, copyDefaultStyle: boolean) => {
       overlay.className = `bgaext_overlay ${className}`;
       overlay.style.filter = 'invert(1)';
     } else if (isFirefox) {
+      overlay.className = `bgaext_overlay_ff`;
       overlay.style.backgroundColor = 'var(--dark-40)';
     } else {
       overlay.className = `bgaext_overlay ${className}`;
@@ -681,9 +682,6 @@ export const gamesWithCustomActions: GamesWithCustomActions = {
     init: () => addInvertOverlay('', true)
   },
   wanderingtowers: {
-    init: () => addInvertOverlay('', true)
-  },
-  iye: {
     init: () => addInvertOverlay('', true)
   },
   newton: {

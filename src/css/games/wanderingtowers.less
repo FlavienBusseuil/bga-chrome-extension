@@ -1,9 +1,14 @@
 #D {
 
-	.bgaext_overlay {
-		/* resolve render issues of game tiles */
+	/* resolve render issues of game tiles */
+	.bgaext_overlay,
+	.bgaext_overlay_ff {
 		z-index: -2;
+	}
+
+	.bgaext_overlay {
 		opacity: 0.8;
+		filter: invert(1) grayscale(1) !important;
 	}
 
 	#bga-zoom-controls {
