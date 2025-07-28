@@ -1,11 +1,22 @@
-// resolve render issues of game tiles
-html:not(.bgaext_cust_back):not(.bgaext_solid_back) body {
-	background: none !important;
-}
-
 #D {
-	.wtw_spellTooltip {
+
+	.bgaext_overlay {
+		/* resolve render issues of game tiles */
+		z-index: -2;
+		opacity: 0.8;
+	}
+
+	#bga-zoom-controls {
+		filter: invert(0.8);
+	}
+
+	.wtw_spellTooltip,
+	.wtw_unfoldedHelp {
 		background-color: var(--dark-back);
+		background-image: none;
+	}
+
+	.wtw_spellHelp {
 		background-image: none;
 	}
 
@@ -15,5 +26,13 @@ html:not(.bgaext_cust_back):not(.bgaext_solid_back) body {
 
 	.wtw_discardTitle {
 		color: var(--light-80);
+	}
+
+	.wtw_wizard-panel {
+		filter: var(--drop-shadow);
+	}
+
+	#wtw_tiles {
+		filter: brightness(0.9);
 	}
 }

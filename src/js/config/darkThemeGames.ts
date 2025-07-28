@@ -32,6 +32,7 @@ export const gamesWithCustomBackground = [
   'canvas',
   'captainflip',
   'capybarancapybara',
+  'cardia',
   'carnegie',
   'carsoncity',
   'cartographers',
@@ -59,6 +60,7 @@ export const gamesWithCustomBackground = [
   'dobbleconnect',
   'dogpark',
   'dontgointhere',
+  'dontletitdie',
   'draculahelsing',
   'draftandwriterecords',
   'duckcover',
@@ -113,6 +115,7 @@ export const gamesWithCustomBackground = [
   'insidejob',
   'itsawonderfulworld',
   'iwari',
+  'iye',
   'jekyllvshide',
   'jumpdrive',
   'jurassicsnack',
@@ -249,6 +252,7 @@ export const gamesWithCustomBackground = [
   'verdant',
   'verso',
   'vivacatrina',
+  'wanderingtowers',
   'wizardscup',
   'wizardsgrimoire',
   'wonderfulkingdom',
@@ -268,6 +272,7 @@ export const gamesWithTwoTeams = [
 export const gamesWithCustomPanel = [
   'aiye',
   'apiary',
+  'cardia',
   'coatl',
   'dronesvsseagulls',
   'eminentdomain',
@@ -673,6 +678,12 @@ export const gamesWithCustomActions: GamesWithCustomActions = {
     init: () => addInvertOverlay('', true)
   },
   pergola: {
+    init: () => addInvertOverlay('', true)
+  },
+  wanderingtowers: {
+    init: () => addInvertOverlay('', true)
+  },
+  iye: {
     init: () => addInvertOverlay('', true)
   },
   newton: {
