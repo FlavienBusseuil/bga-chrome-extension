@@ -1,5 +1,13 @@
 # Changelog
 
+## [v1.12.15](https://github.com/FlavienBusseuil/bga-chrome-extension/tree/v1.12.15) (2025-07-28)
+
+[Full Changelog](https://github.com/FlavienBusseuil/bga-chrome-extension/compare/v1.12.14...v1.12.15)
+
+**Merged pull requests:**
+
+- darkstyle\(wanderingtowers\): Add darkstyle for wanderingtowers [\#133](https://github.com/FlavienBusseuil/bga-chrome-extension/pull/133) ([GhoulofGSG9](https://github.com/GhoulofGSG9))
+
 ## [v1.12.14](https://github.com/FlavienBusseuil/bga-chrome-extension/tree/v1.12.14) (2025-07-18)
 
 [Full Changelog](https://github.com/FlavienBusseuil/bga-chrome-extension/compare/v1.12.13...v1.12.14)
