@@ -57,7 +57,7 @@ _init().then(() => {
 
     getFile(gameStyleFile, true).then(fileContent => {
       const { file, content } = fileContent;
-      cssContents[file] = content.replace(/#D(?=[ .:])/g, 'html[data-theme=dark]');
+      cssContents[file] = content;
       gameStyleComponent.innerHTML = cssContents[file];
     });
   }
