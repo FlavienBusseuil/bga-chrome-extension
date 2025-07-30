@@ -22,7 +22,6 @@ let pageNotFoundError = false;
 let links: NodeListOf<HTMLAnchorElement> | undefined;
 let lastLink: string | undefined;
 
-
 const findClickableParent = (element: HTMLElement, maxDepth = 10): HTMLAnchorElement | null => {
 	let current = element;
 	let depth = 0;

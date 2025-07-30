@@ -45,7 +45,14 @@ const autoHideChat = (e: MouseEvent) => {
 			chatbardock.classList.add('bgaext_hidden');
 		}
 	} else {
-		chatbardock = document.querySelector('#chatbardock');
+        if (config.getChatBarAutoHide() == 2)
+        {
+            chatbardock = document.querySelector('.chatwindowtype_table');
+        }
+        else if (config.getChatBarAutoHide() == 1)
+        {
+            chatbardock = document.querySelector('#chatbardock');
+        }
 	}
 };
 
@@ -67,7 +74,7 @@ const initObserver = (page: string) => {
 			initTitleObserver();
 		}
 
-		if (page === 'game' && config.isChatBarAutoHide()) {
+		if (page === 'game' && config.getChatBarAutoHide() != 0) {
 			document.querySelector('body')?.addEventListener('mousemove', autoHideChat);
 		}
 	}
@@ -394,7 +401,7 @@ document.addEventListener('bga_ext_update_config', (data) => {
 		if (pageType === 'game') {
 			buildMainCss(config.getGameCss());
 
-			if (config.isChatBarAutoHide()) {
+			if (config.getChatBarAutoHide() != 0) {
 				document.querySelector('body')?.addEventListener('mousemove', autoHideChat);
 			} else {
 				document.querySelector('body')?.removeEventListener('mousemove', autoHideChat);
