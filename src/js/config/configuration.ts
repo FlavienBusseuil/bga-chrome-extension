@@ -37,7 +37,7 @@ interface CustomConfig {
 	levelPlayerRestriction?: number;
 	solidBack?: boolean;
 	hideSocialMessages?: boolean;
-	chatBarAutoHide?: boolean;
+	chatBarAutoHide?: number;
 	hideChatUserNames?: boolean;
 	chatLightIcons?: boolean;
 	animatedTitle?: boolean;
@@ -385,11 +385,11 @@ class Configuration {
 		storageSet({ hideSocialMessages: val });
 	}
 
-	isChatBarAutoHide() {
-		return Boolean(this._customConfig.chatBarAutoHide);
+	getChatBarAutoHide() {
+		return Number(this._customConfig.chatBarAutoHide);
 	}
 
-	setChatBarAutoHide(val: boolean) {
+	setChatBarAutoHide(val: number) {
 		this._customConfig.chatBarAutoHide = val;
 		storageSet({ chatBarAutoHide: val });
 	}
@@ -759,11 +759,14 @@ class Configuration {
 
 	getGameCss() {
 		const cssList: string[] = [];
-
-		if (this._customConfig.chatBarAutoHide) {
-			cssList.push('.game_interface #chatbardock { transition: top .5s ease 0s; }');
-			cssList.push('.game_interface #chatbardock.bgaext_hidden:not(:has(.expanded)) { top: 0px; }')
+		if (this._customConfig.chatBarAutoHide == 2) {
+			cssList.push('.game_interface .chatwindowtype_table { transition: top .5s ease 0s; top: 0px }');
+			cssList.push('.game_interface .chatwindowtype_table.bgaext_hidden:not(:has(.expanded)) { top: 29px; }');
 		}
+        else if (this._customConfig.chatBarAutoHide == 1) {
+            cssList.push('.game_interface #chatbardock { transition: top .5s ease 0s; }');
+			cssList.push('.game_interface #chatbardock.bgaext_hidden:not(:has(.expanded)) { top: 0px; }');
+        }
 
 		if (this._customConfig.hideLogTimestamp) {
 			cssList.push('#logs .timestamp { display: none!important; }');

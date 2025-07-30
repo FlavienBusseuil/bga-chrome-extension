@@ -22,7 +22,6 @@ let pageNotFoundError = false;
 let links: NodeListOf<HTMLAnchorElement> | undefined;
 let lastLink: string | undefined;
 
-
 const findClickableParent = (element: HTMLElement, maxDepth = 10): HTMLAnchorElement | null => {
 	let current = element;
 	let depth = 0;
@@ -32,7 +31,7 @@ const findClickableParent = (element: HTMLElement, maxDepth = 10): HTMLAnchorEle
 		depth++;
 	}
 
-	return 'href' in current ? current as HTMLAnchorElement : null;
+	return current && 'href' in current ? current as HTMLAnchorElement : null;
 };
 
 const linkClick = (evt: MouseEvent): void => {
