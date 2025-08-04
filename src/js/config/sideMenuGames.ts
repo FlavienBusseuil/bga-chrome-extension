@@ -1567,6 +1567,15 @@ const defaultGames: Partial<Game>[] = [
 		name: "pergola",
 		playerPanel: "pgl-player-area-{{player_id}}",
 	},
+	{
+		name: "imperialsettlers",
+		playerPanel: "faction_{{player_id}}",
+	},
+	{
+		name: "arigato",
+		playerPanel: "player-table-{{player_id}}",
+		css: "#bga-jump-to_controls, .vgincLib_layout_slider #bga_extension_sidebar { display: none; }"
+	},
 ];
 
 export default defaultGames;

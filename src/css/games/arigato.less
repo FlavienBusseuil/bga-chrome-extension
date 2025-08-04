@@ -1,0 +1,106 @@
+@import "./common";
+
+#D.vgincLib_thematic_background_on #overall-content:before {
+	content: "";
+	background: #00000060;
+	position: absolute;
+	width: 100%;
+	height: 100%;
+}
+
+#D.vgincLib_thematic_background_on body {
+	background: none !important;
+}
+
+#D.vgincLib_layout_slider .vgincLib_dot {
+	background-color: var(--dark-40);
+}
+
+#D {
+
+	span[data-color=ff0000],
+	strong[data-color=ff0000] {
+		color: #ff6565 !important;
+	}
+
+	span[data-color="008000"],
+	strong[data-color="008000"] {
+		color: #54aa54 !important;
+	}
+
+	span[data-color="0000ff"],
+	strong[data-color="0000ff"] {
+		color: #6565ff !important;
+	}
+
+	span[data-color=ffa500],
+	strong[data-color=ffa500] {
+		color: #ffc965 !important;
+	}
+
+	#player-tables .player-table[data-color=ff0000] {
+		background: linear-gradient(rgba(255, 0, 0, .4) -100%, hsla(0, 0%, 0%, .9));
+	}
+
+	#player-tables .player-table[data-color="008000"] {
+		background: linear-gradient(rgba(0, 128, 0, .4) -100%, hsla(0, 0%, 0%, .9));
+	}
+
+	#player-tables .player-table[data-color="0000ff"] {
+		background: linear-gradient(rgba(0, 0, 255, .4) -100%, hsla(0, 0%, 0%, .9));
+	}
+
+	#player-tables .player-table[data-color=ffa500] {
+		background: linear-gradient(rgba(255, 165, 0, .4) -100%, hsla(0, 0%, 0%, .9));
+	}
+
+	#player-tables .player-table[data-color="000000"] {
+		background: linear-gradient(rgba(0, 0, 0, .4) -100%, hsla(0, 0%, 0%, .9));
+	}
+
+	#player-tables .player-table[data-color=ffffff] {
+		background: linear-gradient(hsla(0, 0%, 100%, .4) -100%, hsla(0, 0%, 0%, .9));
+	}
+
+	#player-tables .player-table[data-color=e94190] {
+		background: linear-gradient(rgba(233, 65, 144, .4) -100%, hsla(0, 0%, 0%, .9));
+	}
+
+	#player-tables .player-table[data-color="982fff"] {
+		background: linear-gradient(rgba(152, 47, 255, .4) -100%, hsla(0, 0%, 0%, .9));
+	}
+
+	#player-tables .player-table[data-color="72c3b1"] {
+		background: linear-gradient(rgba(114, 195, 177, .4) -100%, hsla(0, 0%, 0%, .9));
+	}
+
+	#player-tables .player-table[data-color=f07f16] {
+		background: linear-gradient(rgba(240, 127, 22, .4) -100%, hsla(0, 0%, 0%, .9));
+	}
+
+	#player-tables .player-table[data-color=bdd002] {
+		background: linear-gradient(rgba(189, 208, 2, .4) -100%, hsla(0, 0%, 0%, .9));
+	}
+
+	#player-tables .player-table[data-color="7b7b7b"] {
+		background: linear-gradient(hsla(0, 0%, 48%, .4) -100%, hsla(0, 0%, 0%, .9));
+
+	}
+
+	#popin_gamePrefDialog .vgincLib_dialogButton,
+	#popin_welcomeDialog .vgincLib_dialogButton,
+	.bga-help_preferences-button .vgincLib_dialogButton {
+		.redButton();
+	}
+
+	#popin_gamePrefDialog .vgincLib_dialogButton:hover,
+	#popin_welcomeDialog .vgincLib_dialogButton:hover,
+	.bga-help_preferences-button .vgincLib_dialogButton:hover {
+		.redButtonOver();
+	}
+
+	.vgincLib_tooltipConditionType,
+	.vgincLib_tooltipEffectType {
+		filter: var(--drop-shadow) !important;
+	}
+}

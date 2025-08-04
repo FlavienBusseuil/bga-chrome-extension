@@ -93,6 +93,22 @@ const _init = () => {
       if (!observer) {
         observer = new MutationObserver(advancedSetPageElements)
         observer.observe(mainContent, { childList: true, subtree: true });
+
+        /* Fix click on calendar event with advanced display mode */
+        customMainContent.addEventListener('click', (event) => {
+          const target = event.target as HTMLElement;
+          const clickedDay = target.closest('.bga-advent-calendar__day');
+
+          if (clickedDay && customMainContent && customMainContent.contains(clickedDay)) {
+            const allDays = Array.from(customMainContent.querySelectorAll('.bga-advent-calendar__day'));
+            const index = allDays.indexOf(clickedDay as HTMLElement);
+
+            const daysB = Array.from(mainContent.querySelectorAll('.bga-advent-calendar__day'));
+            const targetDay = daysB[index] as HTMLElement;
+
+            targetDay && targetDay.click();
+          }
+        });
       }
     } else {
       setTimeout(() => advancedSetPage(homeConfig), 50);
