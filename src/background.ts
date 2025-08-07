@@ -108,6 +108,14 @@ const setNewsfeedFilters = (isRedirectEnable: boolean) => {
   }
 };
 
+chrome.runtime.onInstalled.addListener(() => {
+  console.log("[bga extension] Service worker installed");
+});
+
+chrome.runtime.onStartup.addListener(() => {
+  console.log("[bga extension] Service worker started");
+});
+
 config.init().then(() => {
   // Set alarm to run update every minute
   chrome.alarms.onAlarm.addListener((evt) => {
