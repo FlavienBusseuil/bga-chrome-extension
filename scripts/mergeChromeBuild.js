@@ -9,8 +9,10 @@ fs.unlinkSync(`${buildPath}/${backgroundFileName}`);
 
 manifest.background.service_worker = "background.js";
 
+const resultPath = path.join(__dirname, '../build/prod/manifest.json');
+
 fs.writeFile(
-	"~/../build/prod/manifest.json",
+	resultPath,
 	JSON.stringify(manifest),
 	(err) => {
 		if (err) {
