@@ -1,6 +1,6 @@
 const filteredLogs = [
 	"is now online",
-	"est maintenant connecté·e",
+	"est maintenant connecté",
 	"عبر الإنترنت",
 	"у анлайне",
 	"е сега онлайн",
@@ -38,8 +38,9 @@ const filteredLogs = [
 	"đã online",
 	"已上线",
 	"現已上線",
+	"је сада онлајн",
 	"is now offline",
-	"s'est déconnecté·e",
+	"s'est déconnecté",
 	"غير متصل",
 	"у афлайне",
 	"е сега офлайн",
@@ -59,7 +60,7 @@ const filteredLogs = [
 	"kijelentkezett",
 	"sekarang offline",
 	"si è disconnesso",
-	"がオフラインになりました",
+	"がオフライン",
 	"님이 오프라인 상태가 되었습니다",
 	"atsijungė",
 	"tagad ir bezsaitē",
@@ -78,6 +79,7 @@ const filteredLogs = [
 	"đã thoát",
 	"已离线",
 	"現已離線",
+	"је сада офлајн",
 ];
 
 const shouldFilter = (text: string) => {
