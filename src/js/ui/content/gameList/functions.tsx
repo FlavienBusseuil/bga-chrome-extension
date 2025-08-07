@@ -32,7 +32,7 @@ const findClickableParent = (element: HTMLElement, maxDepth = 10): HTMLAnchorEle
 		depth++;
 	}
 
-	return 'href' in current ? current as HTMLAnchorElement : null;
+	return current && 'href' in current ? current as HTMLAnchorElement : null;
 };
 
 const linkClick = (evt: MouseEvent): void => {
