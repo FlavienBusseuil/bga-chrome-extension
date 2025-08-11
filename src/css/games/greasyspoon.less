@@ -1,12 +1,11 @@
 @import "./common";
 
-#D {
-	/* if edited with Visual Studio, a white space is added ! */
-	.bgabutton_blue:not(.disabled)[style="background: green; border-color: green;"] {
+html[data-theme=dark] {
+	.bgabutton_blue[style="background: green; border-color: green;"]:not(.disabled) {
 		.greenButton();
 	}
 
-	.bgabutton_blue:not(.disabled)[style="background: green; border-color: green;"]:hover {
+	.bgabutton_blue[style="background: green; border-color: green;"]:not(.disabled):hover {
 		.greenButtonOver();
 	}
 }

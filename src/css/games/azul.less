@@ -1,6 +1,6 @@
 @import "./common";
 
-#D:not(.background2) #overall-content:before {
+html[data-theme=dark]:not(.background2) #overall-content:before {
 	content: "";
 	background: #000000A0;
 	position: absolute;
@@ -8,11 +8,11 @@
 	height: 100%;
 }
 
-#D:not(.background2) #bga-zoom-controls {
+html[data-theme=dark]:not(.background2) #bga-zoom-controls {
 	filter: invert(1);
 }
 
-#D {
+html[data-theme=dark] {
 	.player-table-wrapper .player-hand {
 		background: var(--dark-back);
 		box-shadow: 0 0 5px 5px #000000dd;

@@ -1,6 +1,6 @@
 @import "./common";
 
-#D:not(.no-custom-background) #overall-content:before {
+html[data-theme=dark]:not(.no-custom-background) #overall-content:before {
 	content: "";
 	background: #00000080;
 	position: absolute;
@@ -8,7 +8,7 @@
 	height: 100%;
 }
 
-#D {
+html[data-theme=dark] {
 	#twc-draft-area {
 		background-color: var(--dark-back);
 	}
