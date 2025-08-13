@@ -9,6 +9,7 @@ export const gamesWithRecommendedConfig: { [gameName: GameName]: RecommendedConf
 	arknova: { color: 33, sat: 15 },
 	arknovamw: { color: 33, sat: 15 },
 	bauer: { color: 0, sat: 15 },
+	bebop: { color: 216, sat: 15 },
 	beerbread: { color: 25, sat: 22 },
 	betta: { color: 180, sat: 20 },
 	beyondthesun: { color: 197, sat: 35 },

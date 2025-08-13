@@ -1,0 +1,33 @@
+html[data-theme=dark] {
+
+	.player-infos .counter.cards-counter:before,
+	.player_config_row>div:last-child>svg,
+	#pin svg {
+		filter: invert(0.8);
+	}
+
+	.deckinfo {
+		background: var(--dark-back);
+		color: var(--light-80);
+	}
+
+	.player_config_row {
+		border-bottom: 1px solid var(--light-50);
+	}
+
+	.FSDtable .title {
+		color: #000;
+	}
+
+	#FSD_caution {
+		background-color: var(--red-10);
+		color: var(--light-80);
+	}
+
+	.mobile_version #cards:not(.changed),
+	body:not(.mobile_version) #cards.changed,
+	.mobile_version #cards:not(.changed) #pin,
+	body:not(.mobile_version) #cards.changed #pin {
+		background-color: var(--dark-20);
+	}
+}

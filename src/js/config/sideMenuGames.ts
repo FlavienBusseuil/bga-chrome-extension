@@ -1576,6 +1576,12 @@ const defaultGames: Partial<Game>[] = [
 		playerPanel: "player-table-{{player_id}}",
 		css: "#bga-jump-to_controls, .vgincLib_layout_slider #bga_extension_sidebar { display: none; }"
 	},
+	{
+		name: "forestshuffledartmoor",
+		playerPanel: "FSDtable_{{player_id}}",
+		playerPanelOffset: 20,
+		position: "bottom"
+	},
 ];
 
 export default defaultGames;
