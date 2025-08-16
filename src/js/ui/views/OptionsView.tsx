@@ -39,7 +39,7 @@ export const OptionsView = ({ config, onChange }: Props) => {
   const [socialMessagesHidden, setSocialMessagesHidden] = useSyncedState('socialMessagesHidden', config.areSocialMessagesHidden());
   const [chatUserNamesHidden, setChatUserNamesHidden] = useSyncedState('chatUserNamesHidden', config.areChatUserNamesHidden());
   const [chatDarkIcons, setChatDarkIcons] = useSyncedState('chatDarkIcons', config.chatDarkIcons());
-  const [chatBarAutoHide, setChatBarAutoHide] = useSyncedState('chatBarAutoHide', config.isChatBarAutoHide());
+  const [chatBarAutoHide, setChatBarAutoHide] = useSyncedState<number>('chatBarAutoHide', config.getChatBarAutoHide());
   const [homeConfig, setHomeConfig] = useSyncedState<HomeConfig>('homeConfig', config.getHomeConfig());
   const [inProgressConfig, setInProgressConfig] = useSyncedState<InProgressConfig>('inProgressConfig', config.getInProgressConfig());
   const [isHideGameButtonDisplayed, displayHideGameButton] = useSyncedState('isHideGameButtonDisplayed', config.isHideGameButtonDisplayed());
@@ -202,7 +202,7 @@ export const OptionsView = ({ config, onChange }: Props) => {
     config.setChatDarkIcons(val);
   };
 
-  const updateChatBarAutoHide = (val: boolean) => {
+  const updateChatBarAutoHide = (val: number) => {
     setChatBarAutoHide(val);
     config.setChatBarAutoHide(val);
   };
@@ -398,10 +398,17 @@ export const OptionsView = ({ config, onChange }: Props) => {
       return (
         <div className="options-frame">
           <div className="options-frame-title">{i18n("optionGamesTitle")}</div>
+            <div className="options-line">
+              <span>{i18n("optionsChatVisibilityLabel")}</span>
+		      <select className="border border-black dark:dark:border-white rounded" onChange={(evt: any) => updateChatBarAutoHide(evt.target?.value)} value={chatBarAutoHide}>
+                <option value='0'>{i18n("optionsChatAutoHideOff")}</option>
+                <option value='1'>{i18n("optionsChatAutoHideAll")}</option>
+                <option value='2'>{i18n("optionsChatAutoHideTable")}</option>
+              </select>
+		    </div>
           {getSwitch(onlineMessages, updateOnlineMessages, "optionFriendsActivityOn", "optionFriendsActivityOff")}
           {getSwitch(!eloHidden, updateEloHidden, "optionEloHiddenOff", "optionEloHiddenOn")}
           {getSwitch(!arenaEloHidden, updateArenaEloHidden, "optionArenaEloHiddenOff", "optionArenaEloHiddenOn")}
-          {desktopVersion && getSwitch(chatBarAutoHide, updateChatBarAutoHide, "optionsChatAutoHideOn", "optionsChatAutoHideOff")}
           {getSwitch(areLogTimestampsHidden, updateAreLogTimestampsRemoved, "optionRemoveLogTimestampsOn", "optionRemoveLogTimestampsOff")}
           {getSwitch(!hideLeftBarOption, updateHideLeftBarOption, "optionHideLeftBarOptionOff", "optionHideLeftBarOptionOn")}
           {getSwitch(quitGameOption === 'lobby', updateQuitGameOption, "optionsQuitGameToLobbyOn", "optionsQuitGameToLobbyOff")}
