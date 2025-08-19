@@ -507,7 +507,7 @@ export const OptionsView = ({ config, onChange }: Props) => {
       }} />;
     }
 
-    return <>{i18n("optionsHomeRefresh")}</>;
+    return <div>{i18n("optionsHomeRefresh")}</div>;
   }
 
   const getHomeSection = () => {

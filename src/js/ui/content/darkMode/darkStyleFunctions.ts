@@ -20,6 +20,7 @@ if (pageInfo.length >= 2 && isNumber(pageInfo[0] as string)) {
   gameName = mode;
 } else if (pageInfo[0] === "tutorial") {
   mode = window.location.search.substring(1).split('&').find(p => p.startsWith('game'))?.split('=')[1] ?? 'general';
+  gameName = mode;
 } else if (pageInfo[0] === "archive") {
   mode = "archive";
 } else {

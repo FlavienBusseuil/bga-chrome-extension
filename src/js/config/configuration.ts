@@ -856,6 +856,7 @@ class Configuration {
 				}
 				if (!home.recommandedGames) {
 					cssList.push('.bgaext_welcome .flex-1:has(>.homepage-section>.homepage-section__title>[href*="/gamelist?isSuggested"]) { display: none; }');
+					cssList.push('.bgaext_welcome .flex-1:has(>.homepage-section>.homepage-section__content>.bga-advent-calendar) { display: none; }');
 					--columns;
 				}
 				if (!home.classicGames) {

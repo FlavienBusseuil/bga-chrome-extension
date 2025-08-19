@@ -91,6 +91,12 @@ export const ADVANCED_HOME_STYLE = `
   -webkit-clip-path: circle(142% at bottom left);
   clip-path: circle(142% at bottom left);
 }
+
+#bgaext-homepage .bga-advent-calendar {
+    display: flex;
+    flex-flow: column;
+    justify-content: center;
+}
 `;
 
 export const COLORFUL_TABLES = `

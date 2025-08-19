@@ -81,27 +81,4 @@ html[data-theme=dark] {
 	.swd_title {
 		color: #000;
 	}
-
-	.wonder,
-	#board_container,
-	.list_of_cards,
-	.building_header_small,
-	.draftpool,
-	.progress_token {
-		position: relative;
-	}
-
-	.wonder::before,
-	#board_container::before,
-	.list_of_cards::before,
-	.building_header_small::before,
-	.draftpool::before,
-	.progress_token::before {
-		content: "";
-		position: absolute;
-		inset: 0;
-		background: rgba(0, 0, 0, 0.1);
-		pointer-events: none;
-		z-index: 1;
-	}
 }

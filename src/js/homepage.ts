@@ -60,6 +60,7 @@ const _init = () => {
     copyHtml('#bgadef-homepage .homepage-section:has([href*="/gamelist?isRecent"])', '#bgaext-games-recent');
     copyHtml('#bgadef-homepage .homepage-section:has([href*="/gamelist?isTrending"])', '#bgaext-games-popular');
     copyHtml('#bgadef-homepage .homepage-section:has([href*="/gamelist?isSuggested"])', '#bgaext-games-suggested');
+    copyHtml('#bgadef-homepage .bga-advent-calendar', '#bgaext-games-suggested');
     copyHtml('#bgadef-homepage .bga-homepage__games-section > div:last-child', '#bgaext-games-classic');
     copyHtml('#bgadef-homepage .homepage-section:has([href*="/player?section=recent"])', '#bgaext-newsfeed');
     copyHtml('#bgadef-homepage .homepage-section:has([href*="tournamentlist"])', '#bgaext-tournaments');

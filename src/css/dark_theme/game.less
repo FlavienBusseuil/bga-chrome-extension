@@ -674,8 +674,16 @@ div[id*="popin"][id$="underlay"] {
 }
 
 /* tutorial & archive */
-#newArchiveCommentTextDisplay span[style="color:blue"] {
-  color: #6666ff !important;
+.dijitTooltipDialogPopup[aria-label=newArchiveComment] span[style="color:blue"] {
+  color: var(--blue-70) !important;
+}
+
+.dijitTooltipDialogPopup[aria-label=newArchiveComment] span[style="color:green"] {
+  color: var(--green-50) !important;
+}
+
+.dijitTooltipDialogPopup[aria-label=newArchiveComment] span[style="color:red"] {
+  color: var(--red-30) !important;
 }
 
 #archivecontrol a {
