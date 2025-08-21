@@ -14,7 +14,7 @@ interface Props {
 const ConfirmationPopup = ({ type, confirm, cancel, config }: Props) => {
   const [stopWarn, setStopWarn] = useState(false);
   const [autoOpen, setAutoOpen] = useState(config.isAutoOpenEnable());
-  const [muteWarning, setMuteWarning] = useState(config.isMuteWarning());
+  const [muteWarning,] = useState(config.isMuteWarning());
 
   if (type === 'delete_game') {
     return (
@@ -43,7 +43,7 @@ const ConfirmationPopup = ({ type, confirm, cancel, config }: Props) => {
       <div id="bgaext_popup" className="large">
         <h2 class="bgaext_popup_title">{i18n("mutePlayerTitle")}</h2>
         <p>{i18n("muteText1")}</p>
-        <div className="bgaext_popup_check" onClick={() => setMuteWarning(!muteWarning)}>
+        <div className="bgaext_popup_check" onClick={() => config.setMuteWarning(!muteWarning)}>
           <input type="checkbox" checked={muteWarning} />
           <label>{i18n("muteWarningOn")}</label>
         </div>
