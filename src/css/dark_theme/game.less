@@ -436,11 +436,11 @@ a#pageheader_buy {
 }
 
 .dijitTooltipContainer .blue {
-  color: #6666ff !important;
+  color: #65adff !important;
 }
 
 .dijitTooltipContainer .red {
-  color: #ff3333 !important;
+  color: #ff6565 !important;
 }
 
 .dijitTooltipContainer .imgtext {
@@ -452,6 +452,14 @@ a#pageheader_buy {
 .dijitTooltipContainer .help_info {
   background-color: transparent;
   background-image: var(--ext-icon-info);
+}
+
+.tundra.game_tutorial_mode .newArchiveCommentDisplay .dijitTooltipContainer {
+  background-color: var(--dark-10) !important;
+}
+
+.tundra.game_tutorial_mode .newArchiveCommentDisplay .dijitTooltipConnector {
+  filter: invert(.85) grayscale();
 }
 
 .dj_webkit .tundra .dijitTooltipContainer {
@@ -467,11 +475,11 @@ a#pageheader_buy {
 }
 
 .male {
-  color: #6666ff;
+  color: #65adff;
 }
 
 .female {
-  color: #ff33a0;
+  color: #ff6565;
 }
 
 #arena_ending_soon {
@@ -675,15 +683,48 @@ div[id*="popin"][id$="underlay"] {
 
 /* tutorial & archive */
 .dijitTooltipDialogPopup[aria-label=newArchiveComment] span[style="color:blue"] {
-  color: var(--blue-70) !important;
+  color: #65adff !important;
 }
 
 .dijitTooltipDialogPopup[aria-label=newArchiveComment] span[style="color:green"] {
-  color: var(--green-50) !important;
+  color: #54aa54 !important;
 }
 
 .dijitTooltipDialogPopup[aria-label=newArchiveComment] span[style="color:red"] {
-  color: var(--red-30) !important;
+  color: #ff6565 !important;
+}
+
+.game_tutorial_mode .archiveCommentPointed1 {
+  outline: 6px dashed #ff6565;
+}
+
+.game_tutorial_mode .archiveCommentPointed2 {
+  outline: 6px dashed #65adff;
+}
+
+.game_tutorial_mode .archiveCommentPointed3 {
+  outline: 6px dashed #54aa54;
+}
+
+.game_tutorial_mode .archiveCommentPointed6 {
+  background: linear-gradient(90deg, #ff6565 50%, transparent 0), linear-gradient(90deg, #ff6565 50%, transparent 0), linear-gradient(0deg, #ff6565 50%, transparent 0), linear-gradient(0deg, #ff6565 50%, transparent 0);
+  background-position: 0 0, 100% 100%, 0 100%, 100% 0;
+  background-repeat: repeat-x, repeat-x, repeat-y, repeat-y;
+  background-size: 15px 4px, 15px 4px, 4px 15px, 4px 15px;
+}
+
+.game_tutorial_mode .archiveCommentPointed7 {
+  background: linear-gradient(90deg, #65adff 50%, transparent 0), linear-gradient(90deg, #65adff 50%, transparent 0), linear-gradient(0deg, #65adff 50%, transparent 0), linear-gradient(0deg, #65adff 50%, transparent 0);
+  background-position: 0 0, 100% 100%, 0 100%, 100% 0;
+  background-repeat: repeat-x, repeat-x, repeat-y, repeat-y;
+  background-size: 15px 4px, 15px 4px, 4px 15px, 4px 15px;
+}
+
+.game_tutorial_mode .archiveCommentPointed8 {
+  background: linear-gradient(90deg, #54aa54 50%, transparent 0), linear-gradient(90deg, #54aa54 50%, transparent 0), linear-gradient(0deg, #54aa54 50%, transparent 0), linear-gradient(0deg, #54aa54 50%, transparent 0);
+  background-position: 0 0, 100% 100%, 0 100%, 100% 0;
+  background-repeat: repeat-x, repeat-x, repeat-y, repeat-y;
+  background-size: 15px 4px, 15px 4px, 4px 15px, 4px 15px;
 }
 
 #archivecontrol a {
