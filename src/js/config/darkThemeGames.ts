@@ -354,6 +354,7 @@ export const gamesWithConditionalCustomBackground: GamesWithCustomBackground = {
   orapamine: ['orp_pref-thematicBackground-blue', 'orp_pref-thematicBackground-red'],
   rollintotown: ['rt-pref-background-dark'],
   setup: ['setup-pref-background-dark'],
+  shogi: ['shg_theme1', 'shg_theme2'],
   supermegaluckybox: ['smlb_background'],
   texasholdem: ['dark-wood-vertical-background', 'dark-wood-horizontal-background'],
   thewhitecastle: ['custom-background'],
