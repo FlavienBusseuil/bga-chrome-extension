@@ -1,0 +1,31 @@
+html[data-theme=dark] {
+	#player_config #turn_counter_wrapper {
+		background: var(--dark-30);
+		color: var(--light-80);
+	}
+
+	.stig_panel .stig_player_infos .stig_player_resource .stig_icon_container .stig_icon.stig_lockedActions,
+	.stig_panel .stig_player_infos .stig_player_resource .stig_icon_container .stig_icon.stig_unlockedActions {
+		border-radius: 50%;
+	}
+
+	.stig_panel .stig_player_infos .stig_player_resource .stig_icon_container.stig_icon_container_pollens,
+	.stig_panel .stig_player_infos .stig_player_resource .stig_icon_container .stig_icon.stig_lockedActions,
+	.stig_panel .stig_player_infos .stig_player_resource .stig_icon_container .stig_icon.stig_jokers,
+	.stig_panel .stig_player_infos .stig_player_resource .stig_icon_container .stig_icon.stig_tokens_deck {
+		filter: var(--highlight-min);
+	}
+
+	.stig_central_board .player-name,
+	.stig_player_board .player-name,
+	.stig_schema_board .player-name {
+		background: var(--dark-back);
+		text-shadow: none;
+	}
+
+	.stig_central_board .player-name[style*="color:#000000"],
+	.stig_player_board .player-name[style*="color:#000000"],
+	.stig_schema_board .player-name[style*="color:#000000"] {
+		text-shadow: 2px 0 2px #fff, 0 2px 2px #fff, -2px 0 2px #fff, 0 -2px 2px #fff;
+	}
+}
