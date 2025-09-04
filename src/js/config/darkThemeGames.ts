@@ -45,6 +45,7 @@ export const gamesWithCustomBackground = [
   'caverna',
   'century',
   'chromino',
+  'cities',
   'clashofdecks',
   'coatl',
   'codexnaturalis',

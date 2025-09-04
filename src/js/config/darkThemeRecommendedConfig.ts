@@ -22,6 +22,7 @@ export const gamesWithRecommendedConfig: { [gameName: GameName]: RecommendedConf
 	castlecombo: { color: 190, sat: 23 },
 	catan: { color: 210, sat: 16 },
 	century: { color: 25, sat: 16 },
+	cities: { color: 220, sat: 32 },
 	challengers: { color: 100, sat: 16 },
 	conspiracy: { color: 226, sat: 16 },
 	cosmosempires: { color: 233, sat: 27 },
