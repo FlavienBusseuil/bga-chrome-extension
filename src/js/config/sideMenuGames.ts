@@ -400,7 +400,7 @@ const defaultGames: Partial<Game>[] = [
 		playerPanel: "#rnb_players > div > h2 > span",
 		playerPanelOffset: 15,
 		bottomPanel: "rnb_rewards",
-		css: ".desktop_version #game_play_area { padding-left: 40px; }",
+		css: " ",
 	},
 	{
 		name: "lagranja",
