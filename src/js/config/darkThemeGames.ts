@@ -121,6 +121,7 @@ export const gamesWithCustomBackground = [
   'jekyllvshide',
   'jumpdrive',
   'jurassicsnack',
+  'justone',
   'kado',
   'khiva',
   'kikaibricolageheads',
