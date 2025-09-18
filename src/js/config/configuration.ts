@@ -1,6 +1,6 @@
 import { addChangeListener, localStorageClear, localStorageGet, localStorageSet, storageClear, storageGet, storageSet } from "../utils/browser";
 import { i18n, setI18nLocale, getI18nDefaultLocale } from "../utils/browser/i18n";
-import { ADVANCED_HOME_STYLE, ARENA_DISABLED_GAMES, COLORFUL_TABLES, DEF_HOME_HTML } from "./configuration.constants";
+import { ADVANCED_HOME_STYLE, ARENA_DISABLED_GAMES, COLORFUL_TABLES, DEF_HOME_HTML, HIDE_FULLSCREEN_LOADING_LOGO } from "./configuration.constants";
 import { DarkModeConfig, Game, Template } from "./models";
 
 interface CustomConfig {
@@ -30,6 +30,7 @@ interface CustomConfig {
 	inProgress?: InProgressConfig;
 	lobbyRedirect?: boolean;
 	hideDisabledArenaGames?: boolean;
+	hideFullscreenLoadingLogo?: boolean;
 	fastCreate?: boolean;
 	autoOpen?: boolean;
 	karmaRestriction?: number;
@@ -320,6 +321,15 @@ class Configuration {
 	hideDisabledArenaGames(val: boolean) {
 		this._customConfig.hideDisabledArenaGames = val;
 		storageSet({ hideDisabledArenaGames: val });
+	}
+
+	isFullscreenLoadingLogoHidden() {
+		return this._customConfig.hideFullscreenLoadingLogo === undefined || Boolean(this._customConfig.hideFullscreenLoadingLogo);
+	}
+
+	hideFullscreenLoadingLogo(val: boolean) {
+		this._customConfig.hideFullscreenLoadingLogo = val;
+		storageSet({ hideFullscreenLoadingLogo: val });
 	}
 
 	isFastCreateEnable() {
@@ -802,6 +812,10 @@ class Configuration {
 
 		if (this.areDisabledArenaGamesHidden()) {
 			cssList.push(ARENA_DISABLED_GAMES);
+		}
+
+		if (this.isFullscreenLoadingLogoHidden()) {
+			cssList.push(HIDE_FULLSCREEN_LOADING_LOGO);
 		}
 
 		if (advHome.advanced) {

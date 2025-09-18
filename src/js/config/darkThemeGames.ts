@@ -94,6 +94,7 @@ export const gamesWithCustomBackground = [
   'forbiddenisland',
   'frenchtarot',
   'fromage',
+  'galacticcruise',
   'gangofdice',
   'gangsta',
   'gardennation',
@@ -180,6 +181,7 @@ export const gamesWithCustomBackground = [
   'pergola',
   'photosynthesis',
   'pingimus',
+  'pinacoladice',
   'pixies',
   'planetunknown',
   'pocketcats',
@@ -430,6 +432,7 @@ export const playersBorder: { [gameName: GameName]: string[] } = {
   heat: ['#player-table-{{player_id}}'],
   heatchampionship: ['#player-table-{{player_id}}'],
   ink: ['#player-table-{{player_id}}'],
+  irishgauge: ['#player-table-{{player_id}}', '#player-table-{{player_id}} .player-table-name'],
   itsawonderfulworld: ['#iww-player{{player_id}}'],
   jumpdrive: ['#jdr-tableau-{{player_id}}'],
   letsgotojapan: ['#playerhandtitle_{{player_id}}', '#playerhand_{{player_id}}', '#nameplayer_{{player_id}}'],
@@ -452,6 +455,7 @@ export const playersBorder: { [gameName: GameName]: string[] } = {
 };
 
 export const playersTextColor: { [gameName: GameName]: string[] } = {
+  irishgauge: ['#player-table-{{player_id}} .player-table-name'],
   upordown: ['#player-table-{{player_id}} .player-table-name'],
 };
 
@@ -698,6 +702,9 @@ export const gamesWithCustomActions: GamesWithCustomActions = {
     init: () => addInvertOverlay('', true)
   },
   wanderingtowers: {
+    init: () => addInvertOverlay('', true)
+  },
+  pinacoladice: {
     init: () => addInvertOverlay('', true)
   },
   newton: {

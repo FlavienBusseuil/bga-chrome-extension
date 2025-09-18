@@ -194,3 +194,7 @@ export const ARENA_DISABLED_GAMES = `
     display: none !important;
 }
 `;
+
+export const HIDE_FULLSCREEN_LOADING_LOGO = `
+#overall_loading, #main-content > #loading { display: none; }
+`;

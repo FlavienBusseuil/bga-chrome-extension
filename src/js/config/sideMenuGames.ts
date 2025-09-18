@@ -1590,6 +1590,15 @@ const defaultGames: Partial<Game>[] = [
 		iconBorderDark: "#7c8fb6",
 		position: "bottom"
 	},
+	{
+		name: "galacticcruise",
+		playerPanel: "#players_area > div",
+		iconBackgroundDark: "#4b3621",
+		iconBorderDark: "#c19971",
+		css: " ",
+		position: "bottom"
+	},
+
 ];
 
 export default defaultGames;

@@ -366,7 +366,7 @@ document.addEventListener('bga_ext_update_config', (data) => {
 		refreshMutedPlayers(config);
 	} else if (key === 'solidBack') {
 		location.reload();
-	} else if (key === 'inProgress' || key === 'hideChatUserNames' || key === 'hideDisabledArenaGames') {
+	} else if (key === 'inProgress' || key === 'hideChatUserNames' || key === 'hideDisabledArenaGames' || key === 'hideFullscreenLoadingLogo') {
 		if (pageType === 'general') {
 			buildMainCss(config.getAllCss());
 		}

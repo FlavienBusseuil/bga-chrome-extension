@@ -107,6 +107,8 @@
   "optionsChatUserNameOff": "Le nom des utilisateurs dans le chat est caché lorsque c'est possible",
   "optionsChatDarkIconsOn": "Les émoticônes du mode sombre sont utilisées dans les conversations si le mode sombre est activé",
   "optionsChatDarkIconsOff": "Les émoticônes du mode clair sont utilisées dans les conversations, même si le mode sombre est activé",
+  "optionsLoadingLogoOn": "Le logo animé de BGA n'est pas affiché lors des changements d'écran",
+  "optionsLoadingLogoOff": "Le logo animé de BGA est affiché en pleine page lors des changements d'écran (comportement par défaut)",
   "optionsChatAutoHideOn": "La barre de chat est uniquement affichée lors d'un survol par la souris",
   "optionsChatAutoHideOff": "La barre de chat est toujours affichée",
   "optionsHideDisabledArenaGameOn": "Les jeux auxquels vous ne pouvez pas jouer en mode Arène sont cachés",

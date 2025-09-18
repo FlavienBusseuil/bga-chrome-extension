@@ -30,6 +30,7 @@ export const OptionsView = ({ config, onChange }: Props) => {
   const [motionSensitivity, setMotionSensitivity] = useSyncedState('motionSensitivity', config.isMotionSensitivityEnable());
   const [redirect, setRedirect] = useSyncedState('redirect', config.isLobbyRedirectionEnable());
   const [hideDisabledArenaGame, setHideDisabledArenaGame] = useSyncedState('hideDisabledArenaGame', config.areDisabledArenaGamesHidden());
+  const [hideLoadingLogo, setHideLoadingLogo] = useSyncedState('hideLoadingLogo', config.isFullscreenLoadingLogoHidden());
   const [fastCreate, setFastCreate] = useSyncedState('fastCreate', config.isFastCreateEnable());
   const [autoOpen, setAutoOpen] = useSyncedState('autoOpen', config.isAutoOpenEnable());
   const [karmaRestriction, setKarmaRestriction] = useSyncedState('karmaRestriction', config.getKarmaRestriction());
@@ -148,6 +149,11 @@ export const OptionsView = ({ config, onChange }: Props) => {
   const updateHideDisabledArenaGame = (val: boolean) => {
     setHideDisabledArenaGame(val);
     config.hideDisabledArenaGames(val);
+  }
+
+  const updateHideLoadingLogo = (val: boolean) => {
+    setHideLoadingLogo(val);
+    config.hideFullscreenLoadingLogo(val);
   }
 
   const updateFastCreate = (val: boolean) => {
@@ -341,6 +347,7 @@ export const OptionsView = ({ config, onChange }: Props) => {
           {getSwitch(socialMessagesHidden, updateSocialMessagesHidden, "optionsHideSocialMessagesOn", "optionsHideSocialMessagesOff")}
           {getSwitch(!chatUserNamesHidden, updateChatUserNamesHidden, "optionsChatUserNameOn", "optionsChatUserNameOff")}
           {getSwitch(chatDarkIcons, updateChatDarkIcons, "optionsChatDarkIconsOn", "optionsChatDarkIconsOff")}
+          {getSwitch(hideLoadingLogo, updateHideLoadingLogo, "optionsLoadingLogoOn", "optionsLoadingLogoOff")}
         </div>
       );
     }
