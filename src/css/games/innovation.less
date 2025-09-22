@@ -56,4 +56,16 @@ html[data-theme=dark] {
 	#logs [style^="color:#000000"] {
 		color: 000 !important;
 	}
+
+	.pile_count,
+	.deck_set>.deck_pile>.deck_count.four_sets,
+	.deck_set>.deck_pile>.deck_count.three_sets {
+		background: var(--dark-40);
+		color: var(--light-80);
+		border-color: var(--light-80);
+	}
+
+	.splay_indicator {
+		filter: invert(1)
+	}
 }

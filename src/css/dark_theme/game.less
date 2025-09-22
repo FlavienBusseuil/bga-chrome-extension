@@ -203,16 +203,16 @@ spectator-mode .log .roundedbox .playername {
   text-shadow: -1px -1px #0004, 1px 1px #0004, -1px 1px #0004, 1px -1px #0004 !important;
 }
 
-.bgabutton_blue {
+.bgabutton_blue:not(.disabled):not(:disabled) {
   background: linear-gradient(180deg, #0ba9b7, #248189);
   border: 1px solid #36848c;
 }
 
-.bgabutton_blue:hover {
+.bgabutton_blue:not(.disabled):not(:disabled):hover {
   background: linear-gradient(180deg, #06d7ea, #248189);
 }
 
-.bgabutton_blue:active {
+.bgabutton_blue:not(.disabled):not(:disabled):active {
   background: linear-gradient(180deg, #248189, #0ba9b7);
 }
 
@@ -244,7 +244,8 @@ spectator-mode .log .roundedbox .playername {
 }
 
 .bgabutton.disabled,
-.bgabutton_disabled {
+.bgabutton_disabled,
+.bgabutton:disabled {
   background: #787878 !important;
   border-color: var(--light-50) !important;
   color: #fff !important;

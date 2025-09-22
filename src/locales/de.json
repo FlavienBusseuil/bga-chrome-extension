@@ -107,6 +107,8 @@
   "optionsChatUserNameOff": "Nutzernamen werden im Chat, nur wenn nötig angezeigt",
   "optionsChatDarkIconsOn": "Emoticons im dunklen Modus werden in Unterhaltungen verwendet, wenn der dunkle Modus aktiviert ist",
   "optionsChatDarkIconsOff": "Emoticons im hellen Modus werden in Unterhaltungen verwendet, auch wenn der dunkle Modus aktiviert ist",
+  "optionsLoadingLogoOn": "The animated BGA logo is not displayed during screen changes",
+  "optionsLoadingLogoOff": "The animated BGA logo is displayed full-screen during screen changes (default behavior)",
   "optionsChatAutoHideOn": "Die Chatleiste wird nur angezeigt, wenn die Maus darüber bewegt wird",
   "optionsChatAutoHideOff": "Die Chatleiste wird immer angezeigt",
   "optionsHideDisabledArenaGameOn": "Spiele, die man im Arena-Modus nicht spielen kann, werden ausgeblendet",

@@ -51,6 +51,7 @@ export const gamesWithRecommendedConfig: { [gameName: GameName]: RecommendedConf
 	insidejob: { color: 105, sat: 10 },
 	jurassicsnack: { color: 110, sat: 5 },
 	kado: { color: 30, sat: 15 },
+	legions: { color: 0, sat: 20 },
 	locomomo: { color: 91, sat: 14 },
 	lielow: { color: 13, sat: 15 },
 	lineit: { color: 250, sat: 28 },

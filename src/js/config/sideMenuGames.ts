@@ -203,7 +203,8 @@ const defaultGames: Partial<Game>[] = [
 	{
 		name: "innovation",
 		playerPanel: "player_{{player_id}}",
-		css: ".desktop_version .player { margin-left: 50px; }",
+		position: "bottom",
+		css: " ",
 	},
 	{
 		name: "railroadink",

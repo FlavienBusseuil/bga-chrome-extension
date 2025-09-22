@@ -717,7 +717,7 @@ class Configuration {
 		}
 
 		const result = this._customConfig.dark.find(d => d.name === gameName)?.color;
-		return result === undefined ? def || mainValue : result;
+		return result === undefined ? (def === undefined ? mainValue : def) : result;
 	}
 
 	getDarkModeSaturation(gameName: string, def?: number) {

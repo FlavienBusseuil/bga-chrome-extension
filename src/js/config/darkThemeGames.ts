@@ -131,6 +131,7 @@ export const gamesWithCustomBackground = [
   'knarr',
   'krosmasterblast',
   'lasvegan',
+  'legions',
   'lielow',
   'lineit',
   'livingforestduel',
@@ -469,6 +470,7 @@ export const gamesWithCustomColors: { [gameName: GameName]: string[] } = {
   harmonies: ['#ff0000', '#008000', '#ffa500', '#0000ff'],
   imperialsettlers: ['#0000ff', '#ff0000', '#ffa500'],
   insidejob: ['#0000ff', '#ff0000', '#ffa500', '#773300', '#008000'],
+  legions: ['#770405', '#097138', '#011d4d', "#522886"], /* factions text in tooltips */
   livingforestduel: ['#302879', '#32693b'],
   lumen: ['#1f3067'],
   nimalia: ['#0000ff', '#ff0000', '#ffa500', '#008000'],
@@ -705,6 +707,9 @@ export const gamesWithCustomActions: GamesWithCustomActions = {
     init: () => addInvertOverlay('', true)
   },
   pinacoladice: {
+    init: () => addInvertOverlay('', true)
+  },
+  legions: {
     init: () => addInvertOverlay('', true)
   },
   newton: {
