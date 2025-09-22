@@ -1599,6 +1599,13 @@ const defaultGames: Partial<Game>[] = [
 		css: " ",
 		position: "bottom"
 	},
+	{
+		name: "nature",
+		playerPanel: ".na_player_area",
+		iconBackgroundDark: "#4b3621",
+		iconBorderDark: "#c19971",
+		css: " "
+	},
 
 ];
 
