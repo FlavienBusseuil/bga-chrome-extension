@@ -1,5 +1,13 @@
 # Changelog
 
+## [v1.12.23](https://github.com/FlavienBusseuil/bga-chrome-extension/tree/v1.12.23) (2025-09-23)
+
+[Full Changelog](https://github.com/FlavienBusseuil/bga-chrome-extension/compare/v1.12.22...v1.12.23)
+
+**Merged pull requests:**
+
+- translate\(german\): add missing logo option locales [\#136](https://github.com/FlavienBusseuil/bga-chrome-extension/pull/136) ([GhoulofGSG9](https://github.com/GhoulofGSG9))
+
 ## [v1.12.22](https://github.com/FlavienBusseuil/bga-chrome-extension/tree/v1.12.22) (2025-09-18)
 
 [Full Changelog](https://github.com/FlavienBusseuil/bga-chrome-extension/compare/v1.12.21...v1.12.22)
