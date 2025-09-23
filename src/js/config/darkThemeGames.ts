@@ -58,6 +58,7 @@ export const gamesWithCustomBackground = [
   'craftingthecosmos',
   'darwinsjourney',
   'deadcells',
+  'deadcellsnewcontent', /* tempo */
   'dedale',
   'dicycards',
   'dobbleconnect',
@@ -469,6 +470,7 @@ export const gamesWithCustomColors: { [gameName: GameName]: string[] } = {
   altay: ['#000000', '#ebb41b', '#e12129', '#00a7d2', '#47a34b'],
   cosmoctopus: ['#20134b'],
   deadcells: ['#3c733a', '#ab3237', '#5c5aa5', '#c97014'],
+  deadcellsnewcontent: ['#3c733a', '#ab3237', '#5c5aa5', '#c97014'], /* tempo */
   deliverance: ['#8b4513', '#ee0000', '#ffd700', '#007f00'],
   fiftyfirststate: ['#ff0000', '#0000ff', '#ffa500'],
   harmonies: ['#ff0000', '#008000', '#ffa500', '#0000ff'],

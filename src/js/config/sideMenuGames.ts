@@ -1422,6 +1422,14 @@ const defaultGames: Partial<Game>[] = [
 		css: "#dc-scroll-to-boards { display: none; }"
 	},
 	{
+		name: "deadcellsnewcontent", /* tempo */
+		playerPanel: "dc-beheaded-{{player_id}}-board",
+		boardPanel: "dc-annexe-combat-board-wrapper",
+		boardPanelText: "#dc-scroll-to-annexe-board",
+		bottomPanel: "dc-mutation-board",
+		css: "#dc-scroll-to-boards { display: none; }"
+	},
+	{
 		name: "elpasogwt",
 		playerPanel: "gamezone-{{player_id}}",
 		boardPanel: "secondary-boards"
