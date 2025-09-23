@@ -1,0 +1,59 @@
+html[data-theme=dark] {
+	#overall-content:before {
+		content: "";
+		background: #000000A0;
+		position: absolute;
+		width: 100%;
+		height: 100%;
+	}
+
+	cathood tiles {
+		background: var(--dark-back);
+	}
+
+	cathood tiles paw {
+		filter: invert(0.9) var(--drop-shadow);
+	}
+
+	cathood tiles paw[opacity=true] {
+		opacity: .9;
+	}
+
+	cathood tiles cat {
+		filter: var(--drop-shadow);
+	}
+
+	cathood tiles coordinates {
+		background: var(--dark-30);
+	}
+
+	cathood tiles coordinates container:nth-child(odd) {
+		background-color: var(--dark-40);
+	}
+
+	coordinates {
+		color: var(--light-80);
+	}
+
+	cathood boards board:before {
+		content: "";
+		background: #00000020;
+		position: absolute;
+		width: 100%;
+		height: 100%;
+	}
+
+	#logs .log[cancel=true] .roundedbox {
+		background-color: var(--dark-30) !important;
+	}
+
+	#logs .log[cancel=true]:not(:hover) {
+		opacity: .8;
+	}
+
+	cathood building,
+	cathood park,
+	cathood toy {
+		filter: brightness(0.9);
+	}
+}
