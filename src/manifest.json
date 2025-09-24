@@ -4,7 +4,11 @@
   "short_name": "BGA Chrome Extension",
   "version": "1.12.23",
   "action": {
-    "default_popup": "popup.html"
+    "default_popup": "popup.html",
+    "default_icon": {
+      "16": "img/icon-grey.png",
+      "48": "img/icon-48.png"
+    }
   },
   "options_ui": {
     "page": "options.html",

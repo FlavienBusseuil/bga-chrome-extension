@@ -95,6 +95,11 @@ class Configuration {
 	_customConfig: CustomConfig;
 	_localConfig: LocalConfig;
 	_config: { games: Game[] };
+	_initialized: boolean;
+
+	get initialized(): boolean {
+		return this._initialized;
+	}
 
 	constructor() {
 		this._customConfig = {
@@ -108,6 +113,7 @@ class Configuration {
 		};
 		this._config = { games: [] };
 		this._localConfig = { css: "" };
+		this._initialized = false;
 	}
 
 	_init() {
@@ -163,6 +169,8 @@ class Configuration {
 				}
 			} catch (error) { } // not a big deal, catches failing casts
 		});
+
+		this._initialized = true;
 
 		// Return explicitly to ensure everything is done
 		return true;

@@ -8,6 +8,7 @@ let newsfeedRedirectConfigured = false;
 let solidBackground = false;
 let darkMode = false;
 let preventBack = false;
+let initialized = false;
 
 const setBackgroundFilters = () => {
   const newPreventBack = solidBackground || darkMode;
@@ -108,21 +109,17 @@ const setNewsfeedFilters = (isRedirectEnable: boolean) => {
   }
 };
 
-chrome.runtime.onInstalled.addListener(() => {
-  console.log("[bga extension] Service worker installed");
-});
+const init = async () => {
+  if (initialized) {
+    return;
+  }
+  initialized = true;
 
-chrome.runtime.onStartup.addListener(() => {
-  console.log("[bga extension] Service worker started");
-});
+  console.log("[bga extension] Background script initialisation");
 
-config.init().then(() => {
-  // Set alarm to run update every minute
-  chrome.alarms.onAlarm.addListener((evt) => {
-    if (evt.name === "bgPeriodic") {
-      bgPeriodic(config);
-    }
-  });
+  await config.init();
+
+  // set alarm to run update every minute
   chrome.alarms.create("bgPeriodic", { delayInMinutes: 1, periodInMinutes: 1 });
   bgPeriodic(config);
 
@@ -138,10 +135,32 @@ config.init().then(() => {
   setBackgroundFilters();
   setLobbyUrlFilters(config.isLobbyRedirectionEnable());
   setNewsfeedFilters(config.areSocialMessagesHidden());
+}
+
+chrome.runtime.onInstalled.addListener(() => {
+  console.log("[bga extension] Service worker installed");
+  init();
+});
+
+chrome.runtime.onStartup.addListener(() => {
+  console.log("[bga extension] Service worker started");
+  init();
+});
+
+chrome.alarms.onAlarm.addListener((evt) => {
+  init();
+
+  console.debug(`[bga extension] Alarm ${evt.name}. Configuration initialized:${config.initialized}`);
+
+  if (evt.name === "bgPeriodic" && config.initialized) {
+    bgPeriodic(config);
+  }
 });
 
 addChangeListener((changes) => {
   console.log("[bga extension] Changes detected", changes);
+
+  init();
 
   if (changes.darkMode) {
     darkMode = changes.darkMode.newValue as boolean;
