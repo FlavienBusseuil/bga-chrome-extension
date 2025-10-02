@@ -91,7 +91,6 @@ export const gamesWithCustomBackground = [
   'fifteendays',
   'finca',
   'flipseven',
-  'fliptoons',
   'flowersmandalagame',
   'forbiddenisland',
   'frenchtarot',
@@ -218,6 +217,7 @@ export const gamesWithCustomBackground = [
   'seasons',
   'secretmoon',
   'schottentotten',
+  'shock',
   'skyteam',
   'skull',
   'skullking',
@@ -361,6 +361,7 @@ export const gamesWithConditionalCustomBackground: GamesWithCustomBackground = {
   challengers: ['challengers-pref-background-dark'],
   cuttle: ['theme_cuttlefish'],
   festival: ['black-background', 'dark-wood-background'],
+  fliptoons: ['custom-background'],
   gemsofiridescia: ['goi_thematicBackground'],
   nirds: ['spicy'],
   orapamine: ['orp_pref-thematicBackground-blue', 'orp_pref-thematicBackground-red'],
@@ -701,9 +702,6 @@ export const gamesWithCustomActions: GamesWithCustomActions = {
     init: () => addInvertOverlay('', true)
   },
   verso: {
-    init: () => addInvertOverlay('', true)
-  },
-  fliptoons: {
     init: () => addInvertOverlay('', true)
   },
   pergola: {
