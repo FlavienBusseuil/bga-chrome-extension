@@ -15,6 +15,7 @@ export const gamesWithCustomBackground = [
   'azul',
   'azulduel',
   'azulsummerpavilion',
+  'azure',
   'bamboozle',
   'battlespiritssaga',
   'bebop',
@@ -292,6 +293,7 @@ export const gamesWithCustomPanel = [
   'ahoy',
   'aiye',
   'apiary',
+  'azure',
   'cardia',
   'coatl',
   'dronesvsseagulls',
@@ -302,6 +304,7 @@ export const gamesWithCustomPanel = [
   'fromage',
   'galacticera',
   'gnomehollow',
+  'lesderniersdroides',
   'lumen',
   'mantisfalls',
   'maracaibo',
@@ -442,6 +445,7 @@ export const playersBorder: { [gameName: GameName]: string[] } = {
   irishgauge: ['#player-table-{{player_id}}', '#player-table-{{player_id}} .player-table-name'],
   itsawonderfulworld: ['#iww-player{{player_id}}'],
   jumpdrive: ['#jdr-tableau-{{player_id}}'],
+  lesderniersdroides: ['#nameZone{{player_id}}'];
   letsgotojapan: ['#playerhandtitle_{{player_id}}', '#playerhand_{{player_id}}', '#nameplayer_{{player_id}}'],
   lorenzo: ['#obrPlayerboardId_{{player_id}}'],
   nirds: ['#player_table_{{player_id}}'],
@@ -463,6 +467,7 @@ export const playersBorder: { [gameName: GameName]: string[] } = {
 
 export const playersTextColor: { [gameName: GameName]: string[] } = {
   irishgauge: ['#player-table-{{player_id}} .player-table-name'],
+  legions: ['#player-table-{{player_id}} .name-wrapper .name'],
   upordown: ['#player-table-{{player_id}} .player-table-name'],
 };
 

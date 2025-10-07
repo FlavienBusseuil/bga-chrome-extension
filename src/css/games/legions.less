@@ -19,7 +19,19 @@ html[data-theme=dark] {
 		text-shadow: none;
 	}
 
+	.player-table[style="--player-color: #000000;"] .name-wrapper .name {
+		text-shadow: var(--text-w-shadow);
+	}
+
 	.player-table .name-wrapper .role {
 		filter: invert(1);
+	}
+
+	.autoSkipPlayStratagemBubble .autoSkipPlayStratagem-option .label-detail.spe-warning {
+		color: var(--red-80);
+	}
+
+	.hero .reserved-notice {
+		background: var(--dark-10);
 	}
 }

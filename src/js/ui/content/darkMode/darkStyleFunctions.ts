@@ -102,7 +102,7 @@ const _hexToRgb = (hex: string) => {
 
 const _getDarkColorsStyle = (playersData: PlayerData[]) => {
   const getDeclaration = (color: string) => {
-    return `[style*=";color:${color}"], [style*=";color: ${color}"], [style*="; color:${color}"], [style*="; color: ${color}"], [style^="color:${color}"], [style^="color: ${color}"]`
+    return `[color="${color}"], [style*=";color:${color}"], [style*=";color: ${color}"], [style*="; color:${color}"], [style*="; color: ${color}"], [style^="color:${color}"], [style^="color: ${color}"]`
   }
 
   const getDeclarations = (color: string) => {

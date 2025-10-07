@@ -34,7 +34,7 @@ const SideMenu = (props: SideMenuProps) => {
 
 	const getBoardName = () => {
 		if (gameConfig.boardPanelText && !boardButtonText) {
-			setBoardButtonText(document.querySelector(gameConfig.boardPanelText)?.innerHTML);
+			setBoardButtonText(document.querySelector(gameConfig.boardPanelText)?.textContent);
 		}
 	};
 

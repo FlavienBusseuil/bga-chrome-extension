@@ -1614,6 +1614,14 @@ const defaultGames: Partial<Game>[] = [
 		iconBorderDark: "#c19971",
 		css: " "
 	},
+	{
+		name: "lesderniersdroides",
+		playerPanel: "nameCardCollection{{player_id}}",
+		css: '.goUp { display: none; } .desktop_version #game_play_area { padding-left: 50px; }',
+		boardPanel: "trashCollectionText",
+		boardPanelText: "#trashCollectionText",
+		bottomPanel: "cardListTitle"
+	},
 
 ];
 
