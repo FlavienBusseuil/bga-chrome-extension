@@ -33,6 +33,8 @@
   "optionsQuitGameToLobbyOff": "Die Schaltfläche 'Zurück zur Hauptseite' leitet zur Hauptseite weiter (Standardverhalten)",
   "optionsReplayWithAutoStartOn": "Die Schaltfläche 'Spiele nochmal' startet eine neue Partie (Standardverhalten)",
   "optionsReplayWithAutoStartOff": "Die Schaltfläche 'Spiele nochmal' leitet zurück auf die Spieleseite",
+  "optionsAutoClickStartOn": "Automatically click the “Accept” button when starting games in “real-time” mode",
+  "optionsAutoClickStartOff": "Do not automatically click the “Accept” button when starting games in “real-time” mode (default behavior)",
   "optionFloatingGame": "Als schwebendes Menü (nur für dieses Spiel)",
   "optionFloatingAlways": "Als schwebendes Menü (für alle Spiele)",
   "optionMisc": "Sonstiges",

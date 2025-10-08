@@ -46,6 +46,7 @@ interface CustomConfig {
 	hideLeftBarOption?: boolean;
 	quitGameTo?: 'home' | 'lobby';
 	replayWithAutoStart?: boolean;
+	autoClickStart?: boolean;
 }
 
 export interface HomeConfig {
@@ -514,6 +515,15 @@ class Configuration {
 
 	replayWithAutoStart() {
 		return this._customConfig.replayWithAutoStart === undefined || this._customConfig.replayWithAutoStart;
+	}
+
+	setAutoClickStart(val: boolean) {
+		this._customConfig.autoClickStart = val;
+		storageSet({ autoClickStart: val });
+	}
+
+	autoClickStart() {
+		return Boolean(this._customConfig.autoClickStart);
 	}
 
 	listTemplates() {

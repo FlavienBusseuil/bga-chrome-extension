@@ -22,6 +22,7 @@ export const OptionsView = ({ config, onChange }: Props) => {
   const [hideLeftBarOption, setHideLeftBarOption] = useSyncedState('hideLeftBarOption', config.isLeftBarOptionHidden());
   const [quitGameOption, setQuitGameOption] = useSyncedState('quitGameOption', config.getQuitGameTo());
   const [replayWithAutoStart, setReplayWithAutoStart] = useSyncedState('replayWithAutoStart', config.replayWithAutoStart());
+  const [autoClickStart, setAutoClickStart] = useSyncedState('autoClickStart', config.autoClickStart());
   const [eloHidden, setEloHidden] = useSyncedState('eloHidden', config.isEloHidden());
   const [arenaEloHidden, setArenaEloHidden] = useSyncedState('arenaEloHidden', config.isArenaEloHidden());
   const [tracking, setTracking] = useSyncedState('tracking', config.isTrackingEnable());
@@ -94,6 +95,11 @@ export const OptionsView = ({ config, onChange }: Props) => {
   const updateReplayWithAutoStart = (val: boolean) => {
     setReplayWithAutoStart(val);
     config.setReplayWithAutoStart(val);
+  };
+
+  const updateAutoClickStart = (val: boolean) => {
+    setAutoClickStart(val);
+    config.setAutoClickStart(val);
   };
 
   const updateEloHidden = (val: boolean) => {
@@ -413,6 +419,7 @@ export const OptionsView = ({ config, onChange }: Props) => {
           {getSwitch(!hideLeftBarOption, updateHideLeftBarOption, "optionHideLeftBarOptionOff", "optionHideLeftBarOptionOn")}
           {getSwitch(quitGameOption === 'lobby', updateQuitGameOption, "optionsQuitGameToLobbyOn", "optionsQuitGameToLobbyOff")}
           {getSwitch(replayWithAutoStart, updateReplayWithAutoStart, "optionsReplayWithAutoStartOn", "optionsReplayWithAutoStartOff")}
+          {getSwitch(autoClickStart, updateAutoClickStart, "optionsAutoClickStartOn", "optionsAutoClickStartOff")}
         </div>
       );
     }

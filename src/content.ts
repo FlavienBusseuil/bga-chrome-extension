@@ -50,10 +50,12 @@ const autoHideChat = (e: MouseEvent) => {
 };
 
 const initObserver = (page: string) => {
+	console.debug(`[bga extension] init observer for page ${page}`);
+
 	if (page === 'game') {
 		currentObserver = initGamesObserver(config, gameName);
 	} else if (page === 'gamepanel') {
-		currentObserver = initGamePanelObserver();
+		currentObserver = initGamePanelObserver(config);
 	} else {
 		currentObserver = initGameListObserver(config, page);
 	}

@@ -18,6 +18,7 @@ import { i18n } from "../../utils/browser/i18n";
 import { bgaUrl } from "../../utils/constants";
 import type Configuration from "../../config/configuration";
 import type { Game as GameConfig } from "../../config/models";
+import { manageStartButton } from "./misc/functions";
 
 const buildMainCss = (code: string) => {
 	waitForObj('head').then(() => {
@@ -445,14 +446,20 @@ const initGamesObserver = (config: Configuration, gameName: string) => {
 	return observer;
 };
 
-export const initGamePanelObserver = () => {
+export const initGamePanelObserver = (config: Configuration) => {
 	const gaminfoElt = document.querySelector(".block-panel-gaminfo");
+	const mainElt = document.querySelector("#overall-content");
 
-	if (!gaminfoElt) {
+	if (!gaminfoElt || !mainElt) {
 		return null;
 	}
 
 	const updateOngoingGameCount = () => {
+		// automatic click on start button to start the game
+		if (config.autoClickStart()) {
+			manageStartButton(mainElt);
+		}
+
 		const counterId = "in_progress_games_count";
 
 		const ongoingGameCount = gaminfoElt.querySelectorAll('.bga-table-list-item').length;
@@ -473,7 +480,7 @@ export const initGamePanelObserver = () => {
 	}
 
 	const observer = new MutationObserver(updateOngoingGameCount);
-	updateOngoingGameCount();
+	observer.observe(mainElt, { childList: true, subtree: true });
 	return observer;
 };
 

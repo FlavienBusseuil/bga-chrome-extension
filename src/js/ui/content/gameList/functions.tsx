@@ -1,7 +1,7 @@
 import { render } from "preact";
 import ConfirmationPopup from "../misc/ConfirmationPopup";
-
-import type Configuration from "~/js/config/configuration";
+import type Configuration from "../../../config/configuration";
+import { manageStartButton } from "../misc/functions";
 
 const createHiddenGameStyle = (content: string) => {
 	const hiddenStyleId = "cde-hidden-games-style";
@@ -21,7 +21,6 @@ const createHiddenGameStyle = (content: string) => {
 let pageNotFoundError = false;
 let links: NodeListOf<HTMLAnchorElement> | undefined;
 let lastLink: string | undefined;
-
 
 const findClickableParent = (element: HTMLElement, maxDepth = 10): HTMLAnchorElement | null => {
 	let current = element;
@@ -141,8 +140,12 @@ export const initGameListObserver = (config: Configuration, page: string) => {
 	};
 
 	const observer = new MutationObserver(() => {
-		// attempt to fix "Page not found" bug => start
+		// automatic click on start button to start the game
+		if (config.autoClickStart()) {
+			manageStartButton(mainElt);
+		}
 
+		// attempt to fix "Page not found" bug => start
 		const infoMsg = Array.from(document.querySelectorAll('.head_infomsg_item'));
 
 		if (!pageNotFoundError && infoMsg.find(info => info.innerHTML.startsWith('Page not found')) && lastLink) {
