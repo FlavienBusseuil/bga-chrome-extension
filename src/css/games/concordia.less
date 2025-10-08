@@ -1,0 +1,47 @@
+@import "./common";
+
+html[data-theme=dark] {
+	#overall-content {
+		color: var(--light-80);
+	}
+
+	.cia_playerHandCounter {
+		-webkit-text-stroke: calc(var(--ratio)*4) #000;
+	}
+
+	.cia_tooltip {
+
+		.cia_tooltipProvince,
+		.cia_tooltipStatus {
+			color: var(--light-50);
+		}
+
+		.cia_tooltipLine,
+		.cia_tooltipName {
+			color: var(--light-80);
+		}
+	}
+
+	#cia_tooltipCard {
+		.scoringLine {
+			color: var(--red-80);
+		}
+	}
+
+	.cia_Icon {
+		border-radius: 1%;
+		filter: var(--drop-shadow);
+	}
+
+	.logCardContainer .colonist {
+		filter: var(--drop-shadow);
+	}
+
+	#button_undo {
+		.redButton();
+	}
+
+	#button_undo:hover {
+		.redButtonOver();
+	}
+}

@@ -958,7 +958,7 @@ select.colorselector {
 }
 
 .bgaext_gamelist .bga-dropdown-option.bg-gray-200 *,
-.bgaext_gamepanel .bg-gray-200 * {
+.bgaext_gamepanel .bg-gray-200:not(.bga-dropdown-option) * {
   color: var(--light-80) !important;
 }
 
@@ -1109,13 +1109,19 @@ select.colorselector {
   color: #fff;
 }
 
-.bga-dropdown-button-split[style^="background: linear-gradient(rgb(25, 88, 154), rgb(40, 97, 164));"] {
+.bga-dropdown-button-split[style^="background: linear-gradient(rgb(25, 88, 154), rgb(40, 97, 164));"],
+.bgaext_gamepanel .bga-dropdown-button-split {
   background: linear-gradient(#248189, #0ba9b7) !important;
   border-bottom-color: #0ba9b7 !important;
   color: #fff;
 }
 
-.bga-dropdown-button-value[style^="background: linear-gradient(0deg, white 0%, rgb(223, 223, 223) 80%);"] {
+.bgaext_gamepanel .bga-dropdown-button-split:hover {
+  background: linear-gradient(#06d7ea, #248189) !important;
+}
+
+.bga-dropdown-button-value[style^="background: linear-gradient(0deg, white 0%, rgb(223, 223, 223) 80%);"],
+.bgaext_gamepanel .bga-dropdown-button-value {
   background: linear-gradient(var(--dark-30), var(--dark-40)) !important;
   border-bottom-color: var(--dark-40) !important;
   color: #fff;

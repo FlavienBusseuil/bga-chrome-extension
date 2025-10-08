@@ -445,7 +445,7 @@ export const playersBorder: { [gameName: GameName]: string[] } = {
   irishgauge: ['#player-table-{{player_id}}', '#player-table-{{player_id}} .player-table-name'],
   itsawonderfulworld: ['#iww-player{{player_id}}'],
   jumpdrive: ['#jdr-tableau-{{player_id}}'],
-  lesderniersdroides: ['#nameZone{{player_id}}'];
+  lesderniersdroides: ['#nameZone{{player_id}}'],
   letsgotojapan: ['#playerhandtitle_{{player_id}}', '#playerhand_{{player_id}}', '#nameplayer_{{player_id}}'],
   lorenzo: ['#obrPlayerboardId_{{player_id}}'],
   nirds: ['#player_table_{{player_id}}'],
