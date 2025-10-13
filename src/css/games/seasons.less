@@ -1,5 +1,10 @@
 @import "./common";
 
+#settings-controls-container {
+	min-width: 340px;
+	right: 200px;
+}
+
 html[data-theme=dark] {
 	#overall-content:before {
 		content: "";
@@ -30,5 +35,15 @@ html[data-theme=dark] {
 	desktop_version .tableau,
 	.transmutation_bar {
 		filter: brightness(0.9);
+	}
+
+	#generalactions svg,
+	#generalactions svg g {
+		color: var(--light-80);
+		fill: var(--light-80);
+	}
+
+	.cardtooltip .cardtitle {
+		color: #000;
 	}
 }

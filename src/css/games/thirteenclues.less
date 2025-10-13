@@ -2,10 +2,32 @@
 
 html[data-theme=dark] {
 	#tcGameLogTable th {
-		color: #05f;
+		color: var(--blue-70);
 	}
 
 	.tableWindow td {
 		color: #8585ad;
+	}
+
+	.tcCardName {
+		background-color: var(--dark-20);
+		border-radius: 8px;
+		color: var(--light-80);
+	}
+
+	.tcCardNameBigger,
+	.tcSelectionCombinaisonBoards .stockitem .tcCardName {
+		top: 127px;
+		background-color: var(--dark-20);
+		border-radius: 8px;
+		border: 1px solid var(--light-50);
+		box-sizing: border-box;
+		height: 18px;
+		color: var(--light-80);
+	}
+
+	#tcPlayerSheet .tcPlayerSheetCase.empty .tcCardName {
+		background: transparent;
+		color: #000;
 	}
 }

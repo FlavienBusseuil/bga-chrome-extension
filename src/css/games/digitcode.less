@@ -14,7 +14,7 @@ html[data-theme=dark] {
 
 	.dgt_lineMarker-confirmed {
 		-webkit-text-stroke: initial;
-		color: var(--red-30);
+		color: var(--red-80);
 	}
 
 	.dgt_digitLabel {
@@ -24,5 +24,51 @@ html[data-theme=dark] {
 
 	#bga-zoom-wrapper #bga-zoom-controls {
 		filter: invert(0.9);
+	}
+
+	.dgt_optionMarker {
+		color: var(--light-70);
+	}
+
+	.dgt_optionMarker {
+		color: var(--light-50);
+	}
+
+	.dgt_optionMarker:where(.dgt_draft):before,
+	.dgt_comparisonIcon-confirmed,
+	.dgt_parityMarker-confirmed {
+		color: var(--red-80);
+	}
+
+	.dgt_space:where(.dgt_draft):where([data-draftvalue=filled]) {
+		background-image: repeating-linear-gradient(-45deg, var(--red-80), var(--dark-40) 6px);
+	}
+
+	.dgt_space:where(.dgt_draft):where([data-draftvalue=empty]) {
+		filter: brightness(110%) contrast(150%);
+	}
+
+	html[data-theme=dark] .dgt_lineMarker-confirmed {
+		color: var(--red-80);
+	}
+
+	.dgt_space-confirmed-revealed {
+		background: var(--green-80) !important;
+	}
+
+	.dgt_playerAid {
+		filter: invert(0.85);
+	}
+
+	.bga-help_expandable-button {
+		border: 1px solid var(--light-50);
+	}
+
+	.bga-help_folded-content {
+		background: var(--dark-20);
+	}
+
+	.dgt_helpFolded {
+		color: var(--light-70);
 	}
 }

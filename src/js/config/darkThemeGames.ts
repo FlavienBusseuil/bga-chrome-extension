@@ -2,6 +2,7 @@ import { waitForObj } from '../utils/misc/wait';
 import { isFirefox } from "../utils/browser";
 
 export const gamesWithCustomBackground = [
+  'aero',
   'afterus',
   'agestofrobinhood',
   'agricola',
@@ -737,6 +738,24 @@ export const gamesWithCustomActions: GamesWithCustomActions = {
         console.debug(`[bga extension] Beyond css path is '${cssPath}'`);
         document.body.style.setProperty("--playmat1", `url(${cssPath}img/BYD_Playmat.jpg)`);
         document.body.style.setProperty("--playmat2", `url(${cssPath}img/BYD_Playmat2.jpg)`);
+      });
+    }
+  },
+  minirogue: {
+    init: () => {
+      const fixSpans = () => {
+        document.querySelectorAll('span.mnr-i:not([data-type])').forEach((el) => {
+          const t = el.textContent.trim();
+          if (t && el.getAttribute('data-type') !== t) el.setAttribute('data-type', t);
+        });
+      }
+      waitForObj('#logs').then((container) => {
+        const observer = new MutationObserver(fixSpans);
+
+        observer.observe(container, {
+          childList: true,
+          subtree: true
+        })
       });
     }
   }

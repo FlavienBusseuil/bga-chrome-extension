@@ -9,9 +9,13 @@ html[data-theme=dark] {
 		height: 100%;
 	}
 
-	#clue_sheet {
+	#clue_sheet,
+	#clue_detail {
 		filter: invert(0.9);
 		box-shadow: 2px 2px 4px #fff;
+	}
+
+	#clue_sheet {
 		color: var(--light-80);
 	}
 
@@ -19,7 +23,32 @@ html[data-theme=dark] {
 		filter: invert(1);
 	}
 
+	#clue_innocent_name {
+		color: var(--light-80) !important;
+	}
+
 	.clue_table_cell {
 		color: var(--light-80) !important;
+	}
+
+	.playertablename {
+		background: var(--dark-20);
+		border-radius: 6px;
+		display: inline-block;
+		padding: 0.1em 0.5em;
+	}
+
+	#logs {
+		b[style="color:red;"] {
+			color: var(--red-80) !important;
+		}
+
+		b[style="color:black;"] {
+			color: var(--light-80) !important;
+		}
+	}
+
+	.card {
+		filter: brightness(0.9);
 	}
 }
