@@ -1,0 +1,56 @@
+html[data-theme=dark] {
+	body {
+		background: var(--dark-40);
+	}
+
+	.player-table {
+		background-color: var(--dark-back);
+	}
+
+	.player-table .cstm-grid-name {
+		color: var(--light-50);
+	}
+
+	.help-control {
+		background: var(--dark-10);
+		border-color: var(--light-50);
+	}
+
+	.bga-help_popin-button {
+		color: var(--light-80);
+	}
+
+	.player-table .cstm-grid-zone .cstm-player-grid {
+		filter: var(--drop-shadow);
+	}
+
+	.player-board:before {
+		display: none;
+	}
+
+	.player-board .player-name,
+	.player-board .player-name a,
+	.player-board .player_score_value {
+		text-shadow: none;
+	}
+
+	.player-board .fa-star {
+		color: var(--light-80);
+	}
+
+	.player-board[data-player-color="ff0000"] .player-name a {
+		color: #ff6565 !important;
+	}
+
+	.player-board[data-player-color="ffa500"] .player-name a {
+		color: #ffc965 !important;
+	}
+
+	.player-board[data-player-color="008000"] .player-name a {
+		color: #54aa54 !important;
+	}
+
+	.player-board[data-player-color="0000ff"] .player-name a {
+		color: #6565ff !important;
+	}
+}

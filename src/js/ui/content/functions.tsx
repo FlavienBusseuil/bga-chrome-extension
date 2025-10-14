@@ -476,7 +476,12 @@ export const initGamePanelObserver = (config: Configuration) => {
 			titleContainer.appendChild(counter);
 		}
 
-		counter.textContent = `(${ongoingGameCount})`;
+		const text = `(${ongoingGameCount})`;
+
+		if (counter.getAttribute('data-count') !== text) {
+			counter.setAttribute('data-count', text);
+			counter.textContent = text;
+		}
 	}
 
 	const observer = new MutationObserver(updateOngoingGameCount);

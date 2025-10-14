@@ -94,6 +94,14 @@ img[alt="loading"] {
   background: linear-gradient(180deg, #ff8e47, #84461f) !important;
 }
 
+.bga-button--green:not(.disabled) {
+  background: linear-gradient(180deg, #0bb76c, #24895d) !important;
+}
+
+.bga-button--green:not(.disabled):hover {
+  background: linear-gradient(180deg, #06ea87, #24895d) !important;
+}
+
 /* Formulaires */
 input,
 input:focus,
@@ -2271,4 +2279,31 @@ html:not(.bgaext_gamelist) .ext_delete_button {
 .landing_page_happymeeple .pagesection__content,
 .landing_page_happymeeple b {
   color: var(--light-80) !important;
+}
+
+/* group page*/
+
+.bgaext_group .group-members-list h3 {
+  color: var(--light-80);
+}
+
+.bgaext_group .bga-dropdown-button-split {
+  background: linear-gradient(0deg, #248189, #0ba9b7) !important;
+  border-bottom-color: #248189 !important;
+  color: #fff;
+}
+
+.bgaext_group .bga-dropdown-button-value {
+  background: linear-gradient(0deg, var(--dark-30), var(--dark-40)) !important;
+  border-bottom-color: var(--dark-30) !important;
+  color: #fff;
+}
+
+.bgaext_group .bga-dropdown-option.bg-gray-200 {
+  background-color: var(--dark-30);
+  border-color: #595959 !important;
+}
+
+.bgaext_group .bga-dropdown-option.bg-gray-200:hover {
+  background-color: var(--dark-40);
 }

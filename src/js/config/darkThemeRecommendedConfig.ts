@@ -91,6 +91,7 @@ export const gamesWithRecommendedConfig: { [gameName: GameName]: RecommendedConf
 	tucano: { color: 138, sat: 15 },
 	turingmachine: { color: 120, sat: 15 },
 	twelvechips: { color: 164, sat: 15 },
+	ubongo: { color: 0, sat: 26 },
 	ultimaterailroads: { color: 8, sat: 15 },
 	verdant: { color: 140, sat: 15 },
 	vivacatrina: { color: 15, sat: 15 },
