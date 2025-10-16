@@ -429,7 +429,7 @@ const ModeSelector = (props: ModeSelectorProps) => {
         <div className="bgaext_palette_bottom">
           {recommandedConfig && <a href="#" className="bga-ext-link" onClick={setRecommanded}>{i18n("darkColorRecommanded")}</a>}
           {!recommandedConfig && <span></span>}
-          <a href="#" className="bga-ext-link" onClick={reset}>{resetLinkText}</a>
+          {darkColorHue >= 0 && <a href="#" className="bga-ext-link" onClick={reset}>{resetLinkText}</a>}
         </div>
       </>
     );
