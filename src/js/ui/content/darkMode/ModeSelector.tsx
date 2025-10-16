@@ -7,7 +7,7 @@ import { gamesWithRecommendedConfig } from "../../../config/darkThemeRecommended
 import { getExtensionVersion } from "../../../utils/browser";
 import { i18n } from "../../../utils/browser/i18n";
 import { setDarkStyle } from "./darkStyleFunctions";
-import { changeDarkColors } from "./darkColors";
+import { changeDarkBrightness, changeDarkColors } from "./darkColors";
 
 import "../../../../css/darkModeSelector.css";
 import "../../../../css/modeSelector.css";
@@ -46,6 +46,7 @@ const ModeSelector = (props: ModeSelectorProps) => {
   const [darkMode, setDarkMode] = useState(isDarkMode(config, gameName));
   const [darkColorHue, setDarkColorHue] = useState(config.getDarkModeColor(gameName, recommandedConfig?.color));
   const [darkColorSaturation, setDarkColorSaturation] = useState(config.getDarkModeSaturation(gameName, recommandedConfig?.sat));
+  const [brightness, setBrightness] = useState(config.getDarkModeBrightness());
   const [popupVisible, setPopupVisible] = useState(false);
   const [paletteCursorMoving, setPaletteCursorMoving] = useState(false);
   const [saturationCursorMoving, setSaturationCursorMoving] = useState(false);
@@ -76,6 +77,13 @@ const ModeSelector = (props: ModeSelectorProps) => {
     }
     changeDarkColors(darkColorHue, darkColorSaturation);
   }, [darkColorHue, darkColorSaturation]);
+
+  useEffect(() => {
+    if (brightness) {
+      config.setDarkModeBrightness(brightness);
+      changeDarkBrightness(brightness);
+    }
+  }, [brightness]);
 
   useEffect(() => {
     if (popupVisible) {
@@ -397,8 +405,14 @@ const ModeSelector = (props: ModeSelectorProps) => {
       );
     }
 
+    const brightnessHandler = (evt: any) => evt.target && setBrightness(parseInt((evt.target as any).value));
+
     return (
-      <div className="buttons_container">
+      <div className="bgaext_palette_bottom">
+        <div class="bgext_range_container">
+          <span><i title={i18n("darkBrightnessInfo")} /> {i18n("darkBrightness")} {brightness}%</span>
+          <input class="soundVolumeSlider" type="range" min="50" max="100" value={brightness} onChange={brightnessHandler} onInput={brightnessHandler}></input>
+        </div>
         <a href="#" className="bgabutton bgabutton_blue" onClick={() => setFormVisible(true)}>
           <i class="fa fa-bug"></i>&nbsp;
           {i18n('bugReportButtonCreate')}

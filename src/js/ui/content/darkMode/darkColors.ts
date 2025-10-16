@@ -16,4 +16,12 @@ const changeDarkColors = (hue: number, saturation: number) => {
   }
 };
 
-export { changeDarkColors };
+const changeDarkBrightness = (val: number) => {
+  if (val === 90) {
+    document.body.style.removeProperty("--ext-bright");
+  } else {
+    document.body.style.setProperty("--ext-bright", `brightness(${val / 100})`);
+  }
+};
+
+export { changeDarkColors, changeDarkBrightness };

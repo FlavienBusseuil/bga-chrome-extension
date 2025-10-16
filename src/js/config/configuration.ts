@@ -23,6 +23,7 @@ interface CustomConfig {
 	darkMode?: boolean;
 	darkModeColor?: number;
 	darkModeSat?: number;
+	darkModeBrightness?: number;
 	trackTables?: boolean;
 	soundNotification?: boolean;
 	motionSensitivity?: boolean;
@@ -721,10 +722,18 @@ class Configuration {
 		return !!this._customConfig.darkMode;
 	}
 
-
 	setDarkMode(val: boolean) {
 		this._customConfig.darkMode = val;
 		storageSet({ darkMode: val });
+	}
+
+	getDarkModeBrightness() {
+		return this._customConfig.darkModeBrightness || 90;
+	}
+
+	setDarkModeBrightness(val: number) {
+		this._customConfig.darkModeBrightness = val;
+		storageSet({ darkModeBrightness: val });
 	}
 
 	getDarkModeColor(gameName: string, def?: number) {

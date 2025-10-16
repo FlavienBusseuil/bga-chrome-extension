@@ -71,6 +71,8 @@
   "darkColorConfigurationGame": "Configuration des couleurs de ce jeu",
   "darkColorResetGame": "Couleurs par défaut du site",
   "darkColorRecommanded": "Couleurs suggérées",
+  "darkBrightness": "Luminosité des images :",
+  "darkBrightnessInfo": "Cette option n'est pas gérée dans tous les jeux",
   "friends": "Tables d'amis",
   "no_games_friends": "Aucune table disponible",
   "search_games_friends": "Rechercher une table ouverte créée par un ami ou par le membre d'un de vos groupes",

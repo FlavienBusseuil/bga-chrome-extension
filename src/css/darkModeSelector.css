@@ -239,3 +239,31 @@
 #topbar .bgaext_darkmode div.bgaext_report_message>span:last-child {
   font-size: smaller;
 }
+
+.bgext_range_container {
+  display: flex;
+  flex-flow: column;
+  gap: 0.1em;
+  overflow: visible;
+  height: 32px;
+  top: -10px;
+  position: relative;
+}
+
+.bgext_range_container span {
+  line-height: 32px;
+}
+
+.bgext_range_container input {
+  padding: 0px !important;
+  width: 300px;
+}
+
+.bgext_range_container i {
+  background: var(--ext-icon-info);
+  display: inline-block;
+  width: 16px;
+  height: 16px;
+  top: 2px;
+  position: relative;
+}
