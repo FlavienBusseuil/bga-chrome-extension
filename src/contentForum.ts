@@ -4,6 +4,7 @@ import { changeDarkColors } from "./js/ui/content/darkMode/darkColors";
 
 let windowLoaded = false;
 let configLoaded = false;
+let cssCounter = 0;
 
 const sendForumLoaded = () => {
   if (windowLoaded && configLoaded) {
@@ -43,7 +44,17 @@ document.addEventListener('bga_ext_update_config', (data) => {
   if (key === 'dark') {
     adjustDarkColors();
   } else if (key === 'darkMode') {
-    setDarkStyle(config.isDarkMode(), config.getCustomCss());
+    const isDarkMode = config.isDarkMode();
+    setDarkStyle(isDarkMode, config.getCustomCss());
+
+    if (!isDarkMode) {
+      // refresh of the CSS to load the background image that was previously blocked
+      const link = Array.from(document.querySelectorAll("link")).find(l => l.href.indexOf('stylesheet.css') > 0)
+      if (link) {
+        setTimeout(() => link.href = `${link.href.split('?')[0]}?${cssCounter++}`, 100);
+        setTimeout(() => link.href = `${link.href.split('?')[0]}?${cssCounter++}`, 1000);
+      }
+    }
   }
 });
 

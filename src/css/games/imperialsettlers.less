@@ -16,7 +16,11 @@ html[data-theme=dark] {
 	}
 
 	.resourceValue {
-		color: #000;
+		background: var(--dark-back);
+	}
+
+	.resourceIcon:not(.blurred) .resourceValue {
+		border: 1px solid var(--light-50);
 	}
 
 	#toTop {
@@ -26,6 +30,20 @@ html[data-theme=dark] {
 
 	#toTop svg {
 		fill: var(--light-80);
+	}
+
+	.player-board {
+		background-color: var(--dark-10);
+	}
+
+	#popin_dealsLocations {
+		background-color: var(--dark-40);
+	}
+
+	#popin_dealsLocations h2 {
+		background: var(--dark-10);
+		border-bottom: 1px solid var(--dark-40);
+		color: var(--light-70);
 	}
 
 	.locationWrapper,

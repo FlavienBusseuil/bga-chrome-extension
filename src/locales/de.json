@@ -72,7 +72,7 @@
   "darkColorResetGame": "Standard Farben der Seite",
   "darkColorRecommanded": "Vorgeschlagene Farben",
   "darkBrightness": "Images brightness:",
-  "darkBrightnessInfo": "This option is not supported in all games",
+  "darkBrightnessInfo": "This option is not supported in all games.\nYou can create a bug report if you want it to be handled in a specific game.",
   "friends": "Freunde-Tische",
   "no_games_friends": "Keine laufenden Spiele verfügbar",
   "search_games_friends": "Suche nach offenen Tischen von Freunden oder deiner Gruppen-Mitglieder.",

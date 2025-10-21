@@ -155,6 +155,7 @@ export const gamesWithCustomBackground = [
   'mindup',
   'misty',
   'mojo',
+  'monstersmash',
   'monstertrick',
   'moonlight',
   'moonshine',

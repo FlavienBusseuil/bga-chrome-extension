@@ -165,9 +165,7 @@ const ModeSelector = (props: ModeSelectorProps) => {
     const customActions = gamesWithCustomActions[gameName];
     customActions && customActions.setDarkMode && customActions.setDarkMode(newDarkMode);
 
-    if (window.location.pathname.startsWith("/forum")) {
-      location.reload();
-    } else if (!newDarkMode) {
+    if (!newDarkMode) {
       // refresh of the CSS to load the background image that was previously blocked
       const cssName = gameName === 'general' ? 'common.css' : 'gameserver.css';
       const link = Array.from(document.querySelectorAll("link")).find(l => l.href.indexOf(cssName) > 0)

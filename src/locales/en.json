@@ -72,7 +72,7 @@
   "darkColorResetGame": "Site default colors",
   "darkColorRecommanded": "Suggested colors",
   "darkBrightness": "Images brightness:",
-  "darkBrightnessInfo": "This option is not supported in all games",
+  "darkBrightnessInfo": "This option is not supported in all games.\nYou can create a bug report if you want it to be handled in a specific game.",
   "friends": "Friend's tables",
   "no_games_friends": "No games available",
   "search_games_friends": "Search for an open table created by a friend or one of your group members.",
