@@ -1622,6 +1622,14 @@ const defaultGames: Partial<Game>[] = [
 		boardPanelText: "#trashCollectionText",
 		bottomPanel: "cardListTitle"
 	},
+	{
+		name: "mapmasters",
+		playerPanel: "house_{{player_id}}",
+		iconBackground: "#93daf0",
+		iconBackgroundDark: "#0f5a70",
+		iconBorderDark: "#8e8e8e",
+		css: " "
+	},
 
 ];
 

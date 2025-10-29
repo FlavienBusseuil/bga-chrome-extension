@@ -13,6 +13,7 @@ export const gamesWithCustomBackground = [
   'arctic',
   'arknova',
   'arknovamw',
+  'asteria',
   'azul',
   'azulduel',
   'azulsummerpavilion',
@@ -76,6 +77,7 @@ export const gamesWithCustomBackground = [
   'earthabundance',
   'easypeasy',
   'ekko',
+  'elongo',
   'eminentdomain',
   'emdomicrocosm',
   'equinox',
@@ -144,13 +146,16 @@ export const gamesWithCustomBackground = [
   'lumen',
   'luz',
   'maatatahay',
+  'malabares',
   'mantisfalls',
+  'mapmasters',
   'mastersofrenaissance',
   'matchsticktycoon',
   'megajackpot',
   'memoir',
   'mesos',
   'mexica',
+  'miams',
   'middleages',
   'mindup',
   'misty',
@@ -242,6 +247,7 @@ export const gamesWithCustomBackground = [
   'stonespinearchitects',
   'super',
   'symbiose',
+  'tagteam',
   'takenokolor',
   'talon',
   'taluva',
@@ -297,6 +303,7 @@ export const gamesWithCustomPanel = [
   'ahoy',
   'aiye',
   'apiary',
+  'asteria',
   'azure',
   'cardia',
   'coatl',
@@ -452,6 +459,7 @@ export const playersBorder: { [gameName: GameName]: string[] } = {
   lesderniersdroides: ['#nameZone{{player_id}}'],
   letsgotojapan: ['#playerhandtitle_{{player_id}}', '#playerhand_{{player_id}}', '#nameplayer_{{player_id}}'],
   lorenzo: ['#obrPlayerboardId_{{player_id}}'],
+  mapmasters: ['#house_{{player_id}}', '#hand_grid_{{player_id}}'],
   nirds: ['#player_table_{{player_id}}'],
   pioneerdaysproject: ['#playerbox-{{player_id}}'],
   piratas: ['#playmat_{{player_id}}'],
@@ -723,6 +731,9 @@ export const gamesWithCustomActions: GamesWithCustomActions = {
     init: () => addInvertOverlay('', true)
   },
   legions: {
+    init: () => addInvertOverlay('', true)
+  },
+  malabares: {
     init: () => addInvertOverlay('', true)
   },
   newton: {

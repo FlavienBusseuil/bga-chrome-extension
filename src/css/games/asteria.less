@@ -1,0 +1,18 @@
+html[data-theme=dark] {
+	#overall-content:before {
+		content: "";
+		background: #00000060;
+		position: absolute;
+		width: 100%;
+		height: 100%;
+	}
+
+	#player_boards .player-board,
+	#player_boards .player-board>* {
+		filter: invert();
+	}
+
+	.card .card-sides .card-side {
+		filter: var(--ext-bright);
+	}
+}
