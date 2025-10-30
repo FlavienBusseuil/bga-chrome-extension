@@ -168,6 +168,7 @@ export const gamesWithCustomBackground = [
   'mrjack',
   'mycity',
   'mycityrb',
+  'mystlingacademy',
   'mythicbattlesragnarok',
   'nature',
   'newfrontiers',
@@ -214,6 +215,7 @@ export const gamesWithCustomBackground = [
   'resarcana',
   'riverrats',
   'rollandbump',
+  'rollthroughtheagesthebronzeage',
   'romirami',
   'rumblenation',
   'rumbleplanet',
@@ -320,6 +322,7 @@ export const gamesWithCustomPanel = [
   'mantisfalls',
   'maracaibo',
   'mesos',
+  'mystlingacademy',
   'notalone',
   'nowboarding',
   'scythe',
@@ -475,6 +478,7 @@ export const playersBorder: { [gameName: GameName]: string[] } = {
   verdant: ['#house_{{player_id}}'],
   welcometothemoon: ['#score-sheet-{{player_id}}', '#score-sheet-{{player_id}} .player-name'],
   wizardsgrimoire: ['.wg-title.ext_player_{{player_id}}', '#player-table-{{player_id}}-health', '#player-table-{{player_id}} .player-table'],
+  yaxha: ['#pyramid-container-{{player_id}} .player-name-text .text-container'],
 };
 
 export const playersTextColor: { [gameName: GameName]: string[] } = {

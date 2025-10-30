@@ -1,9 +1,55 @@
 @import "./common";
 
 html[data-theme=dark] {
+	#overall-content:before {
+		content: "";
+		background: #00000060;
+		position: absolute;
+		width: 100%;
+		height: 100%;
+	}
+
+	.pyramids-container .a-pyramid-container .player-name-text .text-container {
+		text-shadow: none;
+		background: var(--dark-back);
+	}
 
 	.gamelogreview .log-arrow,
 	.log .log-arrow {
 		color: var(--light-80) !important;
+	}
+
+	.end-game-score-container .show-table-button,
+	.end-game-score-container .collapse-table-button {
+		color: var(--blue-80);
+	}
+
+	.end-game-score-container {
+		background: var(--dark-30);
+	}
+
+	.end-game-score-container table thead th.player-name-cell {
+		background: var(--dark-20);
+		outline: 1px solid #404d32ab;
+	}
+
+	.end-game-score-container table thead th.player-name-cell.jumping-text {
+		background: var(--dark-10);
+		text-shadow: none;
+	}
+
+	.end-game-score-container table tbody td {
+		background-color: var(--dark-back-50);
+		color: var(--light-80);
+		outline: 1px solid #404d32ab;
+	}
+
+	.dijitTooltipContainer .tooltip-wrapper {
+		background: transparent;
+	}
+
+	.dijitTooltipContainer .tooltip-wrapper .tooltip-text {
+		color: var(--light-80);
+		text-shadow: none;
 	}
 }
