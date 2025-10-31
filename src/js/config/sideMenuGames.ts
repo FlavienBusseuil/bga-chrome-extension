@@ -1630,7 +1630,11 @@ const defaultGames: Partial<Game>[] = [
 		iconBorderDark: "#8e8e8e",
 		css: " "
 	},
-
+	{
+		name: "dewan",
+		playerPanel: ".mf_zone_player",
+		boardPanel: "mf_zone_board_0",
+	},
 ];
 
 export default defaultGames;

@@ -63,6 +63,7 @@ export const gamesWithCustomBackground = [
   'deadcells',
   'deadcellsnewcontent', /* tempo */
   'dedale',
+  'dewan',
   'dicycards',
   'dobbleconnect',
   'dogpark',

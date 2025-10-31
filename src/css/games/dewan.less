@@ -1,0 +1,38 @@
+html[data-theme=dark] {
+	body {
+		background: var(--dark-40);
+	}
+
+	.mf_panel_value[style="color: black;"] {
+		color: var(--light-80) !important;
+	}
+
+	.mf_count_value {
+		color: var(--light-80);
+	}
+
+	.mf_zone {
+		background-color: var(--dark-back);
+	}
+
+	.dw_button_close,
+	.dw_button_open {
+		border-color: var(--light-80);
+		color: var(--light-80);
+	}
+
+	.mf_help_scores {
+		border: 1px solid #aaa;
+	}
+
+	.mf_help_scores,
+	.mf_help_scores>* {
+		filter: hue-rotate(180deg) invert(1);
+		color: var(--light-80);
+	}
+
+	.mf_item_back,
+	.mf_item_front {
+		filter: var(--ext-bright);
+	}
+}
