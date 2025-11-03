@@ -1635,6 +1635,13 @@ const defaultGames: Partial<Game>[] = [
 		playerPanel: ".mf_zone_player",
 		boardPanel: "mf_zone_board_0",
 	},
+	{
+		name: "concordia",
+		playerPanel: "player-table-{{player_id}}",
+		css: "#cia_playersBoard { margin-left: 50px; }",
+		position: "bottom",
+		iconBorderDark: "#ccc",
+	},
 ];
 
 export default defaultGames;

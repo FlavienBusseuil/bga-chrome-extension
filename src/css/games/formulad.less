@@ -1,7 +1,17 @@
 @import "./common";
 
 html[data-theme=dark] {
-	.FD-lap-no-icon {
+	#FDCircuitBoard:before {
+		content: "";
+		background: #00000060;
+		position: absolute;
+		width: 100%;
+		height: 100%;
+		border-radius: 8px;
+	}
+
+	.FD-lap-no-icon,
+	.dijitMenuArrowCell {
 		filter: invert(1);
 	}
 
@@ -22,12 +32,9 @@ html[data-theme=dark] {
 		color: #fff;
 	}
 
-	.tundra .dijitMenuSeparatorTop {
-		border-bottom: 1px solid var(--dark-40);
-	}
-
+	.tundra .dijitMenuSeparatorTop,
 	.tundra .dijitMenuSeparatorBottom {
-		border-top: 1px solid var(--dark-40);
+		border-color: var(--dark-40);
 	}
 
 	.tundra .dijitComboBoxMenu .dijitMenuItemHover,
@@ -36,7 +43,28 @@ html[data-theme=dark] {
 		background-color: var(--dark-30);
 	}
 
-	.dijitMenuArrowCell {
-		filter: invert(1);
+	.player-name .FD-white-text-outline {
+		text-shadow: none;
+	}
+
+	.FD-help-item-livery {
+		color: #000;
+	}
+
+	#ATBOverlayMessage.atb-visible {
+		background-color: var(--dark-back);
+		color: var(--light-80);
+	}
+
+	#FDConfigurePitBoxColorList {
+		color: #000;
+	}
+
+	.fil0 {
+		fill: var(--yellow-10);
+	}
+
+	.FD-help-item {
+		filter: var(--ext-bright);
 	}
 }
