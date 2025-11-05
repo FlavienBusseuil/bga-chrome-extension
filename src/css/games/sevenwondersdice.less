@@ -1,0 +1,88 @@
+html[data-theme=dark] {
+	.player_wonder .plname {
+		background: var(--dark-20);
+	}
+
+	.minipanel .icon,
+	.icon.coin {
+		color: #000;
+	}
+
+	.die {
+		border-radius: 2px;
+	}
+
+	.ploverlay .overlay_close {
+		background-color: var(--dark-40);
+		border: .5vh solid var(--red-30);
+		color: var(--light-80);
+	}
+
+	.youdiv {
+		background-color: var(--dark-back);
+	}
+
+	.bubble {
+		background: var(--dark-20);
+		outline: .3vh solid var(--dark-40);
+		color: var(--light-80);
+	}
+
+	.paypreview_container {
+		background: var(--dark-40);
+		color: var(--light-80);
+	}
+
+	.score_frise {
+		filter: invert() grayscale();
+	}
+
+	#score_sheet th.bga-score-sheet_player-name {
+		background-color: var(--dark-20);
+	}
+
+	.bga-score-sheet_sheet {
+		color: var(--light-80);
+	}
+
+	#score_sheet tr:nth-child(2n) .bga-score-sheet_player-score-entry {
+		background-color: var(--dark-40);
+	}
+
+	#score_sheet tr:nth-child(odd) .bga-score-sheet_player-score-entry {
+		background-color: var(--dark-20);
+	}
+
+	.bga-score-sheet_player-name[style="--player-color: #0000ff;"] {
+		color: #6565ff;
+	}
+
+	.bga-score-sheet_player-name[style="--player-color: #ff0000;"] {
+		color: #ff6565;
+	}
+
+	.bga-score-sheet_player-name[style="--player-color: #008000;"] {
+		color: #54aa54;
+	}
+
+	.bga-score-sheet_player-name[style="--player-color: #982fff;"] {
+		color: #b365ff;
+	}
+
+	.bga-score-sheet_player-name[style="--player-color: #f07f16;"] {
+		color: #f39946;
+	}
+
+	.bga-score-sheet_player-name[style="--player-color: #ffa500;"] {
+		color: #ffc965;
+	}
+
+	.player_wonder .wonder_bg,
+	.spot_val,
+	.die,
+	.cp_btn,
+	.bga-score-sheet_corner,
+	.bga-score-sheet_entry-label {
+		filter: var(--ext-bright);
+	}
+}

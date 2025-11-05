@@ -227,6 +227,7 @@ export const gamesWithCustomBackground = [
   'seasaltpaper',
   'seasons',
   'secretmoon',
+  'sevenwondersdice',
   'schottentotten',
   'shock',
   'skirmishbattlefordraconia',
@@ -260,6 +261,7 @@ export const gamesWithCustomBackground = [
   'thecrewdeepsea',
   'thegamemakers',
   'thehanginggardens',
+  'thekingofthewoods',
   'theninesonsofthedragon',
   'theyellowhouse',
   'tickettoride',
@@ -739,6 +741,9 @@ export const gamesWithCustomActions: GamesWithCustomActions = {
     init: () => addInvertOverlay('', true)
   },
   malabares: {
+    init: () => addInvertOverlay('', true)
+  },
+  sevenwondersdice: {
     init: () => addInvertOverlay('', true)
   },
   newton: {

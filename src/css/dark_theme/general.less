@@ -949,7 +949,9 @@ select.colorselector {
 }
 
 .bgaext_gamelist .bga-game-item__box-visible,
-.bgaext_gamelist .zoom-rounded {
+.bgaext_gamelist .zoom-rounded,
+.bgaext_gamelist .bga-discover__game-box,
+.bgaext_gamelist .bga-game-video-preview {
   filter: var(--ext-bright);
 }
 
@@ -1788,6 +1790,12 @@ select.colorselector {
   background-color: #fff;
 }
 
+.bgaext_headlines .pagesection__content>div:first-child,
+.bgaext_news .pagesection__content>div:first-child,
+.bgaext_news .newsblockimage {
+  filter: var(--ext-bright);
+}
+
 /* Page parties en cours */
 #gameinprogress-module .newbgatable th,
 #gameinprogress-module .newbgatable td {
@@ -2223,6 +2231,12 @@ iframe#forum_frame {
 
 .bga-homepage a[href="/serverstatus"][style*="background-color: rgb(255, 165, 0)"] {
   background-color: var(--orange-30) !important;
+}
+
+.bga-homepage .bga-game-box,
+.bga-homepage-header__banner,
+.bga-news-item__container {
+  filter: var(--ext-bright);
 }
 
 /* Delete button on gamelist page */
