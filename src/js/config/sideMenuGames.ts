@@ -1642,6 +1642,10 @@ const defaultGames: Partial<Game>[] = [
 		position: "bottom",
 		iconBorderDark: "#ccc",
 	},
+	{
+		name: "moversandshakers",
+		playerPanel: "playermat_{{player_id}}",
+	},
 ];
 
 export default defaultGames;

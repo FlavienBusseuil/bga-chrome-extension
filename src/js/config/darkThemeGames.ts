@@ -150,6 +150,7 @@ export const gamesWithCustomBackground = [
   'malabares',
   'mantisfalls',
   'mapmasters',
+  'massiveverse',
   'mastersofrenaissance',
   'matchsticktycoon',
   'megajackpot',
@@ -166,6 +167,7 @@ export const gamesWithCustomBackground = [
   'moonlight',
   'moonshine',
   'mountaingoats',
+  'moversandshakers',
   'mrjack',
   'mycity',
   'mycityrb',
@@ -272,6 +274,7 @@ export const gamesWithCustomBackground = [
   'toybattle',
   'trailblazers',
   'trektwelve',
+  'trickarus',
   'trio',
   'tsukurutenten',
   'tucano',
@@ -745,6 +748,9 @@ export const gamesWithCustomActions: GamesWithCustomActions = {
     init: () => addInvertOverlay('', true)
   },
   sevenwondersdice: {
+    init: () => addInvertOverlay('', true)
+  },
+  moversandshakers: {
     init: () => addInvertOverlay('', true)
   },
   newton: {

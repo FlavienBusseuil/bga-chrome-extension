@@ -1,0 +1,74 @@
+html[data-theme=dark].darkpanel #player_boards .player-board.mns_player_passed {
+	background: var(--dark-40) !important;
+}
+
+html[data-theme=dark] {
+	.bgaext_overlay {
+		filter: invert() grayscale() !important;
+	}
+
+	.mns_panel_toggle_text,
+	.mns_arrow,
+	.mns_tooltip_header,
+	.mns_contract_show_label,
+	.mns_special_button,
+	#round_label {
+		color: var(--light-80);
+	}
+
+	.player-board,
+	.mns_supply,
+	.mns_playermat,
+	#hand_panel {
+		background: var(--dark-30);
+	}
+
+	.mns_actionbar_icon_button .mns_woodpiece {
+		filter: var(--highlight-min);
+	}
+
+	.mns_actionbar_icon_button.mns_selected,
+	.mns_actionbar_icon_button:hover,
+	.mns_actionbar_multi_button:hover {
+		outline-color: var(--light-50);
+	}
+
+	.mns_special_button:hover {
+		color: #fff !important;
+		outline-color: var(--light-80);
+	}
+
+	.mns_special_subbutton {
+		box-shadow: 1px 1px 5px var(--light-50);
+	}
+
+	.mns_lane_assign_next {
+		background-color: var(--dark-20);
+		outline-color: var(--light-50);
+	}
+
+	.mns_lane_assign_next:hover {
+		background: var(--dark-40);
+	}
+
+	.mns_playermat>.mns_contract_discard:hover {
+		outline-color: var(--light-50);
+	}
+
+	.mns_playerhand_dockbutton {
+		filter: invert(1);
+	}
+
+	#hand_fixed {
+		background-color: var(--dark-back);
+	}
+
+	.mns_hand_selectable:hover {
+		box-shadow: 0 0 3px, inset 0 0 20px #000;
+	}
+
+	.mns_main_board_img,
+	.mns_setup_tiles_wrap {
+		filter: var(--ext-bright);
+	}
+}

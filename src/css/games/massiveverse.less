@@ -1,0 +1,59 @@
+html[data-theme=dark] {
+	.player-resource .banished-cards .banished-empty {
+		border-color: var(--light-50);
+	}
+
+	#play-area:before {
+		content: "";
+		background: #00000060;
+		position: absolute;
+		width: 100%;
+		height: 100%;
+	}
+
+	.player-card-top {
+		filter: var(--ext-bright);
+	}
+
+	.player-card-middle {
+		color: var(--light-80);
+		background: var(--dark-40);
+	}
+
+	.player-card-bottom.starting-footer {
+		background: var(--dark-40);
+	}
+
+	.player-card-bottom.starting-footer .card-bottom-inner {
+		background: #211e1f;
+	}
+
+	.player-card-bottom.starting-footer .card-bottom-inner::before,
+	.player-card-bottom.starting-footer .card-bottom-inner::after {
+		outline: 0.0625em solid var(--dark-40);
+		background: var(--dark-40);
+	}
+
+	.discard-pile.discard-pile-bottom,
+	.player-zone {
+		--outline-color: #70017e;
+	}
+
+	.player-zone.player-zone-top,
+	.discard-pile.discard-pile-top {
+		--outline-color: #cca700;
+	}
+
+	.paragons-select-footer::before {
+		background: var(--dark-30);
+	}
+
+	.paragon-info {
+		background: var(--dark-30);
+		color: var(--light-80);
+	}
+
+	.card-back-face {
+		filter: var(--ext-bright);
+	}
+}

@@ -1,16 +1,16 @@
 @import "./common";
 
-html[data-theme=dark] {
-	.challengers-pref-background-dark #overall-content:before {
-		content: "";
-		background: #00000080;
-		position: absolute;
-		width: 100%;
-		height: 100%;
-		top: 0px;
-		left: 0px;
-	}
+html[data-theme=dark].challengers-pref-background-dark #overall-content:before {
+	content: "";
+	background: #00000080;
+	position: absolute;
+	width: 100%;
+	height: 100%;
+	top: 0px;
+	left: 0px;
+}
 
+html[data-theme=dark] {
 	.cha-log-holder {
 		background: var(--dark-20);
 		color: var(--light-80);
@@ -25,6 +25,10 @@ html[data-theme=dark] {
 
 	.cha-name-404040 {
 		text-shadow: var(--text-w-shadow);
+	}
+
+	.cha-name-444444 {
+		color: var(--light-80);
 	}
 
 	.cha-name-0000dd {
