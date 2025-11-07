@@ -379,6 +379,7 @@ interface GamesWithCustomBackground {
 export const gamesWithConditionalCustomBackground: GamesWithCustomBackground = {
   apiary: ['custom-background'],
   challengers: ['challengers-pref-background-dark'],
+  challengersbeachcup: ['challengers-pref-background-dark'],
   cuttle: ['theme_cuttlefish'],
   festival: ['black-background', 'dark-wood-background'],
   fliptoons: ['custom-background'],
