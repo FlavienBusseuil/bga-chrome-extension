@@ -1,0 +1,51 @@
+html[data-theme=dark] {
+
+	.first_player_icon,
+	.icon_inspiration,
+	.icon_afternoon,
+	.icon_morning,
+	.icon_evening,
+	.icon_night,
+	.icon_achievement,
+	.icon_habit,
+	.icon_muse,
+	.icon_atelier,
+	.icon_hardship,
+	.icon_job {
+		filter: invert(0.8);
+	}
+
+	.gmk_atelier,
+	.gmk_inspiration {
+		filter: invert(1);
+		color: #000;
+	}
+
+	.playerboard_label {
+		background: var(--dark-back);
+	}
+
+	.job_tile_attendant {
+		border-radius: 8px;
+	}
+
+	#myhand:before {
+		content: "";
+		background: #00000060;
+		position: absolute;
+		width: 100%;
+		height: 100%;
+	}
+
+	.muse_deck,
+	.card,
+	.ach_card,
+	.atelier,
+	.hardship_slot,
+	.habit_deck,
+	.playerDeck,
+	.job_tile_attendant,
+	.stockitem {
+		filter: var(--ext-bright);
+	}
+}
