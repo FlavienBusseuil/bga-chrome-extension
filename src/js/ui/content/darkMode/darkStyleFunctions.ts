@@ -215,10 +215,13 @@ const _applyDarkStyleForGame = () => {
       });
     }).flat().join(' ') || '';
     const borderStyle = playersBorder[gameName]?.map((rule: string) => {
-      return playersData.filter(d => d.darkColor && d.darkColor !== d.color).map(d => {
-        const ruleName = rule.replace('{{player_id}}', d.id.toString());
-        return `${ruleName} { border-color: ${d.darkColor}!important; }`;
-      });
+      return playersData.map((d, i) => {
+        if (d.darkColor && d.darkColor !== d.color) {
+          const ruleName = rule.replace('{{player_id}}', d.id.toString()).replace('{{player_index}}', i.toString());
+          return `${ruleName} { border-color: ${d.darkColor}!important; }`;
+        }
+        return undefined;
+      }).filter(d => d);
     }).flat().join(' ') || '';
     const textStyle = playersTextColor[gameName]?.map((rule: string) => {
       return playersData.filter(d => (d.darkColor && d.darkColor !== d.color) || d.darkEnlight).map(d => {

@@ -29,6 +29,7 @@ export const gamesWithCustomBackground = [
   'bigmonster',
   'bloodrage',
   'bossquest',
+  'bootydice',
   'bunnyboom',
   'bunnykingdom',
   'cafe',
@@ -752,6 +753,9 @@ export const gamesWithCustomActions: GamesWithCustomActions = {
     init: () => addInvertOverlay('', true)
   },
   moversandshakers: {
+    init: () => addInvertOverlay('', true)
+  },
+  bootydice: {
     init: () => addInvertOverlay('', true)
   },
   newton: {
