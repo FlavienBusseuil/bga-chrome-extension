@@ -1,4 +1,39 @@
+.visualisationAreaPopupContainer {
+	left: 0;
+}
+
 html[data-theme=dark] {
+	.gameArea {
+		position: relative;
+	}
+
+	.gameArea:before {
+		content: "";
+		background: #00000080;
+		position: absolute;
+		width: 100%;
+		height: 100%;
+	}
+
+	.popup,
+	.tradePopupContainer .tradePopup .tradePopupWarning,
+	.visualisationAreaPopup.popupScorepadTop,
+	.visualisationTradeRules,
+	.trashSelectionPopup {
+		top: 50% !important;
+	}
+
+	.sabotZoneResizable:before {
+		content: "";
+		background: #00000060;
+		position: absolute;
+		width: 100%;
+		height: 100%;
+	}
+
+	.undo {
+		filter: invert();
+	}
 
 	.player-name,
 	.teamName {
@@ -223,5 +258,38 @@ html[data-theme=dark] {
 
 	[color="0000ff"] {
 		color: #6565ff !important;
+	}
+
+	.teamScore .teamScoreTxt {
+		text-shadow: none;
+	}
+
+	.teamScore .teamScoreTxt.colorff0000 {
+		color: #f66
+	}
+
+	.teamScore .teamScoreTxt.color773300 {
+		color: #ffa866
+	}
+
+	.teamScore .teamScoreTxt.color008000 {
+		color: #6f6
+	}
+
+	.teamScore .teamScoreTxt.color0000ff {
+		color: #6565ff
+	}
+
+	.teamScore .teamScoreTxt.team1 {
+		color: #e67b9e
+	}
+
+	.actionCardImg,
+	.cardImg,
+	.cardImgTooltip,
+	.choiceCardImg,
+	.houseCardImg,
+	.sabotCardImg {
+		filter: var(--ext-bright);
 	}
 }

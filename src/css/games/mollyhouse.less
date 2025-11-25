@@ -1,0 +1,49 @@
+html[data-theme=dark] {
+	.bgaext_overlay {
+		filter: invert(0.75) !important;
+	}
+
+	#preference-content {
+		background-color: var(--dark-20);
+		padding: 1em;
+		border: 1px solid var(--light-50);
+	}
+
+	#preference-header #preference-tabs {
+		position: relative;
+		top: 1px;
+	}
+
+	#preference-header #preference-tabs .preference-tab {
+		background-color: var(--dark-40);
+		border: 1px solid var(--light-50);
+		color: var(--light-80);
+		border-radius: 10px 10px 0px 0px;
+	}
+
+	#preference-header #preference-tabs .preference-tab[data-state=selected] {
+		background-color: var(--dark-20);
+		border-bottom: none;
+	}
+
+	.moho-encounter-token {
+		filter: var(--drop-shadow);
+	}
+
+	.icon-counter-container .icon-counter-counter {
+		color: #000;
+	}
+
+	.settings_modal {
+		background-color: var(--dark-20);
+		color: var(--light-80);
+	}
+
+	.settings_modal #setting_modal_content .settings_modal_tabs .settings_modal_tab[data-state=selected] {
+		background-color: var(--dark-20);
+	}
+
+	.settings_modal #setting_modal_content .settings_modal_tabs .settings_modal_tab {
+		background-color: var(--dark-40);
+	}
+}

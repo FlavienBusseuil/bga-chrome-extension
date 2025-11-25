@@ -164,6 +164,7 @@ export const gamesWithCustomBackground = [
   'mindup',
   'misty',
   'mojo',
+  'mollyhouse',
   'monstersmash',
   'monstertrick',
   'moonlight',
@@ -391,6 +392,7 @@ export const gamesWithConditionalCustomBackground: GamesWithCustomBackground = {
   gemsofiridescia: ['goi_thematicBackground'],
   nirds: ['spicy'],
   orapamine: ['orp_pref-thematicBackground-blue', 'orp_pref-thematicBackground-red'],
+  popcorn: ['pop-game-bg'],
   rollintotown: ['rt-pref-background-dark'],
   setup: ['setup-pref-background-dark'],
   shogi: ['shg_theme1', 'shg_theme2'],
@@ -756,6 +758,9 @@ export const gamesWithCustomActions: GamesWithCustomActions = {
     init: () => addInvertOverlay('', true)
   },
   bootydice: {
+    init: () => addInvertOverlay('', true)
+  },
+  mollyhouse: {
     init: () => addInvertOverlay('', true)
   },
   newton: {

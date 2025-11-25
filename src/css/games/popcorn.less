@@ -1,0 +1,29 @@
+html[data-theme=dark] {
+	.pop-white-zone {
+		background-color: var(--dark-back);
+	}
+
+	.pop-actions-help,
+	#pop-score-dialog-content {
+		filter: var(--ext-bright);
+		color: #000;
+	}
+
+	.pop-player-resources,
+	.pop-player-tokens {
+		background-color: var(--dark-40);
+	}
+
+	.pop-movie-card-img,
+	#pop-advertising-board,
+	.pop-movie-tile,
+	.pop-award-card-img,
+	.pop-player-board {
+		filter: var(--ext-bright);
+	}
+}
+
+html[data-theme=dark].pop-game-bg .pop-white-zone {
+	background-color: var(--dark-back);
+	border: 1px solid var(--dark-40);
+}

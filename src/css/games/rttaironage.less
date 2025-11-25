@@ -62,7 +62,8 @@ html[data-theme=dark] {
 	.population,
 	.star,
 	.sc_disaster,
-	.sc_sizer_wrapper {
+	.sc_sizer_minus,
+	.sc_sizer_plus {
 		filter: invert(1);
 	}
 
@@ -88,5 +89,18 @@ html[data-theme=dark] {
 	.sc_urn[style="background-color: #ffa500;"],
 	.sc_disaster[style="background-color: #ffa500;"] {
 		background-color: #005aff !important;
+	}
+
+	.sc_monument_score_prime,
+	.sc_monument_score_second {
+		color: #000;
+	}
+
+	.pegBoard,
+	.rtta_scoreCard,
+	#sc_disaster_info,
+	#player_pop,
+	#player_innovations {
+		filter: var(--ext-bright);
 	}
 }

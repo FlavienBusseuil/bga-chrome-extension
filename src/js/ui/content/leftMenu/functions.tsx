@@ -41,6 +41,10 @@ export const buildLeftMenu = (config: Configuration, gameConfig: Game, enable: b
 		document.body.appendChild(container);
 
 		render(<SideMenu players={playersData} panel={gameConfig.playerPanel} gameConfig={gameConfig} config={config} />, container);
+
+		// some games refresh the UI on resize events
+		const event = new Event('resize');
+		window.dispatchEvent(event);
 		return;
 	}
 

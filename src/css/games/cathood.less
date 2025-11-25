@@ -12,7 +12,15 @@ html[data-theme=dark] {
 	}
 
 	cathood tiles paw {
-		filter: invert(0.9) var(--drop-shadow);
+		filter: invert(1) var(--drop-shadow);
+	}
+
+	cathood tiles paw[active=true]:hover {
+		filter: invert(1) drop-shadow(2px 2px 1px var(--green-30)) drop-shadow(0 0 2px #fff);
+	}
+
+	cathood tiles paw>* {
+		filter: invert(1);
 	}
 
 	cathood tiles paw[opacity=true] {
@@ -51,9 +59,12 @@ html[data-theme=dark] {
 		opacity: .8;
 	}
 
+	background,
 	cathood building,
 	cathood park,
-	cathood toy {
+	cathood toy,
+	resource_icon,
+	#newArchiveCommentTextDisplay img {
 		filter: var(--ext-bright);
 	}
 }
