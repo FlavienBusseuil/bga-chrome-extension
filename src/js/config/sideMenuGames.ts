@@ -1650,6 +1650,13 @@ const defaultGames: Partial<Game>[] = [
 		name: "popcorn",
 		playerPanel: "pop-player-{{player_id}}",
 	},
+	{
+		name: "spirited",
+		playerPanel: "sp-player-area-{{player_id}}",
+		css: "#bga-jump-to_controls { display: none; }",
+		iconBackgroundDark: "#53481d",
+	},
+
 ];
 
 export default defaultGames;

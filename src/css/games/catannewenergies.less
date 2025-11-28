@@ -18,11 +18,43 @@ html[data-theme=dark] {
 		border-radius: 50%;
 	}
 
-	#footprint_value {
+	#footprint_value,
+	#counter_eventbag,
+	.card .card_title {
 		color: #000;
 	}
 
 	.minititle {
 		border-color: var(--light-50);
+	}
+
+	#cat_playerrates {
+		background-color: var(--dark-back);
+	}
+
+	.player_resource .player_hand_counter {
+		background: var(--dark-10);
+		border: .2vh solid var(--light-50);
+		color: var(--light-80);
+	}
+
+	.player_board {
+		box-shadow: none;
+		filter: var(--drop-shadow);
+	}
+
+	.player_board .player_boardname,
+	.board_zoom {
+		background: var(--dark-20);
+	}
+
+	.trade_entry {
+		background-color: var(--dark-30);
+	}
+
+	.token.eventbag,
+	.deck .deck_bg,
+	.player_board_bg {
+		filter: var(--ext-bright);
 	}
 }

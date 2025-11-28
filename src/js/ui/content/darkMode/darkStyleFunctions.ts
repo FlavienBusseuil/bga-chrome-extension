@@ -1,6 +1,6 @@
 import { isNumber } from "../../../utils/misc/isNumber";
 import { waitForObj } from "../../../utils/misc/wait";
-import { gamesWithConditionalCustomBackground, gamesWithCustomActions, gamesWithCustomBackground, gamesWithCustomDarkMode, gamesWithCustomPanel, gamesWithCustomPlayerStyle, gamesWithTwoTeams, playersBackground, playersBorder, playersTextColor } from "../../../config/darkThemeGames";
+import { gamesWithConditionalCustomBackground, gamesWithCustomActions, gamesWithCustomBackground, gamesWithCustomDarkMode, gamesWithCustomPanel, gamesWithCustomPlayerStyle, gamesWithTwoTeams, playersBackground, playersBorder, playersOutline, playersTextColor } from "../../../config/darkThemeGames";
 import { PlayerData, getPlayersData, getPlayersPossibleColors } from "../players";
 import { cookieName, createStyle, getFile } from "./darkStyleCommonFunctions";
 
@@ -223,6 +223,15 @@ const _applyDarkStyleForGame = () => {
         return undefined;
       }).filter(d => d);
     }).flat().join(' ') || '';
+    const outlineStyle = playersOutline[gameName]?.map((rule: string) => {
+      return playersData.map((d, i) => {
+        if (d.darkColor && d.darkColor !== d.color) {
+          const ruleName = rule.replace('{{player_id}}', d.id.toString()).replace('{{player_index}}', i.toString());
+          return `${ruleName} { outline-color: ${d.darkColor}!important; }`;
+        }
+        return undefined;
+      }).filter(d => d);
+    }).flat().join(' ') || '';
     const textStyle = playersTextColor[gameName]?.map((rule: string) => {
       return playersData.filter(d => (d.darkColor && d.darkColor !== d.color) || d.darkEnlight).map(d => {
         const ruleName = rule.replace('{{player_id}}', d.id.toString());
@@ -231,7 +240,7 @@ const _applyDarkStyleForGame = () => {
       });
     }).flat().join(' ') || '';
 
-    playersStyleComponent.innerHTML = `${colorsStyle}${backStyle}${borderStyle}${textStyle}`;
+    playersStyleComponent.innerHTML = `${colorsStyle}${backStyle}${borderStyle}${outlineStyle}${textStyle}`;
 
     _setPlayersColor(gamesWithCustomPlayerStyle[gameName], playersData);
   });

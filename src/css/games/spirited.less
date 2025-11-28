@@ -1,0 +1,86 @@
+#bga-help_buttons {
+	z-index: 1600;
+}
+
+html[data-theme=dark].custom-background {
+	.bg-front:before {
+		content: "";
+		background: #00000080;
+		position: absolute;
+		width: 100%;
+		height: 100%;
+		top: 0px;
+		left: 0px;
+	}
+}
+
+html[data-theme=dark].floating-hand .sp-player-own-hand #sp-floating-hand-toggle-button,
+html[data-theme=dark].floating-hand .sp-player-own-hand {
+	background-color: #272a2fe6;
+}
+
+html[data-theme=dark] {
+	.bga-cards_deck-counter.round {
+		background: var(--dark-20);
+		box-shadow: 0 0 2px 1px var(--light-80);
+		color: var(--light-80);
+	}
+
+	.sp-wonder-card-description-wrapper,
+	.sp-allegiance-card-description-wrapper,
+	.sp-player-board-text-wrapper,
+	.sp-clan-card-description-wrapper {
+		color: #000;
+	}
+
+	.sp-player-area .sp-player-area-road .sp-road-slot:last-child:before,
+	.sp-player-area .sp-player-area-below-player-board .sp-player-area-wonders:before,
+	.sp-player-area .sp-player-area-below-player-board .sp-player-area-camp>.slot:last-child:before {
+		color: var(--light-50);
+	}
+
+	.sp-icon[data-type=DISCARD],
+	.sp-icon[data-type=REMOVE],
+	.sp-icon[data-type=SHIELD],
+	.sp-icon[data-type=PLAY],
+	.sp-icon[data-type=RALLY],
+	.sp-icon[data-type=RECRUIT],
+	.sp-icon[data-type=BUILD],
+	.sp-icon[data-type=MARCH],
+	.sp-icon[data-type=REVEAL],
+	.sp-icon[data-type=MANOEUVRE] {
+		filter: var(--highlight);
+	}
+
+	#jj-zoom-controls,
+	#sp-player-aid #sp-player-aid-icons,
+	#sp-player-aid #sp-player-aid-phases .sp-player-aid-phase-block,
+	#sp-player-aid #sp-player-aid-medals,
+	#sp-clan-deck-wrapper #sp-clan-card-discard {
+		background-color: var(--dark-back);
+		color: var(--light-80);
+	}
+
+	#sp-player-aid #sp-player-aid-phases .sp-player-aid-phase-title,
+	#sp-player-aid #sp-player-aid-medals .sp-player-aid-phase-title {
+		color: var(--red-80);
+	}
+
+	.sp-medal-art.small {
+		filter: var(--highlight-min);
+	}
+
+	.bgext_side_menu_item {
+		filter: var(--drop-shadow);
+	}
+
+	#sp-time-track-wrapper #sp-time-track-board,
+	.sp-player-area .sp-player-board,
+	.card {
+		filter: var(--ext-bright);
+	}
+
+	.sp-player-area .sp-player-board .card {
+		filter: none;
+	}
+}

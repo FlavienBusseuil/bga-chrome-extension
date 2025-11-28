@@ -447,6 +447,7 @@ export const playersBackground: { [gameName: GameName]: string[] } = {
   lorenzo: ['#obrPlayerboardId_{{player_id}} .obr_playerboard_name'],
   nirds: ['#player_table_{{player_id}} .title'],
   qwinto: ['#qwinto-player-board-background-{{player_id}} .qwinto_name_tag'],
+  spirited: ['#sp-player-area-{{player_id}} .sp-player-area-name-spacer'],
   thegreatamericanfoxhunt: ['#TGAFH_player_89123556'],
   treos: ['#gamezone-{{player_id}} .player-board-name'],
 };
@@ -490,6 +491,10 @@ export const playersBorder: { [gameName: GameName]: string[] } = {
   welcometothemoon: ['#score-sheet-{{player_id}}', '#score-sheet-{{player_id}} .player-name'],
   wizardsgrimoire: ['.wg-title.ext_player_{{player_id}}', '#player-table-{{player_id}}-health', '#player-table-{{player_id}} .player-table'],
   yaxha: ['#pyramid-container-{{player_id}} .player-name-text .text-container'],
+};
+
+export const playersOutline: { [gameName: GameName]: string[] } = {
+  spirited: ['#sp-player-area-{{player_id}} .sp-road-slot', '#sp-player-area-{{player_id}} .sp-player-area-wonders', '#sp-player-area-{{player_id}} .sp-player-area-camp>.slot'],
 };
 
 export const playersTextColor: { [gameName: GameName]: string[] } = {
