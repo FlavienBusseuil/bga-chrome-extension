@@ -141,6 +141,12 @@
   margin: 0px !important;
 }
 
+.bgaext_palette_body {
+  display: flex;
+  flex-flow: column;
+  gap: 20px;
+}
+
 .bgaext_palette {
   display: flex;
   flex-flow: row nowrap;

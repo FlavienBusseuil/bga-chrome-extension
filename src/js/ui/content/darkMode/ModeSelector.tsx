@@ -36,8 +36,9 @@ const isDarkMode = (config: Configuration, gameName: string) => {
   return config.isDarkMode();
 }
 
-const HUE_STEP = 16;
-const SAT_STEP = 4;
+const HUE_STEP = 18;
+const SAT_STEP = 3;
+const MULT = isMobile() ? 1.5 : 2;
 
 const ModeSelector = (props: ModeSelectorProps) => {
   const { config, gameName } = props;
@@ -128,7 +129,7 @@ const ModeSelector = (props: ModeSelectorProps) => {
     paletteCursor = document.getElementById("bgaext_palette_cursor");
 
     if (paletteCursor) {
-      const cursPos = darkColorHue < 0 ? (512 + 16) : (darkColorHue * 2) + 16;
+      const cursPos = (darkColorHue * MULT) + 16;
 
       paletteCursor.style.left = `${cursPos}px`;
       paletteCursor.style.display = "block";
@@ -139,7 +140,7 @@ const ModeSelector = (props: ModeSelectorProps) => {
     saturationCursor = document.getElementById("bgaext_saturation_cursor");
 
     if (saturationCursor) {
-      const cursPos = (darkColorSaturation - 4) * SAT_STEP + 16;
+      const cursPos = ((darkColorSaturation - 4) * SAT_STEP * MULT) + 16;
 
       saturationCursor.style.left = `${cursPos}px`;
       saturationCursor.style.display = "block";
@@ -178,9 +179,11 @@ const ModeSelector = (props: ModeSelectorProps) => {
 
   const paletteCursorMove = (evt: MouseEvent) => {
     const leftEdge = paletteContainer.getBoundingClientRect().left;
-    const maxPos = 33 * 16;
+    const maxPos = (360 * MULT) + 16;
     const pos = Math.min(Math.max(evt.clientX - leftEdge - 10, 16), maxPos) - 16;
-    const hue = pos > 510 ? - 1 : Math.round(pos / 2);
+    const hue = Math.round(pos / MULT);
+
+    console.debug(`[bga extension] set dark color hue: ${hue}`);
 
     if (timer) {
       window.clearTimeout(timer);
@@ -192,10 +195,11 @@ const ModeSelector = (props: ModeSelectorProps) => {
 
   const saturationCursorMove = (evt: MouseEvent) => {
     const leftEdge = paletteContainer.getBoundingClientRect().left;
-    const maxPos = 33 * 16;
+    const maxPos = (360 * MULT) + 16;
     const pos = Math.min(Math.max(evt.clientX - leftEdge - 10, 16), maxPos) - 16;
+    const sat = Math.round(pos / SAT_STEP / MULT) + 4;
 
-    const sat = Math.round(pos / SAT_STEP) + 4;
+    console.debug(`[bga extension] set dark color sat: ${sat}`);
 
     if (timer) {
       window.clearTimeout(timer);
@@ -296,7 +300,18 @@ const ModeSelector = (props: ModeSelectorProps) => {
 
   const getCells = () => {
     const result: preact.JSX.Element[] = [];
-    const max = (512 / HUE_STEP) / 2;
+    const max = 360 / HUE_STEP;
+
+    result.push(
+      <div
+        key={`color_start`}
+        className="bgaext_palette_cell"
+        style={{ background: "hsl(0, 50%, 50%)", width: '8px' }}
+        onClick={paletteClick}
+        draggable={false}
+        onDragStart={() => false}
+      />
+    );
 
     for (let i = 0; i < max; i++) {
       const startColor = `hsl(${i * HUE_STEP}, 50%, 50%)`;
@@ -306,7 +321,7 @@ const ModeSelector = (props: ModeSelectorProps) => {
         <div
           key={`color_${i}`}
           className="bgaext_palette_cell"
-          style={{ background: color, width: HUE_STEP * 2 }}
+          style={{ background: color, width: HUE_STEP * MULT }}
           onClick={paletteClick}
           draggable={false}
           onDragStart={() => false}
@@ -316,10 +331,10 @@ const ModeSelector = (props: ModeSelectorProps) => {
 
     result.push(
       <div
-        key="color_black"
+        key="color_end"
         className="bgaext_palette_cell"
-        style={{ background: "#272a2f" }}
-        onClick={() => setDarkColorHue(-1)}
+        style={{ background: "hsl(0, 50%, 50%)", width: '8px' }}
+        onClick={paletteClick}
         draggable={false}
         onDragStart={() => false}
       />
@@ -338,6 +353,11 @@ const ModeSelector = (props: ModeSelectorProps) => {
     return (
       <div id="bgaext_saturation_cursor" draggable={false} onMouseDown={saturationCursorMoveDown} onDragStart={() => false} />
     );
+  };
+
+  const setDefColor = () => {
+    setDarkColorHue(0);
+    setDarkColorSaturation(15);
   };
 
   const reset = () => {
@@ -427,23 +447,37 @@ const ModeSelector = (props: ModeSelectorProps) => {
     const color1 = `hsl(${darkColorHue}, 4%, 35%)`;
     const color2 = `hsl(${darkColorHue}, 124%, 35%)`;
     const saturationStyle = `background: linear-gradient(90deg, ${color1}, ${color2})`;
-    const resetLinkText = (gameName === "general") ? i18n("darkColorResetMain") : i18n("darkColorResetGame");
+    const width = (360 * MULT) + 18;
+
+    const getSuggestedLink = () => {
+      if (recommandedConfig) {
+        return <a href="#" className="bga-ext-link" onClick={setRecommanded}>{i18n("darkColorRecommanded")}</a>;
+      }
+      return <span></span>;
+    };
+
+    const getResetLink = () => {
+      if (darkColorHue >= 0) {
+        const resetLinkText = (gameName === "general") ? i18n("darkColorResetMain") : i18n("darkColorResetGame");
+        return <a href="#" className="bga-ext-link" onClick={reset}>{resetLinkText}</a>;
+      }
+      return <a href="#" className="bga-ext-link" onClick={setDefColor}>{i18n("darkColorSetDefault")}</a>;
+    };
 
     return (
-      <>
-        <div className="bgaext_palette" draggable={false} onDragStart={() => false}>
+      <div className="bgaext_palette_body" style={{ width }}>
+        {darkColorHue >= 0 && <div className="bgaext_palette" draggable={false} onDragStart={() => false}>
           {getCells()}
           {getCursor()}
-        </div>
+        </div>}
         {darkColorHue >= 0 && <div className="bgaext_saturation_selector" style={saturationStyle} onClick={saturationClick} draggable={false} onDragStart={() => false}>
           {getSaturationCursor()}
         </div>}
         <div className="bgaext_palette_bottom">
-          {recommandedConfig && <a href="#" className="bga-ext-link" onClick={setRecommanded}>{i18n("darkColorRecommanded")}</a>}
-          {!recommandedConfig && <span></span>}
-          {darkColorHue >= 0 && <a href="#" className="bga-ext-link" onClick={reset}>{resetLinkText}</a>}
+          {getSuggestedLink()}
+          {getResetLink()}
         </div>
-      </>
+      </div>
     );
   };
 

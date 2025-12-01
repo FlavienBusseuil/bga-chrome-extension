@@ -59,6 +59,14 @@ html[data-theme=dark].expansion #table-center #pick {
 	background-color: var(--dark-30);
 }
 
+html[data-theme=dark] #table-center #pick[data-visible=false] {
+	background-color: transparent;
+}
+
+html[data-theme=dark] #table-center #pick[data-visible=false]:before {
+	border-color: transparent;
+}
+
 html[data-theme=dark] #table-center #pick:before,
 html[data-theme=dark].expansion #table-center #pick:before {
 	border-color: var(--dark-30) transparent;
