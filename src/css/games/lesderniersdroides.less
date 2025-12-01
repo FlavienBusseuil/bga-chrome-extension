@@ -1,28 +1,4 @@
-.visualisationAreaPopupContainer {
-	left: 0;
-}
-
 html[data-theme=dark] {
-	.gameArea {
-		position: relative;
-	}
-
-	.gameArea:before {
-		content: "";
-		background: #00000080;
-		position: absolute;
-		width: 100%;
-		height: 100%;
-	}
-
-	.popup,
-	.tradePopupContainer .tradePopup .tradePopupWarning,
-	.visualisationAreaPopup.popupScorepadTop,
-	.visualisationTradeRules,
-	.trashSelectionPopup {
-		top: 50% !important;
-	}
-
 	.sabotZoneResizable:before {
 		content: "";
 		background: #00000060;
@@ -193,14 +169,24 @@ html[data-theme=dark] {
 	}
 
 	.scorepadCloseIcon,
-	.tradePopupContainer .tradePopup .tradePopupConfirmCancelImg,
-	.visualisationCloseImg {
+	.visualisationCloseImg,
+	.tradePopupContainer .tradePopup .tradePopupConfirmCancelImg {
 		filter: brightness(0.5);
 	}
 
-	.tradePopupContainer .tradePopup,
-	.tradePopupContainer .tradePopup>* {
-		filter: invert(1);
+	.tradePopupContainer .tradePopup:before {
+		content: "";
+		background: #000000A0;
+		position: absolute;
+		width: 100%;
+		height: 100%;
+		top: 0px;
+		left: 0px;
+		border-radius: 6px;
+	}
+
+	.tradePopupContainer .tradePopup .tradePopupTitle {
+		position: relative;
 	}
 
 	.tradePopupContainer .tradePopup .overlayTrade .overlay.trade .tradeIconPair .iconTrade {
@@ -226,7 +212,8 @@ html[data-theme=dark] {
 		border-color: var(--light-50);
 	}
 
-	.tradePopupContainer .tradePopup .tradePopupTitle .tradePopupTitleText {
+	.tradePopupContainer .tradePopup .tradePopupTitle .tradePopupTitleText,
+	.tooltipValue {
 		color: var(--light-80);
 	}
 
@@ -282,6 +269,16 @@ html[data-theme=dark] {
 
 	.teamScore .teamScoreTxt.team1 {
 		color: #e67b9e
+	}
+
+	.cardQtyContainer.automa {
+		background-color: var(--dark-40);
+	}
+
+	.cardQtyContainer.automa .cardQty .score,
+	.cardQtyContainer.automa .automaIcon,
+	.tooltipLine .tooltipInfoContainer .automaIcon {
+		filter: var(--highlight);
 	}
 
 	.actionCardImg,
