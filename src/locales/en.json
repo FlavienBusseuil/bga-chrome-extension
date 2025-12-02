@@ -70,7 +70,6 @@
   "darkColorResetMain": "Dark mode without color",
   "darkColorConfigurationGame": "Game color settings",
   "darkColorResetGame": "Site default colors",
-  "darkColorSetDefault": "Configure colors",
   "darkColorRecommanded": "Suggested colors",
   "darkBrightness": "Images brightness:",
   "darkBrightnessInfo": "This option is not supported in all games.\nYou can create a bug report if you want it to be handled in a specific game.",

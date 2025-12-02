@@ -27,7 +27,6 @@
 #bgaext_palette_container {
   position: absolute;
   top: 48px;
-  right: 140px;
   border: 1px solid var(--dark-40);
   box-sizing: content-box;
   border-radius: 8px;
@@ -91,8 +90,17 @@
   padding-left: 0.3em;
 }
 
-.mobile_version #bgaext_palette_container {
+#bgaext_palette_container {
+  right: 140px;
+}
+
+.mobile_version #bgaext_palette_container,
+#topbar #bgaext_palette_container {
   right: 0px;
+}
+
+.mobile_version #topbar #bgaext_palette_container {
+  right: -100px;
 }
 
 @media (max-width: 530px) {
@@ -272,4 +280,11 @@
   height: 16px;
   top: 2px;
   position: relative;
+}
+
+.bgaext_reset_link {
+  display: flex;
+  flex-flow: row;
+  gap: 0.5em;
+  cursor: pointer;
 }

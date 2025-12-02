@@ -1,4 +1,4 @@
-import { useState, useEffect } from "preact/hooks";
+import { useState, useEffect, useMemo } from "preact/hooks";
 import { isMobile } from "is-mobile";
 
 import Configuration from "../../../config/configuration";
@@ -56,6 +56,9 @@ const ModeSelector = (props: ModeSelectorProps) => {
   const [reportScreenshot, setReportScreenshot] = useState('');
   const [newMessageVisible, setNewMessageVisible] = useState(!isMobile() && gameName !== 'general' && popupConfig.reportMsg);
   const [resultVisible, setResultVisible] = useState(false);
+
+  const generalHue = useMemo(() => config.getDarkModeColor("general"), [config]);
+  const generalSat = useMemo(() => config.getDarkModeSaturation("general"), [config]);
 
   const hideNewMessage = (evt: any) => {
     setNewMessageVisible(false);
@@ -360,15 +363,15 @@ const ModeSelector = (props: ModeSelectorProps) => {
     setDarkColorSaturation(15);
   };
 
-  const reset = () => {
-    if (gameName === "general") {
-      setDarkColorHue(-1);
-      setDarkColorSaturation(15);
-    } else {
-      setDarkColorHue(config.getDarkModeColor("general"));
-      setDarkColorSaturation(config.getDarkModeSaturation("general"));
-    }
+  const setBlackMode = () => {
+    setDarkColorHue(-1);
+    setDarkColorSaturation(15);
   };
+
+  const setWebsiteColors = () => {
+    setDarkColorHue(generalHue);
+    setDarkColorSaturation(generalSat);
+  }
 
   const setRecommanded = () => {
     if (recommandedConfig) {
@@ -449,19 +452,31 @@ const ModeSelector = (props: ModeSelectorProps) => {
     const saturationStyle = `background: linear-gradient(90deg, ${color1}, ${color2})`;
     const width = (360 * MULT) + 18;
 
-    const getSuggestedLink = () => {
-      if (recommandedConfig) {
+    const displayResetLink = gameName !== 'general' && generalHue >= 0 && (darkColorHue !== generalHue || darkColorSaturation !== generalSat);
+    const displayRecommandedLink = recommandedConfig && (darkColorHue !== recommandedConfig.color || darkColorSaturation !== recommandedConfig.sat);
+
+    const getLeftLink = () => {
+      if (displayResetLink) {
+        return <a href="#" className="bga-ext-link" onClick={setWebsiteColors}>{i18n("darkColorResetGame")}</a>;
+      }
+      if (displayRecommandedLink) {
         return <a href="#" className="bga-ext-link" onClick={setRecommanded}>{i18n("darkColorRecommanded")}</a>;
       }
       return <span></span>;
     };
 
-    const getResetLink = () => {
-      if (darkColorHue >= 0) {
-        const resetLinkText = (gameName === "general") ? i18n("darkColorResetMain") : i18n("darkColorResetGame");
-        return <a href="#" className="bga-ext-link" onClick={reset}>{resetLinkText}</a>;
+    const getMiddleLink = () => {
+      if (displayRecommandedLink && displayResetLink) {
+        return <a href="#" className="bga-ext-link" onClick={setRecommanded}>{i18n("darkColorRecommanded")}</a>;
       }
-      return <a href="#" className="bga-ext-link" onClick={setDefColor}>{i18n("darkColorSetDefault")}</a>;
+      return <></>;
+    }
+
+    const getResetCheckbox = () => {
+      if (darkColorHue >= 0) {
+        return <span className="bgaext_reset_link" onClick={setBlackMode}>{i18n("darkColorResetMain")}<input type='checkbox' /></span>
+      }
+      return <span className="bgaext_reset_link" onClick={setDefColor}>{i18n("darkColorResetMain")}<input type='checkbox' checked /></span>
     };
 
     return (
@@ -474,8 +489,9 @@ const ModeSelector = (props: ModeSelectorProps) => {
           {getSaturationCursor()}
         </div>}
         <div className="bgaext_palette_bottom">
-          {getSuggestedLink()}
-          {getResetLink()}
+          {getLeftLink()}
+          {getMiddleLink()}
+          {getResetCheckbox()}
         </div>
       </div>
     );

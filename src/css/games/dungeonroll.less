@@ -13,4 +13,24 @@ html[data-theme=dark] {
 	.dijitTooltipContainer .master {
 		color: #000;
 	}
+
+	.player_board .player_board_actions .display-score {
+		background: var(--dark-30);
+		border: 3px outset var(--light-50);
+		cursor: pointer;
+	}
+
+	.player_board .player_board_actions .display-score:hover,
+	.player_board .player_board_actions .display-score:active {
+		background: var(--dark-40);
+	}
+
+	.tableWindow th {
+		color: var(--blue-80);
+	}
+
+	.tableWindow table tr:last-child td {
+		border-top: 2px solid var(--blue-80);
+		color: var(--blue-80) !important;
+	}
 }
