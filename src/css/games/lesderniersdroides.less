@@ -185,8 +185,13 @@ html[data-theme=dark] {
 		border-radius: 6px;
 	}
 
-	.tradePopupContainer .tradePopup .tradePopupTitle {
+	.tradePopupContainer .tradePopup>* {
 		position: relative;
+	}
+
+	.tradePopupContainer .tradePopup .tradePopupWarning {
+		position: absolute;
+		color: var(--light-80)
 	}
 
 	.tradePopupContainer .tradePopup .overlayTrade .overlay.trade .tradeIconPair .iconTrade {
@@ -206,6 +211,10 @@ html[data-theme=dark] {
 	.tradePopupContainer .tradePopup .tradePopupTradeOptionsContainer .tradePopupTradeOptions .tradeOptionContainer .tradeOption {
 		background: var(--dark-back);
 		border-color: var(--light-50);
+	}
+
+	.tradePopupContainer .tradePopup .tradePopupTradeOptionsContainer .tradePopupTradeOptions .tradeOptionContainer .tradeOption.selected {
+		border-color: var(--green-30);
 	}
 
 	tradePopupContainer .tradePopup .tradePopupTradeOptionsContainer .cardsRow {
@@ -288,5 +297,9 @@ html[data-theme=dark] {
 	.houseCardImg,
 	.sabotCardImg {
 		filter: var(--ext-bright);
+	}
+
+	.storage .overlayTrade {
+		background: var(--dark-back);
 	}
 }
