@@ -447,6 +447,7 @@ export const playersBackground: { [gameName: GameName]: string[] } = {
   lorenzo: ['#obrPlayerboardId_{{player_id}} .obr_playerboard_name'],
   nirds: ['#player_table_{{player_id}} .title'],
   qwinto: ['#qwinto-player-board-background-{{player_id}} .qwinto_name_tag'],
+  reefgardens: ['#playerBoard[data-p-id="{{player_id}}"] #title', '#playerBoard[data-p-id="{{player_id}}"] #shells'],
   spirited: ['#sp-player-area-{{player_id}} .sp-player-area-name-spacer'],
   thegreatamericanfoxhunt: ['#TGAFH_player_89123556'],
   treos: ['#gamezone-{{player_id}} .player-board-name'],
@@ -517,6 +518,7 @@ export const gamesWithCustomColors: { [gameName: GameName]: string[] } = {
   legions: ['#770405', '#097138', '#011d4d', "#522886"], /* factions text in tooltips */
   livingforestduel: ['#302879', '#32693b'],
   lumen: ['#1f3067'],
+  moonlight: ['#0d383a'],
   nimalia: ['#0000ff', '#ff0000', '#ffa500', '#008000'],
   nowboarding: ['#000000'],
   pandemic: ['#252525'],
