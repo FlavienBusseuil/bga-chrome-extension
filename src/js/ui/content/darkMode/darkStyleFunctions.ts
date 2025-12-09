@@ -278,6 +278,20 @@ const _manageHtmlTag = () => {
     const theme = document.documentElement.dataset.theme; // new attribute, BGA slowly starts to manage dark mode !
     const customDarkClass = gameName ? gamesWithCustomDarkMode[gameName]?.className : undefined;
 
+    const classesList = gameName ? gamesWithConditionalCustomBackground[gameName] : [];
+
+    if (classesList) {
+      if (classesList.find(c => document.documentElement.classList.contains(c))) {
+        if (!document.documentElement.classList.contains("bgaext_cust_back")) {
+          document.documentElement.classList.add("bgaext_cust_back");
+        }
+      } else if (document.documentElement.classList.contains("bgaext_cust_back")) {
+        document.documentElement.classList.remove("bgaext_cust_back");
+      }
+    } else if (gamesWithCustomBackground.includes(gameName) && !document.documentElement.classList.contains("bgaext_cust_back")) {
+      document.documentElement.classList.add("bgaext_cust_back");
+    }
+
     if (_isDarkStyle()) {
       if (theme !== 'dark') {
         document.documentElement.dataset.theme = 'dark';
@@ -290,22 +304,8 @@ const _manageHtmlTag = () => {
         document.documentElement.classList.add(customDarkClass);
       }
 
-      if (gameName) {
-        const classesList = gamesWithConditionalCustomBackground[gameName];
-
-        if (classesList) {
-          if (classesList.find(c => document.documentElement.classList.contains(c))) {
-            if (!document.documentElement.classList.contains("bgaext_cust_back")) {
-              document.documentElement.classList.add("bgaext_cust_back");
-            }
-          } else if (document.documentElement.classList.contains("bgaext_cust_back")) {
-            document.documentElement.classList.remove("bgaext_cust_back");
-          }
-        }
-
-        if (!gamesWithCustomPanel.includes(gameName) && !document.documentElement.classList.contains("darkpanel")) {
-          document.documentElement.classList.add("darkpanel");
-        }
+      if (gameName && !gamesWithCustomPanel.includes(gameName) && !document.documentElement.classList.contains("darkpanel")) {
+        document.documentElement.classList.add("darkpanel");
       }
     } else {
       if (theme !== 'light') {

@@ -1,7 +1,33 @@
 html[data-theme=dark] {
+	#overall-content:before {
+		content: "";
+		background: #00000080;
+		position: absolute;
+		width: 100%;
+		height: 100%;
+	}
+
+	.button-help-expandable {
+		background-color: var(--dark-10);
+		color: var(--blue-70);
+	}
 
 	.player-board .player-name,
 	.player-board .player-name a {
 		text-shadow: 1px 1px 1px rgba(0, 0, 0, .5) !important;
+	}
+
+	.player-board[data-player-color=f5f8d3]:before {
+		background-color: #a9ab91;
+	}
+
+	#last-round {
+		background-color: var(--red-10);
+	}
+
+	#game-grid .grid-card.visible,
+	.card .card-sides .card-side,
+	#player-help-visible {
+		filter: var(--ext-bright);
 	}
 }

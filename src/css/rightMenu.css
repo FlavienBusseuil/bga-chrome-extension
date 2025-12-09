@@ -6,6 +6,9 @@ div.bgext_right_menu {
 	float: right;
 	position: relative;
 	top: 2px;
+	min-height: 14px !important;
+	min-width: unset !important;
+	padding: 6px 12px !important;
 }
 
 div.bgext_right_menu i {
