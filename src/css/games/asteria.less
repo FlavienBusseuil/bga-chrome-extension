@@ -12,6 +12,23 @@ html[data-theme=dark] {
 		filter: invert();
 	}
 
+	.asteria-player-board .asteria-player-board-counters .asteria-player-board-count .asteria-action-card-icon {
+		filter: invert() var(--highlight-min);
+	}
+
+	.asteria-player-board .asteria-player-board-counters .asteria-player-board-count .asteria-planet-card-icon {
+		filter: var(--highlight-min);
+	}
+
+	.asteria-card .asteria-card-back {
+		filter: invert(1) !important;
+		box-shadow: 1px 1px 2px 1px rgba(255, 255, 255, .5) !important;
+	}
+
+	.asteria-box .asteria-table-box .asteria-table-planet-box .asteria-table-planet .asteria-table-planet-shadow {
+		box-shadow: inset 0 0 20px #000, inset 0 0 20px;
+	}
+
 	.card .card-sides .card-side {
 		filter: var(--ext-bright);
 	}

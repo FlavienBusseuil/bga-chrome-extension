@@ -96,7 +96,8 @@ html[data-theme=dark] {
 	.scorepadCell.header .score,
 	.headerScoreTeam:after,
 	.headerScoreTeam:before,
-	.tradeArrow {
+	.tradeArrow,
+	.playerIcon {
 		filter: invert(0.9);
 	}
 
@@ -217,8 +218,9 @@ html[data-theme=dark] {
 		border-color: var(--green-30);
 	}
 
-	tradePopupContainer .tradePopup .tradePopupTradeOptionsContainer .cardsRow {
+	.tradePopupContainer .tradePopup .tradePopupTradeOptionsContainer .cardsRow {
 		border-color: var(--light-50);
+		padding-top: 0px;
 	}
 
 	.tradePopupContainer .tradePopup .tradePopupTitle .tradePopupTitleText,
@@ -290,6 +292,50 @@ html[data-theme=dark] {
 		filter: var(--highlight);
 	}
 
+	.storage .overlayTrade {
+		background: var(--dark-back);
+	}
+
+	.nbCommCardsContainer {
+		background: var(--dark-back);
+		color: var(--light-80);
+		border-color: var(--light-80);
+	}
+
+	.buildButtonIcon,
+	.commButtonIcon,
+	.farmerButtonIcon,
+	.tradeButtonIcon,
+	.waterButtonIcon {
+		background-image: var(--actionIcons);
+		background-repeat: no-repeat;
+		background-size: 700%;
+	}
+
+	.waterButtonIcon {
+		background-position: 0 0
+	}
+
+	.tradeButtonIcon {
+		background-position: 16.6% 0
+	}
+
+	.buildButtonIcon {
+		background-position: 33.6% 0
+	}
+
+	.farmerButtonIcon {
+		background-position: 49.9% 0
+	}
+
+	.commButtonIcon {
+		background-position: 66.5% 0
+	}
+
+	.gameArea.playmat {
+		background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), var(--playmat) !important;
+	}
+
 	.actionCardImg,
 	.cardImg,
 	.cardImgTooltip,
@@ -299,7 +345,9 @@ html[data-theme=dark] {
 		filter: var(--ext-bright);
 	}
 
-	.storage .overlayTrade {
-		background: var(--dark-back);
+	.iconChoiceForMe,
+	.iconChoiceForOther {
+		filter: var(--ext-bright);
+		border-radius: 50%;
 	}
 }

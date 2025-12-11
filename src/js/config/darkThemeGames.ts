@@ -233,6 +233,7 @@ export const gamesWithCustomBackground = [
   'seasaltpaper',
   'seasons',
   'secretmoon',
+  'seventhseacityoffivesails',
   'sevenwondersdice',
   'schottentotten',
   'shock',
@@ -336,6 +337,7 @@ export const gamesWithCustomPanel = [
   'notalone',
   'nowboarding',
   'scythe',
+  'seventhseacityoffivesails',
   'spacestationphoenix',
   'stonespinearchitects',
   'tickettoride',
@@ -787,6 +789,16 @@ export const gamesWithCustomActions: GamesWithCustomActions = {
         console.debug(`[bga extension] Beyond css path is '${cssPath}'`);
         document.body.style.setProperty("--playmat1", `url(${cssPath}img/BYD_Playmat.jpg)`);
         document.body.style.setProperty("--playmat2", `url(${cssPath}img/BYD_Playmat2.jpg)`);
+      });
+    }
+  },
+  lesderniersdroides: {
+    init: () => {
+      waitForObj('#gameArea').then(() => {
+        const cssPath = getCssPath('lesderniersdroides.css');
+        console.debug(`[bga extension] The last droids css path is '${cssPath}'`);
+        document.body.style.setProperty("--actionIcons", `url(${cssPath}img/LDD_Cards_Icons.png)`);
+        document.body.style.setProperty("--playmat", `url(${cssPath}img/background.jpg)`);
       });
     }
   },
