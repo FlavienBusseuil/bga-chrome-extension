@@ -1507,7 +1507,8 @@ const defaultGames: Partial<Game>[] = [
 	},
 	{
 		name: "coatl",
-		playerPanel: "other_player_area_{{player_id}}",
+		playerPanel: "player-table-{{player_id}}",
+		css: "#bga-jump-to_controls { display: none; } .desktop_version #game_play_area { padding-left: 50px; }",
 	},
 	{
 		name: "abrachadabra",
