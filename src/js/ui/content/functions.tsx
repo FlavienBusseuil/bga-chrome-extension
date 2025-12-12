@@ -409,8 +409,8 @@ const initGamesObserver = (config: Configuration, gameName: string) => {
 	const preventAutoStart = !config.replayWithAutoStart();
 
 	if (quitToLobby || preventAutoStart) {
-		waitForObj('#generalactions').then((actionsContainer) => {
-			const backObserver = new MutationObserver(() => {
+		waitForObj('#page-title').then((actionsContainer) => {
+			const setButtons = () => {
 				if (quitToLobby) {
 					const backButton = actionsContainer.querySelector("#backMetasite_btn");
 
@@ -437,8 +437,9 @@ const initGamesObserver = (config: Configuration, gameName: string) => {
 						newButton.addEventListener("click", () => window.location.href = newButton.href);
 					}
 				}
-			});
+			};
 
+			const backObserver = new MutationObserver(setButtons);
 			backObserver.observe(actionsContainer, { childList: true, subtree: true });
 		});
 	}
