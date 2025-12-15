@@ -20,7 +20,7 @@ export function Tab({
   return (
     <Button
       className={cn([
-        fullWidth ? "w-full" : "whitespace-nowrap",
+        fullWidth ? "w-full whitespace-nowrap" : "whitespace-nowrap",
         !isActive && "!bg-bgaBlue-lighter",
         !isActive && "hover:!bg-bgaBlue-light",
         "!border-0",

@@ -7,7 +7,8 @@ html[data-theme=dark] {
 		height: 100%;
 	}
 
-	.player-board-game-specific-content * {
+	.player-board-game-specific-content *,
+	.tooltip-line {
 		color: var(--light-80) !important;
 	}
 
@@ -119,5 +120,15 @@ html[data-theme=dark] {
 
 	[style*="--player-color: #ffa500"] {
 		--player-color: #ffc965 !important;
+	}
+
+	.dlid #item-trade-screen-content .items-card,
+	.dlid .characters-card,
+	.dlid .boards-card,
+	.dlid .items-card,
+	.dlid .tech-card,
+	.dlid .decks-card,
+	.dlid .token-card {
+		filter: var(--ext-bright);
 	}
 }
