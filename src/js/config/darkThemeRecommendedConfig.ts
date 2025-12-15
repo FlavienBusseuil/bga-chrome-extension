@@ -41,6 +41,7 @@ export const gamesWithRecommendedConfig: { [gameName: GameName]: RecommendedConf
 	festival: { color: 14, sat: 15 },
 	finca: { color: 220, sat: 32 },
 	forbiddenisland: { color: 216, sat: 20 },
+	foxonthetree: { color: 230, sat: 15 },
 	galacticcruise: { color: 20, sat: 15 },
 	gardennation: { color: 110, sat: 22 },
 	girafferaffe: { color: 7, sat: 9 },

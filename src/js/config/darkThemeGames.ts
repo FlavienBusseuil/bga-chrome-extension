@@ -58,9 +58,11 @@ export const gamesWithCustomBackground = [
   'coffee',
   'coffeerush',
   'concept',
+  'congkak',
   'conspiracy',
   'cookiebattle',
   'craftingthecosmos',
+  'crashandgrab',
   'darwinsjourney',
   'deadcells',
   'deadcellsnewcontent', /* tempo */
@@ -100,6 +102,7 @@ export const gamesWithCustomBackground = [
   'flipseven',
   'flowersmandalagame',
   'forbiddenisland',
+  'foxonthetree',
   'frenchtarot',
   'fromage',
   'galacticcruise',
@@ -771,6 +774,9 @@ export const gamesWithCustomActions: GamesWithCustomActions = {
     init: () => addInvertOverlay('', true)
   },
   mollyhouse: {
+    init: () => addInvertOverlay('', true)
+  },
+  congkak: {
     init: () => addInvertOverlay('', true)
   },
   newton: {
