@@ -52,3 +52,4 @@ yarn build:op
 <a href=https://github.com/cecausse><img src="https://github.com/cecausse.png" width="100;" alt="cecausse" title="Cédric Causse" /></a>
 <a href=https://github.com/nalka0><img src="https://github.com/nalka0.png" width="100;" alt="nalka0" title="nalka0" /></a>
 <a href=https://github.com/GhoulofGSG9><img src="https://github.com/GhoulofGSG9.png" width="100;" alt="GhoulofGSG9" title="GhoulofGSG9" /></a>
+<a href=https://github.com/Hoshimikan6490><img src="https://github.com/Hoshimikan6490.png" width="100;" alt="Hoshimikan6490" title="Hoshimikan6490" /></a>
