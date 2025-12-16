@@ -191,7 +191,7 @@ const defaultGames: Partial<Game>[] = [
 		name: "tapestry",
 		top: "90px",
 		playerPanel: "playerArea_{{player_id}}",
-		iconBackgroundDark: "#56648f",
+		iconBackgroundDark: "#504527",
 		bottomPanel: "game_wrapper_bottom",
 		css: ".desktop_version #page-content { padding-left: 50px; }",
 	},
@@ -978,7 +978,7 @@ const defaultGames: Partial<Game>[] = [
 	{
 		name: "spiritsoftheforest",
 		playerPanel: "playerarea_{{player_id}}",
-		iconBackgroundDark: "#554171"
+		iconBackgroundDark: "#4b5046"
 	},
 	{
 		name: "heat",

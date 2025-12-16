@@ -1,0 +1,28 @@
+@import "./common";
+
+:root {
+	--ext-overlay-color: #00000020;
+}
+
+html[data-theme=dark] {
+	.ta_global_message {
+		background-color: var(--dark-20);
+		color: var(--light-80);
+	}
+
+	.ta_global_message .bgabutton {
+		.blueButton();
+	}
+
+	.ta_global_message .bgabutton:hover {
+		.blueButtonOver();
+	}
+
+	.ta_scalable_zoom .ta_scalable_container {
+		background-color: var(--dark-back);
+	}
+
+	.ta_zoom_icon {
+		fill: #fff;
+	}
+}

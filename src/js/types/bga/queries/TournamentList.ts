@@ -13,6 +13,7 @@ export interface Tournament {
   game_name: string;
   registered: NumberString;
   max_players: NumberString;
+  player_status: string;
   game_max_duration: NumberString;
   players_per_match: NumberString;
   players_per_match_min: NumberString;

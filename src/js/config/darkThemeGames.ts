@@ -63,6 +63,7 @@ export const gamesWithCustomBackground = [
   'cookiebattle',
   'craftingthecosmos',
   'crashandgrab',
+  'crybaby',
   'darwinsjourney',
   'deadcells',
   'deadcellsnewcontent', /* tempo */
@@ -261,6 +262,7 @@ export const gamesWithCustomBackground = [
   'stonespinearchitects',
   'super',
   'symbiose',
+  'tacta',
   'tagteam',
   'takenokolor',
   'talon',
@@ -463,6 +465,7 @@ export const playersBorder: { [gameName: GameName]: string[] } = {
   arboretum: ['#player-table-{{player_id}}', '#player-table-{{player_id}} h3'],
   bagofchips: ['#player-table-{{player_id}}'],
   bang: ['#bang-player-{{player_id}} .bang-player-container[style^="border: 2px"]'],
+  bootydice: ['#tuto_pp{{player_index_1}}'],
   castlecombo: ['#player-table-{{player_id}}'],
   classifiedinformation: ['#player-guard-{{player_id}}'],
   daybreak: ['#dbk-hand{{player_id}}'],
@@ -574,21 +577,13 @@ const getCssPath = (file: string) => {
 const addInvertOverlay = (className: string, copyDefaultStyle: boolean) => {
   waitForObj('#overall-content').then(overallContent => {
     const overlay = document.createElement("DIV");
-    overlay.style.position = 'absolute';
-    overlay.style.top = '0px';
-    overlay.style.left = '0px';
-    overlay.style.width = '100%';
-    overlay.style.height = '100%';
 
     if (!copyDefaultStyle) {
       overlay.className = `bgaext_overlay ${className}`;
-      overlay.style.filter = 'invert(1)';
     } else if (isFirefox) {
       overlay.className = `bgaext_overlay_ff`;
-      overlay.style.backgroundColor = 'var(--dark-40)';
     } else {
       overlay.className = `bgaext_overlay ${className}`;
-      overlay.style.filter = 'invert(1)';
       copyDefaultBackgroundStyle(overlay, 0);
     }
 
@@ -777,6 +772,12 @@ export const gamesWithCustomActions: GamesWithCustomActions = {
     init: () => addInvertOverlay('', true)
   },
   congkak: {
+    init: () => addInvertOverlay('', true)
+  },
+  crybaby: {
+    init: () => addInvertOverlay('', true)
+  },
+  tacta: {
     init: () => addInvertOverlay('', true)
   },
   newton: {

@@ -214,10 +214,13 @@ const _applyDarkStyleForGame = () => {
         return `${ruleName} { background-color: ${d.darkColor}!important; }`;
       });
     }).flat().join(' ') || '';
+    const getRule = (rule: string, d: PlayerData, i: number) => {
+      return rule.replace('{{player_id}}', d.id.toString()).replace('{{player_index}}', i.toString()).replace('{{player_index_1}}', (i + 1).toString());
+    }
     const borderStyle = playersBorder[gameName]?.map((rule: string) => {
       return playersData.map((d, i) => {
         if (d.darkColor && d.darkColor !== d.color) {
-          const ruleName = rule.replace('{{player_id}}', d.id.toString()).replace('{{player_index}}', i.toString());
+          const ruleName = getRule(rule, d, i);
           return `${ruleName} { border-color: ${d.darkColor}!important; }`;
         }
         return undefined;
@@ -226,15 +229,15 @@ const _applyDarkStyleForGame = () => {
     const outlineStyle = playersOutline[gameName]?.map((rule: string) => {
       return playersData.map((d, i) => {
         if (d.darkColor && d.darkColor !== d.color) {
-          const ruleName = rule.replace('{{player_id}}', d.id.toString()).replace('{{player_index}}', i.toString());
+          const ruleName = getRule(rule, d, i);
           return `${ruleName} { outline-color: ${d.darkColor}!important; }`;
         }
         return undefined;
       }).filter(d => d);
     }).flat().join(' ') || '';
     const textStyle = playersTextColor[gameName]?.map((rule: string) => {
-      return playersData.filter(d => (d.darkColor && d.darkColor !== d.color) || d.darkEnlight).map(d => {
-        const ruleName = rule.replace('{{player_id}}', d.id.toString());
+      return playersData.filter(d => (d.darkColor && d.darkColor !== d.color) || d.darkEnlight).map((d, i) => {
+        const ruleName = getRule(rule, d, i);
         const enlightRule = d.darkEnlight ? 'text-shadow: -1px 0 white, 0 1px white, 1px 0 white, 0 -1px white !important;' : '';
         return `${ruleName} { color: ${d.darkColor || d.color}!important;${enlightRule} }`;
       });
