@@ -296,6 +296,7 @@ export const gamesWithCustomBackground = [
   'ultimaterailroads',
   'ubongo',
   'unrest',
+  'upordown',
   'vaalbara',
   'verdant',
   'verso',

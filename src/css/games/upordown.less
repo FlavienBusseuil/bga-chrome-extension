@@ -1,12 +1,18 @@
 @import "./common";
 
 html[data-theme=dark] {
+	background: #3b4442;
+}
+
+html[data-theme=dark] {
 	.player-table {
 		background: var(--dark-back);
 	}
 
-	.deck[data-empty=true] {
+	.deck[data-empty=true],
+	.card-stock.deck[data-empty=true] {
 		border-color: var(--light-50);
+		background: var(--dark-back);
 	}
 
 	.bga-cards_deck-counter.round {
@@ -31,5 +37,10 @@ html[data-theme=dark] {
 		background-color: var(--dark-10);
 		color: var(--light-80);
 		outline: 4px solid var(--light-50);
+	}
+
+	.card .front,
+	.card .back {
+		filter: var(--ext-bright);
 	}
 }
