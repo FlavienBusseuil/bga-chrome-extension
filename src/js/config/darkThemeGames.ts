@@ -353,6 +353,43 @@ export const gamesWithCustomPanel = [
   'viticulture'
 ];
 
+export const gamesWithOverlay: Record<string, string> = {
+  agestofrobinhood: '',
+  ancientknowledge: '',
+  azulsummerpavilion: '',
+  bamboozle: '',
+  bunnyboom: '',
+  bootydice: '',
+  coffeerush: '',
+  congkak: '',
+  crybaby: '',
+  fifteendays: 'fifteendays_background',
+  ink: '',
+  legions: '',
+  luz: '',
+  malabares: '',
+  mollyhouse: '',
+  monstertrick: '',
+  moversandshakers: '',
+  nirds: '',
+  pandaspin: '',
+  pergola: '',
+  pinacoladice: '',
+  ratsofwistar: '',
+  scratchandcatch: '',
+  sevenwondersdice: '',
+  spiritsoftheforest: 'spiritsoftheforest_background',
+  superstore: 'player-board ext-overlay',
+  tacta: '',
+  tapestry: '',
+  thehanginggardens: '',
+  toybattle: '',
+  towerup: '',
+  tsukurutenten: '',
+  verso: '',
+  wanderingtowers: '',
+};
+
 type GameName = string;
 interface GamesWithCustomDarkMode {
   [gameName: GameName]: {
@@ -546,54 +583,7 @@ export const gamesWithCustomColors: { [gameName: GameName]: string[] } = {
   verdant: ['#2d3691']
 };
 
-const getDefaultBackgroundStyle = (src: HTMLElement) => {
-  const backStyle = getComputedStyle(src).background;
-  return (backStyle.indexOf('back-main_games') > 0 || backStyle.indexOf('none') > 0) ? undefined : backStyle;
-};
-
-const copyDefaultBackgroundStyle = (overlay: HTMLElement, attempt: number) => {
-  const backStyle = getDefaultBackgroundStyle(document.documentElement) || getDefaultBackgroundStyle(document.body) || getDefaultBackgroundStyle(document.querySelector('#overall-content') || document.body);
-
-  if (backStyle) {
-    overlay.style.background = backStyle;
-  } else if (attempt < 20) {
-    setTimeout(() => copyDefaultBackgroundStyle(overlay, attempt + 1), 100);
-  }
-};
-
-const getCssPath = (file: string) => {
-  const links = document.querySelectorAll('link[rel="stylesheet"]');
-
-  for (const link of links) {
-    const href = link.getAttribute('href');
-
-    if (href && href.endsWith(file)) {
-      const cssUrl = (link as any).href as string;
-      return cssUrl.replace(file, '');
-    }
-  }
-
-  return '';
-};
-
-const addInvertOverlay = (className: string, copyDefaultStyle: boolean) => {
-  waitForObj('#overall-content').then(overallContent => {
-    const overlay = document.createElement("DIV");
-
-    if (!copyDefaultStyle) {
-      overlay.className = `bgaext_overlay ${className}`;
-    } else if (isFirefox) {
-      overlay.className = `bgaext_overlay_ff`;
-    } else {
-      overlay.className = `bgaext_overlay ${className}`;
-      copyDefaultBackgroundStyle(overlay, 0);
-    }
-
-    overallContent.insertBefore(overlay, overallContent.firstChild);
-  });
-};
-
-type CustomActions = { init: () => void, setDarkMode?: (darkMode: boolean) => void, isDarkMode?: () => boolean };
+type CustomActions = { init: (cssPath: string) => void, setDarkMode?: (darkMode: boolean) => void, isDarkMode?: () => boolean };
 type GamesWithCustomActions = { [key: string]: CustomActions };
 export const gamesWithCustomActions: GamesWithCustomActions = {
   earth: {
@@ -695,135 +685,22 @@ export const gamesWithCustomActions: GamesWithCustomActions = {
       });
     }
   },
-  coffeerush: {
-    init: () => addInvertOverlay('', true)
-  },
-  spiritsoftheforest: {
-    init: () => addInvertOverlay('spiritsoftheforest_background', false)
-  },
-  bamboozle: {
-    init: () => addInvertOverlay('', true)
-  },
-  fifteendays: {
-    init: () => addInvertOverlay('fifteendays_background', false)
-  },
-  tapestry: {
-    init: () => addInvertOverlay('', true)
-  },
-  superstore: {
-    init: () => addInvertOverlay('player-board ext-overlay', false)
-  },
-  pandaspin: {
-    init: () => addInvertOverlay('', true)
-  },
-  ratsofwistar: {
-    init: () => addInvertOverlay('', true)
-  },
-  towerup: {
-    init: () => addInvertOverlay('', true)
-  },
-  scratchandcatch: {
-    init: () => addInvertOverlay('', true)
-  },
-  thehanginggardens: {
-    init: () => addInvertOverlay('', true)
-  },
-  bunnyboom: {
-    init: () => addInvertOverlay('', true)
-  },
-  toybattle: {
-    init: () => addInvertOverlay('', true)
-  },
-  monstertrick: {
-    init: () => addInvertOverlay('', true)
-  },
-  ink: {
-    init: () => addInvertOverlay('', true)
-  },
-  luz: {
-    init: () => addInvertOverlay('', true)
-  },
-  verso: {
-    init: () => addInvertOverlay('', true)
-  },
-  pergola: {
-    init: () => addInvertOverlay('', true)
-  },
-  wanderingtowers: {
-    init: () => addInvertOverlay('', true)
-  },
-  pinacoladice: {
-    init: () => addInvertOverlay('', true)
-  },
-  legions: {
-    init: () => addInvertOverlay('', true)
-  },
-  malabares: {
-    init: () => addInvertOverlay('', true)
-  },
-  sevenwondersdice: {
-    init: () => addInvertOverlay('', true)
-  },
-  moversandshakers: {
-    init: () => addInvertOverlay('', true)
-  },
-  bootydice: {
-    init: () => addInvertOverlay('', true)
-  },
-  mollyhouse: {
-    init: () => addInvertOverlay('', true)
-  },
-  congkak: {
-    init: () => addInvertOverlay('', true)
-  },
-  crybaby: {
-    init: () => addInvertOverlay('', true)
-  },
-  tacta: {
-    init: () => addInvertOverlay('', true)
-  },
-  azulsummerpavilion: {
-    init: () => addInvertOverlay('', true)
-  },
-  agestofrobinhood: {
-    init: () => addInvertOverlay('', true)
-  },
-  ancientknowledge: {
-    init: () => addInvertOverlay('', true)
-  },
-  tsukurutenten: {
-    init: () => addInvertOverlay('', true)
-  },
-  nirds: {
-    init: () => addInvertOverlay('', true)
-  },
   newton: {
-    init: () => {
-      waitForObj('#ntn_draft_masters_area').then(() => {
-        const imgUrl = `${getCssPath('newton.css')}img/tiles_sprites.png`;
-        console.debug(`[bga extension] Newton sprites background path is '${imgUrl}'`);
-        document.body.style.setProperty("--quick-action-back", `url(${imgUrl})`);
-      });
+    init: (cssPath: string) => {
+      const imgUrl = `${cssPath}img/tiles_sprites.png`;
+      document.body.style.setProperty("--quick-action-back", `url(${imgUrl})`);
     }
   },
   beyond: {
-    init: () => {
-      waitForObj('#byd-game-area').then(() => {
-        const cssPath = getCssPath('beyond.css');
-        console.debug(`[bga extension] Beyond css path is '${cssPath}'`);
-        document.body.style.setProperty("--playmat1", `url(${cssPath}img/BYD_Playmat.jpg)`);
-        document.body.style.setProperty("--playmat2", `url(${cssPath}img/BYD_Playmat2.jpg)`);
-      });
+    init: (cssPath: string) => {
+      document.body.style.setProperty("--playmat1", `url(${cssPath}img/BYD_Playmat.jpg)`);
+      document.body.style.setProperty("--playmat2", `url(${cssPath}img/BYD_Playmat2.jpg)`);
     }
   },
   lesderniersdroides: {
-    init: () => {
-      waitForObj('#gameArea').then(() => {
-        const cssPath = getCssPath('lesderniersdroides.css');
-        console.debug(`[bga extension] The last droids css path is '${cssPath}'`);
-        document.body.style.setProperty("--actionIcons", `url(${cssPath}img/LDD_Cards_Icons.png)`);
-        document.body.style.setProperty("--playmat", `url(${cssPath}img/background.jpg)`);
-      });
+    init: (cssPath: string) => {
+      document.body.style.setProperty("--actionIcons", `url(${cssPath}img/LDD_Cards_Icons.png)`);
+      document.body.style.setProperty("--playmat", `url(${cssPath}img/background.jpg)`);
     }
   },
   minirogue: {

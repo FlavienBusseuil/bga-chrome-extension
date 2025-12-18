@@ -1,6 +1,6 @@
 import { isNumber } from "../../../utils/misc/isNumber";
 import { waitForObj } from "../../../utils/misc/wait";
-import { gamesWithConditionalCustomBackground, gamesWithCustomActions, gamesWithCustomBackground, gamesWithCustomDarkMode, gamesWithCustomPanel, gamesWithCustomPlayerStyle, gamesWithTwoTeams, playersBackground, playersBorder, playersOutline, playersTextColor } from "../../../config/darkThemeGames";
+import { gamesWithConditionalCustomBackground, gamesWithCustomActions, gamesWithCustomBackground, gamesWithCustomDarkMode, gamesWithCustomPanel, gamesWithCustomPlayerStyle, gamesWithOverlay, gamesWithTwoTeams, playersBackground, playersBorder, playersOutline, playersTextColor } from "../../../config/darkThemeGames";
 import { PlayerData, getPlayersData, getPlayersPossibleColors } from "../players";
 import { cookieName, createStyle, getFile } from "./darkStyleCommonFunctions";
 
@@ -173,24 +173,89 @@ const _setPlayersColor = (query: string | undefined, playersData: PlayerData[]) 
   }
 };
 
-const _setDarkStyleIfActivated = () => {
-  const customActions = gamesWithCustomActions[gameName];
-  customActions && customActions.init && customActions.init();
+const _getCssPath = (file: string) => {
+  const links = document.querySelectorAll('link[rel="stylesheet"]');
 
-  try {
-    if (_isDarkStyle()) {
-      _setDarkStyle();
+  for (const link of links) {
+    const href = link.getAttribute('href');
+
+    if (href && href.endsWith(file)) {
+      const cssUrl = (link as any).href as string;
+      return cssUrl.replace(file, '');
+    }
+  }
+
+  return '';
+};
+
+const _getDefaultBackgroundStyle = (src: HTMLElement) => {
+  const backStyle = getComputedStyle(src).background;
+  return (backStyle.indexOf('back-main_games') > 0 || backStyle.indexOf('none') > 0) ? undefined : backStyle;
+};
+
+const _copyDefaultBackgroundStyle = (overlay: HTMLElement, cssPath: string, attempt: number) => {
+  const backStyle = _getDefaultBackgroundStyle(document.documentElement) || _getDefaultBackgroundStyle(document.body) || _getDefaultBackgroundStyle(document.querySelector('#overall-content') || document.body);
+
+  if (backStyle) {
+    const absoluteCssString = backStyle.replace(/url\(['"]?([^'"]+)['"]?\)/g, (match, relPath) => {
+      try {
+        const absoluteUrl = new URL(relPath, cssPath).href;
+        return `url("${absoluteUrl}")`;
+      } catch (e) {
+        return match;
+      }
+    });
+
+    overlay.style.background = absoluteCssString;
+  } else if (attempt < 20) {
+    setTimeout(() => _copyDefaultBackgroundStyle(overlay, cssPath, attempt + 1), 100);
+  }
+};
+
+const _addInvertOverlay = (className: string, cssPath: string) => {
+  waitForObj('#overall-content').then(overallContent => {
+    const overlay = document.createElement("DIV");
+
+    if (className) {
+      overlay.className = `bgaext_overlay ${className}`;
     } else {
-      _setLightStyle();
+      overlay.className = `bgaext_overlay`;
+      _copyDefaultBackgroundStyle(overlay, cssPath, 0);
     }
 
-    _manageHtmlTag();
-    _removeBackgroundFlickerFix();
-    _initClassObserver();
-  }
-  catch (error) {
-    setTimeout(_setDarkStyleIfActivated, 100);
-  }
+    overallContent.insertBefore(overlay, overallContent.firstChild);
+  });
+};
+
+const _setDarkStyleIfActivated = () => {
+  waitForObj('#overall-content').then(() => {
+    const customActions = gamesWithCustomActions[gameName];
+    const hasCustomAction = Boolean(customActions && customActions.init);
+    const hasOverlay = Object.keys(gamesWithOverlay).includes(gameName);
+
+    if (hasCustomAction || hasOverlay) {
+      const cssPath = _getCssPath(`${gameName}.css`);
+      console.debug(`[bga extension] ${gameName} css path is '${cssPath}'`);
+
+      hasCustomAction && customActions!.init(cssPath);
+      hasOverlay && _addInvertOverlay(gamesWithOverlay[gameName]!, cssPath)
+    }
+
+    try {
+      if (_isDarkStyle()) {
+        _setDarkStyle();
+      } else {
+        _setLightStyle();
+      }
+
+      _manageHtmlTag();
+      _removeBackgroundFlickerFix();
+      _initClassObserver();
+    }
+    catch (error) {
+      setTimeout(_setDarkStyleIfActivated, 100);
+    }
+  });
 };
 
 const _applyDarkStyleForGame = () => {

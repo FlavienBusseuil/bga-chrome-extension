@@ -30,8 +30,8 @@ const buildMainCss = (code: string) => {
 			document.head.appendChild(style);
 		}
 		style.innerHTML = `
-		#lrf-bga-extension, .bgaext_overlay, .bgaext_overlay_ff { display: none; }
-		html[data-theme="dark"] .bgaext_overlay, html[data-theme="dark"] .bgaext_overlay_ff { display: block; }
+		#lrf-bga-extension, .bgaext_overlay { display: none; }
+		html[data-theme="dark"] .bgaext_overlay{ display: block; }
 		.bgaext_chat_mute_icon { position: absolute; width: 20px; height: 20px; top: 7px; left: 2px; display: none; }
 		.bgaext_chat_hidden { display: none!important; }
 		.bgaext_chat_visible { display: inline!important; }

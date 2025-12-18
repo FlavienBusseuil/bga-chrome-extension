@@ -1,14 +1,8 @@
 html[data-theme=dark] {
-
-	/* resolve render issues of game tiles */
-	.bgaext_overlay,
-	.bgaext_overlay_ff {
-		z-index: -2;
-	}
-
 	.bgaext_overlay {
-		opacity: 0.8;
-		filter: invert(1) grayscale(1) !important;
+		/* resolve render issues of game tiles */
+		z-index: -2;
+		opacity: 0.85;
 	}
 
 	#bga-zoom-controls {
