@@ -8,6 +8,7 @@ export const gamesWithRecommendedConfig: { [gameName: GameName]: RecommendedConf
 	architectsofamytis: { color: 16, sat: 10 },
 	arknova: { color: 33, sat: 15 },
 	arknovamw: { color: 33, sat: 15 },
+	azulsummerpavilion: { color: 0, sat: 15 },
 	bauer: { color: 0, sat: 15 },
 	bebop: { color: 216, sat: 15 },
 	beerbread: { color: 25, sat: 22 },

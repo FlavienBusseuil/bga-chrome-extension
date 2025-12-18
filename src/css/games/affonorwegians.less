@@ -20,18 +20,21 @@
 	background-position: 67.4% 0
 }
 
+html[data-theme=dark].ffo-pref-background {
+	background: none;
+
+	body {
+		background: none;
+	}
+}
+
 html[data-theme=dark] {
-	.ffo-pref-background #overall-content:before {
+	#ffo-backdrop:before {
 		content: "";
 		background: #00000080;
 		position: absolute;
 		width: 100%;
 		height: 100%;
-	}
-
-	.ffo-pref-background header,
-	.ffo-pref-background body {
-		background: none !important;
 	}
 
 	.player-name .ffo-icon-eye {

@@ -23,6 +23,8 @@ html[data-theme=dark] {
 
 	.playerboard_label {
 		background: var(--dark-back);
+		border-color: var(--dark-40);
+		cursor: default;
 	}
 
 	.job_tile_attendant {
@@ -37,6 +39,10 @@ html[data-theme=dark] {
 		height: 100%;
 	}
 
+	.job_tile_busker {
+		border-radius: 8px;
+	}
+
 	.muse_deck,
 	.card,
 	.ach_card,
@@ -45,7 +51,10 @@ html[data-theme=dark] {
 	.habit_deck,
 	.playerDeck,
 	.job_tile_attendant,
-	.stockitem {
+	.stockitem,
+	.job_tile_busker,
+	.player_routine_board,
+	.player_achievement {
 		filter: var(--ext-bright);
 	}
 }

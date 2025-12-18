@@ -5,15 +5,13 @@
 }
 
 html[data-theme=dark] {
-	#overall-content:before {
-		content: "";
-		background: #000000A0;
-		position: absolute;
-		width: 100%;
-		height: 100%;
+	--ext-overlay-color: #00000020;
+
+	.bga-help_popin-button {
+		background: #644f5c;
+		color: var(--light-80);
 	}
 
-	.bga-help_button,
 	.bga-help_unfolded-content {
 		filter: invert(1);
 		box-shadow: 3px 5px 5px 0 #fff;

@@ -188,6 +188,7 @@ export const gamesWithCustomBackground = [
   'nicodemus',
   'nidavellir',
   'nimalia',
+  'nirds',
   'noah',
   'norsemen',
   'notalone',
@@ -779,6 +780,21 @@ export const gamesWithCustomActions: GamesWithCustomActions = {
     init: () => addInvertOverlay('', true)
   },
   tacta: {
+    init: () => addInvertOverlay('', true)
+  },
+  azulsummerpavilion: {
+    init: () => addInvertOverlay('', true)
+  },
+  agestofrobinhood: {
+    init: () => addInvertOverlay('', true)
+  },
+  ancientknowledge: {
+    init: () => addInvertOverlay('', true)
+  },
+  tsukurutenten: {
+    init: () => addInvertOverlay('', true)
+  },
+  nirds: {
     init: () => addInvertOverlay('', true)
   },
   newton: {

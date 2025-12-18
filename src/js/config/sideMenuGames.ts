@@ -1072,6 +1072,7 @@ const defaultGames: Partial<Game>[] = [
 	{
 		name: "ancientknowledge",
 		playerPanel: "player-table-{{player_id}}",
+		iconBackgroundDark: "#644f5c",
 		css: "#bga-jump-to_controls { display: none; }",
 	},
 	{
@@ -1268,7 +1269,8 @@ const defaultGames: Partial<Game>[] = [
 	{
 		name: "azulsummerpavilion",
 		playerPanel: "player-hand-{{player_id}}",
-		playerPanelOffset: 40
+		playerPanelOffset: 20,
+		iconBackgroundDark: "#663f24"
 	},
 	{
 		name: "pathofcivilization",
