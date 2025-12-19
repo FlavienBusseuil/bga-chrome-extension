@@ -63,7 +63,8 @@ html[data-theme=dark] {
 		background: var(--orange-30);
 	}
 
-	#thecrew-table>div#table-middle #mission-status #distress {
+	#thecrew-table>div#table-middle #mission-status #distress,
+	.player-table .player-table-wrapper .player-table-mission .commander {
 		filter: var(--drop-shadow);
 	}
 
@@ -86,5 +87,13 @@ html[data-theme=dark] {
 	.card-description span.card-value.green,
 	.chatwindowtype_tablelog span.card-value.green {
 		color: var(--green-50);
+	}
+
+	.task .task-inner {
+		filter: var(--ext-bright);
+	}
+
+	.player-table .communication-card-holder .communication-card {
+		filter: var(--ext-bright) drop-shadow(rgb(0, 0, 0) 0px 0px 2px);
 	}
 }

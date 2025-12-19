@@ -1,5 +1,4 @@
 import { waitForObj } from '../utils/misc/wait';
-import { isFirefox } from "../utils/browser";
 
 export const gamesWithCustomBackground = [
   'aero',
@@ -51,6 +50,7 @@ export const gamesWithCustomBackground = [
   'caverna',
   'century',
   'chromino',
+  'citadels',
   'cities',
   'clashofdecks',
   'coatl',
@@ -360,6 +360,7 @@ export const gamesWithOverlay: Record<string, string> = {
   bamboozle: '',
   bunnyboom: '',
   bootydice: '',
+  citadels: '',
   coffeerush: '',
   congkak: '',
   crybaby: '',

@@ -1,9 +1,7 @@
 @import "./common";
 
 html[data-theme=dark] {
-	#ebd-body {
-		background: none;
-	}
+	--ext-overlay-color: #00000020;
 
 	.cit_toggle-zoom-out,
 	.cit_toggle-zoom-in {
@@ -17,11 +15,11 @@ html[data-theme=dark] {
 	}
 
 	.cit_toggle-zoom-in:before {
-		content: "\\f00e";
+		content: "\f00e";
 	}
 
 	.cit_toggle-zoom-out:before {
-		content: "\\f010";
+		content: "\f010";
 	}
 
 	.cit_text-ornament-left,
@@ -32,5 +30,12 @@ html[data-theme=dark] {
 	.cit_toggle-min-view-btn {
 		border: 1px solid var(--light-50);
 		color: var(--light-80);
+	}
+
+	.cit_card,
+	.cit_character-token,
+	.cit_district-deck,
+	.cit_gold-coin {
+		filter: var(--ext-bright);
 	}
 }
