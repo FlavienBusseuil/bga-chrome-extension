@@ -46,8 +46,16 @@ html[data-theme=dark] {
 		color: var(--light-70);
 	}
 
+	#lastRound {
+		background-color: var(--red-10);
+	}
+
 	.locationWrapper,
 	.factionBoard .faction {
 		filter: var(--ext-bright);
+	}
+
+	.unselectable {
+		filter: contrast(.3333333333) brightness(1.25) saturate(35%) !important;
 	}
 }

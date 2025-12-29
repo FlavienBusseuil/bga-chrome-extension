@@ -1,0 +1,162 @@
+@import "./common";
+
+html.vgincLib_layout_slider {
+	#bga_extension_sidebar {
+		display: none;
+	}
+}
+
+html[data-theme=dark] {
+	#player-tables .player-table[data-color=ff0000] {
+		background: linear-gradient(rgba(139, 0, 0, .7) -100%, hsla(0, 0%, 0%, .9));
+	}
+
+	#player-tables .player-table[data-color="008000"] {
+		background: linear-gradient(rgba(0, 128, 0, .7) -100%, hsla(0, 0%, 0%, .8));
+	}
+
+	#player-tables .player-table[data-color="0000ff"] {
+		background: linear-gradient(rgba(0, 0, 255, .7) -100%, hsla(0, 0%, 0%, .8));
+	}
+
+	#player-tables .player-table[data-color=ffa500] {
+		background: linear-gradient(rgba(255, 165, 0, .7) -100%, hsla(0, 0%, 0%, .8));
+	}
+
+	#player-tables .player-table[data-color="000000"] {
+		background: linear-gradient(rgba(0, 0, 0, .7) -100%, hsla(0, 0%, 0%, .9));
+	}
+
+	#player-tables .player-table[data-color=ffffff] {
+		background: linear-gradient(hsla(0, 0%, 40%, .7) -100%, hsla(0, 0%, 0%, .8));
+	}
+
+	#player-tables .player-table[data-color=e94190] {
+		background: linear-gradient(rgba(233, 65, 144, .7) -100%, hsla(0, 0%, 0%, .8));
+	}
+
+	#player-tables .player-table[data-color="982fff"] {
+		background: linear-gradient(rgba(152, 47, 255, .7) -100%, hsla(0, 0%, 0%, .8));
+	}
+
+	#player-tables .player-table[data-color="72c3b1"] {
+		background: linear-gradient(rgba(114, 195, 177, .7) -100%, hsla(0, 0%, 0%, .8));
+	}
+
+	#player-tables .player-table[data-color=f07f16] {
+		background: linear-gradient(rgba(240, 127, 22, .7) -100%, hsla(0, 0%, 0%, .8));
+	}
+
+	#player-tables .player-table[data-color=bdd002] {
+		background: linear-gradient(rgba(189, 208, 2, .7) -100%, hsla(0, 0%, 0%, .8));
+	}
+
+	#player-tables .player-table[data-color="7b7b7b"] {
+		background: linear-gradient(hsla(0, 0%, 30%, .7) -100%, hsla(0, 0%, 0%, .8));
+	}
+
+	.player-table strong,
+	.bga-score-sheet_player-name,
+	.player-board .player-name a:first-child {
+		text-shadow: none !important;
+	}
+
+	.player-table strong[data-color="000000"],
+	.bga-score-sheet_player-name[data-color="000000"],
+	.player-board .player-name a[style="color: #000000"] {
+		text-shadow: -1px 0 white, 0 1px white, 1px 0 white, 0 -1px white !important;
+	}
+
+	span[data-color=ff0000],
+	strong[data-color=ff0000],
+	th[data-color=ff0000] {
+		color: #ff6666 !important;
+	}
+
+	span[data-color="008000"],
+	strong[data-color="008000"],
+	th[data-color="008000"] {
+		color: #66ff66 !important;
+	}
+
+	span[data-color="0000ff"],
+	strong[data-color="0000ff"],
+	th[data-color="0000ff"] {
+		color: #6666ff !important;
+	}
+
+	span[data-color="982fff"],
+	strong[data-color="982fff"],
+	th[data-color="982fff"] {
+		color: #b97bff !important;
+	}
+
+	span[data-color="7b7b7b"],
+	strong[data-color="7b7b7b"],
+	th[data-color="7b7b7b"] {
+		color: #808080 !important;
+	}
+
+	.vgincLib_helpButton {
+		background-color: var(--dark-10) !important;
+		border-color: #8f2e9e !important;
+		color: #8f2e9e;
+	}
+
+	#popin_welcomeDialog .vgincLib_dialogButton {
+		.purpleButton();
+	}
+
+	#popin_welcomeDialog .vgincLib_dialogButton:hover {
+		.purpleButtonOver();
+	}
+
+	.player-board:before {
+		filter: saturate(0.4);
+	}
+
+	.bga-score-sheet_sheet>table {
+		border-color: #451a4c;
+		background: var(--dark-back);
+		color: var(--light-80);
+	}
+
+	.bga-score-sheet_sheet .bga-score-sheet_entry-label,
+	.bga-score-sheet_sheet .bga-score-sheet_entry-label:after {
+		background: #451a4c;
+	}
+
+	.vgincLib_commonZone.vgincLib_automataResources,
+	#vgincLib_material_cards .stockitem,
+	.log .vgincLib_cardLogItem,
+	.vgincLib_cards .stockitem {
+		filter: var(--ext-bright);
+	}
+}
+
+html[data-theme=dark].vgincLib_layout_slider {
+
+	.vgincLib_dot.vgincLib_sliderActive,
+	.vgincLib_dot:hover {
+		background-color: var(--yellow-10);
+	}
+
+	.vgincLib_dot {
+		background-color: var(--dark-0);
+		outline: 1px solid var(--light-50);
+		text-shadow: none !important;
+	}
+
+	#vgincLib_sliderNext,
+	#vgincLib_sliderPrev {
+		color: var(--yellow-10);
+		text-shadow: var(--text-w-shadow);
+	}
+
+	#vgincLib_sliderNext:hover,
+	#vgincLib_sliderPrev:hover {
+		background-color: var(--yellow-10);
+		color: var(--light-80);
+		text-shadow: none;
+	}
+}

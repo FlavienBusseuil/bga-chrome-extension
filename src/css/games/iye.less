@@ -1,5 +1,7 @@
 html[data-theme=dark] {
-	--ext-overall-color: #000000A0;
+	.bgaext_overlay {
+		filter: invert() hue-rotate(180deg) grayscale(0.5);
+	}
 
 	.game-help-section>.title,
 	.game-help-section>.small-title {

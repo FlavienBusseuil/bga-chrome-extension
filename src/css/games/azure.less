@@ -1,0 +1,26 @@
+html[data-theme=dark]:not(.azr_pref-themedBg) {
+	.player-board {
+		background-color: var(--dark-10);
+	}
+}
+
+html[data-theme=dark] {
+	body {
+		background: none !important;
+	}
+
+	#pagemaintitletext .playername,
+	.player-name a:first-of-type {
+		text-shadow: none;
+	}
+
+	.azr_tooltip {
+		color: #33c9ff;
+	}
+
+	.azr_realm,
+	.deck .card .card-side,
+	#azr_hand .card .card-side {
+		filter: var(--ext-bright);
+	}
+}

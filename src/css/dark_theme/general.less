@@ -1050,11 +1050,27 @@ select.colorselector {
 }
 
 .bgaext_gamelist .bga-checkbox {
-  background-color: var(--dark-40) !important;
+  background-color: transparent;
 }
 
-.bgaext_gamelist .bga-checkbox--wrap:hover .bga-checkbox {
-  background-color: var(--background-color-faded) !important;
+.bgaext_gamelist .bga-checkbox:not(.bga-checkbox--disabled) .bga-checkbox__checkbox {
+  background-color: var(--light-70) !important;
+}
+
+.bgaext_gamelist .bga-checkbox:not(.bga-checkbox--disabled):hover .bga-checkbox__checkbox {
+  background-color: var(--blue-80) !important;
+}
+
+.bgaext_gamelist .bga-checkbox.bga-checkbox--checked:not(.bga-checkbox--disabled) .bga-checkbox__checkbox {
+  background-color: var(--blue-70) !important;
+}
+
+.bgaext_gamelist .bga-checkbox--checked .bga-checkbox__checkbox .bga-checkbox__checkmark {
+  color: var(--light-80) !important;
+}
+
+.bgaext_gamelist .bga-dropdown-button {
+  filter: var(--highlight-min);
 }
 
 /* There are not result matching your search */
@@ -1199,7 +1215,8 @@ select.colorselector {
 }
 
 .bga-dropdown-button-value[style^="background: linear-gradient(0deg, white 0%, rgb(223, 223, 223) 80%);"],
-.bgaext_gamepanel .bga-dropdown-button-value {
+.bgaext_gamepanel .bga-dropdown-button-value,
+.bgaext_gamelist .bga-dropdown-button-value {
   background: linear-gradient(var(--dark-30), var(--dark-40)) !important;
   border-bottom-color: var(--dark-40) !important;
   color: #fff;
@@ -2401,4 +2418,9 @@ html:not(.bgaext_gamelist) .ext_delete_button {
 
 .bgaext_group .bga-dropdown-option.bg-gray-200:hover {
   background-color: var(--dark-40);
+}
+
+/* fix position issue caused by filter on game image */
+.bgaext_table .emblemstatus_nofold {
+  z-index: 1;
 }

@@ -1,12 +1,39 @@
 @import "./common";
 
 html[data-theme=dark] {
+	#board:before {
+		content: "";
+		background: #00000030;
+		position: absolute;
+		width: 100%;
+		height: 100%;
+		top: 0px;
+		left: 0px;
+	}
+
 	#bga_zoom_controls {
 		filter: invert(0.8);
+	}
+
+	#board_grid,
+	.token.note .token_note_text {
+		color: #000;
+	}
+
+	.feature_button {
+		border-color: var(--light-70);
+	}
+
+	.feature_button .feature_button_icon>div {
+		filter: var(--highlight);
 	}
 
 	.whiteblock_inner {
 		background-color: var(--dark-back);
 		border: 1px solid var(--dark-40);
+	}
+
+	.card {
+		filter: var(--ext-bright);
 	}
 }

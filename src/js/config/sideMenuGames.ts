@@ -1659,6 +1659,15 @@ const defaultGames: Partial<Game>[] = [
 		css: "#bga-jump-to_controls { display: none; }",
 		iconBackgroundDark: "#53481d",
 	},
+	{
+		name: "carnuta",
+		playerPanel: "playercontent_{{player_id}}",
+	},
+	{
+		name: "limit",
+		playerPanel: "player-table-{{player_id}}",
+		css: "#bga-jump-to_controls { display: none; }",
+	},
 
 ];
 

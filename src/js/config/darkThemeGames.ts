@@ -17,7 +17,6 @@ export const gamesWithCustomBackground = [
   'azul',
   'azulduel',
   'azulsummerpavilion',
-  'azure',
   'bamboozle',
   'battlespiritssaga',
   'bebop',
@@ -39,6 +38,7 @@ export const gamesWithCustomBackground = [
   'capybarancapybara',
   'cardia',
   'carnegie',
+  'carnuta',
   'carsoncity',
   'cartographers',
   'castlecombo',
@@ -204,6 +204,7 @@ export const gamesWithCustomBackground = [
   'pandemic',
   'paxrenaissance',
   'pergola',
+  'pilipili',
   'photosynthesis',
   'pingimus',
   'pinacoladice',
@@ -279,6 +280,7 @@ export const gamesWithCustomBackground = [
   'theyellowhouse',
   'tickettoride',
   'tickettorideeurope',
+  'tickettoridemaps',
   'tikal',
   'tinyturbocars',
   'towerup',
@@ -349,6 +351,7 @@ export const gamesWithCustomPanel = [
   'stonespinearchitects',
   'tickettoride',
   'tickettorideeurope',
+  'tickettoridemaps',
   'twinpalms',
   'viticulture'
 ];
@@ -360,12 +363,15 @@ export const gamesWithOverlay: Record<string, string> = {
   bamboozle: '',
   bunnyboom: '',
   bootydice: '',
+  carnuta: '',
+  cartographers: '',
   citadels: '',
   coffeerush: '',
   congkak: '',
   crybaby: '',
   fifteendays: 'fifteendays_background',
   ink: '',
+  iye: '',
   legions: '',
   luz: '',
   malabares: '',
@@ -375,6 +381,7 @@ export const gamesWithOverlay: Record<string, string> = {
   nirds: '',
   pandaspin: '',
   pergola: '',
+  pilipili: '',
   pinacoladice: '',
   ratsofwistar: '',
   scratchandcatch: '',
@@ -432,12 +439,14 @@ interface GamesWithCustomBackground {
 
 export const gamesWithConditionalCustomBackground: GamesWithCustomBackground = {
   apiary: ['custom-background'],
+  azure: ['azr_pref-themedBg'],
   challengers: ['challengers-pref-background-dark'],
   challengersbeachcup: ['challengers-pref-background-dark'],
   cuttle: ['theme_cuttlefish'],
   festival: ['black-background', 'dark-wood-background'],
   fliptoons: ['custom-background'],
   gemsofiridescia: ['goi_thematicBackground'],
+  limit: ['vgincLib_thematic_background_on'],
   nirds: ['spicy'],
   orapamine: ['orp_pref-thematicBackground-blue', 'orp_pref-thematicBackground-red'],
   popcorn: ['pop-game-bg'],
@@ -544,6 +553,8 @@ export const playersBorder: { [gameName: GameName]: string[] } = {
 };
 
 export const playersOutline: { [gameName: GameName]: string[] } = {
+  crybaby: ['#mf_zone_player_{{player_index_1}}'],
+  pilipili: ['#mf_zone_player_{{player_index_1}}'],
   spirited: ['#sp-player-area-{{player_id}} .sp-road-slot', '#sp-player-area-{{player_id}} .sp-player-area-wonders', '#sp-player-area-{{player_id}} .sp-player-area-camp>.slot'],
 };
 
