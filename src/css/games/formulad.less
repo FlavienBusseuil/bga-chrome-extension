@@ -10,6 +10,26 @@ html[data-theme=dark] {
 		border-radius: 8px;
 	}
 
+	.FD-full-view .FD-car-full-gears:before {
+		content: "";
+		background-image: var(--gears);
+		filter: invert(0.8);
+		width: 65px;
+		height: 125px;
+		position: absolute;
+		background-size: 100% 100%;
+		top: 0px;
+		left: 0px;
+	}
+
+	#generalactions #ZoomToFitButton {
+		background-color: var(--light-70);
+	}
+
+	#generalactions #ZoomToFitButton:hover {
+		background-color: var(--light-80);
+	}
+
 	.FD-lap-no-icon,
 	.dijitMenuArrowCell {
 		filter: invert(1);
@@ -47,7 +67,8 @@ html[data-theme=dark] {
 		text-shadow: none;
 	}
 
-	.FD-help-item-livery {
+	.FD-help-item-livery,
+	#FDConfigurePitBoxColorList {
 		color: #000;
 	}
 
@@ -56,12 +77,40 @@ html[data-theme=dark] {
 		color: var(--light-80);
 	}
 
-	#FDConfigurePitBoxColorList {
-		color: #000;
-	}
-
 	.fil0 {
 		fill: var(--yellow-10);
+	}
+
+	.FD-single-player-teams .FD-player-board-car.FD-car-active {
+		background-color: #66660080;
+	}
+
+	#FDPodiumCar1,
+	#FDPodiumCarName1,
+	#FDPodiumPlace1,
+	#FDPodiumCar2,
+	#FDPodiumCarName2,
+	#FDPodiumPlace2,
+	#FDPodiumCar3,
+	#FDPodiumCarName3,
+	#FDPodiumPlace3 {
+		background-color: var(--dark-20);
+	}
+
+	.FD-podium-place {
+		color: var(--light-80);
+	}
+
+	.FD-podium-place.FD-vacant {
+		color: var(--light-50);
+	}
+
+	.FD-podium-car-sizer {
+		filter: var(--highlight);
+	}
+
+	#FDDiceRoll {
+		filter: var(--highlight-min);
 	}
 
 	.FD-help-item {

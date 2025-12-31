@@ -715,6 +715,11 @@ export const gamesWithCustomActions: GamesWithCustomActions = {
       document.body.style.setProperty("--playmat", `url(${cssPath}img/background.jpg)`);
     }
   },
+  formulad: {
+    init: (cssPath: string) => {
+      document.body.style.setProperty("--gears", `url(${cssPath}img/gears.svg)`);
+    }
+  },
   minirogue: {
     init: () => {
       const fixSpans = () => {
