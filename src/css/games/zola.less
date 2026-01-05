@@ -1,11 +1,10 @@
-@import "./common";
-
 html[data-theme=dark] {
-	div#board:before {
+	#board:before {
 		content: "";
-		background: var(--dark-back);
-		position: absolute;
+		background: var(--dark-back-50);
 		width: 100%;
 		height: 100%;
+		position: absolute;
+		border: 1px solid var(--light-50);
 	}
 }

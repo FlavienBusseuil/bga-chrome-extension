@@ -88,7 +88,7 @@ const manageLocationChange = (pathname: string) => {
 		if (pageInfo && pageInfo.length >= 2 && isNumber(pageInfo[0] as string)) {
 			gameName = pageInfo[1] as string;
 		} else {
-			gameName = 'general';
+			gameName = 'studio';
 		}
 
 		initDarkMode(config, gameName);

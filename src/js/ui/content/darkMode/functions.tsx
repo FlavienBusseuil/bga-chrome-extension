@@ -2,8 +2,12 @@ import { render } from "preact";
 import ModeSelector from "./ModeSelector";
 import type Configuration from "../../../config/configuration";
 
+const isGeneralMode = (gameName: string) => {
+  return ["general", "studio"].includes(gameName);
+}
+
 const getContainer = (gameName: string) => {
-  if (gameName === "general") {
+  if (isGeneralMode(gameName)) {
     const friendsElt = document.querySelector('.bga-friends-icon');
 
     if (!friendsElt) {
@@ -38,7 +42,7 @@ const initDarkMode = (config: Configuration, gameName: string) => {
     darkElt.className = "upperrightmenu_item";
     container.parentNode!.insertBefore(darkElt, container);
 
-    if (gameName === "general") {
+    if (isGeneralMode(gameName)) {
       const sepElt = document.createElement('div');
       sepElt.className = "ml-1 tablet:ml-6";
       container.parentNode!.insertBefore(sepElt, container);

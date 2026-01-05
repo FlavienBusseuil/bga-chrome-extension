@@ -28,6 +28,8 @@ if (pageInfo.length >= 2 && isNumber(pageInfo[0] as string)) {
   cssList = ["light_theme/general.css", "dark_theme/background.css", "dark_theme/common.css", "dark_theme/chat.css", "dark_theme/icons.css", "dark_theme/general.css"];
 }
 
+const isHtmlPage = pageInfo[pageInfo.length - 1]?.endsWith('.html');
+
 const _init = async () => {
   const fileContentsTask = Promise.all(cssList.map(file => getFile(file)));
 
@@ -42,7 +44,9 @@ const _init = async () => {
 
 _init().then(() => {
   themeStyleComponent = createStyle();
-  _setDarkStyleIfActivated();
+  if (!isHtmlPage) {
+    _setDarkStyleIfActivated();
+  }
 
   if (gameName !== 'general') {
     const gameStyleFile = `games/${gameName}.css`;
@@ -80,7 +84,7 @@ const _applyBackgroundFlickerFix = () => {
 };
 
 try {
-  if (document && _isDarkStyle()) {
+  if (document && _isDarkStyle() && !isHtmlPage) {
     _applyBackgroundFlickerFix();
   }
 }

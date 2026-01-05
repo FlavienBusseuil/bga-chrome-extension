@@ -736,10 +736,14 @@ class Configuration {
 		storageSet({ darkModeBrightness: val });
 	}
 
+	private isGeneralMode(gameName: string) {
+		return ["general", "forum", "studio"].includes(gameName);
+	}
+
 	getDarkModeColor(gameName: string, def?: number) {
 		const mainValue = this._customConfig.darkModeColor === undefined ? -1 : this._customConfig.darkModeColor;
 
-		if (gameName === "general" || gameName === "forum") {
+		if (this.isGeneralMode(gameName)) {
 			return mainValue;
 		}
 
@@ -749,7 +753,8 @@ class Configuration {
 
 	getDarkModeSaturation(gameName: string, def?: number) {
 		const mainValue = this._customConfig.darkModeSat || 15;
-		if (gameName === "general" || gameName === "forum") {
+
+		if (this.isGeneralMode(gameName)) {
 			return mainValue;
 		}
 
@@ -757,7 +762,7 @@ class Configuration {
 	}
 
 	setDarkModeColor(gameName: string, darkModeColor: number, darkModeSat: number, forceSave?: boolean) {
-		if (gameName === "general" || gameName === "forum") {
+		if (this.isGeneralMode(gameName)) {
 			this._customConfig.darkModeColor = darkModeColor;
 			this._customConfig.darkModeSat = darkModeSat;
 			storageSet({ darkModeColor, darkModeSat });

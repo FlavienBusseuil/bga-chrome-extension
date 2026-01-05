@@ -12,6 +12,10 @@ import { changeDarkBrightness, changeDarkColors } from "./darkColors";
 import "../../../../css/darkModeSelector.css";
 import "../../../../css/modeSelector.css";
 
+const isGeneralMode = (gameName: string) => {
+  return ["general", "studio"].includes(gameName);
+}
+
 interface ModeSelectorProps {
   config: Configuration;
   gameName: string;
@@ -54,7 +58,7 @@ const ModeSelector = (props: ModeSelectorProps) => {
   const [formVisible, setFormVisible] = useState(false);
   const [reportDescription, setReportDescription] = useState('');
   const [reportScreenshot, setReportScreenshot] = useState('');
-  const [newMessageVisible, setNewMessageVisible] = useState(!isMobile() && gameName !== 'general' && popupConfig.reportMsg);
+  const [newMessageVisible, setNewMessageVisible] = useState(!isMobile() && !isGeneralMode(gameName) && popupConfig.reportMsg);
   const [resultVisible, setResultVisible] = useState(false);
 
   const generalHue = useMemo(() => config.getDarkModeColor("general"), [config]);
@@ -113,7 +117,7 @@ const ModeSelector = (props: ModeSelectorProps) => {
 
   const sendBugReport = () => {
     if (reportDescription) {
-      const bugType = (gameName === 'general') ? 'Bug report (general)' : `Bug report for game "${gameName}"`;
+      const bugType = (isGeneralMode(gameName)) ? 'Bug report (general)' : `Bug report for game "${gameName}"`;
       const msg = `${bugType}\n\n${reportDescription}\n\n${reportScreenshot}\n\nBrowser: ${navigator.userAgent}\n\nExtension version: ${getExtensionVersion()}`;
       const endPoint = '/message/board/add.html';
       const key = new Date().getTime();
@@ -171,7 +175,7 @@ const ModeSelector = (props: ModeSelectorProps) => {
 
     if (!newDarkMode) {
       // refresh of the CSS to load the background image that was previously blocked
-      const cssName = gameName === 'general' ? 'common.css' : 'gameserver.css';
+      const cssName = isGeneralMode(gameName) ? 'common.css' : 'gameserver.css';
       const link = Array.from(document.querySelectorAll("link")).find(l => l.href.indexOf(cssName) > 0)
       if (link) {
         setTimeout(() => link.href = `${link.href.split('?')[0]}?${cssCounter++}`, 100);
@@ -268,7 +272,7 @@ const ModeSelector = (props: ModeSelectorProps) => {
   };
 
   const getIcon = () => {
-    const style = (gameName === "general") ? "font-size: 32px; color: #01c4ca; cursor: pointer;" : "font-size: 24px; cursor: pointer;"
+    const style = isGeneralMode(gameName) ? "font-size: 32px; color: #01c4ca; cursor: pointer;" : "font-size: 24px; cursor: pointer;"
 
     if (darkMode) {
       return (
@@ -291,7 +295,7 @@ const ModeSelector = (props: ModeSelectorProps) => {
       return <></>;
     }
 
-    const style = (gameName === "general") ? "font-size: 32px; color: #01c4ca; cursor: pointer; padding-right: 0.3em;" : "font-size: 24px; cursor: pointer; padding-right: 0.3em;"
+    const style = isGeneralMode(gameName) ? "font-size: 32px; color: #01c4ca; cursor: pointer; padding-right: 0.3em;" : "font-size: 24px; cursor: pointer; padding-right: 0.3em;"
     const icon = popupVisible ? <i class="fa fa-caret-up" style={style}></i> : <i class="fa fa-caret-down" style={style}></i>;
 
     return (
@@ -434,10 +438,10 @@ const ModeSelector = (props: ModeSelectorProps) => {
           <span><i title={i18n("darkBrightnessInfo")} /> {i18n("darkBrightness")} {brightness}%</span>
           <input class="soundVolumeSlider" type="range" min="50" max="100" value={brightness} onChange={brightnessHandler} onInput={brightnessHandler}></input>
         </div>
-        <a href="#" className="bgabutton bgabutton_blue" onClick={() => setFormVisible(true)}>
+        {gameName !== "studio" && <a href="#" className="bgabutton bgabutton_blue" onClick={() => setFormVisible(true)}>
           <i class="fa fa-bug"></i>&nbsp;
           {i18n('bugReportButtonCreate')}
-        </a>
+        </a>}
       </div>
     );
   };
@@ -452,7 +456,7 @@ const ModeSelector = (props: ModeSelectorProps) => {
     const saturationStyle = `background: linear-gradient(90deg, ${color1}, ${color2})`;
     const width = (360 * MULT) + 18;
 
-    const displayResetLink = gameName !== 'general' && generalHue >= 0 && (darkColorHue !== generalHue || darkColorSaturation !== generalSat);
+    const displayResetLink = !isGeneralMode(gameName) && generalHue >= 0 && (darkColorHue !== generalHue || darkColorSaturation !== generalSat);
     const displayRecommandedLink = recommandedConfig && (darkColorHue !== recommandedConfig.color || darkColorSaturation !== recommandedConfig.sat);
 
     const getLeftLink = () => {
@@ -499,7 +503,7 @@ const ModeSelector = (props: ModeSelectorProps) => {
 
   const getPopupContent = () => {
     if (popupVisible && darkMode) {
-      const titleText = (formVisible || resultVisible) ? i18n('bugReportTitle') : (gameName === "general") ? i18n("darkColorConfigurationMain") : i18n("darkColorConfigurationGame");
+      const titleText = (formVisible || resultVisible) ? i18n('bugReportTitle') : (isGeneralMode(gameName)) ? i18n("darkColorConfigurationMain") : i18n("darkColorConfigurationGame");
 
       return (
         <div id="bgaext_palette_container" draggable={false} onDragStart={() => false}>
