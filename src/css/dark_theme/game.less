@@ -1,6 +1,7 @@
 :root {
   --drop-shadow-min: drop-shadow(1px 1px 1px #000) drop-shadow(0 0 1px #fff);
   --text-w-shadow: -1px 0 #fff, 0 1px #fff, 1px 0 #fff, 0 -1px #fff;
+  --text-b-shadow: -1px -1px #0004, 1px 1px #0004, -1px 1px #0004, 1px -1px #0004;
   --ext-overlay-color: transparent;
   --ext-overall-color: transparent;
 }
@@ -203,7 +204,7 @@ spectator-mode .log .roundedbox .playername {
 }
 
 .bgabutton {
-  text-shadow: -1px -1px #0004, 1px 1px #0004, -1px 1px #0004, 1px -1px #0004 !important;
+  text-shadow: var(--text-b-shadow) !important;
 }
 
 .bgabutton_blue:not(.disabled):not(:disabled) {

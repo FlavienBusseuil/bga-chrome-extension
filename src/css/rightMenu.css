@@ -2,7 +2,7 @@ div.bgext_right_menu {
 	display: flex;
 	flex-flow: row;
 	gap: 0.3em;
-	margin-left: 10px;
+	margin-left: 10px !important;
 	float: right;
 	position: relative;
 	top: 2px;
