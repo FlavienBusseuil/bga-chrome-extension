@@ -194,7 +194,7 @@ const getMessageText = (container: Element, name: string): string | null => {
 
 const muteChatMessage = (config: Configuration, tableId: string, msg: Element) => {
 	try {
-		const span = msg.querySelector('.playername') as HTMLElement;
+		const span = getPlayerNameArea(msg) as HTMLElement;
 		const name = span.innerHTML.trim();
 
 		if (mutedPlayers.includes(name)) {
@@ -250,15 +250,18 @@ const muteChatTable = (config: Configuration, chatTable: Element) => {
 		hideMutedPlayerWriting(`is_writing_now_expl_table_${id}`, `is_writing_now_table_${id}`, `chatwindowtitlenolink_table_${id}`);
 
 		const previewArea = document.getElementById(`chatwindowtitlenolink_table_${id}`) as HTMLElement;
-		const previewPlayerSpan = previewArea?.querySelector('.playername') as HTMLElement | null;
+		const previewPlayerSpan = getPlayerNameArea(previewArea) as HTMLElement | null;
 
 		if (previewPlayerSpan) {
 			if (lastMessage[id]) {
 				if (previewPlayerSpan.innerHTML !== lastMessage[id].user) {
 					previewPlayerSpan.innerHTML = lastMessage[id].user;
 					previewPlayerSpan.style.color = lastMessage[id].color;
+
 					if (previewPlayerSpan.nextSibling) {
 						previewPlayerSpan.nextSibling.nodeValue = ` ${lastMessage[id].text}`;
+					} else {
+						previewPlayerSpan.after(` ${lastMessage[id].text}`);
 					}
 				}
 			} else {
@@ -273,6 +276,11 @@ const muteChatTable = (config: Configuration, chatTable: Element) => {
 		return false;
 	}
 };
+
+const getPlayerNameArea = (elt: Element): Element | null => {
+	const result = elt?.querySelector('.playername');
+	return result?.querySelector('.playername') || result || null;
+}
 
 const muteChatAll = (config: Configuration, chatContainer: Element) => {
 	try {
@@ -289,7 +297,7 @@ const muteChatAll = (config: Configuration, chatContainer: Element) => {
 		const prevMessages = Array.from(document.querySelectorAll('.chatwindowpreviewmsg') as NodeListOf<HTMLElement>);
 
 		prevMessages.forEach(prevMsg => {
-			const span = prevMsg.querySelector('.playername');
+			const span = getPlayerNameArea(prevMsg);
 
 			if (span) {
 				const name = span.innerHTML.trim();
