@@ -186,10 +186,13 @@ const hideMutedPlayerWriting = (writingSpanId: string, writingAreaId: string, ti
 };
 
 const getMessageText = (container: Element, name: string): string | null => {
-	if (container.nodeName === "#text" && container.nodeValue !== name) {
-		return container.nodeValue;
+	if (container.nodeName === "#text") {
+		return container.nodeValue !== name ? container.nodeValue : null;
 	}
-	return Array.from(container.childNodes).map((node: ChildNode) => getMessageText(node as Element, name)).find(v => Boolean(v))?.trim() || null;
+	if (!container.childNodes || !container.childNodes.length) {
+		return null;
+	}
+	return Array.from(container.childNodes).map((node: ChildNode) => getMessageText(node as Element, name)).find(Boolean)?.trim() || null;
 };
 
 const muteChatMessage = (config: Configuration, tableId: string, msg: Element) => {
