@@ -1,0 +1,88 @@
+html[data-theme=dark] {
+     .bgaext_overlay {
+          opacity: 0.7;
+     }
+
+     #jj-zoom-controls {
+          background: var(--dark-10);
+     }
+
+     #game_play_area_wrap {
+          color: var(--light-80);
+     }
+
+     .player_score .fa.fa-star {
+          filter: invert(0.8);
+     }
+
+     .re-icon,
+     .re-card-art.small {
+          filter: var(--drop-shadow) !important;
+     }
+
+     .re-icon[data-type=LOW],
+     .re-icon[data-type=MIDDLE],
+     .re-icon[data-type=HIGH] {
+          filter: brightness(1.2) drop-shadow(0 0 0.5px #fff) drop-shadow(0 0 0.5px #fff) !important;
+     }
+
+     .re-icon[data-type=VP],
+     .re-icon[data-type=VP]>* {
+          filter: invert(1) !important;
+     }
+
+     .re-icon[data-type=INTOLERANT],
+     .re-icon[data-type=TOLERANT] {
+          filter: var(--highlight-min) !important;
+     }
+
+     .card-side.front .re-icon {
+          filter: none ! important;
+     }
+
+     .re-player-area-name,
+     #popin_re-scoresheet-dialog_contents {
+          color: #000;
+     }
+
+     .re-card-tooltip-wrapper {
+          background: transparent;
+     }
+
+     .re-card-tooltip-wrapper .re-card-tooltip-divider {
+          background-color: var(--light-50);
+     }
+
+     .re-card-tooltip-wrapper>div:last-child,
+     #logs,
+     #page-title {
+          [style^="background-color: #E9CDDB"] {
+               background-color: #592740 !important;
+          }
+
+          [style^="background-color: #FAFBF9"] {
+               background-color: var(--dark-10) !important;
+          }
+
+          [style^="background-color: #BDCFDB"] {
+               background-color: #2d4352 !important;
+          }
+
+          [style^="background-color: #F7F5C4"] {
+               background-color: #706d0f !important;
+          }
+
+          [style^="background-color: #CBBBA6"] {
+               background-color: #50422f !important;
+          }
+
+          [style^="background-color: #B7C995"] {
+               background-color: #46542b !important;
+          }
+     }
+
+     .re-card {
+          color: #000;
+          filter: var(--ext-bright);
+     }
+}
