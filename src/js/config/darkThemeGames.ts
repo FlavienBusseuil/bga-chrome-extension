@@ -118,6 +118,7 @@ export const gamesWithCustomBackground = [
   'goblinhood',
   'goldblivion',
   'goldncrash',
+  'goodfortune',
   'gravitysuperstar',
   'greatsplit',
   'grund',
@@ -371,6 +372,7 @@ export const gamesWithOverlay: Record<string, string> = {
   congkak: '',
   crybaby: '',
   fifteendays: 'fifteendays_background',
+  goodfortune: '',
   ink: '',
   iye: '',
   legions: '',
@@ -501,6 +503,7 @@ export const gamesWithCustomPlayerStyle: { [gameName: GameName]: string } = {
 export const playersBackground: { [gameName: GameName]: string[] } = {
   forestshuffledartmoor: ['#title_{{player_id}}'],
   golems: ['#pl{{player_id}}_label'],
+  goodfortune: ['#mf_playertitle_{{player_index_1}}'],
   ink: ['#player-table-{{player_id}} .name-wrapper'],
   laserreflection: ['#lrf_container_{{player_id}} .lrf_progress-bar'],
   lorenzo: ['#obrPlayerboardId_{{player_id}} .obr_playerboard_name'],
@@ -509,7 +512,7 @@ export const playersBackground: { [gameName: GameName]: string[] } = {
   reefgardens: ['#playerBoard[data-p-id="{{player_id}}"] #title', '#playerBoard[data-p-id="{{player_id}}"] #shells'],
   reforest: ['#re-player-area-{{player_id}} .re-player-area-name'],
   spirited: ['#sp-player-area-{{player_id}} .sp-player-area-name-spacer'],
-  thegreatamericanfoxhunt: ['#TGAFH_player_89123556'],
+  thegreatamericanfoxhunt: ['#TGAFH_player_{{player_id}}'],
   treos: ['#gamezone-{{player_id}} .player-board-name'],
 };
 
@@ -557,6 +560,7 @@ export const playersBorder: { [gameName: GameName]: string[] } = {
 
 export const playersOutline: { [gameName: GameName]: string[] } = {
   crybaby: ['#mf_zone_player_{{player_index_1}}'],
+  goodfortune: ['#mf_zone_player_{{player_index_1}}'],
   pilipili: ['#mf_zone_player_{{player_index_1}}'],
   spirited: ['#sp-player-area-{{player_id}} .sp-road-slot', '#sp-player-area-{{player_id}} .sp-player-area-wonders', '#sp-player-area-{{player_id}} .sp-player-area-camp>.slot'],
 };

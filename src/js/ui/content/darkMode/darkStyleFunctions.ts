@@ -275,17 +275,18 @@ const _applyDarkStyleForGame = () => {
   getPlayersData(gamesWithTwoTeams.includes(gameName)).then(playersData => {
     console.debug("[bga extension] players data", playersData);
 
-    const possibleColors = [...playersData, ...getPlayersPossibleColors(gameName)];
-    const colorsStyle = _getDarkColorsStyle(possibleColors);
-    const backStyle = playersBackground[gameName]?.map((rule: string) => {
-      return playersData.filter(d => d.darkColor && d.darkColor !== d.color).map(d => {
-        const ruleName = rule.replace('{{player_id}}', d.id.toString());
-        return `${ruleName} { background-color: ${d.darkColor}!important; }`;
-      });
-    }).flat().join(' ') || '';
     const getRule = (rule: string, d: PlayerData, i: number) => {
       return rule.replace('{{player_id}}', d.id.toString()).replace('{{player_index}}', i.toString()).replace('{{player_index_1}}', (i + 1).toString());
     }
+
+    const possibleColors = [...playersData, ...getPlayersPossibleColors(gameName)];
+    const colorsStyle = _getDarkColorsStyle(possibleColors);
+    const backStyle = playersBackground[gameName]?.map((rule: string) => {
+      return playersData.filter(d => d.darkColor && d.darkColor !== d.color).map((d, i) => {
+        const ruleName = getRule(rule, d, i);
+        return `${ruleName} { background-color: ${d.darkColor}!important; }`;
+      });
+    }).flat().join(' ') || '';
     const borderStyle = playersBorder[gameName]?.map((rule: string) => {
       return playersData.map((d, i) => {
         if (d.darkColor && d.darkColor !== d.color) {
