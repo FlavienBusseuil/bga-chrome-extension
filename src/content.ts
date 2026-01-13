@@ -411,20 +411,31 @@ document.addEventListener('bga_ext_update_config', (data) => {
 	}
 });
 
+const displayForum = () => {
+	console.debug('[bga extension] forum iframe displayed');
+	document.documentElement.classList.add('bgaext_forum_visible');
+};
+
+const displayMelodice = () => {
+	console.debug('[bga extension] melodice iframe displayed');
+	document.documentElement.classList.add('bgaext_melodice_visible');
+};
+
 window.addEventListener('message', (evt) => {
 	if (evt.origin === 'https://forum.boardgamearena.com' && evt.data.key === 'bga_ext_forum_visible') {
 		// hack to avoid light theme flashing for forum
-		setTimeout(() => {
-			console.debug('[bga extension] forum iframe displayed');
-			document.documentElement.classList.add('bgaext_forum_visible');
-		}, 0);
+		setTimeout(displayForum, 0);
 	}
 	if (evt.origin === 'https://melodice.org' && evt.data.key === 'bga_ext_melodice_visible') {
 		evt.source?.postMessage({ key: 'bga_ext_game_name', name: gameName }, { targetOrigin: 'https://melodice.org/' });
 		// hack to avoid light theme flashing for melodice
-		setTimeout(() => {
-			console.debug('[bga extension] melodice iframe displayed');
-			document.documentElement.classList.add('bgaext_melodice_visible');
-		}, 0);
+		setTimeout(displayMelodice, 0);
 	}
 }, false);
+
+// Hack for Orion browser in Ipad which seems to have issues with iframe loading and postMessage
+const ua = navigator.userAgent;
+if (navigator.maxTouchPoints > 1 && /Macintosh/i.test(ua) && /Safari/i.test(ua) && !/Chrome|Firefox/i.test(ua)) {
+	setTimeout(displayForum, 1000);
+	setTimeout(displayMelodice, 1000);
+}
