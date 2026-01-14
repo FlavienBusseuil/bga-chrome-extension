@@ -194,7 +194,7 @@ const _getCssPath = (file: string) => {
 
 const _getDefaultBackgroundStyle = (src: HTMLElement) => {
   const backStyle = getComputedStyle(src).background;
-  return (backStyle.indexOf('back-main_games') > 0 || backStyle.indexOf('none') > 0) ? undefined : backStyle;
+  return (backStyle.indexOf('back-main_games') > 0 || backStyle.indexOf('none') >= 0) ? undefined : backStyle;
 };
 
 const _copyDefaultBackgroundStyle = (overlay: HTMLElement, cssPath: string, attempt: number) => {

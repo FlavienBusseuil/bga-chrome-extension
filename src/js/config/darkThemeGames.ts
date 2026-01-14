@@ -225,7 +225,6 @@ export const gamesWithCustomBackground = [
   'railroadinkchallenge',
   'ratsofwistar',
   'rauha',
-  'reforest',
   'refuge',
   'resarcana',
   'riverrats',
@@ -454,6 +453,7 @@ export const gamesWithConditionalCustomBackground: GamesWithCustomBackground = {
   nirds: ['spicy'],
   orapamine: ['orp_pref-thematicBackground-blue', 'orp_pref-thematicBackground-red'],
   popcorn: ['pop-game-bg'],
+  reforest: ['custom-background'],
   rollintotown: ['rt-pref-background-dark'],
   setup: ['setup-pref-background-dark'],
   shogi: ['shg_theme1', 'shg_theme2'],
@@ -725,6 +725,11 @@ export const gamesWithCustomActions: GamesWithCustomActions = {
   formulad: {
     init: (cssPath: string) => {
       document.body.style.setProperty("--gears", `url(${cssPath}img/gears.svg)`);
+    }
+  },
+  reforest: {
+    init: (cssPath: string) => {
+      document.body.style.setProperty("--gameBack", `url(${cssPath}img/re-background-light.jpg)`);
     }
   },
   minirogue: {
