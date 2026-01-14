@@ -18,18 +18,18 @@ if (isInIFrame) {
 		sendMelodiceLoaded();
 	});
 
-	window.addEventListener('message', (evt) => {
-		if (evt.origin === 'https://boardgamearena.com' && evt.data.key === 'bga_ext_game_name') {
-			gameName = evt.data.name;
+	chrome.runtime.onMessage.addListener((message) => {
+		if (message.to === "MELODICE" && message.payload.key === 'bga_ext_game_name') {
+			gameName = message.payload.name;
 			console.debug(`[bga extension] Set game name for melodice: ${gameName}`);
 			adjustDarkColors();
 		}
-	}, false);
+	});
 
 	const sendMelodiceLoaded = () => {
 		if (windowLoaded && configLoaded) {
 			// hack to avoid light theme flashing
-			top!.postMessage({ key: 'bga_ext_melodice_visible' }, 'https://boardgamearena.com/');
+			chrome.runtime.sendMessage({ to: 'MAIN_PAGE', payload: { key: 'bga_ext_melodice_visible' } });
 		}
 	}
 

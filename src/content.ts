@@ -150,6 +150,7 @@ const manageLocationChange = (pathname: string) => {
 	}
 
 	const pageName = pageInfo && pageInfo[0] || 'welcome';
+
 	if (pageName === 'blank') {
 		return 'blank';
 	}
@@ -182,6 +183,10 @@ const manageLocationChange = (pathname: string) => {
 	initDarkMode(config, 'general');
 
 	setHtmlClass(pageName);
+
+	if (pageName === 'forum') {
+		return 'forum';
+	}
 
 	if (pageName.startsWith('gamepanel')) {
 		initObserver('gamepanel');
@@ -281,7 +286,10 @@ const initPage = () => {
 			buildMainCss(config.getGameCss());
 			break;
 		case 'studio':
-			buildMainCss(config.geStudioCss());
+			buildMainCss(config.getStudioCss());
+			break;
+		case 'forum':
+			buildMainCss(config.getForumCss());
 			break;
 		default:
 			buildMainCss(config.getAllCss());
@@ -412,30 +420,29 @@ document.addEventListener('bga_ext_update_config', (data) => {
 });
 
 const displayForum = () => {
-	console.debug('[bga extension] forum iframe displayed');
-	document.documentElement.classList.add('bgaext_forum_visible');
+	if (!document.documentElement.classList.contains('bgaext_forum_visible')) {
+		console.debug('[bga extension] forum iframe displayed');
+		document.documentElement.classList.add('bgaext_forum_visible');
+	}
 };
 
 const displayMelodice = () => {
-	console.debug('[bga extension] melodice iframe displayed');
-	document.documentElement.classList.add('bgaext_melodice_visible');
+	if (!document.documentElement.classList.contains('bgaext_melodice_visible')) {
+		console.debug('[bga extension] melodice iframe displayed');
+		document.documentElement.classList.add('bgaext_melodice_visible');
+	}
 };
 
-window.addEventListener('message', (evt) => {
-	if (evt.origin === 'https://forum.boardgamearena.com' && evt.data.key === 'bga_ext_forum_visible') {
-		// hack to avoid light theme flashing for forum
-		setTimeout(displayForum, 0);
+chrome.runtime.onMessage.addListener((message) => {
+	if (message.to === "MAIN_PAGE") {
+		if (message.payload.key === 'bga_ext_forum_visible') {
+			// hack to avoid light theme flashing for forum
+			setTimeout(displayForum, 0);
+		}
+		if (message.payload.key === 'bga_ext_melodice_visible') {
+			chrome.runtime.sendMessage({ to: 'MELODICE', payload: { key: 'bga_ext_game_name', name: gameName } });
+			// hack to avoid light theme flashing for melodice
+			setTimeout(displayMelodice, 0);
+		}
 	}
-	if (evt.origin === 'https://melodice.org' && evt.data.key === 'bga_ext_melodice_visible') {
-		evt.source?.postMessage({ key: 'bga_ext_game_name', name: gameName }, { targetOrigin: 'https://melodice.org/' });
-		// hack to avoid light theme flashing for melodice
-		setTimeout(displayMelodice, 0);
-	}
-}, false);
-
-// Hack for Orion browser in Ipad which seems to have issues with iframe loading and postMessage
-const ua = navigator.userAgent;
-if (navigator.maxTouchPoints > 1 && /Macintosh/i.test(ua) && /Safari/i.test(ua) && !/Chrome|Firefox/i.test(ua)) {
-	setTimeout(displayForum, 1000);
-	setTimeout(displayMelodice, 1000);
-}
+});

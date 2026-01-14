@@ -147,6 +147,12 @@ chrome.runtime.onStartup.addListener(() => {
   init();
 });
 
+chrome.runtime.onMessage.addListener((message: any, sender: chrome.runtime.MessageSender) => {
+  if (['MAIN_PAGE', 'MELODICE'].includes(message.to) && sender.tab?.id !== undefined) {
+    chrome.tabs.sendMessage(sender.tab.id, message);
+  }
+});
+
 chrome.alarms.onAlarm.addListener((evt) => {
   init();
 

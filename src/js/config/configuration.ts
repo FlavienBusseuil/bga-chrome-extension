@@ -818,7 +818,11 @@ class Configuration {
 		return cssList.join('\n');
 	}
 
-	geStudioCss() {
+	getForumCss() {
+		return this._localConfig.css || "";
+	}
+
+	getStudioCss() {
 		const cssList: string[] = [];
 
 		if (!this._customConfig.hideChatUserNames) {

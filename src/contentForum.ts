@@ -9,7 +9,7 @@ let cssCounter = 0;
 const sendForumLoaded = () => {
   if (windowLoaded && configLoaded) {
     // hack to avoid light theme flashing
-    top!.postMessage({ key: 'bga_ext_forum_visible' }, 'https://boardgamearena.com/');
+    chrome.runtime.sendMessage({ to: 'MAIN_PAGE', payload: { key: 'bga_ext_forum_visible' } });
   }
 };
 
