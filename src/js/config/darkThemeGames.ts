@@ -462,6 +462,7 @@ export const gamesWithConditionalCustomBackground: GamesWithCustomBackground = {
   supermegaluckybox: ['smlb_background'],
   texasholdem: ['dark-wood-vertical-background', 'dark-wood-horizontal-background'],
   thewhitecastle: ['custom-background'],
+  thirteenleaves: ['classic_theme_disabled'],
   wingspan: ['wsp_background_paper'],
 };
 
@@ -553,6 +554,7 @@ export const playersBorder: { [gameName: GameName]: string[] } = {
   skatelegend: ['#player-table-{{player_id}}'],
   treos: ['#gamezone-{{player_id}}'],
   theguildofmerchantexplorers: ['#tab_header_board_{{player_id}}'],
+  thirteenleaves: ['#overall_player_board_{{player_id}}'],
   upordown: ['#player-table-{{player_id}}'],
   verdant: ['#house_{{player_id}}'],
   welcometothemoon: ['#score-sheet-{{player_id}}', '#score-sheet-{{player_id}} .player-name'],

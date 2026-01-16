@@ -1,0 +1,59 @@
+@import "./common";
+
+html[data-theme=dark] {
+	--card-outline-color: #b87c14;
+
+	#page-title {
+		box-shadow: none;
+		border: 1px solid var(--light-50);
+	}
+
+	.thl_page_background {
+		filter: invert() hue-rotate(180deg) brightness(1.8);
+	}
+
+	.bgabutton_red {
+		.orangeButton();
+	}
+
+	.bgabutton_red:hover {
+		.orangeButtonOver();
+	}
+
+	.bgabutton_blue {
+		.blueButton();
+	}
+
+	.bgabutton_blue:hover {
+		.blueButtonOver();
+	}
+
+	.thl_summary_icon.first,
+	#tabletext,
+	#mycardstext {
+		color: var(--light-80);
+		border-color: var(--light-80);
+	}
+
+	.thl_summary_row:has(.first)+.thl_summary_divider {
+		background-color: var(--light-80);
+	}
+
+	#logs .log .roundedbox {
+		background-color: var(--dark-10);
+	}
+
+	#logs .log {
+		background-color: transparent;
+		border-color: var(--light-50);
+	}
+
+	.bgabutton {
+		border-color: var(--light-50);
+	}
+
+	.card-bg,
+	.card-fg {
+		filter: var(--ext-bright);
+	}
+}

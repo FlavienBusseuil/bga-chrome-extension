@@ -89,6 +89,7 @@ export const gamesWithRecommendedConfig: { [gameName: GameName]: RecommendedConf
 	tapestry: { color: 220, sat: 22 },
 	thefoxintheforest: { color: 0, sat: 8 },
 	theyellowhouse: { color: 0, sat: 8 },
+	thirteenleaves: { color: 0, sat: 16 },
 	trailblazers: { color: 130, sat: 22 },
 	tucano: { color: 138, sat: 15 },
 	turingmachine: { color: 120, sat: 15 },
