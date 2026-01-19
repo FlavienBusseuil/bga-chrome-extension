@@ -281,9 +281,8 @@ const muteChatTable = (config: Configuration, chatTable: Element) => {
 };
 
 const getPlayerNameArea = (elt: Element): Element | null => {
-	const result = elt?.querySelector('.playername');
-	return result?.querySelector('.playername') || result || null;
-}
+	return elt?.querySelector('.playername:not(:has(.playername))') || null;
+};
 
 const muteChatAll = (config: Configuration, chatContainer: Element) => {
 	try {
