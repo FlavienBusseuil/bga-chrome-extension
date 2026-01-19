@@ -1673,7 +1673,14 @@ const defaultGames: Partial<Game>[] = [
 		playerPanel: "re-player-area-{{player_id}}",
 		css: "#bga-jump-to_controls { display: none; }",
 	},
-
+	{
+		name: "postcards",
+		playerPanel: ".player_area",
+		iconBorderDark: "#beaca7",
+		iconBackgroundDark: "#3b2f2b",
+		boardPanel: "postcards_5",
+		css: " "
+	},
 ];
 
 export default defaultGames;

@@ -387,6 +387,7 @@ export const gamesWithOverlay: Record<string, string> = {
   pergola: '',
   pilipili: '',
   pinacoladice: '',
+  postcards: '',
   ratsofwistar: '',
   reforest: '',
   scratchandcatch: '',
@@ -734,6 +735,11 @@ export const gamesWithCustomActions: GamesWithCustomActions = {
   reforest: {
     init: (cssPath: string) => {
       document.body.style.setProperty("--gameBack", `url(${cssPath}img/re-background-light.jpg)`);
+    }
+  },
+  postcards: {
+    init: (cssPath: string) => {
+      document.body.style.setProperty("--gameBack", `url(${cssPath}img/background.jpg)`);
     }
   },
   minirogue: {

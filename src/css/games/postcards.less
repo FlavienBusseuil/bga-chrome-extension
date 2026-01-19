@@ -1,0 +1,49 @@
+html[data-theme=dark] {
+	.bgaext_overlay {
+		display: none;
+	}
+
+	#bga-zoom-controls {
+		filter: invert(0.8);
+	}
+
+	#page-title {
+		background-color: var(--dark-20) !important;
+		border-top: 1px solid var(--light-50);
+		border-bottom: 1px solid var(--light-50);
+	}
+
+	.bga-help_expandable-button .bga-help_unfolded-content {
+		background: var(--dark-10);
+	}
+
+	player_area {
+		background-color: var(--dark-back);
+		border: 1px solid var(--light-50);
+	}
+
+	.player-board {
+		border: 1px solid var(--light-50) !important;
+	}
+
+	board,
+	gift,
+	postcard_supply,
+	itinerary,
+	player_board,
+	postcard,
+	.camp-help-folded-content {
+		filter: var(--ext-bright);
+	}
+}
+
+html[data-theme=dark].thematic_background {
+	.bgaext_overlay {
+		display: block;
+		background-attachment: fixed;
+		background-image: var(--gameBack) !important;
+		background-position: 50%;
+		background-repeat: no-repeat;
+		background-size: cover;
+	}
+}
