@@ -13,9 +13,14 @@ html[data-theme=dark] {
 	#jdr_scores,
 	.jdr_other_players_board,
 	.jdr_player_board,
-	.jdr_back,
 	.jdr_front {
 		filter: var(--ext-bright);
+	}
+
+	@supports not (-moz-appearance: none) {
+		.jdr_back {
+			filter: var(--ext-bright);
+		}
 	}
 }
 
