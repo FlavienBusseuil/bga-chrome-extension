@@ -3,9 +3,16 @@
 html[data-theme=dark] {
 	--card-outline-color: #b87c14;
 
-	#page-title {
+	#page-title,
+	#maingameview_menuheader,
+	#maingameview_menufooter {
 		box-shadow: none;
 		border: 1px solid var(--light-50);
+	}
+
+	#maingameview_menuheader {
+		border-top: none;
+		top: -1px;
 	}
 
 	.thl_page_background {

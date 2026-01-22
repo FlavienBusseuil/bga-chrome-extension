@@ -45,6 +45,7 @@ export const gamesWithRecommendedConfig: { [gameName: GameName]: RecommendedConf
 	foxonthetree: { color: 230, sat: 15 },
 	galacticcruise: { color: 20, sat: 15 },
 	gardennation: { color: 110, sat: 22 },
+	ghostsgalore: { color: 0, sat: 16 },
 	girafferaffe: { color: 7, sat: 9 },
 	gnomehollow: { color: 116, sat: 12 },
 	goldblivion: { color: 135, sat: 15 },

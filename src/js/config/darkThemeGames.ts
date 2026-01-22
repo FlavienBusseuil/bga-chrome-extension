@@ -255,6 +255,7 @@ export const gamesWithCustomBackground = [
   'solstis',
   'spacebase',
   'spaceempires',
+  'spacelab',
   'spacestationphoenix',
   'spiritsoftheforest',
   'splendor',
@@ -373,6 +374,7 @@ export const gamesWithOverlay: Record<string, string> = {
   crybaby: '',
   drolesdezebres: '',
   fifteendays: 'fifteendays_background',
+  ghostsgalore: '',
   goodfortune: '',
   ink: '',
   iye: '',
@@ -452,6 +454,7 @@ export const gamesWithConditionalCustomBackground: GamesWithCustomBackground = {
   festival: ['black-background', 'dark-wood-background'],
   fliptoons: ['custom-background'],
   gemsofiridescia: ['goi_thematicBackground'],
+  ghostsgalore: ['custom_theme'],
   limit: ['vgincLib_thematic_background_on'],
   nirds: ['spicy'],
   orapamine: ['orp_pref-thematicBackground-blue', 'orp_pref-thematicBackground-red'],
@@ -740,6 +743,11 @@ export const gamesWithCustomActions: GamesWithCustomActions = {
   postcards: {
     init: (cssPath: string) => {
       document.body.style.setProperty("--gameBack", `url(${cssPath}img/background.jpg)`);
+    }
+  },
+  ghostsgalore: {
+    init: (cssPath: string) => {
+      document.body.style.setProperty("--gameBack", `url(${cssPath}img/bg.jpg)`);
     }
   },
   minirogue: {

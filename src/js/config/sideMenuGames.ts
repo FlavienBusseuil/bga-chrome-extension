@@ -1681,6 +1681,11 @@ const defaultGames: Partial<Game>[] = [
 		boardPanel: "postcards_5",
 		css: " "
 	},
+	{
+		name: "spacelab",
+		playerPanel: "player-table-{{player_id}}",
+	},
+
 ];
 
 export default defaultGames;
