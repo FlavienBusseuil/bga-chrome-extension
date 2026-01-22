@@ -668,13 +668,6 @@ class Configuration {
 		this.setGeneralChatHidden(!this._customConfig.hideGeneralChat);
 	}
 
-	getChatStyle() {
-		if (this._customConfig.hideGeneralChat) {
-			return '#bga_extension_chat_icon { color: #c4c4c4; } #chatwindow_general { display: none !important; }';
-		}
-		return '#bga_extension_chat_icon { color: #01c4ca; } #chatwindow_general { display: inline-block !important; }';
-	}
-
 	isAnimatedTitle() {
 		return this._customConfig.animatedTitle === undefined || this._customConfig.animatedTitle;
 	}

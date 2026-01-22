@@ -679,7 +679,11 @@ const setStyle = (id: string, content: string) => {
 }
 
 const setChatStyle = (config: Configuration) => {
-	setStyle('bgaext-chat-style', config.getChatStyle());
+	if (config.isGeneralChatHidden()) {
+		document.documentElement.classList.add('bgaext_general_chat_hidden');
+	} else {
+		document.documentElement.classList.remove('bgaext_general_chat_hidden');
+	}
 };
 
 const setEloStyle = (config: Configuration) => {

@@ -1,5 +1,6 @@
 :root {
   color-scheme: dark;
+  --header-icons-color: #01c4ca;
 }
 
 /* seems to not be used, and cause a white flash */
@@ -2427,4 +2428,27 @@ html:not(.bgaext_gamelist) .ext_delete_button {
 /* fix position issue caused by filter on game image */
 .bgaext_table .emblemstatus_nofold {
   z-index: 1;
+}
+
+/* general chat */
+#bga_extension_chat_icon {
+  color: var(--header-icons-color);
+}
+
+#chatwindow_general {
+  display: inline-block !important;
+}
+
+.bgaext_general_chat_hidden {
+  #bga_extension_chat_icon {
+    color: #c4c4c4;
+  }
+
+  #chatwindow_general {
+    display: none !important;
+  }
+}
+
+.bga-friends-icon svg[fill="#01C4CA"] {
+  fill: var(--header-icons-color) !important;
 }

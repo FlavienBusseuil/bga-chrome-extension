@@ -272,7 +272,7 @@ const ModeSelector = (props: ModeSelectorProps) => {
   };
 
   const getIcon = () => {
-    const style = isGeneralMode(gameName) ? "font-size: 32px; color: #01c4ca; cursor: pointer;" : "font-size: 24px; cursor: pointer;"
+    const style = isGeneralMode(gameName) ? "font-size: 32px; color: var(--header-icons-color); cursor: pointer;" : "font-size: 24px; cursor: pointer;"
 
     if (darkMode) {
       return (
@@ -295,7 +295,7 @@ const ModeSelector = (props: ModeSelectorProps) => {
       return <></>;
     }
 
-    const style = isGeneralMode(gameName) ? "font-size: 32px; color: #01c4ca; cursor: pointer; padding-right: 0.3em;" : "font-size: 24px; cursor: pointer; padding-right: 0.3em;"
+    const style = isGeneralMode(gameName) ? "font-size: 32px; color: var(--header-icons-color); cursor: pointer; padding-right: 0.3em;" : "font-size: 24px; cursor: pointer; padding-right: 0.3em;"
     const icon = popupVisible ? <i class="fa fa-caret-up" style={style}></i> : <i class="fa fa-caret-down" style={style}></i>;
 
     return (
