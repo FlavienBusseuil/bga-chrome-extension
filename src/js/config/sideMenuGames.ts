@@ -1685,7 +1685,12 @@ const defaultGames: Partial<Game>[] = [
 		name: "spacelab",
 		playerPanel: "player-table-{{player_id}}",
 	},
-
+	{
+		name: "skarabrae",
+		playerPanel: "tableau_{{player_color}}",
+		iconBackground: "#d7e8ee",
+		iconBorderDark: "#989a9a"
+	},
 ];
 
 export default defaultGames;

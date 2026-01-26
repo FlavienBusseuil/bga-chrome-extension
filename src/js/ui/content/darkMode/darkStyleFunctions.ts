@@ -275,7 +275,10 @@ const _applyDarkStyleForGame = () => {
     console.debug("[bga extension] players data", playersData);
 
     const getRule = (rule: string, d: PlayerData, i: number) => {
-      return rule.replace('{{player_id}}', d.id.toString()).replace('{{player_index}}', i.toString()).replace('{{player_index_1}}', (i + 1).toString());
+      return rule.replace('{{player_id}}', d.id.toString())
+        .replace('{{player_index}}', i.toString())
+        .replace('{{player_color}}', d.color.substring(1))
+        .replace('{{player_index_1}}', (i + 1).toString());
     }
 
     const possibleColors = [...playersData, ...getPlayersPossibleColors(gameName)];

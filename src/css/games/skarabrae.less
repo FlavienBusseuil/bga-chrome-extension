@@ -1,0 +1,35 @@
+html[data-theme=dark] {
+	.movestamp {
+		color: var(--light-50);
+	}
+
+	.tableau:after {
+		background: var(--dark-back);
+		padding: 0.1em 0.5em;
+		width: auto;
+		height: 20px;
+	}
+
+	#page-title .tracker,
+	.log .tracker {
+		filter: var(--highlight-min);
+	}
+
+	.card.setl,
+	.action.main,
+	.action.special {
+		filter: var(--ext-bright);
+	}
+}
+
+html.darkmode[data-theme=dark] {
+
+	.miniboard .counter,
+	.miniboard .tracker,
+	.restrackers .counter,
+	.restrackers .tracker {
+		color: #000;
+		text-shadow: #fff -1px -1px, #fff 1px 1px, #fff -1px 1px, #fff 1px -1px;
+		filter: var(--highlight-min);
+	}
+}

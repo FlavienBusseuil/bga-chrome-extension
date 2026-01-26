@@ -74,6 +74,7 @@ export const gamesWithCustomBackground = [
   'dogpark',
   'dontgointhere',
   'dontletitdie',
+  'dozito',
   'draculahelsing',
   'draftandwriterecords',
   'drolesdezebres',
@@ -245,6 +246,7 @@ export const gamesWithCustomBackground = [
   'sevenwondersdice',
   'schottentotten',
   'shock',
+  'skarabrae',
   'skirmishbattlefordraconia',
   'skyteam',
   'skull',
@@ -276,6 +278,7 @@ export const gamesWithCustomBackground = [
   'tekken',
   'thecrew',
   'thecrewdeepsea',
+  'thedwarfking',
   'thegamemakers',
   'thehanginggardens',
   'thekingofthewoods',
@@ -576,6 +579,8 @@ export const playersOutline: { [gameName: GameName]: string[] } = {
 export const playersTextColor: { [gameName: GameName]: string[] } = {
   irishgauge: ['#player-table-{{player_id}} .player-table-name'],
   legions: ['#player-table-{{player_id}} .name-wrapper .name'],
+  rowdypartners: ['[style="--player-color: #{{player_color}};"]'],
+  skarabrae: ['.tableau[style="--player-color: #{{player_color}}"]:after', '.bga-score-sheet_player-name[style="--player-color: #{{player_color}};"]'],
   upordown: ['#player-table-{{player_id}} .player-table-name'],
 };
 

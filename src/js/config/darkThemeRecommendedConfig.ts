@@ -89,6 +89,7 @@ export const gamesWithRecommendedConfig: { [gameName: GameName]: RecommendedConf
 	super: { color: 250, sat: 15 },
 	survive: { color: 225, sat: 28 },
 	tapestry: { color: 220, sat: 22 },
+	thedwarfking: { color: 0, sat: 16 },
 	thefoxintheforest: { color: 0, sat: 8 },
 	theyellowhouse: { color: 0, sat: 8 },
 	thirteenleaves: { color: 0, sat: 16 },
