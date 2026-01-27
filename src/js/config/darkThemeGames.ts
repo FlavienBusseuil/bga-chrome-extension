@@ -528,6 +528,7 @@ export const playersBackground: { [gameName: GameName]: string[] } = {
 
 export const playersBorder: { [gameName: GameName]: string[] } = {
   arboretum: ['#player-table-{{player_id}}', '#player-table-{{player_id}} h3'],
+  azulsummerpavilion: ['#player-table-wrapper-{{player_id}} .player-name-box', '#player-table-wrapper-{{player_id}} .player-table'],
   bagofchips: ['#player-table-{{player_id}}'],
   bang: ['#bang-player-{{player_id}} .bang-player-container[style^="border: 2px"]'],
   bootydice: ['#tuto_pp{{player_index_1}}'],
@@ -577,9 +578,15 @@ export const playersOutline: { [gameName: GameName]: string[] } = {
 };
 
 export const playersTextColor: { [gameName: GameName]: string[] } = {
+  arboretum: ['#player-table-{{player_id}} h3.title'],
+  azulsummerpavilion: ['#player-name-shift-{{player_id}}'],
+  dontletitdie: ['[style="--color: #{{player_color}}"]', '[style*="--player-color: #{{player_color}}"]'],
   irishgauge: ['#player-table-{{player_id}} .player-table-name'],
+  knarr: ['#player-table-{{player_id}}-name'],
   legions: ['#player-table-{{player_id}} .name-wrapper .name'],
+  roadtothreehoundred: ['#rt300_plname_{{player_id}}'],
   rowdypartners: ['[style="--player-color: #{{player_color}};"]'],
+  sevenwondersdice: ['.bga-score-sheet_player-name[style="--player-color: #{{player_color}};"]'],
   skarabrae: ['.tableau[style="--player-color: #{{player_color}}"]:after', '.bga-score-sheet_player-name[style="--player-color: #{{player_color}};"]'],
   upordown: ['#player-table-{{player_id}} .player-table-name'],
 };
