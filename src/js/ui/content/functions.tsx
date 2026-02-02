@@ -30,15 +30,23 @@ const buildMainCss = (code: string) => {
 			document.head.appendChild(style);
 		}
 		style.innerHTML = `
-		#lrf-bga-extension, .bgaext_overlay { display: none; }
-		html[data-theme="dark"] .bgaext_overlay{ display: block; }
-		.bgaext_chat_mute_icon { position: absolute; width: 20px; height: 20px; top: 7px; left: 2px; display: none; }
-		.bgaext_chat_hidden { display: none!important; }
-		.bgaext_chat_visible { display: inline!important; }
-		.roundedboxinner:hover .bgaext_chat_mute_icon { cursor: pointer; display: block; }
-		#logs .log.hidden { display: none !important; }
-		${code}
-		`;
+:root { --header-icons-color: #01c4ca; }
+/* Delete button on gamelist page */
+html:not(.bgaext_gamelist) .ext_delete_button { display: none; }
+#lrf-bga-extension, .bgaext_overlay { display: none; }
+html[data-theme="dark"] .bgaext_overlay{ display: block; }
+.bgaext_chat_mute_icon { position: absolute; width: 20px; height: 20px; top: 7px; left: 2px; display: none; }
+.bgaext_chat_hidden { display: none!important; }
+.bgaext_chat_visible { display: inline!important; }
+.roundedboxinner:hover .bgaext_chat_mute_icon { cursor: pointer; display: block; }
+#logs .log.hidden { display: none !important; }
+#bga_extension_chat_icon { color: var(--header-icons-color); }
+#chatwindow_general { display: inline-block !important; }
+.bgaext_general_chat_hidden #bga_extension_chat_icon { color: #c4c4c4; }
+.bgaext_general_chat_hidden #chatwindow_general { display: none !important; }
+.bga-friends-icon svg[fill="#01C4CA"] { fill: var(--header-icons-color) !important; }
+${code}
+`;
 	});
 };
 
