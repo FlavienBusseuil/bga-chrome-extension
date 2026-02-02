@@ -1,5 +1,6 @@
 import { isNumber } from "../../../utils/misc/isNumber";
 import { waitForObj } from "../../../utils/misc/wait";
+import { hexToRgb } from "../../../utils/misc/colors";
 import { gamesWithConditionalCustomBackground, gamesWithCustomActions, gamesWithCustomBackground, gamesWithCustomDarkMode, gamesWithCustomPanel, gamesWithCustomPlayerStyle, gamesWithOverlay, gamesWithTwoTeams, playersBackground, playersBorder, playersOutline, playersTextColor } from "../../../config/darkThemeGames";
 import { PlayerData, getPlayersData, getPlayersPossibleColors } from "../players";
 import { cookieName, createStyle, getFile } from "./darkStyleCommonFunctions";
@@ -274,10 +275,16 @@ const _applyDarkStyleForGame = () => {
   getPlayersData(gamesWithTwoTeams.includes(gameName)).then(playersData => {
     console.debug("[bga extension] players data", playersData);
 
+    const toRgb = (color: string) => {
+      const val = hexToRgb(color);
+      return val ? `rgb(${val.r}, ${val.g}, ${val.b})` : color;
+    }
+
     const getRule = (rule: string, d: PlayerData, i: number) => {
       return rule.replace('{{player_id}}', d.id.toString())
         .replace('{{player_index}}', i.toString())
         .replace('{{player_color}}', d.color.substring(1))
+        .replace("{{player_color_rgb}}", toRgb(d.color))
         .replace('{{player_index_1}}', (i + 1).toString());
     }
 

@@ -573,7 +573,7 @@ export const playersBorder: { [gameName: GameName]: string[] } = {
 export const playersOutline: { [gameName: GameName]: string[] } = {
   crybaby: ['#mf_zone_player_{{player_index_1}}'],
   goodfortune: ['#mf_zone_player_{{player_index_1}}'],
-  pilipili: ['#mf_zone_player_{{player_index_1}}'],
+  pilipili: ['div[style^="outline-color: {{player_color_rgb}};"]', 'div[style^="outline: {{player_color_rgb}} solid 4px;"]'],
   spirited: ['#sp-player-area-{{player_id}} .sp-road-slot', '#sp-player-area-{{player_id}} .sp-player-area-wonders', '#sp-player-area-{{player_id}} .sp-player-area-camp>.slot'],
 };
 
