@@ -1,10 +1,10 @@
 @import "./common";
 
-#D[style="--hover_color: #ff8888;"] {
+html[data-theme=dark][style="--hover_color: #ff8888;"] {
 	--hover_color: #993333 !important;
 }
 
-#D[style="--hover_color: #888888;"] {
+html[data-theme=dark][style="--hover_color: #888888;"] {
 	--hover_color: #339966 !important;
 }
 
@@ -37,5 +37,9 @@ html[data-theme=dark] {
 
 	polygon[style^="fill:#fce57e;"] {
 		fill: #4d4419 !important;
+	}
+
+	svg polygon:not([style]):hover {
+		fill: var(--hover_color) !important;
 	}
 }

@@ -32,9 +32,22 @@ html[data-theme=dark] {
 
 	.dijitTooltipContainer h2 {
 		color: #000;
+		text-shadow: var(--text-w-shadow);
+	}
+
+	.prk_location_militia_text {
+		color: #000;
 	}
 
 	.dijitTooltipContainer hr {
 		display: none;
+	}
+
+	#perikles_map:before {
+		content: "";
+		background: #0005;
+		position: absolute;
+		width: 100%;
+		height: 100%;
 	}
 }

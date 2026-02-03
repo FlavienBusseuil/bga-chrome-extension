@@ -1,0 +1,86 @@
+body:has(#habitats-preserve-tabbed) #bga_extension_sidebar {
+	display: none;
+}
+
+html[data-theme=dark] {
+
+	#habitats-market,
+	.habitats-title {
+		color: var(--light-80);
+	}
+
+	#habitats-board>*,
+	.habitats-tabs,
+	.modal-content {
+		background: var(--dark-20);
+		border-radius: 16px;
+	}
+
+	.habitats-tabs {
+		border-color: var(--dark-20);
+	}
+
+	.habitats-tab.active {
+		border-color: var(--yellow-10);
+	}
+
+	.habitats-tablinks .player-preserve-symbol,
+	#habitats-board>:after {
+		filter: invert(0.8);
+	}
+
+	.player-white .habitats-title,
+	.player-yellow .habitats-title {
+		background-color: transparent;
+	}
+
+	button.player-yellow,
+	.player-yellow .habitats-title {
+		color: #fbed5b;
+	}
+
+	button.player-white,
+	.player-white .habitats-title {
+		color: var(--light-80);
+	}
+
+	button.player-red,
+	.player-red .habitats-title {
+		color: #cd3133
+	}
+
+	button.player-gray,
+	.player-gray .habitats-title {
+		color: #858579;
+	}
+
+	button.player-purple,
+	.player-purple .habitats-title {
+		color: #703cc2;
+	}
+
+	.habitats-tablinks {
+		background: var(--dark-10) !important;
+		margin: 2px;
+		filter: var(--highlight-min);
+	}
+
+	.habitats-tab:hover:not(.active) {
+		opacity: 80%;
+	}
+
+	#habitats-trackers-min,
+	.habitats-inner-container {
+		outline-color: var(--light-50);
+	}
+
+	.modal-close {
+		filter: invert(1) hue-rotate(180deg);
+	}
+
+	#habitats-trackers-modal #habitats-trackers-content,
+	.goal-card-front,
+	.card-stock.grid-stock .slot {
+		filter: var(--ext-bright);
+	}
+}

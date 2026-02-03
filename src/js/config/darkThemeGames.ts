@@ -1,3 +1,4 @@
+import { getColorForDarkMode } from "../utils/misc/colors";
 import { waitForObj } from '../utils/misc/wait';
 
 export const gamesWithCustomBackground = [
@@ -211,9 +212,11 @@ export const gamesWithCustomBackground = [
   'photosynthesis',
   'pingimus',
   'pinacoladice',
+  'piratesunderfire',
   'pisanki',
   'pixies',
   'planetunknown',
+  'pleasedontburnmyvillage',
   'pocketcats',
   'pook',
   'pyramidoft',
@@ -392,6 +395,7 @@ export const gamesWithOverlay: Record<string, string> = {
   pergola: '',
   pilipili: '',
   pinacoladice: '',
+  piratesunderfire: '',
   postcards: '',
   ratsofwistar: '',
   reforest: '',
@@ -547,6 +551,7 @@ export const playersBorder: { [gameName: GameName]: string[] } = {
   irishgauge: ['#player-table-{{player_id}}', '#player-table-{{player_id}} .player-table-name'],
   itsawonderfulworld: ['#iww-player{{player_id}}'],
   jumpdrive: ['#jdr-tableau-{{player_id}}'],
+  kingdomino: ['.player_view[style*="border-color: #{{player_color}}"]'],
   lesderniersdroides: ['#nameZone{{player_id}}'],
   letsgotojapan: ['#playerhandtitle_{{player_id}}', '#playerhand_{{player_id}}', '#nameplayer_{{player_id}}'],
   lorenzo: ['#obrPlayerboardId_{{player_id}}'],
@@ -555,11 +560,13 @@ export const playersBorder: { [gameName: GameName]: string[] } = {
   pioneerdaysproject: ['#playerbox-{{player_id}}'],
   piratas: ['#playmat_{{player_id}}'],
   pixies: ['#player-table-{{player_id}}'],
+  pleasedontburnmyvillage: ['.tableau-container[data-player-id="{{player_id}}"]'],
   qwinto: ['#qwinto-player-board-background-{{player_id}}'],
   refuge: ['#player-table-{{player_id}}'],
   riverofgold: ['#rog_player_delivered_resizable-{{player_id}}'],
   rumbleplanet: ['#player-table-{{player_id}}'],
   skatelegend: ['#player-table-{{player_id}}'],
+  symbiose: ['[style*="border-top: 2px solid #{{player_color}};"]'],
   treos: ['#gamezone-{{player_id}}'],
   theguildofmerchantexplorers: ['#tab_header_board_{{player_id}}'],
   thirteenleaves: ['#overall_player_board_{{player_id}}'],
@@ -571,7 +578,7 @@ export const playersBorder: { [gameName: GameName]: string[] } = {
 };
 
 export const playersOutline: { [gameName: GameName]: string[] } = {
-  crybaby: ['#mf_zone_player_{{player_index_1}}'],
+  crybaby: ['div[style^="outline: {{player_color_rgb}}"]', 'div[style^="outline-color: {{player_color_rgb}};"]'],
   goodfortune: ['#mf_zone_player_{{player_index_1}}'],
   pilipili: ['div[style^="outline-color: {{player_color_rgb}};"]', 'div[style^="outline: {{player_color_rgb}} solid 4px;"]'],
   spirited: ['#sp-player-area-{{player_id}} .sp-road-slot', '#sp-player-area-{{player_id}} .sp-player-area-wonders', '#sp-player-area-{{player_id}} .sp-player-area-camp>.slot'],
@@ -580,10 +587,13 @@ export const playersOutline: { [gameName: GameName]: string[] } = {
 export const playersTextColor: { [gameName: GameName]: string[] } = {
   arboretum: ['#player-table-{{player_id}} h3.title'],
   azulsummerpavilion: ['#player-name-shift-{{player_id}}'],
+  babydinosaurrescue: ['[style^="color:#{{player_color}}"]'],
   dontletitdie: ['[style="--color: #{{player_color}}"]', '[style*="--player-color: #{{player_color}}"]'],
   irishgauge: ['#player-table-{{player_id}} .player-table-name'],
   knarr: ['#player-table-{{player_id}}-name'],
   legions: ['#player-table-{{player_id}} .name-wrapper .name'],
+  mastersofrenaissance: ['.name[id="{{player_id}}"]'],
+  pleasedontburnmyvillage: ['.tableau-container[data-player-id="{{player_id}}"] .player-tableau-title'],
   roadtothreehoundred: ['#rt300_plname_{{player_id}}'],
   rowdypartners: ['[style="--player-color: #{{player_color}};"]'],
   sevenwondersdice: ['.bga-score-sheet_player-name[style="--player-color: #{{player_color}};"]'],
@@ -594,6 +604,7 @@ export const playersTextColor: { [gameName: GameName]: string[] } = {
 export const gamesWithCustomColors: { [gameName: GameName]: string[] } = {
   ageofinnovation: ['#971923', '#278139', '#70421d', '#1a2126', '#f9ae18', '#1d7ddb'],
   altay: ['#000000', '#ebb41b', '#e12129', '#00a7d2', '#47a34b'],
+  cairocorridor: ['#000000'],
   cosmoctopus: ['#20134b'],
   deadcells: ['#3c733a', '#ab3237', '#5c5aa5', '#c97014'],
   deadcellsnewcontent: ['#3c733a', '#ab3237', '#5c5aa5', '#c97014'], /* tempo */
@@ -614,6 +625,7 @@ export const gamesWithCustomColors: { [gameName: GameName]: string[] } = {
   riverofgold: ['#000000', '#ff0000', '#008000', '#0000ff', '#ffffff'],
   siam: ['#0000ff', '#ffa500'],
   superstore: ['#2d5787', '#613d31', '#f36c45', '#8b4e6e'],
+  symbiose: ['#024573'],
   tactile: ['#f10000', '#0f87da', '#f3ac11', '#6ab524'],
   thefoxintheforest: ['#5e3f85'],
   terraformingmars: ['#ff0000', '#0000ff', '#008000', '#ffa500'],
@@ -777,6 +789,15 @@ export const gamesWithCustomActions: GamesWithCustomActions = {
           childList: true,
           subtree: true
         })
+      });
+    }
+  },
+  pleasedontburnmyvillage: {
+    init: () => {
+      waitForObj('.background-container').then(() => {
+        const color = document.documentElement.style.getPropertyValue('--player-color');
+        const darkColor = getColorForDarkMode(color);
+        document.documentElement.style.setProperty('--player-color', darkColor.color);
       });
     }
   }

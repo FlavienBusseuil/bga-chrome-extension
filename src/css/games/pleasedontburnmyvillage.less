@@ -1,0 +1,44 @@
+    html[data-theme=dark] {
+    	body {
+    		--sky-gradient: linear-gradient(180deg, #020111 0%, #050a30 100%);
+    	}
+
+    	.background-container .a-cloud {
+    		filter: invert(1) hue-rotate(180deg);
+    	}
+
+    	.background-container .bg-village {
+    		filter: grayscale(0.3);
+    	}
+
+    	.game-layout-container .hand-and-tableaus-container .decks-and-tableaus-container .tableaus-column .tableau-container .player-tableau-title,
+    	.game-layout-container .hand-and-tableaus-container .my-hand-container .my-hand-title {
+    		text-shadow: none;
+    	}
+
+    	.game-layout-container .hand-and-tableaus-container .decks-and-tableaus-container .tableaus-column .tableau-container .resources-container .resource-container .bribe-count-text {
+    		color: var(--light-80);
+    	}
+
+    	.game-layout-container .hand-and-tableaus-container .decks-and-tableaus-container .decks-column .draw-deck .draw-deck-text {
+    		filter: invert(0.9);
+    	}
+
+    	.game-layout-container .hand-and-tableaus-container .my-hand-container .my-hand-title {
+    		background: #020317;
+    		font-weight: 700;
+    		padding: 0 0.2em;
+    	}
+
+    	.gamelogreview .log-arrow,
+    	.log .log-arrow {
+    		color: var(--light-80) !important;
+    	}
+
+    	.a-card,
+    	.game-layout-container .game-board-container .favor-container,
+    	.game-layout-container .game-board-container .market-container .market-stalls-row .a-market-column-container:before,
+    	.game-layout-container .hand-and-tableaus-container .decks-and-tableaus-container .tableaus-column .tableau-container .resources-container .resource-container .a-tableau-resource-icon {
+    		filter: var(--ext-bright);
+    	}
+    }

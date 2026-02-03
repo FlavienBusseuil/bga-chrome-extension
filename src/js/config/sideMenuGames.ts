@@ -1691,6 +1691,10 @@ const defaultGames: Partial<Game>[] = [
 		iconBackground: "#d7e8ee",
 		iconBorderDark: "#989a9a"
 	},
+	{
+		name: "habitats",
+		playerPanel: "habitats-player-preserve-{{player_id}}",
+	}
 ];
 
 export default defaultGames;
