@@ -1694,6 +1694,10 @@ const defaultGames: Partial<Game>[] = [
 	{
 		name: "habitats",
 		playerPanel: "habitats-player-preserve-{{player_id}}",
+	},
+	{
+		name: "screampark",
+		playerPanel: "scp_playerZone-{{player_id}}",
 	}
 ];
 

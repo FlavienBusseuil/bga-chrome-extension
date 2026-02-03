@@ -1,0 +1,38 @@
+html[data-theme=dark] {
+
+	.catatac-icon.icon-cat-black,
+	.catatac-icon.icon-0-black,
+	.catatac-icon.icon-1-black,
+	.catatac-icon.icon-2-black,
+	.catatac-icon.icon-3-black,
+	.catatac-icon.icon-4-black,
+	.catatac-icon.icon-5-black,
+	.catatac-icon.icon-6-black,
+	.catatac-icon.icon-7-black,
+	.catatac-icon.icon-8-black {
+		filter: var(--highlight-min);
+	}
+
+	.card-tooltip h2 {
+		background: #00374d;
+	}
+
+	#catatac-main-container #catatac-cards-wrapper #catatac-deck-discard-wrapper,
+	#catatac-main-container #catatac-hand-wrapper {
+		background: var(--dark-back);
+	}
+
+	#catatac-main-container #catatac-hand-wrapper #catatac-alpha:not(:empty) {
+		background: var(--dark-40);
+	}
+
+	.card-slot,
+	#catatac-main-container #catatac-board-wrapper #catatac-board #catatac-board-background #catatac-board-background-inner>*,
+	#catatac-main-container #catatac-hand-wrapper .catatac-card .catatac-card-wrapper {
+		filter: var(--ext-bright);
+	}
+
+	#catatac-main-container #catatac-cards-wrapper #catatac-deck-discard-wrapper #catatac-discard-holder {
+		filter: grayscale(80%) var(--ext-bright);
+	}
+}
