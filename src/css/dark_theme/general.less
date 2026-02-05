@@ -125,6 +125,7 @@ select:focus,
   border: 1px solid #fff;
 }
 
+textarea::placeholder,
 input::placeholder {
   color: #b3b3b3;
 }
@@ -1889,6 +1890,63 @@ select.colorselector {
 .bgaext_controlpanelgames .bg-bga-whitebg,
 .bgaext_gamepanel .bg-bga-whitebg {
   background-color: var(--dark-10);
+}
+
+.bgaext_licensing {
+  .bga-radiobox__control {
+    --background-color: #4f8fe3;
+    --check-color: var(--blue-80);
+    --background-color-faded: #4f8fe380;
+  }
+
+  h1 {
+    color: var(--light-80);
+  }
+
+  .bga-textfield {
+    background-color: var(--dark-40) !important;
+    color: var(--light-80);
+  }
+}
+
+.bgaext_studio {
+  .mx-2 {
+    color: var(--light-80);
+  }
+
+  .bga-textfield {
+    background-color: var(--dark-40) !important;
+    color: var(--light-80);
+  }
+}
+
+.bgaext_studiogame {
+  .bga-dropdown-button-split {
+    background: linear-gradient(0deg, #248189, #0ba9b7) !important;
+    border-bottom-color: #248189 !important;
+    color: #fff;
+  }
+
+  .bga-dropdown-button-value {
+    background: linear-gradient(0deg, var(--dark-30), var(--dark-40)) !important;
+    border-bottom-color: var(--dark-30) !important;
+    color: #fff;
+  }
+
+  .bga-dropdown-option.bg-gray-200 {
+    background-color: var(--dark-30);
+    border-color: #595959 !important;
+  }
+
+  .bga-dropdown-option.bg-gray-200:hover {
+    background-color: var(--dark-40);
+  }
+
+  .bga-textfield,
+  .bga-textarea__frame {
+    background-color: var(--dark-40) !important;
+    color: var(--light-80);
+  }
 }
 
 #resultDlgFrame {
