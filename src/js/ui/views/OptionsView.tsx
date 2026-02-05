@@ -17,7 +17,7 @@ type Props = {
 
 export const OptionsView = ({ config, onChange }: Props) => {
   const [locale, setLocale] = useSyncedState('locale', config.getLocale());
-  const [onlineMessages, setOnlineMessages] = useSyncedState('isDisplayEliminatedTournaments', config.isOnlineMessagesEnabled());
+  const [onlineMessages, setOnlineMessages] = useSyncedState('isOnlineMessagesEnabled', config.isOnlineMessagesEnabled());
   const [areLogTimestampsHidden, setLogTimestampHidden] = useSyncedState('areLogTimestampsHidden', config.areLogTimestampsHidden());
   const [hideLeftBarOption, setHideLeftBarOption] = useSyncedState('hideLeftBarOption', config.isLeftBarOptionHidden());
   const [quitGameOption, setQuitGameOption] = useSyncedState('quitGameOption', config.getQuitGameTo());
