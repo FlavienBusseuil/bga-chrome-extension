@@ -39,7 +39,7 @@ export async function fetchTournaments({
 				);
 			}
 
-			return result.data.list.filter((result) => result.player_status !== 'eliminated');
+			return result.data.list;
 		})
 		.flat();
 }

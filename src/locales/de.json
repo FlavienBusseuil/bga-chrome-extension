@@ -212,5 +212,7 @@
   "bugReportResult": "Dein Fehlerbericht wurde abgeschickt. Du kannst den aktuellen Status des Berichts auf <a href='/group?id=18063230' target='_blank' class='bga-ext-link'>dieser Seite</a> verfolgen. ",
   "bugReportNew": "Du kannst Fehler im dunklen Modus nun direkt hier über das Pop-Up melden",
   "bugReportNewDetail": "Wenn du auf diese Nachricht klickst, wird diese nie wieder angezeigt",
-  "optionGeneralTab": "Allgemein"
+  "optionGeneralTab": "Allgemein",
+  "optionTournamentsEliminatedOn": "Die Turniere, in denen ich ausgeschieden bin, sind angezeigt",
+  "optionTournamentsEliminatedOff": "Die Turniere, in denen ich ausgeschieden bin, sind ausgeblendet"
 }

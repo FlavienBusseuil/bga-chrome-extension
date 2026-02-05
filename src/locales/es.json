@@ -212,5 +212,7 @@
   "bugReportResult": "Tu informe de error ha sido enviado. Puedes verlo y comprobar el progreso de la resolución de tu error en <a href='/group?id=18063230' target='_blank' class='bga-ext-link'>esta página</a>",
   "bugReportNew": "Puedes informar de un error del modo oscuro abriendo la ventana emergente aquí",
   "bugReportNewDetail": "Si haces clic en este mensaje no se volverá a mostrar",
-  "optionGeneralTab": "General"
+  "optionGeneralTab": "General",
+  "optionTournamentsEliminatedOn": "The tournaments where I am eliminated are displayed",
+  "optionTournamentsEliminatedOff": "The tournaments where I am eliminated are hidden"
 }

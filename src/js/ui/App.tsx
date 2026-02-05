@@ -118,7 +118,7 @@ export const App = ({ config }: Props) => {
 				/>;
 			}
 			if (activeTab === "tournaments") {
-				return <TournamentsView className="w-full" tournaments={sortedTournaments} />;
+				return <TournamentsView config={config} className="w-full" tournaments={sortedTournaments} />;
 			}
 			return <FriendsView className="w-full" getGroupTables={result.getGroupTables} groups={result.groups} motionSensitivityEnable={motionSensitivityEnable} />;
 		}
@@ -143,6 +143,7 @@ export const App = ({ config }: Props) => {
 					motionSensitivityEnable={motionSensitivityEnable}
 				/>
 				<TournamentsView
+					config={config}
 					className={cn([
 						"w-full",
 						"transition-all",

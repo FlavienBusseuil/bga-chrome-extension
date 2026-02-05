@@ -212,5 +212,7 @@
   "bugReportResult": "バグ報告が送信されました。<a href='/group?id=18063230' target='_blank' class='bga-ext-link'>こちらのページ</a>で、報告内容を確認したり、修正の進捗状況を確認したりできます。",
   "bugReportNew": "ダークモードの不具合は、こちらのポップアップを開いて報告できます",
   "bugReportNewDetail": "このメッセージをクリックすると、再度表示されなくなります",
-  "optionGeneralTab": "一般"
+  "optionGeneralTab": "一般",
+  "optionTournamentsEliminatedOn": "The tournaments where I am eliminated are displayed",
+  "optionTournamentsEliminatedOff": "The tournaments where I am eliminated are hidden"
 }

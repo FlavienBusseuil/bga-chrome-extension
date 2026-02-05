@@ -1,31 +1,50 @@
-import type { TransformedTournament } from "../../types/TransformedTournament";
+import { useMemo, useState } from "preact/hooks";
 
+import type { TransformedTournament } from "../../types/TransformedTournament";
 import { CardList } from "../base/CardList";
 import { Card } from "../base/Card";
 import { cn } from "../utils/cn";
 import { Button } from "../base/Button";
+import Switch from "../base/Switch";
 import { bgaUrl } from "../../utils/constants";
 import { i18n } from "../../utils/browser/i18n";
+import Configuration from "../../config/configuration";
+import { useSyncedState } from "../hooks/useSyncedState";
 
 type Props = {
+	config: Configuration,
 	className?: string,
 	tournaments: Array<TransformedTournament>,
 };
 
-export const TournamentsView = ({ className, tournaments }: Props) => {
+export const TournamentsView = ({ config, className, tournaments }: Props) => {
+	const [dispEliminated, setDispEliminated] = useSyncedState('isOnlineMessagesEnabled', config.isDisplayEliminatedTournaments());
+
+	const toggleDispEliminated = () => {
+		setDispEliminated(!dispEliminated);
+		config.setDisplayEliminatedTournaments(!dispEliminated);
+	}
+
+	const filteredTournaments = useMemo(() => {
+		if (dispEliminated) {
+			return tournaments;
+		}
+		return tournaments.filter((t) => t.playerStatus !== 'eliminated');
+	}, [dispEliminated, tournaments]);
+
 	return (
 		<div className={cn(["flex justify-between flex-col gap-2", className || ''])}>
-			{tournaments.length === 0 && (
+			{filteredTournaments.length === 0 && (
 				<div className="flex justify-center flex-col grow" style={{ minHeight: "60px" }}>
 					<span class="text-black dark:text-white text-center text-xl">
 						{i18n("no_tournaments")}
 					</span>
 				</div>
 			)}
-			{tournaments.length > 0 && (
+			{filteredTournaments.length > 0 && (
 				<div className="max-result">
 					<CardList className={className || ''}>
-						{tournaments.map(
+						{filteredTournaments.map(
 							({ gameImg, championshipName, name, link, date }) => (
 								<Card onClick={() => window.open(link, "_blank")}>
 									<div className="flex items-center px-1 py-2 gap-2">
@@ -46,12 +65,15 @@ export const TournamentsView = ({ className, tournaments }: Props) => {
 					</CardList>
 				</div>
 			)}
-			<Button
-				{...{
-					text: i18n("play_tournament"),
-					url: `${bgaUrl}/tournamentlist`,
-				}}
-			/>
+			<div className={cn(["flex justify-between flex-row gap-2", className || ''])}>
+				<Switch checked={dispEliminated} textOn={i18n('optionTournamentsEliminatedOn')} textOff={i18n('optionTournamentsEliminatedOff')} onChange={toggleDispEliminated} />
+				<Button className="whitespace-nowrap"
+					{...{
+						text: i18n("play_tournament"),
+						url: `${bgaUrl}/tournamentlist`,
+					}}
+				/>
+			</div>
 		</div>
 	);
 }

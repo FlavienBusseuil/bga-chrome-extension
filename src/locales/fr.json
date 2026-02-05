@@ -212,5 +212,7 @@
   "bugReportResult": "Votre rapport d'erreur a été envoyé. Vous pouvez le consulter, et vérifier l'avancement de la résolution de votre problème sur <a href='/group?id=18063230' target='_blank' class='bga-ext-link'>cette page</a>",
   "bugReportNew": "Vous pouvez reporter un bug du mode sombre en ouvrant le popup ici",
   "bugReportNewDetail": "Si vous cliquez sur ce message, il ne s'affichera plus jamais",
-  "optionGeneralTab": "Général"
+  "optionGeneralTab": "Général",
+  "optionTournamentsEliminatedOn": "Les tournois où je suis éliminés sont affichés",
+  "optionTournamentsEliminatedOff": "Les tournois où je suis éliminés sont cachés"
 }

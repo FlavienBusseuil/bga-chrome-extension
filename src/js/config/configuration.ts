@@ -48,6 +48,7 @@ interface CustomConfig {
 	quitGameTo?: 'home' | 'lobby';
 	replayWithAutoStart?: boolean;
 	autoClickStart?: boolean;
+	displayEliminatedTournaments?: boolean;
 }
 
 export interface HomeConfig {
@@ -525,6 +526,15 @@ class Configuration {
 
 	autoClickStart() {
 		return Boolean(this._customConfig.autoClickStart);
+	}
+
+	setDisplayEliminatedTournaments(val: boolean) {
+		this._customConfig.displayEliminatedTournaments = val;
+		storageSet({ displayEliminatedTournaments: val });
+	}
+
+	isDisplayEliminatedTournaments() {
+		return Boolean(this._customConfig.displayEliminatedTournaments);
 	}
 
 	listTemplates() {

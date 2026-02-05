@@ -12,6 +12,7 @@ export interface TransformedTournament {
 	gameName: string,
 	registered: NumberString,
 	maxPlayers: NumberString,
+	playerStatus: string;
 	gameMaxDuration: NumberString,
 	gameImg: string,
 	playersPerMatch: NumberString,

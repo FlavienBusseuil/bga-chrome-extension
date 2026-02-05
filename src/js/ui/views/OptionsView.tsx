@@ -17,7 +17,7 @@ type Props = {
 
 export const OptionsView = ({ config, onChange }: Props) => {
   const [locale, setLocale] = useSyncedState('locale', config.getLocale());
-  const [onlineMessages, setOnlineMessages] = useSyncedState('isOnlineMessagesEnabled', config.isOnlineMessagesEnabled());
+  const [onlineMessages, setOnlineMessages] = useSyncedState('isDisplayEliminatedTournaments', config.isOnlineMessagesEnabled());
   const [areLogTimestampsHidden, setLogTimestampHidden] = useSyncedState('areLogTimestampsHidden', config.areLogTimestampsHidden());
   const [hideLeftBarOption, setHideLeftBarOption] = useSyncedState('hideLeftBarOption', config.isLeftBarOptionHidden());
   const [quitGameOption, setQuitGameOption] = useSyncedState('quitGameOption', config.getQuitGameTo());
@@ -342,7 +342,7 @@ export const OptionsView = ({ config, onChange }: Props) => {
           <div className="options-line">
             <span>{i18n('current_locale')}</span>
             <select className="border border-black dark:dark:border-white rounded flags" onChange={(evt: any) => updateLocale(evt.target?.value)} value={locale}>
-              <option value='ca'>🇪🇸 Català</option>
+              <option value='ca'>🇦🇩 Català</option>
               <option value='de'>🇩🇪 Deutsch</option>
               <option value='en'>🇬🇧 English</option>
               <option value='es'>🇪🇸 Español</option>
