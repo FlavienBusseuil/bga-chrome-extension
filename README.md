@@ -53,3 +53,4 @@ yarn build:op
 <a href=https://github.com/nalka0><img src="https://github.com/nalka0.png" width="100;" alt="nalka0" title="nalka0" /></a>
 <a href=https://github.com/GhoulofGSG9><img src="https://github.com/GhoulofGSG9.png" width="100;" alt="GhoulofGSG9" title="GhoulofGSG9" /></a>
 <a href=https://github.com/Hoshimikan6490><img src="https://github.com/Hoshimikan6490.png" width="100;" alt="Hoshimikan6490" title="Hoshimikan6490" /></a>
+<a href=https://github.com/4m4g1><img src="https://github.com/4m4g1.png" width="100;" alt="Hoshimikan6490" title="4m4g1" /></a>
