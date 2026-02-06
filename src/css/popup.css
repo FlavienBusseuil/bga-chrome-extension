@@ -52,13 +52,26 @@ select {
   margin: 0px;
 }
 
+.bg-white.eliminated {
+  background: #eee;
+}
+
 html.dark .bg-white {
   background: var(--dark-20);
   border-color: var(--dark-40);
 }
 
+html.dark .bg-white.eliminated {
+  background: var(--dark-40);
+}
+
 html.dark .bg-white:hover {
   background: var(--dark-30);
+  border-color: var(--light-50);
+}
+
+html.dark .bg-white.eliminated:hover {
+  background: var(--dark-40);
   border-color: var(--light-50);
 }
 

@@ -45,8 +45,8 @@ export const TournamentsView = ({ config, className, tournaments }: Props) => {
 				<div className="max-result">
 					<CardList className={className || ''}>
 						{filteredTournaments.map(
-							({ gameImg, championshipName, name, link, date }) => (
-								<Card onClick={() => window.open(link, "_blank")}>
+							({ gameImg, championshipName, name, link, date, playerStatus }) => (
+								<Card onClick={() => window.open(link, "_blank")} className={playerStatus === 'eliminated' ? 'eliminated' : ''}>
 									<div className="flex items-center px-1 py-2 gap-2">
 										<img
 											src={gameImg}
