@@ -213,6 +213,6 @@
   "bugReportNew": "Puedes informar de un error del modo oscuro abriendo la ventana emergente aquí",
   "bugReportNewDetail": "Si haces clic en este mensaje no se volverá a mostrar",
   "optionGeneralTab": "General",
-  "optionTournamentsEliminatedOn": "The tournaments where I am eliminated are displayed",
-  "optionTournamentsEliminatedOff": "The tournaments where I am eliminated are hidden"
+  "optionTournamentsEliminatedOn": "Los torneos en los que he sido eliminado se muestran",
+  "optionTournamentsEliminatedOff": "Los torneos en los que he sido eliminado están ocultos"
 }

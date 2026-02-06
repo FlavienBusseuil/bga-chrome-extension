@@ -213,6 +213,6 @@
   "bugReportNew": "Pots informar d'un error del mode fosc obrint la finestra emergent aquí",
   "bugReportNewDetail": "Si fas clic en aquest missatge no es tornarà a mostrar",
   "optionGeneralTab": "General",
-  "optionTournamentsEliminatedOn": "The tournaments where I am eliminated are displayed",
-  "optionTournamentsEliminatedOff": "The tournaments where I am eliminated are hidden"
+  "optionTournamentsEliminatedOn": "Els torneigs on he estat eliminat es mostren",
+  "optionTournamentsEliminatedOff": "Els torneigs on he estat eliminat estan ocults"
 }
