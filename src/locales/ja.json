@@ -213,6 +213,6 @@
   "bugReportNew": "ダークモードの不具合は、こちらのポップアップを開いて報告できます",
   "bugReportNewDetail": "このメッセージをクリックすると、再度表示されなくなります",
   "optionGeneralTab": "一般",
-  "optionTournamentsEliminatedOn": "The tournaments where I am eliminated are displayed",
-  "optionTournamentsEliminatedOff": "The tournaments where I am eliminated are hidden"
+  "optionTournamentsEliminatedOn": "敗退した大会が表示されます",
+  "optionTournamentsEliminatedOff": "敗退した大会は表示されません"
 }
