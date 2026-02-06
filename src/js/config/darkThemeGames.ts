@@ -9,6 +9,7 @@ export const gamesWithCustomBackground = [
   'altered',
   'ancientknowledge',
   'aniversus',
+  'aquarius',
   'aquatica',
   'architectsofamytis',
   'arctic',
