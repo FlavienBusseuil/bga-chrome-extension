@@ -1,5 +1,14 @@
 # Changelog
 
+## [v1.12.44](https://github.com/FlavienBusseuil/bga-chrome-extension/tree/v1.12.44) (2026-02-10)
+
+[Full Changelog](https://github.com/FlavienBusseuil/bga-chrome-extension/compare/v1.12.43...v1.12.44)
+
+**Merged pull requests:**
+
+- Added a Japanese translation for the new translation keys [\#140](https://github.com/FlavienBusseuil/bga-chrome-extension/pull/140) ([Hoshimikan6490](https://github.com/Hoshimikan6490))
+- Translate to Catalan and Espanish [\#139](https://github.com/FlavienBusseuil/bga-chrome-extension/pull/139) ([4m4g1](https://github.com/4m4g1))
+
 ## [v1.12.43](https://github.com/FlavienBusseuil/bga-chrome-extension/tree/v1.12.43) (2026-02-03)
 
 [Full Changelog](https://github.com/FlavienBusseuil/bga-chrome-extension/compare/v1.12.42...v1.12.43)
