@@ -1698,7 +1698,12 @@ const defaultGames: Partial<Game>[] = [
 	{
 		name: "screampark",
 		playerPanel: "scp_playerZone-{{player_id}}",
-	}
+	},
+	{
+		name: "spyworld",
+		playerPanel: ".mf_playerboard .playername",
+		boardPanel: ".mf_item_main_lair"
+	},
 ];
 
 export default defaultGames;

@@ -1,7 +1,7 @@
 import type { Game } from "../../../config/models";
 
 export interface Player {
-	id: number;
+	id: string;
 	name: string;
 	avatar: string;
 	color: string;

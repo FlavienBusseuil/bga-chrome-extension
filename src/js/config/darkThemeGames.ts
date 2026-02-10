@@ -267,6 +267,7 @@ export const gamesWithCustomBackground = [
   'splendor',
   'splendorexpansions',
   'splendorduel',
+  'spyworld',
   'stalkexchange',
   'stella',
   'starfluxx',

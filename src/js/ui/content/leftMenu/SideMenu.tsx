@@ -185,6 +185,11 @@ const SideMenu = (props: SideMenuProps) => {
 		});
 
 		if (gameConfig.boardPanel) {
+			if (gameConfig.boardPanel.startsWith('.')) {
+				const elt = document.querySelector(gameConfig.boardPanel);
+				gameConfig.boardPanel = elt?.id || gameConfig.boardPanel;
+			}
+
 			const fakePlayer = {
 				fake: true,
 				id: gameConfig.boardPanel,
