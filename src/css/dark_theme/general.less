@@ -1674,105 +1674,118 @@ select.colorselector {
 
 /* Tournament */
 
-.bgaext_tournament #group_avatar[src*="noimage_tournament"] {
+#group_avatar[src*="noimage_tournament"] {
   filter: invert(1);
 }
 
-.bgaext_tournament #tournamentfullname {
-  color: var(--light-80);
-}
+.bgaext_tournament {
 
-.bgaext_tournament .pagesection__content,
-.bgaext_tournament .v2tournament {
-  background: var(--dark-10) !important;
-}
+  .tournaments-presentation__title,
+  .tournaments-presentation__subtitle-block {
+    background-color: var(--dark-back);
+    box-shadow: none;
+  }
 
-.bgaext_tournament .v2tournament h4 {
-  background: var(--green-30);
-  color: var(--light-80);
-}
+  .tournaments-presentation__gamebanner {
+    filter: var(--ext-bright);
+  }
 
-.bgaext_tournament .v2tournament__players-stats-table {
-  color: var(--light-80);
-}
+  #tournamentfullname {
+    color: var(--light-80);
+  }
 
-.bgaext_tournament .v2tournament__players-stats-table.v2tournament__players-stats-table td {
-  background: var(--dark-40);
-}
+  .pagesection__content,
+  .v2tournament {
+    background: var(--dark-10) !important;
+  }
 
-.bgaext_tournament .v2tournament__players-stats-table tr:nth-child(odd) td {
-  background: var(--dark-30);
-}
+  .v2tournament h4 {
+    background: var(--green-30);
+    color: var(--light-80);
+  }
 
-.bgaext_tournament .v2tournament__encounters-step {
-  background: var(--dark-40);
-}
+  .v2tournament__players-stats-table {
+    color: var(--light-80);
+  }
 
-.bgaext_tournament .v2tournament__encounters-step:nth-child(odd) {
-  background: var(--dark-30);
-}
+  .v2tournament__players-stats-table.v2tournament__players-stats-table td {
+    background: var(--dark-40);
+  }
 
-.bgaext_tournament .v2tournament__encounters-steps-arrow--right {
-  background: linear-gradient(-90deg, var(--dark-20) 25%, hsla(0, 0%, 100%, 0));
-}
+  .v2tournament__players-stats-table tr:nth-child(odd) td {
+    background: var(--dark-30);
+  }
 
-.bgaext_tournament .v2tournament__encounters-steps-arrow--right:hover {
-  background: linear-gradient(-90deg, var(--dark-20) 65%, hsla(0, 0%, 100%, 0));
-}
+  .v2tournament__encounters-step {
+    background: var(--dark-40);
+  }
 
-.bgaext_tournament .v2tournament__encounters-steps-arrow--left {
-  background: linear-gradient(90deg, var(--dark-20) 25%, hsla(0, 0%, 100%, 0));
-}
+  .v2tournament__encounters-step:nth-child(odd) {
+    background: var(--dark-30);
+  }
 
-.bgaext_tournament .v2tournament__encounters-steps-arrow--left:hover {
-  background: linear-gradient(90deg, var(--dark-20) 65%, hsla(0, 0%, 100%, 0));
-}
+  .v2tournament__encounters-steps-arrow--right {
+    background: linear-gradient(-90deg, var(--dark-20) 25%, hsla(0, 0%, 100%, 0));
+  }
 
-.bgaext_tournament .v2tournament__encounters-clear-player .v2tournament__encounter-player {
-  background: var(--dark-20) !important;
-}
+  .v2tournament__encounters-steps-arrow--right:hover {
+    background: linear-gradient(-90deg, var(--dark-20) 65%, hsla(0, 0%, 100%, 0));
+  }
 
-.bgaext_tournament .v2tournament__encounters-steps-arrow i.fa {
-  filter: invert(1);
-}
+  .v2tournament__encounters-steps-arrow--left {
+    background: linear-gradient(90deg, var(--dark-20) 25%, hsla(0, 0%, 100%, 0));
+  }
 
-.bgaext_tournament .v2tournament__encounter-status {
-  background: var(--green-30);
-  color: var(--light-80);
-}
+  .v2tournament__encounters-steps-arrow--left:hover {
+    background: linear-gradient(90deg, var(--dark-20) 65%, hsla(0, 0%, 100%, 0));
+  }
 
-.bgaext_tournament .v2tournament__encounter-player-result {
-  color: var(--light-70);
-}
+  .v2tournament__encounters-clear-player .v2tournament__encounter-player {
+    background: var(--dark-20) !important;
+  }
 
-.bgaext_tournament .v2tournament__encounter-player {
-  background: var(--dark-20);
-}
+  .v2tournament__encounters-steps-arrow i.fa {
+    filter: invert(1);
+  }
 
-.bgaext_tournament .v2tournament__encounter-player.highlighted {
-  background: var(--dark-40);
-}
+  .v2tournament__encounter-progress-bar>div {
+    background: var(--green-30);
+    color: var(--light-80);
+  }
 
-.bgaext_tournament .v2tournament__encounter--status-play a.v2tournament__encounter-title {
-  background: var(--green-50);
-  color: var(--light-80);
-}
+  .v2tournament__encounter-player-result {
+    color: var(--light-70);
+  }
 
-.bgaext_tournament .v2tournament__encounter--status-play .v2tournament__encounter-progress {
-  background: var(--green-50);
-}
+  .v2tournament__encounter-player {
+    background: var(--dark-20);
+  }
 
-.bgaext_tournament .v2tournament__encounters-step-title {
-  background: linear-gradient(90deg, var(--green-30), var(--green-50) 35%, var(--green-50));
-  color: var(--light-80);
-}
+  .v2tournament__encounter-player.highlighted {
+    background: var(--dark-40);
+  }
 
-.bgaext_tournament .v2tournament__encounters-step-title:after {
-  border-color: transparent transparent transparent var(--green-50);
-}
+  .v2tournament__encounter--status-play a.v2tournament__encounter-title {
+    background: var(--green-50);
+    color: var(--light-80);
+  }
 
-.bgaext_tournament .v2tournament__encounter-player-points {
-  color: var(--light-80);
+  .v2tournament__encounter--status-play .v2tournament__encounter-progress {
+    background: var(--green-50);
+  }
+
+  .v2tournament__encounters-step-title {
+    background: linear-gradient(90deg, var(--green-30), var(--green-50) 35%, var(--green-50));
+    color: var(--light-80);
+  }
+
+  .v2tournament__encounters-step-title:after {
+    border-color: transparent transparent transparent var(--green-50);
+  }
+
+  .v2tournament__encounter-player-points {
+    color: var(--light-80);
+  }
 }
 
 /* Page Vos badges */
