@@ -1,0 +1,46 @@
+html[data-theme=dark] {
+	--ext-overall-color: #00000080;
+
+	.laf_family-mat:before,
+	#laf-gameboard:before {
+		content: "";
+		background: #00000060;
+		position: absolute;
+		width: 100%;
+		height: 100%;
+		top: 0px;
+		left: 0px;
+	}
+
+	.laf_family-mat-basic-order-tokens>div {
+		background: var(--dark-back);
+	}
+
+	#laf-token-toggle-buttons {
+		background: var(--dark-30);
+		color: var(--light-80);
+	}
+
+	#laf-hq-button,
+	#laf-partner-hq-button,
+	#laf-hq-container,
+	#laf-partner-hq-container {
+		background: var(--dark-back);
+		color: var(--light-80);
+	}
+
+	.laf_soldato-icon {
+		filter: invert(1);
+	}
+
+	.laf_orderToken,
+	.laf_influenceToken,
+	.laf_control-tile {
+		filter: var(--drop-shadow) var(--ext-bright);
+	}
+
+	#laf-choose-family .laf_orderChart,
+	.laf_person-icon {
+		filter: var(--ext-bright);
+	}
+}

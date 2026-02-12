@@ -1,0 +1,65 @@
+html[data-theme=dark] {
+	#ldg-tabContents {
+		background-color: var(--dark-back);
+	}
+
+	.ldg-guest-count,
+	.ldg-tabTitle,
+	.ldg-resize {
+		background: var(--dark-40);
+		color: var(--light-80);
+	}
+
+	.ldg-hideGuests .fa.fa-eye {
+		color: var(--blue-70);
+	}
+
+	.ldg-hideGuests .fa.fa-eye:hover,
+	.ldg-resize .fa:hover {
+		color: var(--blue-80);
+	}
+
+	#ldg-tabs {
+		border-color: var(--dark-20);
+	}
+
+	.ldg-tab {
+		background-color: var(--dark-20);
+		color: var(--light-80);
+		border-color: var(--dark-40);
+	}
+
+	.ldg-tab.ldg-tab-selected {
+		background-color: var(--dark-10);
+	}
+
+	.ldg-tab:not(.ldg-tab-selected):hover {
+		background-color: var(--dark-30);
+	}
+
+	.head_warning {
+		background-color: var(--orange-30);
+		color: var(--light-80);
+	}
+
+	.ldg-scoreSheet thead tr:first-child,
+	.ldg-scoreSheet tr:nth-child(2n),
+	.ldg-scoreSheet tr.ldg-total {
+		background-color: var(--dark-10);
+	}
+
+	.ldg-scoreSheet tr:nth-child(odd) {
+		background-color: var(--dark-30);
+	}
+
+	.ldg-scoreSheet * {
+		border-color: var(--light-50) !important;
+	}
+
+	.ldg-tile-face.ldg-tile-front,
+	.ldg-tile-face.ldg-tile-back,
+	.ldg-guest,
+	.ldg-lift {
+		filter: var(--ext-bright) var(--drop-shadow);
+	}
+}

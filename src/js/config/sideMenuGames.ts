@@ -1704,6 +1704,13 @@ const defaultGames: Partial<Game>[] = [
 		playerPanel: ".mf_playerboard .playername",
 		boardPanel: ".mf_item_main_lair"
 	},
+	{
+		name: "lafamiglia",
+		playerPanel: "laf-family-mat-{{player_index_1}}-container",
+		boardPanel: "laf-gameboard",
+		boardPanelText: "#laf-scroll-to-hq",
+		css: "#laf-scroll-to-boards { display: none; }",
+	}
 ];
 
 export default defaultGames;

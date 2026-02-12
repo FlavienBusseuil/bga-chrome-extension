@@ -147,6 +147,7 @@ export const gamesWithCustomBackground = [
   'kiriaitheduel',
   'knarr',
   'krosmasterblast',
+  'lafamiglia',
   'lasvegan',
   'legions',
   'lielow',
