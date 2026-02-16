@@ -1414,101 +1414,187 @@ select.colorselector {
 }
 
 /* Page Bugs */
-#moderation-module .pagesection__content .whiteblock {
-  background: var(--dark-40);
-}
 
-#moderation-module #last_reports .statstable a,
-#buglist_inner a {
-  color: var(--light-80);
-}
+.bgaext_bugs,
+.bgaext_bug {
 
-#moderation-module #last_reports .statstable [bgcolor] a,
-#moderation-module #last_reports .statstable th .bga-link,
-#buglist_inner [bgcolor] a {
-  color: var(--dark-10);
-}
+  .bga-page-section__title,
+  .text-gray-600,
+  .text-sm {
+    color: var(--light-70) !important;
+  }
 
-.upper_back_button>.icon16_backgray {
-  filter: invert(1);
-  transform: scaleY(-1);
-}
+  .bg-bga-gray-100 {
+    background-color: var(--dark-40);
+    border-color: var(--light-50);
+  }
 
-.bgaext_bugs .statstable th a.bga-link {
-  color: #fff !important;
-}
+  .bga-radiobox__control {
+    --background-color: #4f8fe3;
+    --check-color: var(--blue-80);
+    --background-color-faded: #4f8fe380;
+  }
 
-.bgaext_bug .existing_bugs td[bgcolor="#ffffff"] {
-  background-color: var(--dark-10) !important;
-}
+  .bga-textfield {
+    background-color: var(--dark-40) !important;
+    color: var(--light-80);
+  }
 
-.bgaext_bug .existing_bugs td[bgcolor="#ffffff"] a {
-  color: var(--light-80) !important;
-}
+  .bga-dropdown-button-split {
+    background: linear-gradient(0deg, #248189, #0ba9b7) !important;
+    border-bottom-color: #248189 !important;
+    color: #fff;
+  }
 
-.bga-game-selector {
-  border: 1px solid #b3b3b3;
-}
+  .bga-dropdown-button-value {
+    background: linear-gradient(0deg, var(--dark-30), var(--dark-40)) !important;
+    border-bottom-color: var(--dark-30) !important;
+    color: #fff;
+  }
 
-.bga-game-selector .bg-white {
-  background-color: var(--dark-40);
-  border: 1px solid var(--light-70);
-  margin-left: -1px;
-  margin-top: 3px;
-}
+  .bga-dropdown-option.bg-gray-200 {
+    background-color: var(--dark-30);
+    border-color: #595959 !important;
+  }
 
-.bga-game-selector .bg-white .text-gray-500 {
-  color: #fff;
-}
+  .bga-dropdown-option.bg-gray-200:hover {
+    background-color: var(--dark-40);
+  }
 
-.bga-game-selector .bg-white .text-gray-500:hover {
-  background-color: #7ba1cd;
-}
+  .statstable th .bga-link {
+    color: #fff !important;
+  }
 
-.bgaext_bug #bug_status_awaiting,
-.bgaext_bug #bug_status_acknowledged {
-  background-color: var(--yellow-10) !important;
-}
+  .bugrow.bugrow--odd td:not([style*="background-color"]) {
+    background-color: var(--dark-20) !important;
+  }
 
-.bgaext_bug #bug_status_inforequest {
-  background-color: var(--orange-30) !important;
-}
+  .bugrow.bugrow--even td:not([style*="background-color"]) {
+    background-color: var(--dark-30) !important;
+  }
 
-.bgaext_bug #bug_status_open,
-.bgaext_bug #bug_status_infoneeded {
-  background-color: var(--red-10) !important;
-}
+  .bga-game-selector .text-gray-500 {
+    background: var(--dark-10);
+  }
 
-.bgaext_bug #bug_status_implemented,
-.bgaext_bug #bug_status_fixed,
-.bgaext_bug #bug_status_duplicate {
-  background-color: var(--green-30) !important;
-}
+  .bga-game-selector .text-gray-500:hover {
+    background: var(--dark-30);
+  }
 
-.bgaext_bug #bug_status_rejected {
-  background-color: var(--blue-10) !important;
-}
+  .bga-bugs-filters svg {
+    color: var(--light-70);
+  }
 
-.bgaext_bug #bug_status_confirmed {
-  background-color: var(--red-30) !important;
-}
+  td[style="background-color: #fff176"] {
+    background-color: #807300 !important;
+  }
 
-.bgaext_bug #bug_status_wontfix {
-  background-color: var(--blue-10) !important
-}
+  td[style="background-color: #ffeb3b"] {
+    background-color: #4d4500 !important;
+  }
 
-.bgaext_bug #bug_status_worksforme {
-  background-color: var(--green-30) !important
-}
+  td[style="background-color: #ffd54f"] {
+    background-color: #4d3b00 !important;
+  }
 
-.bgaext_bug #bug_status_notabug,
-.bgaext_bug #bug_status_notupdated,
-.bgaext_bug #bug_status_claimed {
-  background-color: var(--green-50) !important
-}
+  td[style="background-color: #ff7777"] {
+    background-color: #800000 !important;
+  }
 
-.bgaext_bug .developer {
-  border: 3px solid var(--light-50);
+  td[style="background-color: #ffaaaa"] {
+    background-color: #b30000 !important;
+  }
+
+  td[style="background-color: #ff0000"] {
+    background-color: #300 !important;
+  }
+
+  td[style="background-color: #00aa00"] {
+    background-color: #004d00 !important;
+  }
+
+  td[style="background-color: #77aaaa"] {
+    background-color: #314e4e !important;
+  }
+
+  td[style="background-color: #aaff77"] {
+    background-color: #2f8000 !important;
+  }
+
+  td[style="background-color: #aaaa77"] {
+    background-color: #3f3f27 !important;
+  }
+
+  td[style="background-color: #77aa77"] {
+    background-color: #273f27 !important;
+  }
+
+  .bga-modal-shadow {
+    outline: 1px solid var(--light-50);
+  }
+
+  .text-black {
+    color: var(--light-80);
+  }
+
+  .existing_bugs td[bgcolor="#ffffff"] {
+    background-color: var(--dark-10) !important;
+  }
+
+  .existing_bugs td[bgcolor="#ffffff"] a {
+    color: var(--light-80) !important;
+  }
+
+  #bug_status_awaiting,
+  #bug_status_acknowledged {
+    background-color: var(--yellow-10) !important;
+  }
+
+  #bug_status_inforequest {
+    background-color: var(--orange-30) !important;
+  }
+
+  #bug_status_open,
+  #bug_status_infoneeded {
+    background-color: var(--red-10) !important;
+  }
+
+  #bug_status_implemented,
+  #bug_status_fixed,
+  #bug_status_duplicate {
+    background-color: var(--green-30) !important;
+  }
+
+  #bug_status_rejected {
+    background-color: var(--blue-10) !important;
+  }
+
+  #bug_status_confirmed {
+    background-color: var(--red-30) !important;
+  }
+
+  #bug_status_wontfix {
+    background-color: var(--blue-10) !important
+  }
+
+  #bug_status_worksforme {
+    background-color: var(--green-30) !important
+  }
+
+  #bug_status_notabug,
+  #bug_status_notupdated,
+  #bug_status_claimed {
+    background-color: var(--green-50) !important
+  }
+
+  .developer {
+    border: 3px solid var(--light-50);
+  }
+
+  .upper_back_button>.icon16_backgray {
+    filter: invert(1);
+    transform: scaleY(-1);
+  }
 }
 
 /* Arena suggestions */
