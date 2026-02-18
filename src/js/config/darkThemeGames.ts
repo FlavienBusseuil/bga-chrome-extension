@@ -118,6 +118,7 @@ export const gamesWithCustomBackground = [
   'gardenrush',
   'gatsby',
   'giftoftulips',
+  'gipf',
   'girafferaffe',
   'gnomehollow',
   'goblinhood',
