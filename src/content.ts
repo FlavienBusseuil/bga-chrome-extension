@@ -29,6 +29,7 @@ import { gamesWithTwoTeams } from "./js/config/darkThemeGames";
 const config = new ConfigurationWithGames();
 let currentObserver: MutationObserver | null = null;
 let pageType: string;
+let prevPageType = '';
 let chatbardock: Element | null = null;
 let gameName = '';
 
@@ -276,25 +277,39 @@ const setTableOpened = (tableId: TableId) => {
 	document.body.dispatchEvent(new CustomEvent('bga_ext_api_call', { detail }));
 };
 
+const changeCss = (pageType: string) => {
+	if (pageType !== prevPageType) {
+		prevPageType = pageType;
+
+		console.debug(`[bga extension] Load css for page type ${pageType}`);
+
+		switch (pageType) {
+			case 'game':
+				buildMainCss(config.getGameCss());
+				break;
+			case 'studio':
+				buildMainCss(config.getStudioCss());
+				break;
+			case 'forum':
+				buildMainCss(config.getForumCss());
+				break;
+			default:
+				buildMainCss(config.getAllCss());
+				break;
+		}
+	}
+};
+
+const changeLocation = () => {
+	pageType = manageLocationChange(window.location.pathname);
+	changeCss(pageType);
+}
+
 const initPage = () => {
 	config.isEmpty() && document.dispatchEvent(new CustomEvent('bga_ext_get_config', {}));
-	addLocationChangeListener(manageLocationChange);
-	pageType = manageLocationChange(window.location.pathname);
 
-	switch (pageType) {
-		case 'game':
-			buildMainCss(config.getGameCss());
-			break;
-		case 'studio':
-			buildMainCss(config.getStudioCss());
-			break;
-		case 'forum':
-			buildMainCss(config.getForumCss());
-			break;
-		default:
-			buildMainCss(config.getAllCss());
-			break;
-	}
+	addLocationChangeListener(changeLocation);
+	changeLocation();
 
 	waitForObj('head').then(() => {
 		console.debug('[bga extension] bga api script loading...');
