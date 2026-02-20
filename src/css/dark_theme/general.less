@@ -432,27 +432,32 @@ select.colorselector {
   text-decoration: underline;
 }
 
-.bgaext_ratingdetails #main-content a {
-  color: var(--blue-80);
-  text-decoration: none;
-}
+.bgaext_ratingdetails {
 
-.bgaext_ratingdetails #main-content a:hover {
-  color: var(--blue-90);
-  text-decoration: underline;
-}
+  #main-content a {
+    color: var(--blue-80);
+    text-decoration: none;
+  }
 
-.bgaext_ratingdetails [style*="background-color:#f9a11a"] {
-  background-color: var(--yellow-10) !important;
-}
+  #main-content a:hover {
+    color: var(--blue-90);
+    text-decoration: underline;
+  }
 
-.bgaext_ratingdetails [style*=";color: #f9a11a"] {
-  color: var(--yellow-10) !important;
-}
+  [style*="background-color:#f9a11a"],
+  [style*="background-color: rgb(249, 161, 26)"] {
+    background-color: var(--yellow-10) !important;
+  }
 
-.bgaext_ratingdetails .fa-star,
-.bgaext_ratingdetails .fa-star-o {
-  color: var(--yellow-10);
+  [style*=";color: #f9a11a"],
+  [style="color: rgb(249, 161, 26);"] {
+    color: var(--yellow-10) !important;
+  }
+
+  .fa-star,
+  .fa-star-o {
+    color: var(--yellow-10);
+  }
 }
 
 .bga-link-inside a:not(.playername, .gamename, .bgabutton) {
