@@ -16,6 +16,7 @@
   background-color: var(--dark-10);
 }
 
+.hover\:bg-bga-gray-171:hover,
 .hover\:bg-gray-300:hover {
   background-color: var(--dark-20);
 }
@@ -56,6 +57,10 @@
 
 .bg-bga-gray-204 {
   background-color: var(--dark-40);
+}
+
+.bg-bga-link {
+  background-color: var(--blue-70);
 }
 
 .male {
@@ -344,6 +349,19 @@ select.colorselector {
 
 .game_box_image_wrap img {
   filter: var(--ext-bright);
+}
+
+#lobby_add_friend_button .lobby_invite_friend_avatar,
+#lobby_invite_more_friend_button .lobby_invite_friend_avatar {
+  background-color: var(--blue-70);
+}
+
+.lobby_invite_friend_name {
+  color: var(--blue-80);
+}
+
+#lobby_invite_friend_zone h3 {
+  color: var(--light-70);
 }
 
 .lobby_invite_friend_remove {
@@ -802,20 +820,6 @@ select.colorselector {
   background-image: none !important;
 }
 
-/* Tournament page */
-.bga-tournament-panel__content {
-  background: linear-gradient(var(--dark-0) 0%, var(--dark-20) calc(100% - 15px), #00000020), var(--dark-30) !important;
-  outline: 1px solid var(--dark-20);
-}
-
-.bga-tournament-panel img.flex-initial {
-  filter: invert(1);
-}
-
-.board_readonly .post {
-  background-color: transparent;
-}
-
 /* Page Jouer - Lobby */
 .bgaext_lobby #pageheaderlobby {
   background: var(--dark-10);
@@ -831,8 +835,7 @@ select.colorselector {
   border: 2px solid var(--blue-70);
 }
 
-.bgaext_lobby .pageheader_mobile_switcher_wrap .pageheader_menuitem,
-.bgaext_tournamentlist .pageheader_mobile_switcher_wrap .pageheader_menuitem {
+.bgaext_lobby .pageheader_mobile_switcher_wrap .pageheader_menuitem {
   background: var(--dark-20) !important;
   color: var(--light-80);
   border: 0;
@@ -841,26 +844,26 @@ select.colorselector {
   border-right: none;
 }
 
-.bgaext_lobby .pageheader_big_switch_dropdown,
-.bgaext_tournamentlist .pageheader_big_switch_dropdown {
+.bgaext_lobby .pageheader_mobile_switcher_wrap .pageheader_menuitem.pageheader_menuitemselected {
+  color: var(--blue-70);
+}
+
+.bgaext_lobby .pageheader_big_switch_dropdown {
   background-color: transparent;
 }
 
-.bgaext_lobby .pageheader_mobile_switcher_wrap .pageheader_menuitem:hover,
-.bgaext_tournamentlist .pageheader_mobile_switcher_wrap .pageheader_menuitem:hover {
+.bgaext_lobby .pageheader_mobile_switcher_wrap .pageheader_menuitem:hover {
   background: var(--dark-30) !important;
 }
 
 .bgaext_lobby .pageheader_mobile_switcher_wrap .pageheader_menuitem .switcher_zone,
-.bgaext_tournamentlist .pageheader_mobile_switcher_wrap .pageheader_menuitem .switcher_zone,
 .notouch-device .pageheader_menu_verylarge .pageheader_big_switch:hover #switcher_zone,
 .pageheader_menu_verylarge .dropdown_expanded .pageheader_big_switch #switcher_zone {
   background: linear-gradient(180deg, var(--dark-10) 00%, var(--dark-40) 40%, var(--dark-40) 60%, var(--dark-10) 100%);
   border-left: 1px solid var(--dark-40);
 }
 
-.bgaext_lobby .pageheader_mobile_switcher_wrap .pageheader_menuitem:hover .switcher_zone,
-.bgaext_tournamentlist .pageheader_mobile_switcher_wrap .pageheader_menuitem:hover .switcher_zone {
+.bgaext_lobby .pageheader_mobile_switcher_wrap .pageheader_menuitem:hover .switcher_zone {
   background: linear-gradient(180deg, var(--dark-10) 00%, var(--dark-40) 40%, var(--dark-40) 60%, var(--dark-10) 100%) !important;
 }
 
@@ -1120,7 +1123,6 @@ select.colorselector {
 .bgaext_tournamentlist .bga-dropdown-button {
   filter: var(--highlight-min);
 }
-
 
 /* There are not result matching your search */
 .bgaext_gamelist [style^="background: linear-gradient(rgb(234, 234, 234), rgb(198, 198, 198));"] {
@@ -1651,69 +1653,6 @@ select.colorselector {
   filter: var(--highlight-min);
 }
 
-/* Page Liste des tournois */
-#tournamentlist-module .tournaments-list-result {
-  background-color: var(--dark-20);
-  color: var(--light-80);
-}
-
-.tournaments-list-filters label:hover {
-  color: var(--blue-80);
-}
-
-.tournaments-mode-presentation__image {
-  filter: var(--ext-bright);
-}
-
-.tournaments-list-result__playerstatus {
-  color: #fff;
-}
-
-#tournamentlist-module .tournaments-list-result:hover,
-#tournamentlist-module .tournaments-list-result:hover .tournaments-list-result__players {
-  background-color: var(--dark-10);
-}
-
-#tournamentlist-module .tournaments-list-result .tournaments-list-result__championship {
-  color: var(--blue-80);
-}
-
-#tournamentlist-module .tournaments-list-result .tournaments-list-result__date span {
-  color: #777;
-}
-
-#tournamentlist-module .tournaments-list-result .tournaments-list-result__players,
-#tournamentlist-module .tournaments-list-result .tournaments-list-result__players-reg {
-  background-color: var(--dark-20);
-  color: var(--light-80);
-}
-
-/* Page Tournoi */
-.bga-tournament__state-mode-chooser {
-  background-color: var(--dark-10) !important;
-}
-
-#tournament-module .tournaments-presentation {
-  background-color: var(--dark-10);
-  color: var(--light-80);
-}
-
-#tournament-module .pagesection.tournament-section--stage-display .pagesection__content,
-#tournament-module .pagesection.tournament-section--stage-display .v2tournament--bracketElimination {
-  background-color: var(--dark-10) !important;
-  color: var(--light-80);
-}
-
-#tournament-module .tournaments-presentation .tournaments-presentation-status__global,
-#tournament-module .tournaments-presentation .tournaments-mode-presentation__name,
-#tournament-module .tournaments-presentation .tournaments-mode-presentation__description {
-  color: var(--light-80);
-}
-
-#tournament-module .pagesection.tournament-section--stage-display .v2tournament--bracketElimination h4 {
-  color: var(--dark-10);
-}
-
 /* Hall of games */
 
 .bgaext_halloffame .challenge_text img {
@@ -2186,7 +2125,39 @@ iframe#forum_frame {
   box-shadow: 8px 0 0 0 var(--dark-20) !important;
 }
 
-/* Page tournamentlist */
+/* Tournament page */
+
+.bga-tournament-panel__content {
+  background: linear-gradient(var(--dark-0) 0%, var(--dark-20) calc(100% - 15px), #00000020), var(--dark-30) !important;
+  outline: 1px solid var(--dark-20);
+}
+
+.board_readonly .post {
+  background-color: transparent;
+}
+
+.bga-tournament__state-mode-chooser {
+  background-color: var(--dark-10) !important;
+}
+
+.bga-draggable-scrollable__arrow {
+  color: var(--blue-70) !important;
+}
+
+.bga-game-option-item-major__option-text {
+  color: var(--light-80) !important;
+}
+
+.bga-game-option-item-major__option--selected {
+  background-image: linear-gradient(to bottom, var(--dark-40), transparent) !important;
+}
+
+.bga-game-option-item-major__subtitle {
+  background: var(--dark-30) !important;
+  color: var(--light-70) !important;
+}
+
+/* Tournaments list page */
 
 .bgaext_tournamentlist {
   .bga-page-section>.bga-page-section__title {
@@ -2207,7 +2178,8 @@ iframe#forum_frame {
   color: var(--light-70) !important;
 }
 
-.bga-tournament-list-item__details svg {
+.bga-tournament-list-item__details svg,
+.bga-tournament-details-panel .text-2xl svg {
   color: #000;
   filter: invert(1);
 }
