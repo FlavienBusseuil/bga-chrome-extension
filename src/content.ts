@@ -219,6 +219,9 @@ const setHtmlClass = (mode: string) => {
 	if (config.chatDarkIcons()) {
 		document.documentElement.classList.add('bgaext_chat_dark_icons');
 	}
+	if (config.isGeneralChatHidden()) {
+		document.documentElement.classList.add('bgaext_general_chat_hidden');
+	}
 };
 
 const setHtmlGameClass = () => {
