@@ -128,6 +128,7 @@ export const gamesWithCustomBackground = [
   'gravitysuperstar',
   'greatsplit',
   'grund',
+  'gygesdeluxe',
   'happycity',
   'harmonies',
   'heat',
@@ -158,6 +159,7 @@ export const gamesWithCustomBackground = [
   'locomomo',
   'lostexplorers',
   'lostseas',
+  'loveletter',
   'lumen',
   'luz',
   'maatatahay',
@@ -317,6 +319,7 @@ export const gamesWithCustomBackground = [
   'vaalbara',
   'verdant',
   'verso',
+  'visions',
   'vivacatrina',
   'wanderingtowers',
   'wizardscup',
@@ -391,6 +394,7 @@ export const gamesWithOverlay: Record<string, string> = {
   ink: '',
   iye: '',
   legions: '',
+  loveletter: '',
   luz: '',
   malabares: '',
   mollyhouse: '',
@@ -578,6 +582,7 @@ export const playersBorder: { [gameName: GameName]: string[] } = {
   treos: ['#gamezone-{{player_id}}'],
   theguildofmerchantexplorers: ['#tab_header_board_{{player_id}}'],
   thirteenleaves: ['#overall_player_board_{{player_id}}'],
+  tipperary: ['#player-board-{{player_id}}'],
   upordown: ['#player-table-{{player_id}}'],
   verdant: ['#house_{{player_id}}'],
   welcometothemoon: ['#score-sheet-{{player_id}}', '#score-sheet-{{player_id}} .player-name'],
@@ -588,8 +593,10 @@ export const playersBorder: { [gameName: GameName]: string[] } = {
 export const playersOutline: { [gameName: GameName]: string[] } = {
   crybaby: ['div[style^="outline: {{player_color_rgb}}"]', 'div[style^="outline-color: {{player_color_rgb}};"]'],
   goodfortune: ['#mf_zone_player_{{player_index_1}}'],
+  loveletter: ['#mf_zone_player_{{player_index_1}}'],
   pilipili: ['div[style^="outline-color: {{player_color_rgb}};"]', 'div[style^="outline: {{player_color_rgb}} solid 4px;"]'],
   spirited: ['#sp-player-area-{{player_id}} .sp-road-slot', '#sp-player-area-{{player_id}} .sp-player-area-wonders', '#sp-player-area-{{player_id}} .sp-player-area-camp>.slot'],
+  visions: ['div[style^="outline: {{player_color_rgb}}"]']
 };
 
 export const playersTextColor: { [gameName: GameName]: string[] } = {
@@ -807,6 +814,11 @@ export const gamesWithCustomActions: GamesWithCustomActions = {
         const darkColor = getColorForDarkMode(color);
         document.documentElement.style.setProperty('--player-color', darkColor.color);
       });
+    }
+  },
+  loveletter: {
+    init: (cssPath: string) => {
+      document.body.style.setProperty("--sceau", `url(${cssPath}img/bg-sceau.png)`);
     }
   }
 };

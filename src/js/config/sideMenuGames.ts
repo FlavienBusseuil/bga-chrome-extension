@@ -1710,7 +1710,11 @@ const defaultGames: Partial<Game>[] = [
 		boardPanel: "laf-gameboard",
 		boardPanelText: "#laf-scroll-to-hq",
 		css: "#laf-scroll-to-boards { display: none; }",
-	}
+	},
+	{
+		name: "tipperary",
+		playerPanel: "player-board-{{player_id}}",
+	},
 ];
 
 export default defaultGames;

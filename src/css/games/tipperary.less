@@ -1,0 +1,52 @@
+html[data-theme=dark] {
+	.grid .grid-cell {
+		border-color: var(--light-50);
+	}
+
+	.tpy-player-board-wrapper .tpy-player-board-top,
+	#wheel-board .tpy-player-board-top {
+		background-color: var(--dark-20);
+		color: var(--light-80);
+	}
+
+	.tpy-player-board-wrapper {
+		background-color: var(--dark-40);
+	}
+
+	.mfzoom-buttons {
+		background-color: var(--dark-back);
+	}
+
+	.bg-icon_mfzoom_reset.selected {
+		filter: invert(0.4);
+	}
+
+	#scoreSheet {
+		filter: var(--ext-bright);
+	}
+
+	.automaticCounter[data-n]:before {
+		background-color: var(--dark-back);
+		color: var(--light-80);
+		border: 1px solid var(--dark-40);
+	}
+
+	#tile-controls #tile-controls-circle {
+		border-color: var(--light-80);
+	}
+
+	#wheel-board {
+		border-color: var(--light-70);
+	}
+
+	.notif_newTurn .roundedbox {
+		background-color: var(--dark-40) !important;
+		color: var(--light-80) !important;
+	}
+
+	.tpy-player-board-wrapper .tpy-player-board-resizable .board .grid .tile-container,
+	#wheel-board #wheel-container #wheel-interior,
+	#wheel-board #wheel-container #wheel .wheel-space {
+		filter: var(--ext-bright);
+	}
+}

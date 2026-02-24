@@ -35,7 +35,9 @@
 }
 
 .text-red-800,
-.text-red-700 {
+.text-red-700,
+.text-bga-link-red,
+.beta_label {
   color: var(--red-80);
 }
 
@@ -177,7 +179,7 @@ input::placeholder {
 }
 
 .bga-checkbox:not(.bga-checkbox--disabled):hover .bga-checkbox__checkbox {
-  background-color: var(--blue-80) !important;
+  background-color: var(--blue-90) !important;
 }
 
 .bga-checkbox.bga-checkbox--checked:not(.bga-checkbox--disabled) .bga-checkbox__checkbox {
@@ -2178,6 +2180,11 @@ iframe#forum_frame {
   background-color: var(--dark-40) !important;
 }
 
+.bga-date-chip,
+.bga-progress-bar__tooltip {
+  filter: var(--ext-bright);
+}
+
 /* Tournaments list page */
 
 .bgaext_tournamentlist {
@@ -2274,6 +2281,10 @@ svg.bga-tournament-list-item__pointer polygon {
   color: var(--light-80);
 }
 
+.bga-tournament-list-item__bottom {
+  filter: var(--ext-bright);
+}
+
 /* audience */
 
 .bgaext_audience {
@@ -2365,15 +2376,10 @@ svg.bga-tournament-list-item__pointer polygon {
   background-color: var(--dark-20);
 }
 
-.bgaPlayerSearch .bg-bga-link {
-  background-color: var(--blue-80);
-}
-
 .bgaPlayerSearch input,
 .bga-copy-text-box__copy-display {
-  background: var(--dark-30) !important;
+  background: var(--dark-40) !important;
   color: var(--light-80) !important;
-  border: 1px solid #b3b3b3 !important;
 }
 
 .bga-ranked-player-list__entry--of-user {

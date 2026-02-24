@@ -1,34 +1,45 @@
 @import "./common";
 
 html[data-theme=dark] {
-	#ll_background:before {
-		content: "";
-		background: #00000050;
-		position: absolute;
-		width: 100%;
-		height: 100%;
-		top: 0px;
-		left: 0px;
+	.mf_zone_active {
+		background-color: var(--dark-back-50);
 	}
 
-	#explanation_card_content,
-	#explanation_card_content2 {
-		background: var(--dark-20);
-		margin-left: 0px;
-		margin-right: 0px;
-		padding: 10px;
+	.mf_zone {
+		background-color: var(--dark-back);
+	}
+
+	.mf_count_value,
+	.mf_cardsleft_container,
+	.mf_playerboard {
 		color: var(--light-80);
 	}
 
-	.playertable_center .playertablecard {
-		background-color: var(--dark-30);
+	.bg-icon_zoom_in,
+	.bg-icon_zoom_out {
+		filter: invert(0.9);
 	}
 
-	.cardtitle {
-		color: #000;
+	.mf_zone_nobg {
+		background-color: transparent;
 	}
 
-	.player_sycophant {
-		color: var(--light-80);
+	#page-content {
+		background: transparent;
+	}
+
+	@media (min-width: 1300px) {
+		#page-content:before {
+			content: "";
+			mix-blend-mode: multiply;
+			background-image: var(--sceau);
+			background-position: 0 0;
+			background-repeat: no-repeat;
+			position: absolute;
+			width: 100%;
+			height: 100%;
+			top: 0px;
+			left: 0px;
+		}
 	}
 }
