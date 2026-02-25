@@ -33,6 +33,8 @@ const buildMainCss = (code: string) => {
 :root { --header-icons-color: #01c4ca; }
 /* Delete button on gamelist page */
 html:not(.bgaext_gamelist) .ext_delete_button { display: none; }
+/* maintenance error message */
+body>h1, body>h2 { color: #fff; } body>h2>a { color: #01c4ca; }
 #lrf-bga-extension, .bgaext_overlay { display: none; }
 html[data-theme="dark"] .bgaext_overlay{ display: block; }
 .bgaext_chat_mute_icon { position: absolute; width: 20px; height: 20px; top: 7px; left: 2px; display: none; }

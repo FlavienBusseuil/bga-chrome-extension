@@ -1715,6 +1715,11 @@ const defaultGames: Partial<Game>[] = [
 		name: "tipperary",
 		playerPanel: "player-board-{{player_id}}",
 	},
+	{
+		name: "trok",
+		playerPanel: "mf_zone_player_{{player_index_1}}",
+		css: " "
+	},
 ];
 
 export default defaultGames;
