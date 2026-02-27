@@ -36,9 +36,17 @@
 
 .text-red-800,
 .text-red-700,
-.text-bga-link-red,
 .beta_label {
   color: var(--red-80);
+}
+
+.text-bga-link-red {
+  color: var(--red-80) !important;
+}
+
+.bga-page-section__title,
+.bga-page-section h2.text-bga-blue {
+  color: var(--light-70) !important;
 }
 
 .bg-bga-gray-211 {
@@ -1122,7 +1130,9 @@ select.colorselector {
 }
 
 .bgaext_gamelist .bga-dropdown-button,
-.bgaext_tournamentlist .bga-dropdown-button {
+.bgaext_tournamentlist .bga-dropdown-button,
+.bgaext_translationhq .bga-dropdown-button,
+.bgaext_bugs .bga-dropdown-button {
   filter: var(--highlight-min);
 }
 
@@ -1446,18 +1456,20 @@ select.colorselector {
 
 /* Page Bugs */
 
+.bga-translationhq-page,
+.bga-bugs-page {
+  .bg-bga-gray-100 {
+    background-color: var(--dark-40);
+    border: 1px solid var(--light-50) !important;
+  }
+}
+
 .bgaext_bugs,
 .bgaext_bug {
 
-  .bga-page-section__title,
   .text-gray-600,
   .text-sm {
     color: var(--light-70) !important;
-  }
-
-  .bg-bga-gray-100 {
-    background-color: var(--dark-40);
-    border-color: var(--light-50);
   }
 
   .bga-radiobox__control {
@@ -1610,9 +1622,20 @@ select.colorselector {
 
 /* Page translation */
 
-.statstable td[style="color:black"] {
-  color: var(--light-70) !important;
-  background-color: var(--dark-0);
+#translationhq_main {
+  color: var(--light-80);
+}
+
+.statstable td.bg-bga-gray-244 {
+  color: var(--light-70);
+}
+
+.statstable td[style="color: red"] {
+  color: var(--red-80) !important;
+}
+
+.statstable td[style="color: black"] {
+  color: var(--light-50) !important;
 }
 
 .bgaext_translationhq .bga_big_input {
@@ -1761,7 +1784,7 @@ select.colorselector {
 }
 
 /* Control panel */
-#controlpanel-module .pagesection__content>img,
+.controlpanel-page .pagesection__content>img,
 #contribute-module .pagesection__content>img,
 .top_right_bigimage {
   filter: invert(0.7) grayscale(1);
@@ -1853,6 +1876,17 @@ select.colorselector {
 
 #resultDlgFrame {
   filter: var(--ext-bright);
+}
+
+/* studio issues */
+
+.bga-studio-issues-list__form {
+  --main-bg-colour: var(--dark-20);
+  color: var(--light-80);
+}
+
+.bga-studio-issues-list__title>div {
+  background-color: var(--dark-40) !important;
 }
 
 /* page loading */
