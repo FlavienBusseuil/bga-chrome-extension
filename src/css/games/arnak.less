@@ -41,10 +41,27 @@ html[data-theme=dark] {
 		background: #246175;
 	}
 
-	.card,
-	.arnak-board,
-	.idol {
+	.idol,
+	.camp-background {
 		filter: var(--ext-bright);
+	}
+
+	.player-camp .assistant {
+		filter: drop-shadow(6px 7px 4px black) var(--ext-bright);
+	}
+
+	.arnak-board,
+	.card {
+		filter: drop-shadow(3px 3px 2px black) var(--ext-bright);
+	}
+
+	.arnak-board .meeple,
+	.player-camp .meeple {
+		filter: drop-shadow(0px 0px 18px rgba(255, 255, 255, 0.25)) var(--ext-bright);
+	}
+
+	.arnak-board .card {
+		filter: drop-shadow(3px 3px 2px black);
 	}
 }
 

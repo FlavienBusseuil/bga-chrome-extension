@@ -584,6 +584,11 @@ const defaultGames: Partial<Game>[] = [
 		playerPanel: "tioc-player-board-{{player_id}}",
 	},
 	{
+		name: "theisleofcatsduel",
+		playerPanel: "tioc-player-board-{{player_id}}",
+		css: "#bga-jump-to_controls { display: none; }",
+	},
+	{
 		name: "tucano",
 		iconBackground: "#a5cdbf",
 		iconBackgroundDark: "#326755",
