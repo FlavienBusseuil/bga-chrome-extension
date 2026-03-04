@@ -4,7 +4,7 @@ import { getUrl } from "./js/utils/browser";
 import ConfigurationWithGames from './js/config/configurationWithGames';
 import { isNumber } from './js/utils/misc/isNumber';
 import { waitForObj } from './js/utils/misc/wait';
-import { addLocationChangeListener } from './js/utils/misc/addLocationChangeListener';
+import { locationChangeManager } from './js/utils/misc/locationChangeManager';
 import {
 	buildMainCss,
 	initGamesObserver,
@@ -195,7 +195,7 @@ const manageLocationChange = (pathname: string) => {
 		initObserver('gamelist');
 	} else if (pageName.startsWith('lobby')) {
 		initObserver('lobby');
-	} else if (pageName.startsWith('bug')) {
+	} else if (pageName.startsWith('bug') && !pageName.startsWith('bugs')) {
 		initObserver('other');
 		initDevelopperUI(config);
 	} else {
@@ -303,16 +303,15 @@ const changeCss = (pageType: string) => {
 	}
 };
 
-const changeLocation = () => {
-	pageType = manageLocationChange(window.location.pathname);
+const changeLocation = (loc: string) => {
+	pageType = manageLocationChange(loc);
 	changeCss(pageType);
 }
 
 const initPage = () => {
 	config.isEmpty() && document.dispatchEvent(new CustomEvent('bga_ext_get_config', {}));
 
-	addLocationChangeListener(changeLocation);
-	changeLocation();
+	locationChangeManager.onLocationChange(changeLocation);
 
 	waitForObj('head').then(() => {
 		console.debug('[bga extension] bga api script loading...');

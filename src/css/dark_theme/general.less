@@ -26,7 +26,8 @@
 }
 
 .text-gray-500,
-.text-bga-gray-800 {
+.text-bga-gray-800,
+.text-bga-game-private-alpha {
   color: var(--light-50);
 }
 
@@ -1482,6 +1483,10 @@ select.colorselector {
     color: #fff !important;
   }
 
+  .statstable td {
+    color: #fff;
+  }
+
   .bugrow.bugrow--odd td:not([style*="background-color"]) {
     background-color: var(--dark-20) !important;
   }
@@ -1836,6 +1841,12 @@ select.colorselector {
   color: white;
 }
 
+.bgaext_controlpanel .bga-textarea {
+  background: var(--dark-30) !important;
+  border: 1px solid #666 !important;
+  border-radius: 6px;
+}
+
 .bgaext_controlpanelgames {
   --main-bg-colour: var(--dark-10);
 }
@@ -1889,6 +1900,12 @@ select.colorselector {
   background-color: var(--dark-40) !important;
 }
 
+/* studio welcome */
+
+#welcome-module h1 {
+  color: var(--light-80);
+}
+
 /* page loading */
 .roundedbox_topleft,
 .roundedbox_topmain,
@@ -1926,30 +1943,42 @@ select.colorselector {
 
 /* control panel games */
 
-.bgaext_controlpanelgames .game-line {
-  background-color: var(--dark-20) !important;
-}
+.bgaext_controlpanelgames {
+  .game-line {
+    background-color: var(--dark-20) !important;
+    border-color: var(--light-50) !important;
+  }
 
-.bgaext_controlpanelgames .fa-book,
-.bgaext_controlpanelgames .items-center,
-.bgaext_controlpanelgames #main-content {
-  color: white;
-}
+  .game-line.game-line--odd,
+  .game-line.game-line--odd>div {
+    background-color: var(--dark-30) !important;
+  }
 
-.bgaext_controlpanelgames a {
-  color: var(--blue-80);
-}
+  .fa-book,
+  .items-center,
+  #main-content {
+    color: white;
+  }
 
-.bgaext_controlpanelgames a:hover {
-  color: var(--blue-90);
-}
+  a {
+    color: var(--blue-80);
+  }
 
-.bgaext_controlpanelgames .bga-dropdown-option {
-  background-color: var(--dark-20);
-}
+  a:hover {
+    color: var(--blue-90);
+  }
 
-.bgaext_controlpanelgames .bga-dropdown-option:hover {
-  background-color: var(--dark-40);
+  .bga-modal-shadow {
+    color: var(--light-80);
+  }
+
+  .bga-dropdown-option {
+    background-color: var(--dark-20);
+  }
+
+  .bga-dropdown-option:hover {
+    background-color: var(--dark-40);
+  }
 }
 
 /* game invitation */

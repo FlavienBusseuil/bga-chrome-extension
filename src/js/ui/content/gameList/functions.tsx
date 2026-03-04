@@ -1,6 +1,8 @@
 import { render } from "preact";
-import ConfirmationPopup from "../misc/ConfirmationPopup";
+
+import { locationChangeManager } from '../../../utils/misc/locationChangeManager';
 import type Configuration from "../../../config/configuration";
+import ConfirmationPopup from "../misc/ConfirmationPopup";
 import { manageStartButton } from "../misc/functions";
 
 const createHiddenGameStyle = (content: string) => {
@@ -41,6 +43,7 @@ const linkClick = (evt: MouseEvent): void => {
 	if (clickableElement?.href) {
 		lastLink = clickableElement.href;
 		console.debug('[bga extension] click on', lastLink);
+		locationChangeManager.setCurrentLocation(new URL(lastLink).pathname);
 	}
 };
 
