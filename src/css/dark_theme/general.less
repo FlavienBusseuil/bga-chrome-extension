@@ -82,6 +82,10 @@
   filter: drop-shadow(0px 0px 4px #fff8) var(--ext-bright);
 }
 
+.terms-and-conditions-container {
+  border-color: var(--dark-40) !important;
+}
+
 .loading_icon,
 #loading,
 #overall_loading,
@@ -99,6 +103,12 @@ img[alt="loading"] {
 .whiteblock {
   background-image: none;
   background-color: var(--dark-20);
+}
+
+.bga-radiobox__control {
+  --background-color: #4f8fe3;
+  --check-color: var(--blue-80);
+  --background-color-faded: #4f8fe380;
 }
 
 .bga-button,
@@ -148,6 +158,15 @@ img[alt="loading"] {
 
 .bga-button--green:not(.disabled):hover {
   background: linear-gradient(180deg, #06ea87, #24895d) !important;
+}
+
+.copy_display {
+  background-color: var(--dark-20);
+  border-color: var(--light-50);
+}
+
+#copy_content {
+  color: var(--light-70);
 }
 
 /* Formulaires */
@@ -460,6 +479,38 @@ select.colorselector {
 .bga-link:hover {
   text-decoration: underline;
 }
+
+/* tables */
+
+.bga-table td,
+.bga-table th {
+  color: var(--light-80);
+  border-color: var(--dark-30) !important;
+}
+
+.bga-table tr:hover {
+  background-color: var(--dark-40) !important;
+}
+
+.bga-table td[style*="color: red"],
+.statstable td[style="color: red"] {
+  color: var(--red-80) !important;
+}
+
+.bga-table td[style*="color: black"],
+.statstable td[style="color: black"] {
+  color: var(--light-50) !important;
+}
+
+.bga-table td[style*="color: orange"] {
+  color: var(--orange-50) !important;
+}
+
+.bga-table td[style*="color: green"] {
+  color: var(--green-50) !important;
+}
+
+/* rating */
 
 .bgaext_ratingdetails {
 
@@ -781,6 +832,10 @@ select.colorselector {
 }
 
 /* Listes de jeux */
+.bga-popup-modal__holder {
+  outline: 1px solid var(--dark-40);
+}
+
 .bga-popup-modal__header {
   background: var(--dark-10) !important;
   color: var(--light-80) !important;
@@ -1010,7 +1065,8 @@ select.colorselector {
 }
 
 /* Page Jeux */
-.bga-game-browser__panel {
+.bga-game-browser__panel,
+.bga-game-browser__panel>div {
   background: var(--dark-30) !important;
   color: var(--light-80);
 }
@@ -1116,7 +1172,6 @@ select.colorselector {
   background-color: var(--dark-40);
 }
 
-.bgaext_gamelist .bga-dropdown-option.bg-gray-200 *,
 .bgaext_gamepanel .bg-gray-200:not(.bga-dropdown-option) * {
   color: var(--light-80) !important;
 }
@@ -1128,13 +1183,6 @@ select.colorselector {
 .bgaext_gamelist .bga-button-dropdown-item:hover {
   background-color: var(--dark-20) !important;
   color: var(--blue-80) !important;
-}
-
-.bgaext_gamelist .bga-dropdown-button,
-.bgaext_tournamentlist .bga-dropdown-button,
-.bgaext_translationhq .bga-dropdown-button,
-.bgaext_bugs .bga-dropdown-button {
-  filter: var(--highlight-min);
 }
 
 /* There are not result matching your search */
@@ -1278,6 +1326,26 @@ select.colorselector {
 
 .bga-dropdown-option.bg-gray-200:hover {
   background-color: var(--dark-40);
+}
+
+.bga-dropdown,
+.bga-textfield {
+  filter: var(--highlight-min);
+}
+
+.bga-textarea__frame {
+  background: transparent !important;
+  filter: var(--highlight-min);
+}
+
+.bga-textarea__frame::after,
+.bga-textfield:after {
+  display: none;
+}
+
+.bga-textarea {
+  background: var(--dark-30) !important;
+  border-radius: 6px;
 }
 
 .bgaext_gamepanel .bga-player-count-dropdown__dot,
@@ -1458,164 +1526,76 @@ select.colorselector {
 /* Page Bugs */
 
 .bga-translationhq-page,
-.bga-bugs-page {
+.bga-bugs-page,
+.bga-bug-page,
+.bga-bug-create-page {
   .bg-bga-gray-100 {
     background-color: var(--dark-40);
     border: 1px solid var(--light-50) !important;
   }
 }
 
-.bgaext_bugs,
-.bgaext_bug {
+.bgaext_bugs {
+
+  .bga-radiobox__label {
+    color: var(--light-70);
+  }
+
+  .bga-game-selector svg {
+    color: var(--light-50);
+  }
+
+  .bga-game-selector svg:hover {
+    color: var(--red-80);
+  }
+
+  .bg-bga-blue {
+    background-color: #00224d;
+  }
 
   .text-gray-600,
   .text-sm {
     color: var(--light-70) !important;
   }
+}
 
-  .bga-radiobox__control {
-    --background-color: #4f8fe3;
-    --check-color: var(--blue-80);
-    --background-color-faded: #4f8fe380;
+.bgaext_bug {
+
+  .tracking-wide,
+  .tracking-wide * {
+    position: relative;
   }
 
-  .statstable th .bga-link {
-    color: #fff !important;
+  .tracking-wide:before {
+    content: "";
+    position: absolute;
+    background-color: #0005;
+    height: 100%;
+    width: 100%;
+    top: 0px;
+    left: 0px;
   }
 
-  .statstable td {
-    color: #fff;
+  article,
+  article * {
+    background-color: var(--dark-40) !important;
   }
 
-  .bugrow.bugrow--odd td:not([style*="background-color"]) {
-    background-color: var(--dark-20) !important;
+  .bga-button--white {
+    background: var(--dark-10) !important;
+  }
+}
+
+.bga-bug-create-page {
+  section {
+    border-color: var(--red-80) !important;
   }
 
-  .bugrow.bugrow--even td:not([style*="background-color"]) {
-    background-color: var(--dark-30) !important;
-  }
-
-  .bga-game-selector .text-gray-500 {
+  button.bga-link {
+    border: 1px solid var(--light-70);
+    border-radius: 6px;
+    line-height: 24px;
     background: var(--dark-10);
-  }
-
-  .bga-game-selector .text-gray-500:hover {
-    background: var(--dark-30);
-  }
-
-  .bga-bugs-filters svg {
-    color: var(--light-70);
-  }
-
-  td[style="background-color: #fff176"] {
-    background-color: #807300 !important;
-  }
-
-  td[style="background-color: #ffeb3b"] {
-    background-color: #4d4500 !important;
-  }
-
-  td[style="background-color: #ffd54f"] {
-    background-color: #4d3b00 !important;
-  }
-
-  td[style="background-color: #ff7777"] {
-    background-color: #800000 !important;
-  }
-
-  td[style="background-color: #ffaaaa"] {
-    background-color: #b30000 !important;
-  }
-
-  td[style="background-color: #ff0000"] {
-    background-color: #300 !important;
-  }
-
-  td[style="background-color: #00aa00"] {
-    background-color: #004d00 !important;
-  }
-
-  td[style="background-color: #77aaaa"] {
-    background-color: #314e4e !important;
-  }
-
-  td[style="background-color: #aaff77"] {
-    background-color: #2f8000 !important;
-  }
-
-  td[style="background-color: #aaaa77"] {
-    background-color: #3f3f27 !important;
-  }
-
-  td[style="background-color: #77aa77"] {
-    background-color: #273f27 !important;
-  }
-
-  .bga-modal-shadow {
-    outline: 1px solid var(--light-50);
-  }
-
-  .text-black {
-    color: var(--light-80);
-  }
-
-  .existing_bugs td[bgcolor="#ffffff"] {
-    background-color: var(--dark-10) !important;
-  }
-
-  .existing_bugs td[bgcolor="#ffffff"] a {
-    color: var(--light-80) !important;
-  }
-
-  #bug_status_awaiting,
-  #bug_status_acknowledged {
-    background-color: var(--yellow-10) !important;
-  }
-
-  #bug_status_inforequest {
-    background-color: var(--orange-30) !important;
-  }
-
-  #bug_status_open,
-  #bug_status_infoneeded {
-    background-color: var(--red-10) !important;
-  }
-
-  #bug_status_implemented,
-  #bug_status_fixed,
-  #bug_status_duplicate {
-    background-color: var(--green-30) !important;
-  }
-
-  #bug_status_rejected {
-    background-color: var(--blue-10) !important;
-  }
-
-  #bug_status_confirmed {
-    background-color: var(--red-30) !important;
-  }
-
-  #bug_status_wontfix {
-    background-color: var(--blue-10) !important
-  }
-
-  #bug_status_worksforme {
-    background-color: var(--green-30) !important
-  }
-
-  #bug_status_notabug,
-  #bug_status_notupdated,
-  #bug_status_claimed {
-    background-color: var(--green-50) !important
-  }
-
-  .developer {
-    border: 3px solid var(--light-50);
-  }
-
-  .upper_back_button>.icon16_backgray {
-    filter: invert(1);
-    transform: scaleY(-1);
   }
 }
 
@@ -1631,20 +1611,8 @@ select.colorselector {
   color: var(--light-80);
 }
 
-.statstable td.bg-bga-gray-244 {
-  color: var(--light-70);
-}
-
-.statstable td[style="color: red"] {
-  color: var(--red-80) !important;
-}
-
-.statstable td[style="color: black"] {
-  color: var(--light-50) !important;
-}
-
-.bgaext_translationhq .bga_big_input {
-  background-color: var(--dark-30);
+.bgaext_translationhq .bg-bga-blue {
+  background-color: #00224d;
 }
 
 .bgaext_translation #translationwarning {
@@ -1841,21 +1809,6 @@ select.colorselector {
   color: white;
 }
 
-.bgaext_controlpanel .bga-textarea {
-  background: var(--dark-30) !important;
-  border: 1px solid #666 !important;
-  border-radius: 6px;
-}
-
-.bgaext_controlpanelgames {
-  --main-bg-colour: var(--dark-10);
-}
-
-.bgaext_controlpanelgames .bgabutton_blue {
-  color: var(--light-80);
-}
-
-.bgaext_controlpanelgames .bg-bga-whitebg,
 .bgaext_gamepanel .bg-bga-whitebg {
   background-color: var(--dark-10);
 }
@@ -1864,23 +1817,10 @@ select.colorselector {
   h1 {
     color: var(--light-80);
   }
-
-  .bga-radiobox__control {
-    --background-color: #4f8fe3;
-    --check-color: var(--blue-80);
-    --background-color-faded: #4f8fe380;
-  }
 }
 
 .bgaext_studio {
   .mx-2 {
-    color: var(--light-80);
-  }
-}
-
-.bgaext_studiogame {
-  .bga-textarea__frame {
-    background-color: var(--dark-40) !important;
     color: var(--light-80);
   }
 }
@@ -1944,6 +1884,20 @@ select.colorselector {
 /* control panel games */
 
 .bgaext_controlpanelgames {
+  --main-bg-colour: var(--dark-20);
+
+  .bg-red-300 {
+    background-color: var(--red-10) !important;
+  }
+
+  .bgabutton_blue {
+    color: var(--light-80);
+  }
+
+  .bg-bga-whitebg {
+    background-color: var(--dark-10);
+  }
+
   .game-line {
     background-color: var(--dark-20) !important;
     border-color: var(--light-50) !important;
@@ -1972,14 +1926,24 @@ select.colorselector {
     color: var(--light-80);
   }
 
-  .bga-dropdown-option {
-    background-color: var(--dark-20);
+  .rounded-t-md {
+    background-color: var(--dark-40) !important;
   }
 
-  .bga-dropdown-option:hover {
-    background-color: var(--dark-40);
+  .rounded-t-md[style*="background-color: rgb(85, 85, 85);"] {
+    background-color: var(--dark-20) !important;
+    border-bottom-color: var(--dark-20) !important;
+  }
+
+  .pointer-events-none {
+    display: none;
+  }
+
+  .controlpanel-game--leftbox>.relative {
+    background-color: var(--dark-20) !important;
   }
 }
+
 
 /* game invitation */
 .bga-toast-holder .bga-toast.bg-bga-gray-233 {
@@ -2133,7 +2097,8 @@ iframe#forum_frame {
 .bga-player-menu__bottom .bga-table-list-item,
 .bgaext_gametables .bga-table-list-item,
 .bgaext_playertables .bga-table-list-item,
-.bgaext_gamepanel .bga-table-list-item {
+.bgaext_gamepanel .bga-table-list-item,
+.bgaext_bugcreate .bga-table-list-item {
   border: 1px solid var(--dark-40);
   border-radius: 10px;
 }
@@ -2147,7 +2112,8 @@ iframe#forum_frame {
 .bgaext_gameinprogress .bga-progress-list__tournament-item-holder,
 .bgaext_gametables .bga-table-list-item__main,
 .bgaext_playertables .bga-table-list-item__main,
-.bgaext_gamepanel .bga-table-list-item__main {
+.bgaext_gamepanel .bga-table-list-item__main,
+.bgaext_bugcreate .bga-table-list-item__main {
   background-color: var(--dark-20) !important;
 }
 

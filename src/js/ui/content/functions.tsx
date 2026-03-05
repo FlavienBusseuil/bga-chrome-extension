@@ -7,7 +7,7 @@ import {
 	buildLeftMenuCss,
 } from './leftMenu/functions';
 import { setFloatingRightMenu } from './rightMenu/functions';
-import { initDevelopperUI } from './studio/functions';
+import { initBugMessage } from './studio/functions';
 import { initGameListObserver } from './gameList/functions';
 import { initDarkMode } from './darkMode/functions';
 import ConfirmationPopup from './misc/ConfirmationPopup';
@@ -709,7 +709,7 @@ export {
 	refreshMutedPlayers,
 	initLeftMenu,
 	setFloatingRightMenu,
-	initDevelopperUI,
+	initBugMessage,
 	buildOptions,
 	initGameListObserver,
 	initChatIcon,

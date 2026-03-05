@@ -1694,7 +1694,8 @@ const defaultGames: Partial<Game>[] = [
 		name: "skarabrae",
 		playerPanel: "tableau_{{player_color}}",
 		iconBackground: "#d7e8ee",
-		iconBorderDark: "#989a9a"
+		iconBorderDark: "#989a9a",
+		css: " "
 	},
 	{
 		name: "habitats",

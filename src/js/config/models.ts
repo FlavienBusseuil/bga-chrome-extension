@@ -28,9 +28,3 @@ export interface DarkModeConfig {
 	color: number;
 	sat: number;
 }
-
-export interface Template {
-	name: string;
-	text: string;
-	game: string;
-}

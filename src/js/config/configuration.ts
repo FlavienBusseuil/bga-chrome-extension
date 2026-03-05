@@ -1,7 +1,7 @@
 import { addChangeListener, localStorageClear, localStorageGet, localStorageSet, storageClear, storageGet, storageSet } from "../utils/browser";
 import { i18n, setI18nLocale, getI18nDefaultLocale } from "../utils/browser/i18n";
 import { ADVANCED_HOME_STYLE, ARENA_DISABLED_GAMES, COLORFUL_TABLES, DEF_HOME_HTML, HIDE_FULLSCREEN_LOADING_LOGO } from "./configuration.constants";
-import { DarkModeConfig, Game, Template } from "./models";
+import { DarkModeConfig, Game } from "./models";
 
 interface CustomConfig {
 	clientId: string;
@@ -16,7 +16,6 @@ interface CustomConfig {
 	floating: string[];
 	onlineMessages?: boolean;
 	floatingRightMenu?: boolean;
-	devTemplates?: Template[];
 	hideGeneralChat?: boolean;
 	hideElo?: boolean;
 	hideArenaElo?: boolean;
@@ -182,7 +181,6 @@ class Configuration {
 	isEmpty() {
 		return (
 			this._customConfig.floatingRightMenu === undefined &&
-			this._customConfig.devTemplates === undefined &&
 			this._customConfig.onlineMessages === undefined &&
 			!this._customConfig.disabled.length &&
 			!this._customConfig.games.length &&
@@ -535,54 +533,6 @@ class Configuration {
 
 	isDisplayEliminatedTournaments() {
 		return Boolean(this._customConfig.displayEliminatedTournaments);
-	}
-
-	listTemplates() {
-		return [...(this._customConfig.devTemplates || [])];
-	}
-
-	saveTemplates(templates: Template[]) {
-		this._customConfig.devTemplates = [...templates];
-		storageSet({ devTemplates: this._customConfig.devTemplates });
-		return this.listTemplates();
-	}
-
-	addTemplate(template: Template) {
-		this._customConfig.devTemplates = [
-			...(this._customConfig.devTemplates || []),
-			template,
-		];
-		storageSet({ devTemplates: this._customConfig.devTemplates });
-		return this.listTemplates();
-	}
-
-	updateTemplate(oldName: string, oldGame: string, template: Template) {
-		if (this._customConfig.devTemplates) {
-			const oldTemplate = this._customConfig.devTemplates.find(
-				(t) => t.name === oldName && t.game === oldGame,
-			);
-
-			if (oldTemplate) {
-				oldTemplate.game = template.game;
-				oldTemplate.name = template.name;
-				oldTemplate.text = template.text;
-
-				storageSet({ devTemplates: this._customConfig.devTemplates });
-			}
-		}
-
-		return this.listTemplates();
-	}
-
-	removeTemplate(template: Template) {
-		if (this._customConfig.devTemplates) {
-			this._customConfig.devTemplates =
-				this._customConfig.devTemplates.filter(
-					(t) => t.name !== template.name || t.game !== template.game,
-				);
-			storageSet({ devTemplates: this._customConfig.devTemplates });
-		}
-		return this.listTemplates();
 	}
 
 	mutePlayer(name: string) {

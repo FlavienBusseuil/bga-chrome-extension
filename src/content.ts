@@ -13,7 +13,7 @@ import {
 	stopTitleObserver,
 	initLeftMenu,
 	setFloatingRightMenu,
-	initDevelopperUI,
+	initBugMessage,
 	buildOptions,
 	initGameListObserver,
 	initGamePanelObserver,
@@ -195,9 +195,9 @@ const manageLocationChange = (pathname: string) => {
 		initObserver('gamelist');
 	} else if (pageName.startsWith('lobby')) {
 		initObserver('lobby');
-	} else if (pageName.startsWith('bug') && !pageName.startsWith('bugs')) {
+	} else if (pageName.startsWith('bugcreate')) {
 		initObserver('other');
-		initDevelopperUI(config);
+		initBugMessage(config);
 	} else {
 		initObserver('other');
 	}
