@@ -1653,6 +1653,9 @@ const defaultGames: Partial<Game>[] = [
 	{
 		name: "moversandshakers",
 		playerPanel: "playermat_{{player_id}}",
+		iconBackgroundDark: "#584927",
+		iconBorderDark: "#8e763e",
+		css: " "
 	},
 	{
 		name: "popcorn",

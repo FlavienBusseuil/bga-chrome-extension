@@ -607,6 +607,7 @@ export const playersTextColor: { [gameName: GameName]: string[] } = {
   arboretum: ['#player-table-{{player_id}} h3.title'],
   azulsummerpavilion: ['#player-name-shift-{{player_id}}'],
   babydinosaurrescue: ['[style^="color:#{{player_color}}"]'],
+  concordia: ['[style="--player-color: #{{player_color}};"]'],
   dontletitdie: ['[style="--color: #{{player_color}}"]', '[style*="--player-color: #{{player_color}}"]'],
   irishgauge: ['#player-table-{{player_id}} .player-table-name'],
   knarr: ['#player-table-{{player_id}}-name'],
