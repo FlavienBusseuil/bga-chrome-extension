@@ -35,6 +35,7 @@
   color: var(--blue-80);
 }
 
+.text-red-500,
 .text-red-800,
 .text-red-700,
 .beta_label {
@@ -418,6 +419,10 @@ select.colorselector {
 
 .bgaext_gamepanel .lobby__specific_settings .bga-button--white {
   background: var(--dark-10) !important;
+}
+
+.bga-game-option-arrow.bga-game-option-arrow--red {
+  border-left-color: var(--red-80) !important;
 }
 
 .notouch-device .lobby_invite_friend_remove:hover,
@@ -1329,7 +1334,8 @@ select.colorselector {
 }
 
 .bga-dropdown,
-.bga-textfield {
+.bga-textfield,
+.bgaPlayerSearch {
   filter: var(--highlight-min);
 }
 
@@ -1339,7 +1345,8 @@ select.colorselector {
 }
 
 .bga-textarea__frame::after,
-.bga-textfield:after {
+.bga-textfield:after,
+.bgaPlayerSearch:after {
   display: none;
 }
 
@@ -1497,6 +1504,17 @@ select.colorselector {
 }
 
 /* Page Tutoriels */
+.bgaext_tutoriallist {
+  button.bga-button-clean {
+    color: var(--light-80);
+  }
+
+  .arenasuggestion__text,
+  .arenasuggestion__title {
+    color: var(--light-50);
+  }
+}
+
 #tutorial_list_wrapper .arenasuggestion__content .arenasuggestion__text {
   color: var(--light-80);
 }
@@ -2413,6 +2431,14 @@ svg.bga-tournament-list-item__pointer polygon {
 .bga-copy-text-box__copy-display {
   background: var(--dark-40) !important;
   color: var(--light-80) !important;
+}
+
+.homepage-section .bga-copy-text-box__copy-display {
+  border: none !important;
+}
+
+.homepage-section .flex:has(> .bga-copy-text-box__copy-trigger) {
+  filter: var(--highlight-min);
 }
 
 .bga-ranked-player-list__entry--of-user {

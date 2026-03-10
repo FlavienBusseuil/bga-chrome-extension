@@ -50,11 +50,16 @@ const _init = () => {
     const source = document.querySelector(querySource);
     const dest = document.querySelector(queryDest);
 
-    if (dest && source) {
+    if (dest && source && (dest.className !== source.className || dest.innerHTML !== source.innerHTML)) {
       dest.className = source.className;
       dest.innerHTML = source.innerHTML;
+      return true;
     }
+
+    return false;
   };
+
+  let searchChangedByExt = false;
 
   const advancedSetPageElements = () => {
     copyHtml('#bgadef-homepage .homepage-section:has([href*="/gamelist?isRecent"])', '#bgaext-games-recent');
@@ -65,7 +70,61 @@ const _init = () => {
     copyHtml('#bgadef-homepage .homepage-section:has([href*="/player?section=recent"])', '#bgaext-newsfeed');
     copyHtml('#bgadef-homepage .homepage-section:has([href*="tournamentlist"])', '#bgaext-tournaments');
     copyHtml('#bgadef-homepage [style="grid-area: achievements;"]', '#bgaext-achievements');
-    copyHtml('#bgadef-homepage [style="grid-area: playmore;"]', '#bgaext-playmore');
+
+    if (copyHtml('#bgadef-homepage [style="grid-area: playmore;"]', '#bgaext-playmore')) {
+      const defSearchInput = document.body.querySelector('#bgadef-homepage .bgaPlayerSearch input') as HTMLInputElement | null;
+      const extSearchInput = document.body.querySelector('#bgaext-homepage .bgaPlayerSearch input') as HTMLInputElement | null;
+
+      if (defSearchInput && extSearchInput) {
+        extSearchInput.value = defSearchInput.value;
+
+        extSearchInput.addEventListener('input', () => {
+          searchChangedByExt = true;
+          defSearchInput.value = extSearchInput.value;
+          defSearchInput.dispatchEvent(new Event('input', { bubbles: true }));
+        });
+
+        if (searchChangedByExt) {
+          setTimeout(() => {
+            const input = document.body.querySelector('#bgaext-homepage .bgaPlayerSearch input') as HTMLInputElement | null;
+            if (input) {
+              input.focus();
+              input.value = input.value;
+            }
+          }, 500);
+          searchChangedByExt = false;
+        }
+      }
+
+      const defCloseButton = document.body.querySelector('#bgadef-homepage [style="grid-area: playmore;"] .fa-close') as HTMLElement | null;
+      const extCloseButton = document.body.querySelector('#bgaext-playmore .fa-close') as HTMLElement | null;
+
+      if (defCloseButton && extCloseButton) {
+        extCloseButton.addEventListener('click', () => defCloseButton.click());
+      }
+
+      const defLinks = document.body.querySelectorAll('#bgadef-homepage [style="grid-area: playmore;"] .bga-link') as NodeListOf<HTMLElement>;
+      const extLinks = document.body.querySelectorAll('#bgaext-playmore .bga-link') as NodeListOf<HTMLElement>;
+
+      extLinks.forEach((link, index) => {
+        link.addEventListener('click', () => defLinks[index]?.click());
+      });
+
+      const defCopyInput = document.body.querySelector('#bgadef-homepage .bga-copy-text-box__copy-display') as HTMLInputElement | null;
+      const extCopyInput = document.body.querySelector('#bgaext-homepage .bga-copy-text-box__copy-display') as HTMLInputElement | null;
+
+      if (defCopyInput && extCopyInput) {
+        extCopyInput.value = defCopyInput.value;
+      }
+
+      const defCopyButton = document.body.querySelector('#bgadef-homepage .bga-copy-text-box__copy-trigger') as HTMLElement | null;
+      const extCopyButton = document.body.querySelector('#bgaext-homepage .bga-copy-text-box__copy-trigger') as HTMLElement | null;
+
+      if (defCopyButton && extCopyButton) {
+        extCopyButton.addEventListener('click', () => defCopyButton.click());
+      }
+    }
+
     copyHtml('#bgadef-homepage [style="grid-area: leaderboard;"]', '#bgaext-leaderboard');
     copyHtml('#bgadef-homepage .bga-homepage__service-status-section', '#bgaext-service-status');
     copyHtml('#bgadef-homepage .bga-homepage__partner-events-section', '#bgaext-partners-events');

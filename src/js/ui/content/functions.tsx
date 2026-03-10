@@ -565,7 +565,7 @@ const buildOption = (
 	title.parentNode!.insertBefore(container, title.nextSibling);
 };
 
-const buildOptions = (config: Configuration, gameName: string, gameConfig?: GameConfig) => {
+const buildOptions = (config: Configuration, gameName: string, gameConfig?: GameConfig, floatingMenu: boolean) => {
 	const histoInputs = [
 		document.getElementById('preference_global_control_logsSecondColumn'),
 		document.getElementById('preference_global_fontrol_logsSecondColumn'),
@@ -575,14 +575,14 @@ const buildOptions = (config: Configuration, gameName: string, gameConfig?: Game
 	const settings = document.getElementById('pagesection_options');
 
 	if (!settings || !mainMenu || !infobulleInput || histoInputs.length !== 2) {
-		setTimeout(() => buildOptions(config, gameName, gameConfig), 500);
+		setTimeout(() => buildOptions(config, gameName, gameConfig, floatingMenu), 500);
 		return;
 	}
 
 	const mainPrefTitle = mainMenu.getElementsByTagName('h2')[0] as HTMLHeadingElement;
 	const secondPrefTitle = settings.getElementsByTagName('h2')[0] as HTMLHeadingElement;
 
-	if (!isMobile()) {
+	if (floatingMenu && !isMobile()) {
 		// Add an option for floating menu
 		const optionFloatingGameSelected = config.isGameFloatingMenu(gameName) ? `selected='selected'` : '';
 		const optionFloatingAlwaysSelected = config.isGlobalFloatingMenu() ? `selected='selected'` : '';

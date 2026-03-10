@@ -76,6 +76,25 @@ const initObserver = (page: string) => {
 	}
 };
 
+const initGame = (gameName: string, mode: 'game' | 'archive') => {
+	const gameConfig = config.getGameConfig(gameName);
+
+	if (!isMobile() && mode === 'game' && (config.isGlobalFloatingMenu() || config.isGameFloatingMenu(gameName))) {
+		setFloatingRightMenu(config, true);
+	}
+
+	buildOptions(config, gameName, gameConfig, mode === 'game');
+
+	if (gameConfig) {
+		initLeftMenu(config, gameConfig, config.isLeftMenuEnabled(gameName), gamesWithTwoTeams.includes(gameName));
+	} else {
+		console.debug(`[bga extension] no configuration found for game ${gameName}`);
+	}
+
+	initDarkMode(config, gameName);
+	setHtmlGameClass();
+};
+
 const manageLocationChange = (pathname: string) => {
 	console.log('[bga extension] load path', pathname);
 
@@ -118,23 +137,7 @@ const manageLocationChange = (pathname: string) => {
 		gameName = pageInfo[1] as string;
 
 		initObserver('game');
-
-		const gameConfig = config.getGameConfig(gameName);
-
-		if (!isMobile() && (config.isGlobalFloatingMenu() || config.isGameFloatingMenu(gameName))) {
-			setFloatingRightMenu(config, true);
-		}
-
-		buildOptions(config, gameName, gameConfig);
-
-		if (gameConfig) {
-			initLeftMenu(config, gameConfig, config.isLeftMenuEnabled(gameName), gamesWithTwoTeams.includes(gameName));
-		} else {
-			console.debug(`[bga extension] no configuration found for game ${gameName}`);
-		}
-
-		initDarkMode(config, gameName);
-		setHtmlGameClass();
+		initGame(gameName, 'game');
 
 		return 'game';
 	}
@@ -174,8 +177,7 @@ const manageLocationChange = (pathname: string) => {
 		waitForObj('[href*="table="]').then((elt) => {
 			const aelt = elt as HTMLAnchorElement;
 			gameName = aelt.href.substring(aelt.href.lastIndexOf('/') + 1).split('?')[0] as string;
-			initDarkMode(config, gameName);
-			setHtmlGameClass();
+			initGame(gameName, 'archive');
 		});
 		return 'general';
 	}

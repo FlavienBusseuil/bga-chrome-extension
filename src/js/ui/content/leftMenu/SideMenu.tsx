@@ -187,6 +187,9 @@ const SideMenu = (props: SideMenuProps) => {
 		if (gameConfig.boardPanel) {
 			if (gameConfig.boardPanel.startsWith('.')) {
 				const elt = document.querySelector(gameConfig.boardPanel);
+				if (elt && !elt.id) {
+					elt.id = `bgaext_boardPanel`;
+				}
 				gameConfig.boardPanel = elt?.id || gameConfig.boardPanel;
 			}
 
