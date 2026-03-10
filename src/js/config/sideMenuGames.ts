@@ -1729,6 +1729,24 @@ const defaultGames: Partial<Game>[] = [
 		playerPanel: "mf_zone_player_{{player_index_1}}",
 		css: " "
 	},
+	{
+		name: "arabella",
+		playerPanel: ".abl-player-board",
+		boardPanel: ".abl-game-board",
+		boardPanelText: "[data-tab-id=\"board\"] .abl-tab-bar-label",
+		css: ".abl-tab-bar { display: none!important; }"
+	},
+	{
+		name: "soothsayers",
+		playerPanel: "player-board-{{player_id}}",
+		boardPanel: "market-area",
+		boardPanelText: "#market-area .market-header h3",
+		css: " "
+	},
+	{
+		name: "emberleaf",
+		playerPanel: "ebl-player-stats-{{player_id}}",
+	},
 ];
 
 export default defaultGames;

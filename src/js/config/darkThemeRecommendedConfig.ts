@@ -86,6 +86,7 @@ export const gamesWithRecommendedConfig: { [gameName: GameName]: RecommendedConf
 	seasaltpaper: { color: 225, sat: 28 },
 	seasons: { color: 0, sat: 10 },
 	skullking: { color: 15, sat: 15 },
+	soothsayers: { color: 290, sat: 25 },
 	splendor: { color: 220, sat: 22 },
 	splendorexpansions: { color: 220, sat: 22 },
 	super: { color: 250, sat: 15 },

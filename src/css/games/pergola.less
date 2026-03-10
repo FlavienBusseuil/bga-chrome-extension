@@ -1,7 +1,12 @@
 html[data-theme=dark] {
-	--ext-overlay-color: #00000040;
+	--ext-overlay-color: #0003;
 
-	.pgl-player-pot-cnt {
+	.bgaext_overlay {
+		filter: invert() grayscale(1);
+	}
+
+	.pgl-player-pot-cnt,
+	.pgl-tools-counter {
 		background-color: var(--dark-20);
 		border-color: var(--light-80);
 		color: var(--light-80);
@@ -14,5 +19,30 @@ html[data-theme=dark] {
 
 	#bga-zoom-controls {
 		filter: var(--highlight-min) invert(0.8);
+	}
+
+	.pgl-help-title {
+		color: var(--green-50)
+	}
+
+	.pgl-player-board,
+	.pgl-player-pot-cnt {
+		filter: drop-shadow(2px 2px 2px grey) var(--ext-bright);
+	}
+
+	.pgl-score-row {
+		filter: var(--ext-bright);
+		color: #000;
+	}
+
+	.pgl-player-help-area.pgl-help-scoring,
+	.pgl-score-help-tooltip,
+	.pgl-player-pot,
+	.pgl-tool,
+	#pgl-leaf-board,
+	#pgl-pond-board,
+	#pgl-toolpot,
+	#pgl-action-board {
+		filter: var(--ext-bright);
 	}
 }

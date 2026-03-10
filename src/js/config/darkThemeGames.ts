@@ -90,6 +90,7 @@ export const gamesWithCustomBackground = [
   'easypeasy',
   'ekko',
   'elongo',
+  'emberleaf',
   'eminentdomain',
   'emdomicrocosm',
   'equinox',
@@ -265,6 +266,7 @@ export const gamesWithCustomBackground = [
   'smallworld',
   'sobektwoplayers',
   'solstis',
+  'soothsayers',
   'spacebase',
   'spaceempires',
   'spacelab',
@@ -283,6 +285,7 @@ export const gamesWithCustomBackground = [
   'tacta',
   'tagteam',
   'takenokolor',
+  'tallyup',
   'talon',
   'taluva',
   'tapestry',
@@ -417,6 +420,7 @@ export const gamesWithOverlay: Record<string, string> = {
   spiritsoftheforest: 'spiritsoftheforest_background',
   superstore: 'player-board ext-overlay',
   tacta: '',
+  tallyup: '',
   tapestry: '',
   thehanginggardens: '',
   toybattle: '',
@@ -490,6 +494,7 @@ export const gamesWithConditionalCustomBackground: GamesWithCustomBackground = {
   thewhitecastle: ['custom-background'],
   thirteenleaves: ['classic_theme_disabled'],
   wingspan: ['wsp_background_paper'],
+  wispwood: ['dark_background_on'],
 };
 
 export const gamesWithCustomPlayerStyle: { [gameName: GameName]: string } = {
@@ -583,6 +588,7 @@ export const playersBorder: { [gameName: GameName]: string[] } = {
   screampark: ['#scp_playerZone-{{player_id}}'],
   skatelegend: ['#player-table-{{player_id}}'],
   symbiose: ['[style*="border-top: 2px solid #{{player_color}};"]'],
+  tallyup: ['#tuto_pp{{player_index_1}}'],
   treos: ['#gamezone-{{player_id}}'],
   theguildofmerchantexplorers: ['#tab_header_board_{{player_id}}'],
   thirteenleaves: ['#overall_player_board_{{player_id}}'],
@@ -592,6 +598,7 @@ export const playersBorder: { [gameName: GameName]: string[] } = {
   welcometothemoon: ['#score-sheet-{{player_id}}', '#score-sheet-{{player_id}} .player-name'],
   wizardsgrimoire: ['.wg-title.ext_player_{{player_id}}', '#player-table-{{player_id}}-health', '#player-table-{{player_id}} .player-table'],
   yaxha: ['#pyramid-container-{{player_id}} .player-name-text .text-container'],
+  yokaipagoda: ['.game_results_player[style="border-left: 4px solid #{{player_color}}"]'],
 };
 
 export const playersOutline: { [gameName: GameName]: string[] } = {
@@ -599,8 +606,10 @@ export const playersOutline: { [gameName: GameName]: string[] } = {
   goodfortune: ['#mf_zone_player_{{player_index_1}}'],
   loveletter: ['#mf_zone_player_{{player_index_1}}'],
   pilipili: ['div[style^="outline-color: {{player_color_rgb}};"]', 'div[style^="outline: {{player_color_rgb}} solid 4px;"]'],
+  soothsayers: ['#player-board-{{player_id}}'],
   spirited: ['#sp-player-area-{{player_id}} .sp-road-slot', '#sp-player-area-{{player_id}} .sp-player-area-wonders', '#sp-player-area-{{player_id}} .sp-player-area-camp>.slot'],
-  visions: ['div[style^="outline: {{player_color_rgb}}"]']
+  visions: ['div[style^="outline: {{player_color_rgb}}"]'],
+  wispwood: ['#player-wrap-{{player_id}} .grid-background'],
 };
 
 export const playersTextColor: { [gameName: GameName]: string[] } = {

@@ -1,0 +1,53 @@
+html[data-theme=dark] {
+	--ext-overall-color: #0005;
+
+	#page-title,
+	#maingameview_menuheader,
+	#maingameview_menufooter {
+		border: 1px solid var(--dark-40);
+	}
+
+	#maingameview_menuheader {
+		border-top: none;
+		top: -1px;
+	}
+
+	#bga-zoom-controls {
+		filter: invert(0.8);
+	}
+
+	.ebl-reference-card:before,
+	.ebl-player-board:before,
+	#ebl-main-board:before,
+	#ebl-building-board:before,
+	#ebl-trophy-board:before {
+		content: "";
+		position: absolute;
+		top: 0px;
+		left: 0px;
+		width: 100%;
+		height: 100%;
+		background-color: #0003;
+	}
+
+	.ebl-reference-card {
+		color: #000;
+	}
+
+	.ebl-white-zone {
+		background-color: var(--dark-back);
+		outline: 1px solid var(--dark-40);
+		color: var(--light-80);
+	}
+
+	.ebl-board-counter .ebl-stat,
+	.ebl-hero-skill-description .ebl-stat,
+	.ebl-panel-counter .ebl-stat,
+	.ebl-resource.ebl-inline.ebl-log {
+		filter: var(--drop-shadow);
+	}
+
+	.ebl-fellowship-img {
+		filter: var(--highlight);
+	}
+}

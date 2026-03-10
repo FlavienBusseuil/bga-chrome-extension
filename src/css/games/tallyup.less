@@ -1,0 +1,37 @@
+html[data-theme=dark] {
+	--ext-overlay-color: #fff4;
+
+	.ta_header .ta_running_total,
+	.ta_counter .counter-container .ta_number,
+	.ta_header .ta_running_total .ta_point_to_reach,
+	.ta_players .ta_content2 .ta_estimate_points {
+		color: var(--light-70);
+	}
+
+	.ta_players {
+		color: var(--light-80);
+	}
+
+	.ta_players .ta_content2 .ta_score2,
+	.ta_players .ta_content2 .ta_score2 .ta_number {
+		color: var(--green-50);
+	}
+
+	.ta_players .ta_player_recap {
+		background-color: var(--dark-back);
+	}
+
+	.aal-popup-overlay .aal-popup-content {
+		background: var(--dark-10);
+		border: 1px solid var(--dark-40);
+		color: var(--light-80);
+	}
+
+	.ta_header .ta_help_card .sprite,
+	.ta_dice .dice .side,
+	.ta_token_token:not(.animating).visible_flippable .flippable-front,
+	.ta_token_token:not(.animating) .content .flippable-back,
+	.aal-popup-overlay .aal-popup-content .sprite {
+		filter: var(--ext-bright);
+	}
+}
