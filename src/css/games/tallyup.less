@@ -27,11 +27,16 @@ html[data-theme=dark] {
 		color: var(--light-80);
 	}
 
+	.boom-active {
+		text-shadow: var(--text-w-shadow);
+	}
+
 	.ta_header .ta_help_card .sprite,
 	.ta_dice .dice .side,
-	.ta_token_token:not(.animating).visible_flippable .flippable-front,
-	.ta_token_token:not(.animating) .content .flippable-back,
-	.aal-popup-overlay .aal-popup-content .sprite {
+	.flippable-front,
+	.flippable-back,
+	.aal-popup-overlay .aal-popup-content .sprite,
+	.dijitTooltipContainer .sprite {
 		filter: var(--ext-bright);
 	}
 }
