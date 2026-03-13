@@ -32,7 +32,7 @@ export const FriendsView = ({ className, getGroupTables, groups, motionSensitivi
   const search = () => {
     setLoading(true);
     setRequested(true);
-    debugger;
+
     if (getGroupTables) {
       getGroupTables(group).then(tables => {
         setTables(tables);
@@ -63,7 +63,7 @@ export const FriendsView = ({ className, getGroupTables, groups, motionSensitivi
   }
 
   const getOptions = () => {
-    return groups.map((g, index) => <option key={`opt_${index}`} value={g.id}>{g.name}</option>);
+    return groups.filter(g => g.name !== 'BGA reviewers' && g.name !== 'Tutorial Makers').map((g, index) => <option key={`opt_${index}`} value={g.id}>{g.name}</option>);
   }
 
   return (

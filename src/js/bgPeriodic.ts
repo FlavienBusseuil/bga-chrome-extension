@@ -4,27 +4,16 @@ import { fetchTablesFromTableManager } from "./utils/fetch/fetchTablesFromTableM
 import { setBadge } from "./utils/badge/setBadge";
 import { updateBadgeAndIcon } from "./utils/updateBadgeAndIcon";
 import { castToString } from "./types/bga/Player";
-import { fetchRequestToken } from "./utils/fetch/fetchRequestToken";
 
-import type { RequestToken } from "./types/RequestToken";
 import type Configuration from "./config/configuration";
-
-let cachedRequestToken: RequestToken | undefined;
 
 export async function bgPeriodic(config: Configuration) {
 	try {
 		if (config.isTrackingEnable()) {
 			console.debug("[bga extension] Track opened tables and player state");
-			cachedRequestToken = cachedRequestToken || await fetchRequestToken();
-			const requestToken =  cachedRequestToken;
 
 			// Fetch current player info
-			const { token: playerToken, id: playerId } = await fetchCurrentPlayer({
-				requestToken,
-				onRefreshRequestToken: (newRequestToken) => {
-					cachedRequestToken = newRequestToken;
-				},
-			});
+			const { token: playerToken, id: playerId } = await fetchCurrentPlayer();
 
 			if (!playerId) {
 				setBadge({ text: "-", color: "#757575" });
@@ -32,15 +21,9 @@ export async function bgPeriodic(config: Configuration) {
 			}
 
 			// Fetch number of waiting tables
-			const { nbWaitingTables } = await fetchActivityForPlayer(
-				{
-					playerToken,
-					playerId,
-				},
-				{ requestToken },
-			);
+			const { nbWaitingTables } = await fetchActivityForPlayer(playerId, playerToken);
 
-			const tables = await fetchTablesFromTableManager({ requestToken, status: 'play' });
+			const tables = await fetchTablesFromTableManager('play');
 			const nbPendingInvites = tables.reduce(
 				(total, table) =>
 					total +

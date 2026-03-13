@@ -13,7 +13,6 @@ import { fetchTablesFromTableManager } from "../fetch/fetchTablesFromTableManage
 import type { Translations } from "../../types/bga/Translations";
 import { fetchTournaments } from "../fetch/fetchTournaments";
 import type { Tournament } from "../../types/bga/queries/TournamentList";
-import { fetchRequestToken } from "../fetch/fetchRequestToken";
 
 export type FetchResult =
 	| {
@@ -37,10 +36,8 @@ export async function fetch(): Output {
 	const { globalUserInfos, assetsUrl, jsBundleVersion } = await fetchGlobalInfo();
 	const { lang } = globalUserInfos;
 
-	const requestToken = await fetchRequestToken();
-
 	// Fetch current player info
-	const currentPlayer = await fetchCurrentPlayer({ requestToken });
+	const currentPlayer = await fetchCurrentPlayer();
 	const { token: currentPlayerToken, id: currentPlayerId } = currentPlayer;
 
 	// No user logged
@@ -58,19 +55,13 @@ export async function fetch(): Output {
 
 	// Fetch number of waiting tables, global translation, friends and tables
 	const [activityForPlayer, translations, tables] = await Promise.all([
-		fetchActivityForPlayer(
-			{
-				playerToken: currentPlayerToken,
-				playerId: currentPlayerId,
-			},
-			{ requestToken },
-		),
+		fetchActivityForPlayer(currentPlayerId, currentPlayerToken),
 		fetchTranslations({
 			assetsUrl,
 			jsBundleVersion,
 			lang,
 		}),
-		fetchTablesFromTableManager({ requestToken, status: 'play' })
+		fetchTablesFromTableManager('play')
 	])
 
 	const { nbWaitingTables } = activityForPlayer;
@@ -93,8 +84,8 @@ export async function fetch(): Output {
 
 	const getPlayersTables = async (players: string[]) => {
 		const result = await Promise.all([
-			fetchTablesFromTableManager({ requestToken, status: 'realtime_open' }),
-			fetchTablesFromTableManager({ requestToken, status: 'async_open' })
+			fetchTablesFromTableManager('realtime_open'),
+			fetchTablesFromTableManager('async_open')
 		]);
 
 		const list = [...result[0], ...result[1]];
@@ -114,7 +105,7 @@ export async function fetch(): Output {
 
 	const nbPendingInvites = tables.reduce((total, table) => total + (table.players[currentPlayer.id]?.table_status === "expected" ? 1 : 0), 0);
 
-	const tournaments = await fetchTournaments({ requestToken });
+	const tournaments = await fetchTournaments();
 
 	return {
 		isLoggedOut: false,

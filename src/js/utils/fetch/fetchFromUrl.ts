@@ -1,13 +1,8 @@
-import type { FetchOptions } from "../../types/FetchOptions";
-
-export async function fetchFromUrl<D>(
-    url: string,
-    options?: Partial<FetchOptions>
-): Promise<D> {
+export async function fetchFromUrl<D>(url: string, requestToken?: string): Promise<D> {
     const headers: Record<string, string> = {};
 
-    if (options?.requestToken) {
-        headers["x-request-token"] = options.requestToken;
+    if (requestToken) {
+        headers["x-request-token"] = requestToken;
     }
 
     return fetch(url, { headers })
