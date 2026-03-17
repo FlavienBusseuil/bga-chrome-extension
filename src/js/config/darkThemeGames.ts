@@ -472,6 +472,7 @@ interface GamesWithCustomBackground {
 
 export const gamesWithConditionalCustomBackground: GamesWithCustomBackground = {
   apiary: ['custom-background'],
+  arigato: ['vgincLib_thematic_background_on'],
   azure: ['azr_pref-themedBg'],
   challengers: ['challengers-pref-background-dark'],
   challengersbeachcup: ['challengers-pref-background-dark'],
