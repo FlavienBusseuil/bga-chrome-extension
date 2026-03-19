@@ -28,6 +28,10 @@ html[data-theme=dark] {
 		color: var(--light-80);
 	}
 
+	.kot-card .description-wrapper.consumable {
+		color: #000;
+	}
+
 	.pick-evolution-cards {
 		background: var(--dark-back);
 		box-shadow: 0 0 5px 5px #4d4d4dcc;
@@ -76,5 +80,18 @@ html[data-theme=dark] {
 	.card .card-sides .card-side {
 		box-shadow: none;
 		filter: var(--drop-shadow);
+	}
+
+	#help-popin {
+
+		.help-mindbug-token>div:first-child,
+		.help-consumable {
+			background: var(--dark-40);
+		}
+
+		.help-mindbug-token,
+		.help-section>div:not(:first-child) {
+			color: var(--light-80);
+		}
 	}
 }
