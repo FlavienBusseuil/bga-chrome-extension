@@ -12,7 +12,7 @@ Promise.all(cssList.map(file => getFile(file))).then(fileContents => {
 
 const _setStyle = (returnFunc: () => void) => {
 	if (cssContents["dark_theme/melodice.css"]) {
-		styleComponent.innerHTML = `${cssContents["dark_theme/melodice.css"]}${customCssCode}`;
+		styleComponent.textContent = `${cssContents["dark_theme/melodice.css"]}${customCssCode}`;
 		returnFunc();
 	} else {
 		setTimeout(() => _setStyle(returnFunc), 100);

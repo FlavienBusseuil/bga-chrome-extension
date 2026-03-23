@@ -65,7 +65,7 @@ export const buildLeftMenuCss = (gameConfig: Game, enable: boolean) => {
 	} else if (gameConfig.css) {
 		const style = document.createElement("style");
 		style.id = menuStyleId;
-		style.innerHTML = gameConfig.css;
+		style.textContent = gameConfig.css;
 		document.head.appendChild(style);
 	}
 };

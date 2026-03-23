@@ -16,7 +16,7 @@ const createHiddenGameStyle = (content: string) => {
 		document.head.appendChild(style);
 	}
 
-	style.innerHTML = content;
+	style.textContent = content;
 	return style;
 };
 
@@ -55,7 +55,7 @@ export const initGameListObserver = (config: Configuration, page: string) => {
 	}
 
 	const style = createHiddenGameStyle(config.getHiddenGamesStyle(page));
-	const updateHiddenGameStyle = () => (style.innerHTML = config.getHiddenGamesStyle(page));
+	const updateHiddenGameStyle = () => (style.textContent = config.getHiddenGamesStyle(page));
 
 	const hideGame = (name: string) => {
 		const popupConfig = config.getPopupConfiguration();
@@ -180,8 +180,18 @@ export const initGameListObserver = (config: Configuration, page: string) => {
 					removeBut.style.padding = "5px 0px 0px 10px";
 					removeBut.style.margin = "0px 0px 0px 5px";
 					removeBut.style.minWidth = "32px";
-					removeBut.innerHTML = '<div class="flex items-center"><div class="text-center"><i class="fa fa-trash"/></div></div>';
 					removeBut.onclick = () => hideGame(but.href.split("=")[1] as string);
+
+					const flexDiv = document.createElement('div');
+					flexDiv.className = 'flex items-center';
+					const centerDiv = document.createElement('div');
+					centerDiv.className = 'text-center';
+					const icon = document.createElement('i');
+					icon.className = 'fa fa-trash';
+					centerDiv.append(icon);
+					flexDiv.append(centerDiv);
+
+					removeBut.replaceChildren(flexDiv);
 					container.appendChild(removeBut);
 				}
 			} else if (config.isLobbyRedirectionEnable()) {
@@ -207,11 +217,19 @@ export const initGameListObserver = (config: Configuration, page: string) => {
 					quickBut.className = "bgabutton bgabutton_blue";
 					quickBut.style.display = "inline";
 					quickBut.style.marginRight = "4px";
-					quickBut.innerHTML = `${but.innerHTML}&nbsp;<i class="fa fa-bolt"></i>`;
+					quickBut.textContent = but.textContent;
 					quickBut.addEventListener("click", quickStart);
 					container!.insertBefore(quickBut, but);
 
-					but.innerHTML = `${but.innerHTML}&nbsp;<i class="fa fa-gear"></i>`;
+					const boltSpace = document.createTextNode('\u00A0');
+					const boltIcon = document.createElement('i');
+					boltIcon.className = 'fa fa-bolt';
+					quickBut.append(boltSpace, boltIcon);
+
+					const space = document.createTextNode('\u00A0');
+					const icon = document.createElement('i');
+					icon.className = 'fa fa-gear';
+					but.append(space, icon);
 				}
 			});
 		}

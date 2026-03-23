@@ -1,3 +1,4 @@
+import DOMPurify from 'dompurify';
 import type { AdvancedHomeConfig } from "./config/configuration";
 
 let _initialized = false;
@@ -52,7 +53,7 @@ const _init = () => {
 
     if (dest && source && (dest.className !== source.className || dest.innerHTML !== source.innerHTML)) {
       dest.className = source.className;
-      dest.innerHTML = source.innerHTML;
+      dest.replaceChildren(...source.cloneNode(true).childNodes);
       return true;
     }
 
@@ -89,7 +90,8 @@ const _init = () => {
             const input = document.body.querySelector('#bgaext-homepage .bgaPlayerSearch input') as HTMLInputElement | null;
             if (input) {
               input.focus();
-              input.value = input.value;
+              const valLength = input.value.length;
+              input.setSelectionRange(valLength, valLength);
             }
           }, 500);
           searchChangedByExt = false;
@@ -147,7 +149,7 @@ const _init = () => {
         mainContent.parentNode!.appendChild(customMainContent);
       }
 
-      customMainContent.innerHTML = homeConfig.html;
+      customMainContent.innerHTML = DOMPurify.sanitize(homeConfig.html, { ADD_TAGS: ['style'], FORCE_BODY: true });
       advancedSetPageElements();
 
       if (!observer) {
@@ -181,7 +183,7 @@ const _init = () => {
       observer = undefined;
     }
     if (customMainContent) {
-      customMainContent.innerHTML = "";
+      customMainContent.replaceChildren();
       customMainContent.remove();
       customMainContent = undefined;
     }

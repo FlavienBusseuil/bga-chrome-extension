@@ -57,14 +57,14 @@ _init().then(() => {
     playersStyleComponent = createStyle('bgaext-players-style');
 
     if (gameStyle !== undefined) {
-      gameStyleComponent.innerHTML = gameStyle;
+      gameStyleComponent.textContent = gameStyle;
       return;
     }
 
     getFile(gameStyleFile, true).then(fileContent => {
       const { file, content } = fileContent;
       cssContents[file] = content;
-      gameStyleComponent.innerHTML = cssContents[file];
+      gameStyleComponent.textContent = cssContents[file];
     });
   }
 });
@@ -80,7 +80,7 @@ const _applyBackgroundFlickerFix = () => {
   const htmlStyle = 'html { background: #000 !important; }';
   const bodyStyle = (mode == 'general') ? 'body { visibility: hidden !important; }' : '';
   s.id = darkThemeFlickerFixElementId;
-  s.innerHTML = `${htmlStyle} ${bodyStyle}`;
+  s.textContent = `${htmlStyle} ${bodyStyle}`;
   document.documentElement.appendChild(s);
 };
 
@@ -268,7 +268,7 @@ const _applyDarkStyleForGame = () => {
 
   console.debug(`[bga extension] applying dark style for game`, { gameName, backStyle: backStyle !== "" });
 
-  themeStyleComponent.innerHTML = applyGeneralCss
+  themeStyleComponent.textContent = applyGeneralCss
     ? `${backStyle}${cssContents["dark_theme/icons.css"]}${cssContents["dark_theme/common.css"]}${cssContents["dark_theme/chat.css"]}${cssContents["dark_theme/game.css"]}`
     : `${cssContents["dark_theme/icons.css"]}${cssContents["dark_theme/chat.css"]}`;
 
@@ -322,7 +322,7 @@ const _applyDarkStyleForGame = () => {
       });
     }).flat().join(' ') || '';
 
-    playersStyleComponent.innerHTML = `${colorsStyle}${backStyle}${borderStyle}${outlineStyle}${textStyle}`;
+    playersStyleComponent.textContent = `${colorsStyle}${backStyle}${borderStyle}${outlineStyle}${textStyle}`;
 
     _setPlayersColor(gamesWithCustomPlayerStyle[gameName], playersData);
   });
@@ -334,7 +334,7 @@ const _setDarkStyle = () => {
   if (gameName !== 'general') {
     _applyDarkStyleForGame();
   } else {
-    themeStyleComponent.innerHTML = `${cssContents["dark_theme/background.css"]}${cssContents["dark_theme/icons.css"]}${cssContents["dark_theme/common.css"]}${cssContents["dark_theme/chat.css"]}${cssContents["dark_theme/general.css"]}`;
+    themeStyleComponent.textContent = `${cssContents["dark_theme/background.css"]}${cssContents["dark_theme/icons.css"]}${cssContents["dark_theme/common.css"]}${cssContents["dark_theme/chat.css"]}${cssContents["dark_theme/general.css"]}`;
   }
 };
 
@@ -342,11 +342,11 @@ const _setLightStyle = () => {
   const generalStyle = cssContents["light_theme/general.css"] as string;
 
   if (themeStyleComponent) {
-    themeStyleComponent.innerHTML = generalStyle;
+    themeStyleComponent.textContent = generalStyle;
   }
 
   if (playersStyleComponent) {
-    playersStyleComponent.innerHTML = '';
+    playersStyleComponent.textContent = '';
   }
 };
 

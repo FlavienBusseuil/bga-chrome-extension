@@ -29,7 +29,7 @@ const buildMainCss = (code: string) => {
 			style.id = 'cde_bga_ext';
 			document.head.appendChild(style);
 		}
-		style.innerHTML = `
+		style.textContent = `
 :root { --header-icons-color: #01c4ca; }
 /* Delete button on gamelist page */
 html:not(.bgaext_gamelist) .ext_delete_button { display: none; }
@@ -227,9 +227,12 @@ const muteChatMessage = (config: Configuration, tableId: string, msg: Element) =
 					muteIcon.dataset.table = tableId;
 					muteIcon.id = muteIconId;
 					muteIcon.className = 'bgaext_chat_mute_icon';
-					muteIcon.innerHTML = '<i class="fa fa-microphone-slash"></i>';
 					muteIcon.onclick = (evt) => mutePlayer(config, evt);
 					trIcon.parentNode?.appendChild(muteIcon);
+
+					const icon = document.createElement('i');
+					icon.classList.add('fa', 'fa-microphone-slash');
+					muteIcon.replaceChildren(icon);
 				}
 			}
 		}
@@ -267,8 +270,8 @@ const muteChatTable = (config: Configuration, chatTable: Element) => {
 
 		if (previewPlayerSpan) {
 			if (lastMessage[id]) {
-				if (previewPlayerSpan.innerHTML !== lastMessage[id].user) {
-					previewPlayerSpan.innerHTML = lastMessage[id].user;
+				if (previewPlayerSpan.textContent !== lastMessage[id].user) {
+					previewPlayerSpan.textContent = lastMessage[id].user;
 					previewPlayerSpan.style.color = lastMessage[id].color;
 
 					if (previewPlayerSpan.nextSibling) {
@@ -278,7 +281,15 @@ const muteChatTable = (config: Configuration, chatTable: Element) => {
 					}
 				}
 			} else {
-				previewArea.innerHTML = document.getElementById(`chatwindowlogstitle_content_table_${id}`)!.innerHTML;
+				const sourceElement = document.getElementById(`chatwindowlogstitle_content_table_${id}`);
+
+				if (previewArea && sourceElement) {
+					previewArea.replaceChildren();
+
+					Array.from(sourceElement.childNodes).forEach(node => {
+						previewArea.appendChild(node.cloneNode(true));
+					});
+				}
 			}
 		}
 
@@ -528,7 +539,7 @@ const buildOption = (
 
 	const label = document.createElement('div');
 	label.className = 'row-label';
-	label.innerHTML = text;
+	label.textContent = text;
 	row.appendChild(label);
 
 	const val = document.createElement('div');
@@ -661,9 +672,14 @@ const initChatIcon = (config: Configuration) => {
 
 			const chatElt = document.createElement('div');
 			chatElt.id = chatIconId;
-			chatElt.innerHTML = `<i class='fa fa-comments' style='font-size: 32px; cursor: pointer;'></i>`;
 			chatElt.onclick = () => config.toggleGeneralChatHidden();
 			container!.parentNode?.insertBefore(chatElt, container);
+
+			const icon = document.createElement('i');
+			icon.className = 'fa fa-comments';
+			icon.style.fontSize = '32px';
+			icon.style.cursor = 'pointer';
+			chatElt.replaceChildren(icon);
 
 			const sepElt = document.createElement('div');
 			sepElt.className = 'ml-1 tablet:ml-6';
@@ -685,7 +701,7 @@ const setStyle = (id: string, content: string) => {
 		document.head.appendChild(style);
 	}
 
-	style.innerHTML = content;
+	style.textContent = content;
 }
 
 const setChatStyle = (config: Configuration) => {

@@ -33,7 +33,7 @@ const _setDarkStyle = () => {
   console.log("[bga extension - forum] Set dark mode");
 
   if (styleComponent) {
-    styleComponent.innerHTML = `${cssContents["dark_theme/background.css"]}${cssContents["dark_theme/icons.css"]}${cssContents["dark_theme/forum.css"]}${customCssCode}`;
+    styleComponent.textContent = `${cssContents["dark_theme/background.css"]}${cssContents["dark_theme/icons.css"]}${cssContents["dark_theme/forum.css"]}${customCssCode}`;
   }
 
   document.documentElement.classList.add("darkmode");
@@ -43,7 +43,7 @@ const _setLightStyle = () => {
   console.log("[bga extension - forum] Set light mode");
 
   if (styleComponent) {
-    styleComponent.innerHTML = `${cssContents["light_theme/general.css"]}${customCssCode}`;;
+    styleComponent.textContent = `${cssContents["light_theme/general.css"]}${customCssCode}`;;
   }
 
   document.documentElement.classList.remove("darkmode");
