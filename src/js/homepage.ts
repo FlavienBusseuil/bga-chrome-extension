@@ -149,7 +149,8 @@ const _init = () => {
         mainContent.parentNode!.appendChild(customMainContent);
       }
 
-      customMainContent.innerHTML = DOMPurify.sanitize(homeConfig.html, { ADD_TAGS: ['style'], FORCE_BODY: true });
+      customMainContent.textContent = '';
+      customMainContent.appendChild(DOMPurify.sanitize(homeConfig.html, { RETURN_DOM_FRAGMENT: true, ADD_TAGS: ['style'], FORCE_BODY: true }));
       advancedSetPageElements();
 
       if (!observer) {

@@ -13,13 +13,13 @@ export const initBugMessage = (config: Configuration) => {
 			const warningSymbol = '<span class="text-red-800" style="font-size: 32px;">⚠</span>';
 			const forumLink = `<a href="https://boardgamearena.com/forum/viewtopic.php?t=30509" target='_blank' class="bga-link">>> ${i18n("reportCreationWarningLink")} <<</a>`;
 			extensionComment.className = "text-sm text-bga-gray-78";
-			extensionComment.innerHTML = DOMPurify.sanitize(`${warningSymbol} ${i18n("reportCreationWarning")} ${forumLink}`);
+			extensionComment.appendChild(DOMPurify.sanitize(`${warningSymbol} ${i18n("reportCreationWarning")} ${forumLink}`, { RETURN_DOM_FRAGMENT: true, }));
 			firstComment.parentNode!.insertBefore(extensionComment, firstComment.nextSibling);
 
 			if (config.isCssCustomized()) {
 				const cssComment = document.createElement("p");
 				cssComment.className = "text-sm text-bga-gray-78";
-				cssComment.innerHTML = DOMPurify.sanitize(i18n("reportCreationWarningCss"));
+				cssComment.appendChild(DOMPurify.sanitize(i18n("reportCreationWarningCss"), { RETURN_DOM_FRAGMENT: true, }));
 				firstComment.parentNode!.insertBefore(cssComment, extensionComment.nextSibling);
 			}
 
