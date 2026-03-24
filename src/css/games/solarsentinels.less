@@ -1,0 +1,42 @@
+html[data-theme=dark] {
+
+	#page-title,
+	#maingameview_menuheader,
+	#maingameview_menufooter {
+		border: 1px solid var(--dark-40);
+	}
+
+	#maingameview_menuheader {
+		border-top: none;
+		top: -1px;
+	}
+
+	#pagesection_gameview .whiteblock {
+		outline: 1px solid var(--dark-40);
+	}
+
+	.ssn-diceGroup {
+		background: var(--dark-back);
+		outline: 1px solid var(--dark-40);
+	}
+
+	.ssn-card-overlay {
+		background: var(--dark-back);
+		color: var(--light-80);
+		text-shadow: none;
+	}
+
+	.ssn-card-overlay h4,
+	.ssn-card-overlay h5 {
+		color: var(--light-70);
+	}
+
+	.ssn-card-overlay .ssn-icon {
+		filter: invert(1);
+	}
+
+	.ssn-card-overlay .ssn-icon.ssn-icon-die,
+	.ssn-card-overlay .ssn-icon.ssn-icon-die2 {
+		filter: none;
+	}
+}

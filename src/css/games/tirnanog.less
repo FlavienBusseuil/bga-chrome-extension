@@ -1,0 +1,68 @@
+html[data-theme=dark] {
+	--ext-overlay-color: #0002;
+
+	#page-title,
+	#maingameview_menuheader,
+	#maingameview_menufooter {
+		border: 1px solid var(--dark-40);
+	}
+
+	#maingameview_menuheader {
+		border-top: none;
+		top: -1px;
+	}
+
+	#bga-zoom-wrapper #bga-zoom-controls {
+		filter: invert(0.8);
+	}
+
+	.player-name,
+	.playername {
+		text-shadow: none;
+	}
+
+	.tirnanog-row .tirnanog-grid,
+	.tirnanog-row .tirnanog-hand,
+	.tirnanog-table .tirnanog-geas-box {
+		background-color: var(--dark-back-50);
+		outline: 1px solid var(--dark-40);
+		color: var(--light-70);
+	}
+
+	.tirnanog-table .tirnanog-geas-box>span {
+		background-color: var(--dark-back-50);
+		box-shadow: 0 -1px 0 0 var(--dark-40), -2px 0 0 0 var(--dark-40), 2px 0 0 0 var(--dark-40);
+	}
+
+	.tirnanog-storyteller,
+	.tirnanog-player-board .tirnanog-first-player,
+	.tirnanog-color,
+	.tirnanog-number {
+		filter: var(--drop-shadow);
+	}
+
+	.tirnanog-deck .tirnanog-deck-counter {
+		background: var(--dark-20);
+	}
+
+	.tirnanog-row .tirnanog-grid .tirnanog-grid-row .tirnanog-grid-cell-storyteller.selectable:after {
+		border-color: var(--blue-80);
+	}
+
+	.tirnanog-row .tirnanog-grid .tirnanog-grid-row .tirnanog-grid-cell-storyteller.selected:after {
+		border-color: var(--red-80);
+	}
+
+	.tirnanog-card.tirnanog-card-selected,
+	.tirnanog-table .tirnanog-geas-box .tirnanog-geas-row .tirnanog-geas-cards .tirnanog-geas-card-cell.selectable.selected {
+		outline-color: var(--red-80);
+	}
+
+	.tirnanog-table .tirnanog-geas-box .tirnanog-geas-row .tirnanog-geas-cards .tirnanog-geas-card-cell.selectable {
+		outline-color: var(--blue-80);
+	}
+
+	.tirnanog-scoring-box {
+		filter: var(--ext-bright);
+	}
+}

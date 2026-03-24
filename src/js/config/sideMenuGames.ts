@@ -1747,6 +1747,14 @@ const defaultGames: Partial<Game>[] = [
 		name: "emberleaf",
 		playerPanel: "ebl-player-stats-{{player_id}}",
 	},
+	{
+		name: "quiltable",
+		playerPanel: "player-table-{{player_id}}",
+	},
+	{
+		name: "stabletimes",
+		playerPanel: "playername-{{player_id}}",
+	},
 ];
 
 export default defaultGames;

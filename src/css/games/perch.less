@@ -1,0 +1,79 @@
+@import "./common";
+
+html[data-theme=dark] {
+
+	#page-title,
+	#maingameview_menuheader,
+	#maingameview_menufooter {
+		border: 1px solid var(--dark-40);
+	}
+
+	#maingameview_menuheader {
+		border-top: none;
+		top: -1px;
+	}
+
+	.pr-display-bird,
+	.pr-component {
+		filter: var(--highlight-min);
+	}
+
+	#bx-preference-container {
+		background-color: var(--dark-back);
+		color: var(--light-70);
+		border: 1px solid var(--dark-40);
+	}
+
+	#pr-pref-play-area-zoom {
+		background-color: var(--dark-30);
+	}
+
+	.pr-area-player,
+	#pr-round-score {
+		background-color: var(--dark-back);
+		outline: 1px solid var(--dark-40);
+		color: var(--light-80);
+	}
+
+	.pr-area-player .pr-player-name>span,
+	.player-name a,
+	#pr-round-score li span {
+		background: transparent !important;
+	}
+
+	#bx-display-last-round {
+		background-color: var(--red-10);
+	}
+
+	.bx-top-button-invalid {
+		.disabledButton()
+	}
+
+	.bx-selected.bx-selected.bx-selected.bx-border {
+		outline-color: var(--blue-80) !important;
+	}
+
+	.pr-area-player .pr-player-row .pr-mini-fountain {
+		background-color: transparent;
+	}
+
+	.pr-area-player .pr-player-row .pr-mini-fountain .pr-mini-round {
+		background-color: var(--dark-10);
+	}
+
+	.pr-area-player .pr-player-row .pr-mini-fountain .pr-mini-fountain-row .pr-mini-fountain-location {
+		background-color: var(--dark-back);
+	}
+
+	.pr-area-player .pr-player-row .pr-mini-fountain .pr-mini-fountain-row .pr-mini-fountain-location:empty:after {
+		color: var(--light-80);
+	}
+
+	.pr-fountain,
+	#pr-location-container .pr-location .pr-tile,
+	#bx-ui .pr-creature-card,
+	.pr-objective-card,
+	#pr-roost {
+		filter: var(--ext-bright);
+	}
+}

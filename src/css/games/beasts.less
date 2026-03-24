@@ -1,0 +1,31 @@
+html[data-theme=dark] {
+	--ext-overlay-color: #0002;
+
+	color: var(--light-80);
+
+	.be_zoom_btn {
+		filter: invert(0.8);
+	}
+
+	.be_token_slot,
+	.be_token_slot .content {
+		background-color: rgba(0, 0, 0, .15);
+	}
+
+	.be_deckC_count .be_value {
+		background-color: var(--dark-back);
+	}
+
+	.be_token_card .content .flippable-back,
+	.be_token_card .content .flippable-front,
+	.be_token_card2 .sprite,
+	.be_token_tarot .sprite {
+		filter: var(--ext-bright);
+	}
+
+	.be_token_card2 .sprite .be_token_card .content .flippable-back,
+	.be_token_tarot .sprite .be_token_card .content .flippable-front {
+		filter: none;
+	}
+
+}

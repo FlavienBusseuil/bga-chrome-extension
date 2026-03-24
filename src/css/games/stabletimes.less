@@ -1,0 +1,33 @@
+.player_name {
+	margin-top: 0.5em;
+}
+
+html[data-theme=dark] {
+	color: var(--light-80);
+
+	.player_name {
+		background-color: var(--dark-back)
+	}
+
+	#player-handcards {
+		border-color: var(--light-50);
+	}
+
+	.q {
+		background-color: var(--dark-20);
+		border-color: var(--light-70);
+	}
+
+	.scorepad,
+	.scorepad>* {
+		filter: invert(1);
+	}
+
+	#cloth,
+	.playerboard,
+	.aisle,
+	.cardTT,
+	#player-handcards .card {
+		filter: var(--ext-bright);
+	}
+}
