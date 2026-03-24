@@ -1,5 +1,13 @@
 # Changelog
 
+## [v1.12.54](https://github.com/FlavienBusseuil/bga-chrome-extension/tree/v1.12.54) (2026-03-24)
+
+[Full Changelog](https://github.com/FlavienBusseuil/bga-chrome-extension/compare/v1.12.53...v1.12.54)
+
+**Chore:**
+
+- Change fixtures from transformed data to fetch data [\#15](https://github.com/FlavienBusseuil/bga-chrome-extension/issues/15)
+
 ## [v1.12.53](https://github.com/FlavienBusseuil/bga-chrome-extension/tree/v1.12.53) (2026-03-17)
 
 [Full Changelog](https://github.com/FlavienBusseuil/bga-chrome-extension/compare/v1.12.52...v1.12.53)
