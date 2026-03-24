@@ -214,5 +214,7 @@
   "bugReportNewDetail": "Wenn du auf diese Nachricht klickst, wird diese nie wieder angezeigt",
   "optionGeneralTab": "Allgemein",
   "optionTournamentsEliminatedOn": "Die Turniere, in denen ich ausgeschieden bin, sind angezeigt",
-  "optionTournamentsEliminatedOff": "Die Turniere, in denen ich ausgeschieden bin, sind ausgeblendet"
+  "optionTournamentsEliminatedOff": "Die Turniere, in denen ich ausgeschieden bin, sind ausgeblendet",
+  "optionTournamentsFutureOn": "Die bevorstehenden Turniere sind angezeigt",
+  "optionTournamentsFutureOff": "Die bevorstehenden Turniere sind ausgeblendet"
 }

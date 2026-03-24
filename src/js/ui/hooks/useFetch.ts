@@ -47,9 +47,7 @@ export function useFetch(): Output {
 						...rest
 					} = response;
 					const transformedTables = transformTables(rest);
-					const transformedTournaments = transformTournaments({
-						tournaments,
-					});
+					const transformedTournaments = transformTournaments({ tournaments });
 
 					setResult({
 						isLoggedOut: false,

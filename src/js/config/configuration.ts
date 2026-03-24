@@ -48,6 +48,7 @@ interface CustomConfig {
 	replayWithAutoStart?: boolean;
 	autoClickStart?: boolean;
 	displayEliminatedTournaments?: boolean;
+	displayFutureTournaments?: boolean;
 }
 
 export interface HomeConfig {
@@ -533,6 +534,15 @@ class Configuration {
 
 	isDisplayEliminatedTournaments() {
 		return Boolean(this._customConfig.displayEliminatedTournaments);
+	}
+
+	setDisplayFutureTournaments(val: boolean) {
+		this._customConfig.displayFutureTournaments = val;
+		storageSet({ displayFutureTournaments: val });
+	}
+
+	isDisplayFutureTournaments() {
+		return Boolean(this._customConfig.displayFutureTournaments);
 	}
 
 	mutePlayer(name: string) {

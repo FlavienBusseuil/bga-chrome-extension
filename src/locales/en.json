@@ -213,6 +213,8 @@
   "bugReportNew": "You can report a dark mode bug by opening the popup here",
   "bugReportNewDetail": "If you click on this message it will never be displayed again",
   "optionGeneralTab": "General",
-  "optionTournamentsEliminatedOn": "The tournaments where I am eliminated are displayed",
-  "optionTournamentsEliminatedOff": "The tournaments where I am eliminated are hidden"
+  "optionTournamentsEliminatedOn": "Tournaments I'm eliminated from are displayed",
+  "optionTournamentsEliminatedOff": "Tournaments I'm eliminated from are hidden",
+  "optionTournamentsFutureOn": "Upcoming tournaments are displayed",
+  "optionTournamentsFutureOff": "Upcoming tournaments are hidden"
 }

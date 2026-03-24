@@ -214,5 +214,7 @@
   "bugReportNewDetail": "Si haces clic en este mensaje no se volverá a mostrar",
   "optionGeneralTab": "General",
   "optionTournamentsEliminatedOn": "Los torneos en los que he sido eliminado se muestran",
-  "optionTournamentsEliminatedOff": "Los torneos en los que he sido eliminado están ocultos"
+  "optionTournamentsEliminatedOff": "Los torneos en los que he sido eliminado están ocultos",
+  "optionTournamentsFutureOn": "Los próximos torneos se muestran",
+  "optionTournamentsFutureOff": "Los próximos torneos están ocultos"
 }

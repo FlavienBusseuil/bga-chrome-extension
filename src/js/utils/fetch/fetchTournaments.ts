@@ -4,9 +4,17 @@ import type { TournamentListQueryResultData, Tournament } from "../../types/bga/
 import { bgaUrl } from "../constants";
 import { resolveQuery } from "./resolveQuery";
 
-async function resolveQueryFromStatus(status: string) {
+async function resolveQueryFromStatus(status: 'progress' | 'future'): Promise<QueryResult<TournamentListQueryResultData>> {
 	const url = `${bgaUrl}/tournamentlist/tournamentlist/getTournaments.html?tournament_i_registered=1&status=${status}&full=true`;
-	return resolveQuery<QueryResult<TournamentListQueryResultData>>(url);
+	const result = await resolveQuery<QueryResult<TournamentListQueryResultData>>(url);
+
+	if (result.status == '1' && status === 'future') {
+		result.data.list.forEach((tournament) => {
+			tournament.status = 'future';
+		});
+	}
+
+	return result;
 }
 
 export async function fetchTournaments(): Promise<Array<Tournament>> {
@@ -20,9 +28,7 @@ export async function fetchTournaments(): Promise<Array<Tournament>> {
 		.map((result) => {
 			if (result.status === "0") {
 				const { code, error } = result;
-				throw new Error(
-					`Fetching tournaments failed (${code}: ${error})`,
-				);
+				throw new Error(`Fetching tournaments failed (${code}: ${error})`);
 			}
 
 			return result.data.list;

@@ -214,5 +214,7 @@
   "bugReportNewDetail": "Si vous cliquez sur ce message, il ne s'affichera plus jamais",
   "optionGeneralTab": "Général",
   "optionTournamentsEliminatedOn": "Les tournois où je suis éliminé sont affichés",
-  "optionTournamentsEliminatedOff": "Les tournois où je suis éliminé sont cachés"
+  "optionTournamentsEliminatedOff": "Les tournois où je suis éliminé sont cachés",
+  "optionTournamentsFutureOn": "Les tournois à venir sont affichés",
+  "optionTournamentsFutureOff": "Les tournois à venir sont cachés"
 }

@@ -18,19 +18,29 @@ type Props = {
 };
 
 export const TournamentsView = ({ config, className, tournaments }: Props) => {
-	const [dispEliminated, setDispEliminated] = useSyncedState('isOnlineMessagesEnabled', config.isDisplayEliminatedTournaments());
+	const [dispEliminated, setDispEliminated] = useSyncedState('isDisplayEliminatedTournaments', config.isDisplayEliminatedTournaments());
+	const [dispFuture, setDispFuture] = useSyncedState('isDisplayFutureTournaments', config.isDisplayFutureTournaments());
 
 	const toggleDispEliminated = () => {
 		setDispEliminated(!dispEliminated);
 		config.setDisplayEliminatedTournaments(!dispEliminated);
 	}
 
+	const toggleDispFuture = () => {
+		setDispFuture(!dispFuture);
+		config.setDisplayFutureTournaments(!dispFuture);
+	}
+
 	const filteredTournaments = useMemo(() => {
-		if (dispEliminated) {
-			return tournaments;
+		let list = tournaments;
+		if (!dispEliminated) {
+			list = list.filter((t) => t.playerStatus !== 'eliminated' && t.playerStatus !== 'withdrawn');
 		}
-		return tournaments.filter((t) => t.playerStatus !== 'eliminated');
-	}, [dispEliminated, tournaments]);
+		if (!dispFuture) {
+			list = list.filter((t) => t.status !== 'future');
+		}
+		return list;
+	}, [dispEliminated, dispFuture, tournaments]);
 
 	return (
 		<div className={cn(["flex justify-between flex-col gap-2", className || ''])}>
@@ -46,7 +56,7 @@ export const TournamentsView = ({ config, className, tournaments }: Props) => {
 					<CardList className={className || ''}>
 						{filteredTournaments.map(
 							({ gameImg, championshipName, name, link, date, playerStatus }) => (
-								<Card onClick={() => window.open(link, "_blank")} className={playerStatus === 'eliminated' ? 'eliminated' : ''}>
+								<Card onClick={() => window.open(link, "_blank")} className={playerStatus === 'eliminated' || playerStatus === 'withdrawn' ? 'eliminated' : ''}>
 									<div className="flex items-center px-1 py-2 gap-2">
 										<img
 											src={gameImg}
@@ -66,13 +76,18 @@ export const TournamentsView = ({ config, className, tournaments }: Props) => {
 				</div>
 			)}
 			<div className={cn(["flex justify-between flex-row gap-2", className || ''])}>
-				<Switch checked={dispEliminated} textOn={i18n('optionTournamentsEliminatedOn')} textOff={i18n('optionTournamentsEliminatedOff')} onChange={toggleDispEliminated} />
-				<Button className="whitespace-nowrap"
-					{...{
-						text: i18n("play_tournament"),
-						url: `${bgaUrl}/tournamentlist`,
-					}}
-				/>
+				<div style={{ display: 'flex', flexFlow: 'column', gap: '0.5em' }}>
+					<Switch checked={dispEliminated} textOn={i18n('optionTournamentsEliminatedOn')} textOff={i18n('optionTournamentsEliminatedOff')} onChange={toggleDispEliminated} />
+					<Switch checked={dispFuture} textOn={i18n('optionTournamentsFutureOn')} textOff={i18n('optionTournamentsFutureOff')} onChange={toggleDispFuture} />
+				</div>
+				<div style={{ height: 'fit-content', margin: 'auto 0px 0px 0px' }}>
+					<Button className="whitespace-nowrap"
+						{...{
+							text: i18n("play_tournament"),
+							url: `${bgaUrl}/tournamentlist`,
+						}}
+					/>
+				</div>
 			</div>
 		</div>
 	);
