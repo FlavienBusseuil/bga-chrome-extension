@@ -73,6 +73,7 @@
 		"rgb-hex": "^4.1.0"
 	},
 	"alias": {
-		"preact/jsx-dev-runtime": "preact/jsx-runtime"
+		"preact/jsx-dev-runtime": "preact/jsx-runtime",
+		"dompurify": "dompurify/dist/purify.es.mjs"
 	}
 }
