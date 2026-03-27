@@ -553,34 +553,17 @@ const buildOption = (
 	input.addEventListener('change', (evt) => evt.isTrusted && toggleFunc(evt));
 	val.appendChild(input);
 
-	if (inputValue === '1') {
-		input.insertAdjacentHTML(
-			'beforeend',
-			`<option value='1' selected='selected'>${option1}</option>`,
-		);
-		input.insertAdjacentHTML(
-			'beforeend',
-			`<option value='0'>${option2}</option>`,
-		);
-	} else {
-		input.insertAdjacentHTML(
-			'beforeend',
-			`<option value='1'>${option1}</option>`,
-		);
-		input.insertAdjacentHTML(
-			'beforeend',
-			`<option value='0' selected='selected'>${option2}</option>`,
-		);
-	}
+	input.add(new Option(option1, '1', false, inputValue === '1'));
+	input.add(new Option(option2, '0', false, inputValue !== '1'));
 
 	title.parentNode!.insertBefore(container, title.nextSibling);
 };
 
-const buildOptions = (config: Configuration, gameName: string, gameConfig?: GameConfig, floatingMenu: boolean) => {
+const buildOptions = (config: Configuration, gameName: string, gameConfig: GameConfig | undefined, floatingMenu: boolean) => {
 	const histoInputs = [
 		document.getElementById('preference_global_control_logsSecondColumn'),
 		document.getElementById('preference_global_fontrol_logsSecondColumn'),
-	].filter((elt) => !!elt);
+	].filter((elt): elt is HTMLSelectElement => elt !== null);
 	const infobulleInput = document.getElementById('preference_control_200') as HTMLSelectElement | null;
 	const mainMenu = document.getElementById('ingame_menu_content');
 	const settings = document.getElementById('pagesection_options');
@@ -594,19 +577,15 @@ const buildOptions = (config: Configuration, gameName: string, gameConfig?: Game
 	const secondPrefTitle = settings.getElementsByTagName('h2')[0] as HTMLHeadingElement;
 
 	if (floatingMenu && !isMobile()) {
-		// Add an option for floating menu
-		const optionFloatingGameSelected = config.isGameFloatingMenu(gameName) ? `selected='selected'` : '';
-		const optionFloatingAlwaysSelected = config.isGlobalFloatingMenu() ? `selected='selected'` : '';
-		const optionFloatingGame = `<option value='2' ${optionFloatingGameSelected}>${i18n('optionFloatingGame')}</option>`;
-		const optionFloatingAlways = `<option value='3' ${optionFloatingAlwaysSelected}>${i18n('optionFloatingAlways')}</option>`;
+		const isGameFloating = config.isGameFloatingMenu(gameName);
+		const isGlobalFloating = config.isGlobalFloatingMenu();
+
 		const checkFloating = (evt: Event) => {
 			const value = (evt.target as HTMLSelectElement | null)?.value;
+			const isColumnEnabled = value === '1';
 
-			if (value === '1') {
-				document.body.classList.add('logs_on_additional_column');
-			} else {
-				document.body.classList.remove('logs_on_additional_column');
-			}
+			document.body.classList.toggle('logs_on_additional_column', isColumnEnabled);
+
 			if (value === '3') {
 				setFloatingRightMenu(config, true);
 				config.setGameFloatingMenu(gameName, false);
@@ -621,9 +600,11 @@ const buildOptions = (config: Configuration, gameName: string, gameConfig?: Game
 				config.setGlobalFloatingMenu(false);
 			}
 		};
+
 		histoInputs.forEach((input) => {
-			input.insertAdjacentHTML('beforeend', optionFloatingGame);
-			input.insertAdjacentHTML('beforeend', optionFloatingAlways);
+			input.add(new Option(i18n('optionFloatingGame'), '2', false, isGameFloating));
+			input.add(new Option(i18n('optionFloatingAlways'), '3', false, isGlobalFloating));
+
 			input.addEventListener('change', checkFloating);
 			input.addEventListener('click', (evt) => evt.stopPropagation());
 		});

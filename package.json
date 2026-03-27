@@ -26,7 +26,8 @@
 		"prebuild:firefox": "move-file src/manifest.json src/manifest-chrome.json && move-file src/manifest-firefox.json src/manifest.json && move-file src/js/utils/misc/mp3.ts src/js/utils/misc/mp3-chrome.ts && move-file src/js/utils/misc/mp3-firefox.ts src/js/utils/misc/mp3.ts",
 		"postbuild:firefox": "move-file src/manifest.json src/manifest-firefox.json && move-file src/manifest-chrome.json src/manifest.json && move-file src/js/utils/misc/mp3.ts src/js/utils/misc/mp3-firefox.ts && move-file src/js/utils/misc/mp3-chrome.ts src/js/utils/misc/mp3.ts",
 		"prebuild:opera": "move-file src/manifest.json src/manifest-chrome.json && move-file src/manifest-opera.json src/manifest.json",
-		"postbuild:opera": "move-file src/manifest.json src/manifest-opera.json && move-file src/manifest-chrome.json src/manifest.json"
+		"postbuild:opera": "move-file src/manifest.json src/manifest-opera.json && move-file src/manifest-chrome.json src/manifest.json",
+		"postinstall": "npx patch-package"
 	},
 	"targets": {
 		"dev": {
