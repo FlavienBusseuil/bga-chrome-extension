@@ -1,5 +1,8 @@
+import Markup from 'preact-markup';
+
 import { i18n } from "../../../utils/browser/i18n";
 import { isFirefox } from '../../../utils/browser';
+
 interface Props {
     later: () => void;
     close: () => void;
@@ -8,11 +11,11 @@ interface Props {
 const InformationPopup = ({ later, close }: Props) => {
     const title = isFirefox ? i18n("infosTitleFirefox") : i18n("infosTitleChrome");
     const content = (
-        <div>
-            <p>{isFirefox ? i18n("infosSubTitleFirefox") : i18n("infosSubTitleChrome")}</p>
-            <p dangerouslySetInnerHTML={{ __html: i18n("infosLine3") }}></p>
-            <p dangerouslySetInnerHTML={{ __html: i18n("infosLine4") }}></p>
-            <p dangerouslySetInnerHTML={{ __html: i18n("infosLine5") }}></p>
+        <div style={{ display: 'flex', flexDirection: 'column', gap: '0.5em' }}>
+            <Markup markup={isFirefox ? i18n("infosSubTitleFirefox") : i18n("infosSubTitleChrome")} type='html' trim={false} />
+            <Markup markup={i18n("infosLine3")} type='html' trim={false} />
+            <Markup markup={i18n("infosLine4")} type='html' trim={false} />
+            <Markup markup={i18n("infosLine5")} type='html' trim={false} />
         </div>
     );
 

@@ -10,6 +10,27 @@ html[data-theme=dark] {
 		border: 10px solid #000;
 	}
 
+	#tokenSelectionWindow {
+		background-color: var(--dark-back);
+		color: var(--light-80);
+	}
+
+	.tokenIncrementer>button {
+		background-color: var(--dark-40);
+	}
+
+	.tokenIncrementer>input {
+		color: var(--light-80) !important;
+	}
+
+	.action-button[style="color: rgb(235, 107, 12); background: rgb(254, 210, 12);"] {
+		.yellowButton();
+	}
+
+	.action-button[style="color: rgb(235, 107, 12); background: rgb(254, 210, 12);"]:hover {
+		.yellowButtonOver();
+	}
+
 	.lapIcon,
 	.standingsIcon {
 		filter: var(--highlight);

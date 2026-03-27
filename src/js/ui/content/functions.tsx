@@ -126,7 +126,7 @@ const displayInformationPopup = (config: Configuration) => {
 	const showDate = parseInt(popupConfig.infosDialog || '0', 10);
 
 	if (showDate > now) {
-		//console.log("pas maintenant " + new Date(showDate));
+		console.debug("[bga extension] Information popup not yet ready to be displayed", { showDate });
 		return;
 	}
 

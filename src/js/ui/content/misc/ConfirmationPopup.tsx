@@ -1,4 +1,5 @@
 import { useState } from "preact/hooks";
+import Markup from 'preact-markup';
 
 import "../../../../css/confirmation.css";
 import Configuration from "../../../config/configuration";
@@ -23,7 +24,7 @@ const ConfirmationPopup = ({ type, confirm, cancel, config }: Props) => {
         <p>{i18n("deleteGameText1")}</p>
         <p>{i18n("deleteGameText2")}</p>
         <p>{i18n("deleteGameText3")}</p>
-        <p dangerouslySetInnerHTML={{ __html: i18n("deleteGameLink") }}></p>
+        <Markup markup={i18n("deleteGameLink")} type='html' trim={false} />
         <div class="bgaext_popup_footer">
           <div className="bgaext_popup_check" onClick={() => setStopWarn(!stopWarn)}>
             <input type="checkbox" checked={stopWarn} />
@@ -48,7 +49,7 @@ const ConfirmationPopup = ({ type, confirm, cancel, config }: Props) => {
           <label>{i18n("muteWarningOn")}</label>
         </div>
         <p>{i18n("deleteGameText2")}</p>
-        <p dangerouslySetInnerHTML={{ __html: i18n("deleteGameLink") }}></p>
+        <Markup markup={i18n("deleteGameLink")} type='html' trim={false} />
         <div class="bgaext_popup_footer">
           <div className="bgaext_popup_check" onClick={() => setStopWarn(!stopWarn)}>
             <input type="checkbox" checked={stopWarn} />
@@ -77,7 +78,7 @@ const ConfirmationPopup = ({ type, confirm, cancel, config }: Props) => {
         <input type='checkbox' id='check_auto_open' checked={autoOpen} />
         <label>{i18n('optionsFastCreateAutoOpenOn')}</label>
       </div>
-      <p dangerouslySetInnerHTML={{ __html: i18n("deleteGameLink") }}></p>
+      <Markup markup={i18n("deleteGameLink")} type='html' trim={false} />
       <div class="bgaext_popup_footer">
         <div className="bgaext_popup_check" onClick={() => setStopWarn(!stopWarn)}>
           <input type="checkbox" checked={stopWarn} />

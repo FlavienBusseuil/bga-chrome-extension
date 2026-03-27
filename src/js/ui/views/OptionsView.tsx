@@ -1,5 +1,6 @@
 import { useEffect, useState } from "preact/hooks";
 import { useSyncedState } from '../hooks/useSyncedState';
+import Markup from 'preact-markup';
 import { isMobile } from "is-mobile";
 
 import Configuration, { AdvancedHomeConfig, HomeConfig, InProgressConfig } from "../../config/configuration";
@@ -518,10 +519,12 @@ export const OptionsView = ({ config, onChange }: Props) => {
     if ((!homeConfig.smallFeed || !homeConfig.tournamentsBelow) && (!advancedHomeConfig.advanced)) {
       const warningSymbol = '<span style="color: red; font-size: 16px;">⚠</span>';
       const text = `${warningSymbol} ${i18n("optionsHomeWarning")}`;
-      return <div dangerouslySetInnerHTML={{ __html: text }} onClick={(evt) => {
+      const handleAdvancedModeClick = (evt: Event): void => {
         _updateAdvanceHomeConfig({ html: advancedHomeConfig.html, advanced: true });
         evt.stopPropagation();
-      }} />;
+      };
+
+      return <Markup markup={text} type='html' trim={false} onClick={handleAdvancedModeClick} />;
     }
 
     return <div>{i18n("optionsHomeRefresh")}</div>;
@@ -664,7 +667,7 @@ export const OptionsView = ({ config, onChange }: Props) => {
       return (
         <div className="options-frame">
           <div className="options-frame-title">{i18n("about")}</div>
-          <div dangerouslySetInnerHTML={{ __html: i18n("aboutText") }}></div>
+          <Markup markup={i18n('aboutText')} type='html' trim={false} />
           <div className="options-version">Version {getExtensionVersion()}</div>
         </div>
       );

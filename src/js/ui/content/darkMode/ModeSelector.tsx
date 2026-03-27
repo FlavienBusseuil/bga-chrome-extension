@@ -1,4 +1,5 @@
 import { useState, useEffect, useMemo } from "preact/hooks";
+import Markup from 'preact-markup';
 import { isMobile } from "is-mobile";
 
 import Configuration from "../../../config/configuration";
@@ -387,11 +388,9 @@ const ModeSelector = (props: ModeSelectorProps) => {
   const getReportForm = () => {
     if (resultVisible) {
       return (
-        <>
-          <div className="forms_container">
-            <span dangerouslySetInnerHTML={{ __html: i18n('bugReportResult') }} />
-          </div>
-        </>
+        <div className="forms_container">
+          <Markup markup={i18n('bugReportResult')} type='html' trim={false} />
+        </div>
       );
     }
 
@@ -415,7 +414,7 @@ const ModeSelector = (props: ModeSelectorProps) => {
               onChange={(evt: any) => setReportDescription(evt.target.value)}
               onInput={updateReportDescription}
             />
-            <span dangerouslySetInnerHTML={{ __html: i18n('bugReportScreenshot') }} />
+            <Markup markup={i18n('bugReportScreenshot')} type='html' trim={false} />
             <input type="text" value={reportScreenshot} onChange={(evt: any) => setReportScreenshot(evt.target.value)} />
           </div>
           <div className="buttons_container">

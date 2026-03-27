@@ -1,3 +1,4 @@
+import Markup from "preact-markup";
 import { isFirefox } from "../utils/browser";
 import { i18n } from "../utils/browser/i18n";
 
@@ -12,9 +13,9 @@ export function Error({ errorMessage, errorDetails }: ErrorProps) {
     : "report_error";
 
   return (
-    <div className="p-2 text-red-600 font-bold">
-      <p>{`${errorMessage} (${errorDetails})`}</p>
-      <p dangerouslySetInnerHTML={{ __html: i18n(message) }}></p>
+    <div className="p-2 text-red-600 font-bold flex flex-col gap-2">
+      <div>{`${errorMessage} (${errorDetails})`}</div>
+      <Markup markup={i18n(message)} type='html' trim={false} />
     </div>
   );
 };

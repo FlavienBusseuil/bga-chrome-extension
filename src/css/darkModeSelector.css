@@ -67,7 +67,8 @@
   width: 600px;
 }
 
-#bgaext_palette_container .forms_container span {
+#bgaext_palette_container .forms_container span,
+#bgaext_palette_container .forms_container div {
   font-size: 12px;
   padding-top: 0.5em;
 }
