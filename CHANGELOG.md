@@ -1,5 +1,13 @@
 # Changelog
 
+## [v1.12.56](https://github.com/FlavienBusseuil/bga-chrome-extension/tree/v1.12.56) (2026-03-31)
+
+[Full Changelog](https://github.com/FlavienBusseuil/bga-chrome-extension/compare/v1.12.55...v1.12.56)
+
+**Closed issues:**
+
+- extension icon remains grey even when turn is up [\#141](https://github.com/FlavienBusseuil/bga-chrome-extension/issues/141)
+
 ## [v1.12.55](https://github.com/FlavienBusseuil/bga-chrome-extension/tree/v1.12.55) (2026-03-24)
 
 [Full Changelog](https://github.com/FlavienBusseuil/bga-chrome-extension/compare/v1.12.54...v1.12.55)
