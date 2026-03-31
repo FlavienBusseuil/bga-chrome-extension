@@ -632,6 +632,7 @@ export const playersTextColor: { [gameName: GameName]: string[] } = {
   babydinosaurrescue: ['[style^="color:#{{player_color}}"]'],
   concordia: ['[style="--player-color: #{{player_color}};"]'],
   dontletitdie: ['[style="--color: #{{player_color}}"]', '[style*="--player-color: #{{player_color}}"]'],
+  flockers: ['[data-color="{{player_color}}"]'],
   irishgauge: ['#player-table-{{player_id}} .player-table-name'],
   knarr: ['#player-table-{{player_id}}-name'],
   legions: ['#player-table-{{player_id}} .name-wrapper .name'],

@@ -1,12 +1,50 @@
 @import "./common";
 
+.desktop_version.logs_on_floating_panel #right-side-first-part {
+	width: 240px;
+}
+
 html[data-theme=dark] {
 
 	#page-title,
-	.current_player_is_active #page-title,
-	.gamestate_gameEnd #page-title {
-		background: #b32041 !important;
-		background-clip: content-box !important;
+	#maingameview_menuheader,
+	#maingameview_menufooter {
+		border: 1px solid var(--dark-40);
+	}
+
+	#maingameview_menuheader {
+		border-top: none;
+		top: -1px;
+	}
+
+	#player_board_config {
+		background: var(--dark-20);
+	}
+
+	#player_board_config #player_config #help-mode-switch .label {
+		outline: 1px solid var(--light-50);
+	}
+
+	#player_board_config #player_config #help-mode-switch .label .ball {
+		background-color: var(--light-50);
+	}
+
+	#btnConfirm,
+	#btnConfirmChoice {
+		.yellowButton();
+	}
+
+	#btnConfirm:hover,
+	#btnConfirmChoice:hover {
+		.yellowButtonOver();
+	}
+
+	#btnUndoLastStep {
+		.redButton();
+	}
+
+	#btnUndoLastStep:hover {
+		.redButtonOver();
 	}
 
 	#pagemaintitletext span[style*="color:#e50028;"] {
@@ -59,5 +97,25 @@ html[data-theme=dark] {
 
 	span.factionname {
 		background-color: rgba(0, 0, 0, 0) !important;
+	}
+
+	#more-settings {
+		background: var(--dark-10);
+		border-color: var(--light-50);
+		color: var(--light-50);
+	}
+
+	#more-settings:hover {
+		color: var(--light-80);
+	}
+
+	#quick-access {
+		background: var(--dark-back);
+		box-shadow: 1px 1px 2px #888;
+	}
+
+	#scythe-tracks-wrapper,
+	.structure-bonus {
+		filter: var(--ext-bright);
 	}
 }
