@@ -26,6 +26,8 @@
   "optionEloHiddenOff": "Le score ELO des joueurs est affiché dans les jeux en mode 'Partie simple' (comportement par défaut)",
   "optionArenaEloHiddenOn": "Le score ELO des joueurs est caché dans les jeux en mode 'Arène' (comportement par défaut)",
   "optionArenaEloHiddenOff": "Le score ELO des joueurs est affiché dans les jeux en mode 'Arène'",
+  "optionBeginnerStatusHiddenOn": "Le message pour les débutants dans les panneaux de joueur est masqué",
+  "optionBeginnerStatusHiddenOff": "Le message pour les débutants dans les panneaux de joueur est visible",
   "optionLeftMenu": "Naviguer entre les plateaux des joueurs",
   "optionHideLeftBarOptionOn": "La barre verticale permettant de naviguer entre les plateaux des joueurs est désactivée pour tous les jeux",
   "optionHideLeftBarOptionOff": "Une barre verticale permettant de naviguer entre les plateaux des joueurs est ajoutée automatiquement pour les jeux compatibles. Cette barre est désactivable dans les préférences des jeux",
