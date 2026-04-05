@@ -45,6 +45,9 @@
     "typeRoots": [
       "./node_modules/@types"
     ],
+    "types": [
+      "chrome"
+    ]
   },
   // Only include explicit typescript files as other files (.js or .jsx) use mostly using flow
   "include": [

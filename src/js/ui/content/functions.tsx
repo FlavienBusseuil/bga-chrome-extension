@@ -697,6 +697,10 @@ const setEloStyle = (config: Configuration) => {
 	setStyle('bgaext-elo-style', config.getEloStyle());
 };
 
+const setBeginnerStatusStyle = (config: Configuration) => {
+	setStyle('bgaext-beginner-status-style', config.isBeginnerStatusHidden() ? '.doubletime_infos { display: none; }' : '');
+};
+
 export {
 	buildMainCss,
 	initGamesObserver,
@@ -712,6 +716,7 @@ export {
 	initChatIcon,
 	setChatStyle,
 	setEloStyle,
+    setBeginnerStatusStyle,
 	initDarkMode,
 	displayInformationPopup
 };

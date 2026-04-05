@@ -26,6 +26,8 @@
   "optionEloHiddenOff": "Las puntuaciones ELO de los jugadores se muestran en partidas normales (comportamiento predeterminado)",
   "optionArenaEloHiddenOn": "Las puntuaciones ELO de los jugadores están ocultas en partidas de arena (comportamiento predeterminado)",
   "optionArenaEloHiddenOff": "Las puntuaciones ELO de los jugadores se muestran en partidas de arena",
+  "optionBeginnerStatusHiddenOn": "The beginner message in player panels is hidden",
+  "optionBeginnerStatusHiddenOff": "The beginner message in player panels is visible",
   "optionLeftMenu": "Navegar entre los tableros de los jugadores",
   "optionHideLeftBarOptionOn": "La barra vertical para navegar entre tableros de jugadores está desactivada para todos los juegos",
   "optionHideLeftBarOptionOff": "Se añade automáticamente una barra vertical para navegar entre tableros de jugadores en los juegos compatibles. Esta barra se puede desactivar en las preferencias del juego",

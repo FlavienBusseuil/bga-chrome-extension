@@ -4,8 +4,7 @@
     "editor.tabSize": 4,
     "diffEditor.ignoreTrimWhitespace": true,
     "editor.formatOnSave": true,
-    "javascript.preferences.quoteStyle": "double",
-    "typescript.preferences.quoteStyle": "double",
+    "js/ts.preferences.quoteStyle": "double",
     "files.trimTrailingWhitespace": true,
     "files.exclude": {
         "node_modules": true,

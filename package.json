@@ -51,7 +51,7 @@
 		"@parcel/transformer-less": "2.16.4",
 		"@parcel/transformer-typescript-tsc": "2.16.4",
 		"@tailwindcss/cli": "^4.1.17",
-		"@types/chrome": "0.1.37",
+		"@types/chrome": "^0.1.37",
 		"@types/node": "24.10.15",
 		"autoprefixer": "10.4.27",
 		"concurrently": "9.2.1",

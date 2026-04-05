@@ -26,6 +26,8 @@
   "optionEloHiddenOff": "通常のゲームでプレイヤーのELOスコアを表示します（デフォルトの動作）",
   "optionArenaEloHiddenOn": "アリーナゲームモードでプレイヤーのELOスコアを表示しません（デフォルトの動作）",
   "optionArenaEloHiddenOff": "アリーナゲームモードでプレイヤーのELOスコアを表示します",
+  "optionBeginnerStatusHiddenOn": "The beginner message in player panels is hidden",
+  "optionBeginnerStatusHiddenOff": "The beginner message in player panels is visible",
   "optionLeftMenu": "プレイヤーのボード間を移動するメニューの表示",
   "optionHideLeftBarOptionOn": "プレイヤーのボード間を移動するためのメニューは、すべてのゲームで無効化されています",
   "optionHideLeftBarOptionOff": "互換性のあるゲームでは、プレイヤーのボード間を移動するためのメニューが自動的に追加されます。このメニューはゲーム設定で無効化できます。",
