@@ -19,6 +19,7 @@ interface CustomConfig {
 	hideGeneralChat?: boolean;
 	hideElo?: boolean;
 	hideArenaElo?: boolean;
+	hideBeginnerStatus?: boolean;
 	darkMode?: boolean;
 	darkModeColor?: number;
 	darkModeSat?: number;
@@ -656,6 +657,10 @@ class Configuration {
 		return this._customConfig.hideArenaElo !== false;
 	}
 
+    isBeginnerStatusHidden() {
+		return this._customConfig.hideBeginnerStatus === true;
+	}
+
 	setEloHidden(val: boolean) {
 		this._customConfig.hideElo = val;
 		storageSet({ hideElo: val });
@@ -666,6 +671,11 @@ class Configuration {
 		storageSet({ hideArenaElo: val });
 	}
 
+	setBeginnerStatusHidden(val: boolean) {
+		this._customConfig.hideBeginnerStatus = val;
+		storageSet({ hideBeginnerStatus: val });
+	}
+
 	getEloStyle() {
 		let eloStyle = '';
 
@@ -673,8 +683,7 @@ class Configuration {
 			eloStyle += '.player_elo_wrap, #game_result .adddetails, #table_stats .row-data:has(> .row-value > .gamerank) { display: none; } '
 		}
 
-		const showArenaElo = !this.isArenaEloHidden();
-		if (showArenaElo) {
+		if (!this.isArenaEloHidden()) {
 			eloStyle += '.arena_mode .player_elo_wrap { visibility: visible; display: inline; } '
 		}
 

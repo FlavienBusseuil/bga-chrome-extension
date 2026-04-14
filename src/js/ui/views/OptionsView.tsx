@@ -26,6 +26,7 @@ export const OptionsView = ({ config, onChange }: Props) => {
   const [autoClickStart, setAutoClickStart] = useSyncedState('autoClickStart', config.autoClickStart());
   const [eloHidden, setEloHidden] = useSyncedState('eloHidden', config.isEloHidden());
   const [arenaEloHidden, setArenaEloHidden] = useSyncedState('arenaEloHidden', config.isArenaEloHidden());
+  const [beginnerStatusHidden, setBeginnerStatusHidden] = useSyncedState('beginnerStatusHidden', config.isBeginnerStatusHidden());
   const [tracking, setTracking] = useSyncedState('tracking', config.isTrackingEnable());
   const [soundNotification, setSoundNotification] = useSyncedState('soundNotification', config.isSoundNotificationEnable());
   const [customSoundFile, setCustomSoundFile] = useSyncedState('customSoundFile', isSoundCustom());
@@ -111,6 +112,11 @@ export const OptionsView = ({ config, onChange }: Props) => {
   const updateArenaEloHidden = (val: boolean) => {
     setArenaEloHidden(!val);
     config.setArenaEloHidden(!val)
+  };
+  
+  const updateBeginnerStatusHidden = (val: boolean) => {
+    setBeginnerStatusHidden(!val);
+    config.setBeginnerStatusHidden(!val)
   };
 
   const updateAnimatedTitle = (val: boolean) => {
@@ -418,6 +424,7 @@ export const OptionsView = ({ config, onChange }: Props) => {
           {getSwitch(onlineMessages, updateOnlineMessages, "optionFriendsActivityOn", "optionFriendsActivityOff")}
           {getSwitch(!eloHidden, updateEloHidden, "optionEloHiddenOff", "optionEloHiddenOn")}
           {getSwitch(!arenaEloHidden, updateArenaEloHidden, "optionArenaEloHiddenOff", "optionArenaEloHiddenOn")}
+          {getSwitch(!beginnerStatusHidden, updateBeginnerStatusHidden, "optionBeginnerStatusHiddenOff", "optionBeginnerStatusHiddenOn")}
           {desktopVersion && getSwitch(chatBarAutoHide, updateChatBarAutoHide, "optionsChatAutoHideOn", "optionsChatAutoHideOff")}
           {getSwitch(areLogTimestampsHidden, updateAreLogTimestampsRemoved, "optionRemoveLogTimestampsOn", "optionRemoveLogTimestampsOff")}
           {getSwitch(!hideLeftBarOption, updateHideLeftBarOption, "optionHideLeftBarOptionOff", "optionHideLeftBarOptionOn")}
