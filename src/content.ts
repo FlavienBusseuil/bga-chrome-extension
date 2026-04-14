@@ -20,7 +20,7 @@ import {
 	initChatIcon,
 	setChatStyle,
 	setEloStyle,
-    setBeginnerStatusStyle,
+	setBeginnerStatusStyle,
 	initDarkMode,
 	refreshMutedPlayers,
 	displayInformationPopup
@@ -394,8 +394,8 @@ document.addEventListener('bga_ext_update_config', (data) => {
 	} else if (key === 'hideElo' || key === 'hideArenaElo') {
 		setEloStyle(config);
 	} else if (key === 'hideBeginnerStatus') {
-        setBeginnerStatusStyle(config);
-    } else if (key === 'muted') {
+		setBeginnerStatusStyle(config);
+	} else if (key === 'muted') {
 		refreshMutedPlayers(config);
 	} else if (key === 'solidBack') {
 		location.reload();
