@@ -1,0 +1,43 @@
+html[data-theme=dark] {
+	.twr-card-overlay {
+		background: #272a2ff2;
+	}
+
+	.twr-card-overlay {
+		text-shadow: none;
+	}
+
+	.twr-card-overlay h4,
+	.twr-card-overlay h5 {
+		color: var(--light-50);
+	}
+
+	.twr-icon {
+		filter: invert(1);
+	}
+
+	.twr-icon.twr-icon-die {
+		filter: none;
+	}
+
+	.twr-diceGroup {
+		background: #66005266;
+	}
+
+	.twr-cardStats-bribe.twr-stat-decreased,
+	.twr-cardStats-reward.twr-stat-decreased,
+	.twr-stat-increased {
+		color: var(--red-80);
+	}
+
+	.log_replayable,
+	.player-board,
+	.roundedbox:not(#page-title) {
+		background-color: var(--dark-back);
+	}
+
+	.twr-card .twr-card-face,
+	.twr-die-3d-wrapper {
+		filter: var(--ext-bright);
+	}
+}
