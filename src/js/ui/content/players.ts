@@ -96,7 +96,7 @@ export const getPlayersPossibleColors = (gameName: string) => {
       const darkConfig = getColorForDarkMode(color);
 
       return {
-        id: 0,
+        id: '0',
         name: '',
         avatar: '',
         color,

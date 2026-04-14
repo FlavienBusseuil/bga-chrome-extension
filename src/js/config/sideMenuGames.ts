@@ -1755,6 +1755,34 @@ const defaultGames: Partial<Game>[] = [
 		name: "stabletimes",
 		playerPanel: "playername-{{player_id}}",
 	},
+	{
+		name: "wondrouscreatures",
+		playerPanel: "wc-player-area-{{player_id}}",
+		boardPanel: "wc-display-area-wrapper",
+		boardPanelText: "#bga-jump-to_wc-wilderness-area .bga-jump-to_label",
+		css: "#bga-jump-to_controls { display: none; } .desktop_version #game_play_area { padding-left: 50px; }",
+		iconBackgroundDark: "#1e3448",
+		iconShadowDark: "#777",
+	},
+	{
+		name: "spookytower",
+		playerPanel: "player_board_{{player_id}}",
+		iconBackgroundDark: "var(--dark-40)",
+		iconBackground: "#60c2cb",
+		iconColor: "#fff",
+	},
+	{
+		name: "diggingfordinos",
+		playerPanel: "player-table-{{player_id}}",
+		iconBackgroundDark: "#744625",
+		css: "#bga-jump-to_controls { display: none; }",
+	},
+	{
+		name: "seashells",
+		playerPanel: "player-table-{{player_id}}",
+		iconBackgroundDark: "#007399",
+		iconBackground: "#3cf",
+	},
 ];
 
 export default defaultGames;

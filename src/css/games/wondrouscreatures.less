@@ -1,0 +1,22 @@
+#wc-display-area-wrapper #wc-score-track-wrapper #wc-trophies-and-eggs #wc-trophies .bga-cards_deck-counter:before {
+	white-space: nowrap;
+	padding-right: 0.2em;
+}
+
+html[data-theme=dark] {
+
+	.wc-icon,
+	.player_score .fa.fa-star {
+		filter: var(--highlight-min);
+	}
+
+	#wc-trophies .bga-cards_deck-counter.round {
+		background: var(--dark-20);
+		box-shadow: 0 0 2px 1px var(--light-70);
+		color: var(--light-80);
+	}
+
+	.card .card-sides .card-side {
+		filter: var(--ext-bright);
+	}
+}

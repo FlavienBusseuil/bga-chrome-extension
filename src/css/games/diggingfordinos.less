@@ -1,0 +1,39 @@
+html[data-theme=dark].vgincLib_thematic_background_on:before {
+	filter: brightness(0.5);
+}
+
+html[data-theme=dark] {
+	.player-board-game-specific-content {
+		filter: var(--highlight-min);
+	}
+
+	#paleontologists-tokens-to-place {
+		background-color: var(--dark-back);
+		color: var(--light-80);
+	}
+
+	.player-token {
+		color: var(--light-80);
+	}
+
+	.player-token.player-help {
+		filter: invert(1) hue-rotate(120deg);
+	}
+
+	.vgincLib_tooltipBody.tooltipDinoCollection {
+		background-color: var(--dark-30);
+	}
+
+	.card-stock.deck[data-empty=true] {
+		background: var(--dark-back);
+	}
+
+	.bga-cards_card>.bga-cards_card-sides>.bga-cards_card-side {
+		box-shadow: none;
+		filter: var(--drop-shadow);
+	}
+
+	.player-table {
+		background-color: var(--dark-back);
+	}
+}

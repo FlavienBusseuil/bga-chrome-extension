@@ -284,6 +284,7 @@ const _applyDarkStyleForGame = () => {
       return rule.replace('{{player_id}}', d.id.toString())
         .replace('{{player_index}}', i.toString())
         .replace('{{player_color}}', d.color.substring(1))
+        .replace('{{player_color_cap}}', d.color.substring(1).toUpperCase())
         .replace("{{player_color_rgb}}", toRgb(d.color))
         .replace('{{player_index_1}}', (i + 1).toString());
     }
