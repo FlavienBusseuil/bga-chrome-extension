@@ -1,14 +1,8 @@
 @import "./common";
 
 html[data-theme=dark] {
-	#overall-content[style^="background"]:before {
-		content: "";
-		background: #000000C0;
-		position: absolute;
-		width: 100%;
-		height: 100%;
-		top: 0px;
-		left: 0px;
+	#overall-content[style*="background"] {
+		background: #474c01 !important;
 	}
 
 	#overall-content {
@@ -17,5 +11,10 @@ html[data-theme=dark] {
 
 	#deck_counter {
 		color: #000;
+	}
+
+	.card,
+	.card_back {
+		filter: var(--ext-bright);
 	}
 }

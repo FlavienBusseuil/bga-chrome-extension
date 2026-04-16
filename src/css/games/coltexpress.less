@@ -19,9 +19,21 @@ html[data-theme=dark] {
 
 	#backgroundPicture:before {
 		content: "";
-		background: #00000080;
+		background: var(--ext-alpha);
 		position: absolute;
 		width: 100%;
 		height: 100%;
+	}
+
+	.decor,
+	.card,
+	.loot,
+	.pawn,
+	.roundcard,
+	.stockitem,
+	.cloud,
+	#playerDeck,
+	#foreground {
+		filter: var(--ext-bright);
 	}
 }

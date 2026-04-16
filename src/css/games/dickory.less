@@ -1,14 +1,16 @@
 @import "./common";
 
 html[data-theme=dark] {
-	#overall-content[style^="background"]:before {
-		content: "";
-		background: #00000080;
-		position: absolute;
-		width: 100%;
-		height: 100%;
-		top: 0px;
-		left: 0px;
+	--ext-overlay-color: #0004;
+
+	.bgaext_overlay {
+		filter: grayscale(0.5) brightness(0.7);
+		background: var(--gameBack) !important;
+		display: none;
+	}
+
+	#overall-content[style*="dickory"] .bgaext_overlay {
+		display: block;
 	}
 
 	.playertablename {

@@ -46,6 +46,7 @@
   --drop-shadow: drop-shadow(2px 2px 1px #000) drop-shadow(0 0 2px #fff);
 
   --ext-bright: brightness(0.9);
+  --ext-alpha: #00000019;
 }
 
 .bgabutton_red {
@@ -81,11 +82,13 @@
   background: linear-gradient(180deg, #06ea87, #24895d) !important;
 }
 
-.bga-button--purple:not(.disabled):not(:disabled) {
+.bga-button--purple:not(.disabled):not(:disabled),
+.bgabutton_purple:not(.disabled):not(:disabled) {
   background: linear-gradient(180deg, #9a0bb7, #782489) !important;
 }
 
 .bga-button--purple:not(.disabled):not(:disabled):hover,
+.bgabutton_purple:not(.disabled):not(:disabled):hover,
 .notouch-device .bga-button--purple:not(.disabled):not(:disabled):hover {
   background: linear-gradient(180deg, #c406ea, #782489) !important;
 }

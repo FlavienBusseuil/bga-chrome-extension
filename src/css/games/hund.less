@@ -1,7 +1,19 @@
 @import "./common";
 
 html[data-theme=dark] {
-	#overall-content[style^="background"]:before {
+
+	#page-title,
+	#maingameview_menuheader,
+	#maingameview_menufooter {
+		border: 1px solid var(--dark-40);
+	}
+
+	#maingameview_menuheader {
+		border-top: none;
+		top: -1px;
+	}
+
+	#overall-content[style*="hund"]:before {
 		content: "";
 		background: #00000080;
 		position: absolute;
@@ -13,5 +25,11 @@ html[data-theme=dark] {
 	.player-name,
 	.player_score_value {
 		text-shadow: none !important;
+	}
+
+	#pagesection_gameview .whiteblock,
+	#table-decision,
+	#neutralized_game_panel {
+		outline: 1px solid var(--dark-40);
 	}
 }

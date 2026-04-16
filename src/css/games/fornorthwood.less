@@ -1,7 +1,7 @@
 @import "./common";
 
 html[data-theme=dark] {
-	#overall-content[style^="background"]:before {
+	#overall-content[style*="background"]:before {
 		content: "";
 		background: #000000A0;
 		position: absolute;
@@ -31,5 +31,9 @@ html[data-theme=dark] {
 
 	.visiting_space.currently_visiting:after {
 		filter: saturate(3);
+	}
+
+	.card {
+		color: #000;
 	}
 }

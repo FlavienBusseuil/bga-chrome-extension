@@ -16,11 +16,24 @@ html[data-theme=dark] {
 	.cob_player_board:before,
 	#main_board:before {
 		content: "";
-		background: #00000050;
+		background: var(--ext-alpha);
 		position: absolute;
 		width: 100%;
 		height: 100%;
 		top: 0px;
 		left: 0px;
+	}
+
+	.bonus_tile,
+	.tile,
+	.cob_space:empty,
+	.estSpaceBg,
+	.goods,
+	.cob_die,
+	.plBoardCounters,
+	.ah_onBoard,
+	.help_mboard_button,
+	#help_mboard {
+		filter: var(--ext-bright);
 	}
 }

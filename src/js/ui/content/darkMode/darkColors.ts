@@ -19,8 +19,12 @@ const changeDarkColors = (hue: number, saturation: number) => {
 const changeDarkBrightness = (val: number) => {
   if (val === 90) {
     document.body.style.removeProperty("--ext-bright");
+    document.body.style.removeProperty("--ext-alpha");
   } else {
-    document.body.style.setProperty("--ext-bright", `brightness(${val / 100})`);
+    const brightness = val / 100;
+    const alpha = Math.round((1 - brightness) * 255).toString(16).padStart(2, '0').toUpperCase();
+    document.body.style.setProperty("--ext-bright", `brightness(${brightness})`);
+    document.body.style.setProperty("--ext-alpha", `#000000${alpha}`);
   }
 };
 

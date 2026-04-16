@@ -27,7 +27,7 @@ html[data-theme=dark] {
 		left: 0px;
 		width: 100%;
 		height: 100%;
-		background-color: #0003;
+		background-color: var(--ext-alpha);
 	}
 
 	.ebl-reference-card {
@@ -49,5 +49,14 @@ html[data-theme=dark] {
 
 	.ebl-fellowship-img {
 		filter: var(--highlight);
+	}
+
+	.ebl-game-area .bga-cards_card>.bga-cards_card-sides>.bga-cards_card-side {
+		filter: var(--drop-shadow) var(--ext-bright);
+	}
+
+	.ebl-disc,
+	.ebl-trophy-tile {
+		filter: var(--ext-bright);
 	}
 }

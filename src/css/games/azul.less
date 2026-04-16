@@ -1,7 +1,25 @@
 @import "./common";
 
-html[data-theme=dark]:not(.background2) #overall-content {
-	--ext-overall-color: #000000A0;
+html[data-theme=dark]:not(.background2) {
+	--ext-overlay-color: #0002;
+
+	.bgaext_overlay {
+		background: var(--back-classic) !important;
+	}
+}
+
+html[data-theme=dark].background2 .bgaext_overlay {
+	background: var(--back-classic-dark) !important;
+	filter: none;
+}
+
+html[data-theme=dark][data-chocolatier-skin=true]:not(.background2) .bgaext_overlay {
+	background: var(--back-chocolatier) !important;
+}
+
+html[data-theme=dark][data-chocolatier-skin=true].background2 .bgaext_overlay {
+	background: var(--back-chocolatier-dark) !important;
+	filter: none;
 }
 
 html[data-theme=dark] {
@@ -20,7 +38,7 @@ html[data-theme=dark] {
 
 	.player-table-wrapper .player-table:before {
 		content: "";
-		background: #00000060;
+		background: var(--ext-alpha);
 		position: absolute;
 		width: 100%;
 		height: 100%;

@@ -134,7 +134,7 @@ const _getDarkColorsStyle = (playersData: PlayerData[]) => {
 
   const playerColorsCss = playersData.map(p => {
     if (p.darkEnlight) {
-      return `.ext_player_${p.id} { color: ${p.color} !important; text-shadow: var(--text-w-shadow); }`;
+      return `.ext_player_${p.id} { color: ${p.color} !important; text-shadow: var(--text-w-shadow)!important; }`;
     }
     return `.ext_player_${p.id} { color: ${p.darkColor || p.color} !important; }`;
   }).join(" ");

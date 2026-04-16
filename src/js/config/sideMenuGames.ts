@@ -989,6 +989,7 @@ const defaultGames: Partial<Game>[] = [
 		name: "heat",
 		playerPanel: "player-table-{{player_id}}",
 		bottomPanel: "legend-table",
+		iconBackgroundDark: "#663d00",
 		css: "#bga-jump-to_controls { display: none; } .desktop_version #game_play_area { padding-left: 50px; }",
 	},
 	{

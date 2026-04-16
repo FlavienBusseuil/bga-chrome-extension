@@ -1,22 +1,20 @@
 @import "./common";
 
 html[data-theme=dark] {
-	#overall-content[style^="background-image"]:before {
-		content: "";
-		background: #000000A0;
-		position: absolute;
-		width: 100%;
-		height: 100%;
-		top: 0px;
-		left: 0px;
+	--ext-overlay-color: #0007;
+
+	.bgaext_overlay {
+		filter: grayscale(0.5) brightness(0.7);
+		background: var(--gameBack) !important;
+		display: none;
+	}
+
+	#overall-content[style*="dungeonrummy"] .bgaext_overlay {
+		display: block;
 	}
 
 	#overall-content {
-		color: #fff;
-	}
-
-	.cardspace {
-		filter: var(--ext-bright);
+		color: var(--light-70);
 	}
 
 	#misfit_line {
@@ -24,7 +22,7 @@ html[data-theme=dark] {
 	}
 
 	#toggle_trash_compress {
-		color: var(--blue-10);
+		color: var(--blue-50);
 	}
 
 	.bgabutton_blue[style="background: green; border-color: green;"] {
@@ -41,5 +39,20 @@ html[data-theme=dark] {
 
 	.bgabutton_blue:not(.disabled)[style="background: darkgoldenrod; border-color: darkgoldenrod;"]:hover {
 		.yellowButtonOver();
+	}
+
+	.playertablename,
+	.player-name {
+		text-shadow: none !important;
+	}
+
+	#monster_deck,
+	.monster,
+	.hero,
+	.stockitem,
+	.card,
+	.card_back,
+	.iconspace {
+		filter: var(--ext-bright);
 	}
 }
