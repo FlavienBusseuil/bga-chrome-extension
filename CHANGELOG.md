@@ -1,5 +1,13 @@
 # Changelog
 
+## [v1.12.58](https://github.com/FlavienBusseuil/bga-chrome-extension/tree/v1.12.58) (2026-04-14)
+
+[Full Changelog](https://github.com/FlavienBusseuil/bga-chrome-extension/compare/v1.12.57...v1.12.58)
+
+**Merged pull requests:**
+
+- Option to hide beginner status message in player panels [\#142](https://github.com/FlavienBusseuil/bga-chrome-extension/pull/142) ([nalka0](https://github.com/nalka0))
+
 ## [v1.12.57](https://github.com/FlavienBusseuil/bga-chrome-extension/tree/v1.12.57) (2026-04-02)
 
 [Full Changelog](https://github.com/FlavienBusseuil/bga-chrome-extension/compare/v1.12.56...v1.12.57)
