@@ -447,12 +447,13 @@ const initGamesObserver = (config: Configuration, gameName: string) => {
 
 					if (backButton && backButton.parentNode) {
 						// remove all listeners :
-						const newButton = backButton.cloneNode(true) as HTMLLinkElement;
+						const newButton = backButton.cloneNode(true) as HTMLAnchorElement;
 						newButton.id = "backMetasite_btn_ext";
 						backButton.parentNode.replaceChild(newButton, backButton);
 						// add new href
 						newButton.href = `${bgaUrl}/lobby`;
-						newButton.addEventListener("click", () => window.location.href = newButton.href);
+						newButton.target = "_parent";
+						newButton.addEventListener("click", () => window.parent.location.href = newButton.href);
 					}
 				}
 
@@ -460,12 +461,13 @@ const initGamesObserver = (config: Configuration, gameName: string) => {
 					const replayButton = actionsContainer.querySelector('#createNew_btn');
 					if (replayButton && replayButton.parentNode) {
 						// remove all listeners :
-						const newButton = replayButton.cloneNode(true) as HTMLLinkElement;
+						const newButton = replayButton.cloneNode(true) as HTMLAnchorElement;
 						newButton.id = "createNew_btn_ext";
 						replayButton.parentNode.replaceChild(newButton, replayButton);
 						// add new href
 						newButton.href = `${bgaUrl}/gamepanel?game=${gameName}`;
-						newButton.addEventListener("click", () => window.location.href = newButton.href);
+						newButton.target = "_parent";
+						newButton.addEventListener("click", () => window.parent.location.href = newButton.href);
 					}
 				}
 			};
@@ -716,7 +718,7 @@ export {
 	initChatIcon,
 	setChatStyle,
 	setEloStyle,
-    setBeginnerStatusStyle,
+	setBeginnerStatusStyle,
 	initDarkMode,
 	displayInformationPopup
 };
