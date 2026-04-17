@@ -16,11 +16,16 @@ html[data-theme=dark] {
 		background-color: var(--dark-20);
 	}
 
-	.show_overlay #overlay:before {
+	#overlay:before {
 		content: "";
-		background: #00000020;
+		background: var(--ext-alpha);
 		position: absolute;
 		width: 100%;
 		height: 100%;
+	}
+
+	.tile,
+	.leader {
+		filter: var(--ext-bright);
 	}
 }

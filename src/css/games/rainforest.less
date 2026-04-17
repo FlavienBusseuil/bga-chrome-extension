@@ -18,6 +18,10 @@ html[data-theme=dark] {
 		border: 0.3vw dashed #898989;
 	}
 
+	.playerZone {
+		background: var(--dark-back);
+	}
+
 	#mainBoard:before {
 		position: absolute;
 		top: 0px;
@@ -27,7 +31,7 @@ html[data-theme=dark] {
 		border: 1px solid var(--dark-10);
 		box-sizing: border-box;
 		content: "";
-		background: #00000040;
+		background: var(--ext-alpha);
 	}
 
 	.largePlayerBoard,
@@ -35,7 +39,9 @@ html[data-theme=dark] {
 		filter: var(--ext-bright);
 	}
 
-	.tile {
+	.species,
+	.tile,
+	.token {
 		filter: drop-shadow(.1vw .1vw .1vw black) var(--ext-bright);
 	}
 }

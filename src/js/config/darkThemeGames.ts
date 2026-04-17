@@ -291,7 +291,6 @@ export const gamesWithCustomBackground = [
   'super',
   'symbiose',
   'tacta',
-  'tagteam',
   'takenokolor',
   'tallyup',
   'talon',
@@ -314,6 +313,7 @@ export const gamesWithCustomBackground = [
   'tikal',
   'tinyturbocars',
   'tirnanog',
+  'tiwanaku',
   'towerup',
   'toybattle',
   'trailblazers',
@@ -435,24 +435,32 @@ export const gamesWithOverlay: Record<string, string> = {
   nextstationparis: '',
   nextstationtokyo: '',
   nirds: '',
+  nylonppong: '',
   pandaspin: '',
+  parklife: '',
   pergola: '',
   pilipili: '',
   pinacoladice: '',
   piratesunderfire: '',
   postcards: '',
+  powervacuum: '',
   quiltable: '',
   ratsofwistar: '',
   rednotice: '',
   reforest: '',
+  sail: '',
+  sakura: '',
   scratchandcatch: '',
   sevenwondersdice: '',
+  sfynx: '',
   spiritsoftheforest: 'spiritsoftheforest_background',
   superstore: 'player-board ext-overlay',
   tacta: '',
+  tagteam: '',
   tallyup: '',
   tapestry: '',
   thehanginggardens: '',
+  thefoxintheforest: '',
   tirnanog: '',
   toybattle: '',
   towerup: '',
@@ -581,6 +589,7 @@ export const playersBackground: { [gameName: GameName]: string[] } = {
   qwinto: ['#qwinto-player-board-background-{{player_id}} .qwinto_name_tag'],
   reefgardens: ['#playerBoard[data-p-id="{{player_id}}"] #title', '#playerBoard[data-p-id="{{player_id}}"] #shells'],
   reforest: ['#re-player-area-{{player_id}} .re-player-area-name'],
+  rttaironage: ['[style="background-color: {{player_color_rgb}};"]'],
   spirited: ['#sp-player-area-{{player_id}} .sp-player-area-name-spacer'],
   spookytower: ['#player_{{player_id}}_label'],
   thegreatamericanfoxhunt: ['#TGAFH_player_{{player_id}}'],
@@ -620,6 +629,7 @@ export const playersBorder: { [gameName: GameName]: string[] } = {
   pixies: ['#player-table-{{player_id}}'],
   pleasedontburnmyvillage: ['.tableau-container[data-player-id="{{player_id}}"]'],
   qwinto: ['#qwinto-player-board-background-{{player_id}}'],
+  rainforest: ['#playerZone_{{player_id}}'],
   refuge: ['#player-table-{{player_id}}'],
   riverofgold: ['#rog_player_delivered_resizable-{{player_id}}'],
   rumbleplanet: ['#player-table-{{player_id}}'],
@@ -665,6 +675,7 @@ export const playersTextColor: { [gameName: GameName]: string[] } = {
   legions: ['#player-table-{{player_id}} .name-wrapper .name'],
   mastersofrenaissance: ['.name[id="{{player_id}}"]'],
   pleasedontburnmyvillage: ['.tableau-container[data-player-id="{{player_id}}"] .player-tableau-title'],
+  rainforest: ['#playerZone_{{player_id}} p'],
   roadtothreehoundred: ['#rt300_plname_{{player_id}}'],
   rowdypartners: ['[style="--player-color: #{{player_color}};"]'],
   seashells: ['strong[data-color="{{player_color}}"]'],
@@ -891,6 +902,15 @@ export const gamesWithCustomActions: GamesWithCustomActions = {
     init: (cssPath: string) => {
       document.body.style.setProperty("--back-paris", `url(${cssPath}img/bg_paris.jpg)`);
       document.body.style.setProperty("--back-tokyo", `url(${cssPath}img/bg_tokyo.jpg)`);
+    }
+  },
+  tagteam: {
+    init: (cssPath: string) => {
+      document.body.style.setProperty("--back-2", `url(${cssPath}img/backgrounds/tt-bg-blue.jpg)`);
+      document.body.style.setProperty("--back-3", `url(${cssPath}img/backgrounds/tt-bg-green.jpg)`);
+      document.body.style.setProperty("--back-4", `url(${cssPath}img/backgrounds/tt-bg-purple.jpg)`);
+      document.body.style.setProperty("--back-5", `url(${cssPath}img/backgrounds/tt-bg-red.jpg)`);
+      document.body.style.setProperty("--back-6", `url(${cssPath}img/backgrounds/tt-bg-yellow.jpg)`);
     }
   }
 };

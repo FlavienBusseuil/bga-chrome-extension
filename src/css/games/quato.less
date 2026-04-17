@@ -5,15 +5,54 @@ html[data-theme=dark] {
 		text-shadow: none;
 	}
 
-	.cardspace {
-		color: #000;
-	}
-
-	#overall-content[style="background: linear-gradient(90deg, rgb(224, 80, 32) 0%, rgb(255, 144, 96) 25%, rgb(255, 144, 96) 75%, rgb(224, 80, 32) 100%);"]:before {
+	#overall-content[style*="background"]:before {
 		content: "";
 		background: var(--dark-back);
 		position: absolute;
 		width: 100%;
 		height: 100%;
+	}
+
+	#pagesection_gameview {
+		.whiteblock.playertable_ff0000 {
+			background-color: #ff000055;
+		}
+
+		.whiteblock.playertable_008000 {
+			background-color: #00800055;
+		}
+
+		.whiteblock.playertable_0000ff {
+			background-color: #0000ff55;
+		}
+
+		.whiteblock.playertable_982fff {
+			background-color: #982fff55;
+		}
+
+		.whiteblock.playertable_7b7b7b {
+			background-color: #7b7b7b55;
+		}
+	}
+
+	.playertablename {
+		text-shadow: none;
+	}
+
+	#player_boards .player-name {
+		text-shadow: none !important;
+	}
+
+	[style^="color:#0000ff;"] {
+		color: var(--blue-50) !important;
+	}
+
+	.cardspace {
+		color: #000;
+	}
+
+	.card,
+	.card_back {
+		filter: var(--ext-bright);
 	}
 }

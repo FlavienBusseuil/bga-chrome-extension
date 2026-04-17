@@ -1,5 +1,33 @@
+html[data-theme=dark][data-background-type="1"] .bgaext_overlay {
+	display: none;
+}
+
+html[data-theme=dark][data-background-type="2"] .bgaext_overlay {
+	background-image: var(--back-2) !important;
+}
+
+html[data-theme=dark][data-background-type="3"] .bgaext_overlay {
+	background-image: var(--back-3) !important;
+}
+
+html[data-theme=dark][data-background-type="4"] .bgaext_overlay {
+	background-image: var(--back-4) !important;
+}
+
+html[data-theme=dark][data-background-type="5"] .bgaext_overlay {
+	background-image: var(--back-5) !important;
+}
+
+html[data-theme=dark][data-background-type="6"] .bgaext_overlay {
+	background-image: var(--back-6) !important;
+}
+
 html[data-theme=dark] {
-	--ext-overall-color: #00000040;
+	--ext-overlay-color: #fff8;
+
+	.bgaext_overlay {
+		background-size: 100% !important;
+	}
 
 	#jj-zoom-controls {
 		background: var(--dark-10);
@@ -16,7 +44,7 @@ html[data-theme=dark] {
 	#tt-build-deck .tt-build-deck-decks .tt-build-deck-player-wrapper:before,
 	#tt-fight-review .tt-fight-review-row .tt-fight-review-player-wrapper:before {
 		content: "";
-		background: #00000060;
+		background: var(--ext-alpha);
 		position: absolute;
 		width: 100%;
 		height: 100%;
@@ -35,6 +63,10 @@ html[data-theme=dark] {
 		color: var(--light-80);
 	}
 
+	#tt-fight-review .tt-fight-review-row .tt-fight-info-container {
+		color: var(--light-70);
+	}
+
 	.tt-player-panel-fighters-wrapper .tt-player-panel-fighter-wrapper {
 		background-color: var(--dark-40);
 	}
@@ -42,5 +74,10 @@ html[data-theme=dark] {
 	#tt-fight-review .tt-fight-review-row #tt-fight-review-log {
 		background: var(--dark-back-50);
 		color: var(--light-80);
+		outline: 1px solid var(--dark-40);
+	}
+
+	.card {
+		filter: var(--ext-bright);
 	}
 }

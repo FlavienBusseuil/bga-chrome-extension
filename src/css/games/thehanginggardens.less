@@ -1,11 +1,11 @@
 @import "./common";
 
 html[data-theme=dark] {
-	--ext-overlay-color: #00000020;
+	--ext-overlay-color: #0003;
 
 	#board_assembly>div:before {
 		content: "";
-		background: #00000020;
+		background: var(--ext-alpha);
 		position: absolute;
 		width: 100%;
 		height: 100%;
@@ -42,5 +42,22 @@ html[data-theme=dark] {
 
 	#ebd-body.scoring #mainboard .board_assembly_middle {
 		background: var(--dark-40);
+	}
+
+	.player_pyramid .pyramid_content .pyramid_section .pyramid_spot {
+		background: var(--dark-back);
+	}
+
+	#mainboard .board_assembly_middle .embellish_counter,
+	.garden_card,
+	.automa_card,
+	.irrigation_card,
+	.objective,
+	.embellishment {
+		filter: var(--ext-bright);
+	}
+
+	.token.gardener {
+		filter: var(--ext-bright) var(--highlight-min);
 	}
 }

@@ -5,7 +5,7 @@ html[data-theme=dark] {
 	#game_board:before,
 	.faction_board:before {
 		content: "";
-		background: #0000001a;
+		background: var(--ext-alpha);
 		position: absolute;
 		width: 100%;
 		height: 100%;
@@ -30,7 +30,20 @@ html[data-theme=dark] {
 		text-shadow: none;
 	}
 
-	#actions_overview {
+	.bridge {
+		border-radius: 50%;
+	}
+
+	#actions_overview,
+	.bonus_card,
+	.structure,
+	.track_token,
+	.power_token,
+	.terrain_tile,
+	.town_tile,
+	.bridge,
+	#scoring_endofgame,
+	.scoring_tile_holder {
 		filter: var(--ext-bright);
 	}
 }

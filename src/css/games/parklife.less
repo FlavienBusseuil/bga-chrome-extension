@@ -1,13 +1,28 @@
 @import "./common";
 
 html[data-theme=dark] {
-	#overall-content[style^="background"]:before {
-		content: "";
-		background: #000000A0;
-		position: absolute;
-		width: 100%;
-		height: 100%;
-		top: 0px;
-		left: 0px;
+	--ext-overlay-color: #0002;
+
+	.bgaext_overlay {
+		background: linear-gradient(90deg, rgb(202, 174, 142) 0%, rgb(241, 223, 203) 20%, rgb(255, 239, 223) 33%, rgb(255, 239, 223) 66%, rgb(241, 223, 203) 80%, rgb(202, 174, 142) 100%) 0% 0% / auto repeat scroll padding-box border-box rgba(0, 0, 0, 0) !important;
+	}
+
+	#overall-content[style*="background: unset"] .bgaext_overlay {
+		display: none;
+	}
+
+	#page-title,
+	#maingameview_menuheader,
+	#maingameview_menufooter {
+		border: 1px solid var(--dark-40);
+	}
+
+	#maingameview_menuheader {
+		border-top: none;
+		top: -1px;
+	}
+
+	.whiteblock {
+		outline: 1px solid var(--dark-40);
 	}
 }

@@ -607,7 +607,7 @@ const defaultGames: Partial<Game>[] = [
 	},
 	{
 		name: "rainforest",
-		playerPanel: "playerPanel_{{player_id}}",
+		playerPanel: "playerZone_{{player_id}}",
 	},
 	{
 		name: "homesteaders",
