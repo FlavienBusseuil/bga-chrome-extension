@@ -241,7 +241,11 @@ const _setDarkStyleIfActivated = () => {
       const cssPath = _getCssPath(`${gameName}.css`);
       console.debug(`[bga extension] ${gameName} css path is '${cssPath}'`);
 
-      hasCustomAction && customActions!.init(cssPath);
+      if (hasCustomAction) {
+        customActions!.init(cssPath);
+      } else {
+        document.body.style.setProperty("--ext-game-back", `url(${cssPath}img/background.jpg)`);
+      }
       hasOverlay && _addInvertOverlay(gamesWithOverlay[gameName]!, cssPath)
     }
 

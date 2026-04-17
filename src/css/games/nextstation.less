@@ -1,14 +1,14 @@
 @import "./common";
 
 html[data-theme=dark] {
-	#ebd-body:before {
-		content: "";
-		background: var(--dark-back);
-		position: fixed;
-		width: 100%;
-		height: 100%;
-		top: 0px;
-		left: 0px
+	--ext-overlay-color: #0004;
+
+	#ebd-body.nexmap-tokyo .bgaext_overlay {
+		background-image: var(--back-tokyo) !important;
+	}
+
+	#ebd-body.nexmap-paris .bgaext_overlay {
+		background-image: var(--back-paris) !important;
 	}
 
 	.nex_scorepad {

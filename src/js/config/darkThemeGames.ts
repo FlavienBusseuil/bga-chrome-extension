@@ -161,6 +161,7 @@ export const gamesWithCustomBackground = [
   'lineit',
   'livingforestduel',
   'locomomo',
+  'lorenzo',
   'lostexplorers',
   'lostseas',
   'loveletter',
@@ -418,13 +419,21 @@ export const gamesWithOverlay: Record<string, string> = {
   heat: '',
   ink: '',
   iye: '',
+  lamarcheducrabe: '',
   legions: '',
+  lepidoptery: '',
+  lorenzo: '',
   loveletter: '',
+  lunar: '',
+  lure: '',
   luz: '',
   malabares: '',
   mollyhouse: '',
   monstertrick: '',
   moversandshakers: '',
+  nextstation: '',
+  nextstationparis: '',
+  nextstationtokyo: '',
   nirds: '',
   pandaspin: '',
   pergola: '',
@@ -824,17 +833,12 @@ export const gamesWithCustomActions: GamesWithCustomActions = {
   },
   reforest: {
     init: (cssPath: string) => {
-      document.body.style.setProperty("--gameBack", `url(${cssPath}img/re-background-light.jpg)`);
-    }
-  },
-  postcards: {
-    init: (cssPath: string) => {
-      document.body.style.setProperty("--gameBack", `url(${cssPath}img/background.jpg)`);
+      document.body.style.setProperty("--ext-game-back", `url(${cssPath}img/re-background-light.jpg)`);
     }
   },
   ghostsgalore: {
     init: (cssPath: string) => {
-      document.body.style.setProperty("--gameBack", `url(${cssPath}img/bg.jpg)`);
+      document.body.style.setProperty("--ext-game-back", `url(${cssPath}img/bg.jpg)`);
     }
   },
   minirogue: {
@@ -877,34 +881,16 @@ export const gamesWithCustomActions: GamesWithCustomActions = {
       document.body.style.setProperty("--back-chocolatier-dark", `url(${cssPath}img/chocolatier/background2.jpg)`);
     }
   },
-  cheeztricks: {
+  nextstationparis: {
     init: (cssPath: string) => {
-      document.body.style.setProperty("--gameBack", `url(${cssPath}img/background.png)`);
+      document.body.style.setProperty("--back-paris", `url(${cssPath}img/bg_paris.jpg)`);
+      document.body.style.setProperty("--back-tokyo", `url(${cssPath}img/bg_tokyo.jpg)`);
     }
   },
-  crisps: {
+  nextstationtokyo: {
     init: (cssPath: string) => {
-      document.body.style.setProperty("--gameBack", `url(${cssPath}img/background.jpg)`);
-    }
-  },
-  diamonds: {
-    init: (cssPath: string) => {
-      document.body.style.setProperty("--gameBack", `url(${cssPath}img/background.jpg)`);
-    }
-  },
-  dickory: {
-    init: (cssPath: string) => {
-      document.body.style.setProperty("--gameBack", `url(${cssPath}img/background.jpg)`);
-    }
-  },
-  dungeonrummy: {
-    init: (cssPath: string) => {
-      document.body.style.setProperty("--gameBack", `url(${cssPath}img/background.jpg)`);
-    }
-  },
-  fibonachos: {
-    init: (cssPath: string) => {
-      document.body.style.setProperty("--gameBack", `url(${cssPath}img/background.jpg)`);
+      document.body.style.setProperty("--back-paris", `url(${cssPath}img/bg_paris.jpg)`);
+      document.body.style.setProperty("--back-tokyo", `url(${cssPath}img/bg_tokyo.jpg)`);
     }
   }
 };

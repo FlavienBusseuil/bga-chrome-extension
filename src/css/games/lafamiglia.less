@@ -4,7 +4,7 @@ html[data-theme=dark] {
 	.laf_family-mat:before,
 	#laf-gameboard:before {
 		content: "";
-		background: #00000060;
+		background: var(--ext-alpha);
 		position: absolute;
 		width: 100%;
 		height: 100%;
@@ -40,7 +40,8 @@ html[data-theme=dark] {
 	}
 
 	#laf-choose-family .laf_orderChart,
-	.laf_person-icon {
+	.laf_person-icon,
+	#laf-lower-action-sheet {
 		filter: var(--ext-bright);
 	}
 }

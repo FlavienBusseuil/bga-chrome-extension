@@ -1383,6 +1383,7 @@ const defaultGames: Partial<Game>[] = [
 	{
 		name: "lorenzo",
 		playerPanel: "obrPlayerboardId_{{player_id}}",
+		iconBackgroundDark: "#766a56"
 	},
 	{
 		name: "bloodyinn",

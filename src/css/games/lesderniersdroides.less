@@ -1,7 +1,7 @@
 html[data-theme=dark] {
 	.sabotZoneResizable:before {
 		content: "";
-		background: #00000060;
+		background: var(--ext-alpha);
 		position: absolute;
 		width: 100%;
 		height: 100%;
@@ -341,7 +341,17 @@ html[data-theme=dark] {
 	.cardImgTooltip,
 	.choiceCardImg,
 	.houseCardImg,
-	.sabotCardImg {
+	.sabotCardImg,
+	.storage,
+	.waterCardIcon,
+	.tradeCardIcon,
+	.buildCardIcon,
+	.farmerCardIcon,
+	.commCardIcon,
+	.storeCardIcon,
+	.houseCardIcon,
+	.leaveCardIcon,
+	.seasonIcon {
 		filter: var(--ext-bright);
 	}
 
@@ -349,5 +359,9 @@ html[data-theme=dark] {
 	.iconChoiceForOther {
 		filter: var(--ext-bright);
 		border-radius: 50%;
+	}
+
+	.cardsRow.board .cardImg {
+		filter: var(--ext-bright) var(--drop-shadow);
 	}
 }
