@@ -42,6 +42,7 @@ export const gamesWithRecommendedConfig: { [gameName: GameName]: RecommendedConf
 	feastforodin: { color: 13, sat: 6 },
 	festival: { color: 14, sat: 15 },
 	finca: { color: 220, sat: 32 },
+	firstgiants: { color: 0, sat: 20 },
 	forage: { color: 0, sat: 20 },
 	forbiddenisland: { color: 216, sat: 20 },
 	foxonthetree: { color: 230, sat: 15 },

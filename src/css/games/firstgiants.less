@@ -1,0 +1,67 @@
+html[data-theme=dark] {
+	--ext-overlay-color: #0002;
+
+	color: var(--light-80);
+
+	.counter {
+		background-color: var(--dark-10);
+		color: var(--light-80);
+	}
+
+	.player_study_outer,
+	.fg_playerboard {
+		background-color: var(--dark-back-50);
+	}
+
+	.player_study_label {
+		color: #967346;
+	}
+
+	.fg_playerboard .player_name {
+		background-color: var(--dark-10);
+		border: none;
+	}
+
+	.tt_text,
+	.tt_text>* {
+		filter: invert(1) hue-rotate(180deg);
+	}
+
+	.mini_study_card {
+		color: var(--light-80) !important;
+	}
+
+	.mini_study_card.color_1 {
+		outline-color: #cc7000
+	}
+
+	.mini_study_card.color_2 {
+		outline-color: #22cc00
+	}
+
+	.mini_study_card.color_3 {
+		outline-color: #c60606
+	}
+
+	.mini_study_card.color_4 {
+		outline-color: #06c6c6
+	}
+
+	.mini_study_card.color_5 {
+		outline-color: #9c06c6;
+	}
+
+	.miniset {
+		background: var(--dark-40);
+	}
+
+	.card,
+	.token,
+	.journal_bg {
+		filter: var(--ext-bright) var(--drop-shadow);
+	}
+
+	.digzone_illus {
+		filter: var(--ext-bright);
+	}
+}

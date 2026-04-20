@@ -1792,6 +1792,11 @@ const defaultGames: Partial<Game>[] = [
 		iconBackgroundDark: "#8f663d",
 		css: " "
 	},
+	{
+		name: "firstgiants",
+		playerPanel: "playerboard_{{player_id}}",
+		iconBackgroundDark: "#8f663d",
+	},
 ];
 
 export default defaultGames;

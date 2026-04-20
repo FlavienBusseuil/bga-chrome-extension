@@ -1,7 +1,23 @@
 @import "./common";
 
 html[data-theme=dark] {
+	--ext-overlay-color: #0002;
+
 	.pb_label {
 		color: var(--dark-80);
+	}
+
+	.whiteblock {
+		outline: 1px solid var(--dark-40);
+	}
+
+	.tokens,
+	.favor_tokens,
+	.icon_items {
+		filter: var(--drop-shadow);
+	}
+
+	.spirit_tiles {
+		filter: var(--ext-bright) var(--drop-shadow);
 	}
 }

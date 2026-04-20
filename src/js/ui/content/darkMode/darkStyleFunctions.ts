@@ -216,17 +216,11 @@ const _copyDefaultBackgroundStyle = (overlay: HTMLElement, cssPath: string, atte
   }
 };
 
-const _addInvertOverlay = (className: string, cssPath: string) => {
+const _addInvertOverlay = (cssPath: string) => {
   waitForObj('#overall-content').then(overallContent => {
     const overlay = document.createElement("DIV");
-
-    if (className) {
-      overlay.className = `bgaext_overlay ${className}`;
-    } else {
-      overlay.className = `bgaext_overlay`;
-      _copyDefaultBackgroundStyle(overlay, cssPath, 0);
-    }
-
+    overlay.className = `bgaext_overlay`;
+    _copyDefaultBackgroundStyle(overlay, cssPath, 0);
     overallContent.insertBefore(overlay, overallContent.firstChild);
   });
 };
@@ -235,7 +229,7 @@ const _setDarkStyleIfActivated = () => {
   waitForObj('#overall-content').then(() => {
     const customActions = gamesWithCustomActions[gameName];
     const hasCustomAction = Boolean(customActions && customActions.init);
-    const hasOverlay = Object.keys(gamesWithOverlay).includes(gameName);
+    const hasOverlay = gamesWithOverlay.includes(gameName);
 
     if (hasCustomAction || hasOverlay) {
       const cssPath = _getCssPath(`${gameName}.css`);
@@ -246,7 +240,7 @@ const _setDarkStyleIfActivated = () => {
       } else {
         document.body.style.setProperty("--ext-game-back", `url(${cssPath}img/background.jpg)`);
       }
-      hasOverlay && _addInvertOverlay(gamesWithOverlay[gameName]!, cssPath)
+      hasOverlay && _addInvertOverlay(cssPath)
     }
 
     try {
@@ -320,7 +314,7 @@ const _applyDarkStyleForGame = () => {
       }).filter(d => d);
     }).flat().join(' ') || '';
     const textStyle = playersTextColor[gameName]?.map((rule: string) => {
-      return playersData.filter(d => (d.darkColor && d.darkColor !== d.color) || d.darkEnlight).map((d, i) => {
+      return playersData.map((d, i) => {
         const ruleName = getRule(rule, d, i);
         const enlightRule = d.darkEnlight ? 'text-shadow: -1px 0 white, 0 1px white, 1px 0 white, 0 -1px white !important;' : '';
         return `${ruleName} { color: ${d.darkColor || d.color}!important;${enlightRule} }`;
