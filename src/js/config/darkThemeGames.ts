@@ -468,6 +468,7 @@ export const gamesWithOverlay: Record<string, string> = {
   tsukurutenten: '',
   verso: '',
   wanderingtowers: '',
+  wizardscup: ''
 };
 
 type GameName = string;

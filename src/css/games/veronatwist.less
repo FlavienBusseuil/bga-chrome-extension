@@ -3,7 +3,7 @@
 html[data-theme=dark] {
 	.board:before {
 		content: "";
-		background: #00000060;
+		background: var(--ext-alpha);
 		position: absolute;
 		width: 100%;
 		height: 100%;
@@ -20,7 +20,12 @@ html[data-theme=dark] {
 
 	#QF,
 	#QN,
-	#SP {
+	#SP,
+	#NF,
+	#NP,
+	#SB,
+	#SF,
+	#days {
 		filter: var(--ext-bright);
 	}
 }

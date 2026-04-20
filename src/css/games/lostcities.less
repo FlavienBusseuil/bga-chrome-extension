@@ -4,6 +4,56 @@ html[data-theme=dark] {
 
 	#round_count,
 	#deck_count {
-		color: #fff !important;
+		color: var(--light-80) !important;
+	}
+
+	#deck_count_nbr {
+		background: var(--dark-10);
+	}
+
+	.expedition {
+		background: var(--dark-back-50);
+		outline: 1px solid var(--light-50);
+	}
+
+	#score {
+		#table-wrapper {
+			table {
+				background: var(--dark-back);
+				color: #7f5734;
+
+				tr th {
+					color: #a46f41;
+				}
+
+				tr {
+					background-color: var(--dark-20);
+				}
+
+				.scoretr {
+					background-color: var(--dark-10);
+				}
+			}
+		}
+	}
+
+	.logicon {
+		text-shadow: none !important;
+	}
+
+	.logicon_value_blue {
+		color: var(--blue-50) !important;
+	}
+
+	.logicon_value_green {
+		color: var(--green-80) !important;
+	}
+
+	.logicon_value_purple {
+		color: #c0c !important;
+	}
+
+	.logicon_value_orange {
+		color: var(--orange-50) !important;
 	}
 }
