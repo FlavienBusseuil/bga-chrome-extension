@@ -5,7 +5,7 @@ import { bgaUrl } from "../constants";
 import { resolveQuery } from "./resolveQuery";
 
 async function resolveQueryFromStatus(status: 'progress' | 'future'): Promise<QueryResult<TournamentListQueryResultData>> {
-	const url = `${bgaUrl}/tournamentlist/tournamentlist/getTournaments.html?tournament_i_registered=1&status=${status}&full=true`;
+	const url = `${bgaUrl}/tournamentlist/tournamentlist/getTournaments.html?tournament_i_registered=1&gamecateg=2&status=${status}&full=true`;
 	const result = await resolveQuery<QueryResult<TournamentListQueryResultData>>(url);
 
 	if (result.status == '1' && status === 'future') {
