@@ -297,7 +297,7 @@ class Configuration {
 			playAgain: true,
 			discover: true,
 			more: true,
-			colorfulTables: false,
+			colorfulTables: true,
 			...(this._customConfig.inProgress || {})
 		}
 	}
@@ -657,7 +657,7 @@ class Configuration {
 		return this._customConfig.hideArenaElo !== false;
 	}
 
-    isBeginnerStatusHidden() {
+	isBeginnerStatusHidden() {
 		return this._customConfig.hideBeginnerStatus === true;
 	}
 

@@ -113,7 +113,7 @@ export const OptionsView = ({ config, onChange }: Props) => {
     setArenaEloHidden(!val);
     config.setArenaEloHidden(!val)
   };
-  
+
   const updateBeginnerStatusHidden = (val: boolean) => {
     setBeginnerStatusHidden(!val);
     config.setBeginnerStatusHidden(!val)
@@ -576,8 +576,8 @@ export const OptionsView = ({ config, onChange }: Props) => {
             {getInProgressSwitch('playAgain', 'optionsInProgressReplay')}
             {getInProgressSwitch('discover', 'optionsInProgressDiscover')}
             {getInProgressSwitch('more', 'optionsInProgressMore')}
-            {getInProgressSwitch('colorfulTables', 'optionsInProgressColorfulTables')}
           </div>
+          {getInProgressSwitch('colorfulTables', 'optionsInProgressColorfulTables')}
         </div>
       );
     }
