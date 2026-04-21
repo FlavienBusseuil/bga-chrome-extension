@@ -1316,7 +1316,13 @@ export const gamesConfiguration: Record<string, GameConfig> = {
   },
   seventhseacityoffivesails: {
     customBack: true,
-    customPanel: true
+    customPanel: true,
+    overlay: true,
+    customActions: {
+      init: (cssPath: string) => {
+        document.body.style.setProperty("--scroll", `url(${cssPath}img/scroll.png)`);
+      }
+    }
   },
   sevenwondersdice: {
     customBack: true,

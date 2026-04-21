@@ -1,4 +1,6 @@
 html[data-theme=dark] {
+	--ext-overlay-color: #accfece6;
+
 	body {
 		background-color: #1b4364;
 	}
@@ -20,6 +22,7 @@ html[data-theme=dark] {
 	}
 
 	#city-discard,
+	#city-locker,
 	#day-indicator,
 	#city-day-phase {
 		background-color: #432109;
@@ -53,6 +56,11 @@ html[data-theme=dark] {
 	._7sfs-score-reknown,
 	._7sfs-engaged {
 		color: #000;
+	}
+
+	._7sfs-crew-cap,
+	._7sfs-panache {
+		filter: var(--highlight-min);
 	}
 
 	#pagesection_gameview .whiteblock {
@@ -95,9 +103,34 @@ html[data-theme=dark] {
 		text-shadow: -1px 0 #000, 0 1px #000, 1px 0 #000, 0 -1px #000;
 	}
 
+	@media (min-width: 769px) {
+		#approachDeck-container {
+			background: transparent;
+			position: relative;
+		}
+
+		#approachDeck-container:before {
+			content: "";
+			position: absolute;
+			top: 0px;
+			left: 0px;
+			width: 100%;
+			height: 100%;
+			background-image: var(--scroll);
+			background-repeat: no-repeat;
+			filter: var(--ext-bright);
+		}
+	}
+
+	#choose_container,
+	#factionHand-placeholder {
+		background: var(--dark-back) !important
+	}
+
 	._7sfs-home-container,
 	._7sfs-city-location,
-	.stockitem {
+	.stockitem,
+	.game-card-front {
 		filter: var(--ext-bright);
 	}
 }
