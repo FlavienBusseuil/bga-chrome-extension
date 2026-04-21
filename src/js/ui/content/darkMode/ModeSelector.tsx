@@ -3,7 +3,7 @@ import Markup from 'preact-markup';
 import { isMobile } from "is-mobile";
 
 import Configuration from "../../../config/configuration";
-import { gamesWithCustomActions } from "../../../config/darkThemeGames";
+import { gamesConfiguration } from "../../../config/darkThemeGames";
 import { gamesWithRecommendedConfig } from "../../../config/darkThemeRecommendedConfig";
 import { getExtensionVersion } from "../../../utils/browser";
 import { i18n } from "../../../utils/browser/i18n";
@@ -28,12 +28,12 @@ let paletteCursor: any;
 let saturationCursor: any;
 let cssCounter = 0;
 
-const isDarkMode = (config: Configuration, gameName: string) => {
-  const customActions = gamesWithCustomActions[gameName];
+const isDarkMode = async (config: Configuration, gameName: string) => {
+  const customActions = gamesConfiguration[gameName]?.customActions;
 
   if (customActions && customActions.isDarkMode) {
     try {
-      return customActions.isDarkMode();
+      return await customActions.isDarkMode();
     }
     catch (error) { }
   }
@@ -49,7 +49,7 @@ const ModeSelector = (props: ModeSelectorProps) => {
   const { config, gameName } = props;
   const popupConfig = config.getPopupConfiguration();
   const recommandedConfig = gamesWithRecommendedConfig[gameName];
-  const [darkMode, setDarkMode] = useState(isDarkMode(config, gameName));
+  const [darkMode, setDarkMode] = useState<boolean>();
   const [darkColorHue, setDarkColorHue] = useState(config.getDarkModeColor(gameName, recommandedConfig?.color));
   const [darkColorSaturation, setDarkColorSaturation] = useState(config.getDarkModeSaturation(gameName, recommandedConfig?.sat));
   const [brightness, setBrightness] = useState(config.getDarkModeBrightness());
@@ -62,6 +62,7 @@ const ModeSelector = (props: ModeSelectorProps) => {
   const [newMessageVisible, setNewMessageVisible] = useState(!isMobile() && !isGeneralMode(gameName) && popupConfig.reportMsg);
   const [resultVisible, setResultVisible] = useState(false);
 
+  const gameConfiguration = useMemo(() => gamesConfiguration[gameName], [gameName]);
   const generalHue = useMemo(() => config.getDarkModeColor("general"), [config]);
   const generalSat = useMemo(() => config.getDarkModeSaturation("general"), [config]);
 
@@ -76,7 +77,13 @@ const ModeSelector = (props: ModeSelectorProps) => {
     }
   }
 
-  useEffect(() => setDarkStyle(gameName, darkMode), [gameName, darkMode]);
+  useEffect(() => {
+    isDarkMode(config, gameName).then(setDarkMode);
+  }, []);
+
+  useEffect(() => {
+    darkMode !== undefined && setDarkStyle(gameName, darkMode);
+  }, [gameName, darkMode]);
 
   useEffect(() => {
     if (darkColorHue === recommandedConfig?.color && darkColorSaturation === recommandedConfig?.sat) {
@@ -171,7 +178,7 @@ const ModeSelector = (props: ModeSelectorProps) => {
       setPopupVisible(false);
     }
 
-    const customActions = gamesWithCustomActions[gameName];
+    const customActions = gameConfiguration?.customActions;
     customActions && customActions.setDarkMode && customActions.setDarkMode(newDarkMode);
 
     if (!newDarkMode) {
@@ -294,6 +301,14 @@ const ModeSelector = (props: ModeSelectorProps) => {
   const getMenuIcon = () => {
     if (!darkMode) {
       return <></>;
+    }
+
+    if (gameConfiguration?.customDarkMode && !gameConfiguration?.customDarkMode?.applyGeneralCss) {
+      return (
+        <span>
+          <i class="fa fa-caret-up" style={{ visibility: 'hidden' }}></i>
+        </span>
+      );
     }
 
     const style = isGeneralMode(gameName) ? "font-size: 32px; color: var(--header-icons-color); cursor: pointer; padding-right: 0.3em;" : "font-size: 24px; cursor: pointer; padding-right: 0.3em;"

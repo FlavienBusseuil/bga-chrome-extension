@@ -1,7 +1,7 @@
 import { isNumber } from "../../../utils/misc/isNumber";
 import { waitForObj } from "../../../utils/misc/wait";
 import { hexToRgb } from "../../../utils/misc/colors";
-import { gamesWithConditionalCustomBackground, gamesWithCustomActions, gamesWithCustomBackground, gamesWithCustomDarkMode, gamesWithCustomPanel, gamesWithCustomPlayerStyle, gamesWithOverlay, gamesWithTwoTeams, playersBackground, playersBorder, playersOutline, playersTextColor } from "../../../config/darkThemeGames";
+import { gamesConfiguration } from "../../../config/darkThemeGames";
 import { PlayerData, getPlayersData, getPlayersPossibleColors } from "../players";
 import { cookieName, createStyle, getFile } from "./darkStyleCommonFunctions";
 
@@ -69,9 +69,9 @@ _init().then(() => {
   }
 });
 
-const _isDarkStyle = () => {
-  const customActions = gamesWithCustomActions[gameName];
-  return customActions && customActions.isDarkMode ? customActions.isDarkMode() : localStorage.getItem(cookieName) === "on";
+const _isDarkStyle = async () => {
+  const customActions = gamesConfiguration[gameName]?.customActions;
+  return customActions && customActions.isDarkMode ? await customActions.isDarkMode() : localStorage.getItem(cookieName) === "on";
 }
 
 // hack to avoid light theme flashing
@@ -85,8 +85,10 @@ const _applyBackgroundFlickerFix = () => {
 };
 
 try {
-  if (document && _isDarkStyle() && !isHtmlPage) {
-    _applyBackgroundFlickerFix();
+  if (document && !isHtmlPage) {
+    _isDarkStyle().then(val => {
+      val && _applyBackgroundFlickerFix();
+    });
   }
 }
 catch (error) {
@@ -227,9 +229,10 @@ const _addInvertOverlay = (cssPath: string) => {
 
 const _setDarkStyleIfActivated = () => {
   waitForObj('#overall-content').then(() => {
-    const customActions = gamesWithCustomActions[gameName];
+    const config = gamesConfiguration[gameName];
+    const customActions = config?.customActions;
     const hasCustomAction = Boolean(customActions && customActions.init);
-    const hasOverlay = gamesWithOverlay.includes(gameName);
+    const hasOverlay = Boolean(config?.overlay);
 
     if (hasCustomAction || hasOverlay) {
       const cssPath = _getCssPath(`${gameName}.css`);
@@ -243,8 +246,8 @@ const _setDarkStyleIfActivated = () => {
       hasOverlay && _addInvertOverlay(cssPath)
     }
 
-    try {
-      if (_isDarkStyle()) {
+    _isDarkStyle().then(darkMode => {
+      if (darkMode) {
         _setDarkStyle();
       } else {
         _setLightStyle();
@@ -253,24 +256,22 @@ const _setDarkStyleIfActivated = () => {
       _manageHtmlTag();
       _removeBackgroundFlickerFix();
       _initClassObserver();
-    }
-    catch (error) {
-      setTimeout(_setDarkStyleIfActivated, 100);
-    }
+    });
   });
 };
 
 const _applyDarkStyleForGame = () => {
-  const applyGeneralCss = !gamesWithCustomDarkMode[gameName] || gamesWithCustomDarkMode[gameName]?.applyGeneralCss;
-  const backStyle = applyGeneralCss && gamesWithCustomBackground.includes(gameName) ? "" : cssContents["dark_theme/background.css"];
+  const config = gamesConfiguration[gameName];
+  const applyGeneralCss = !(config?.customDarkMode) || config.customDarkMode?.applyGeneralCss;
+  const backStyle = applyGeneralCss && config?.customBack === true ? "" : cssContents["dark_theme/background.css"];
 
-  console.debug(`[bga extension] applying dark style for game`, { gameName, backStyle: backStyle !== "" });
+  console.debug(`[bga extension] applying dark style for game`, { gameName, applyGeneralCss, backStyle: backStyle !== "" });
 
   themeStyleComponent.textContent = applyGeneralCss
     ? `${backStyle}${cssContents["dark_theme/icons.css"]}${cssContents["dark_theme/common.css"]}${cssContents["dark_theme/chat.css"]}${cssContents["dark_theme/game.css"]}`
     : `${cssContents["dark_theme/icons.css"]}${cssContents["dark_theme/chat.css"]}`;
 
-  getPlayersData(gamesWithTwoTeams.includes(gameName)).then(playersData => {
+  getPlayersData(config?.twoTeams || false).then(playersData => {
     console.debug("[bga extension] players data", playersData);
 
     const toRgb = (color: string) => {
@@ -289,13 +290,13 @@ const _applyDarkStyleForGame = () => {
 
     const possibleColors = [...playersData, ...getPlayersPossibleColors(gameName)];
     const colorsStyle = _getDarkColorsStyle(possibleColors);
-    const backStyle = playersBackground[gameName]?.map((rule: string) => {
+    const backStyle = config?.playersBack?.map((rule: string) => {
       return playersData.filter(d => d.darkColor && d.darkColor !== d.color).map((d, i) => {
         const ruleName = getRule(rule, d, i);
         return `${ruleName} { background-color: ${d.darkColor}!important; }`;
       });
     }).flat().join(' ') || '';
-    const borderStyle = playersBorder[gameName]?.map((rule: string) => {
+    const borderStyle = config?.playersBorder?.map((rule: string) => {
       return playersData.map((d, i) => {
         if (d.darkColor && d.darkColor !== d.color) {
           const ruleName = getRule(rule, d, i);
@@ -304,7 +305,7 @@ const _applyDarkStyleForGame = () => {
         return undefined;
       }).filter(d => d);
     }).flat().join(' ') || '';
-    const outlineStyle = playersOutline[gameName]?.map((rule: string) => {
+    const outlineStyle = config?.playersOutline?.map((rule: string) => {
       return playersData.map((d, i) => {
         if (d.darkColor && d.darkColor !== d.color) {
           const ruleName = getRule(rule, d, i);
@@ -313,7 +314,7 @@ const _applyDarkStyleForGame = () => {
         return undefined;
       }).filter(d => d);
     }).flat().join(' ') || '';
-    const textStyle = playersTextColor[gameName]?.map((rule: string) => {
+    const textStyle = config?.playersTextColor?.map((rule: string) => {
       return playersData.map((d, i) => {
         const ruleName = getRule(rule, d, i);
         const enlightRule = d.darkEnlight ? 'text-shadow: -1px 0 white, 0 1px white, 1px 0 white, 0 -1px white !important;' : '';
@@ -323,7 +324,7 @@ const _applyDarkStyleForGame = () => {
 
     playersStyleComponent.textContent = `${colorsStyle}${backStyle}${borderStyle}${outlineStyle}${textStyle}`;
 
-    _setPlayersColor(gamesWithCustomPlayerStyle[gameName], playersData);
+    _setPlayersColor(config?.customPlayerStyle, playersData);
   });
 }
 
@@ -357,9 +358,9 @@ const _manageHtmlTag = () => {
 
   try {
     const theme = document.documentElement.dataset.theme; // new attribute, BGA slowly starts to manage dark mode !
-    const customDarkClass = gameName ? gamesWithCustomDarkMode[gameName]?.className : undefined;
-
-    const classesList = gameName ? gamesWithConditionalCustomBackground[gameName] : [];
+    const config = gameName ? gamesConfiguration[gameName] : undefined;
+    const customDarkClass = config?.customDarkMode?.className;
+    const classesList = Array.isArray(config?.customBack) ? config.customBack : [];
 
     if (classesList) {
       if (classesList.find(c => document.documentElement.classList.contains(c))) {
@@ -369,40 +370,42 @@ const _manageHtmlTag = () => {
       } else if (document.documentElement.classList.contains("bgaext_cust_back")) {
         document.documentElement.classList.remove("bgaext_cust_back");
       }
-    } else if (gamesWithCustomBackground.includes(gameName) && !document.documentElement.classList.contains("bgaext_cust_back")) {
+    } else if (config?.customBack && !document.documentElement.classList.contains("bgaext_cust_back")) {
       document.documentElement.classList.add("bgaext_cust_back");
     }
 
-    if (_isDarkStyle()) {
-      if (theme !== 'dark') {
-        document.documentElement.dataset.theme = 'dark';
-      }
+    _isDarkStyle().then(darkMode => {
+      if (darkMode) {
+        if (theme !== 'dark') {
+          document.documentElement.dataset.theme = 'dark';
+        }
 
-      if (!document.documentElement.classList.contains("darkmode")) {
-        document.documentElement.classList.add("darkmode");
-      }
-      if (customDarkClass && !document.documentElement.classList.contains(customDarkClass)) {
-        document.documentElement.classList.add(customDarkClass);
-      }
+        if (!document.documentElement.classList.contains("darkmode")) {
+          document.documentElement.classList.add("darkmode");
+        }
+        if (customDarkClass && !document.documentElement.classList.contains(customDarkClass)) {
+          document.documentElement.classList.add(customDarkClass);
+        }
 
-      if (gameName && !gamesWithCustomPanel.includes(gameName) && !document.documentElement.classList.contains("darkpanel")) {
-        document.documentElement.classList.add("darkpanel");
-      }
-    } else {
-      if (theme !== 'light') {
-        document.documentElement.dataset.theme = 'light';
-      }
+        if (gameName && !config?.customPanel && !document.documentElement.classList.contains("darkpanel")) {
+          document.documentElement.classList.add("darkpanel");
+        }
+      } else {
+        if (theme !== 'light') {
+          document.documentElement.dataset.theme = 'light';
+        }
 
-      if (document.documentElement.classList.contains("darkmode")) {
-        document.documentElement.classList.remove("darkmode");
+        if (document.documentElement.classList.contains("darkmode")) {
+          document.documentElement.classList.remove("darkmode");
+        }
+        if (customDarkClass && document.documentElement.classList.contains(customDarkClass)) {
+          document.documentElement.classList.remove(customDarkClass);
+        }
+        if (document.documentElement.classList.contains("darkpanel")) {
+          document.documentElement.classList.remove("darkpanel");
+        }
       }
-      if (customDarkClass && document.documentElement.classList.contains(customDarkClass)) {
-        document.documentElement.classList.remove(customDarkClass);
-      }
-      if (document.documentElement.classList.contains("darkpanel")) {
-        document.documentElement.classList.remove("darkpanel");
-      }
-    }
+    });
   }
   catch (error) {
     console.error("[bga extension] Error in dark mode observer", error);
@@ -423,17 +426,17 @@ const _initClassObserver = () => {
 export const setDarkStyle = (newMode: string, val: boolean) => {
   mode = newMode;
 
-  if (_isDarkStyle() === val) {
-    return;
-  }
+  _isDarkStyle().then(darkMode => {
+    if (darkMode !== val) {
+      localStorage.setItem(cookieName, val ? "on" : "off");
 
-  localStorage.setItem(cookieName, val ? "on" : "off");
+      if (val) {
+        _setDarkStyle();
+      } else {
+        _setLightStyle();
+      }
 
-  if (val) {
-    _setDarkStyle();
-  } else {
-    _setLightStyle();
-  }
-
-  _manageHtmlTag();
+      _manageHtmlTag();
+    }
+  });
 };

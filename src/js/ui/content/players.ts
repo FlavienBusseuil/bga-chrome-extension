@@ -1,5 +1,5 @@
 import rgbHex from "rgb-hex";
-import { gamesWithCustomColors } from "../../config/darkThemeGames";
+import { gamesConfiguration } from "../../config/darkThemeGames";
 import { getColorForDarkMode } from "../../utils/misc/colors";
 
 let playersData: PlayerData[] | undefined = undefined;
@@ -91,8 +91,8 @@ const _getPlayersData = (returnFunc: (data: PlayerData[]) => void, twoTeams: boo
 };
 
 export const getPlayersPossibleColors = (gameName: string) => {
-  if (gamesWithCustomColors[gameName]) {
-    return gamesWithCustomColors[gameName].map((color: string) => {
+  if (gamesConfiguration[gameName]?.customColors) {
+    return gamesConfiguration[gameName].customColors.map((color: string) => {
       const darkConfig = getColorForDarkMode(color);
 
       return {

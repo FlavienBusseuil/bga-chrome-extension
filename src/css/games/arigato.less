@@ -11,6 +11,11 @@ html[data-theme=dark].vgincLib_layout_slider .vgincLib_dot {
 
 html[data-theme=dark] {
 
+	span[data-color="000000"],
+	strong[data-color="000000"] {
+		text-shadow: var(--text-w-shadow) !important;
+	}
+
 	span[data-color=ff0000],
 	strong[data-color=ff0000] {
 		color: #ff6565 !important;
@@ -92,9 +97,20 @@ html[data-theme=dark] {
 		.redButtonOver();
 	}
 
+	.vgincLib_objective_inVillage,
+	.vgincLib_objective_inPalace,
+	.vgincLib_objective_inVillageOrPalace {
+		filter: invert() !important;
+	}
+
 	.vgincLib_tooltipConditionType,
-	.vgincLib_tooltipEffectType {
+	.vgincLib_tooltipEffectType,
+	.vgincLib_duskPhase {
 		filter: var(--drop-shadow) !important;
+	}
+
+	.vgincLib_objectivesToFavors {
+		filter: invert(1) hue-rotate(180deg);
 	}
 
 	.player-table .ari_village {

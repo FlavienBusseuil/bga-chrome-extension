@@ -3,13 +3,15 @@
     // Target modern browsers
     "target": "ESNext",
     "module": "ESNext",
-    "lib": ["DOM", "DOM.Iterable", "ESNext"],
+    "lib": [
+      "DOM",
+      "DOM.Iterable",
+      "ESNext"
+    ],
     "moduleResolution": "bundler",
-
     // Preact configuration
     "jsx": "react-jsx",
     "jsxImportSource": "preact",
-
     // Type checking options
     "strict": true,
     "allowUnreachableCode": false,
@@ -22,7 +24,6 @@
     "noUnusedParameters": true,
     "useUnknownInCatchVariables": true,
     "noUncheckedIndexedAccess": true,
-
     // Module resolution similar to parcel's config
     "allowJs": true,
     "checkJs": false,
@@ -53,7 +54,8 @@
   "include": [
     "src/**/*.ts",
     "src/**/*.tsx",
-    "src/**/*.json"
+    "src/**/*.json",
+    "src/types/**/*.d.ts"
   ],
   "exclude": [
     "build",

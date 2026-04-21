@@ -1,6 +1,8 @@
 html[data-theme=dark] {
+     --ext-overlay-color: #0004;
+
      .bgaext_overlay {
-          background: none !important;
+          background: var(--ext-game-back) !important;
      }
 
      #re-display-wrapper #re-display-visitor-wrapper,
@@ -93,7 +95,6 @@ html[data-theme=dark] {
      }
 }
 
-html[data-theme=dark].custom-background .bgaext_overlay {
-     opacity: 0.7;
-     background: var(--ext-game-back) !important;
+html[data-theme=dark].no-custom-background .bgaext_overlay {
+     display: none;
 }

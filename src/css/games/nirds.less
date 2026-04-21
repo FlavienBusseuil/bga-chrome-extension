@@ -3,6 +3,14 @@
 html[data-theme=dark] {
 	--ext-overlay-color: #ffffff80;
 
+	.bgaext_overlay {
+		background: var(--ext-game-back) !important;
+		background-size: cover !important;
+		background-attachment: fixed !important;
+		background-position: 50% !important;
+		display: none;
+	}
+
 	#trading {
 		border-color: var(--light-50);
 	}
@@ -67,7 +75,15 @@ html[data-theme=dark] {
 		color: var(--light-80);
 	}
 
-	.nrd-card-front {
+	.nrd-card-front,
+	.deck,
+	.bga-dice_die {
 		filter: var(--ext-bright);
+	}
+}
+
+html[data-theme=dark].spicy {
+	.bgaext_overlay {
+		display: block;
 	}
 }

@@ -117,6 +117,7 @@ const defaultGames: Partial<Game>[] = [
 		top: "40vh",
 		boardPanel: "ea-area-common",
 		playerPanel: "ea-area-player-{{player_id}}",
+		iconBackgroundDark: "#293d2c",
 		css: "#ea-shortcut-area { visibility: hidden; } .ea-player-panel-row:has(>.bx-checkbox-switch>#ea-shortcuts-checkbox) { display: none; }",
 	},
 	{
@@ -1536,6 +1537,7 @@ const defaultGames: Partial<Game>[] = [
 	{
 		name: "apiary",
 		playerPanel: "ap-player-area-{{player_id}}",
+		css: "#bga-jump-to_controls { display: none; }"
 	},
 	{
 		name: "fateoffellowship",

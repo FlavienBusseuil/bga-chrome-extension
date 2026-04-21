@@ -1,4 +1,4 @@
-import { useMemo, useState } from "preact/hooks";
+import { useMemo } from "preact/hooks";
 
 import type { TransformedTournament } from "../../types/TransformedTournament";
 import { CardList } from "../base/CardList";

@@ -1,8 +1,36 @@
 @import "./common";
 
+.ea-player-panel-row:has(#ea-dark-background-checkbox) {
+	display: none;
+}
+
 html[data-theme=dark] {
+
+	#page-title,
+	#maingameview_menuheader,
+	#maingameview_menufooter {
+		border: 1px solid var(--dark-40);
+	}
+
+	#maingameview_menuheader {
+		border-top: none;
+		top: -1px;
+	}
+
 	.ea-player-panel-pill {
 		background-color: var(--dark-40);
+	}
+
+	#ea-fauna-board:before,
+	.ea-player-board:before {
+		content: "";
+		background: var(--ext-alpha);
+		position: absolute;
+		width: 100%;
+		height: 100%;
+		top: 0px;
+		left: 0px;
+		border-radius: 2px;
 	}
 
 	.ea-pill-counter {
@@ -169,5 +197,16 @@ html[data-theme=dark] {
 
 	#ea-scorepad-table * {
 		border-color: var(--light-50) !important;
+	}
+
+	#ea-option-area {
+		background-color: var(--dark-back);
+		outline: 1px solid var(--dark-40);
+		color: var(--light-70);
+	}
+
+
+	.ea-card {
+		filter: var(--ext-bright);
 	}
 }

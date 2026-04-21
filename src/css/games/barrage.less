@@ -5,6 +5,25 @@ html[data-theme=dark].darkpanel #player_boards .player-board {
 }
 
 html[data-theme=dark] {
+	.bgaext_overlay {
+		background-repeat: repeat !important;
+		background-size: 50px !important;
+		filter: none !important;
+	}
+
+	body[data-background="0"] .bgaext_overlay {
+		background-image: var(--back-0) !important;
+	}
+
+	body[data-background="1"] .bgaext_overlay {
+		--ext-overlay-color: #0007;
+		background-image: var(--back-1) !important;
+	}
+
+	body[data-background="2"] .bgaext_overlay {
+		display: none;
+	}
+
 	.player_panel_content .company-panel-wheel-container .company-summary-wheel .summary-wheel-inner:before {
 		background: var(--dark-20);
 	}

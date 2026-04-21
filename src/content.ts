@@ -25,7 +25,7 @@ import {
 	refreshMutedPlayers,
 	displayInformationPopup
 } from './js/ui/content/functions';
-import { gamesWithTwoTeams } from "./js/config/darkThemeGames";
+import { gamesConfiguration } from "./js/config/darkThemeGames";
 
 const config = new ConfigurationWithGames();
 let currentObserver: MutationObserver | null = null;
@@ -87,7 +87,7 @@ const initGame = (gameName: string, mode: 'game' | 'archive') => {
 	buildOptions(config, gameName, gameConfig, mode === 'game');
 
 	if (gameConfig) {
-		initLeftMenu(config, gameConfig, config.isLeftMenuEnabled(gameName), gamesWithTwoTeams.includes(gameName));
+		initLeftMenu(config, gameConfig, config.isLeftMenuEnabled(gameName), gamesConfiguration[gameName]?.twoTeams || false);
 	} else {
 		console.debug(`[bga extension] no configuration found for game ${gameName}`);
 	}
