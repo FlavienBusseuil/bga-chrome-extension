@@ -21,6 +21,7 @@
   background-color: var(--dark-20);
 }
 
+.hover\:bg-gray-50:hover,
 .hover\:bg-bga-gray-233:hover {
   background-color: var(--dark-30);
 }
@@ -841,6 +842,16 @@ select.colorselector {
   color: var(--light-80) !important;
 }
 
+.bga-page-section__content {
+  background: var(--dark-20) !important;
+  color: var(--light-80);
+}
+
+.bga-page-section__content .even\:bg-bga-graybg-2:nth-child(2n),
+.bga-page-section__content .even\:bg-bga-gray-233:nth-child(2n) {
+  background: var(--dark-30) !important;
+}
+
 /* Invitations */
 #expected_table_banners .expected_banner,
 #tournament_inprogress_banners .expected_banner {
@@ -1259,15 +1270,6 @@ select.colorselector {
   color: var(--light-80);
 }
 
-.bga-game-panel .bga-page-section__content {
-  background: var(--dark-20) !important;
-  color: var(--light-80);
-}
-
-.bga-game-panel .bga-page-section__content .even\:bg-bga-graybg-2:nth-child(2n) {
-  background: var(--dark-30) !important;
-}
-
 .bga-game-option-messages__option-description {
   background: var(--dark-10) !important;
   color: var(--light-80);
@@ -1558,6 +1560,15 @@ select.colorselector {
   border: 2px solid var(--dark-30);
 }
 
+.community-my-friends__search-controls {
+  background: var(--dark-20) !important;
+  outline: 1px solid var(--dark-40);
+}
+
+#community-module .fa-search {
+  color: var(--light-60);
+}
+
 /* Page Bugs */
 
 .bga-translationhq-page,
@@ -1688,43 +1699,25 @@ select.colorselector {
 
 /* Hall of games */
 
-.bgaext_halloffame .challenge_text img {
-  filter: grayscale(1) invert(0.7);
+.panel-learn-game {
+  color: var(--light-70) !important;
 }
 
-.bgaext_halloffame .desktop_version .overall-stats-wrap {
-  background-image: none;
-  background-color: var(--dark-back);
-  margin-bottom: 1em;
+.panel-learn-game b {
+  color: var(--blue-50) !important;
 }
 
-.bgaext_halloffame .overall-stat-text {
-  color: var(--blue-50);
+.panel-learn-game__arena-image {
+  filter: grayscale(100%) brightness(0) invert(.7) !important;
 }
 
-.bgaext_halloffame .own-progress-background {
-  background-image: linear-gradient(180deg, var(--dark-20), var(--dark-40));
-}
-
-.bgaext_halloffame #own-progress-current-text,
-.bgaext_halloffame #own-progress-next-text {
-  color: var(--light-80);
-}
-
-.bgaext_halloffame .desktop_version .hof-league-progress-bar-bottom-infos {
+.bga-hof-own-progress-wrap {
   color: var(--light-80) !important;
+  filter: var(--drop-shadow) !important;
 }
 
-.bgaext_halloffame .desktop_version .own-progress-wrap {
-  background-color: var(--dark-10);
-}
-
-.bgaext_halloffame .icon32.icon_arena.arena_white {
-  filter: invert(0.7);
-}
-
-.own-progress-wrap-not-participated {
-  color: var(--light-80);
+.bgaext_halloffame .bga-popup-modal__content [class*=text-bga-gray] {
+  background: transparent;
 }
 
 /* Page Vos badges */
