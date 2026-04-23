@@ -12,17 +12,17 @@ type Props = {
 };
 
 function getTotalFromBadgeText({ text }: { text: string }): null | number {
-	const isIntegerString = Number.isInteger(text);
-	if (isIntegerString) {
-		return Number(text);
-	}
-
-	const isEmptyString = text === "";
-	if (isEmptyString) {
+	if (!text) {
 		return 0;
 	}
 
-	return null;
+	const result = parseInt(text, 10);
+
+	if (isNaN(result)) {
+		return null;
+	}
+
+	return result;
 }
 
 export async function updateBadgeAndIcon({

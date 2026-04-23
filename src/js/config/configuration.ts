@@ -1,13 +1,14 @@
 import { addChangeListener, localStorageClear, localStorageGet, localStorageSet, storageClear, storageGet, storageSet } from "../utils/browser";
 import { i18n, setI18nLocale, getI18nDefaultLocale } from "../utils/browser/i18n";
 import { ADVANCED_HOME_STYLE, ARENA_DISABLED_GAMES, COLORFUL_TABLES, DEF_HOME_HTML, HIDE_FULLSCREEN_LOADING_LOGO } from "./configuration.constants";
-import { DarkModeConfig, Game } from "./models";
+import { DarkModeConfig, BrightnessConfig, Game } from "./models";
 
 interface CustomConfig {
 	clientId: string;
 	locale?: string;
 	games: Game[];
 	dark: DarkModeConfig[];
+	brightness: BrightnessConfig[];
 	disabled: string[];
 	hiddenOn?: boolean;
 	hidden: string[];
@@ -110,6 +111,7 @@ class Configuration {
 			clientId: "",
 			games: [],
 			dark: [],
+			brightness: [],
 			disabled: [],
 			floating: [],
 			hidden: [],
@@ -126,6 +128,9 @@ class Configuration {
 		}
 		if (!this._customConfig.dark) {
 			this._customConfig.dark = [];
+		}
+		if (!this._customConfig.brightness) {
+			this._customConfig.brightness = [];
 		}
 		if (!this._customConfig.disabled) {
 			this._customConfig.disabled = [];
@@ -699,13 +704,34 @@ class Configuration {
 		storageSet({ darkMode: val });
 	}
 
-	getDarkModeBrightness() {
-		return this._customConfig.darkModeBrightness || 90;
+	getDarkModeBrightness(gameName: string) {
+		const mainValue = this._customConfig.darkModeBrightness || 90;
+
+		if (this.isGeneralMode(gameName)) {
+			return mainValue;
+		}
+
+		const result = this._customConfig.brightness.find(d => d.name === gameName)?.val;
+		return result || mainValue;
 	}
 
-	setDarkModeBrightness(val: number) {
-		this._customConfig.darkModeBrightness = val;
-		storageSet({ darkModeBrightness: val });
+	setDarkModeBrightness(gameName: string, val: number) {
+		if (this.isGeneralMode(gameName)) {
+			this._customConfig.darkModeBrightness = val;
+			storageSet({ darkModeBrightness: val });
+		} else {
+			if (this._customConfig.darkModeBrightness === val) {
+				// default config
+				this._customConfig.brightness = this._customConfig.brightness.filter(d => d.name !== gameName);
+			} else {
+				this._customConfig.brightness = [
+					...this._customConfig.brightness.filter(d => d.name !== gameName),
+					{ name: gameName, val }
+				];
+			}
+
+			storageSet({ brightness: this._customConfig.brightness });
+		}
 	}
 
 	private isGeneralMode(gameName: string) {

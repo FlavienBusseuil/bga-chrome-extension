@@ -52,7 +52,7 @@ const ModeSelector = (props: ModeSelectorProps) => {
   const [darkMode, setDarkMode] = useState<boolean>();
   const [darkColorHue, setDarkColorHue] = useState(config.getDarkModeColor(gameName, recommandedConfig?.color));
   const [darkColorSaturation, setDarkColorSaturation] = useState(config.getDarkModeSaturation(gameName, recommandedConfig?.sat));
-  const [brightness, setBrightness] = useState(config.getDarkModeBrightness());
+  const [brightness, setBrightness] = useState(config.getDarkModeBrightness(gameName));
   const [popupVisible, setPopupVisible] = useState(false);
   const [paletteCursorMoving, setPaletteCursorMoving] = useState(false);
   const [saturationCursorMoving, setSaturationCursorMoving] = useState(false);
@@ -92,14 +92,14 @@ const ModeSelector = (props: ModeSelectorProps) => {
       config.setDarkModeColor(gameName, darkColorHue, darkColorSaturation, Boolean(recommandedConfig));
     }
     changeDarkColors(darkColorHue, darkColorSaturation);
-  }, [darkColorHue, darkColorSaturation]);
+  }, [gameName, darkColorHue, darkColorSaturation]);
 
   useEffect(() => {
     if (brightness) {
-      config.setDarkModeBrightness(brightness);
+      config.setDarkModeBrightness(gameName, brightness);
       changeDarkBrightness(brightness);
     }
-  }, [brightness]);
+  }, [gameName, brightness]);
 
   useEffect(() => {
     if (popupVisible) {

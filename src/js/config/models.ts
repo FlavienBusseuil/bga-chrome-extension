@@ -28,3 +28,8 @@ export interface DarkModeConfig {
 	color: number;
 	sat: number;
 }
+
+export interface BrightnessConfig {
+	name: string;
+	val: number;
+}

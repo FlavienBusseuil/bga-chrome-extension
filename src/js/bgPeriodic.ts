@@ -24,15 +24,7 @@ export async function bgPeriodic(config: Configuration) {
 			const { nbWaitingTables } = await fetchActivityForPlayer(playerId, playerToken);
 
 			const tables = await fetchTablesFromTableManager('play');
-			const nbPendingInvites = tables.reduce(
-				(total, table) =>
-					total +
-					(table.players[castToString(playerId)]!.table_status ===
-						"expected"
-						? 1
-						: 0),
-				0,
-			);
+			const nbPendingInvites = tables.reduce((total, table) => total + (table.players[castToString(playerId)]!.table_status === "expected" ? 1 : 0), 0,);
 
 			updateBadgeAndIcon({ nbPendingInvites, nbWaitingTables, tracking: true, soundNotification: config.isSoundNotificationEnable() });
 		} else {
