@@ -1,3 +1,5 @@
+@import "./common";
+
 html[data-theme=dark] {
 	--ext-overall-color: #000000A0;
 
@@ -38,11 +40,7 @@ html[data-theme=dark] {
 	}
 
 	cathood boards board:before {
-		content: "";
-		background: var(--ext-alpha);
-		position: absolute;
-		width: 100%;
-		height: 100%;
+		.reduceBrightness();
 	}
 
 	#logs .log[cancel=true] .roundedbox {

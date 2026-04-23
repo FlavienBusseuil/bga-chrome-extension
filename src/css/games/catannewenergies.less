@@ -1,3 +1,5 @@
+@import "./common";
+
 html[data-theme=dark] {
 	#ebd-body {
 		background-color: #424470;
@@ -10,11 +12,7 @@ html[data-theme=dark] {
 	}
 
 	#map #map_slots:before {
-		content: "";
-		background: var(--ext-alpha);
-		position: absolute;
-		width: 100%;
-		height: 100%;
+		.reduceBrightness();
 		border-radius: 50%;
 	}
 

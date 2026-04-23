@@ -1,3 +1,5 @@
+@import "./common";
+
 html[data-theme=light] .logs_on_floating_panel .player-board {
 	background-color: var(--bga-player-panel-background);
 }
@@ -10,13 +12,7 @@ html[data-theme=dark] {
 	}
 
 	.mf_zone_player:before {
-		content: "";
-		position: absolute;
-		left: 0px;
-		top: 0px;
-		width: 100%;
-		height: 100%;
-		background: var(--ext-alpha);
+		.reduceBrightness();
 		border-radius: 5px;
 	}
 

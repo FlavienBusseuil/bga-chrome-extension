@@ -4,11 +4,7 @@ html[data-theme=dark] {
 	--ext-overlay-color: #0003;
 
 	#board_assembly>div:before {
-		content: "";
-		background: var(--ext-alpha);
-		position: absolute;
-		width: 100%;
-		height: 100%;
+		.reduceBrightness();
 	}
 
 	.player_pyramid .pyramid_content .pyramid_section .pyramid_spot,

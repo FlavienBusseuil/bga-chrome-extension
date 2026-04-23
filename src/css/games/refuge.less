@@ -7,13 +7,7 @@ html[data-theme=dark] .mode_3d #game_play_area_background {
 
 html[data-theme=dark] {
 	#table-center #board:before {
-		content: "";
-		background: var(--ext-alpha);
-		position: absolute;
-		width: 100%;
-		height: 100%;
-		top: 0px;
-		left: 0px;
+		.reduceBrightness();
 	}
 
 	.tooltip-tile-name {

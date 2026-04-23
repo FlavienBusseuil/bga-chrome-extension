@@ -1,3 +1,5 @@
+@import "./common";
+
 html[data-theme=dark] {
 	--ext-overall-color: #0005;
 
@@ -21,13 +23,7 @@ html[data-theme=dark] {
 	#ebl-main-board:before,
 	#ebl-building-board:before,
 	#ebl-trophy-board:before {
-		content: "";
-		position: absolute;
-		top: 0px;
-		left: 0px;
-		width: 100%;
-		height: 100%;
-		background-color: var(--ext-alpha);
+		.reduceBrightness();
 	}
 
 	.ebl-reference-card {

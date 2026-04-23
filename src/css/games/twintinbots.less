@@ -1,3 +1,5 @@
+@import "./common";
+
 html[data-theme=dark] {
 
 	.firstplayernotice,
@@ -11,11 +13,7 @@ html[data-theme=dark] {
 	}
 
 	#board:before {
-		content: "";
-		background-color: var(--ext-alpha);
-		width: 100%;
-		height: 100%;
-		position: absolute;
+		.reduceBrightness();
 	}
 
 	.stockitem {

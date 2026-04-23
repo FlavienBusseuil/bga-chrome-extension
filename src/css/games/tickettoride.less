@@ -9,13 +9,7 @@ html[data-theme=dark] {
 
 	#map:before,
 	#destination-deck:before {
-		content: "";
-		background: var(--ext-alpha);
-		position: absolute;
-		width: 100%;
-		height: 100%;
-		top: 0px;
-		left: 0px;
+		.reduceBrightness();
 	}
 
 	.train-car-card,

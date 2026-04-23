@@ -13,11 +13,7 @@ html[data-theme=dark] {
 
 	.player-table .player-board:before,
 	#legend-table #legend-board:before {
-		content: "";
-		background: var(--ext-alpha);
-		position: absolute;
-		width: 100%;
-		height: 100%;
+		.reduceBrightness();
 	}
 
 	#tables .player-table,

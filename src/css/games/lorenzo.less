@@ -10,13 +10,7 @@ html[data-theme=dark] {
 	#obrMainboardTopId:before,
 	#obrMainboardBottomId:before,
 	.obr_playerboard:before {
-		content: "";
-		background: var(--ext-alpha);
-		position: absolute;
-		width: 100%;
-		height: 100%;
-		top: 0px;
-		left: 0px;
+		.reduceBrightness();
 	}
 
 	.obr_select_bonus_tiles {

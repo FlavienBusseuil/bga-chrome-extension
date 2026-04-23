@@ -106,23 +106,11 @@ html[data-theme=dark] {
 	}
 
 	.cha-park:before {
-		content: "";
-		background: var(--ext-alpha);
-		position: absolute;
-		width: 100%;
-		height: 100%;
-		top: 0px;
-		left: 0px;
+		.reduceBrightness();
 	}
 
 	.cha-park-holder:before {
-		content: "";
-		background: var(--ext-alpha);
-		position: absolute;
-		width: 100%;
-		height: 100%;
-		top: 0px;
-		left: 0px;
+		.reduceBrightness();
 		border-radius: 6px;
 		border: 1px solid var(--light-70);
 	}

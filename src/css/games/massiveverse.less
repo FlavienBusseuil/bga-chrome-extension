@@ -1,14 +1,12 @@
+@import "./common";
+
 html[data-theme=dark] {
 	.player-resource .banished-cards .banished-empty {
 		border-color: var(--light-50);
 	}
 
 	#play-area:before {
-		content: "";
-		background: var(--ext-alpha);
-		position: absolute;
-		width: 100%;
-		height: 100%;
+		.reduceBrightness();
 	}
 
 	.player-card-top {
