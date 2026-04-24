@@ -1,6 +1,6 @@
 {
 	"name": "bga-chrome-extension",
-	"version": "1.13.1",
+	"version": "1.13.2",
 	"description": "Watch your games in progress on boardgamearena.com ... and lots of visual improvements!",
 	"scripts": {
 		"dev": "NODE_ENV=development concurrently \"npm:dev:*\" \"npm:typecheck:watch\" --kill-others",
