@@ -1,0 +1,30 @@
+@import "./common";
+
+html[data-theme=dark] {
+	#bga-zoom_controls {
+		filter: invert(0.8);
+	}
+
+	.agw_dashed_outline {
+		outline-color: #947351;
+	}
+
+	.agw_slot_active {
+		outline-color: var(--green-30);
+	}
+
+	.agw_dropdown {
+		color: var(--red-80);
+	}
+
+	#tracking_sheet:before,
+	#mansion:before {
+		.reduceBrightness();
+	}
+
+	.agw_card_back,
+	.agw_card_pile,
+	.agw_card {
+		filter: var(--ext-bright);
+	}
+}

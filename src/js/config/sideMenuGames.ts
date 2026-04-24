@@ -53,6 +53,7 @@ const defaultGames: Partial<Game>[] = [
 		name: "seasons",
 		position: "bottom",
 		playerPanel: "anchor_player_{{player_id}}",
+		iconBackgroundDark: "#725325",
 		css: ".desktop_version .tableau { margin-left: 46px; } .anchor-up { display: none; } .show-player-tableau { visibility: hidden; }",
 	},
 	{

@@ -1,0 +1,94 @@
+@import "./common";
+
+html[data-theme=dark] {
+	.bgaext_overlay {
+		filter: brightness(0.45) contrast(1.4) hue-rotate(180deg) saturate(0.5);
+	}
+
+	.questinc-hand,
+	.questinc-companies .questinc-company-box {
+		background-color: var(--dark-back);
+		outline: 1px solid var(--dark-40);
+	}
+
+	.questinc-title {
+		text-shadow: -1px -1px #000, 1px 1px #000, -1px 1px #000, 1px -1px #000;
+		color: var(--light-70);
+	}
+
+	#questinc-hand-treasure-title {
+		background-color: #784407 !important;
+	}
+
+	#questinc-hand-hero-title {
+		background-color: #5a2d26 !important;
+	}
+
+	.questinc-company-box .questinc-title {
+		background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)) !important;
+		background-blend-mode: multiply !important
+	}
+
+	#bga-zoom-controls {
+		filter: invert(0.8);
+	}
+
+	.questinc-deck-counter {
+		background: var(--dark-20);
+		box-shadow: none !important;
+		outline: 1px solid var(--light-50);
+		color: var(--light-70);
+	}
+
+	.questinc-table-box {
+		background-color: var(--dark-20);
+		color: var(--light-80);
+
+		.questinc-table {
+			thead tr th span {
+				background-color: #000;
+			}
+
+			tbody tr td {
+				.questinc-icon {
+					filter: var(--drop-shadow);
+				}
+
+				.questinc-icon[icon=mythicMeals],
+				.questinc-icon[icon=legendaryItems],
+				.questinc-icon[icon=dungeonSheets],
+				.questinc-icon[icon=fire],
+				.questinc-icon[icon=water],
+				.questinc-icon[icon=earth],
+				.questinc-icon[icon=air],
+				.questinc-icon[icon=weapon],
+				.questinc-icon[icon=ring],
+				.questinc-icon[icon=special],
+				.questinc-icon[icon=armor] {
+					filter: invert(1) var(--drop-shadow);
+				}
+			}
+		}
+	}
+
+	.questinc-icon,
+	.questinc-assistant,
+	.questinc-turn-marker,
+	.questinc-clock {
+		filter: var(--drop-shadow);
+	}
+
+	.questinc-deck-icon {
+		box-shadow: none;
+		filter: var(--drop-shadow);
+	}
+
+	.card,
+	.questinc-company-card {
+		filter: var(--ext-bright) var(--drop-shadow);
+	}
+
+	.questinc-card.questinc-card-disabled {
+		filter: var(--ext-bright) var(--drop-shadow) grayscale(0.5);
+	}
+}

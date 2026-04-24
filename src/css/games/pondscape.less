@@ -1,0 +1,50 @@
+@import "./common";
+
+html[data-theme=dark] {
+	--ext-overlay-color: #fff6;
+	--bga-score-sheet_top: 130px;
+
+	.pnd-player-table h3 {
+		width: fit-content;
+		background: var(--dark-back);
+		border-radius: 8px;
+		padding: 0.1em 1em;
+	}
+
+	.card-stock.deck[data-empty=true] {
+		background: var(--dark-back);
+	}
+
+	.pnd-player-table .pnd-player-food .slot .counter-value {
+		background-color: var(--dark-20);
+		color: var(--light-80);
+	}
+
+	.score-sheet-background .bga-score-sheet_player-name {
+		background: #000;
+	}
+
+	.bga-score-sheet_entry-label,
+	.bga-score-sheet_player-score-entry {
+		background: var(--dark-20);
+		color: var(--light-80);
+	}
+
+	.bga-score-sheet_player-score-entry[data-entry=total] {
+		background: var(--yellow-10);
+	}
+
+	.bga-score-sheet_sheet {
+		border: 2px solid #000;
+		box-sizing: border-box;
+		overflow: hidden;
+	}
+
+	.bga-cards_card-side.front,
+	.bga-cards_card-side.back,
+	.pnd-player-food-slot,
+	.pnd-scoring-card,
+	.pnd-jumping-food-frog {
+		filter: var(--ext-bright);
+	}
+}

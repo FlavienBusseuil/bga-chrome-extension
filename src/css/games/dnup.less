@@ -1,0 +1,20 @@
+@import "./common";
+
+html[data-theme=dark] {
+	--ext-overlay-color: #0004;
+
+	#dn_zoom_minus_button,
+	#dn_zoom_plus_button,
+	#dn_one_two_button {
+		background: #ad3863;
+	}
+
+	.player_container,
+	.dnup-card-front {
+		filter: var(--ext-bright);
+	}
+
+	.player_container .dnup-card-front {
+		filter: none;
+	}
+}

@@ -96,12 +96,13 @@
 	box-shadow: none !important;
 }
 
-.reduceBrightness() {
+.reduceBrightness(@bgColor: var(--ext-alpha)) {
 	content: "";
-	background: var(--ext-alpha);
+	background: @bgColor;
 	position: absolute;
 	width: 100%;
 	height: 100%;
 	top: 0px;
 	left: 0px;
+	pointer-events: none;
 }

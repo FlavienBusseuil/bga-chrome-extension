@@ -5,8 +5,51 @@
 	right: 200px;
 }
 
+#cde-floating-menu-score>.icon_cristal {
+	background-image: none !important;
+	font: normal normal normal 14px / 1 FontAwesome;
+	color: #f9a11a;
+}
+
+#cde-floating-menu-score>.icon_cristal:before {
+	content: "\f005" !important;
+}
+
 html[data-theme=dark] {
-	--ext-overall-color: #0009;
+
+	/* remove the player panel frame border */
+	.tableau {
+		border-image-source: url(data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7);
+	}
+
+	/* add a player panel frame border with dark theme */
+	.tableau:before {
+		content: "";
+		position: absolute;
+		width: 100%;
+		height: 100%;
+		background-clip: padding-box;
+		background-color: #ccae99;
+		border: solid;
+		border-image-repeat: round;
+		border-image-slice: 150 80;
+		border-image-source: var(--frame);
+		border-width: 64px 37px;
+		top: -64px;
+		left: -37px;
+		filter: brightness(35%) sepia(100%) saturate(180%) hue-rotate(345deg);
+	}
+
+	.leftPlayerBoardWrapper {
+		position: relative;
+	}
+
+	.leftPlayerBoardWrapper:before {
+		.reduceBrightness(#00000080);
+		inset: 0;
+		z-index: 0;
+		border-radius: 74px;
+	}
 
 	#player_boards .icon_cristal,
 	#player_boards .invocation_level,
@@ -37,7 +80,16 @@ html[data-theme=dark] {
 		fill: var(--light-80);
 	}
 
-	.cardtooltip .cardtitle {
+	.seasonsblock>div {
+		background-color: var(--dark-back);
+	}
+
+	.cardtitle {
 		color: #000;
+	}
+
+	.stockitem,
+	.card-side {
+		filter: var(--ext-bright);
 	}
 }

@@ -1,0 +1,35 @@
+@import "./common";
+
+html[data-theme=dark] {
+	--themedGreen: #245b39;
+
+	.pac_mat:before {
+		.reduceBrightness();
+	}
+
+	#bga-zoom-controls {
+		filter: invert(0.8);
+	}
+
+	.card-stock .bga-cards_selectable-card {
+		outline-color: var(--light-70);
+	}
+
+	.card-stock .bga-cards_selected-card {
+		outline-color: var(--blue-80);
+	}
+
+	.pac_pile,
+	.discard-deck[data-empty=true] {
+		background-color: var(--dark-back);
+	}
+
+	.pac_handWrapper {
+		background-color: var(--dark-back);
+		color: var(--light-70);
+	}
+
+	.bga-cards_card {
+		filter: var(--ext-bright);
+	}
+}

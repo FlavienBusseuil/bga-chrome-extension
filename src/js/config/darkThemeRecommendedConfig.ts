@@ -114,6 +114,7 @@ export const gamesWithRecommendedConfig: { [gameName: GameName]: RecommendedConf
 	twelvechips: { color: 164, sat: 15 },
 	ubongo: { color: 0, sat: 26 },
 	ultimaterailroads: { color: 8, sat: 15 },
+	undertheleaves: { color: 130, sat: 20 },
 	verdant: { color: 140, sat: 15 },
 	vivacatrina: { color: 15, sat: 15 },
 	wizardscup: { color: 20, sat: 20 },

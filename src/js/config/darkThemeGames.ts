@@ -90,7 +90,15 @@ export const gamesConfiguration: Record<string, GameConfig> = {
   },
   azul: {
     customBack: true,
-    overlay: true
+    overlay: true,
+    customActions: {
+      init: (cssPath: string) => {
+        document.body.style.setProperty("--back-classic", `url(${cssPath}img/background.jpg)`);
+        document.body.style.setProperty("--back-chocolatier", `url(${cssPath}img/chocolatier/background.jpg)`);
+        document.body.style.setProperty("--back-classic-dark", `url(${cssPath}img/background2.jpg)`);
+        document.body.style.setProperty("--back-chocolatier-dark", `url(${cssPath}img/chocolatier/background2.jpg)`);
+      }
+    }
   },
   azulduel: {
     customBack: true
@@ -169,6 +177,9 @@ export const gamesConfiguration: Record<string, GameConfig> = {
     customBack: true,
     overlay: true,
     playersBorder: ["#tuto_pp{{player_index_1}}"]
+  },
+  bordeaux: {
+    customBack: true
   },
   bossquest: {
     customBack: true
@@ -365,6 +376,10 @@ export const gamesConfiguration: Record<string, GameConfig> = {
   diggingfordinos: {
     playersBorder: ["#player-table-{{player_id}}"],
     playersTextColor: [".player-table[data-color=\"{{player_color_cap}}\"] strong"]
+  },
+  dnup: {
+    customBack: true,
+    overlay: true,
   },
   dobbleconnect: {
     customBack: true
@@ -1167,6 +1182,11 @@ export const gamesConfiguration: Record<string, GameConfig> = {
   pocketcats: {
     customBack: true
   },
+  pondscape: {
+    customBack: true,
+    overlay: true,
+    playersTextColor: ['#player-table-{{player_id}} h3', '[style="--player-color: #{{player_color}};"]']
+  },
   popcorn: {
     customBack: ["pop-game-bg"]
   },
@@ -1187,6 +1207,11 @@ export const gamesConfiguration: Record<string, GameConfig> = {
   },
   quartermastergeneraleastfront: {
     customBack: true
+  },
+  questinc: {
+    customBack: true,
+    overlay: true,
+    playersBack: ['#questinc-company-{{player_color_cap}} .questinc-title']
   },
   quiltable: {
     overlay: true
@@ -1309,7 +1334,14 @@ export const gamesConfiguration: Record<string, GameConfig> = {
     playersTextColor: ["strong[data-color=\"{{player_color}}\"]"]
   },
   seasons: {
-    customBack: true
+    customBack: true,
+    overlay: true,
+    playersBack: ['#leftPlayerBoard_{{player_id}}'],
+    customActions: {
+      init: (cssPath: string) => {
+        document.body.style.setProperty("--frame", `url(${cssPath}img/parchmentFrame.png)`);
+      }
+    }
   },
   secretmoon: {
     customBack: true
@@ -1628,6 +1660,12 @@ export const gamesConfiguration: Record<string, GameConfig> = {
   },
   ultimaterailroads: {
     customBack: true
+  },
+  undertheleaves: {
+    customBack: true,
+    overlay: true,
+    playersTextColor: ['[style="--color: #{{player_color}}"]'],
+    playersBack: ['[style="--color: #{{player_color}}"]:before', '[style="--color: #{{player_color}}"]:after'],
   },
   upordown: {
     customBack: true,

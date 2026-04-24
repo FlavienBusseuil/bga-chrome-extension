@@ -1,0 +1,25 @@
+@import "./common";
+
+html[data-theme=dark] {
+	#dsv-shared-area {
+		position: relative;
+	}
+
+	#dsv-shared-area:before {
+		.reduceBrightness();
+		border-radius: 10px;
+	}
+
+	.dsv-player-table {
+		background-color: var(--dark-back);
+	}
+
+	.dsv-tile .back,
+	.dsv-tile .front,
+	.dsv-seven .back,
+	.dsv-seven .front,
+	.dsv-double-seven .back,
+	.dsv-double-seven .front {
+		filter: var(--ext-bright);
+	}
+}

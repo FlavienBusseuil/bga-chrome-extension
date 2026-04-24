@@ -131,7 +131,7 @@ const _getDarkColorsStyle = (playersData: PlayerData[]) => {
 
   const colorsToEnlightFiltered = playersData.filter(p => p.darkEnlight);
   const enlightStyle = colorsToEnlightFiltered.length
-    ? `${colorsToEnlightFiltered.map((p) => getDeclarations(p.color)).join(', ')} { text-shadow: -1px 0 white, 0 1px white, 1px 0 white, 0 -1px white !important; }`
+    ? `${colorsToEnlightFiltered.map((p) => getDeclarations(p.color)).join(', ')} { text-shadow: var(--text-w-shadow) !important; }`
     : "";
 
   const playerColorsCss = playersData.map(p => {
@@ -317,7 +317,7 @@ const _applyDarkStyleForGame = () => {
     const textStyle = config?.playersTextColor?.map((rule: string) => {
       return playersData.map((d, i) => {
         const ruleName = getRule(rule, d, i);
-        const enlightRule = d.darkEnlight ? 'text-shadow: -1px 0 white, 0 1px white, 1px 0 white, 0 -1px white !important;' : '';
+        const enlightRule = d.darkEnlight ? 'text-shadow: var(--text-w-shadow) !important;' : '';
         return `${ruleName} { color: ${d.darkColor || d.color}!important;${enlightRule} }`;
       });
     }).flat().join(' ') || '';
@@ -360,7 +360,7 @@ const _manageHtmlTag = () => {
     const theme = document.documentElement.dataset.theme; // new attribute, BGA slowly starts to manage dark mode !
     const config = gameName ? gamesConfiguration[gameName] : undefined;
     const customDarkClass = config?.customDarkMode?.className;
-    const classesList = Array.isArray(config?.customBack) ? config.customBack : [];
+    const classesList = Array.isArray(config?.customBack) ? config.customBack : undefined;
 
     if (classesList) {
       if (classesList.find(c => document.documentElement.classList.contains(c))) {
