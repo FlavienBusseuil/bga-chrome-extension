@@ -1,5 +1,13 @@
 # Changelog
 
+## [v1.13.2](https://github.com/FlavienBusseuil/bga-chrome-extension/tree/v1.13.2) (2026-04-24)
+
+[Full Changelog](https://github.com/FlavienBusseuil/bga-chrome-extension/compare/v1.13.1...v1.13.2)
+
+**Merged pull requests:**
+
+- translate\(german\): improve lately added strings [\#143](https://github.com/FlavienBusseuil/bga-chrome-extension/pull/143) ([GhoulofGSG9](https://github.com/GhoulofGSG9))
+
 ## [v1.13.1](https://github.com/FlavienBusseuil/bga-chrome-extension/tree/v1.13.1) (2026-04-21)
 
 [Full Changelog](https://github.com/FlavienBusseuil/bga-chrome-extension/compare/v1.13.00...v1.13.1)
