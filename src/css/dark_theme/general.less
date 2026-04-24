@@ -1997,16 +1997,24 @@ select.colorselector {
 
 /* reviewer */
 
-.bgaext_reviewer .warning_medium {
-  background-color: var(--orange-30);
-}
+.bgaext_reviewer {
 
-.bgaext_reviewer .gamelist_item {
-  background: var(--dark-30);
-}
+  .warning_medium {
+    background-color: var(--orange-30);
+  }
 
-.bgaext_reviewer .gamelist_item:hover {
-  background: var(--dark-40);
+  .gamelist_item {
+    background: var(--dark-30);
+  }
+
+  .gamelist_item:hover {
+    background: var(--dark-40);
+  }
+
+  .bg-bga-admin-only {
+    border-color: #893810 !important;
+    background-color: #89381066;
+  }
 }
 
 /* player stat */
