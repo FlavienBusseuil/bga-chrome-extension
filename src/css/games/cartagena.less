@@ -1,0 +1,35 @@
+@import "./common";
+
+html[data-theme=dark] {
+
+	#page-title,
+	#maingameview_menuheader,
+	#maingameview_menufooter {
+		border: 1px solid var(--dark-40);
+	}
+
+	#maingameview_menuheader {
+		border-top: none;
+		top: -1px;
+	}
+
+	.bgaext_overlay {
+		background-image: var(--ext-game-back) !important;
+	}
+}
+
+#cartagena_board_wrapper,
+#cartagena_hand_area {
+	background-color: var(--dark-back);
+}
+
+.cartagena_hand_label,
+.cartagena_endzone_label {
+	color: #a36629;
+}
+
+.tunnel,
+.tunnelgame,
+.cartagena_card {
+	filter: var(--ext-bright);
+}

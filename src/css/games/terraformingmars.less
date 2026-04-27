@@ -184,12 +184,12 @@ html[data-theme=dark] {
 		background: var(--red-10);
 	}
 
-	.card {
-		filter: var(--ext-bright);
-	}
-
 	.hand_area .location {
 		background: var(--dark-back);
+	}
+
+	.card {
+		filter: var(--ext-bright);
 	}
 }
 
@@ -225,6 +225,14 @@ html[data-theme=dark].mcompact {
 
 	.viewcards_button {
 		background: var(--dark-0);
+	}
+
+	.tableau .card[data-state="0"] {
+		filter: var(--ext-bright);
+	}
+
+	.tableau .card[data-state="3"] {
+		filter: var(--ext-bright) grayscale(.9)
 	}
 }
 

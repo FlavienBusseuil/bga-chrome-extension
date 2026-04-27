@@ -243,6 +243,15 @@ export const gamesConfiguration: Record<string, GameConfig> = {
   carsoncity: {
     customBack: true
   },
+  cartagena: {
+    customBack: true,
+    overlay: true,
+    customActions: {
+      init: (cssPath: string) => {
+        document.body.style.setProperty("--ext-game-back", `url(${cssPath}img/map.jpg)`);
+      }
+    }
+  },
   cartographers: {
     customBack: true,
     overlay: true

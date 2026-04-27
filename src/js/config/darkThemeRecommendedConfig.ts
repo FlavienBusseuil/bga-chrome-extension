@@ -20,6 +20,7 @@ export const gamesWithRecommendedConfig: { [gameName: GameName]: RecommendedConf
 	cartographers: { color: 20, sat: 15 },
 	captainflip: { color: 193, sat: 39 },
 	capybarancapybara: { color: 97, sat: 15 },
+	cartagena: { color: 30, sat: 20 },
 	castlecombo: { color: 190, sat: 23 },
 	catan: { color: 210, sat: 16 },
 	cathood: { color: 25, sat: 10 },
