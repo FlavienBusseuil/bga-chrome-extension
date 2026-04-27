@@ -24,6 +24,12 @@ export interface GameConfig {
 }
 
 export const gamesConfiguration: Record<string, GameConfig> = {
+  aero: {
+    customBack: true,
+  },
+  afterus: {
+    customBack: true,
+  },
   ageofinnovation: {
     customColors: ["#971923", "#278139", "#70421d", "#1a2126", "#f9ae18", "#1d7ddb"]
   },
@@ -45,6 +51,9 @@ export const gamesConfiguration: Record<string, GameConfig> = {
   },
   altay: {
     customColors: ["#000000", "#ebb41b", "#e12129", "#00a7d2", "#47a34b"]
+  },
+  altered: {
+    customBack: true
   },
   ancientknowledge: {
     customBack: true,
@@ -193,6 +202,13 @@ export const gamesConfiguration: Record<string, GameConfig> = {
   },
   butterfly: {
     customPlayerStyle: ".playerHand h3"
+  },
+  cakemaster: {
+    customBack: true,
+    customDarkMode: {
+      className: "bx-background-dark",
+      applyGeneralCss: true
+    }
   },
   cafe: {
     customBack: true
@@ -396,6 +412,9 @@ export const gamesConfiguration: Record<string, GameConfig> = {
   dozito: {
     customBack: true
   },
+  draculahelsing: {
+    customBack: true
+  },
   draftandwriterecords: {
     customBack: true,
     customDarkMode: {
@@ -537,6 +556,9 @@ export const gamesConfiguration: Record<string, GameConfig> = {
     playersBorder: ["#playerboard_{{player_id}}"],
     playersTextColor: ["#playerboard_{{player_id}}  .player_name"]
   },
+  fled: {
+    playersBorder: ['#fled_player-area-{{player_id}}']
+  },
   flipseven: {
     customBack: true
   },
@@ -624,6 +646,12 @@ export const gamesConfiguration: Record<string, GameConfig> = {
   goa: {
     customBack: ["goa_pref_background_1"]
   },
+  goldblivion: {
+    customBack: true
+  },
+  goldncrash: {
+    customBack: true
+  },
   golems: {
     playersBack: ["#pl{{player_id}}_label"]
   },
@@ -641,6 +669,15 @@ export const gamesConfiguration: Record<string, GameConfig> = {
   },
   grund: {
     customBack: true
+  },
+  ghostsgalore: {
+    customBack: ['custom_theme'],
+    overlay: true,
+    customActions: {
+      init: (cssPath: string) => {
+        document.body.style.setProperty("--ext-game-back", `url(${cssPath}img/bg.jpg)`);
+      }
+    }
   },
   gygesdeluxe: {
     customBack: true
@@ -893,6 +930,9 @@ export const gamesConfiguration: Record<string, GameConfig> = {
   maracaibo: {
     customPanel: true
   },
+  massiveverse: {
+    customBack: true
+  },
   mastersofrenaissance: {
     customBack: true,
     playersTextColor: [".name[id=\"{{player_id}}\"]"]
@@ -1132,7 +1172,7 @@ export const gamesConfiguration: Record<string, GameConfig> = {
     customBack: true,
     overlay: true
   },
-  photosyntesis: {
+  photosynthesis: {
     customBack: true
   },
   pilipili: {
@@ -1143,6 +1183,9 @@ export const gamesConfiguration: Record<string, GameConfig> = {
   pinacoladice: {
     customBack: true,
     overlay: true
+  },
+  pingimus: {
+    customBack: true,
   },
   pioneerdaysproject: {
     playersBorder: ["#playerbox-{{player_id}}"]
@@ -1190,6 +1233,14 @@ export const gamesConfiguration: Record<string, GameConfig> = {
   popcorn: {
     customBack: ["pop-game-bg"]
   },
+  postcards: {
+    overlay: true,
+    customActions: {
+      init: (cssPath: string) => {
+        document.body.style.setProperty("--gameBack", `url(${cssPath}img/background.jpg)`);
+      }
+    }
+  },
   pook: {
     customBack: true
   },
@@ -1226,6 +1277,12 @@ export const gamesConfiguration: Record<string, GameConfig> = {
   raceforthegalaxy: {
     customBack: true
   },
+  railroadink: {
+    customBack: true
+  },
+  railroadinkchallenge: {
+    customBack: true
+  },
   rainforest: {
     playersBorder: ["#playerZone_{{player_id}}"],
     playersTextColor: ["#playerZone_{{player_id}} p"]
@@ -1257,6 +1314,9 @@ export const gamesConfiguration: Record<string, GameConfig> = {
     customBack: true,
     playersBorder: ["#player-table-{{player_id}}"]
   },
+  resarcana: {
+    customBack: true
+  },
   resist: {
     customColors: ["#782520"]
   },
@@ -1266,6 +1326,9 @@ export const gamesConfiguration: Record<string, GameConfig> = {
   riverofgold: {
     customColors: ["#000000", "#ff0000", "#008000", "#0000ff", "#ffffff"],
     playersBorder: ["#rog_player_delivered_resizable-{{player_id}}"]
+  },
+  riverrats: {
+    customBack: true
   },
   roadtothreehoundred: {
     playersTextColor: ["#rt300_plname_{{player_id}}"]
@@ -1364,6 +1427,9 @@ export const gamesConfiguration: Record<string, GameConfig> = {
   sfynx: {
     overlay: true
   },
+  shock: {
+    customBack: true
+  },
   shogi: {
     customBack: ["shg_theme1", "shg_theme2"]
   },
@@ -1376,6 +1442,10 @@ export const gamesConfiguration: Record<string, GameConfig> = {
   skatelegend: {
     customPlayerStyle: ".player-table .name-wrapper",
     playersBorder: ["#player-table-{{player_id}}"]
+  },
+  skarabrae: {
+    customBack: true,
+    playersTextColor: ['.tableau[style="--player-color: #{{player_color}}"]:after', '.bga-score-sheet_player-name[style="--player-color: #{{player_color}};"]'],
   },
   skirmishbattlefordraconia: {
     customBack: true
@@ -1453,8 +1523,15 @@ export const gamesConfiguration: Record<string, GameConfig> = {
   stalkexchange: {
     customBack: true
   },
+  starfluxx: {
+    customBack: true
+  },
   stella: {
     customBack: true
+  },
+  stonespinearchitects: {
+    customBack: true,
+    customPanel: true
   },
   stupormundi: {
     customPlayerStyle: ".stm_playermat_label"
@@ -1658,6 +1735,9 @@ export const gamesConfiguration: Record<string, GameConfig> = {
   twinkletwinkle: {
     customBack: true
   },
+  ubongo: {
+    customBack: true
+  },
   ultimaterailroads: {
     customBack: true
   },
@@ -1666,6 +1746,9 @@ export const gamesConfiguration: Record<string, GameConfig> = {
     overlay: true,
     playersTextColor: ['[style="--color: #{{player_color}}"]'],
     playersBack: ['[style="--color: #{{player_color}}"]:before', '[style="--color: #{{player_color}}"]:after'],
+  },
+  unrest: {
+    customBack: true,
   },
   upordown: {
     customBack: true,

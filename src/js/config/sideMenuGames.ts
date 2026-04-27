@@ -727,6 +727,7 @@ const defaultGames: Partial<Game>[] = [
 		name: "goldblivion",
 		iconBackground: "#537955",
 		iconBackgroundDark: "#415846",
+		iconColor: "#eee",
 		playerPanel: "gb-area-player-{{player_id}}",
 		bottomPanel: "gb-discarded-help",
 		css: "#gb-shortcut-area { display: none; } .desktop_version #gb-area-full { padding-left: 50px; }",

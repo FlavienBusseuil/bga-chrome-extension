@@ -1,3 +1,5 @@
+@import "./common";
+
 html[data-theme=dark] {
 	--ext-overlay-color: #fff5;
 
@@ -68,6 +70,14 @@ html[data-theme=dark] {
 
 	#GGA-table #hand_container #hand:empty+#hint_hand #empty-hand-hint {
 		color: var(--light-80);
+	}
+
+	.playerboard:before {
+		.reduceBrightness();
+	}
+
+	.card.tile .card-sides .card-side {
+		filter: var(--ext-bright);
 	}
 }
 

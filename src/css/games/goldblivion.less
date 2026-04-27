@@ -6,6 +6,17 @@ html[data-theme=dark].darkpanel #player_boards .player-board.gb-player-panel-pas
 
 html[data-theme=dark] {
 
+	#page-title,
+	#maingameview_menuheader,
+	#maingameview_menufooter {
+		border: 1px solid var(--dark-40);
+	}
+
+	#maingameview_menuheader {
+		border-top: none;
+		top: -1px;
+	}
+
 	#player_boards .player-name a,
 	.gb-area-player-title .player-name {
 		background-color: transparent !important;
@@ -45,5 +56,20 @@ html[data-theme=dark] {
 
 	.gb-component-help {
 		background-color: var(--blue-70);
+	}
+
+	.gb-counter {
+		background-color: var(--dark-20);
+		border-color: var(--light-70);
+		color: var(--light-70);
+	}
+
+	#gb-main-board:before,
+	.gb-player-board:before {
+		.reduceBrightness();
+	}
+
+	.gb-component:not(:has(.gb-component)) {
+		filter: var(--ext-bright);
 	}
 }
