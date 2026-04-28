@@ -46,6 +46,10 @@ export const gamesConfiguration: Record<string, GameConfig> = {
   aiye: {
     customPanel: true
   },
+  allinpredictions: {
+    customBack: true,
+    overlay: true
+  },
   almadi: {
     customPlayerStyle: ".playgroundContainer h2"
   },
@@ -324,6 +328,10 @@ export const gamesConfiguration: Record<string, GameConfig> = {
     customBack: true
   },
   coffeerush: {
+    customBack: true,
+    overlay: true
+  },
+  collect: {
     customBack: true,
     overlay: true
   },
@@ -689,6 +697,9 @@ export const gamesConfiguration: Record<string, GameConfig> = {
     }
   },
   gygesdeluxe: {
+    customBack: true
+  },
+  hacienda: {
     customBack: true
   },
   happycity: {
@@ -1554,6 +1565,11 @@ export const gamesConfiguration: Record<string, GameConfig> = {
   },
   supermegaluckybox: {
     customBack: ["smlb_background"]
+  },
+  suspeicao: {
+    customBack: true,
+    overlay: true,
+    playersBack: ['[style="background-color: #{{player_color}}"]']
   },
   symbiose: {
     customBack: true,

@@ -1,12 +1,28 @@
 @import "./common";
 
 html[data-theme=dark] {
-	.table_color {
-		background-color: var(--dark-20);
-		color: var(--light-70);
+	[style="color:black"] {
+		text-shadow: var(--text-w-shadow);
 	}
 
-	.table_cell [style="color:black"] {
-		text-shadow: var(--text-w-shadow);
+	.player-block {
+		background: var(--dark-20);
+	}
+
+	.player-block-and-hand-stock {
+		background: var(--dark-40);
+		outline: 1px solid var(--light-50);
+	}
+
+	.player-block-name {
+		text-shadow: none;
+	}
+
+	#myhand_label {
+		color: var(--light-80);
+	}
+
+	.bga-cards_card-side {
+		filter: var(--ext-bright);
 	}
 }

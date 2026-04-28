@@ -1801,6 +1801,16 @@ const defaultGames: Partial<Game>[] = [
 		playerPanel: "playerboard_{{player_id}}",
 		iconBackgroundDark: "#8f663d",
 	},
+	{
+		name: "hacienda",
+		playerPanel: ".mf_zone_player .playername",
+	},
+	{
+		name: "collect",
+		playerPanel: ".mf_playerboard .playername",
+		css: " "
+	},
+
 ];
 
 export default defaultGames;

@@ -56,4 +56,18 @@ html[data-theme=dark] {
 	.logicon_value_orange {
 		color: var(--orange-50) !important;
 	}
+
+	#board_surface:before {
+		.reduceBrightness();
+	}
+
+	.bga-cards_card-side {
+		filter: var(--ext-bright);
+	}
+
+	.score-exp-icon,
+	.logicon-logo {
+		border-radius: 1px;
+		filter: var(--ext-bright);
+	}
 }
