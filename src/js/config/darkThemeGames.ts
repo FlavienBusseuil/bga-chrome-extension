@@ -847,6 +847,9 @@ export const gamesConfiguration: Record<string, GameConfig> = {
   krosmasterblast: {
     customBack: true
   },
+  kumata: {
+    customBack: true
+  },
   lafamiglia: {
     customBack: true
   },

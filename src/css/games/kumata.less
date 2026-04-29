@@ -1,0 +1,39 @@
+@import "./common";
+
+html[data-theme=dark] {
+	body {
+		background-color: #54382b;
+	}
+
+	#mf_toggle_button a {
+		background-color: var(--dark-30);
+		color: var(--light-80);
+	}
+
+	#mf_toggle_button a:hover {
+		background-color: var(--dark-10);
+	}
+
+	.mf_banner a {
+		color: var(--light-60);
+	}
+
+	.mf_banner a:hover {
+		color: var(--light-80);
+	}
+
+	.mf_label>div {
+		color: var(--light-60)
+	}
+
+	.pave .face:before {
+		.reduceBrightness();
+	}
+
+	.mf_item_tile .mf_item_front,
+	.cylinder .cap.top>div,
+	.mf_panel_totem>div,
+	.mf_log_tile>div {
+		filter: var(--ext-bright);
+	}
+}
