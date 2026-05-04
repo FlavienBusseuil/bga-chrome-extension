@@ -36,6 +36,7 @@ export const gamesWithRecommendedConfig: { [gameName: GameName]: RecommendedConf
 	dicycards: { color: 146, sat: 15 },
 	diggingfordinos: { color: 0, sat: 20 },
 	dobro: { color: 216, sat: 25 },
+	dozito: { color: 235, sat: 20 },
 	earth: { color: 130, sat: 20 },
 	easypeasy: { color: 227, sat: 15 },
 	enemyanemone: { color: 220, sat: 32 },
