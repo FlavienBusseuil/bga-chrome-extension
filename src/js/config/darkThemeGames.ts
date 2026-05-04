@@ -427,7 +427,8 @@ export const gamesConfiguration: Record<string, GameConfig> = {
     playersTextColor: ["[style=\"--color: #{{player_color}}\"]", "[style*=\"--player-color: #{{player_color}}\"]"]
   },
   dozito: {
-    customBack: true
+    customBack: true,
+    overlay: true
   },
   draculahelsing: {
     customBack: true
