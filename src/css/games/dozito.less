@@ -1,12 +1,23 @@
 html[data-theme=dark] {
-	--ext-overall-color: #000A;
+	.bgaext_overlay {
+		filter: invert() hue-rotate(200deg);
+	}
 
-	#dzt_selectedslot {
+	.dzt-number-toggle-button,
+	.dzt-scoring-table-toggle-button {
 		background-color: var(--dark-back);
+	}
+
+	#dzt_score_calculator {
+		filter: invert(1) hue-rotate(180deg);
 	}
 
 	.dzt-number-toggle-button {
 		background: var(--dark-20);
+	}
+
+	#dzt_selectedslot {
+		background-color: var(--dark-back-50);
 	}
 
 	#dzt_roundtext {
