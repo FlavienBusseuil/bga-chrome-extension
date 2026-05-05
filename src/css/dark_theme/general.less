@@ -2258,6 +2258,36 @@ iframe#forum_frame {
   background-color: var(--dark-40) !important;
 }
 
+.tournament-overview__grid {
+  .bg-bga-gray-78 {
+    outline: 1px solid var(--dark-40);
+    background-color: #0006 !important;
+    background-blend-mode: multiply;
+  }
+
+  .bg-bga-gray-78[style*="background-color: rgb(78, 78, 78)"] {
+    background-color: var(--dark-20) !important;
+  }
+
+  .bg-bga-gray-78[style*="background-color: rgb(156, 163, 175)"] {
+    background-color: var(--dark-30) !important;
+  }
+
+  .bg-bga-gray-78[style*="background-color: rgb(209, 213, 219)"] {
+    background-color: var(--dark-40) !important;
+  }
+
+  .bga-tournament-player-badge-icon:before {
+    content: "";
+    position: absolute;
+    top: 0px;
+    left: 0px;
+    width: 100%;
+    height: 100%;
+    background: #0007;
+  }
+}
+
 /* Tournaments list page */
 
 .bgaext_tournamentlist {
