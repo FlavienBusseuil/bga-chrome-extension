@@ -1274,6 +1274,9 @@ export const gamesConfiguration: Record<string, GameConfig> = {
   pyramidoft: {
     customBack: true
   },
+  pyramis: {
+    customBack: true
+  },
   qo: {
     customBack: true
   },
