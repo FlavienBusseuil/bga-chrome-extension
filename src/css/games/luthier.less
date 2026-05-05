@@ -1,0 +1,31 @@
+html[data-theme=dark] {
+	.summaryRow .icon {
+		filter: var(--highlight-min);
+	}
+
+	.handToggle {
+		outline: 1px solid var(--light-50);
+	}
+
+	.diceTrayOuter {
+		background: var(--dark-30);
+	}
+
+	.mainBoard,
+	.awardWrapper,
+	.marketCardBoard,
+	.playerBoard,
+	.sortArea,
+	.helpIcon,
+	.familyChoice>*,
+	.playerBoards>*,
+	.referenceCard,
+	.die,
+	.luthierTooltip .luthierCard {
+		filter: var(--ext-bright);
+	}
+
+	div[style*="filter: drop-shadow(rgb(43, 62, 127) 0px 0px 10px)"] {
+		filter: drop-shadow(var(--blue-80) 0px 0px 10px) var(--ext-bright) !important;
+	}
+}
