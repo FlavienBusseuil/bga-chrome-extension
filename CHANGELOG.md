@@ -1,5 +1,9 @@
 # Changelog
 
+## [v1.13.4](https://github.com/FlavienBusseuil/bga-chrome-extension/tree/v1.13.4) (2026-05-05)
+
+[Full Changelog](https://github.com/FlavienBusseuil/bga-chrome-extension/compare/v1.13.3...v1.13.4)
+
 ## [v1.13.3](https://github.com/FlavienBusseuil/bga-chrome-extension/tree/v1.13.3) (2026-04-28)
 
 [Full Changelog](https://github.com/FlavienBusseuil/bga-chrome-extension/compare/v1.13.2...v1.13.3)
@@ -181,6 +185,10 @@
 
 [Full Changelog](https://github.com/FlavienBusseuil/bga-chrome-extension/compare/v1.12.22...v1.12.23)
 
+**Merged pull requests:**
+
+- translate\(german\): add missing logo option locales [\#136](https://github.com/FlavienBusseuil/bga-chrome-extension/pull/136) ([GhoulofGSG9](https://github.com/GhoulofGSG9))
+
 ## [v1.12.22](https://github.com/FlavienBusseuil/bga-chrome-extension/tree/v1.12.22) (2025-09-18)
 
 [Full Changelog](https://github.com/FlavienBusseuil/bga-chrome-extension/compare/v1.12.21...v1.12.22)
@@ -208,6 +216,10 @@
 ## [v1.12.15](https://github.com/FlavienBusseuil/bga-chrome-extension/tree/v1.12.15) (2025-07-28)
 
 [Full Changelog](https://github.com/FlavienBusseuil/bga-chrome-extension/compare/v1.12.14...v1.12.15)
+
+**Merged pull requests:**
+
+- darkstyle\(wanderingtowers\): Add darkstyle for wanderingtowers [\#133](https://github.com/FlavienBusseuil/bga-chrome-extension/pull/133) ([GhoulofGSG9](https://github.com/GhoulofGSG9))
 
 ## [v1.12.14](https://github.com/FlavienBusseuil/bga-chrome-extension/tree/v1.12.14) (2025-07-18)
 
@@ -1031,6 +1043,10 @@
 
 - Add visual enhancement and improve global UX on many boardgames [\#53](https://github.com/FlavienBusseuil/bga-chrome-extension/issues/53)
 
+**Merged pull requests:**
+
+- Christophe [\#52](https://github.com/FlavienBusseuil/bga-chrome-extension/pull/52) ([cdelaforge](https://github.com/cdelaforge))
+
 ## [v1.6.6](https://github.com/FlavienBusseuil/bga-chrome-extension/tree/v1.6.6) (2023-06-01)
 
 [Full Changelog](https://github.com/FlavienBusseuil/bga-chrome-extension/compare/v1.6.5...v1.6.6)
@@ -1066,6 +1082,11 @@
 **Fixed bugs:**
 
 - Missing icon image ressource in manifest [\#47](https://github.com/FlavienBusseuil/bga-chrome-extension/issues/47)
+
+**Merged pull requests:**
+
+- 1.6.2 [\#46](https://github.com/FlavienBusseuil/bga-chrome-extension/pull/46) ([FlavienBusseuil](https://github.com/FlavienBusseuil))
+- chore: fetch with request token [\#44](https://github.com/FlavienBusseuil/bga-chrome-extension/pull/44) ([FlavienBusseuil](https://github.com/FlavienBusseuil))
 
 ## [v1.6.2](https://github.com/FlavienBusseuil/bga-chrome-extension/tree/v1.6.2) (2022-06-06)
 
@@ -1178,6 +1199,10 @@
 **Chore:**
 
 - DX improvements [\#21](https://github.com/FlavienBusseuil/bga-chrome-extension/issues/21)
+
+**Merged pull requests:**
+
+- Update GenerateChangelog.yml [\#19](https://github.com/FlavienBusseuil/bga-chrome-extension/pull/19) ([FlavienBusseuil](https://github.com/FlavienBusseuil))
 
 ## v1.2.1 (16/08/2021)
 
