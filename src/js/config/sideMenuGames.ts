@@ -1820,6 +1820,13 @@ const defaultGames: Partial<Game>[] = [
 		playerPanel: "playerBoard_{{player_id}}",
 		css: " "
 	},
+	{
+		name: "catslebuilders",
+		playerPanel: "cln-player-{{player_id}}",
+		iconBackground: "#ee8f77",
+		iconBackgroundDark: "#9c4630",
+		css: " "
+	},
 ];
 
 export default defaultGames;

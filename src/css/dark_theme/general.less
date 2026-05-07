@@ -1492,15 +1492,28 @@ select.colorselector {
 }
 
 /* Page Contact */
-#contact-module .support_entry {
-  background: var(--dark-10);
-  color: var(--light-80);
-}
+#contact-module {
+  .support_entry {
+    background: var(--dark-10);
+    color: var(--light-80);
+  }
 
-#contact-module .support_section,
-#contact-module .support_title,
-#contact-module .support_details {
-  color: var(--light-80);
+  .support_section,
+  .support_title,
+  .support_details {
+    color: var(--light-80);
+  }
+
+  .support_entry.last_selected_entry>.support_entry_icon,
+  .support_entry_icon_triangle,
+  .support_entry_icon,
+  [class^="support_icon"] {
+    filter: invert(1) hue-rotate(180deg) brightness(0.8);
+  }
+
+  .notouch-device .cliquable_support_section_header:hover {
+    background-color: var(--dark-30);
+  }
 }
 
 /* Page Contribution */

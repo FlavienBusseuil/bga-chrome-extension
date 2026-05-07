@@ -1,0 +1,109 @@
+@import "./common";
+
+html[data-theme=dark] {
+	@keyframes dmtnt_red-color-transition {
+		0% {
+			color: var(--red-80)
+		}
+
+		30% {
+			color: var(--yellow-50)
+		}
+
+		40% {
+			color: var(--red-80)
+		}
+
+		to {
+			color: var(--red-80)
+		}
+	}
+
+	@keyframes dmtnt_warning-transition {
+		0% {
+			color: var(--light-60)
+		}
+
+		30% {
+			color: var(--red-80)
+		}
+
+		40% {
+			color: var(--light-60)
+		}
+
+		to {
+			color: var(--light-60)
+		}
+	}
+
+	.dmtnt {
+		.map-buttons {
+			background: var(--dark-10);
+			outline: 1px solid var(--dark-40);
+		}
+
+		.tooltip-text {
+			background-color: var(--dark-back);
+			outline: 1px solid var(--dark-40);
+			color: var(--light-80);
+		}
+
+		button {
+			.blueButton();
+		}
+
+		button:hover {
+			.blueButtonOver();
+		}
+
+		.map-wrapper {
+			border-color: var(--light-50);
+		}
+
+		h3 {
+			background: var(--dark-10);
+			border-radius: 10px;
+			box-shadow: 0 0 2px #fff;
+		}
+
+		.dot {
+			background-color: var(--dark-10);
+			border-color: var(--light-50);
+			color: var(--light-70);
+		}
+
+		.character-side-container[style="background-color: rgb(255, 255, 255);"] {
+			background-color: var(--dark-40) !important;
+		}
+
+		.label {
+			color: var(--light-80);
+		}
+
+		.game-info-notifications .notification,
+		.game-info-panel {
+			background-color: var(--dark-20);
+			outline: 1px solid var(--dark-40);
+			color: var(--light-60);
+		}
+
+		.dmtnt__log-button {
+			background: var(--dark-40);
+			color: var(--light-60);
+		}
+
+		.dmtnt__log-button:hover {
+			color: var(--light-80);
+		}
+
+		.character-card,
+		.player-board-card,
+		.tile-card,
+		.tracker-card,
+		.item-card,
+		.revenge-card {
+			filter: var(--ext-bright);
+		}
+	}
+}

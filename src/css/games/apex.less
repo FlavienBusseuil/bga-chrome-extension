@@ -1,0 +1,29 @@
+html[data-theme=dark] {
+	.APEXpile {
+		outline-color: var(--dark-40);
+	}
+
+	.APEXscrollArea {
+		border-color: var(--dark-40);
+	}
+
+	.player-board-game-specific-content,
+	.player-board-game-specific-content>* {
+		filter: invert(1);
+	}
+
+	.APEXage,
+	.APEXround {
+		color: var(--red-80);
+	}
+
+	.APEXcard,
+	.APEXplayerBoard,
+	.APEXsector {
+		filter: var(--ext-bright);
+	}
+
+	.APEXsector.APEXdisabled {
+		filter: grayscale(1);
+	}
+}

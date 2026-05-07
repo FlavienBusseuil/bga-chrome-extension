@@ -66,6 +66,9 @@ export const gamesConfiguration: Record<string, GameConfig> = {
   aniversus: {
     customBack: true
   },
+  apex: {
+    customBack: true
+  },
   apiary: {
     customBack: ["custom-background"],
     customPanel: true
@@ -279,6 +282,11 @@ export const gamesConfiguration: Record<string, GameConfig> = {
   catinthebox: {
     customBack: true
   },
+  catslebuilders: {
+    customBack: true,
+    overlay: true,
+    playersTextColor: ['[style*="--color: #{{player_color}}"]']
+  },
   caverna: {
     customBack: true
   },
@@ -390,6 +398,10 @@ export const gamesConfiguration: Record<string, GameConfig> = {
   deadcellsnewcontent: {
     customBack: true,
     customColors: ["#3c733a", "#ab3237", "#5c5aa5", "#c97014"]
+  },
+  deadmentellnotales: {
+    customBack: true,
+    overlay: true
   },
   dedale: {
     customBack: true
@@ -618,6 +630,9 @@ export const gamesConfiguration: Record<string, GameConfig> = {
   fromage: {
     customBack: true,
     customPanel: true
+  },
+  fugitive: {
+    customBack: true
   },
   galacticcruise: {
     customBack: true
@@ -1712,6 +1727,9 @@ export const gamesConfiguration: Record<string, GameConfig> = {
   },
   tiwanaku: {
     customBack: true
+  },
+  tomatoss: {
+    playersTextColor: ["#player-zone-{{player_id}} .tomatoss-player-zone__name"]
   },
   toybattle: {
     customBack: true,
