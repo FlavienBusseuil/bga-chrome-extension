@@ -38,8 +38,18 @@ export const hexToRgb = (hex: string) => {
   } : null;
 }
 
+const definedColors: Record<string, string> = {
+  'blue': '#0000ff',
+  'red': '#ff0000',
+  'green': '#008000',
+  'yellow': '#ffff00',
+  'orange': '#ffa500',
+  'purple': '#800080'
+}
+
 export const getColorForDarkMode = (color: string) => {
-  const rgb = color.startsWith('#') ? hexToRgb(color) : hexToRgb(rgbHex(color));
+  const rColor = definedColors[color] || color;
+  const rgb = rColor.startsWith('#') ? hexToRgb(rColor) : hexToRgb(rgbHex(rColor));
 
   if (!rgb) {
     return { color, enlight: false };

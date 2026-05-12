@@ -1835,6 +1835,9 @@ export const gamesConfiguration: Record<string, GameConfig> = {
   vivacatrina: {
     customBack: true
   },
+  vizia: {
+    customColors: ['blue', 'red', 'green', 'orange', 'purple', 'yellow'],
+  },
   wanderingtowers: {
     customBack: true,
     overlay: true
