@@ -664,10 +664,6 @@ const defaultGames: Partial<Game>[] = [
 		css: "#bga-jump-to_controls { display: none; } .desktop_version #game_play_area { padding-left: 50px; }",
 	},
 	{
-		name: "cantstopexpress",
-		playerPanel: ".containermepad",
-	},
-	{
 		name: "livingforest",
 		playerPanel: "lvf_playerboard_{{player_id}}",
 	},

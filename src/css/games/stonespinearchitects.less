@@ -13,7 +13,43 @@ html[data-theme=dark] {
 
 	#sa-scoresheet,
 	#sa-scoresheet>* {
-		filter: invert(1);
+		filter: invert(1) hue-rotate(180deg);
+	}
+
+	#sa-scoresheet table tr {
+		position: relative;
+	}
+
+	tr[data-scoring-type="goalCard"]:before,
+	tr[data-scoring-type="challengeCard1"]:before,
+	tr[data-scoring-type="challengeCard2"]:before,
+	tr[data-scoring-type="challengeCard3"]:before,
+	tr[data-scoring-type="blueprint"]:before {
+		content: "";
+		background-image: var(--ext-score-back);
+		background-size: 700px 500px;
+		width: 50px;
+		height: 36px;
+		position: absolute;
+		top: 8px;
+		left: 31px;
+		background-position: -31px 342px;
+		border: 1px solid #000;
+		outline: 1px solid #000;
+		box-sizing: border-box;
+		border-radius: 3px;
+	}
+
+	tr[data-scoring-type="goalCard"]:before {
+		background-position: -31px 392px;
+	}
+
+	tr[data-scoring-type="blueprint"]:before {
+		width: 34px;
+		height: 46px;
+		top: 6px;
+		left: 39px;
+		background-position: -39px 146px;
 	}
 
 	#jj-preferences-panel #jj-preferences-panel-content .jj-preferences-panel-category-label {

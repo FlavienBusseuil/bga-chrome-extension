@@ -872,6 +872,9 @@ export const gamesConfiguration: Record<string, GameConfig> = {
   lamarcheducrabe: {
     overlay: true
   },
+  laserreflection: {
+    playersBack: [".lrf_progress-bar[style*=\"background-color:#{{player_color}}\"]"]
+  },
   lasvegan: {
     customBack: true
   },
@@ -1573,7 +1576,12 @@ export const gamesConfiguration: Record<string, GameConfig> = {
   },
   stonespinearchitects: {
     customBack: true,
-    customPanel: true
+    customPanel: true,
+    customActions: {
+      init: (cssPath: string) => {
+        document.body.style.setProperty("--ext-score-back", `url(${cssPath}img/sa-scorepad-multi.png)`);
+      }
+    }
   },
   stupormundi: {
     customPlayerStyle: ".stm_playermat_label"
