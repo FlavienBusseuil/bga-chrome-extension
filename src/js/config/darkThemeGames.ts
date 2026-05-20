@@ -804,6 +804,11 @@ export const gamesConfiguration: Record<string, GameConfig> = {
     customBack: true,
     customColors: ["#0000ff", "#ff0000", "#ffa500", "#773300", "#008000"]
   },
+  ipso: {
+    customBack: true,
+    playersBorder: ["[style*=\"--plcolor:#{{player_color}}\"]"],
+    playersTextColor: ["[style*=\"--plcolor:#{{player_color}}\"] .player_name_holder"],
+  },
   irishgauge: {
     playersBorder: ["#player-table-{{player_id}}", "#player-table-{{player_id}} .player-table-name"],
     playersTextColor: ["#player-table-{{player_id}} .player-table-name"]
@@ -1723,6 +1728,9 @@ export const gamesConfiguration: Record<string, GameConfig> = {
   tikal: {
     customBack: true
   },
+  timesplicers: {
+    playersBack: ["[style=\"background-color:#{{player_color}}\"]"]
+  },
   tinyturbocars: {
     customBack: true
   },
@@ -1878,8 +1886,16 @@ export const gamesConfiguration: Record<string, GameConfig> = {
   yokaipagoda: {
     playersBorder: [".game_results_player[style=\"border-left: 4px solid #{{player_color}}\"]"]
   },
+  yro: {
+    customBack: true,
+    overlay: true,
+  },
   zenith: {
     customBack: true
+  },
+  zombicidesecondedition: {
+    customBack: true,
+    overlay: true
   },
   zuuli: {
     customPlayerStyle: ".writes.lg"

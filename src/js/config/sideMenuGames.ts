@@ -1823,6 +1823,13 @@ const defaultGames: Partial<Game>[] = [
 		iconBackgroundDark: "#9c4630",
 		css: " "
 	},
+	{
+		name: "yro",
+		playerPanel: "playerHand_{{player_id}}",
+		iconBackground: "#f5ddf3",
+		iconBackgroundDark: "#6f5b71",
+		css: " "
+	},
 ];
 
 export default defaultGames;

@@ -1,0 +1,33 @@
+@import "./common";
+
+html[data-theme=dark] {
+	--ext-overlay-color: #0003;
+
+	.playerNameBoard {
+		background: var(--dark-back);
+	}
+
+	.yro_tooltip .yro_tooltipStatus {
+		color: var(--light-50);
+	}
+
+	.yro_tooltip .yro_tooltipName,
+	.yro_tooltip .yro_tooltipEffects,
+	.yro_tooltip .yro_tooltipLine {
+		color: var(--light-80);
+	}
+
+	.yro_icons {
+		filter: var(--highlight-min);
+	}
+
+	.yroCard-back,
+	.yroCard-front {
+		filter: var(--ext-bright);
+	}
+
+	.playerBoard:before {
+		.reduceBrightness();
+		border-radius: 10px;
+	}
+}

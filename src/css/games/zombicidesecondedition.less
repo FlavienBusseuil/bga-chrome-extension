@@ -1,0 +1,22 @@
+@import "./common";
+
+html[data-theme=dark] {
+	.zom_survivor-id h2 {
+		text-shadow: none;
+		background: var(--dark-20);
+		padding: 0.1em 0.3em;
+		border-radius: 8px;
+	}
+
+	.zom_tile-back:before {
+		.reduceBrightness();
+	}
+
+	.bga-cards_card-side,
+	.zom_survivor-id,
+	.zom_adrenaline-bar,
+	#zom-map .zom_token,
+	#zom-map .zom_door {
+		filter: var(--ext-bright);
+	}
+}
