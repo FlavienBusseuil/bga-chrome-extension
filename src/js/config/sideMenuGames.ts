@@ -1830,6 +1830,10 @@ const defaultGames: Partial<Game>[] = [
 		iconBackgroundDark: "#6f5b71",
 		css: " "
 	},
+	{
+		name: "thelittleflowershop",
+		playerPanel: "player_board_{{player_id}}"
+	}
 ];
 
 export default defaultGames;

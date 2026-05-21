@@ -1,0 +1,35 @@
+/* Remove border */
+.bdado,
+.wdado {
+	content: url(data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7);
+}
+
+html[data-theme=dark] {
+
+	#rotate_X1,
+	#rotate_X2,
+	#rotate_Y1,
+	#rotate_Y2,
+	#rotate_left,
+	#rotate_right,
+	#swap2D3D {
+		background-color: var(--dark-back);
+		box-shadow: none;
+		filter: var(--highlight-min);
+	}
+
+	#zoomin_left,
+	#zoomout_left {
+		background-color: transparent;
+		box-shadow: none;
+		filter: invert(0.8);
+	}
+
+	#swap2D3D {
+		color: var(--light-70);
+	}
+
+	.bdado {
+		filter: var(--highlight-min);
+	}
+}

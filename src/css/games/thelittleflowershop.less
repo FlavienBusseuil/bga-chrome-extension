@@ -1,0 +1,67 @@
+@import "./common";
+
+html[data-theme=dark] {
+
+	.action_button_disabled,
+	.action_button_disabled:hover,
+	.notouch-device .bgabutton_blue.action_button_disabled:hover {
+		background: #888 !important;
+		border: none !important;
+	}
+
+	.trashicon {
+		filter: invert(0.8);
+	}
+
+	.playerwindow-0000ff:before {
+		background-image: var(--back-blue) !important;
+	}
+
+	.playerwindow-008000:before {
+		background-image: var(--back-green) !important;
+	}
+
+	.playerwindow-ff0000:before {
+		background-image: var(--back-red) !important;
+	}
+
+	.playerwindow-ffa500:before {
+		background-image: var(--back-yellow) !important;
+	}
+
+	.playerwindow-0000ff:before,
+	.playerwindow-008000:before,
+	.playerwindow-ff0000:before,
+	.playerwindow-ffa500:before {
+		.reduceBrightness();
+		background-color: transparent;
+		background-position: 50% !important;
+		background-repeat: no-repeat !important;
+		background-size: contain !important;
+		filter: var(--ext-bright);
+	}
+
+	.playerwindow-0000ff,
+	.playerwindow-008000,
+	.playerwindow-ff0000,
+	.playerwindow-ffa500 {
+		background: none !important;
+	}
+
+	.playertablename {
+		background: var(--dark-back);
+	}
+
+	.round-counter {
+		background: var(--dark-30);
+	}
+
+	.vase-slot .card.flower,
+	.vase-slot .card.vase,
+	.vase-slot .static-vase,
+	.basket-slot .card,
+	[id^=playerStorage_] .stockitem,
+	.selectedCardContainer .card-back {
+		filter: var(--ext-bright);
+	}
+}

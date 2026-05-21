@@ -1700,6 +1700,16 @@ export const gamesConfiguration: Record<string, GameConfig> = {
   thekingofthewoods: {
     customBack: true
   },
+  thelittleflowershop: {
+    customActions: {
+      init: (cssPath: string) => {
+        document.body.style.setProperty("--back-blue", `url(${cssPath}img/windows/window_blue.png)`);
+        document.body.style.setProperty("--back-green", `url(${cssPath}img/windows/window_green.png)`);
+        document.body.style.setProperty("--back-red", `url(${cssPath}img/windows/window_red.png)`);
+        document.body.style.setProperty("--back-yellow", `url(${cssPath}img/windows/window_yellow.png)`);
+      }
+    }
+  },
   theninesonsofthedragon: {
     customBack: true
   },
@@ -1766,6 +1776,9 @@ export const gamesConfiguration: Record<string, GameConfig> = {
     playersBorder: ["#gamezone-{{player_id}}"]
   },
   trickarus: {
+    customBack: true
+  },
+  trickykids: {
     customBack: true
   },
   trio: {
