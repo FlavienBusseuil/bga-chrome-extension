@@ -87,7 +87,7 @@ const _applyBackgroundFlickerFix = () => {
 try {
   if (document && !isHtmlPage) {
     _isDarkStyle().then(val => {
-      val && _applyBackgroundFlickerFix();
+      val && window.location.hostname !== 'studio.boardgamearena.com' && _applyBackgroundFlickerFix();
     });
   }
 }
