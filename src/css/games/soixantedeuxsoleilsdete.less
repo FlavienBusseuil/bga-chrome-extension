@@ -1,0 +1,35 @@
+@import "./common";
+
+html[data-theme=dark] {
+	#sde_player-dice {
+		background: var(--dark-back);
+	}
+
+	.log .roundedbox hr {
+		color: var(--light-60);
+		border-color: var(--light-60);
+	}
+
+	.log .roundedbox hr:after {
+		background: var(--dark-10);
+	}
+
+	.sde_player-board-name {
+		position: relative;
+	}
+
+	.sde_sun-board:before,
+	.sde_player-board-name:before {
+		.reduceBrightness();
+	}
+
+	.sde_player-board-name:before {
+		border-top-left-radius: 2rem;
+		border-top-right-radius: 2rem;
+	}
+
+	.sde_sun-board .zone-tooltip,
+	.sde_sun-board .pearl[class*=id-] {
+		filter: var(--ext-bright);
+	}
+}

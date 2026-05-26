@@ -207,6 +207,9 @@ export const gamesConfiguration: Record<string, GameConfig> = {
   bunnykingdom: {
     customBack: true
   },
+  bunnykingdomtown: {
+    customBack: true
+  },
   butterfly: {
     customPlayerStyle: ".playerHand h3"
   },
@@ -1514,6 +1517,10 @@ export const gamesConfiguration: Record<string, GameConfig> = {
   },
   sobektwoplayers: {
     customBack: true
+  },
+  soixantedeuxsoleilsdete: {
+    customBack: true,
+    overlay: true
   },
   solarsentinels: {
     customBack: true

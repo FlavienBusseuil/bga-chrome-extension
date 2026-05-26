@@ -1833,7 +1833,11 @@ const defaultGames: Partial<Game>[] = [
 	{
 		name: "thelittleflowershop",
 		playerPanel: "player_board_{{player_id}}"
-	}
+	},
+	{
+		name: "soixantedeuxsoleilsdete",
+		playerPanel: "player-table-{{player_id}}"
+	},
 ];
 
 export default defaultGames;

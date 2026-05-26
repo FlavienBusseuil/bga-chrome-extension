@@ -1,0 +1,37 @@
+@import "./common";
+
+html[data-theme=dark] {
+	--ext-overall-color: #00000060;
+
+	.atb-draggable-window {
+		background: var(--dark-20);
+		border-color: var(--dark-40);
+		color: var(--light-70);
+	}
+
+	.BKT-scores>div {
+		background-color: var(--dark-20);
+		color: var(--light-80);
+	}
+
+	.ATB-score-description-details {
+		color: var(--light-50);
+	}
+
+	.BKT-player-tableux:before {
+		.reduceBrightness();
+		border-radius: 8px;
+	}
+
+	#BKTAvailableBuildingTiles,
+	.BKT-plotcard-back,
+	.BKT-plotcard-front,
+	.BKT-requestcard-back,
+	.BKT-requestcard-front,
+	.BKT-upgradetile-front,
+	.BKT-player-buildingtilereserves .BKT-buildingtile-front,
+	.BKT-round-number-and-turn-order,
+	.BKT-board {
+		filter: var(--ext-bright);
+	}
+}
