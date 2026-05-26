@@ -30,6 +30,7 @@ if (pageInfo.length >= 2 && isNumber(pageInfo[0] as string)) {
 }
 
 const isHtmlPage = pageInfo[pageInfo.length - 1]?.endsWith('.html');
+const isStudioPage = window.location.hostname === 'studio.boardgamearena.com';
 
 const _init = async () => {
   const fileContentsTask = Promise.all(cssList.map(file => getFile(file)));
@@ -85,10 +86,8 @@ const _applyBackgroundFlickerFix = () => {
 };
 
 try {
-  if (document && !isHtmlPage) {
-    _isDarkStyle().then(val => {
-      val && window.location.hostname !== 'studio.boardgamearena.com' && _applyBackgroundFlickerFix();
-    });
+  if (document && !isHtmlPage && !isStudioPage) {
+    _isDarkStyle().then(val => val && _applyBackgroundFlickerFix());
   }
 }
 catch (error) {
@@ -96,10 +95,7 @@ catch (error) {
 }
 
 const _removeBackgroundFlickerFix = () => {
-  const s = document.getElementById(darkThemeFlickerFixElementId);
-  if (s) {
-    s.remove();
-  }
+  document.getElementById(darkThemeFlickerFixElementId)?.remove();
 };
 
 const _hexToRgb = (hex: string) => {
@@ -228,7 +224,7 @@ const _addInvertOverlay = (cssPath: string) => {
 };
 
 const _setDarkStyleIfActivated = () => {
-  waitForObj('#overall-content').then(() => {
+  waitForObj('#overall-content', 5000).then(() => {
     const config = gamesConfiguration[gameName];
     const customActions = config?.customActions;
     const hasCustomAction = Boolean(customActions && customActions.init);
@@ -246,6 +242,7 @@ const _setDarkStyleIfActivated = () => {
       hasOverlay && _addInvertOverlay(cssPath)
     }
 
+  }).finally(() => {
     _isDarkStyle().then(darkMode => {
       if (darkMode) {
         _setDarkStyle();

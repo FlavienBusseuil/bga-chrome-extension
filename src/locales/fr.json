@@ -89,6 +89,8 @@
   "optionsNotificationCustomSoundWarnFF": "Ne peut être configuré que dans la page de gestion de l'extension",
   "optionsFlashingOn": "Les tables sur lesquelles vous êtes attendu sont signalées par une couleur clignotante",
   "optionsFlashingOff": "Les tables sur lesquelles vous êtes attendu sont signalées par un code couleur et un message",
+  "optionsSidePanelIconOn": "Une icône est ajoutée en haut à droite du site pour afficher le panneau latéral de l'extension",
+  "optionsSidePanelIconOff": "Le panneau latéral de l'extension ne peut être ouvert qu'à l'aide du menu contextuel (clic droit)",
   "optionsLobbyRedirectOn": "Les hyperliens du site sont modifiés pour pointer vers le lobby classique (lorsque c'est possible)",
   "optionsLobbyRedirectOff": "Les hyperliens du site ne sont pas modifiés, le lobby par défaut est utilisé (généralement le nouveau)",
   "optionsFastCreate": "Création rapide de tables",

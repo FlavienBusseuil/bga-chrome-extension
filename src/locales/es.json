@@ -89,6 +89,8 @@
   "optionsNotificationCustomSoundWarnFF": "Solo se puede configurar en la página de gestión de complementos",
   "optionsFlashingOn": "Las mesas donde se te espera se indican con un color parpadeante",
   "optionsFlashingOff": "Las mesas donde se te espera se indican con un código de color y un mensaje",
+  "optionsSidePanelIconOn": "Se añade un icono en la esquina superior derecha de la página para mostrar la barra lateral de la extensión",
+  "optionsSidePanelIconOff": "El panel lateral de la extensión solo se puede abrir mediante el menú contextual (clic con el botón derecho)",
   "optionsLobbyRedirectOn": "Los hipervínculos se modifican para apuntar al lobby clásico (cuando sea posible)",
   "optionsLobbyRedirectOff": "Los hipervínculos no se modifican, se utiliza el lobby predeterminado (generalmente el nuevo).",
   "optionsFastCreate": "Creación rápida de mesas",

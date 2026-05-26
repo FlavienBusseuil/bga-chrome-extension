@@ -317,7 +317,7 @@ const initSidePanel = () => {
 		const extIcon = document.createElement('i');
 		extIcon.id = "bgaext-side-panel";
 		extIcon.className = "fa fa-puzzle-piece";
-		extIcon.addEventListener('mousedown', () => chrome.runtime.sendMessage({ type: 'openSidePanel' }));
+		extIcon.addEventListener('click', () => chrome.runtime.sendMessage({ type: 'openSidePanel' }));
 		document.body.appendChild(extIcon);
 		chrome.runtime.sendMessage({ type: 'checkSidePanel' });
 	}
@@ -344,7 +344,9 @@ const initPage = () => {
 			setTimeout(() => displayInformationPopup(config), 2000);
 		}
 
-		initSidePanel();
+		if (config.isSidePanelIconVisible()) {
+			initSidePanel();
+		}
 
 		document.body.addEventListener('bga_ext_api_result', (data) => {
 			const evtDetail = JSON.parse((data as CustomEvent).detail);

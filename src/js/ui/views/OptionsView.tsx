@@ -31,6 +31,7 @@ export const OptionsView = ({ config, onChange }: Props) => {
   const [soundNotification, setSoundNotification] = useSyncedState('soundNotification', config.isSoundNotificationEnable());
   const [customSoundFile, setCustomSoundFile] = useSyncedState('customSoundFile', isSoundCustom());
   const [motionSensitivity, setMotionSensitivity] = useSyncedState('motionSensitivity', config.isMotionSensitivityEnable());
+  const [sidePanelIconVisible, setSidePanelIconVisible] = useSyncedState('sidePanelIconVisible', config.isSidePanelIconVisible());
   const [redirect, setRedirect] = useSyncedState('redirect', config.isLobbyRedirectionEnable());
   const [hideDisabledArenaGame, setHideDisabledArenaGame] = useSyncedState('hideDisabledArenaGame', config.areDisabledArenaGamesHidden());
   const [hideLoadingLogo, setHideLoadingLogo] = useSyncedState('hideLoadingLogo', config.isFullscreenLoadingLogoHidden());
@@ -152,6 +153,11 @@ export const OptionsView = ({ config, onChange }: Props) => {
   const updateFlashing = (val: boolean) => {
     setMotionSensitivity(!val);
     config.setMotionSensitivityEnable(!val);
+  };
+
+  const updateSidePanelIconVisible = (val: boolean) => {
+    setSidePanelIconVisible(val);
+    config.setSidePanelIconVisible(val);
   };
 
   const updateRedirect = (val: boolean) => {
@@ -357,6 +363,7 @@ export const OptionsView = ({ config, onChange }: Props) => {
               <option value='ja'>🇯🇵 日本語</option>
             </select>
           </div>
+          {!isFirefox && getSwitch(sidePanelIconVisible, updateSidePanelIconVisible, "optionsSidePanelIconOn", "optionsSidePanelIconOff")}
           {getSwitch(redirect, updateRedirect, "optionsLobbyRedirectOn", "optionsLobbyRedirectOff")}
           {getSwitch(hideDisabledArenaGame, updateHideDisabledArenaGame, "optionsHideDisabledArenaGameOn", "optionsHideDisabledArenaGameOff")}
           {getSwitch(solidBackground, updateSolidBackground, "optionsSolidBackgroundOn", "optionsSolidBackgroundOff")}

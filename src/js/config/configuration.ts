@@ -30,6 +30,7 @@ interface CustomConfig {
 	motionSensitivity?: boolean;
 	home?: HomeConfig;
 	inProgress?: InProgressConfig;
+	sidePanelIcon?: boolean;
 	lobbyRedirect?: boolean;
 	hideDisabledArenaGames?: boolean;
 	hideFullscreenLoadingLogo?: boolean;
@@ -319,6 +320,15 @@ class Configuration {
 	setMotionSensitivityEnable(val: boolean) {
 		this._customConfig.motionSensitivity = val;
 		storageSet({ motionSensitivity: val });
+	}
+
+	isSidePanelIconVisible() {
+		return this._customConfig.sidePanelIcon === undefined || this._customConfig.sidePanelIcon;
+	}
+
+	setSidePanelIconVisible(val: boolean) {
+		this._customConfig.sidePanelIcon = val;
+		storageSet({ sidePanelIcon: val });
 	}
 
 	isLobbyRedirectionEnable() {

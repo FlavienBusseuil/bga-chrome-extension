@@ -89,6 +89,8 @@
   "optionsNotificationCustomSoundWarnFF": "Kann nur auf der Add-on-Verwaltungsseite konfiguriert werden",
   "optionsFlashingOn": "Tische, an denen du erwartet wirst, werden durch eine blinkende Färbung hervorgehoben",
   "optionsFlashingOff": "Tische, an denen du erwartet wirst, werden durch eine Nachricht und Färbung hervorgehoben",
+  "optionsSidePanelIconOn": "Oben rechts auf der Website wird ein Symbol hinzugefügt, um die Seitenleiste der Erweiterung anzuzeigen",
+  "optionsSidePanelIconOff": "Das Seitenfenster der Erweiterung lässt sich nur über das Kontextmenü (Rechtsklick) öffnen",
   "optionsLobbyRedirectOn": "Hyperlinks werden angepasst, um auf die klassische  Lobby zu verweisen (wenn möglich)",
   "optionsLobbyRedirectOff": "Hyperlinks werden nicht angepasst, die Standard-Lobby wird verwendet (normalerweise die Neue)",
   "optionsFastCreate": "Schnelle-Tisch-Erstellung",

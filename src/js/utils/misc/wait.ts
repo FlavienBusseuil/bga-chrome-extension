@@ -8,12 +8,18 @@ type Waiter = {
 class Wait {
 	observer: MutationObserver;
 	observerStarted: boolean;
-	waiting: Record<string, Waiter[]>
+	waiting: Record<string, Waiter[]>;
+	interval: number;
 
 	constructor() {
 		this.waiting = {};
 		this.observerStarted = false;
-		this.observer = new MutationObserver(() => {
+		this.observer = new MutationObserver(() => this.check());
+		this.interval = 0;
+	}
+
+	private check() {
+		try {
 			const keys = Object.keys(this.waiting);
 
 			if (keys.length) {
@@ -50,7 +56,10 @@ class Wait {
 			} else {
 				this.stopObserver();
 			}
-		});
+		}
+		catch (error) {
+			console.error('[bga extension] exception occured in waiter', error);
+		}
 	}
 
 	private startObserver() {
@@ -58,6 +67,7 @@ class Wait {
 			console.debug('[bga extension] start objects observer');
 			this.observerStarted = true;
 			this.observer.observe(document.documentElement, { childList: true, subtree: true, attributes: true });
+			this.interval = setInterval(() => this.check(), 1000);
 		}
 	}
 
@@ -66,6 +76,7 @@ class Wait {
 			console.debug('[bga extension] stop objects observer');
 			this.observerStarted = false;
 			this.observer.disconnect();
+			clearInterval(this.interval);
 		}
 	}
 

@@ -89,6 +89,8 @@
   "optionsNotificationCustomSoundWarnFF": "Només es pot configurar a la pàgina de gestió de complements",
   "optionsFlashingOn": "Les taules on se t'espera s'indiquen amb un color parpellejant",
   "optionsFlashingOff": "Les taules on se t'espera s'indiquen amb un codi de color i un missatge",
+  "optionsSidePanelIconOn": "S'afegeix una icona a la part superior dreta del lloc per mostrar la barra lateral de l'extensió.",
+  "optionsSidePanelIconOff": "El panell lateral de l'extensió només es pot obrir mitjançant el menú contextual (clic amb el botó dret).",
   "optionsLobbyRedirectOn": "Els hipervincles es modifiquen per apuntar al vestíbul clàssic (quan sigui possible)",
   "optionsLobbyRedirectOff": "Els hipervincles no es modifiquen, s'utilitza el vestíbul predeterminat (generalment el nou).",
   "optionsFastCreate": "Creació ràpida de taules",
