@@ -1,5 +1,13 @@
 # Changelog
 
+## [v1.13.8](https://github.com/FlavienBusseuil/bga-chrome-extension/tree/v1.13.8) (2026-05-26)
+
+[Full Changelog](https://github.com/FlavienBusseuil/bga-chrome-extension/compare/v1.13.7...v1.13.8)
+
+**Merged pull requests:**
+
+- Fix dark pages on studio [\#144](https://github.com/FlavienBusseuil/bga-chrome-extension/pull/144) ([nalka0](https://github.com/nalka0))
+
 ## [v1.13.7](https://github.com/FlavienBusseuil/bga-chrome-extension/tree/v1.13.7) (2026-05-21)
 
 [Full Changelog](https://github.com/FlavienBusseuil/bga-chrome-extension/compare/v1.13.6...v1.13.7)
