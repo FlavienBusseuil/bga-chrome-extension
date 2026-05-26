@@ -2,6 +2,11 @@ import { bgPeriodic } from "./js/bgPeriodic";
 import Configuration from "./js/config/configuration";
 import { addChangeListener } from "./js/utils/browser";
 
+// Firefox WebExtensions API type support
+declare global {
+  const browser: any;
+}
+
 const config = new Configuration();
 let redirectConfigured = false;
 let newsfeedRedirectConfigured = false;
@@ -9,6 +14,7 @@ let solidBackground = false;
 let darkMode = false;
 let preventBack = false;
 let initialized = false;
+let sidePanelOpen = false;
 
 const setBackgroundFilters = () => {
   const newPreventBack = solidBackground || darkMode;
@@ -135,6 +141,15 @@ const init = async () => {
   setBackgroundFilters();
   setLobbyUrlFilters(config.isLobbyRedirectionEnable());
   setNewsfeedFilters(config.areSocialMessagesHidden());
+
+  chrome.contextMenus.removeAll(() => {
+    chrome.contextMenus.create({
+      id: "bgaext-sidepanel-menu",
+      title: "BGA Extension Side Panel",
+      contexts: ["all"],
+      documentUrlPatterns: ["https://boardgamearena.com/*"]
+    });
+  });
 }
 
 chrome.runtime.onInstalled.addListener(() => {
@@ -147,9 +162,62 @@ chrome.runtime.onStartup.addListener(() => {
   init();
 });
 
+const sendSidePanelStatusToAllTabs = async (status: string) => {
+  const tabs = await chrome.tabs.query({});
+
+  for (const tab of tabs) {
+    try {
+      if (tab.id) {
+        await sendSidePanelStatus(tab.id, status);
+      }
+    } catch (e) {
+      // no content script => ignore
+    }
+  }
+};
+
+const sendSidePanelStatus = async (tabId: number, status: string) => {
+  await chrome.tabs.sendMessage(tabId, { to: 'MAIN_PAGE', payload: { key: status } });
+  console.log(`[bga extension] Event ${status} sent to page ${tabId}`);
+};
+
+if (chrome.sidePanel) {
+  chrome.sidePanel.onOpened.addListener(() => {
+    sidePanelOpen = true;
+    sendSidePanelStatusToAllTabs('bga_ext_sidepanel_opened');
+    console.log("[bga extension] Side panel opened");
+  });
+
+  chrome.sidePanel.onClosed.addListener(() => {
+    sidePanelOpen = false;
+    sendSidePanelStatusToAllTabs('bga_ext_sidepanel_closed');
+    console.log("[bga extension] Side panel closed");
+  });
+}
+
 chrome.runtime.onMessage.addListener((message: any, sender: chrome.runtime.MessageSender) => {
-  if (['MAIN_PAGE', 'MELODICE'].includes(message.to) && sender.tab?.id !== undefined) {
+  if (message.type === 'openSidePanel' && sender.tab?.id) {
+    chrome.sidePanel.open({ tabId: sender.tab.id });
+    return;
+  }
+
+  if (message.type === 'checkSidePanel' && sender.tab?.id) {
+    sendSidePanelStatus(sender.tab.id, sidePanelOpen ? 'bga_ext_sidepanel_opened' : 'bga_ext_sidepanel_closed');
+    return;
+  }
+
+  if (['MAIN_PAGE', 'MELODICE'].includes(message.to) && sender.tab?.id) {
     chrome.tabs.sendMessage(sender.tab.id, message);
+  }
+});
+
+chrome.contextMenus.onClicked.addListener((info: any, tab: any) => {
+  if (info.menuItemId === "bgaext-sidepanel-menu") {
+    if (typeof browser !== undefined && browser.sidebarAction) {
+      browser.sidebarAction.open();
+    } else {
+      chrome.sidePanel.open({ windowId: tab.windowId });
+    }
   }
 });
 

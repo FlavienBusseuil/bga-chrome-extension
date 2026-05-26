@@ -26,6 +26,7 @@ import {
 	displayInformationPopup
 } from './js/ui/content/functions';
 import { gamesConfiguration } from "./js/config/darkThemeGames";
+import { isFirefox } from './js/utils/browser';
 
 const config = new ConfigurationWithGames();
 let currentObserver: MutationObserver | null = null;
@@ -309,7 +310,18 @@ const changeCss = (pageType: string) => {
 const changeLocation = (loc: string) => {
 	pageType = manageLocationChange(loc);
 	changeCss(pageType);
-}
+};
+
+const initSidePanel = () => {
+	if (!isMobile() && !isFirefox) {
+		const extIcon = document.createElement('i');
+		extIcon.id = "bgaext-side-panel";
+		extIcon.className = "fa fa-puzzle-piece";
+		extIcon.addEventListener('mousedown', () => chrome.runtime.sendMessage({ type: 'openSidePanel' }));
+		document.body.appendChild(extIcon);
+		chrome.runtime.sendMessage({ type: 'checkSidePanel' });
+	}
+};
 
 const initPage = () => {
 	config.isEmpty() && document.dispatchEvent(new CustomEvent('bga_ext_get_config', {}));
@@ -331,6 +343,8 @@ const initPage = () => {
 		if (pageType === 'general') {
 			setTimeout(() => displayInformationPopup(config), 2000);
 		}
+
+		initSidePanel();
 
 		document.body.addEventListener('bga_ext_api_result', (data) => {
 			const evtDetail = JSON.parse((data as CustomEvent).detail);
@@ -458,14 +472,22 @@ const displayMelodice = () => {
 
 chrome.runtime.onMessage.addListener((message) => {
 	if (message.to === "MAIN_PAGE") {
-		if (message.payload.key === 'bga_ext_forum_visible') {
-			// hack to avoid light theme flashing for forum
-			setTimeout(displayForum, 0);
-		}
-		if (message.payload.key === 'bga_ext_melodice_visible') {
-			chrome.runtime.sendMessage({ to: 'MELODICE', payload: { key: 'bga_ext_game_name', name: gameName } });
-			// hack to avoid light theme flashing for melodice
-			setTimeout(displayMelodice, 0);
+		switch (message.payload.key) {
+			case 'bga_ext_forum_visible':
+				// hack to avoid light theme flashing for forum
+				setTimeout(displayForum, 0);
+				break;
+			case 'bga_ext_melodice_visible':
+				chrome.runtime.sendMessage({ to: 'MELODICE', payload: { key: 'bga_ext_game_name', name: gameName } });
+				// hack to avoid light theme flashing for melodice
+				setTimeout(displayMelodice, 0);
+				break;
+			case 'bga_ext_sidepanel_opened':
+				document.documentElement.classList.add('bgaext_sidepanel_opened');
+				break;
+			case 'bga_ext_sidepanel_closed':
+				document.documentElement.classList.remove('bgaext_sidepanel_opened');
+				break;
 		}
 	}
 });

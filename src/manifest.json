@@ -10,6 +10,9 @@
       "48": "img/icon-48.png"
     }
   },
+  "side_panel": {
+    "default_path": "side_panel.html"
+  },
   "options_ui": {
     "page": "options.html",
     "open_in_tab": true
@@ -74,7 +77,9 @@
     "alarms",
     "storage",
     "declarativeNetRequestWithHostAccess",
-    "offscreen"
+    "offscreen",
+    "sidePanel",
+    "contextMenus"
   ],
   "web_accessible_resources": [
     {

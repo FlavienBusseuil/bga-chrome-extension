@@ -18,9 +18,21 @@ config.init().then(() => {
 	}
 	configInitialized = true;
 	renderApp();
+
+	document.addEventListener('bga_ext_update_config', (data) => {
+		const key = (data as CustomEvent).detail.key as string;
+		if (key === 'darkMode') {
+			if (config.isDarkMode()) {
+				document.documentElement.classList.add("dark");
+			} else {
+				document.documentElement.classList.remove("dark");
+			}
+		}
+	});
 });
 
 document.addEventListener("DOMContentLoaded", () => {
 	domReady = true;
 	renderApp();
 });
+

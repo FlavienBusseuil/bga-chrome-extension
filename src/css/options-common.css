@@ -136,8 +136,8 @@
 }
 
 .small_button {
-  padding: 0px;
-  width: 100px;
+  width: fit-content;
+  padding: 0 0.5em;
   line-height: 22px;
   white-space: nowrap;
 }
@@ -156,7 +156,6 @@
 }
 
 .row_fullwidth>div:last-child {
-  padding-right: 1em;
   display: flex;
   flex-flow: row;
   gap: 0.5em;

@@ -10,6 +10,11 @@
       "48": "img/icon-48.png"
     }
   },
+  "sidebar_action": {
+    "default_panel": "side_panel.html",
+    "default_title": "BGA Extension",
+    "open_at_install": false
+  },
   "options_ui": {
     "page": "options.html"
   },
@@ -73,7 +78,8 @@
   "permissions": [
     "alarms",
     "storage",
-    "declarativeNetRequestWithHostAccess"
+    "declarativeNetRequestWithHostAccess",
+    "contextMenus"
   ],
   "web_accessible_resources": [
     {

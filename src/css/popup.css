@@ -15,19 +15,36 @@
   --light-80: #dcddde;
 }
 
-html {
+html.popup {
   width: 500px !important;
 }
 
 body {
   color: #000;
-  width: 500px !important;
   overflow: hidden;
   font-size: 12px;
 }
 
+html.popup body {
+  width: 500px !important;
+}
+
+html.side-panel body {
+  margin: 0 auto;
+  padding-top: 1em;
+}
+
 .max-result {
   max-height: 472px;
+  overflow: auto;
+}
+
+html.side-panel .max-result {
+  max-height: calc(100vh - 100px);
+}
+
+html.side-panel .options-container {
+  max-height: calc(100vh - 50px);
   overflow: auto;
 }
 
@@ -143,6 +160,10 @@ li:has(.bg-bgaBlue-lighter):before {
 
 html.dark li:has(.bg-bgaBlue-lighter):before {
   background: #0006;
+}
+
+html.dark div[role="button"].\!bg-bgaBlue-lighter:not(:hover) {
+  filter: grayscale(0.5);
 }
 
 html.dark .shadow-md {

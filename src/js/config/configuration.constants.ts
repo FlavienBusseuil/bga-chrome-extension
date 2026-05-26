@@ -198,3 +198,87 @@ export const ARENA_DISABLED_GAMES = `
 export const HIDE_FULLSCREEN_LOADING_LOGO = `
 #overall_loading, #main-content > #loading { display: none; }
 `;
+
+export const COMMON_CSS = `
+:root {
+  --header-icons-color: #01c4ca;
+}
+
+/* Delete button on gamelist page */
+html:not(.bgaext_gamelist) .ext_delete_button {
+  display: none;
+}
+
+/* maintenance error message */
+body>h1,
+body>h2 {
+  color: #fff;
+}
+body>h2>a {
+  color: #01c4ca;
+}
+
+#lrf-bga-extension, .bgaext_overlay {
+  display: none;
+}
+html[data-theme="dark"] .bgaext_overlay{
+  display: block;
+}
+
+.bgaext_chat_mute_icon {
+  position: absolute;
+  width: 20px;
+  height: 20px;
+  top: 7px;
+  left: 2px;
+  display: none;
+}
+.bgaext_chat_hidden {
+  display: none!important;
+}
+.bgaext_chat_visible {
+  display: inline!important;
+}
+.roundedboxinner:hover .bgaext_chat_mute_icon {
+  cursor: pointer;
+  display: block;
+}
+
+#logs .log.hidden {
+  display: none !important;
+}
+
+#bga_extension_chat_icon {
+  color: var(--header-icons-color);
+}
+
+#chatwindow_general {
+  display: inline-block !important;
+}
+.bgaext_general_chat_hidden #bga_extension_chat_icon {
+  color: #c4c4c4;
+}
+.bgaext_general_chat_hidden #chatwindow_general {
+  display: none !important;
+}
+
+.bga-friends-icon svg[fill="#01C4CA"] {
+  fill: var(--header-icons-color) !important;
+}
+
+#bgaext-side-panel {
+  display: none;
+  position: absolute;
+  top: 8px;
+  right: 5px;
+  z-index: 10000;
+  color: var(--header-icons-color);
+  font-size: 24px;
+  cursor: pointer;
+}
+@media (min-width: 900px) {
+  html:not(.bgaext_game):not(.bgaext_sidepanel_opened) #bgaext-side-panel {
+    display: block;
+  }
+}
+`
