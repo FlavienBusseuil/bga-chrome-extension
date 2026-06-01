@@ -126,6 +126,15 @@ export const gamesConfiguration: Record<string, GameConfig> = {
     playersBorder: ["#player-table-wrapper-{{player_id}} .player-name-box", "#player-table-wrapper-{{player_id}} .player-table"],
     playersTextColor: ["#player-name-shift-{{player_id}}"]
   },
+  azulqueensgarden: {
+    customBack: true,
+    playersBorder: ["#player-table-{{player_id}}"],
+    customActions: {
+      init: (cssPath: string) => {
+        document.documentElement.style.setProperty("--ext-game-back", `url(${cssPath}img/background-dark.jpg)`);
+      }
+    }
+  },
   babydinosaurrescue: {
     playersTextColor: ["[style^=\"color:#{{player_color}}\"]"]
   },
@@ -781,6 +790,10 @@ export const gamesConfiguration: Record<string, GameConfig> = {
     customPlayerStyle: ".player-table .name-wrapper",
     playersBorder: ["#player-table-{{player_id}}"]
   },
+  hegemony: {
+    customBack: true,
+    customPanel: true
+  },
   heythatsmyfish: {
     customBack: true
   },
@@ -826,6 +839,10 @@ export const gamesConfiguration: Record<string, GameConfig> = {
   iye: {
     customBack: true,
     overlay: true
+  },
+  jackpotsetthereel: {
+    customBack: true,
+    playersBorder: ["#player-table-{{player_index_1}}"],
   },
   jekyllvshide: {
     customBack: true
@@ -1282,6 +1299,9 @@ export const gamesConfiguration: Record<string, GameConfig> = {
   },
   popcorn: {
     customBack: ["pop-game-bg"]
+  },
+  positano: {
+    customBack: true,
   },
   postcards: {
     overlay: true,

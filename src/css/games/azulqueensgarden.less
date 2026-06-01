@@ -1,0 +1,46 @@
+@import "./common";
+
+html[data-theme=dark] {
+	background: var(--ext-game-back) !important;
+
+	div.preference_choice:has(> div > div > select#preference_control_103),
+	div.preference_choice:has(> div > div > select#preference_fontrol_103) {
+		display: none;
+	}
+
+	#bga-zoom_wrapper #bga-zoom_controls {
+		filter: invert(0.8);
+	}
+
+	.player-table {
+		background: var(--dark-20);
+	}
+
+	.player-table .name-wrapper .name {
+		text-shadow: none;
+	}
+
+	#scoring-board #round-counter-wrapper>div {
+		background: var(--dark-back);
+		color: var(--light-100);
+	}
+
+	#scoring-board .fold-btn {
+		background-color: var(--dark-20);
+		background-image: url("data:image/svg+xml;charset=utf-8,%3Csvg xmlns='http://www.w3.org/2000/svg' width='56' height='58' fill='none'%3E%3Cpath d='m18 12 10 10 10-10M18 46l10-10 10 10' stroke='%23fff' stroke-width='4' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E");
+	}
+
+	#scoring-board .fold-btn:hover {
+		background-color: var(--dark-30);
+	}
+
+	.player-table .player-board:before,
+	.player-table .player-storage:before {
+		.reduceBrightness();
+	}
+
+	.bga-cards_card>.bga-cards_card-sides,
+	#scoring-board {
+		filter: var(--ext-bright);
+	}
+}

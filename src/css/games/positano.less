@@ -1,0 +1,67 @@
+html[data-theme=dark] {
+	body {
+		background-color: #0b111e;
+		background-image: linear-gradient(180deg,
+				#0d1b2a 0%,
+				#1b263b calc(200px + var(--bg-offset)),
+				#415a77 calc(330px + var(--bg-offset)),
+				#14213d calc(342px + var(--bg-offset)),
+				#0b111e calc(500px + var(--bg-offset)));
+	}
+
+	#page-title,
+	#maingameview_menuheader,
+	#maingameview_menufooter {
+		border: 1px solid var(--dark-40);
+	}
+
+	#maingameview_menuheader {
+		border-top: none;
+		top: -1px;
+	}
+
+	.bidstock[style*="background-color: rgb(143, 190, 145);"] {
+		background-color: #2f5130 !important;
+	}
+
+	.bidstock[style*="background-color: rgb(127, 173, 195);"] {
+		background-color: #294857 !important;
+	}
+
+	.bidstock[style*="background-color: rgb(236, 218, 129);"] {
+		background-color: #6f5f11 !important;
+	}
+
+	.bidstock[style*="background-color: rgb(212, 132, 132);"] {
+		background-color: #5e2121 !important;
+	}
+
+	.bid-highlight-1 {
+		background-color: #ad9367;
+	}
+
+	.goal_stock_item .goal-tooltip,
+	.block-tooltip,
+	.lot-tooltip,
+	.quality-tooltip {
+		background-color: var(--dark-back);
+	}
+
+	.goal-tooltip-name,
+	.goal-tooltip-desc,
+	.block-tooltip-text,
+	.lot-tooltip-text,
+	.quality-tooltip-text,
+	.scoresheet-headers .scoresheet-cell {
+		color: var(--light-80);
+	}
+
+	#front-view,
+	#front-view-big-board,
+	#beach-board,
+	#big-beach-board,
+	#goals>div:not(:hover),
+	#myhand>div {
+		filter: var(--ext-bright);
+	}
+}

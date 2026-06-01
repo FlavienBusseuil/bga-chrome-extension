@@ -69,6 +69,11 @@ const defaultGames: Partial<Game>[] = [
 		css: " ",
 	},
 	{
+		name: "azulqueensgarden",
+		playerPanel: "player-table-{{player_id}}",
+		css: " ",
+	},
+	{
 		name: "wingspan",
 		position: "auto",
 		playerPanel: "aviary_{{player_id}}",
