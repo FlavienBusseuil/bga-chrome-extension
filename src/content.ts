@@ -93,6 +93,62 @@ const initGame = (gameName: string, mode: 'game' | 'archive') => {
 		console.debug(`[bga extension] no configuration found for game ${gameName}`);
 	}
 
+	if (!isMobile() && mode === 'archive') {
+		const el = document.getElementById('archivecontrol_editmode');
+
+		if (el) {
+			const fa = document.createElement('i');
+			fa.className = 'fa fa-window-restore';
+			fa.onclick = () => {
+				document.documentElement.classList.add('bgaext_archive_floating_menu');
+
+				let isDragging = false;
+				let startX: number, startY: number, initialLeft: number, initialTop: number;
+
+				el.addEventListener('mousedown', (e: any) => {
+					if (e.target.tagName === 'A') {
+						return;
+					}
+
+					e.preventDefault();
+
+					isDragging = true;
+
+					startX = e.clientX;
+					startY = e.clientY;
+
+					const rect = el.getBoundingClientRect();
+					initialLeft = rect.left;
+					initialTop = rect.top;
+
+					el.style.cursor = 'grabbing';
+				});
+
+				document.addEventListener('mousemove', (e) => {
+					if (!isDragging) return;
+
+					const deltaX = e.clientX - startX;
+					const deltaY = e.clientY - startY;
+					const left = Math.max(initialLeft + deltaX, 0);
+					const top = Math.max(initialTop + deltaY, 0);
+
+					el.style.left = `${left}px`;
+					el.style.top = `${top}px`;
+					el.style.bottom = 'auto';
+					el.style.right = 'auto';
+				});
+
+				document.addEventListener('mouseup', () => {
+					if (isDragging) {
+						isDragging = false;
+						el.style.cursor = 'grab';
+					}
+				});
+			}
+			el.prepend(fa);
+		}
+	}
+
 	initDarkMode(config, gameName);
 	setHtmlGameClass();
 };

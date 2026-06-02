@@ -1540,7 +1540,12 @@ export const gamesConfiguration: Record<string, GameConfig> = {
   },
   soixantedeuxsoleilsdete: {
     customBack: true,
-    overlay: true
+    overlay: true,
+    customActions: {
+      init: (cssPath: string) => {
+        document.body.style.setProperty("--die-background", `url(${cssPath}img/dice-sprite-36x36.png)`);
+      }
+    }
   },
   solarsentinels: {
     customBack: true

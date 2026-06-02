@@ -281,4 +281,30 @@ html[data-theme="dark"] .bgaext_overlay{
     display: block;
   }
 }
-`
+`;
+
+export const ARCHIVE_FLOATING_MENU_CSS = `
+.bgaext_archive_floating_menu #archivecontrol_editmode {
+  position: fixed;
+  left: 50%;
+  top: 5px;
+  background: #ebd5bd;
+  border: 1px solid #222;
+  border-radius: 8px;
+  padding-top: 8px;
+  z-index: 1;
+  cursor: grab;
+}
+.bgaext_archive_floating_menu.darkmode #archivecontrol_editmode {
+  background: var(--dark-10);
+  border: 1px solid var(--light-50);
+}
+#archivecontrol_editmode .fa {
+  vertical-align: top;
+  padding: 10px 10px 0px 0px;
+  cursor: pointer;
+}
+.bgaext_archive_floating_menu #archivecontrol_editmode .fa {
+  display:none;
+}
+`;

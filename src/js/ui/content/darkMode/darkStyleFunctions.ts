@@ -2,6 +2,7 @@ import { isNumber } from "../../../utils/misc/isNumber";
 import { waitForObj } from "../../../utils/misc/wait";
 import { hexToRgb } from "../../../utils/misc/colors";
 import { gamesConfiguration } from "../../../config/darkThemeGames";
+import { ARCHIVE_FLOATING_MENU_CSS } from "../../../config/configuration.constants";
 import { PlayerData, getPlayersData, getPlayersPossibleColors } from "../players";
 import { cookieName, createStyle, getFile } from "./darkStyleCommonFunctions";
 
@@ -58,14 +59,14 @@ _init().then(() => {
     playersStyleComponent = createStyle('bgaext-players-style');
 
     if (gameStyle !== undefined) {
-      gameStyleComponent.textContent = gameStyle;
+      gameStyleComponent.textContent = (mode === "archive") ? `${gameStyle}${ARCHIVE_FLOATING_MENU_CSS}` : gameStyle;
       return;
     }
 
     getFile(gameStyleFile, true).then(fileContent => {
       const { file, content } = fileContent;
       cssContents[file] = content;
-      gameStyleComponent.textContent = cssContents[file];
+      gameStyleComponent.textContent = (mode === "archive") ? `${cssContents[file]}${ARCHIVE_FLOATING_MENU_CSS}` : cssContents[file];
     });
   }
 });
@@ -420,8 +421,9 @@ const _initClassObserver = () => {
   return observer;
 };
 
-export const setDarkStyle = (newMode: string, val: boolean) => {
-  mode = newMode;
+export const setDarkStyle = (newGameName: string, val: boolean) => {
+  gameName = newGameName;
+  console.log(`[bga extension] set dark style to ${val} for ${newGameName}`);
 
   _isDarkStyle().then(darkMode => {
     if (darkMode !== val) {
