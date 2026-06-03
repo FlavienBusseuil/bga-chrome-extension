@@ -131,7 +131,7 @@
   "deleteStop": "Ne plus afficher ce message",
   "fastStartTitle": "Démarrage rapide d'un jeu",
   "fastStartText1": "Le jeu sera démarré avec les paramètres par défaut (et automatiquement ouvert aux autres joueurs si vous avez configuré cette option).",
-  "mutePlayerTitle": "Ignorer un joueur",
+  "mutePlayerTitle": "Ignorer le joueur",
   "muteText1": "Vous ne recevrez plus les messages des joueurs ignorés dans les conversations des jeux. Vous pouvez ignorer jusque 10 joueurs et gérer la liste des personnes ignorées dans les options de l'extension.",
   "muteWarningOn": "Informer les autres joueurs de votre décision d'ignorer un joueur.",
   "muteWarningOff": "Ne pas informer les autres joueurs de votre décision d'ignorer un joueur.",

@@ -131,7 +131,7 @@
   "deleteStop": "Zeige diese Nachricht nicht erneut an",
   "fastStartTitle": "Schneller Start eines Spiels",
   "fastStartText1": "Das Spiel wird direkt mit den Standard-Optionen gestartet(und automatisch für andere Spieler geöffnet, wenn du diese Option gesetzt hast).",
-  "mutePlayerTitle": "Einen Spieler stumm schalten",
+  "mutePlayerTitle": "Den Spieler stumm schalten",
   "muteText1": "Du erhältst keine weiteren Nachrichten von einem stumm geschalteten Spieler. Du kannst bis zu 10 Spieler stumm schalten und die Liste in den Optionen der Erweiterung verwalten.",
   "muteWarningOn": "Benachrichtige andere Spiele über deine Entscheidung, einen Spieler stummzuschalten.",
   "muteWarningOff": "Benachrichtige niemanden über deine Entscheidung, einen Spieler stummzuschalten.",

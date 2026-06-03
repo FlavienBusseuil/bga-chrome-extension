@@ -131,7 +131,7 @@
   "deleteStop": "No volver a mostrar este mensaje",
   "fastStartTitle": "Inicio rápido de una partida",
   "fastStartText1": "La partida se iniciará con la configuración predeterminada (y se abrirá automáticamente a otros jugadores si has configurado esta opción).",
-  "mutePlayerTitle": "Silenciar a un jugador",
+  "mutePlayerTitle": "Silenciar el jugador",
   "muteText1": "Ya no recibirás mensajes de jugadores ignorados en las conversaciones del juego. Puedes silenciar hasta 10 jugadores y gestionar la lista de ignorados en las opciones de la extensión.",
   "muteWarningOn": "Informar a otros jugadores sobre tu decisión de silenciar a un jugador.",
   "muteWarningOff": "No informar a otros jugadores sobre tu decisión de silenciar a un jugador.",

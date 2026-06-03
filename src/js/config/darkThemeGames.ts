@@ -994,6 +994,10 @@ export const gamesConfiguration: Record<string, GameConfig> = {
     customBack: true,
     playersBorder: ["#house_{{player_id}}", "#hand_grid_{{player_id}}"]
   },
+  mapsofmisterra: {
+    customBack: true,
+    overlay: true
+  },
   maracaibo: {
     customPanel: true
   },
@@ -1688,6 +1692,10 @@ export const gamesConfiguration: Record<string, GameConfig> = {
     customBack: true,
     customPlayerStyle: ".mfull .playerboard_side_name, .mcompact .player_area_name",
     customColors: ["#ff0000", "#0000ff", "#008000", "#ffa500"]
+  },
+  terraformingmarsthedicegame: {
+    customBack: true,
+    overlay: true,
   },
   terramystica: {
     customColors: ["#971923", "#278139", "#70421d", "#1a2126", "#f9ae18", "#1d7ddb"]

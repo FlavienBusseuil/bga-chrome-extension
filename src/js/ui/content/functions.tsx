@@ -200,8 +200,10 @@ const muteChatMessage = (config: Configuration, tableId: string, msg: Element) =
 			lastMessage[tableId] = { user: span.innerHTML.trim(), color: span.style.color, text: getMessageText(msg, name) };
 
 			const trIcon = msg.querySelector('.translate_icon');
+
 			if (trIcon) {
 				const muteIconId = trIcon.id.replace('logtr_table', 'mute_icon');
+				const action = msg.querySelector('.logaction:not(.bgaext_logaction)');
 
 				if (!document.getElementById(muteIconId)) {
 					const muteIcon = document.createElement('div');
@@ -215,6 +217,21 @@ const muteChatMessage = (config: Configuration, tableId: string, msg: Element) =
 					const icon = document.createElement('i');
 					icon.classList.add('fa', 'fa-microphone-slash');
 					muteIcon.replaceChildren(icon);
+				}
+
+				if (action) {
+					const br = document.createElement('br');
+					action.appendChild(br);
+
+					const button = document.createElement('button');
+					button.dataset.player = name;
+					button.dataset.table = tableId;
+					button.className = 'bgabutton bgabutton_red';
+					button.style.width = 'fit-content';
+					button.onclick = (evt) => mutePlayer(config, evt);
+					button.innerHTML = `<i class="fa fa-microphone-slash"></i> ${i18n("mutePlayerTitle")}`;
+					action.classList.add('bgaext_logaction');
+					action.appendChild(button);
 				}
 			}
 		}

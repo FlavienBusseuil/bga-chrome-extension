@@ -131,7 +131,7 @@
   "deleteStop": "Do not display this message again",
   "fastStartTitle": "Fast start of a game",
   "fastStartText1": "The game will be started with the default settings (and automatically opened to other players if you've set this option).",
-  "mutePlayerTitle": "Mute a player",
+  "mutePlayerTitle": "Mute the player",
   "muteText1": "You will no longer receive messages from ignored players in game conversations. You can mute up to 10 players and manage the ignore list in the extension options.",
   "muteWarningOn": "Tell other players about your decision to mute a player.",
   "muteWarningOff": "Do not tell other players about your decision to mute a player.",

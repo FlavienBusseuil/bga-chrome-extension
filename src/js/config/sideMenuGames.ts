@@ -1080,6 +1080,12 @@ const defaultGames: Partial<Game>[] = [
 		css: "#bga_extension_sidebar { z-index: 999 !important; } .desktop_version #game_play_area { padding-left: 50px; } #ebd-body[data-localsetting_handplace=floating] #hand_area_buttons #hand_area_button_pop { background-color: #ebd5bd; } .darkmode #ebd-body[data-localsetting_handplace=floating] #hand_area_buttons #hand_area_button_pop { background-color: #b9b9b9; }"
 	},
 	{
+		name: "terraformingmarsthedicegame",
+		playerPanel: ".tm_playerBoard .tm_name",
+		boardPanel: ".sprite.sprite-board",
+		playerPanelOffset: 20
+	},
+	{
 		name: "ancientknowledge",
 		playerPanel: "player-table-{{player_id}}",
 		iconBackgroundDark: "#644f5c",
