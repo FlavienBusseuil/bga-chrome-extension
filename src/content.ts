@@ -154,8 +154,9 @@ const manageLocationChange = (pathname: string) => {
 	console.log('[bga extension] load path', pathname);
 
 	const pageInfo = pathname.substring(1).split('.')[0]?.split('/');
+	const gamePage = pageInfo && pageInfo.length >= 2 && isNumber(pageInfo[0] as string);
 
-	if (window.location.hostname === 'studio.boardgamearena.com') {
+	if (window.location.hostname === 'studio.boardgamearena.com' && !gamePage) {
 		const pageName = pageInfo && pageInfo[0] || 'welcomestudio';
 		setHtmlClass(pageName);
 		initChatIcon(config);
@@ -188,7 +189,7 @@ const manageLocationChange = (pathname: string) => {
 		currentObserver = null;
 	}
 
-	if (pageInfo && pageInfo.length >= 2 && isNumber(pageInfo[0] as string)) {
+	if (gamePage) {
 		gameName = pageInfo[1] as string;
 
 		initObserver('game');
@@ -366,7 +367,7 @@ const changeLocation = (loc: string) => {
 };
 
 const initSidePanel = () => {
-	if (!isMobile && !isFirefox) {
+	if (!isMobile && !isFirefox && !document.getElementById("bgaext-side-panel")) {
 		const extIcon = document.createElement('i');
 		extIcon.id = "bgaext-side-panel";
 		extIcon.className = "fa fa-puzzle-piece";
