@@ -1,5 +1,4 @@
 import { render } from "preact";
-import { isMobile } from "is-mobile";
 
 import {
 	initLeftMenu,
@@ -14,6 +13,7 @@ import ConfirmationPopup from './misc/ConfirmationPopup';
 import InformationPopup from './misc/InformationPopup';
 import { waitForObj } from '../../utils/misc/wait';
 import shouldFilter from '../../config/filteredLogs';
+import { isMobile } from "../../utils/browser";
 import { i18n } from "../../utils/browser/i18n";
 import { bgaUrl } from "../../utils/constants";
 import type Configuration from "../../config/configuration";
@@ -577,7 +577,7 @@ const buildOptions = (config: Configuration, gameName: string, gameConfig: GameC
 	const mainPrefTitle = mainMenu.getElementsByTagName('h2')[0] as HTMLHeadingElement;
 	const secondPrefTitle = settings.getElementsByTagName('h2')[0] as HTMLHeadingElement;
 
-	if (floatingMenu && !isMobile()) {
+	if (floatingMenu && !isMobile) {
 		const isGameFloating = config.isGameFloatingMenu(gameName);
 		const isGlobalFloating = config.isGlobalFloatingMenu();
 

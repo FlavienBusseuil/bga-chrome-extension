@@ -1,13 +1,12 @@
 import { useEffect, useState } from "preact/hooks";
 import { useSyncedState } from '../hooks/useSyncedState';
 import Markup from 'preact-markup';
-import { isMobile } from "is-mobile";
 
 import Configuration, { AdvancedHomeConfig, HomeConfig, InProgressConfig } from "../../config/configuration";
 import Switch from "../base/Switch";
 import { Button } from "../base/Button";
 import { isSoundCustom, playMp3, removeCustomMp3, uploadCustomMp3 } from "../../utils/misc/mp3";
-import { getExtensionVersion, isFirefox } from "../../utils/browser";
+import { getExtensionVersion, isFirefox, isMobile } from "../../utils/browser";
 import { i18n } from "../../utils/browser/i18n";
 import { polyfillCountryFlagEmojis } from "country-flag-emoji-polyfill";
 
@@ -348,7 +347,7 @@ export const OptionsView = ({ config, onChange }: Props) => {
   }, []);
 
   const getMiscSection = () => {
-    const desktopVersion = !isMobile();
+    const desktopVersion = !isMobile;
 
     if (configVisible === 'misc') {
       return (
@@ -388,7 +387,7 @@ export const OptionsView = ({ config, onChange }: Props) => {
   };
 
   const getNotificationsSection = () => {
-    const desktopVersion = !isMobile();
+    const desktopVersion = !isMobile;
     const popupContext = window.location.pathname.includes('popup');
     const canUploadSound = !(isFirefox && popupContext) // FF does not support file selection in popup
 
@@ -424,7 +423,7 @@ export const OptionsView = ({ config, onChange }: Props) => {
   };
 
   const getGamesSection = () => {
-    const desktopVersion = !isMobile();
+    const desktopVersion = !isMobile;
 
     if (configVisible === 'games') {
       return (

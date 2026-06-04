@@ -1,3 +1,7 @@
+import { isMobile as detectMobile } from "is-mobile";
+
+export const isMobile = detectMobile({ featureDetect: true, tablet: true });
+
 export const storageGet = async (): Promise<Record<string, any>> => {
 	return await chrome.storage.sync.get();
 };

@@ -1,10 +1,8 @@
-import { isMobile } from "is-mobile";
-import { getUrl } from "./js/utils/browser";
-
 import ConfigurationWithGames from './js/config/configurationWithGames';
 import { isNumber } from './js/utils/misc/isNumber';
 import { waitForObj } from './js/utils/misc/wait';
 import { locationChangeManager } from './js/utils/misc/locationChangeManager';
+import { getUrl, isMobile, isFirefox } from "./js/utils/browser";
 import {
 	buildMainCss,
 	initGamesObserver,
@@ -26,7 +24,6 @@ import {
 	displayInformationPopup
 } from './js/ui/content/functions';
 import { gamesConfiguration } from "./js/config/darkThemeGames";
-import { isFirefox } from './js/utils/browser';
 
 const config = new ConfigurationWithGames();
 let currentObserver: MutationObserver | null = null;
@@ -81,7 +78,7 @@ const initObserver = (page: string) => {
 const initGame = (gameName: string, mode: 'game' | 'archive') => {
 	const gameConfig = config.getGameConfig(gameName);
 
-	if (!isMobile() && mode === 'game' && (config.isGlobalFloatingMenu() || config.isGameFloatingMenu(gameName))) {
+	if (!isMobile && mode === 'game' && (config.isGlobalFloatingMenu() || config.isGameFloatingMenu(gameName))) {
 		setFloatingRightMenu(config, true);
 	}
 
@@ -93,7 +90,7 @@ const initGame = (gameName: string, mode: 'game' | 'archive') => {
 		console.debug(`[bga extension] no configuration found for game ${gameName}`);
 	}
 
-	if (!isMobile() && mode === 'archive') {
+	if (!isMobile && mode === 'archive') {
 		const el = document.getElementById('archivecontrol_editmode');
 
 		if (el) {
@@ -369,7 +366,7 @@ const changeLocation = (loc: string) => {
 };
 
 const initSidePanel = () => {
-	if (!isMobile() && !isFirefox) {
+	if (!isMobile && !isFirefox) {
 		const extIcon = document.createElement('i');
 		extIcon.id = "bgaext-side-panel";
 		extIcon.className = "fa fa-puzzle-piece";

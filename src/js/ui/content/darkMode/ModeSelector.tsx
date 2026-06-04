@@ -1,11 +1,10 @@
 import { useState, useEffect, useMemo } from "preact/hooks";
 import Markup from 'preact-markup';
-import { isMobile } from "is-mobile";
 
 import Configuration from "../../../config/configuration";
 import { gamesConfiguration } from "../../../config/darkThemeGames";
 import { gamesWithRecommendedConfig } from "../../../config/darkThemeRecommendedConfig";
-import { getExtensionVersion } from "../../../utils/browser";
+import { getExtensionVersion, isMobile } from "../../../utils/browser";
 import { i18n } from "../../../utils/browser/i18n";
 import { setDarkStyle } from "./darkStyleFunctions";
 import { changeDarkBrightness, changeDarkColors } from "./darkColors";
@@ -43,7 +42,7 @@ const isDarkMode = async (config: Configuration, gameName: string) => {
 
 const HUE_STEP = 18;
 const SAT_STEP = 3;
-const MULT = isMobile() ? 1.5 : 2;
+const MULT = isMobile ? 1.5 : 2;
 
 const ModeSelector = (props: ModeSelectorProps) => {
   const { config, gameName } = props;
@@ -59,7 +58,7 @@ const ModeSelector = (props: ModeSelectorProps) => {
   const [formVisible, setFormVisible] = useState(false);
   const [reportDescription, setReportDescription] = useState('');
   const [reportScreenshot, setReportScreenshot] = useState('');
-  const [newMessageVisible, setNewMessageVisible] = useState(!isMobile() && !isGeneralMode(gameName) && popupConfig.reportMsg);
+  const [newMessageVisible, setNewMessageVisible] = useState(!isMobile && !isGeneralMode(gameName) && popupConfig.reportMsg);
   const [resultVisible, setResultVisible] = useState(false);
 
   const gameConfiguration = useMemo(() => gamesConfiguration[gameName], [gameName]);

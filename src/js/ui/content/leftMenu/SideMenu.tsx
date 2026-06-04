@@ -1,6 +1,6 @@
 import { useState, useEffect } from "preact/hooks";
-import { isMobile } from "is-mobile";
 
+import { isMobile } from "../../../utils/browser";
 import { i18n } from "../../../utils/browser/i18n";
 
 import SideMenuItem from "./SideMenuItem";
@@ -40,7 +40,7 @@ const SideMenu = (props: SideMenuProps) => {
 
 	const setMenuPosition = () => {
 		if (gameConfig.position === "auto") {
-			setPosition(isMobile() ? "bottom" : "top");
+			setPosition(isMobile ? "bottom" : "top");
 		}
 
 		const isZoomVisible = document.getElementById("globalaction_zoom_wrap")?.style.display === "inline-block";

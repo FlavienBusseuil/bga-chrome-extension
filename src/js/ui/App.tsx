@@ -1,5 +1,3 @@
-import { isMobile } from "is-mobile";
-
 import type { TableId } from "../types/bga/Table";
 import { setBadge } from "../utils/badge/setBadge";
 import { sortTables, sortTournaments } from "../utils/init/sort";
@@ -17,10 +15,11 @@ import { useState, useEffect, useErrorBoundary } from "preact/hooks";
 import { useSyncedState } from "./hooks/useSyncedState";
 import { updateBadgeAndIcon } from "../utils/updateBadgeAndIcon";
 import { i18n } from "../utils/browser/i18n";
+import { isMobile } from "../utils/browser";
+import { cn } from "./utils/cn";
 import { useFetch } from "./hooks/useFetch";
 import { Tabs } from "./base/Tabs";
 import { Tab } from "./base/Tab";
-import { cn } from "./utils/cn";
 import { TransformedTable } from "../types/TransformedTable";
 import { TransformedTournament } from "../types/TransformedTournament";
 
@@ -107,7 +106,7 @@ export const App = ({ config }: Props) => {
 			return <Loading />;
 		}
 
-		if (isMobile()) {
+		if (isMobile) {
 			if (activeTab === "tables") {
 				return <TablesView
 					className="w-full"
@@ -200,7 +199,7 @@ export const App = ({ config }: Props) => {
 				</Tab>
 				<Tab
 					k="options"
-					fullWidth={isMobile()}
+					fullWidth={isMobile}
 					isActive={activeTab === "options"}
 					onClick={(k) => setActiveTab(k)}
 				>
