@@ -31,6 +31,7 @@ interface CustomConfig {
 	home?: HomeConfig;
 	inProgress?: InProgressConfig;
 	sidePanelIcon?: boolean;
+	sidePanelMenu?: boolean;
 	lobbyRedirect?: boolean;
 	hideDisabledArenaGames?: boolean;
 	hideFullscreenLoadingLogo?: boolean;
@@ -329,6 +330,15 @@ class Configuration {
 	setSidePanelIconVisible(val: boolean) {
 		this._customConfig.sidePanelIcon = val;
 		storageSet({ sidePanelIcon: val });
+	}
+
+	isSidePanelMenuVisible() {
+		return this._customConfig.sidePanelMenu === undefined || this._customConfig.sidePanelMenu;
+	}
+
+	setSidePanelMenuVisible(val: boolean) {
+		this._customConfig.sidePanelMenu = val;
+		storageSet({ sidePanelMenu: val });
 	}
 
 	isLobbyRedirectionEnable() {

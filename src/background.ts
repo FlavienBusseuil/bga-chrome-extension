@@ -115,6 +115,19 @@ const setNewsfeedFilters = (isRedirectEnable: boolean) => {
   }
 };
 
+const setSidePanelMenu = () => {
+  chrome.contextMenus.removeAll(() => {
+    if (config.isSidePanelMenuVisible()) {
+      chrome.contextMenus.create({
+        id: "bgaext-sidepanel-menu",
+        title: "BGA Extension Side Panel",
+        contexts: ["all"],
+        documentUrlPatterns: ["https://boardgamearena.com/*"]
+      });
+    }
+  });
+};
+
 const init = async () => {
   if (initialized) {
     return;
@@ -141,15 +154,7 @@ const init = async () => {
   setBackgroundFilters();
   setLobbyUrlFilters(config.isLobbyRedirectionEnable());
   setNewsfeedFilters(config.areSocialMessagesHidden());
-
-  chrome.contextMenus.removeAll(() => {
-    chrome.contextMenus.create({
-      id: "bgaext-sidepanel-menu",
-      title: "BGA Extension Side Panel",
-      contexts: ["all"],
-      documentUrlPatterns: ["https://boardgamearena.com/*"]
-    });
-  });
+  setSidePanelMenu();
 }
 
 chrome.runtime.onInstalled.addListener(() => {
@@ -246,5 +251,7 @@ addChangeListener((changes) => {
     setNewsfeedFilters(changes.hideSocialMessages.newValue as boolean);
   } else if (changes.lobbyRedirect) {
     setLobbyUrlFilters(changes.lobbyRedirect.newValue as boolean);
+  } else if (changes.sidePanelMenu) {
+    setSidePanelMenu();
   }
 });

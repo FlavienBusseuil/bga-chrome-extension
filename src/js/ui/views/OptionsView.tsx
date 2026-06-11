@@ -31,6 +31,7 @@ export const OptionsView = ({ config, onChange }: Props) => {
   const [customSoundFile, setCustomSoundFile] = useSyncedState('customSoundFile', isSoundCustom());
   const [motionSensitivity, setMotionSensitivity] = useSyncedState('motionSensitivity', config.isMotionSensitivityEnable());
   const [sidePanelIconVisible, setSidePanelIconVisible] = useSyncedState('sidePanelIconVisible', config.isSidePanelIconVisible());
+  const [sidePanelMenuVisible, setSidePanelMenuVisible] = useSyncedState('sidePanelMenuVisible', config.isSidePanelMenuVisible());
   const [redirect, setRedirect] = useSyncedState('redirect', config.isLobbyRedirectionEnable());
   const [hideDisabledArenaGame, setHideDisabledArenaGame] = useSyncedState('hideDisabledArenaGame', config.areDisabledArenaGamesHidden());
   const [hideLoadingLogo, setHideLoadingLogo] = useSyncedState('hideLoadingLogo', config.isFullscreenLoadingLogoHidden());
@@ -157,6 +158,11 @@ export const OptionsView = ({ config, onChange }: Props) => {
   const updateSidePanelIconVisible = (val: boolean) => {
     setSidePanelIconVisible(val);
     config.setSidePanelIconVisible(val);
+  };
+
+  const updateSidePanelMenuVisible = (val: boolean) => {
+    setSidePanelMenuVisible(val);
+    config.setSidePanelMenuVisible(val);
   };
 
   const updateRedirect = (val: boolean) => {
@@ -365,6 +371,7 @@ export const OptionsView = ({ config, onChange }: Props) => {
             </select>
           </div>
           {desktopVersion && !isFirefox && getSwitch(sidePanelIconVisible, updateSidePanelIconVisible, "optionsSidePanelIconOn", "optionsSidePanelIconOff")}
+          {desktopVersion && getSwitch(sidePanelMenuVisible, updateSidePanelMenuVisible, "optionsSidePanelMenuOn", "optionsSidePanelMenuOff")}
           {getSwitch(redirect, updateRedirect, "optionsLobbyRedirectOn", "optionsLobbyRedirectOff")}
           {getSwitch(hideDisabledArenaGame, updateHideDisabledArenaGame, "optionsHideDisabledArenaGameOn", "optionsHideDisabledArenaGameOff")}
           {getSwitch(solidBackground, updateSolidBackground, "optionsSolidBackgroundOn", "optionsSolidBackgroundOff")}

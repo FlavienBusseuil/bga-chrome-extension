@@ -643,6 +643,17 @@ export const gamesConfiguration: Record<string, GameConfig> = {
     customBack: true,
     customPanel: true
   },
+  frostedblooms: {
+    customBack: ['thematic_background'],
+    overlay: true,
+    playersTextColor: ['html player_area_wrapper player_name[color="{{player_color}}"]'],
+    playersBorder: ['html garden[color="{{player_color}}"]', '#overall_player_board_{{player_id}}'],
+    customActions: {
+      init: (cssPath: string) => {
+        document.body.style.setProperty("--ext-game-back", `url(${cssPath}img/background.jpg)`);
+      }
+    }
+  },
   fugitive: {
     customBack: true
   },

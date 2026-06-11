@@ -1,0 +1,91 @@
+@import "./common";
+
+html[data-theme=dark] {
+	--ext-overlay-color: #0002;
+
+	.bgaext_overlay {
+		display: none;
+	}
+
+	#bga-zoom-wrapper #bga-zoom-controls {
+		filter: invert(0.9);
+	}
+
+	player_area_wrapper {
+		background-color: var(--dark-back);
+	}
+
+	#popin_bgaHelpDialog,
+	garden {
+		background: var(--dark-20) !important;
+	}
+
+	supply counter_coins_1 value,
+	supply counter_coins_2 value,
+	supply counter_coins_3 value,
+	supply counter_coins_4 value,
+	supply counter_coins_5 value,
+	supply counter_coins_6 value,
+	deck counter_deck value {
+		background-color: var(--dark-10);
+		color: var(--light-70);
+		outline: 1px solid var(--dark-40);
+	}
+
+	.bga-help_popin-button {
+		background: var(--green-10);
+		color: var(--light-80);
+	}
+
+	#logs .log .roundedbox {
+		background: var(--dark-10);
+	}
+
+	#logs .log .roundedbox card_icon,
+	#logs .log .roundedbox objective_icon,
+	.chatwindowlogs_zone_big .roundedbox card_icon,
+	.chatwindowlogs_zone_big .roundedbox objective_icon {
+		background-color: var(--dark-40);
+	}
+
+	#logs .log .roundedbox.roundedbox:has(round_log),
+	.chatwindowlogs_zone_big .roundedbox.roundedbox:has(round_log) {
+		background-color: var(--green-10);
+		color: var(--light-80);
+	}
+
+	board:before {
+		.reduceBrightness();
+		border-radius: 10px;
+	}
+
+	board objective,
+	square,
+	decoration,
+	flower,
+	reminder,
+	deck deck_1,
+	deck deck_2,
+	deck deck_3,
+	icon,
+	card {
+		filter: var(--ext-bright);
+	}
+
+	card[active=shadow] {
+		filter: brightness(.7) var(--ext-bright);
+	}
+
+	card[scoring=true] {
+		filter: brightness(1)var(--ext-bright);
+	}
+}
+
+html[data-theme=dark].thematic_background .bgaext_overlay {
+	display: block;
+	background: var(--ext-game-back);
+	background-repeat: no-repeat;
+	background-size: cover;
+	background-attachment: fixed;
+	background-position: 50%;
+}

@@ -1849,6 +1849,16 @@ const defaultGames: Partial<Game>[] = [
 		name: "soixantedeuxsoleilsdete",
 		playerPanel: "player-table-{{player_id}}"
 	},
+	{
+		name: "frostedblooms",
+		playerPanel: "player_area_wrapper player_name",
+		playerPanelOffset: 10
+	},
+	{
+		name: "drako",
+		playerPanel: ".drako-player-area .drako-player-table-label",
+		playerPanelOffset: 10
+	},
 ];
 
 export default defaultGames;
