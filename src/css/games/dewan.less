@@ -1,4 +1,12 @@
 html[data-theme=dark] {
+
+	.mf_item_back,
+	.mf_item_front {
+		filter: var(--ext-bright);
+	}
+}
+
+.bgaext_dark {
 	body {
 		background: var(--dark-40);
 	}
@@ -29,10 +37,5 @@ html[data-theme=dark] {
 
 	.mf_flashinfo {
 		background: linear-gradient(0deg, hsla(0, 0%, 100%, 0), #000 25%, #000 50%, #000 75%, hsla(0, 0%, 100%, 0));
-	}
-
-	.mf_item_back,
-	.mf_item_front {
-		filter: var(--ext-bright);
 	}
 }

@@ -1,11 +1,17 @@
 @import "./common";
 
 html[data-theme=dark] {
-	--ext-overall-color: #00000080;
-
 	.player-board:before {
 		.reduceBrightness();
 	}
+
+	.card_border {
+		filter: var(--ext-bright);
+	}
+}
+
+.bgaext_dark {
+	--ext-overall-color: #00000080;
 
 	.player-board:before {
 		border-radius: 8px;
@@ -13,9 +19,5 @@ html[data-theme=dark] {
 
 	.player_board_inner {
 		color: #000;
-	}
-
-	.card_border {
-		filter: var(--ext-bright);
 	}
 }

@@ -2,6 +2,14 @@
 
 html[data-theme=dark] {
 
+	#board,
+	.card .card-sides .card-side.herocard-front {
+		filter: var(--ext-bright);
+	}
+}
+
+.bgaext_dark {
+
 	.card-icon.icon-1,
 	.card-icon.icon-2,
 	.card-icon.icon-3,
@@ -108,10 +116,5 @@ html[data-theme=dark] {
 
 	i[style*="color:blue"] {
 		color: var(--blue-50) !important;
-	}
-
-	#board,
-	.card .card-sides .card-side.herocard-front {
-		filter: var(--ext-bright);
 	}
 }

@@ -1,6 +1,18 @@
 @import "./common";
 
 html[data-theme=dark] {
+
+	.card,
+	.card_back {
+		filter: var(--ext-bright);
+	}
+
+	.card_back[style="filter: grayscale(1);"] {
+		filter: var(--ext-bright) grayscale(1) !important;
+	}
+}
+
+.bgaext_dark {
 	#overall-content[style*="background"] {
 		--ext-overall-color: var(--ext-alpha);
 	}
@@ -21,14 +33,5 @@ html[data-theme=dark] {
 
 	.player-name {
 		text-shadow: none !important;
-	}
-
-	.card,
-	.card_back {
-		filter: var(--ext-bright);
-	}
-
-	.card_back[style="filter: grayscale(1);"] {
-		filter: var(--ext-bright) grayscale(1) !important;
 	}
 }

@@ -1,6 +1,14 @@
 @import "./common";
 
 html[data-theme=dark] {
+
+	.highform,
+	.stockitem {
+		filter: var(--ext-bright);
+	}
+}
+
+.bgaext_dark {
 	#warp {
 		filter: invert(1);
 	}
@@ -14,10 +22,5 @@ html[data-theme=dark] {
 	.piecesdiff,
 	.upgradeddiff {
 		filter: var(--drop-shadow);
-	}
-
-	.highform,
-	.stockitem {
-		filter: var(--ext-bright);
 	}
 }

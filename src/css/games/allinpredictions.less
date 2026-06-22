@@ -1,4 +1,13 @@
 html[data-theme=dark] {
+
+	.display_bg,
+	.card,
+	.token {
+		filter: var(--ext-bright);
+	}
+}
+
+.bgaext_dark {
 	--ext-overlay-color: #0003;
 
 	.bgabutton_gray {
@@ -11,11 +20,5 @@ html[data-theme=dark] {
 
 	.bgabutton_gray:hover {
 		background: linear-gradient(#262626, #2b2b2b);
-	}
-
-	.display_bg,
-	.card,
-	.token {
-		filter: var(--ext-bright);
 	}
 }

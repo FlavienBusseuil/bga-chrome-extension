@@ -2,6 +2,28 @@
 
 html[data-theme=dark] {
 
+	#myhand:before {
+		.reduceBrightness()
+	}
+
+	.muse_deck,
+	.card,
+	.ach_card,
+	.atelier,
+	.hardship_slot,
+	.habit_deck,
+	.playerDeck,
+	.job_tile_attendant,
+	.stockitem,
+	.job_tile_busker,
+	.player_routine_board,
+	.player_achievement {
+		filter: var(--ext-bright);
+	}
+}
+
+.bgaext_dark {
+
 	.first_player_icon,
 	.icon_inspiration,
 	.icon_afternoon,
@@ -33,26 +55,7 @@ html[data-theme=dark] {
 		border-radius: 8px;
 	}
 
-	#myhand:before {
-		.reduceBrightness()
-	}
-
 	.job_tile_busker {
 		border-radius: 8px;
-	}
-
-	.muse_deck,
-	.card,
-	.ach_card,
-	.atelier,
-	.hardship_slot,
-	.habit_deck,
-	.playerDeck,
-	.job_tile_attendant,
-	.stockitem,
-	.job_tile_busker,
-	.player_routine_board,
-	.player_achievement {
-		filter: var(--ext-bright);
 	}
 }

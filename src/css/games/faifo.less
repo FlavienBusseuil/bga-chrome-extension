@@ -1,6 +1,12 @@
 @import "./common";
 
 html[data-theme=dark] {
+	.stockitem {
+		filter: var(--ext-bright);
+	}
+}
+
+.bgaext_dark {
 	.game-table {
 		background-image: none;
 		background-color: var(--dark-back);
@@ -47,9 +53,5 @@ html[data-theme=dark] {
 	.game-table,
 	#player_tables {
 		border-color: var(--light-50);
-	}
-
-	.stockitem {
-		filter: var(--ext-bright);
 	}
 }

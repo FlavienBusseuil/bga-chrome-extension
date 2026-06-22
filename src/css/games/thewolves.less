@@ -1,6 +1,12 @@
 @import "./common";
 
 html[data-theme=dark] {
+	#wolves-game {
+		filter: var(--ext-bright);
+	}
+}
+
+.bgaext_dark {
 	body {
 		background: none !important;
 	}
@@ -14,9 +20,5 @@ html[data-theme=dark] {
 		background: var(--dark-0);
 		box-shadow: 0 0 4px #fff, 0 1px 2px #000;
 		color: var(--light-80);
-	}
-
-	#wolves-game {
-		filter: var(--ext-bright);
 	}
 }

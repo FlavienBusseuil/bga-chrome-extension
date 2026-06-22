@@ -1,6 +1,12 @@
 @import "./common";
 
 html[data-theme=dark] {
+	#lds_mainBoard {
+		filter: var(--ext-bright);
+	}
+}
+
+.bgaext_dark {
 	.player-board.blackPlayerZone .player-name a {
 		color: #000 !important;
 		text-shadow: var(--text-w-shadow);
@@ -25,9 +31,5 @@ html[data-theme=dark] {
 
 	#button_undo:hover {
 		.redButtonOver();
-	}
-
-	#lds_mainBoard {
-		filter: var(--ext-bright);
 	}
 }

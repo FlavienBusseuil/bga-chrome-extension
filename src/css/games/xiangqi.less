@@ -1,6 +1,12 @@
 @import "./common";
 
 html[data-theme=dark] {
+	#board {
+		filter: var(--ext-bright);
+	}
+}
+
+.bgaext_dark {
 
 	#top_files,
 	#left_ranks {
@@ -10,9 +16,5 @@ html[data-theme=dark] {
 	#right_ranks,
 	#bottom_ranks {
 		color: var(--red-50);
-	}
-
-	#board {
-		filter: var(--ext-bright);
 	}
 }

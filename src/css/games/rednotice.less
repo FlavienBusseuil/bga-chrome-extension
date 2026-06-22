@@ -5,24 +5,9 @@ html[data-theme=light] .logs_on_floating_panel .player-board {
 }
 
 html[data-theme=dark] {
-	--ext-overlay-color: #0003;
-
-	.mf_shadow {
-		filter: var(--drop-shadow);
-	}
-
 	.mf_zone_player:before {
 		.reduceBrightness();
 		border-radius: 5px;
-	}
-
-	.playername[style="color:#333"] {
-		color: var(--light-70) !important;
-		position: relative;
-	}
-
-	.mf_zone_history_column {
-		background-color: transparent;
 	}
 
 	.mf_zone_history {
@@ -34,5 +19,22 @@ html[data-theme=dark] {
 	.mf_item_front,
 	.mf_item_back {
 		filter: var(--ext-bright);
+	}
+}
+
+.bgaext_dark {
+	--ext-overlay-color: #0003;
+
+	.mf_shadow {
+		filter: var(--drop-shadow);
+	}
+
+	.playername[style="color:#333"] {
+		color: var(--light-70) !important;
+		position: relative;
+	}
+
+	.mf_zone_history_column {
+		background-color: transparent;
 	}
 }

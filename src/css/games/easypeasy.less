@@ -1,6 +1,14 @@
 @import "./common";
 
 html[data-theme=dark] {
+
+	.ep_card_back,
+	.ep_card_front {
+		filter: var(--ext-bright);
+	}
+}
+
+.bgaext_dark {
 	body {
 		background-color: #403a5f
 	}
@@ -28,10 +36,5 @@ html[data-theme=dark] {
 
 	#ep_header_round {
 		color: var(--light-80);
-	}
-
-	.ep_card_back,
-	.ep_card_front {
-		filter: var(--ext-bright);
 	}
 }

@@ -1,6 +1,15 @@
 @import "./common";
 
 html[data-theme=dark] {
+
+	.factory,
+	#scoring-board,
+	.player-table {
+		filter: var(--ext-bright);
+	}
+}
+
+.bgaext_dark {
 	--ext-overlay-color: #00000020;
 
 	#bga-zoom-controls button {
@@ -44,11 +53,5 @@ html[data-theme=dark] {
 
 	.player-table-wrapper .player-name-box {
 		background: var(--dark-20);
-	}
-
-	.factory,
-	#scoring-board,
-	.player-table {
-		filter: var(--ext-bright);
 	}
 }

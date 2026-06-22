@@ -45,7 +45,7 @@
 }
 
 html.dark .bgaext_slider,
-html.darkmode .bgaext_slider {
+.bgaext_dark .bgaext_slider {
   background-color: var(--dark-40);
   border: 1px solid var(--light-50);
 }
@@ -67,7 +67,7 @@ html.darkmode .bgaext_slider {
 }
 
 html.dark .bgaext_slider:before,
-html.darkmode .bgaext_slider:before {
+.bgaext_dark .bgaext_slider:before {
   bottom: 3px;
 }
 
@@ -76,7 +76,7 @@ html.darkmode .bgaext_slider:before {
 }
 
 html.dark .bgaext_switch_container.checked .bgaext_slider,
-html.darkmode .bgaext_switch_container.checked .bgaext_slider {
+.bgaext_dark .bgaext_switch_container.checked .bgaext_slider {
   background-color: var(--blue-70);
   border-color: var(--blue-70);
 }
@@ -86,7 +86,7 @@ html.darkmode .bgaext_switch_container.checked .bgaext_slider {
 }
 
 html.dark .bgaext_switch_container.checked .bgaext_slider:before,
-html.darkmode .bgaext_switch_container.checked .bgaext_slider:before {
+.bgaext_dark .bgaext_switch_container.checked .bgaext_slider:before {
   transform: translateX(15px);
 }
 

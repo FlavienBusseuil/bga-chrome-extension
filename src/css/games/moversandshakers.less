@@ -1,8 +1,16 @@
-html[data-theme=dark].darkpanel #player_boards .player-board.mns_player_passed {
+html[data-theme=dark] {
+
+	.mns_main_board_img,
+	.mns_setup_tiles_wrap {
+		filter: var(--ext-bright);
+	}
+}
+
+.bgaext_dark.darkpanel #player_boards .player-board.mns_player_passed {
 	background: var(--dark-40) !important;
 }
 
-html[data-theme=dark] {
+.bgaext_dark {
 
 	.mns_panel_toggle_text,
 	.mns_arrow,
@@ -62,10 +70,5 @@ html[data-theme=dark] {
 
 	.mns_hand_selectable:hover {
 		box-shadow: 0 0 3px, inset 0 0 20px #000;
-	}
-
-	.mns_main_board_img,
-	.mns_setup_tiles_wrap {
-		filter: var(--ext-bright);
 	}
 }

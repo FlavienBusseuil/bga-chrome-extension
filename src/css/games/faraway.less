@@ -1,6 +1,14 @@
 @import "./common";
 
 html[data-theme=dark] {
+
+	.fa_card_back,
+	.fa_card_front {
+		filter: var(--ext-bright);
+	}
+}
+
+.bgaext_dark {
 	body {
 		background: var(--dark-40);
 	}
@@ -21,10 +29,5 @@ html[data-theme=dark] {
 		background-color: var(--dark-10);
 		border-color: var(--light-80);
 		color: var(--light-80);
-	}
-
-	.fa_card_back,
-	.fa_card_front {
-		filter: var(--ext-bright);
 	}
 }

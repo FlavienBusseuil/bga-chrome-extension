@@ -1,6 +1,15 @@
 @import "./common";
 
 html[data-theme=dark] {
+
+	.nrd-card-front,
+	.deck,
+	.bga-dice_die {
+		filter: var(--ext-bright);
+	}
+}
+
+.bgaext_dark {
 	--ext-overlay-color: #ffffff80;
 
 	.bgaext_overlay {
@@ -74,15 +83,9 @@ html[data-theme=dark] {
 		background-color: var(--dark-40);
 		color: var(--light-80);
 	}
-
-	.nrd-card-front,
-	.deck,
-	.bga-dice_die {
-		filter: var(--ext-bright);
-	}
 }
 
-html[data-theme=dark].spicy {
+.bgaext_dark.spicy {
 	.bgaext_overlay {
 		display: block;
 	}

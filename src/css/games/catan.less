@@ -1,6 +1,12 @@
 @import "./common";
 
-html[data-theme=dark].darkpanel #player_boards {
+html[data-theme=dark] {
+	#cat_summary {
+		filter: var(--ext-bright);
+	}
+}
+
+.bgaext_dark.darkpanel #player_boards {
 	.player-board {
 		background: var(--dark-30) !important;
 	}
@@ -10,7 +16,7 @@ html[data-theme=dark].darkpanel #player_boards {
 	}
 }
 
-html[data-theme=dark] {
+.bgaext_dark {
 	#ebd-body {
 		background: #005a81;
 	}
@@ -224,9 +230,5 @@ html[data-theme=dark] {
 
 	.cat_maritimetrade_rates .cat_traderate {
 		color: #000;
-	}
-
-	#cat_summary {
-		filter: var(--ext-bright);
 	}
 }

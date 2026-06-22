@@ -1,6 +1,14 @@
 @import "./common";
 
 html[data-theme=dark] {
+
+	.card,
+	#board {
+		filter: var(--ext-bright);
+	}
+}
+
+.bgaext_dark {
 	.selected_card {
 		box-shadow: none;
 		filter: var(--highlight-max);
@@ -16,10 +24,5 @@ html[data-theme=dark] {
 
 	.card {
 		color: #000;
-		filter: var(--ext-bright);
-	}
-
-	#board {
-		filter: var(--ext-bright);
 	}
 }

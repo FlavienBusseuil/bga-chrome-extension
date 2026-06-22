@@ -1,6 +1,17 @@
 @import "./common";
 
 html[data-theme=dark] {
+	#overlay:before {
+		.reduceBrightness();
+	}
+
+	.tile,
+	.leader {
+		filter: var(--ext-bright);
+	}
+}
+
+.bgaext_dark {
 
 	.log .point,
 	.mini_monument_lower {
@@ -14,14 +25,5 @@ html[data-theme=dark] {
 
 	.player-board {
 		background-color: var(--dark-20);
-	}
-
-	#overlay:before {
-		.reduceBrightness();
-	}
-
-	.tile,
-	.leader {
-		filter: var(--ext-bright);
 	}
 }

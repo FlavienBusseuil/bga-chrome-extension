@@ -1,6 +1,18 @@
 @import "./common";
 
 html[data-theme=dark] {
+
+	.card,
+	.questinc-company-card {
+		filter: var(--ext-bright) var(--drop-shadow);
+	}
+
+	.questinc-card.questinc-card-disabled {
+		filter: var(--ext-bright) var(--drop-shadow) grayscale(0.5);
+	}
+}
+
+.bgaext_dark {
 	.bgaext_overlay {
 		filter: brightness(0.45) contrast(1.4) hue-rotate(180deg) saturate(0.5);
 	}
@@ -81,14 +93,5 @@ html[data-theme=dark] {
 	.questinc-deck-icon {
 		box-shadow: none;
 		filter: var(--drop-shadow);
-	}
-
-	.card,
-	.questinc-company-card {
-		filter: var(--ext-bright) var(--drop-shadow);
-	}
-
-	.questinc-card.questinc-card-disabled {
-		filter: var(--ext-bright) var(--drop-shadow) grayscale(0.5);
 	}
 }

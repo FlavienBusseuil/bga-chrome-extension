@@ -1,6 +1,15 @@
 @import "./common";
 
 html[data-theme=dark] {
+
+	.card .card-sides .card-side,
+	#wizTrumpSelectionColor,
+	#wizScorePad {
+		filter: var(--ext-bright);
+	}
+}
+
+.bgaext_dark {
 	.wizLogColor {
 		color: #000;
 	}
@@ -42,11 +51,5 @@ html[data-theme=dark] {
 
 	.wizPrefDeckMedieval .wizLogColor4 {
 		color: var(--green-30);
-	}
-
-	.card .card-sides .card-side,
-	#wizTrumpSelectionColor,
-	#wizScorePad {
-		filter: var(--ext-bright);
 	}
 }

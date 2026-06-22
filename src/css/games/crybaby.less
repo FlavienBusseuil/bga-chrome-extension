@@ -1,4 +1,12 @@
 html[data-theme=dark] {
+
+	.bg-summary,
+	.mf_item {
+		filter: var(--ext-bright);
+	}
+}
+
+.bgaext_dark {
 	--ext-overlay-color: #00000020;
 
 	.mf_tablelabel .playername {
@@ -12,10 +20,5 @@ html[data-theme=dark] {
 	a.mf_table_help,
 	a.mf_table_help:hover {
 		color: var(--light-50);
-	}
-
-	.bg-summary,
-	.mf_item {
-		filter: var(--ext-bright);
 	}
 }

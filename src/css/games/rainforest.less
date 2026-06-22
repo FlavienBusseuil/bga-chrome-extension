@@ -1,6 +1,25 @@
 @import "./common";
 
 html[data-theme=dark] {
+	#mainBoard:before {
+		.reduceBrightness();
+		border: 1px solid var(--dark-10);
+		box-sizing: border-box;
+	}
+
+	.largePlayerBoard,
+	.notif_tile {
+		filter: var(--ext-bright);
+	}
+
+	.species,
+	.tile,
+	.token {
+		filter: drop-shadow(.1vw .1vw .1vw black) var(--ext-bright);
+	}
+}
+
+.bgaext_dark {
 	.playerPanel p {
 		color: #fff;
 	}
@@ -20,22 +39,5 @@ html[data-theme=dark] {
 
 	.playerZone {
 		background: var(--dark-back);
-	}
-
-	#mainBoard:before {
-		.reduceBrightness();
-		border: 1px solid var(--dark-10);
-		box-sizing: border-box;
-	}
-
-	.largePlayerBoard,
-	.notif_tile {
-		filter: var(--ext-bright);
-	}
-
-	.species,
-	.tile,
-	.token {
-		filter: drop-shadow(.1vw .1vw .1vw black) var(--ext-bright);
 	}
 }

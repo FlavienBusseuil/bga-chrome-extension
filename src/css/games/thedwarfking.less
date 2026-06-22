@@ -1,4 +1,16 @@
 html[data-theme=dark] {
+
+	.questcardmodal,
+	.specialcardmodal {
+		filter: drop-shadow(2px 2px 2px rgba(0, 0, 0, .9)) var(--ext-bright);
+	}
+
+	.stockitem {
+		filter: var(--ext-bright);
+	}
+}
+
+.bgaext_dark {
 	--ext-overall-color: #0007;
 
 	#modal_round,
@@ -19,14 +31,5 @@ html[data-theme=dark] {
 	.stockitem .player-title,
 	.tooltips {
 		background-color: var(--dark-back);
-	}
-
-	.questcardmodal,
-	.specialcardmodal {
-		filter: drop-shadow(2px 2px 2px rgba(0, 0, 0, .9)) var(--ext-bright);
-	}
-
-	.stockitem {
-		filter: var(--ext-bright);
 	}
 }

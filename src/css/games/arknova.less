@@ -1,13 +1,50 @@
 @import "./common";
 
 html[data-theme=dark] {
-	--ext-overall-color: #00000060;
+
+	#arknova-main-container #board-pool-resizable #board-pool #cards-pool .card-pool-folder,
+	.player-board-cards .player-board-inPlay-animals .player-board-sizes-counters,
+	.ark-player-board-resizable .ark-player-board .zoo-map .map-infos,
+	.ark-player-board-resizable .ark-player-board .zoo-map .zoo-map-board .full-map-bonus,
+	.player-board-action-cards-resizable .player-board-action-cards .action-card-slot .action-card-slot-strength,
+	.ark-card.zoo-card,
+	.ark-card.action-card,
+	.arknova-meeple,
+	.arknova-icon,
+	.building-container,
+	.upgradeNeeded-marker,
+	.zoo-map-association,
+	.zoo-map-bonus-spaces,
+	.ark-player-board .icons-summary,
+	.buildings-helper-toggle,
+	#reputation-track {
+		filter: var(--ext-bright);
+	}
+
+	#arknova-main-container #board-pool-resizable #board-pool #cards-pool .card-pool-folder .ark-card.zoo-card,
+	.ark-player-board-resizable .ark-player-board .zoo-map .zoo-map-board .full-map-bonus .arknova-icon,
+	.buildings-helper-toggle .arknova-icon {
+		filter: none;
+	}
+
+	.zoo-map-board:before,
+	.zoo-map-board-background:before,
+	#association-board:before,
+	#workers-reserves:before,
+	#studbooks:before,
+	#conservation-track-duplicate {
+		.reduceBrightness();
+	}
 
 	.zoo-map-board-background,
 	#association-board,
 	#workers-reserves {
 		position: relative;
 	}
+}
+
+.bgaext_dark {
+	--ext-overall-color: #00000060;
 
 	.player-board-cards,
 	.player-board-action-cards,
@@ -177,15 +214,6 @@ html[data-theme=dark] {
 		z-index: 1;
 	}
 
-	.zoo-map-board:before,
-	.zoo-map-board-background:before,
-	#association-board:before,
-	#workers-reserves:before,
-	#studbooks:before,
-	#conservation-track-duplicate {
-		.reduceBrightness();
-	}
-
 	#last-round {
 		background: #185568;
 		color: var(--light-70);
@@ -193,30 +221,5 @@ html[data-theme=dark] {
 
 	div#studbooks:empty {
 		visibility: hidden;
-	}
-
-	#arknova-main-container #board-pool-resizable #board-pool #cards-pool .card-pool-folder,
-	.player-board-cards .player-board-inPlay-animals .player-board-sizes-counters,
-	.ark-player-board-resizable .ark-player-board .zoo-map .map-infos,
-	.ark-player-board-resizable .ark-player-board .zoo-map .zoo-map-board .full-map-bonus,
-	.player-board-action-cards-resizable .player-board-action-cards .action-card-slot .action-card-slot-strength,
-	.ark-card.zoo-card,
-	.ark-card.action-card,
-	.arknova-meeple,
-	.arknova-icon,
-	.building-container,
-	.upgradeNeeded-marker,
-	.zoo-map-association,
-	.zoo-map-bonus-spaces,
-	.ark-player-board .icons-summary,
-	.buildings-helper-toggle,
-	#reputation-track {
-		filter: var(--ext-bright);
-	}
-
-	#arknova-main-container #board-pool-resizable #board-pool #cards-pool .card-pool-folder .ark-card.zoo-card,
-	.ark-player-board-resizable .ark-player-board .zoo-map .zoo-map-board .full-map-bonus .arknova-icon,
-	.buildings-helper-toggle .arknova-icon {
-		filter: none;
 	}
 }

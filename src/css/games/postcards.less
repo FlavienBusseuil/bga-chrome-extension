@@ -1,4 +1,17 @@
 html[data-theme=dark] {
+
+	board,
+	gift,
+	postcard_supply,
+	itinerary,
+	player_board,
+	postcard,
+	.camp-help-folded-content {
+		filter: var(--ext-bright);
+	}
+}
+
+.bgaext_dark {
 	.bgaext_overlay {
 		display: none;
 	}
@@ -25,19 +38,10 @@ html[data-theme=dark] {
 	.player-board {
 		border: 1px solid var(--light-50) !important;
 	}
-
-	board,
-	gift,
-	postcard_supply,
-	itinerary,
-	player_board,
-	postcard,
-	.camp-help-folded-content {
-		filter: var(--ext-bright);
-	}
 }
 
-html[data-theme=dark].thematic_background {
+
+.bgaext_dark.thematic_background {
 	.bgaext_overlay {
 		display: block;
 		background-attachment: fixed;

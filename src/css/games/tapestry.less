@@ -5,6 +5,14 @@
 }
 
 html[data-theme=dark] {
+
+	.playerBoard,
+	.player_extra {
+		filter: var(--ext-bright);
+	}
+}
+
+.bgaext_dark {
 	#breadcrumbs {
 		color: #fff;
 		background: #1d2023;
@@ -29,11 +37,6 @@ html[data-theme=dark] {
 
 	#player_config_row :hover {
 		opacity: 0.9;
-	}
-
-	.playerBoard,
-	.player_extra {
-		filter: var(--ext-bright);
 	}
 
 	.undomarker {

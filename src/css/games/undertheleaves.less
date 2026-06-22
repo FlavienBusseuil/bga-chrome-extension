@@ -1,4 +1,13 @@
 html[data-theme=dark] {
+
+	.undertheleaves-tile-front,
+	.undertheleaves-tile-back,
+	.undertheleaves-card {
+		filter: var(--ext-bright);
+	}
+}
+
+.bgaext_dark {
 	.undertheleaves-box .undertheleaves-player {
 		background-color: var(--dark-back);
 	}
@@ -21,11 +30,5 @@ html[data-theme=dark] {
 	[style="--color: #000000"]:before,
 	[style="--color: #000000"]:after {
 		background-color: #fff;
-	}
-
-	.undertheleaves-tile-front,
-	.undertheleaves-tile-back,
-	.undertheleaves-card {
-		filter: var(--ext-bright);
 	}
 }

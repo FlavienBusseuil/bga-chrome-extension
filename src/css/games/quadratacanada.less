@@ -1,6 +1,16 @@
 @import "./common";
 
 html[data-theme=dark] {
+
+	div.board,
+	div.taxiBoard,
+	div.destination,
+	.trophy {
+		filter: var(--ext-bright);
+	}
+}
+
+.bgaext_dark {
 	--ext-overall-color: #00000080;
 
 	#day,
@@ -22,13 +32,6 @@ html[data-theme=dark] {
 
 	.fa6-mobile-screen {
 		color: var(--light-80);
-	}
-
-	div.board,
-	div.taxiBoard,
-	div.destination,
-	.trophy {
-		filter: var(--ext-bright);
 	}
 
 	.bgaimagebutton {

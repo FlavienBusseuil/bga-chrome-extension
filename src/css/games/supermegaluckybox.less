@@ -2,6 +2,15 @@
 
 html[data-theme=dark] {
 
+	.smlb_scorecard,
+	.smlb_lucky_box,
+	.smlb_number_cards>.stockitem {
+		filter: var(--ext-bright);
+	}
+}
+
+.bgaext_dark {
+
 	.smlb_x_icon,
 	.smlb_x_icon .smlb_pb_count {
 		filter: invert(1);
@@ -9,11 +18,5 @@ html[data-theme=dark] {
 
 	.smlb_scorecard {
 		color: #000;
-		filter: var(--ext-bright);
-	}
-
-	.smlb_lucky_box,
-	.smlb_number_cards>.stockitem {
-		filter: var(--ext-bright);
 	}
 }

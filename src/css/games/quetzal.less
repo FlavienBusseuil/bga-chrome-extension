@@ -1,6 +1,12 @@
 @import "./common";
 
 html[data-theme=dark] {
+	#board {
+		filter: var(--ext-bright);
+	}
+}
+
+.bgaext_dark {
 	.custom-player-area .player-meeple-recap {
 		filter: var(--highlight-min);
 	}
@@ -16,9 +22,5 @@ html[data-theme=dark] {
 
 	.meeple {
 		filter: var(--drop-shadow);
-	}
-
-	#board {
-		filter: var(--ext-bright);
 	}
 }

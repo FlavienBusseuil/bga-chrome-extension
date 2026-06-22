@@ -1,6 +1,14 @@
 @import "./common";
 
 html[data-theme=dark] {
+
+	.card .card-sides .card-side,
+	#messenger {
+		filter: var(--ext-bright);
+	}
+}
+
+.bgaext_dark {
 	#overall-content {
 		background: #18414e;
 	}
@@ -38,10 +46,5 @@ html[data-theme=dark] {
 
 	#popin_bgaHelpDialog .red {
 		color: var(--red-80);
-	}
-
-	.card .card-sides .card-side,
-	#messenger {
-		filter: var(--ext-bright);
 	}
 }

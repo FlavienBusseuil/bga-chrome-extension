@@ -1,4 +1,12 @@
 html[data-theme=dark] {
+
+	.card,
+	.sheet {
+		filter: var(--ext-bright);
+	}
+}
+
+.bgaext_dark {
 	--ext-overall-color: #00000060;
 
 	#board:before {
@@ -30,10 +38,5 @@ html[data-theme=dark] {
 
 	.dice_fieldset {
 		background-color: var(--dark-back);
-	}
-
-	.card,
-	.sheet {
-		filter: var(--ext-bright);
 	}
 }

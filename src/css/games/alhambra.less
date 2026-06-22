@@ -2,6 +2,15 @@
 
 html[data-theme=dark] {
 
+	#board-wrapper,
+	#player-aid-wrapper,
+	.building-tile {
+		filter: var(--ext-bright);
+	}
+}
+
+.bgaext_dark {
+
 	.alhambra-wrapper h3:before,
 	#popin_moneyDialog:before {
 		background: var(--dark-20);
@@ -18,12 +27,6 @@ html[data-theme=dark] {
 	.player-name[style="color: #000000"],
 	.alhambra-block[style="color:#000000"] {
 		text-shadow: var(--text-w-shadow);
-	}
-
-	#board-wrapper,
-	#player-aid-wrapper,
-	.building-tile {
-		filter: var(--ext-bright);
 	}
 
 	.alhambra-wrapper:before,

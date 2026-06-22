@@ -1,6 +1,12 @@
 @import "./common";
 
 html[data-theme=dark] {
+	.stockitem {
+		filter: var(--ext-bright) !important;
+	}
+}
+
+.bgaext_dark {
 	--ext-overall-color: #00000080;
 
 	.player-area {
@@ -9,10 +15,6 @@ html[data-theme=dark] {
 
 	.zone-label {
 		color: var(--light-80);
-	}
-
-	.stockitem {
-		filter: var(--ext-bright) !important;
 	}
 
 	.round-popup {

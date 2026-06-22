@@ -25,6 +25,7 @@ interface CustomConfig {
 	darkModeColor?: number;
 	darkModeSat?: number;
 	darkModeBrightness?: number;
+	darkModeNative?: boolean;
 	trackTables?: boolean;
 	soundNotification?: boolean;
 	motionSensitivity?: boolean;
@@ -715,13 +716,31 @@ class Configuration {
 		return eloStyle;
 	}
 
+	toggleNativeTheme() {
+		const detail = JSON.stringify({ type: 'ToggleTheme' });
+		document.body.dispatchEvent(new CustomEvent('bga_ext_api_call', { detail }));
+	}
+
+	isDarkModeNative() {
+		return Boolean(this._customConfig.darkModeNative);
+	}
+
+	setDarkModeNative(val: boolean) {
+		this._customConfig.darkModeNative = val;
+		storageSet({ darkModeNative: val });
+	}
+
 	isDarkMode() {
-		return !!this._customConfig.darkMode;
+		return Boolean(this._customConfig.darkMode);
 	}
 
 	setDarkMode(val: boolean) {
-		this._customConfig.darkMode = val;
-		storageSet({ darkMode: val });
+		if (this._customConfig.darkMode != val) {
+			this._customConfig.darkMode = val;
+			storageSet({ darkMode: val });
+
+			this.toggleNativeTheme();
+		}
 	}
 
 	getDarkModeBrightness(gameName: string) {

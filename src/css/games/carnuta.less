@@ -1,4 +1,18 @@
 html[data-theme=dark] {
+
+	.card,
+	#ingredient_market,
+	#rune_market,
+	.player_tokens {
+		filter: var(--ext-bright);
+	}
+
+	#logs .card {
+		filter: var(--drop-shadow) var(--ext-bright);
+	}
+}
+
+.bgaext_dark {
 	.bgaext_overlay {
 		opacity: 0.8;
 	}
@@ -39,16 +53,5 @@ html[data-theme=dark] {
 
 	.card {
 		box-shadow: calc(var(--cardw) * var(--mainzoom) * .02) calc(var(--cardw) * var(--mainzoom) * .02) calc(var(--cardw) * var(--mainzoom) * .03) #000;
-	}
-
-	.card,
-	#ingredient_market,
-	#rune_market,
-	.player_tokens {
-		filter: var(--ext-bright);
-	}
-
-	#logs .card {
-		filter: var(--drop-shadow) var(--ext-bright);
 	}
 }

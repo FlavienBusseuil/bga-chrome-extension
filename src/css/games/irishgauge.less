@@ -1,16 +1,18 @@
 @import "./common";
 
 html[data-theme=dark] {
+	#board:before {
+		.reduceBrightness();
+	}
+}
+
+.bgaext_dark {
 	#bga-zoom-controls {
 		filter: invert(0.8);
 	}
 
 	.player-table .player-table-name {
 		background-color: var(--dark-20);
-	}
-
-	#board:before {
-		.reduceBrightness();
 	}
 
 	.game-panel .counter-wrapper .counter {

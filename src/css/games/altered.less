@@ -1,6 +1,14 @@
 @import "./common";
 
 html[data-theme=dark] {
+
+	#altered-main-container #altered-board-resizable #altered-board,
+	#overlay-deck-container {
+		filter: var(--ext-bright);
+	}
+}
+
+.bgaext_dark {
 	--ext-overall-color: #00000080;
 
 	.tooltip-arrow {
@@ -55,10 +63,5 @@ html[data-theme=dark] {
 	#btnConfirmChoice:hover,
 	#btnSupportAbility:hover {
 		.yellowButtonOver();
-	}
-
-	#altered-main-container #altered-board-resizable #altered-board,
-	#overlay-deck-container {
-		filter: var(--ext-bright);
 	}
 }

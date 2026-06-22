@@ -20,7 +20,13 @@
 	background-position: 67.4% 0
 }
 
-html[data-theme=dark].ffo-pref-background {
+html[data-theme=dark] {
+	#ffo-backdrop:before {
+		.reduceBrightness(#00000080);
+	}
+}
+
+.bgaext_dark.ffo-pref-background {
 	background: none;
 
 	body {
@@ -28,11 +34,7 @@ html[data-theme=dark].ffo-pref-background {
 	}
 }
 
-html[data-theme=dark] {
-	#ffo-backdrop:before {
-		.reduceBrightness(#00000080);
-	}
-
+.bgaext_dark {
 	.player-name .ffo-icon-eye {
 		filter: invert(0.8);
 	}

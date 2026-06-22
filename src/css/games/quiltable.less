@@ -1,4 +1,14 @@
 html[data-theme=dark] {
+
+	.quilt-board .card,
+	.quilt-board .item,
+	.quilt-board .temp-card,
+	.quilt-controls-container .card {
+		filter: var(--ext-bright);
+	}
+}
+
+.bgaext_dark {
 	--ext-overlay-color: #0003;
 
 	#player-tables>* {
@@ -7,12 +17,5 @@ html[data-theme=dark] {
 
 	.item {
 		border-color: var(--light-50);
-	}
-
-	.quilt-board .card,
-	.quilt-board .item,
-	.quilt-board .temp-card,
-	.quilt-controls-container .card {
-		filter: var(--ext-bright);
 	}
 }

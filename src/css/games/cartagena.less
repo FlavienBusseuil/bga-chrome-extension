@@ -2,6 +2,15 @@
 
 html[data-theme=dark] {
 
+	.tunnel,
+	.tunnelgame,
+	.cartagena_card {
+		filter: var(--ext-bright);
+	}
+}
+
+.bgaext_dark {
+
 	#page-title,
 	#maingameview_menuheader,
 	#maingameview_menufooter {
@@ -16,20 +25,14 @@ html[data-theme=dark] {
 	.bgaext_overlay {
 		background-image: var(--ext-game-back) !important;
 	}
-}
 
-#cartagena_board_wrapper,
-#cartagena_hand_area {
-	background-color: var(--dark-back);
-}
+	#cartagena_board_wrapper,
+	#cartagena_hand_area {
+		background-color: var(--dark-back);
+	}
 
-.cartagena_hand_label,
-.cartagena_endzone_label {
-	color: #a36629;
-}
-
-.tunnel,
-.tunnelgame,
-.cartagena_card {
-	filter: var(--ext-bright);
+	.cartagena_hand_label,
+	.cartagena_endzone_label {
+		color: #a36629;
+	}
 }

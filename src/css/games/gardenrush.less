@@ -1,20 +1,8 @@
 @import "./common";
 
 html[data-theme=dark] {
-	--ext-overall-color: #00000060;
-
-	.gr_help_post {
-		background-color: var(--dark-back);
-		color: var(--light-80);
-	}
-
 	#player_board_config {
 		position: relative;
-	}
-
-	.gr_popup_content {
-		background-color: var(--dark-30);
-		color: var(--light-80);
 	}
 
 	.gr_board img,
@@ -22,5 +10,19 @@ html[data-theme=dark] {
 	.gr_card_back,
 	.gr_card_front {
 		filter: var(--ext-bright);
+	}
+}
+
+.bgaext_dark {
+	--ext-overall-color: #00000060;
+
+	.gr_help_post {
+		background-color: var(--dark-back);
+		color: var(--light-80);
+	}
+
+	.gr_popup_content {
+		background-color: var(--dark-30);
+		color: var(--light-80);
 	}
 }

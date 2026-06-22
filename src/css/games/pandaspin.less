@@ -1,6 +1,14 @@
 @import "./common";
 
 html[data-theme=dark] {
+
+	.ps_card_back,
+	.ps_card_front {
+		filter: var(--ext-bright);
+	}
+}
+
+.bgaext_dark {
 	--ext-overlay-color: #00000040;
 
 	#overall-content {
@@ -34,10 +42,5 @@ html[data-theme=dark] {
 		color: var(--light-80);
 		background-color: var(--dark-30);
 		border: 1px solid var(--dark-40);
-	}
-
-	.ps_card_back,
-	.ps_card_front {
-		filter: var(--ext-bright);
 	}
 }

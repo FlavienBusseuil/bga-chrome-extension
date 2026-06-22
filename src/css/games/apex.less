@@ -1,4 +1,17 @@
 html[data-theme=dark] {
+
+	.APEXcard,
+	.APEXplayerBoard,
+	.APEXsector {
+		filter: var(--ext-bright);
+	}
+
+	.APEXsector.APEXdisabled {
+		filter: grayscale(1);
+	}
+}
+
+.bgaext_dark {
 	.APEXpile {
 		outline-color: var(--dark-40);
 	}
@@ -15,15 +28,5 @@ html[data-theme=dark] {
 	.APEXage,
 	.APEXround {
 		color: var(--red-80);
-	}
-
-	.APEXcard,
-	.APEXplayerBoard,
-	.APEXsector {
-		filter: var(--ext-bright);
-	}
-
-	.APEXsector.APEXdisabled {
-		filter: grayscale(1);
 	}
 }

@@ -16,6 +16,26 @@
 }
 
 html[data-theme=dark] {
+	.leftPlayerBoardWrapper {
+		position: relative;
+	}
+
+	.leftPlayerBoardWrapper:before {
+		.reduceBrightness(#00000080);
+		inset: 0;
+		z-index: 0;
+		border-radius: 74px;
+	}
+
+	desktop_version .tableau,
+	.transmutation_bar,
+	.stockitem,
+	.card-side {
+		filter: var(--ext-bright);
+	}
+}
+
+.bgaext_dark {
 
 	/* remove the player panel frame border */
 	.tableau {
@@ -40,17 +60,6 @@ html[data-theme=dark] {
 		filter: brightness(35%) sepia(100%) saturate(180%) hue-rotate(345deg);
 	}
 
-	.leftPlayerBoardWrapper {
-		position: relative;
-	}
-
-	.leftPlayerBoardWrapper:before {
-		.reduceBrightness(#00000080);
-		inset: 0;
-		z-index: 0;
-		border-radius: 74px;
-	}
-
 	#player_boards .icon_cristal,
 	#player_boards .invocation_level,
 	#player_boards .hand,
@@ -69,11 +78,6 @@ html[data-theme=dark] {
 		background: var(--dark-20);
 	}
 
-	desktop_version .tableau,
-	.transmutation_bar {
-		filter: var(--ext-bright);
-	}
-
 	#generalactions svg,
 	#generalactions svg g {
 		color: var(--light-80);
@@ -86,10 +90,5 @@ html[data-theme=dark] {
 
 	.cardtitle {
 		color: #000;
-	}
-
-	.stockitem,
-	.card-side {
-		filter: var(--ext-bright);
 	}
 }

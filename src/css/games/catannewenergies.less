@@ -1,6 +1,19 @@
 @import "./common";
 
 html[data-theme=dark] {
+	#map #map_slots:before {
+		.reduceBrightness();
+		border-radius: 50%;
+	}
+
+	.token.eventbag,
+	.deck .deck_bg,
+	.player_board_bg {
+		filter: var(--ext-bright);
+	}
+}
+
+.bgaext_dark {
 	#ebd-body {
 		background-color: #424470;
 		color: var(--light-80);
@@ -9,11 +22,6 @@ html[data-theme=dark] {
 	.bubble {
 		background: var(--dark-20);
 		outline: .3vh solid var(--light-50);
-	}
-
-	#map #map_slots:before {
-		.reduceBrightness();
-		border-radius: 50%;
 	}
 
 	#footprint_value,
@@ -48,11 +56,5 @@ html[data-theme=dark] {
 
 	.trade_entry {
 		background-color: var(--dark-30);
-	}
-
-	.token.eventbag,
-	.deck .deck_bg,
-	.player_board_bg {
-		filter: var(--ext-bright);
 	}
 }

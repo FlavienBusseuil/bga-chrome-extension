@@ -1,13 +1,15 @@
 @import "./common";
 
 html[data-theme=dark] {
+	.card {
+		filter: var(--ext-bright);
+	}
+}
+
+.bgaext_dark {
 	--ext-overall-color: #000000A0;
 
 	.playertablename {
 		text-shadow: none;
-	}
-
-	.card {
-		filter: var(--ext-bright);
 	}
 }

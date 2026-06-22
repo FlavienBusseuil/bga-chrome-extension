@@ -1,6 +1,14 @@
 @import "./common";
 
 html[data-theme=dark] {
+
+	#externalBoard,
+	#terrainStacks .terrainStack {
+		filter: var(--ext-bright);
+	}
+}
+
+.bgaext_dark {
 	background-color: #2a3418;
 
 	#left-side-wrapper {
@@ -27,10 +35,5 @@ html[data-theme=dark] {
 	#successCropWindow {
 		background: var(--dark-back);
 		color: var(--light-80);
-	}
-
-	#externalBoard,
-	#terrainStacks .terrainStack {
-		filter: var(--ext-bright);
 	}
 }

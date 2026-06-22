@@ -1,6 +1,22 @@
 @import "./common";
 
 html[data-theme=dark] {
+	.card {
+		filter: var(--ext-bright);
+	}
+}
+
+html[data-theme=dark].mcompact {
+	.tableau .card[data-state="0"] {
+		filter: var(--ext-bright);
+	}
+
+	.tableau .card[data-state="3"] {
+		filter: var(--ext-bright) grayscale(.9)
+	}
+}
+
+.bgaext_dark {
 	body {
 		--color-mapping_ff0000: #ff6565;
 		--color-mapping_0000ff: #6565ff;
@@ -187,13 +203,9 @@ html[data-theme=dark] {
 	.hand_area .location {
 		background: var(--dark-back);
 	}
-
-	.card {
-		filter: var(--ext-bright);
-	}
 }
 
-html[data-theme=dark].mcompact {
+.bgaext_dark.mcompact {
 	.player_area {
 		background: var(--dark-back);
 	}
@@ -226,17 +238,9 @@ html[data-theme=dark].mcompact {
 	.viewcards_button {
 		background: var(--dark-0);
 	}
-
-	.tableau .card[data-state="0"] {
-		filter: var(--ext-bright);
-	}
-
-	.tableau .card[data-state="3"] {
-		filter: var(--ext-bright) grayscale(.9)
-	}
 }
 
-html[data-theme=dark].mfull {
+.bgaext_dark.mfull {
 	#ebd-body .tooltipcontainer {
 		background-image: none;
 	}

@@ -1,6 +1,15 @@
 @import "./common";
 
 html[data-theme=dark] {
+
+	.js_board,
+	.bg-token_back,
+	[class*="bg-token_"] {
+		filter: var(--ext-bright);
+	}
+}
+
+.bgaext_dark {
 	body {
 		background: #413e25;
 	}
@@ -17,11 +26,5 @@ html[data-theme=dark] {
 	.js_popup_content {
 		background-color: var(--dark-20);
 		color: var(--light-80);
-	}
-
-	.js_board,
-	.bg-token_back,
-	[class*="bg-token_"] {
-		filter: var(--ext-bright);
 	}
 }

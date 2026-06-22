@@ -8,6 +8,17 @@ html[data-theme=dark] {
 		border-radius: 8px;
 	}
 
+	.rtta_scoreCard,
+	.rtta_scoreCard_LBA {
+		filter: var(--ext-bright) drop-shadow(2px 1px 2px #000000);
+	}
+
+	.dice_active_player {
+		filter: var(--ext-bright);
+	}
+}
+
+.bgaext_dark {
 	.rtta_player_score {
 		background-color: var(--dark-40);
 	}
@@ -26,14 +37,5 @@ html[data-theme=dark] {
 		background-color: var(--red-10);
 		border-color: var(--red-30);
 		color: var(--light-80);
-	}
-
-	.rtta_scoreCard,
-	.rtta_scoreCard_LBA {
-		filter: var(--ext-bright) drop-shadow(2px 1px 2px #000000);
-	}
-
-	.dice_active_player {
-		filter: var(--ext-bright);
 	}
 }

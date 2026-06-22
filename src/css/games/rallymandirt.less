@@ -1,6 +1,15 @@
 @import "./common";
 
 html[data-theme=dark] {
+
+	#map_container,
+	#carskins img,
+	#current-car-skins img {
+		filter: var(--ext-bright);
+	}
+}
+
+.bgaext_dark {
 	body {
 		background: none !important;
 	}
@@ -17,12 +26,6 @@ html[data-theme=dark] {
 
 	notification_element_total {
 		border-top: 1px solid var(--light-50);
-	}
-
-	#map_container,
-	#carskins img,
-	#current-car-skins img {
-		filter: var(--ext-bright);
 	}
 
 	.notification_element_total {

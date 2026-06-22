@@ -1,23 +1,25 @@
 @import "./common";
 
-html[data-theme=dark],
-html[data-theme=dark] .mode_3d #game_play_area_background {
-	background: #3b4442;
-}
-
 html[data-theme=dark] {
 	#table-center #board:before {
 		.reduceBrightness();
 	}
 
-	.tooltip-tile-name {
-		border-bottom: 1px solid #8469c9;
-		color: #8469c9;
-	}
-
 	.card-side,
 	.round-marker {
 		filter: var(--ext-bright);
+	}
+}
+
+.bgaext_dark,
+.bgaext_dark .mode_3d #game_play_area_background {
+	background: #3b4442;
+}
+
+.bgaext_dark {
+	.tooltip-tile-name {
+		border-bottom: 1px solid #8469c9;
+		color: #8469c9;
 	}
 
 	#bga-zoom-controls {

@@ -1,6 +1,13 @@
 @import "./common";
 
 html[data-theme=dark] {
+	.player-card .player-card-resizable .player-card-inner {
+		filter: var(--ext-bright);
+		color: #000;
+	}
+}
+
+.bgaext_dark {
 	--ext-overall-color: #000000bb;
 
 	.player-name>svg {
@@ -23,7 +30,6 @@ html[data-theme=dark] {
 	}
 
 	.player-card .player-card-resizable .player-card-inner {
-		filter: var(--ext-bright);
 		color: #000;
 	}
 

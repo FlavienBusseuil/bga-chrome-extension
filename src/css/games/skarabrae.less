@@ -1,4 +1,22 @@
 html[data-theme=dark] {
+
+	.card.setl,
+	.card.ball,
+	.action.main,
+	.action.special,
+	.pboard_area,
+	#supply,
+	#turndisk {
+		filter: var(--ext-bright);
+	}
+}
+
+.bgaext_dark:before {
+	background: var(--ext-game-back);
+}
+
+.bgaext_dark {
+
 	.movestamp:hover {
 		color: var(--light-70);
 	}
@@ -15,19 +33,9 @@ html[data-theme=dark] {
 	.log .tracker {
 		filter: var(--highlight-min);
 	}
-
-	.card.setl,
-	.card.ball,
-	.action.main,
-	.action.special,
-	.pboard_area,
-	#supply,
-	#turndisk {
-		filter: var(--ext-bright);
-	}
 }
 
-html.darkmode[data-theme=dark] {
+html.bgaext_dark[data-theme=dark] {
 
 	.miniboard .counter,
 	.miniboard .tracker,

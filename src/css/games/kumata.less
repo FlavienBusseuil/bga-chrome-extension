@@ -1,6 +1,19 @@
 @import "./common";
 
 html[data-theme=dark] {
+	.pave .face:before {
+		.reduceBrightness();
+	}
+
+	.mf_item_tile .mf_item_front,
+	.cylinder .cap.top>div,
+	.mf_panel_totem>div,
+	.mf_log_tile>div {
+		filter: var(--ext-bright);
+	}
+}
+
+.bgaext_dark {
 	body {
 		background-color: #54382b;
 	}
@@ -24,16 +37,5 @@ html[data-theme=dark] {
 
 	.mf_label>div {
 		color: var(--light-60)
-	}
-
-	.pave .face:before {
-		.reduceBrightness();
-	}
-
-	.mf_item_tile .mf_item_front,
-	.cylinder .cap.top>div,
-	.mf_panel_totem>div,
-	.mf_log_tile>div {
-		filter: var(--ext-bright);
 	}
 }

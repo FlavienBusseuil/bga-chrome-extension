@@ -1,11 +1,17 @@
 @import "./common";
 
 html[data-theme=dark] {
-	--themedGreen: #245b39;
-
 	.pac_mat:before {
 		.reduceBrightness();
 	}
+
+	.bga-cards_card {
+		filter: var(--ext-bright);
+	}
+}
+
+.bgaext_dark {
+	--themedGreen: #245b39;
 
 	#bga-zoom-controls {
 		filter: invert(0.8);
@@ -27,9 +33,5 @@ html[data-theme=dark] {
 	.pac_handWrapper {
 		background-color: var(--dark-back);
 		color: var(--light-70);
-	}
-
-	.bga-cards_card {
-		filter: var(--ext-bright);
 	}
 }

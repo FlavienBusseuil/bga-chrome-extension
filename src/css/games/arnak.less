@@ -1,6 +1,32 @@
 @import "./common";
 
 html[data-theme=dark] {
+
+	.idol,
+	.camp-background {
+		filter: var(--ext-bright);
+	}
+
+	.player-camp .assistant {
+		filter: drop-shadow(6px 7px 4px black) var(--ext-bright);
+	}
+
+	.arnak-board,
+	.card {
+		filter: drop-shadow(3px 3px 2px black) var(--ext-bright);
+	}
+
+	.arnak-board .meeple,
+	.player-camp .meeple {
+		filter: drop-shadow(0px 0px 18px rgba(255, 255, 255, 0.25)) var(--ext-bright);
+	}
+
+	.arnak-board .card {
+		filter: drop-shadow(3px 3px 2px black);
+	}
+}
+
+.bgaext_dark {
 	.hand-amt {
 		background: var(--dark-20);
 		padding: 0.3em 0.5em;
@@ -40,31 +66,8 @@ html[data-theme=dark] {
 	button.layout-button.layout-selected {
 		background: #246175;
 	}
-
-	.idol,
-	.camp-background {
-		filter: var(--ext-bright);
-	}
-
-	.player-camp .assistant {
-		filter: drop-shadow(6px 7px 4px black) var(--ext-bright);
-	}
-
-	.arnak-board,
-	.card {
-		filter: drop-shadow(3px 3px 2px black) var(--ext-bright);
-	}
-
-	.arnak-board .meeple,
-	.player-camp .meeple {
-		filter: drop-shadow(0px 0px 18px rgba(255, 255, 255, 0.25)) var(--ext-bright);
-	}
-
-	.arnak-board .card {
-		filter: drop-shadow(3px 3px 2px black);
-	}
 }
 
-html[data-theme=dark].darkpanel #player_boards .player-board.player-board.passed {
+.bgaext_dark.darkpanel #player_boards .player-board.player-board.passed {
 	background-color: var(--dark-0) !important
 }

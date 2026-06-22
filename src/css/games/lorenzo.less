@@ -1,8 +1,6 @@
 @import "./common";
 
 html[data-theme=dark] {
-	--ext-overlay-color: #0002;
-
 	body {
 		--cards-dropshadow: var(--ext-bright) drop-shadow(3px 3px 3px #000);
 	}
@@ -12,6 +10,19 @@ html[data-theme=dark] {
 	.obr_playerboard:before {
 		.reduceBrightness();
 	}
+
+	.obr_base_production_tiles,
+	.obr_meeple,
+	.obr_exco_malus,
+	.obr_player_hide_image,
+	.obr-dice,
+	.obr_player_disks {
+		filter: var(--ext-bright);
+	}
+}
+
+.bgaext_dark {
+	--ext-overlay-color: #0002;
 
 	.obr_select_bonus_tiles {
 		filter: var(--drop-shadow);
@@ -45,14 +56,5 @@ html[data-theme=dark] {
 
 	.obr_playerboard_name {
 		color: #000;
-	}
-
-	.obr_base_production_tiles,
-	.obr_meeple,
-	.obr_exco_malus,
-	.obr_player_hide_image,
-	.obr-dice,
-	.obr_player_disks {
-		filter: var(--ext-bright);
 	}
 }

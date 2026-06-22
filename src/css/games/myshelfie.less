@@ -1,6 +1,14 @@
 @import "./common";
 
 html[data-theme=dark] {
+
+	#main_area,
+	.shelf-area {
+		filter: var(--ext-bright);
+	}
+}
+
+.bgaext_dark {
 	#settings-icon {
 		filter: invert(1);
 	}
@@ -11,11 +19,6 @@ html[data-theme=dark] {
 
 	#first_player_seat {
 		filter: var(--drop-shadow);
-	}
-
-	#main_area,
-	.shelf-area {
-		filter: var(--ext-bright);
 	}
 
 	.shelf-name {

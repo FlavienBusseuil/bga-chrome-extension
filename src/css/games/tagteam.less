@@ -1,40 +1,6 @@
 @import "./common";
 
-html[data-theme=dark][data-background-type="1"] .bgaext_overlay {
-	display: none;
-}
-
-html[data-theme=dark][data-background-type="2"] .bgaext_overlay {
-	background-image: var(--back-2) !important;
-}
-
-html[data-theme=dark][data-background-type="3"] .bgaext_overlay {
-	background-image: var(--back-3) !important;
-}
-
-html[data-theme=dark][data-background-type="4"] .bgaext_overlay {
-	background-image: var(--back-4) !important;
-}
-
-html[data-theme=dark][data-background-type="5"] .bgaext_overlay {
-	background-image: var(--back-5) !important;
-}
-
-html[data-theme=dark][data-background-type="6"] .bgaext_overlay {
-	background-image: var(--back-6) !important;
-}
-
 html[data-theme=dark] {
-	--ext-overlay-color: #fff8;
-
-	.bgaext_overlay {
-		background-size: 100% !important;
-	}
-
-	#jj-zoom-controls {
-		background: var(--dark-10);
-		color: var(--light-70);
-	}
 
 	#tt-game-fighter-row .tt-fighter-team,
 	#tt-build-deck .tt-build-deck-decks .tt-build-deck-player-wrapper,
@@ -47,6 +13,47 @@ html[data-theme=dark] {
 	#tt-fight-review .tt-fight-review-row .tt-fight-review-player-wrapper:before {
 		.reduceBrightness();
 		border-radius: 15px;
+	}
+
+	.card {
+		filter: var(--ext-bright);
+	}
+}
+
+.bgaext_dark[data-background-type="1"] .bgaext_overlay {
+	display: none;
+}
+
+.bgaext_dark[data-background-type="2"] .bgaext_overlay {
+	background-image: var(--back-2) !important;
+}
+
+.bgaext_dark[data-background-type="3"] .bgaext_overlay {
+	background-image: var(--back-3) !important;
+}
+
+.bgaext_dark[data-background-type="4"] .bgaext_overlay {
+	background-image: var(--back-4) !important;
+}
+
+.bgaext_dark[data-background-type="5"] .bgaext_overlay {
+	background-image: var(--back-5) !important;
+}
+
+.bgaext_dark[data-background-type="6"] .bgaext_overlay {
+	background-image: var(--back-6) !important;
+}
+
+.bgaext_dark {
+	--ext-overlay-color: #fff8;
+
+	.bgaext_overlay {
+		background-size: 100% !important;
+	}
+
+	#jj-zoom-controls {
+		background: var(--dark-10);
+		color: var(--light-70);
 	}
 
 	#tt-fight-review .tt-fight-review-row .tt-fight-review-player-wrapper:before {
@@ -71,9 +78,5 @@ html[data-theme=dark] {
 		background: var(--dark-back-50);
 		color: var(--light-80);
 		outline: 1px solid var(--dark-40);
-	}
-
-	.card {
-		filter: var(--ext-bright);
 	}
 }

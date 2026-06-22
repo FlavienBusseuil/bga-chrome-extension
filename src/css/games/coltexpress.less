@@ -1,22 +1,6 @@
 @import "./common";
 
 html[data-theme=dark] {
-	.bullets {
-		filter: var(--highlight-min);
-	}
-
-	.lootvalue {
-		color: #000;
-	}
-
-	#logs [style*=";color:#ffffff"] {
-		background: none !important;
-	}
-
-	#logs [style*=";color:#3b3232"] {
-		text-shadow: var(--text-w-shadow);
-	}
-
 	#backgroundPicture:before {
 		.reduceBrightness();
 	}
@@ -31,5 +15,23 @@ html[data-theme=dark] {
 	#playerDeck,
 	#foreground {
 		filter: var(--ext-bright);
+	}
+}
+
+.bgaext_dark {
+	.bullets {
+		filter: var(--highlight-min);
+	}
+
+	.lootvalue {
+		color: #000;
+	}
+
+	#logs [style*=";color:#ffffff"] {
+		background: none !important;
+	}
+
+	#logs [style*=";color:#3b3232"] {
+		text-shadow: var(--text-w-shadow);
 	}
 }

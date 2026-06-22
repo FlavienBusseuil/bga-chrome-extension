@@ -1,14 +1,17 @@
 @import "./common";
 
 html[data-theme=dark] {
-	--ext-overall-color: #000000B0;
-
-	#bga-zoom-controls {
-		filter: invert(0.8);
-	}
 
 	.card-side,
 	.factory {
 		filter: var(--ext-bright);
+	}
+}
+
+.bgaext_dark {
+	--ext-overall-color: #000000B0;
+
+	#bga-zoom-controls {
+		filter: invert(0.8);
 	}
 }

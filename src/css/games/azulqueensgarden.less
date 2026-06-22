@@ -1,6 +1,19 @@
 @import "./common";
 
 html[data-theme=dark] {
+
+	.player-table .player-board:before,
+	.player-table .player-storage:before {
+		.reduceBrightness();
+	}
+
+	.bga-cards_card>.bga-cards_card-sides,
+	#scoring-board {
+		filter: var(--ext-bright);
+	}
+}
+
+.bgaext_dark {
 	background: var(--ext-game-back) !important;
 
 	div.preference_choice:has(> div > div > select#preference_control_103),
@@ -32,15 +45,5 @@ html[data-theme=dark] {
 
 	#scoring-board .fold-btn:hover {
 		background-color: var(--dark-30);
-	}
-
-	.player-table .player-board:before,
-	.player-table .player-storage:before {
-		.reduceBrightness();
-	}
-
-	.bga-cards_card>.bga-cards_card-sides,
-	#scoring-board {
-		filter: var(--ext-bright);
 	}
 }

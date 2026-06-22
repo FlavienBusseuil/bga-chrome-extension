@@ -21,6 +21,23 @@
 }
 
 html[data-theme=dark] {
+	.ffo-player-board-main:before {
+		.reduceBrightness();
+		border-radius: 15px;
+	}
+
+	.ffo-ship,
+	.ffo-card,
+	.ffo-good .ffo-good-image,
+	.ffo-icon.ffo-icon-meeple,
+	.ffo-icon.ffo-icon-expand,
+	#ffo-action-board-norwegians,
+	#ffo-action-board {
+		filter: var(--ext-bright);
+	}
+}
+
+.bgaext_dark {
 
 	#page-title,
 	#maingameview_menuheader,
@@ -35,11 +52,6 @@ html[data-theme=dark] {
 
 	#ffo-backdrop {
 		filter: invert(1) hue-rotate(180deg);
-	}
-
-	.ffo-player-board-main:before {
-		.reduceBrightness();
-		border-radius: 15px;
 	}
 
 	.player-name .ffo-icon-eye {
@@ -97,15 +109,4 @@ html[data-theme=dark] {
 	#ffo-modal-content {
 		color: var(--light-80);
 	}
-
-	.ffo-ship,
-	.ffo-card,
-	.ffo-good .ffo-good-image,
-	.ffo-icon.ffo-icon-meeple,
-	.ffo-icon.ffo-icon-expand,
-	#ffo-action-board-norwegians,
-	#ffo-action-board {
-		filter: var(--ext-bright);
-	}
-
 }

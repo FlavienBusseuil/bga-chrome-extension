@@ -1,6 +1,12 @@
 @import "./common";
 
 html[data-theme=dark] {
+	.goldncrash-card .card-inner {
+		filter: var(--ext-bright);
+	}
+}
+
+.bgaext_dark {
 	--ext-overall-color: #000000A0;
 
 	.player-info .hand-counter-wrapper svg {
@@ -9,10 +15,6 @@ html[data-theme=dark] {
 
 	#goldncrash-main-container .goldncrash-player-board .columns-zone .column-holder .column-cards-holder {
 		border: 1px dashed var(--light-80);
-	}
-
-	.goldncrash-card .card-inner {
-		filter: var(--ext-bright);
 	}
 
 	#popin_showSettings h2,

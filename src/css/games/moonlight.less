@@ -1,4 +1,13 @@
 html[data-theme=dark] {
+
+	#game-grid .grid-card.visible,
+	.card .card-sides .card-side,
+	#player-help-visible {
+		filter: var(--ext-bright);
+	}
+}
+
+.bgaext_dark {
 	--ext-overall-color: #00000080;
 
 	.button-help-expandable {
@@ -17,11 +26,5 @@ html[data-theme=dark] {
 
 	#last-round {
 		background-color: var(--red-10);
-	}
-
-	#game-grid .grid-card.visible,
-	.card .card-sides .card-side,
-	#player-help-visible {
-		filter: var(--ext-bright);
 	}
 }

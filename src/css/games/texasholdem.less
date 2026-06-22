@@ -1,6 +1,13 @@
 @import "./common";
 
 html[data-theme=dark] {
+	#table:before {
+		.reduceBrightness();
+		border-radius: 300px;
+	}
+}
+
+.bgaext_dark {
 
 	.dark-wood-horizontal-background body,
 	.dark-wood-vertical-background body {
@@ -9,10 +16,5 @@ html[data-theme=dark] {
 
 	.label {
 		color: var(--light-70);
-	}
-
-	#table:before {
-		.reduceBrightness();
-		border-radius: 300px;
 	}
 }

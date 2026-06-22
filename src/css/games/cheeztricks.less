@@ -1,6 +1,14 @@
 @import "./common";
 
 html[data-theme=dark] {
+
+	.cat_card,
+	.cheese_card {
+		filter: var(--ext-bright);
+	}
+}
+
+.bgaext_dark {
 	--ext-overlay-color: #0002;
 
 	.bgaext_overlay {
@@ -34,10 +42,5 @@ html[data-theme=dark] {
 	.open_wrap>b {
 		display: block;
 		position: relative;
-	}
-
-	.cat_card,
-	.cheese_card {
-		filter: var(--ext-bright);
 	}
 }

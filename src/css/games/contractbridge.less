@@ -1,15 +1,17 @@
 @import "./common";
 
 html[data-theme=dark] {
+	.card {
+		filter: var(--ext-bright);
+	}
+}
+
+.bgaext_dark {
 	.playertablename {
 		text-shadow: none;
 	}
 
 	[style^="color:black"] {
 		text-shadow: var(--text-w-shadow);
-	}
-
-	.card {
-		filter: var(--ext-bright);
 	}
 }

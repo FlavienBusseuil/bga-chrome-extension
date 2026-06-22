@@ -1,19 +1,27 @@
 @import "./common";
 
-html[data-theme=dark].darkpanel #player_boards .player-board.finished {
-	background-color: var(--dark-40) !important;
-}
-
 html[data-theme=dark] {
-	--ext-overlay-color: #0003;
-
-	.player-board.spectator-mode * {
-		background: transparent !important;
-	}
 
 	.player-table .player-board:before,
 	#legend-table #legend-board:before {
 		.reduceBrightness();
+	}
+
+	#table-center #circuit,
+	.card {
+		filter: var(--ext-bright);
+	}
+}
+
+.bgaext_dark.darkpanel #player_boards .player-board.finished {
+	background-color: var(--dark-40) !important;
+}
+
+.bgaext_dark {
+	--ext-overlay-color: #0003;
+
+	.player-board.spectator-mode * {
+		background: transparent !important;
 	}
 
 	#tables .player-table,
@@ -40,11 +48,6 @@ html[data-theme=dark] {
 
 	#help-popin .weather-card {
 		box-shadow: none;
-	}
-
-	#table-center #circuit,
-	.card {
-		filter: var(--ext-bright);
 	}
 
 	.bga-cards_deck-counter.round {

@@ -1,4 +1,19 @@
 html[data-theme=dark] {
+
+	.be_token_card .content .flippable-back,
+	.be_token_card .content .flippable-front,
+	.be_token_card2 .sprite,
+	.be_token_tarot .sprite {
+		filter: var(--ext-bright);
+	}
+
+	.be_token_card2 .sprite .be_token_card .content .flippable-back,
+	.be_token_tarot .sprite .be_token_card .content .flippable-front {
+		filter: none;
+	}
+}
+
+.bgaext_dark {
 	--ext-overlay-color: #0002;
 
 	color: var(--light-80);
@@ -15,17 +30,4 @@ html[data-theme=dark] {
 	.be_deckC_count .be_value {
 		background-color: var(--dark-back);
 	}
-
-	.be_token_card .content .flippable-back,
-	.be_token_card .content .flippable-front,
-	.be_token_card2 .sprite,
-	.be_token_tarot .sprite {
-		filter: var(--ext-bright);
-	}
-
-	.be_token_card2 .sprite .be_token_card .content .flippable-back,
-	.be_token_tarot .sprite .be_token_card .content .flippable-front {
-		filter: none;
-	}
-
 }

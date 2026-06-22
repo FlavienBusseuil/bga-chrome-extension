@@ -100,7 +100,7 @@ export const ADVANCED_HOME_STYLE = `
 `;
 
 export const COLORFUL_TABLES = `
-html.darkmode {
+html[data-theme=dark] {
     .bga-table-list-item {
         --dark-10: hsl(from var(--gametile-type-color) h s calc(l / 2));
         --dark-20: hsl(from var(--gametile-type-color) h s calc(l / 3));
@@ -132,7 +132,7 @@ html.darkmode {
     }
 }
 
-html:not(.darkmode) {
+html[data-theme=light] {
     .bga-table-list-item {
         --gametile-border-color: var(--gametile-type-color);
         --gametile-color: hsl(from var(--gametile-type-color) h s calc(l - 15));
@@ -295,7 +295,7 @@ export const ARCHIVE_FLOATING_MENU_CSS = `
   z-index: 1;
   cursor: grab;
 }
-.bgaext_archive_floating_menu.darkmode #archivecontrol_editmode {
+.bgaext_archive_floating_menu.bgaext_dark #archivecontrol_editmode {
   background: var(--dark-10);
   border: 1px solid var(--light-50);
 }

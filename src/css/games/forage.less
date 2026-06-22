@@ -1,6 +1,14 @@
 @import "./common";
 
 html[data-theme=dark] {
+
+	.card,
+	.card_back {
+		filter: var(--ext-bright);
+	}
+}
+
+.bgaext_dark {
 	#overall-content[style*="background"] {
 		background: #4e3b18 !important;
 	}
@@ -11,10 +19,5 @@ html[data-theme=dark] {
 
 	#deck_counter {
 		color: #000;
-	}
-
-	.card,
-	.card_back {
-		filter: var(--ext-bright);
 	}
 }

@@ -1,4 +1,17 @@
 html[data-theme=dark] {
+
+	.card,
+	.token,
+	.journal_bg {
+		filter: var(--ext-bright) var(--drop-shadow);
+	}
+
+	.digzone_illus {
+		filter: var(--ext-bright);
+	}
+}
+
+.bgaext_dark {
 	--ext-overlay-color: #0002;
 
 	color: var(--light-80);
@@ -53,15 +66,5 @@ html[data-theme=dark] {
 
 	.miniset {
 		background: var(--dark-40);
-	}
-
-	.card,
-	.token,
-	.journal_bg {
-		filter: var(--ext-bright) var(--drop-shadow);
-	}
-
-	.digzone_illus {
-		filter: var(--ext-bright);
 	}
 }

@@ -4,6 +4,15 @@ body:has(#habitats-preserve-tabbed) #bga_extension_sidebar {
 
 html[data-theme=dark] {
 
+	#habitats-trackers-modal #habitats-trackers-content,
+	.goal-card-front,
+	.card-stock.grid-stock .slot {
+		filter: var(--ext-bright);
+	}
+}
+
+.bgaext_dark {
+
 	#habitats-market,
 	.habitats-title {
 		color: var(--light-80);
@@ -90,11 +99,5 @@ html[data-theme=dark] {
 		.habitats-goal-score-row.habitats-goal-row-current {
 			background-color: var(--dark-40);
 		}
-	}
-
-	#habitats-trackers-modal #habitats-trackers-content,
-	.goal-card-front,
-	.card-stock.grid-stock .slot {
-		filter: var(--ext-bright);
 	}
 }

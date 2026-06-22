@@ -1,6 +1,18 @@
 @import "./common";
 
-html[data-theme=dark] {
+html[data-theme=dark] .dmtnt {
+
+	.character-card,
+	.player-board-card,
+	.tile-card,
+	.tracker-card,
+	.item-card,
+	.revenge-card {
+		filter: var(--ext-bright);
+	}
+}
+
+.bgaext_dark {
 	@keyframes dmtnt_red-color-transition {
 		0% {
 			color: var(--red-80)
@@ -95,15 +107,6 @@ html[data-theme=dark] {
 
 		.dmtnt__log-button:hover {
 			color: var(--light-80);
-		}
-
-		.character-card,
-		.player-board-card,
-		.tile-card,
-		.tracker-card,
-		.item-card,
-		.revenge-card {
-			filter: var(--ext-bright);
 		}
 	}
 }

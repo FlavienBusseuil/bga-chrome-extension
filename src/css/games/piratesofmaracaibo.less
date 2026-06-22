@@ -1,6 +1,15 @@
 @import "./common";
 
 html[data-theme=dark] {
+
+	.pom-explore,
+	.pom-figurehead,
+	.pom-card {
+		filter: var(--ext-bright);
+	}
+}
+
+.bgaext_dark {
 	.pom-tab {
 		background-color: var(--dark-20);
 		color: var(--light-80);
@@ -69,11 +78,5 @@ html[data-theme=dark] {
 	.pom-warn {
 		background-color: var(--red-10);
 		color: var(--light-80);
-	}
-
-	.pom-explore,
-	.pom-figurehead,
-	.pom-card {
-		filter: var(--ext-bright);
 	}
 }

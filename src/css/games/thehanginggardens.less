@@ -1,11 +1,26 @@
 @import "./common";
 
 html[data-theme=dark] {
-	--ext-overlay-color: #0003;
-
 	#board_assembly>div:before {
 		.reduceBrightness();
 	}
+
+	#mainboard .board_assembly_middle .embellish_counter,
+	.garden_card,
+	.automa_card,
+	.irrigation_card,
+	.objective,
+	.embellishment {
+		filter: var(--ext-bright);
+	}
+
+	.token.gardener {
+		filter: var(--ext-bright) var(--highlight-min);
+	}
+}
+
+.bgaext_dark {
+	--ext-overlay-color: #0003;
 
 	.player_pyramid .pyramid_content .pyramid_section .pyramid_spot,
 	.player_pyramid .pyramid_content .pyramid_section .pyramid_spot.controlspot {
@@ -42,18 +57,5 @@ html[data-theme=dark] {
 
 	.player_pyramid .pyramid_content .pyramid_section .pyramid_spot {
 		background: var(--dark-back);
-	}
-
-	#mainboard .board_assembly_middle .embellish_counter,
-	.garden_card,
-	.automa_card,
-	.irrigation_card,
-	.objective,
-	.embellishment {
-		filter: var(--ext-bright);
-	}
-
-	.token.gardener {
-		filter: var(--ext-bright) var(--highlight-min);
 	}
 }

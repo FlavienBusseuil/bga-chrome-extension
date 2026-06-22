@@ -1,4 +1,16 @@
 html[data-theme=dark] {
+
+	.locationWrapper,
+	.factionBoard .faction {
+		filter: var(--ext-bright);
+	}
+
+	.unselectable {
+		filter: contrast(.3333333333) brightness(1.25) saturate(35%) !important;
+	}
+}
+
+.bgaext_dark {
 	a[style="color: rgb(0, 0, 0);"] {
 		text-shadow: var(--text-w-shadow);
 	}
@@ -48,14 +60,5 @@ html[data-theme=dark] {
 
 	#lastRound {
 		background-color: var(--red-10);
-	}
-
-	.locationWrapper,
-	.factionBoard .faction {
-		filter: var(--ext-bright);
-	}
-
-	.unselectable {
-		filter: contrast(.3333333333) brightness(1.25) saturate(35%) !important;
 	}
 }

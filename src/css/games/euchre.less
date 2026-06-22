@@ -1,6 +1,12 @@
 @import "./common";
 
 html[data-theme=dark] {
+	.card {
+		filter: var(--drop-shadow) var(--ext-bright);
+	}
+}
+
+.bgaext_dark {
 	.playertable.maker {
 		background: #3f2128bf !important;
 	}
@@ -10,7 +16,6 @@ html[data-theme=dark] {
 	}
 
 	.card {
-		filter: var(--drop-shadow) var(--ext-bright);
 		box-shadow: none;
 	}
 

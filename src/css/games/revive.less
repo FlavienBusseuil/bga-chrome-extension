@@ -1,6 +1,12 @@
 @import "./common";
 
 html[data-theme=dark] {
+	.card {
+		filter: var(--ext-bright);
+	}
+}
+
+.bgaext_dark {
 
 	#selection,
 	#supply {
@@ -23,9 +29,5 @@ html[data-theme=dark] {
 
 	#player_boards div:has(> .location) {
 		filter: var(--drop-shadow-min);
-	}
-
-	.card {
-		filter: var(--ext-bright);
 	}
 }

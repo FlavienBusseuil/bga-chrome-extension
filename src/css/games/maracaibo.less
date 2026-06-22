@@ -1,6 +1,12 @@
 @import "./common";
 
 html[data-theme=dark] {
+	.mcb-card-frame {
+		filter: var(--ext-bright);
+	}
+}
+
+.bgaext_dark {
 	#mcb-tabContents {
 		background-color: var(--dark-back);
 	}
@@ -39,9 +45,5 @@ html[data-theme=dark] {
 
 	.mcb-credit {
 		color: var(--light-70);
-	}
-
-	.mcb-card-frame {
-		filter: var(--ext-bright);
 	}
 }

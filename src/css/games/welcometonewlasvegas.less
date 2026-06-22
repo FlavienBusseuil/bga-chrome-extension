@@ -1,6 +1,14 @@
 @import "./common";
 
 html[data-theme=dark] {
+
+	.player_sheets_wrap,
+	.stockitem {
+		filter: var(--ext-bright);
+	}
+}
+
+.bgaext_dark {
 	#page-content h3 {
 		color: #fff;
 	}
@@ -12,10 +20,5 @@ html[data-theme=dark] {
 	.close:focus,
 	.close:hover {
 		color: #fff;
-	}
-
-	.player_sheets_wrap,
-	.stockitem {
-		filter: var(--ext-bright);
 	}
 }

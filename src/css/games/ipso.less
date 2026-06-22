@@ -1,4 +1,11 @@
 html[data-theme=dark] {
+	.card {
+		filter: var(--drop-shadow) var(--ext-bright);
+		box-shadow: none;
+	}
+}
+
+.bgaext_dark {
 	--ext-overall-color: #0006;
 
 	.middle_board {
@@ -20,10 +27,5 @@ html[data-theme=dark] {
 
 	.finalscore {
 		color: var(--light-80);
-	}
-
-	.card {
-		filter: var(--drop-shadow) var(--ext-bright);
-		box-shadow: none;
 	}
 }

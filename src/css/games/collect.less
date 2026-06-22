@@ -1,4 +1,12 @@
 html[data-theme=dark] {
+
+	.mf_item_back,
+	.mf_item_front {
+		filter: var(--ext-bright);
+	}
+}
+
+.bgaext_dark {
 	--ext-overlay-color: #0002;
 
 	.bg-icon_zoom_in,
@@ -8,10 +16,5 @@ html[data-theme=dark] {
 
 	.mf_help_animal {
 		background-color: #000;
-	}
-
-	.mf_item_back,
-	.mf_item_front {
-		filter: var(--ext-bright);
 	}
 }

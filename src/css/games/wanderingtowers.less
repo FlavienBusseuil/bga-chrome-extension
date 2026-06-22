@@ -1,4 +1,10 @@
 html[data-theme=dark] {
+	#wtw_tiles {
+		filter: var(--ext-bright);
+	}
+}
+
+.bgaext_dark {
 	.bgaext_overlay {
 		/* resolve render issues of game tiles */
 		z-index: -2;
@@ -33,9 +39,5 @@ html[data-theme=dark] {
 
 	.wtw_wizard-panel {
 		filter: var(--drop-shadow);
-	}
-
-	#wtw_tiles {
-		filter: var(--ext-bright);
 	}
 }

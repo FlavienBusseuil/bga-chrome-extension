@@ -1,11 +1,19 @@
 @import "./common";
 
 html[data-theme=dark] {
-	--ext-overall-color: #00000080;
-
 	#map:before {
 		.reduceBrightness();
 	}
+
+	#table-center .hex-element.tile,
+	#table-center .hex-element.player,
+	.heroic-weapon-card .card-sides .card-side.front {
+		filter: var(--ext-bright);
+	}
+}
+
+.bgaext_dark {
+	--ext-overall-color: #00000080;
 
 	.player-table {
 		background: var(--dark-40);
@@ -14,12 +22,6 @@ html[data-theme=dark] {
 
 	.player-table .name-wrapper .name {
 		text-shadow: none;
-	}
-
-	#table-center .hex-element.tile,
-	#table-center .hex-element.player,
-	.heroic-weapon-card .card-sides .card-side.front {
-		filter: var(--ext-bright);
 	}
 
 	.dijitTooltipContainer .icon {

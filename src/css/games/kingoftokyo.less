@@ -1,6 +1,15 @@
 @import "./common";
 
 html[data-theme=dark] {
+
+	.card,
+	.monster-figure,
+	.monster-board {
+		filter: var(--ext-bright);
+	}
+}
+
+.bgaext_dark {
 	--ext-overall-color: #00000080;
 
 	#active-expansions-button {
@@ -65,12 +74,6 @@ html[data-theme=dark] {
 
 	#popin_showActivatedExpansions h2 {
 		color: var(--light-80);
-	}
-
-	.card,
-	.monster-figure,
-	.monster-board {
-		filter: var(--ext-bright);
 	}
 
 	.autoSkipPlayEvolutionBubble .autoSkipPlayEvolution-option .label-detail.spe-warning {

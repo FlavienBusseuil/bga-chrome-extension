@@ -1,6 +1,14 @@
 @import "./common";
 
 html[data-theme=dark] {
+
+	.cardImg,
+	.stockCard {
+		filter: var(--ext-bright);
+	}
+}
+
+.bgaext_dark {
 	.whitebkg {
 		background-color: var(--dark-back);
 	}
@@ -23,10 +31,5 @@ html[data-theme=dark] {
 
 	.startCardWrap {
 		box-shadow: 0 0 0 2px #000, 0 0 10px 13px var(--yellow-10);
-	}
-
-	.cardImg,
-	.stockCard {
-		filter: var(--ext-bright);
 	}
 }

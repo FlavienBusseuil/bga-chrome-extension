@@ -1,6 +1,16 @@
 @import "./common";
 
 html[data-theme=dark] {
+
+	.cit_card,
+	.cit_character-token,
+	.cit_district-deck,
+	.cit_gold-coin {
+		filter: var(--ext-bright);
+	}
+}
+
+.bgaext_dark {
 	--ext-overlay-color: #00000020;
 
 	.cit_toggle-zoom-out,
@@ -30,12 +40,5 @@ html[data-theme=dark] {
 	.cit_toggle-min-view-btn {
 		border: 1px solid var(--light-50);
 		color: var(--light-80);
-	}
-
-	.cit_card,
-	.cit_character-token,
-	.cit_district-deck,
-	.cit_gold-coin {
-		filter: var(--ext-bright);
 	}
 }

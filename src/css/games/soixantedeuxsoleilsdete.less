@@ -1,6 +1,19 @@
 @import "./common";
 
 html[data-theme=dark] {
+
+	.sde_sun-board:before,
+	.sde_player-board-name:before {
+		.reduceBrightness();
+	}
+
+	.sde_sun-board .zone-tooltip,
+	.sde_sun-board .pearl[class*=id-] {
+		filter: var(--ext-bright);
+	}
+}
+
+.bgaext_dark {
 	#sde_player-dice {
 		background: var(--dark-back);
 	}
@@ -16,11 +29,6 @@ html[data-theme=dark] {
 
 	.sde_player-board-name {
 		position: relative;
-	}
-
-	.sde_sun-board:before,
-	.sde_player-board-name:before {
-		.reduceBrightness();
 	}
 
 	.sde_player-board-name:before {
@@ -61,10 +69,5 @@ html[data-theme=dark] {
 	.notouch-device .sde_btn-die.die-6.bgabutton_blue:hover,
 	.sde_btn-die.die-6 {
 		background-position: 0 0
-	}
-
-	.sde_sun-board .zone-tooltip,
-	.sde_sun-board .pearl[class*=id-] {
-		filter: var(--ext-bright);
 	}
 }

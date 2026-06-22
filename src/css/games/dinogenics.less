@@ -2,6 +2,14 @@
 
 html[data-theme=dark] {
 
+	#main_board,
+	.player_island {
+		filter: var(--ext-bright);
+	}
+}
+
+.bgaext_dark {
+
 	#visitor_panel_active .visitor-title,
 	#visitor_panel_upcoming .visitor-title {
 		color: var(--light-100);
@@ -36,10 +44,5 @@ html[data-theme=dark] {
 	#iom_container .instructions>* {
 		background: var(--dark-back);
 		color: var(--light-80);
-	}
-
-	#main_board,
-	.player_island {
-		filter: var(--ext-bright);
 	}
 }

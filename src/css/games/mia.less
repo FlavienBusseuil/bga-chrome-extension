@@ -1,6 +1,12 @@
 @import "./common";
 
 html[data-theme=dark] {
+	.dice {
+		filter: var(--ext-bright);
+	}
+}
+
+.bgaext_dark {
 	.chart_row {
 		color: var(--light-80);
 	}
@@ -11,9 +17,5 @@ html[data-theme=dark] {
 
 	.chart_row>div {
 		background-color: var(--dark-back);
-	}
-
-	.dice {
-		filter: var(--ext-bright);
 	}
 }

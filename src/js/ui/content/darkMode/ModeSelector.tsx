@@ -27,19 +27,6 @@ let paletteCursor: any;
 let saturationCursor: any;
 let cssCounter = 0;
 
-const isDarkMode = async (config: Configuration, gameName: string) => {
-  const customActions = gamesConfiguration[gameName]?.customActions;
-
-  if (customActions && customActions.isDarkMode) {
-    try {
-      return await customActions.isDarkMode();
-    }
-    catch (error) { }
-  }
-
-  return config.isDarkMode();
-}
-
 const HUE_STEP = 18;
 const SAT_STEP = 3;
 const MULT = isMobile ? 1.5 : 2;
@@ -51,6 +38,7 @@ const ModeSelector = (props: ModeSelectorProps) => {
   const [darkMode, setDarkMode] = useState<boolean>();
   const [darkColorHue, setDarkColorHue] = useState(config.getDarkModeColor(gameName, recommandedConfig?.color));
   const [darkColorSaturation, setDarkColorSaturation] = useState(config.getDarkModeSaturation(gameName, recommandedConfig?.sat));
+  const [darkModeNative, setDarkModeNative] = useState(config.isDarkModeNative());
   const [brightness, setBrightness] = useState(config.getDarkModeBrightness(gameName));
   const [popupVisible, setPopupVisible] = useState(false);
   const [paletteCursorMoving, setPaletteCursorMoving] = useState(false);
@@ -77,7 +65,7 @@ const ModeSelector = (props: ModeSelectorProps) => {
   }
 
   useEffect(() => {
-    isDarkMode(config, gameName).then(setDarkMode);
+    setDarkMode(config.isDarkMode());
   }, []);
 
   useEffect(() => {
@@ -167,6 +155,13 @@ const ModeSelector = (props: ModeSelectorProps) => {
     }
   };
 
+  const toggleDarkModeNative = () => {
+    const newDarkModeNative = !darkModeNative;
+
+    setDarkMode(newDarkModeNative);
+    config.setDarkMode(newDarkModeNative);
+  }
+
   const toggleDarkMode = () => {
     const newDarkMode = !darkMode;
 
@@ -176,9 +171,6 @@ const ModeSelector = (props: ModeSelectorProps) => {
     if (!newDarkMode) {
       setPopupVisible(false);
     }
-
-    const customActions = gameConfiguration?.customActions;
-    customActions && customActions.setDarkMode && customActions.setDarkMode(newDarkMode);
 
     if (!newDarkMode) {
       // refresh of the CSS to load the background image that was previously blocked
@@ -496,8 +488,13 @@ const ModeSelector = (props: ModeSelectorProps) => {
       return <span className="bgaext_reset_link" onClick={setDefColor}>{i18n("darkColorResetMain")}<input type='checkbox' checked /></span>
     };
 
+    const getNativeCheckBox = () => {
+      return <span className="bgaext_reset_link" onClick={toggleDarkModeNative}>{i18n("darkModeNative")}<input type='checkbox' /></span>
+    };
+
     return (
       <div className="bgaext_palette_body" style={{ width }}>
+        {getNativeCheckBox()}
         {darkColorHue >= 0 && <div className="bgaext_palette" draggable={false} onDragStart={() => false}>
           {getCells()}
           {getCursor()}

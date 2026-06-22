@@ -2,6 +2,15 @@
 
 html[data-theme=dark] {
 
+	#caravan,
+	#building_costs_table,
+	#deckspace {
+		filter: var(--ext-bright);
+	}
+}
+
+.bgaext_dark {
+
 	#mainboard:before,
 	.player_board:before {
 		content: "";
@@ -9,11 +18,5 @@ html[data-theme=dark] {
 		position: absolute;
 		width: 100%;
 		height: 100%;
-	}
-
-	#caravan,
-	#building_costs_table,
-	#deckspace {
-		filter: var(--ext-bright);
 	}
 }

@@ -1,6 +1,33 @@
 @import "./common";
 
 html[data-theme=dark] {
+	.bonus_card {
+		filter: var(--ext-bright) var(--drop-shadow);
+	}
+
+	.scoring_tile_holder,
+	.bridge,
+	.priest,
+	.structure,
+	.worker,
+	.invention_tile,
+	.favor_tile,
+	.faction_tile,
+	.stronghold_tile,
+	.town_tile,
+	.airbook_token,
+	.earthbook_token,
+	.firebook_token,
+	.powermarker_automa,
+	.waterbook_token,
+	.powermarker,
+	.track_token,
+	.knowledge_action_tile,
+	.stronghold_clicker,
+	.tm_panel_icon,
+	.terrain_token {
+		filter: var(--ext-bright);
+	}
 
 	#game_board:before,
 	#cult_board:before,
@@ -9,7 +36,9 @@ html[data-theme=dark] {
 	#favor_tiles_supply:before {
 		.reduceBrightness();
 	}
+}
 
+.bgaext_dark {
 	#adjustPoints {
 		background-color: var(--dark-back);
 	}
@@ -55,33 +84,5 @@ html[data-theme=dark] {
 	.structure,
 	.worker {
 		will-change: transform;
-	}
-
-	.bonus_card {
-		filter: var(--ext-bright) var(--drop-shadow);
-	}
-
-	.scoring_tile_holder,
-	.bridge,
-	.priest,
-	.structure,
-	.worker,
-	.invention_tile,
-	.favor_tile,
-	.faction_tile,
-	.stronghold_tile,
-	.town_tile,
-	.airbook_token,
-	.earthbook_token,
-	.firebook_token,
-	.powermarker_automa,
-	.waterbook_token,
-	.powermarker,
-	.track_token,
-	.knowledge_action_tile,
-	.stronghold_clicker,
-	.tm_panel_icon,
-	.terrain_token {
-		filter: var(--ext-bright);
 	}
 }

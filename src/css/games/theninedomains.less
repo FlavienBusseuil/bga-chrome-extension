@@ -9,7 +9,17 @@
 	line-height: 32px;
 }
 
+
 html[data-theme=dark] {
+
+	.cardontable,
+	.landontable,
+	.stockitem {
+		filter: var(--ext-bright);
+	}
+}
+
+.bgaext_dark {
 
 	.mini_card,
 	.mini_card_log {
@@ -67,11 +77,5 @@ html[data-theme=dark] {
 
 	.button_sh * {
 		color: #fff !important;
-	}
-
-	.cardontable,
-	.landontable,
-	.stockitem {
-		filter: var(--ext-bright);
 	}
 }

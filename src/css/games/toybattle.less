@@ -5,16 +5,25 @@ html[data-theme=dark] {
 		.reduceBrightness();
 	}
 
+	.board,
+	.sideleft,
+	.sideright,
+	.goodie,
+	.rack_red,
+	.rack_blue,
+	.troop,
+	.deck {
+		filter: var(--ext-bright);
+	}
+}
+
+.bgaext_dark {
 	.bgaext_overlay {
 		filter: invert(0.75) !important;
 	}
 
 	.tooltip_info {
 		color: var(--blue-50);
-	}
-
-	.board {
-		filter: var(--ext-bright);
 	}
 
 	#help-mode-switch .label {
@@ -27,15 +36,5 @@ html[data-theme=dark] {
 
 	#help-mode-switch .fa-group {
 		filter: invert(1);
-	}
-
-	.sideleft,
-	.sideright,
-	.goodie,
-	.rack_red,
-	.rack_blue,
-	.troop,
-	.deck {
-		filter: var(--ext-bright);
 	}
 }

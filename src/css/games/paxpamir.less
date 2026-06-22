@@ -1,6 +1,14 @@
 @import "./common";
 
 html[data-theme=dark] {
+
+	#pp_map,
+	#pp_market_board {
+		filter: var(--ext-bright);
+	}
+}
+
+.bgaext_dark {
 	#pp_supply {
 		background-color: var(--dark-20);
 		color: var(--light-80)
@@ -33,11 +41,6 @@ html[data-theme=dark] {
 	.pp_player_hand {
 		background-color: var(--dark-back);
 		color: var(--light-80);
-	}
-
-	#pp_map,
-	#pp_market_board {
-		filter: var(--ext-bright);
 	}
 
 	#afghan_button {

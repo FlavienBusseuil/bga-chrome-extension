@@ -1,17 +1,13 @@
 @import "./common";
 
 html[data-theme=dark] {
-	#dsv-shared-area {
-		position: relative;
-	}
-
 	#dsv-shared-area:before {
 		.reduceBrightness();
 		border-radius: 10px;
 	}
 
-	.dsv-player-table {
-		background-color: var(--dark-back);
+	#dsv-shared-area {
+		position: relative;
 	}
 
 	.dsv-tile .back,
@@ -21,5 +17,11 @@ html[data-theme=dark] {
 	.dsv-double-seven .back,
 	.dsv-double-seven .front {
 		filter: var(--ext-bright);
+	}
+}
+
+.bgaext_dark {
+	.dsv-player-table {
+		background-color: var(--dark-back);
 	}
 }

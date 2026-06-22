@@ -1,12 +1,15 @@
 @import "./common";
 
 html[data-theme=dark] {
-	.resume[style$="background-color: rgba(255, 255, 255, 0.5);"] {
-		background-color: var(--dark-back) !important;
-	}
 
 	#carddiv:before,
 	#fonddiv_jungle:before {
 		.reduceBrightness();
+	}
+}
+
+.bgaext_dark {
+	.resume[style$="background-color: rgba(255, 255, 255, 0.5);"] {
+		background-color: var(--dark-back) !important;
 	}
 }

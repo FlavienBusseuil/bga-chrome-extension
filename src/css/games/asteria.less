@@ -1,4 +1,10 @@
 html[data-theme=dark] {
+	.card .card-sides .card-side {
+		filter: var(--ext-bright);
+	}
+}
+
+.bgaext_dark {
 	--ext-overall-color: #00000060;
 
 	#player_boards .player-board,
@@ -21,9 +27,5 @@ html[data-theme=dark] {
 
 	.asteria-box .asteria-table-box .asteria-table-planet-box .asteria-table-planet .asteria-table-planet-shadow {
 		box-shadow: inset 0 0 20px #000, inset 0 0 20px;
-	}
-
-	.card .card-sides .card-side {
-		filter: var(--ext-bright);
 	}
 }

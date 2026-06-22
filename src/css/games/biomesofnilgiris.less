@@ -5,6 +5,27 @@ html[data-theme=dark] {
 		.reduceBrightness();
 	}
 
+	.playerZone .playerBoard,
+	.biome {
+		filter: var(--ext-bright);
+	}
+
+	.card,
+	#playerHand .equipment,
+	#playerHand .species,
+	#playerHand--overlay .equipment,
+	#playerHand--overlay .species {
+		filter: var(--ext-bright) drop-shadow(2px 2px 1px black);
+	}
+
+	.meeple,
+	.playerEcoP,
+	.playerSusP {
+		filter: var(--ext-bright) var(--drop-shadow);
+	}
+}
+
+.bgaext_dark {
 	#characterInfo {
 		background: var(--dark-back);
 	}
@@ -34,24 +55,5 @@ html[data-theme=dark] {
 
 	#bon-statusBar.visible {
 		background: var(--blue-70);
-	}
-
-	.playerZone .playerBoard,
-	.biome {
-		filter: var(--ext-bright);
-	}
-
-	.card,
-	#playerHand .equipment,
-	#playerHand .species,
-	#playerHand--overlay .equipment,
-	#playerHand--overlay .species {
-		filter: var(--ext-bright) drop-shadow(2px 2px 1px black);
-	}
-
-	.meeple,
-	.playerEcoP,
-	.playerSusP {
-		filter: var(--ext-bright) var(--drop-shadow);
 	}
 }

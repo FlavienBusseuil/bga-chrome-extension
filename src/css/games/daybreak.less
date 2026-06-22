@@ -1,13 +1,16 @@
 @import "./common";
 
 html[data-theme=dark] {
+	.dbk-card-crisis-back {
+		filter: var(--ext-bright);
+	}
+
+}
+
+.bgaext_dark {
 	.dbk-card-inner:not(.dbk-card-crisis-back) {
 		background: var(--dark-20);
 		color: var(--light-80);
-	}
-
-	.dbk-card-crisis-back {
-		filter: var(--ext-bright);
 	}
 
 	.dbk-card-inner .dbk-icon-arrow,

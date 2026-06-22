@@ -1,6 +1,12 @@
 @import "./common";
 
 html[data-theme=dark] {
+	.ca_token_card .sprite {
+		filter: var(--ext-bright);
+	}
+}
+
+.bgaext_dark {
 	--ext-overall-color: #00000060;
 
 	#ca_action_left {
@@ -9,9 +15,5 @@ html[data-theme=dark] {
 
 	.ca_zoom_btn {
 		filter: invert(0.8);
-	}
-
-	.ca_token_card .sprite {
-		filter: var(--ext-bright);
 	}
 }

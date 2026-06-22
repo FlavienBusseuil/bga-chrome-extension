@@ -1,6 +1,19 @@
 @import "./common";
 
 html[data-theme=dark] {
+
+	#storageboard,
+	#mapboard,
+	#tower,
+	#generalreserve_stock,
+	.amg_playerboard,
+	.amg_playerreserve_stock,
+	.amg_playersupply_stock {
+		filter: var(--ext-bright);
+	}
+}
+
+.bgaext_dark {
 	#generalreserve {
 		background: var(--dark-back);
 	}
@@ -142,15 +155,5 @@ html[data-theme=dark] {
 
 	#towerinfo .amg_token24 {
 		filter: var(--drop-shadow);
-	}
-
-	#storageboard,
-	#mapboard,
-	#tower,
-	#generalreserve_stock,
-	.amg_playerboard,
-	.amg_playerreserve_stock,
-	.amg_playersupply_stock {
-		filter: var(--ext-bright);
 	}
 }

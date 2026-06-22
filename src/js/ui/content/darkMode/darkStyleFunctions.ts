@@ -72,8 +72,7 @@ _init().then(() => {
 });
 
 const _isDarkStyle = async () => {
-  const customActions = gamesConfiguration[gameName]?.customActions;
-  return customActions && customActions.isDarkMode ? await customActions.isDarkMode() : localStorage.getItem(cookieName) === "on";
+  return localStorage.getItem(cookieName) === "on";
 }
 
 // hack to avoid light theme flashing
@@ -227,16 +226,15 @@ const _addInvertOverlay = (cssPath: string) => {
 const _setDarkStyleIfActivated = () => {
   waitForObj('#overall-content', 5000).then(() => {
     const config = gamesConfiguration[gameName];
-    const customActions = config?.customActions;
-    const hasCustomAction = Boolean(customActions && customActions.init);
+    const customInit = config?.customInit;
     const hasOverlay = Boolean(config?.overlay);
 
-    if (hasCustomAction || hasOverlay) {
+    if (customInit || hasOverlay) {
       const cssPath = _getCssPath(`${gameName}.css`);
       console.debug(`[bga extension] ${gameName} css path is '${cssPath}'`);
 
-      if (hasCustomAction) {
-        customActions!.init(cssPath);
+      if (customInit) {
+        customInit(cssPath);
       } else {
         document.body.style.setProperty("--ext-game-back", `url(${cssPath}img/background.jpg)`);
       }
@@ -351,11 +349,11 @@ const _setLightStyle = () => {
 let _manageHtmlTagTimeout: any = 0;
 
 const _manageHtmlTag = () => {
-  // ensure that the "darkmode" class is well placed for games that used to manage their own dark mode like "Concept"
-  // if the game try to remove the class "darkmode", it put it back immediately
+  // ensure that the "bgaext_dark" class is well placed for games that used to manage their own dark mode like "Concept"
+  // if the game try to remove the class "bgaext_dark", it put it back immediately
 
   try {
-    const theme = document.documentElement.dataset.theme; // new attribute, BGA slowly starts to manage dark mode !
+    const theme = document.documentElement.dataset.theme;
     const config = gameName ? gamesConfiguration[gameName] : undefined;
     const customDarkClass = config?.customDarkMode?.className;
     const classesList = Array.isArray(config?.customBack) ? config.customBack : undefined;
@@ -372,14 +370,23 @@ const _manageHtmlTag = () => {
       document.documentElement.classList.add("bgaext_cust_back");
     }
 
+    //const bgaNativeDarkThemeSelected = document.documentElement.style.colorScheme === 'dark';
+
+    /*
+    if (document.documentElement.classList.contains("dark")) {
+      const detail = JSON.stringify({ type: 'ToggleTheme' });
+      document.body.dispatchEvent(new CustomEvent('bga_ext_api_call', { detail }));
+    }
+      */
+
     _isDarkStyle().then(darkMode => {
       if (darkMode) {
         if (theme !== 'dark') {
           document.documentElement.dataset.theme = 'dark';
         }
 
-        if (!document.documentElement.classList.contains("darkmode")) {
-          document.documentElement.classList.add("darkmode");
+        if (!document.documentElement.classList.contains("bgaext_dark")) {
+          document.documentElement.classList.add("bgaext_dark");
         }
         if (customDarkClass && !document.documentElement.classList.contains(customDarkClass)) {
           document.documentElement.classList.add(customDarkClass);
@@ -393,8 +400,8 @@ const _manageHtmlTag = () => {
           document.documentElement.dataset.theme = 'light';
         }
 
-        if (document.documentElement.classList.contains("darkmode")) {
-          document.documentElement.classList.remove("darkmode");
+        if (document.documentElement.classList.contains("bgaext_dark")) {
+          document.documentElement.classList.remove("bgaext_dark");
         }
         if (customDarkClass && document.documentElement.classList.contains(customDarkClass)) {
           document.documentElement.classList.remove(customDarkClass);

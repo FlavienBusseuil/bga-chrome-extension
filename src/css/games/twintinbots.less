@@ -1,6 +1,12 @@
 @import "./common";
 
 html[data-theme=dark] {
+	#board:before {
+		.reduceBrightness();
+	}
+}
+
+.bgaext_dark {
 
 	.firstplayernotice,
 	.instantwin_recall {
@@ -10,10 +16,6 @@ html[data-theme=dark] {
 	.boardslot {
 		border-radius: 4px;
 		background: var(--dark-40);
-	}
-
-	#board:before {
-		.reduceBrightness();
 	}
 
 	.stockitem {

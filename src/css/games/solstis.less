@@ -1,6 +1,14 @@
 @import "./common";
 
 html[data-theme=dark] {
+
+	.st_card_alphabg .st_card_back,
+	.st_card_alphabg .st_card_front {
+		filter: var(--ext-bright);
+	}
+}
+
+.bgaext_dark {
 	--ext-overall-color: #000000A0;
 
 	.st_header {
@@ -24,10 +32,5 @@ html[data-theme=dark] {
 
 	.st_zone_title .player-name {
 		filter: none;
-	}
-
-	.st_card_alphabg .st_card_back,
-	.st_card_alphabg .st_card_front {
-		filter: var(--ext-bright);
 	}
 }

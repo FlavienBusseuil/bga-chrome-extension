@@ -1,4 +1,14 @@
 html[data-theme=dark] {
+
+	#scoreSheet,
+	.tpy-player-board-wrapper .tpy-player-board-resizable .board .grid .tile-container,
+	#wheel-board #wheel-container #wheel-interior,
+	#wheel-board #wheel-container #wheel .wheel-space {
+		filter: var(--ext-bright);
+	}
+}
+
+.bgaext_dark {
 	.grid .grid-cell {
 		border-color: var(--light-50);
 	}
@@ -21,10 +31,6 @@ html[data-theme=dark] {
 		filter: invert(0.4);
 	}
 
-	#scoreSheet {
-		filter: var(--ext-bright);
-	}
-
 	.automaticCounter[data-n]:before {
 		background-color: var(--dark-back);
 		color: var(--light-80);
@@ -42,11 +48,5 @@ html[data-theme=dark] {
 	.notif_newTurn .roundedbox {
 		background-color: var(--dark-40) !important;
 		color: var(--light-80) !important;
-	}
-
-	.tpy-player-board-wrapper .tpy-player-board-resizable .board .grid .tile-container,
-	#wheel-board #wheel-container #wheel-interior,
-	#wheel-board #wheel-container #wheel .wheel-space {
-		filter: var(--ext-bright);
 	}
 }

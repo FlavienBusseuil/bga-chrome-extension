@@ -1,6 +1,18 @@
 @import "./common";
 
 html[data-theme=dark] {
+
+	#board,
+	.goal_card,
+	.character,
+	.parchment,
+	.piece.contract_back,
+	.mp_playeraid {
+		filter: var(--ext-bright);
+	}
+}
+
+.bgaext_dark {
 	#characterSelectionDescription {
 		background-color: var(--dark-20) !important;
 	}
@@ -19,14 +31,5 @@ html[data-theme=dark] {
 
 	#transparent_figure {
 		filter: grayscale(1) invert(1) !important;
-	}
-
-	#board,
-	.goal_card,
-	.character,
-	.parchment,
-	.piece.contract_back,
-	.mp_playeraid {
-		filter: var(--ext-bright);
 	}
 }

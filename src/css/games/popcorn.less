@@ -1,19 +1,7 @@
 html[data-theme=dark] {
-	.pop-white-zone {
-		background-color: var(--dark-back);
-	}
 
 	.pop-actions-help,
-	#pop-score-dialog-content {
-		filter: var(--ext-bright);
-		color: #000;
-	}
-
-	.pop-player-resources,
-	.pop-player-tokens {
-		background-color: var(--dark-40);
-	}
-
+	#pop-score-dialog-content,
 	.pop-movie-card-img,
 	#pop-advertising-board,
 	.pop-movie-tile,
@@ -23,7 +11,23 @@ html[data-theme=dark] {
 	}
 }
 
-html[data-theme=dark].pop-game-bg .pop-white-zone {
+.bgaext_dark {
+	.pop-white-zone {
+		background-color: var(--dark-back);
+	}
+
+	.pop-actions-help,
+	#pop-score-dialog-content {
+		color: #000;
+	}
+
+	.pop-player-resources,
+	.pop-player-tokens {
+		background-color: var(--dark-40);
+	}
+}
+
+.bgaext_dark.pop-game-bg .pop-white-zone {
 	background-color: var(--dark-back);
 	border: 1px solid var(--dark-40);
 }

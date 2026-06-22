@@ -1,4 +1,21 @@
-html[data-theme=dark].goa_pref_background_1 {
+html[data-theme=dark] {
+
+	#goa_board_background,
+	.goa_playerboard_background,
+	.bga-cards_card>.bga-cards_card-sides,
+	.goa_tile.goa_market,
+	.goa_money_card,
+	.goa_tile.goa_outpost,
+	.goa_score_card {
+		filter: var(--ext-bright);
+	}
+
+	.goa_auction_marker {
+		filter: var(--ext-bright) var(--drop-shadow);
+	}
+}
+
+.bgaext_dark.goa_pref_background_1 {
 	background: #000;
 
 	#goa_overall_background {
@@ -6,7 +23,7 @@ html[data-theme=dark].goa_pref_background_1 {
 	}
 }
 
-html[data-theme=dark] {
+.bgaext_dark {
 	--goa_selectable_color: var(--blue-80);
 	--goa_selected_color: var(--red-80);
 
@@ -148,19 +165,5 @@ html[data-theme=dark] {
 	.goa_player_table[data-color="feb713"] .goa_player_avatar,
 	.goa_player_table[data-color="feb713"] .goa_player_table_title_content {
 		box-shadow: 0 0 0 3px #fecf63 !important
-	}
-
-	#goa_board_background,
-	.goa_playerboard_background,
-	.bga-cards_card>.bga-cards_card-sides,
-	.goa_tile.goa_market,
-	.goa_money_card,
-	.goa_tile.goa_outpost,
-	.goa_score_card {
-		filter: var(--ext-bright);
-	}
-
-	.goa_auction_marker {
-		filter: var(--ext-bright) var(--drop-shadow);
 	}
 }

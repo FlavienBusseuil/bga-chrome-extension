@@ -1,6 +1,20 @@
 @import "./common";
 
 html[data-theme=dark] {
+
+	#cia_mainMap,
+	.cia_card,
+	.playerBoard {
+		filter: var(--ext-bright);
+	}
+
+	#cia_mainMap *,
+	.playerBoard * {
+		filter: none;
+	}
+}
+
+.bgaext_dark {
 	#overall-content {
 		color: var(--light-80);
 	}
@@ -51,16 +65,5 @@ html[data-theme=dark] {
 
 	#my-score-sheet table {
 		background-color: var(--dark-10);
-	}
-
-	#cia_mainMap,
-	.cia_card,
-	.playerBoard {
-		filter: var(--ext-bright);
-	}
-
-	#cia_mainMap *,
-	.playerBoard * {
-		filter: none;
 	}
 }

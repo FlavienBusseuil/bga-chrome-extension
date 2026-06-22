@@ -1,6 +1,12 @@
 @import "./common";
 
 html[data-theme=dark] {
+	.board_background:before {
+		.reduceBrightness();
+	}
+}
+
+.bgaext_dark {
 	--ext-overlay-color: #0002;
 
 	.bgaext_overlay {
@@ -11,10 +17,6 @@ html[data-theme=dark] {
 
 	#overall-content[style*="lepidoptery"] .bgaext_overlay {
 		display: block;
-	}
-
-	.board_background:before {
-		.reduceBrightness();
 	}
 
 	.playertablename {

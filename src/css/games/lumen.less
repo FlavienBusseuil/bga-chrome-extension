@@ -1,6 +1,14 @@
 @import "./common";
 
 html[data-theme=dark] {
+
+	#map,
+	.player-table {
+		filter: var(--ext-bright);
+	}
+}
+
+.bgaext_dark {
 	--ext-overall-color: #000000A0;
 
 	#spectatorbox {
@@ -55,11 +63,6 @@ html[data-theme=dark] {
 	.dijitTooltipContents #scenario-objectives,
 	.dijitTooltipContents #scenario-special-rules {
 		background: var(--yellow-10);
-	}
-
-	#map,
-	.player-table {
-		filter: var(--ext-bright);
 	}
 
 	.player-board .counters {

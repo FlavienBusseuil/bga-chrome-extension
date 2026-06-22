@@ -1,6 +1,14 @@
 @import "./common";
 
 html[data-theme=dark] {
+
+	.Hint,
+	.Yokai {
+		filter: var(--ext-bright);
+	}
+}
+
+.bgaext_dark {
 	body {
 		background: none !important;
 	}
@@ -11,10 +19,5 @@ html[data-theme=dark] {
 
 	#deck {
 		border: 1px solid var(--light-70);
-	}
-
-	.Hint,
-	.Yokai {
-		filter: var(--ext-bright);
 	}
 }

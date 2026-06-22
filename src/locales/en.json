@@ -70,6 +70,7 @@
   "reportCreationWarningCss": "You've also modified the CSS code of the site via the extension options, so please check first that your problems aren't caused by your customisations.",
   "darkColorConfigurationMain": "Default color settings",
   "darkColorResetMain": "Dark mode without color",
+  "darkModeNative": "Native BGA dark mode",
   "darkColorConfigurationGame": "Game color settings",
   "darkColorResetGame": "Site default colors",
   "darkColorRecommanded": "Suggested colors",

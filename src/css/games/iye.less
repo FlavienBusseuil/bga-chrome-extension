@@ -1,4 +1,12 @@
 html[data-theme=dark] {
+
+	.kam,
+	.token {
+		filter: var(--ext-bright);
+	}
+}
+
+.bgaext_dark {
 	.bgaext_overlay {
 		filter: invert() hue-rotate(180deg) grayscale(0.5);
 	}
@@ -38,10 +46,5 @@ html[data-theme=dark] {
 		border-color: var(--light-50);
 		color: var(--light-50);
 		background-color: var(--dark-10);
-	}
-
-	.kam,
-	.token {
-		filter: var(--ext-bright);
 	}
 }

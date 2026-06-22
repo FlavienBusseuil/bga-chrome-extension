@@ -1,4 +1,12 @@
 html[data-theme=dark] {
+
+	#puf_scoring_card,
+	#puf_sea_boards {
+		filter: var(--ext-bright);
+	}
+}
+
+.bgaext_dark {
 	.bgaext_overlay {
 		background-size: 1920px 911px !important;
 	}
@@ -28,10 +36,5 @@ html[data-theme=dark] {
 
 	.puf_sea_board_control {
 		filter: invert(1);
-	}
-
-	#puf_scoring_card,
-	#puf_sea_boards {
-		filter: var(--ext-bright);
 	}
 }

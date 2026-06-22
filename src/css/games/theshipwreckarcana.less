@@ -1,6 +1,16 @@
 @import "./common";
 
 html[data-theme=dark] {
+
+	.card_space,
+	.hours_card,
+	.card_back,
+	#deck_next_card_space {
+		filter: var(--ext-bright);
+	}
+}
+
+.bgaext_dark {
 	.hand_text {
 		color: var(--light-80);
 	}
@@ -16,12 +26,5 @@ html[data-theme=dark] {
 	.suggestion_area {
 		background-color: var(--dark-back);
 		color: var(--light-80);
-	}
-
-	.card_space,
-	.hours_card,
-	.card_back,
-	#deck_next_card_space {
-		filter: var(--ext-bright);
 	}
 }

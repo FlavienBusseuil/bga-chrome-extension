@@ -1,6 +1,15 @@
 @import "./common";
 
 html[data-theme=dark] {
+
+	.card_1,
+	.card_2 {
+		filter: var(--drop-shadow) var(--ext-bright);
+		box-shadow: none;
+	}
+}
+
+.bgaext_dark {
 	.cardspace {
 		color: #000;
 	}
@@ -11,11 +20,5 @@ html[data-theme=dark] {
 
 	.team_board_wrap {
 		background-color: var(--green-30);
-	}
-
-	.card_1,
-	.card_2 {
-		filter: var(--drop-shadow) var(--ext-bright);
-		box-shadow: none;
 	}
 }

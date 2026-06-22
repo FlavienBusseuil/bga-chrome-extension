@@ -1,6 +1,24 @@
 @import "./common";
 
 html[data-theme=dark] {
+	#perikles_map:before {
+		.reduceBrightness();
+	}
+
+	#defenders_permission_banner,
+	.prk_influence_tile,
+	.prk_defeat,
+	.prk_player_counter,
+	.prk_location_tile,
+	.prk_location_tile_log,
+	.prk_hoplite,
+	.prk_trireme,
+	.prk_cube {
+		filter: var(--ext-bright);
+	}
+}
+
+.bgaext_dark {
 	.prk_player_tiles {
 		background-color: var(--dark-30);
 		border-top: 4px groove var(--dark-40);
@@ -41,21 +59,5 @@ html[data-theme=dark] {
 
 	.dijitTooltipContainer hr {
 		display: none;
-	}
-
-	#perikles_map:before {
-		.reduceBrightness();
-	}
-
-	#defenders_permission_banner,
-	.prk_influence_tile,
-	.prk_defeat,
-	.prk_player_counter,
-	.prk_location_tile,
-	.prk_location_tile_log,
-	.prk_hoplite,
-	.prk_trireme,
-	.prk_cube {
-		filter: var(--ext-bright);
 	}
 }

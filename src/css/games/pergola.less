@@ -1,4 +1,24 @@
 html[data-theme=dark] {
+
+	.pgl-player-board,
+	.pgl-player-pot-cnt {
+		filter: drop-shadow(2px 2px 2px grey) var(--ext-bright);
+	}
+
+	.pgl-score-row,
+	.pgl-player-help-area.pgl-help-scoring,
+	.pgl-score-help-tooltip,
+	.pgl-player-pot,
+	.pgl-tool,
+	#pgl-leaf-board,
+	#pgl-pond-board,
+	#pgl-toolpot,
+	#pgl-action-board {
+		filter: var(--ext-bright);
+	}
+}
+
+.bgaext_dark {
 	--ext-overlay-color: #0003;
 
 	.bgaext_overlay {
@@ -25,24 +45,7 @@ html[data-theme=dark] {
 		color: var(--green-50)
 	}
 
-	.pgl-player-board,
-	.pgl-player-pot-cnt {
-		filter: drop-shadow(2px 2px 2px grey) var(--ext-bright);
-	}
-
 	.pgl-score-row {
-		filter: var(--ext-bright);
 		color: #000;
-	}
-
-	.pgl-player-help-area.pgl-help-scoring,
-	.pgl-score-help-tooltip,
-	.pgl-player-pot,
-	.pgl-tool,
-	#pgl-leaf-board,
-	#pgl-pond-board,
-	#pgl-toolpot,
-	#pgl-action-board {
-		filter: var(--ext-bright);
 	}
 }

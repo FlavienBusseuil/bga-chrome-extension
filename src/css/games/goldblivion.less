@@ -1,10 +1,22 @@
 @import "./common";
 
-html[data-theme=dark].darkpanel #player_boards .player-board.gb-player-panel-passed {
+html[data-theme=dark] {
+
+	#gb-main-board:before,
+	.gb-player-board:before {
+		.reduceBrightness();
+	}
+
+	.gb-component:not(:has(.gb-component)) {
+		filter: var(--ext-bright);
+	}
+}
+
+.bgaext_dark.darkpanel #player_boards .player-board.gb-player-panel-passed {
 	background-color: var(--dark-40) !important;
 }
 
-html[data-theme=dark] {
+.bgaext_dark {
 
 	#page-title,
 	#maingameview_menuheader,
@@ -62,14 +74,5 @@ html[data-theme=dark] {
 		background-color: var(--dark-20);
 		border-color: var(--light-70);
 		color: var(--light-70);
-	}
-
-	#gb-main-board:before,
-	.gb-player-board:before {
-		.reduceBrightness();
-	}
-
-	.gb-component:not(:has(.gb-component)) {
-		filter: var(--ext-bright);
 	}
 }

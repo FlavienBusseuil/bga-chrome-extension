@@ -2,6 +2,15 @@
 
 html[data-theme=dark] {
 
+	.handtile,
+	#map_container .tile_art,
+	#tile_in_title .tile_art {
+		filter: var(--ext-bright);
+	}
+}
+
+.bgaext_dark {
+
 	#player_boards .tribeMember,
 	#player_boards .hut {
 		filter: var(--highlight-min);
@@ -9,11 +18,5 @@ html[data-theme=dark] {
 
 	body {
 		background: none !important;
-	}
-
-	.handtile,
-	#map_container .tile_art,
-	#tile_in_title .tile_art {
-		filter: var(--ext-bright);
 	}
 }

@@ -1,6 +1,12 @@
 @import "./common";
 
 html[data-theme=dark] {
+	.emptyCard {
+		filter: var(--ext-bright);
+	}
+}
+
+.bgaext_dark {
 	h3>span[style="color:#0000ff; background-color: #;"] {
 		color: #8080ff !important;
 		background-color: var(--dark-20);
@@ -25,9 +31,5 @@ html[data-theme=dark] {
 	.tar_meeple,
 	.tar_tribu {
 		filter: var(--drop-shadow);
-	}
-
-	.emptyCard {
-		filter: var(--ext-bright);
 	}
 }

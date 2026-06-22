@@ -4,6 +4,32 @@
 
 html[data-theme=dark] {
 
+	.stockitem.alc_card_stock,
+	.stockitem.alc_seal_stock,
+	.alc_artifact,
+	.alc_artifact_tooltip,
+	.alc_grant {
+		filter: var(--drop-shadow) var(--ext-bright);
+	}
+
+	#mixResults div[class^="alc"],
+	#board,
+	#theory_board,
+	#deduction_grid,
+	.stockitem,
+	.alc_adventurer,
+	.stockitem.alc_card_stock,
+	.stockitem.alc_seal_stock,
+	.alc_artifact,
+	.alc_artifact_tooltip,
+	.alc_grant {
+		box-shadow: none;
+		filter: var(--drop-shadow) var(--ext-bright);
+	}
+}
+
+.bgaext_dark {
+
 	.alc_icon_gold,
 	.alc_icon_ingredient,
 	.alc_icon_favor {
@@ -20,10 +46,6 @@ html[data-theme=dark] {
 		z-index: 1;
 		background: var(--dark-back-50);
 		height: fit-content;
-	}
-
-	#mixResults div[class^="alc"] {
-		filter: var(--ext-bright);
 	}
 
 	#logs span[style*="background-color:#bbbbbb"] {
@@ -43,13 +65,7 @@ html[data-theme=dark] {
 		border-color: var(--light-50);
 	}
 
-	#board,
-	#theory_board,
-	#deduction_grid,
-	.stockitem,
-	.alc_adventurer {
-		filter: var(--ext-bright);
-	}
+
 
 	.stockitem.alc_card_stock,
 	.stockitem.alc_seal_stock,
@@ -57,7 +73,6 @@ html[data-theme=dark] {
 	.alc_artifact_tooltip,
 	.alc_grant {
 		box-shadow: none;
-		filter: var(--drop-shadow) var(--ext-bright);
 	}
 
 	#board {

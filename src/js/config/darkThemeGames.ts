@@ -16,11 +16,7 @@ export interface GameConfig {
   playersOutline?: string[];
   playersTextColor?: string[];
   customColors?: string[];
-  customActions?: {
-    init: (cssPath: string) => void;
-    setDarkMode?: (darkMode: boolean) => void;
-    isDarkMode?: () => Promise<boolean>;
-  };
+  customInit?: (cssPath: string) => void;
 }
 
 export const gamesConfiguration: Record<string, GameConfig> = {
@@ -107,13 +103,11 @@ export const gamesConfiguration: Record<string, GameConfig> = {
   azul: {
     customBack: true,
     overlay: true,
-    customActions: {
-      init: (cssPath: string) => {
-        document.body.style.setProperty("--back-classic", `url(${cssPath}img/background.jpg)`);
-        document.body.style.setProperty("--back-chocolatier", `url(${cssPath}img/chocolatier/background.jpg)`);
-        document.body.style.setProperty("--back-classic-dark", `url(${cssPath}img/background2.jpg)`);
-        document.body.style.setProperty("--back-chocolatier-dark", `url(${cssPath}img/chocolatier/background2.jpg)`);
-      }
+    customInit: (cssPath: string) => {
+      document.body.style.setProperty("--back-classic", `url(${cssPath}img/background.jpg)`);
+      document.body.style.setProperty("--back-chocolatier", `url(${cssPath}img/chocolatier/background.jpg)`);
+      document.body.style.setProperty("--back-classic-dark", `url(${cssPath}img/background2.jpg)`);
+      document.body.style.setProperty("--back-chocolatier-dark", `url(${cssPath}img/chocolatier/background2.jpg)`);
     }
   },
   azulduel: {
@@ -129,10 +123,8 @@ export const gamesConfiguration: Record<string, GameConfig> = {
   azulqueensgarden: {
     customBack: true,
     playersBorder: ["#player-table-{{player_id}}"],
-    customActions: {
-      init: (cssPath: string) => {
-        document.documentElement.style.setProperty("--ext-game-back", `url(${cssPath}img/background-dark.jpg)`);
-      }
+    customInit: (cssPath: string) => {
+      document.documentElement.style.setProperty("--ext-game-back", `url(${cssPath}img/background-dark.jpg)`);
     }
   },
   babydinosaurrescue: {
@@ -151,11 +143,9 @@ export const gamesConfiguration: Record<string, GameConfig> = {
   },
   barrage: {
     overlay: true,
-    customActions: {
-      init: (cssPath: string) => {
-        document.body.style.setProperty("--back-0", `url(${cssPath}img/ui/texture.jpg)`);
-        document.body.style.setProperty("--back-1", `url(${cssPath}img/ui/texture_light.jpg)`);
-      }
+    customInit: (cssPath: string) => {
+      document.body.style.setProperty("--back-0", `url(${cssPath}img/ui/texture.jpg)`);
+      document.body.style.setProperty("--back-1", `url(${cssPath}img/ui/texture_light.jpg)`);
     }
   },
   battlespiritssaga: {
@@ -179,11 +169,9 @@ export const gamesConfiguration: Record<string, GameConfig> = {
   },
   beyond: {
     customBack: true,
-    customActions: {
-      init: (cssPath: string) => {
-        document.body.style.setProperty("--playmat1", `url(${cssPath}img/BYD_Playmat.jpg)`);
-        document.body.style.setProperty("--playmat2", `url(${cssPath}img/BYD_Playmat2.jpg)`);
-      }
+    customInit: (cssPath: string) => {
+      document.body.style.setProperty("--playmat1", `url(${cssPath}img/BYD_Playmat.jpg)`);
+      document.body.style.setProperty("--playmat2", `url(${cssPath}img/BYD_Playmat2.jpg)`);
     }
   },
   beyondthesun: {
@@ -265,10 +253,8 @@ export const gamesConfiguration: Record<string, GameConfig> = {
   cartagena: {
     customBack: true,
     overlay: true,
-    customActions: {
-      init: (cssPath: string) => {
-        document.body.style.setProperty("--ext-game-back", `url(${cssPath}img/map.jpg)`);
-      }
+    customInit: (cssPath: string) => {
+      document.body.style.setProperty("--ext-game-back", `url(${cssPath}img/map.jpg)`);
     }
   },
   cartographers: {
@@ -470,12 +456,10 @@ export const gamesConfiguration: Record<string, GameConfig> = {
   },
   dronesvsseagulls: {
     customPanel: true,
-    customActions: {
-      init: () => {
-        waitForObj('#tokens_wrap', 2000).then((elt) => {
-          elt.classList.remove("whiteblock");
-        });
-      }
+    customInit: () => {
+      waitForObj('#tokens_wrap', 2000).then((elt) => {
+        elt.classList.remove("whiteblock");
+      });
     }
   },
   drolesdezebres: {
@@ -624,10 +608,8 @@ export const gamesConfiguration: Record<string, GameConfig> = {
     playersBorder: ["#FSDtable_{{player_id}}"]
   },
   formulad: {
-    customActions: {
-      init: (cssPath: string) => {
-        document.body.style.setProperty("--gears", `url(${cssPath}img/gears.svg)`);
-      }
+    customInit: (cssPath: string) => {
+      document.body.style.setProperty("--gears", `url(${cssPath}img/gears.svg)`);
     }
   },
   foxonthetree: {
@@ -648,10 +630,8 @@ export const gamesConfiguration: Record<string, GameConfig> = {
     overlay: true,
     playersTextColor: ['html player_area_wrapper player_name[color="{{player_color}}"]'],
     playersBorder: ['html garden[color="{{player_color}}"]', '#overall_player_board_{{player_id}}'],
-    customActions: {
-      init: (cssPath: string) => {
-        document.body.style.setProperty("--ext-game-back", `url(${cssPath}img/background.jpg)`);
-      }
+    customInit: (cssPath: string) => {
+      document.body.style.setProperty("--ext-game-back", `url(${cssPath}img/background.jpg)`);
     }
   },
   fugitive: {
@@ -729,10 +709,8 @@ export const gamesConfiguration: Record<string, GameConfig> = {
   ghostsgalore: {
     customBack: ['custom_theme'],
     overlay: true,
-    customActions: {
-      init: (cssPath: string) => {
-        document.body.style.setProperty("--ext-game-back", `url(${cssPath}img/bg.jpg)`);
-      }
+    customInit: (cssPath: string) => {
+      document.body.style.setProperty("--ext-game-back", `url(${cssPath}img/bg.jpg)`);
     }
   },
   gygesdeluxe: {
@@ -748,42 +726,6 @@ export const gamesConfiguration: Record<string, GameConfig> = {
     customDarkMode: {
       className: "dark",
       applyGeneralCss: false
-    },
-    customActions: {
-      init: () => {
-        const hardbackModeChange = (input: any) => {
-          const button = document.getElementById('bga_extension_dark_mode_icon')?.firstChild?.firstChild as any;
-
-          if (button) {
-            if (input.value === "2" || (input.value === "0" && window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches)) {
-              (window as any).setDarkStyle(true);
-            } else {
-              (window as any).setDarkStyle(false);
-            }
-          }
-        };
-
-        Promise.all([
-          waitForObj('#preference_control_101'),
-          waitForObj('#preference_fontrol_101')
-        ]).then(([input1, input2]) => {
-          input1.addEventListener('change', () => hardbackModeChange(input1));
-          input2.addEventListener('change', () => hardbackModeChange(input2));
-        });
-      },
-      setDarkMode: (darkMode: boolean) => {
-        const input = document.getElementById('preference_control_101') as any;
-        const newValue = (darkMode) ? "2" : "1";
-
-        if (input.value !== newValue) {
-          input.value = newValue;
-          input.dispatchEvent(new Event("change"));
-        }
-      },
-      isDarkMode: async () => {
-        const input = (await waitForObj('#preference_control_101')) as HTMLInputElement;
-        return input.value == "2";
-      }
     }
   },
   harmonies: {
@@ -812,10 +754,8 @@ export const gamesConfiguration: Record<string, GameConfig> = {
     customPlayerStyle: "#main_container div[id^=\"player_name_\"]"
   },
   hydroracers: {
-    customActions: {
-      init: () => {
-        document.querySelectorAll(".playerBoard .whiteblock.cockpit").forEach(elt => elt.classList.remove("whiteblock"));
-      }
+    customInit: () => {
+      document.querySelectorAll(".playerBoard .whiteblock.cockpit").forEach(elt => elt.classList.remove("whiteblock"));
     }
   },
   imperialsettlers: {
@@ -926,11 +866,9 @@ export const gamesConfiguration: Record<string, GameConfig> = {
   lesderniersdroides: {
     customPanel: true,
     playersBorder: ["#nameZone{{player_id}}"],
-    customActions: {
-      init: (cssPath: string) => {
-        document.body.style.setProperty("--actionIcons", `url(${cssPath}img/LDD_Cards_Icons.png)`);
-        document.body.style.setProperty("--playmat", `url(${cssPath}img/background.jpg)`);
-      }
+    customInit: (cssPath: string) => {
+      document.body.style.setProperty("--actionIcons", `url(${cssPath}img/LDD_Cards_Icons.png)`);
+      document.body.style.setProperty("--playmat", `url(${cssPath}img/background.jpg)`);
     }
   },
   letsgotojapan: {
@@ -969,10 +907,8 @@ export const gamesConfiguration: Record<string, GameConfig> = {
     customBack: true,
     overlay: true,
     playersOutline: ["#mf_zone_player_{{player_index_1}}"],
-    customActions: {
-      init: (cssPath: string) => {
-        document.body.style.setProperty("--sceau", `url(${cssPath}img/bg-sceau.png)`);
-      }
+    customInit: (cssPath: string) => {
+      document.body.style.setProperty("--sceau", `url(${cssPath}img/bg-sceau.png)`);
     }
   },
   lumen: {
@@ -1046,23 +982,21 @@ export const gamesConfiguration: Record<string, GameConfig> = {
     customPlayerStyle: ".player-table .name-wrapper"
   },
   minirogue: {
-    customActions: {
-      init: () => {
-        const fixSpans = () => {
-          document.querySelectorAll('span.mnr-i:not([data-type])').forEach((el) => {
-            const t = el.textContent.trim();
-            if (t && el.getAttribute('data-type') !== t) el.setAttribute('data-type', t);
-          });
-        }
-        waitForObj('#logs').then((container) => {
-          const observer = new MutationObserver(fixSpans);
-
-          observer.observe(container, {
-            childList: true,
-            subtree: true
-          })
+    customInit: () => {
+      const fixSpans = () => {
+        document.querySelectorAll('span.mnr-i:not([data-type])').forEach((el) => {
+          const t = el.textContent.trim();
+          if (t && el.getAttribute('data-type') !== t) el.setAttribute('data-type', t);
         });
       }
+      waitForObj('#logs').then((container) => {
+        const observer = new MutationObserver(fixSpans);
+
+        observer.observe(container, {
+          childList: true,
+          subtree: true
+        })
+      });
     }
   },
   misty: {
@@ -1126,26 +1060,16 @@ export const gamesConfiguration: Record<string, GameConfig> = {
   },
   newfrontiers: {
     customBack: true,
-    customActions: {
-      init: () => { },
-      setDarkMode: (darkMode: boolean) => {
-        const input = document.getElementById('preference_control_101') as any;
-        input.value = (darkMode) ? "1" : "2";
-        input.dispatchEvent(new Event("change"));
-      },
-      isDarkMode: async () => {
-        const input = (await waitForObj('#preference_control_101')) as HTMLInputElement;
-        return input.value == "1";
-      }
+    customDarkMode: {
+      className: "nft_background_space",
+      applyGeneralCss: true
     }
   },
   newton: {
     customBack: true,
-    customActions: {
-      init: (cssPath: string) => {
-        const imgUrl = `${cssPath}img/tiles_sprites.png`;
-        document.body.style.setProperty("--quick-action-back", `url(${imgUrl})`);
-      }
+    customInit: (cssPath: string) => {
+      const imgUrl = `${cssPath}img/tiles_sprites.png`;
+      document.body.style.setProperty("--quick-action-back", `url(${imgUrl})`);
     }
   },
   nextstation: {
@@ -1154,20 +1078,16 @@ export const gamesConfiguration: Record<string, GameConfig> = {
   },
   nextstationparis: {
     overlay: true,
-    customActions: {
-      init: (cssPath: string) => {
-        document.body.style.setProperty("--back-paris", `url(${cssPath}img/bg_paris.jpg)`);
-        document.body.style.setProperty("--back-tokyo", `url(${cssPath}img/bg_tokyo.jpg)`);
-      }
+    customInit: (cssPath: string) => {
+      document.body.style.setProperty("--back-paris", `url(${cssPath}img/bg_paris.jpg)`);
+      document.body.style.setProperty("--back-tokyo", `url(${cssPath}img/bg_tokyo.jpg)`);
     }
   },
   nextstationtokyo: {
     overlay: true,
-    customActions: {
-      init: (cssPath: string) => {
-        document.body.style.setProperty("--back-paris", `url(${cssPath}img/bg_paris.jpg)`);
-        document.body.style.setProperty("--back-tokyo", `url(${cssPath}img/bg_tokyo.jpg)`);
-      }
+    customInit: (cssPath: string) => {
+      document.body.style.setProperty("--back-paris", `url(${cssPath}img/bg_paris.jpg)`);
+      document.body.style.setProperty("--back-tokyo", `url(${cssPath}img/bg_tokyo.jpg)`);
     }
   },
   nicodemus: {
@@ -1184,10 +1104,8 @@ export const gamesConfiguration: Record<string, GameConfig> = {
     overlay: true,
     playersBack: ["#player_table_{{player_id}} .title"],
     playersBorder: ["#player_table_{{player_id}}"],
-    customActions: {
-      init: (cssPath: string) => {
-        document.body.style.setProperty("--ext-game-back", `url(${cssPath}img/html-background.jpg)`);
-      }
+    customInit: (cssPath: string) => {
+      document.body.style.setProperty("--ext-game-back", `url(${cssPath}img/html-background.jpg)`);
     }
   },
   noah: {
@@ -1294,14 +1212,12 @@ export const gamesConfiguration: Record<string, GameConfig> = {
     customBack: true,
     playersBorder: [".tableau-container[data-player-id=\"{{player_id}}\"]"],
     playersTextColor: [".tableau-container[data-player-id=\"{{player_id}}\"] .player-tableau-title"],
-    customActions: {
-      init: () => {
-        waitForObj('.background-container').then(() => {
-          const color = document.documentElement.style.getPropertyValue('--player-color');
-          const darkColor = getColorForDarkMode(color);
-          document.documentElement.style.setProperty('--player-color', darkColor.color);
-        });
-      }
+    customInit: () => {
+      waitForObj('.background-container').then(() => {
+        const color = document.documentElement.style.getPropertyValue('--player-color');
+        const darkColor = getColorForDarkMode(color);
+        document.documentElement.style.setProperty('--player-color', darkColor.color);
+      });
     }
   },
   pocketcats: {
@@ -1320,10 +1236,8 @@ export const gamesConfiguration: Record<string, GameConfig> = {
   },
   postcards: {
     overlay: true,
-    customActions: {
-      init: (cssPath: string) => {
-        document.body.style.setProperty("--gameBack", `url(${cssPath}img/background.jpg)`);
-      }
+    customInit: (cssPath: string) => {
+      document.body.style.setProperty("--gameBack", `url(${cssPath}img/background.jpg)`);
     }
   },
   pook: {
@@ -1392,10 +1306,8 @@ export const gamesConfiguration: Record<string, GameConfig> = {
   reforest: {
     overlay: true,
     playersBack: ["#re-player-area-{{player_id}} .re-player-area-name"],
-    customActions: {
-      init: (cssPath: string) => {
-        document.body.style.setProperty("--ext-game-back", `url(${cssPath}img/re-background-light.jpg)`);
-      }
+    customInit: (cssPath: string) => {
+      document.body.style.setProperty("--ext-game-back", `url(${cssPath}img/re-background-light.jpg)`);
     }
   },
   refuge: {
@@ -1488,10 +1400,8 @@ export const gamesConfiguration: Record<string, GameConfig> = {
     customBack: true,
     overlay: true,
     playersBack: ['#leftPlayerBoard_{{player_id}}'],
-    customActions: {
-      init: (cssPath: string) => {
-        document.body.style.setProperty("--frame", `url(${cssPath}img/parchmentFrame.png)`);
-      }
+    customInit: (cssPath: string) => {
+      document.body.style.setProperty("--frame", `url(${cssPath}img/parchmentFrame.png)`);
     }
   },
   secretmoon: {
@@ -1501,10 +1411,8 @@ export const gamesConfiguration: Record<string, GameConfig> = {
     customBack: true,
     customPanel: true,
     overlay: true,
-    customActions: {
-      init: (cssPath: string) => {
-        document.body.style.setProperty("--scroll", `url(${cssPath}img/scroll.png)`);
-      }
+    customInit: (cssPath: string) => {
+      document.body.style.setProperty("--scroll", `url(${cssPath}img/scroll.png)`);
     }
   },
   sevenwondersdice: {
@@ -1534,6 +1442,9 @@ export const gamesConfiguration: Record<string, GameConfig> = {
   skarabrae: {
     customBack: true,
     playersTextColor: ['.tableau[style="--player-color: #{{player_color}}"]:after', '.bga-score-sheet_player-name[style="--player-color: #{{player_color}};"]'],
+    customInit: (cssPath: string) => {
+      document.documentElement.style.setProperty("--ext-game-back", `url(${cssPath}img/stonex.jpg)`);
+    }
   },
   skirmishbattlefordraconia: {
     customBack: true
@@ -1556,10 +1467,8 @@ export const gamesConfiguration: Record<string, GameConfig> = {
   soixantedeuxsoleilsdete: {
     customBack: true,
     overlay: true,
-    customActions: {
-      init: (cssPath: string) => {
-        document.body.style.setProperty("--die-background", `url(${cssPath}img/dice-sprite-36x36.png)`);
-      }
+    customInit: (cssPath: string) => {
+      document.body.style.setProperty("--die-background", `url(${cssPath}img/dice-sprite-36x36.png)`);
     }
   },
   solarsentinels: {
@@ -1629,10 +1538,8 @@ export const gamesConfiguration: Record<string, GameConfig> = {
   stonespinearchitects: {
     customBack: true,
     customPanel: true,
-    customActions: {
-      init: (cssPath: string) => {
-        document.body.style.setProperty("--ext-score-back", `url(${cssPath}img/sa-scorepad-multi.png)`);
-      }
+    customInit: (cssPath: string) => {
+      document.body.style.setProperty("--ext-score-back", `url(${cssPath}img/sa-scorepad-multi.png)`);
     }
   },
   stupormundi: {
@@ -1664,14 +1571,12 @@ export const gamesConfiguration: Record<string, GameConfig> = {
   },
   tagteam: {
     overlay: true,
-    customActions: {
-      init: (cssPath: string) => {
-        document.body.style.setProperty("--back-2", `url(${cssPath}img/backgrounds/tt-bg-blue.jpg)`);
-        document.body.style.setProperty("--back-3", `url(${cssPath}img/backgrounds/tt-bg-green.jpg)`);
-        document.body.style.setProperty("--back-4", `url(${cssPath}img/backgrounds/tt-bg-purple.jpg)`);
-        document.body.style.setProperty("--back-5", `url(${cssPath}img/backgrounds/tt-bg-red.jpg)`);
-        document.body.style.setProperty("--back-6", `url(${cssPath}img/backgrounds/tt-bg-yellow.jpg)`);
-      }
+    customInit: (cssPath: string) => {
+      document.body.style.setProperty("--back-2", `url(${cssPath}img/backgrounds/tt-bg-blue.jpg)`);
+      document.body.style.setProperty("--back-3", `url(${cssPath}img/backgrounds/tt-bg-green.jpg)`);
+      document.body.style.setProperty("--back-4", `url(${cssPath}img/backgrounds/tt-bg-purple.jpg)`);
+      document.body.style.setProperty("--back-5", `url(${cssPath}img/backgrounds/tt-bg-red.jpg)`);
+      document.body.style.setProperty("--back-6", `url(${cssPath}img/backgrounds/tt-bg-yellow.jpg)`);
     }
   },
   takenokolor: {
@@ -1752,13 +1657,11 @@ export const gamesConfiguration: Record<string, GameConfig> = {
     customBack: true
   },
   thelittleflowershop: {
-    customActions: {
-      init: (cssPath: string) => {
-        document.body.style.setProperty("--back-blue", `url(${cssPath}img/windows/window_blue.png)`);
-        document.body.style.setProperty("--back-green", `url(${cssPath}img/windows/window_green.png)`);
-        document.body.style.setProperty("--back-red", `url(${cssPath}img/windows/window_red.png)`);
-        document.body.style.setProperty("--back-yellow", `url(${cssPath}img/windows/window_yellow.png)`);
-      }
+    customInit: (cssPath: string) => {
+      document.body.style.setProperty("--back-blue", `url(${cssPath}img/windows/window_blue.png)`);
+      document.body.style.setProperty("--back-green", `url(${cssPath}img/windows/window_green.png)`);
+      document.body.style.setProperty("--back-red", `url(${cssPath}img/windows/window_red.png)`);
+      document.body.style.setProperty("--back-yellow", `url(${cssPath}img/windows/window_yellow.png)`);
     }
   },
   theninesonsofthedragon: {

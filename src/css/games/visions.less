@@ -1,4 +1,12 @@
 html[data-theme=dark] {
+
+	.mf_item_back,
+	.mf_item_front {
+		filter: var(--ext-bright);
+	}
+}
+
+.bgaext_dark {
 	--ext-overall-color: #0005;
 
 	.mf_label>div {
@@ -13,10 +21,5 @@ html[data-theme=dark] {
 	.mf_item_front.bg-icon_zoom_in,
 	.mf_item_front.bg-icon_zoom_out {
 		filter: invert(0.8);
-	}
-
-	.mf_item_back,
-	.mf_item_front {
-		filter: var(--ext-bright);
 	}
 }

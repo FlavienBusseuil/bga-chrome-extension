@@ -1,6 +1,18 @@
 @import "./common";
 
 html[data-theme=dark] {
+	.playerBoard:before {
+		.reduceBrightness();
+		border-radius: 10px;
+	}
+
+	.yroCard-back,
+	.yroCard-front {
+		filter: var(--ext-bright);
+	}
+}
+
+.bgaext_dark {
 	--ext-overlay-color: #0003;
 
 	.playerNameBoard {
@@ -19,15 +31,5 @@ html[data-theme=dark] {
 
 	.yro_icons {
 		filter: var(--highlight-min);
-	}
-
-	.yroCard-back,
-	.yroCard-front {
-		filter: var(--ext-bright);
-	}
-
-	.playerBoard:before {
-		.reduceBrightness();
-		border-radius: 10px;
 	}
 }

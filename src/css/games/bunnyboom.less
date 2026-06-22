@@ -1,6 +1,12 @@
 @import "./common";
 
 html[data-theme=dark] {
+	.flippable-front {
+		filter: var(--ext-bright);
+	}
+}
+
+.bgaext_dark {
 	.bgaext_overlay {
 		opacity: 0.85;
 	}
@@ -9,9 +15,7 @@ html[data-theme=dark] {
 		filter: var(--highlight);
 	}
 
-	.flippable-front {
-		filter: var(--ext-bright);
-	}
+
 
 	.aal-popup-overlay .aal-popup-content {
 		background: var(--dark-20);

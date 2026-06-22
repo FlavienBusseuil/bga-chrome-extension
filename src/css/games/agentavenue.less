@@ -8,6 +8,14 @@
 }
 
 html[data-theme=dark] {
+
+	#gameboard,
+	.bga-cards_card>.bga-cards_card-sides>.bga-cards_card-side {
+		filter: var(--ext-bright);
+	}
+}
+
+.bgaext_dark {
 	.slot-placeholder {
 		background-color: var(--dark-back);
 		color: var(--light-50);
@@ -16,10 +24,5 @@ html[data-theme=dark] {
 	.card-stock .bga-cards_selectable-card,
 	.bga-cards_selectable-card {
 		outline-color: var(--orange-30) !important;
-	}
-
-	#gameboard,
-	.bga-cards_card>.bga-cards_card-sides>.bga-cards_card-side {
-		filter: var(--ext-bright);
 	}
 }

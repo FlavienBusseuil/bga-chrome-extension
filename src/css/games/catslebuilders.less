@@ -1,19 +1,13 @@
 @import "./common";
 
 html[data-theme=dark] {
-	--ext-overlay-color: #fff8;
-
-	.cln-suit {
-		--marker-color: var(--light-70);
+	.cln-stacks:before {
+		.reduceBrightness();
+		border-radius: 8px;
 	}
 
 	.cln-stacks {
 		position: relative;
-	}
-
-	.cln-stacks:before {
-		.reduceBrightness();
-		border-radius: 8px;
 	}
 
 	#cln-discard,
@@ -21,5 +15,13 @@ html[data-theme=dark] {
 	.cln-card .cln-card-front,
 	.cln-board {
 		filter: var(--ext-bright);
+	}
+}
+
+.bgaext_dark {
+	--ext-overlay-color: #fff8;
+
+	.cln-suit {
+		--marker-color: var(--light-70);
 	}
 }

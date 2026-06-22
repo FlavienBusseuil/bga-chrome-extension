@@ -1,6 +1,12 @@
 @import "./common";
 
 html[data-theme=dark] {
+	.bga-cards_card-side {
+		filter: var(--ext-bright);
+	}
+}
+
+.bgaext_dark {
 	[style="color:black"] {
 		text-shadow: var(--text-w-shadow);
 	}
@@ -20,9 +26,5 @@ html[data-theme=dark] {
 
 	#myhand_label {
 		color: var(--light-80);
-	}
-
-	.bga-cards_card-side {
-		filter: var(--ext-bright);
 	}
 }

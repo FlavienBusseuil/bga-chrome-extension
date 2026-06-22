@@ -1,6 +1,17 @@
 @import "./common";
 
 html[data-theme=dark] {
+
+	.bga-cards_card-side.front,
+	.bga-cards_card-side.back,
+	.pnd-player-food-slot,
+	.pnd-scoring-card,
+	.pnd-jumping-food-frog {
+		filter: var(--ext-bright);
+	}
+}
+
+.bgaext_dark {
 	--ext-overlay-color: #fff6;
 	--bga-score-sheet_top: 130px;
 
@@ -38,13 +49,5 @@ html[data-theme=dark] {
 		border: 2px solid #000;
 		box-sizing: border-box;
 		overflow: hidden;
-	}
-
-	.bga-cards_card-side.front,
-	.bga-cards_card-side.back,
-	.pnd-player-food-slot,
-	.pnd-scoring-card,
-	.pnd-jumping-food-frog {
-		filter: var(--ext-bright);
 	}
 }

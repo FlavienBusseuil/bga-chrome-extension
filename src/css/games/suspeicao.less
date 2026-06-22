@@ -1,4 +1,14 @@
 html[data-theme=dark] {
+
+	.suspeicao-card .suspeicao-card-back,
+	.suspeicao-card .suspeicao-card-front,
+	.suspeicao-table-image,
+	.suspeicao-scene-card {
+		filter: var(--ext-bright);
+	}
+}
+
+.bgaext_dark {
 	--ext-overlay-color: #0002;
 
 	.suspeicao-deck-counter {
@@ -9,12 +19,5 @@ html[data-theme=dark] {
 	.suspeicao-incriminating-box .suspeicao-incriminating-player-box span {
 		color: #000;
 		text-shadow: var(--text-w-shadow);
-	}
-
-	.suspeicao-card .suspeicao-card-back,
-	.suspeicao-card .suspeicao-card-front,
-	.suspeicao-table-image,
-	.suspeicao-scene-card {
-		filter: var(--ext-bright);
 	}
 }

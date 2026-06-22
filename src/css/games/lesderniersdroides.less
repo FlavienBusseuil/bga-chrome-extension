@@ -5,6 +5,37 @@ html[data-theme=dark] {
 		.reduceBrightness();
 	}
 
+	.actionCardImg,
+	.cardImg,
+	.cardImgTooltip,
+	.choiceCardImg,
+	.houseCardImg,
+	.sabotCardImg,
+	.storage,
+	.waterCardIcon,
+	.tradeCardIcon,
+	.buildCardIcon,
+	.farmerCardIcon,
+	.commCardIcon,
+	.storeCardIcon,
+	.houseCardIcon,
+	.leaveCardIcon,
+	.seasonIcon {
+		filter: var(--ext-bright);
+	}
+
+	.iconChoiceForMe,
+	.iconChoiceForOther {
+		filter: var(--ext-bright);
+		border-radius: 50%;
+	}
+
+	.cardsRow.board .cardImg {
+		filter: var(--ext-bright) var(--drop-shadow);
+	}
+}
+
+.bgaext_dark {
 	.undo {
 		filter: invert();
 	}
@@ -332,34 +363,5 @@ html[data-theme=dark] {
 
 	.gameArea.playmat {
 		background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), var(--playmat) !important;
-	}
-
-	.actionCardImg,
-	.cardImg,
-	.cardImgTooltip,
-	.choiceCardImg,
-	.houseCardImg,
-	.sabotCardImg,
-	.storage,
-	.waterCardIcon,
-	.tradeCardIcon,
-	.buildCardIcon,
-	.farmerCardIcon,
-	.commCardIcon,
-	.storeCardIcon,
-	.houseCardIcon,
-	.leaveCardIcon,
-	.seasonIcon {
-		filter: var(--ext-bright);
-	}
-
-	.iconChoiceForMe,
-	.iconChoiceForOther {
-		filter: var(--ext-bright);
-		border-radius: 50%;
-	}
-
-	.cardsRow.board .cardImg {
-		filter: var(--ext-bright) var(--drop-shadow);
 	}
 }

@@ -1,6 +1,14 @@
 @import "./common";
 
 html[data-theme=dark] {
+
+	#castle,
+	.domino-background {
+		filter: var(--ext-bright);
+	}
+}
+
+.bgaext_dark {
 	body {
 		background: none !important;
 	}
@@ -23,10 +31,5 @@ html[data-theme=dark] {
 
 	#kingdom:before {
 		background: #272a2f66;
-	}
-
-	#castle,
-	.domino-background {
-		filter: var(--ext-bright);
 	}
 }

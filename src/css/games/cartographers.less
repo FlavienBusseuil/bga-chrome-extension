@@ -5,6 +5,14 @@
 }
 
 html[data-theme=dark] {
+
+	.car-explore-card-art:before,
+	.car-sheet:before {
+		.reduceBrightness();
+	}
+}
+
+.bgaext_dark {
 	--bga-last-turn-banner-background: #4d1919;
 
 	.bgaext_overlay {
@@ -50,11 +58,6 @@ html[data-theme=dark] {
 
 	#jj-preferences-panel #jj-preferences-panel-content .jj-preferences-panel-category-label {
 		background: var(--dark-back);
-	}
-
-	.car-explore-card-art:before,
-	.car-sheet:before {
-		.reduceBrightness();
 	}
 
 	.car-title-font {

@@ -1,11 +1,17 @@
 @import "./common";
 
 html[data-theme=dark] {
-	--ext-overall-color: #00000080;
-
 	.player-table-background:before {
 		.reduceBrightness();
 	}
+
+	.card {
+		filter: var(--ext-bright);
+	}
+}
+
+.bgaext_dark {
+	--ext-overall-color: #00000080;
 
 	.player-board-wrapper .health-icon,
 	.player-board-wrapper .deck-icon,
@@ -33,9 +39,5 @@ html[data-theme=dark] {
 	.help-popin,
 	.help-popin>* {
 		filter: invert(1) hue-rotate(180deg);
-	}
-
-	.card {
-		filter: var(--ext-bright);
 	}
 }

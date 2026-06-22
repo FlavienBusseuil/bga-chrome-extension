@@ -1,6 +1,12 @@
 @import "./common";
 
 html[data-theme=dark] {
+	#container_game {
+		filter: var(--ext-bright);
+	}
+}
+
+.bgaext_dark {
 	.firstplayer {
 		filter: invert(1);
 	}
@@ -16,9 +22,5 @@ html[data-theme=dark] {
 
 	#popin_appendix {
 		background-image: none;
-	}
-
-	#container_game {
-		filter: var(--ext-bright);
 	}
 }

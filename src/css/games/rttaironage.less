@@ -1,6 +1,21 @@
 @import "./common";
 
 html[data-theme=dark] {
+	.player_mat:before {
+		.reduceBrightness();
+	}
+
+	.pegBoard,
+	.rtta_scoreCard,
+	#sc_disaster_info,
+	#player_pop,
+	#player_innovations,
+	.dice {
+		filter: var(--ext-bright);
+	}
+}
+
+.bgaext_dark {
 	#end_game_banner {
 		position: relative;
 		z-index: 2;
@@ -15,10 +30,6 @@ html[data-theme=dark] {
 
 	.rtta_player_score {
 		background-color: var(--dark-40);
-	}
-
-	.player_mat:before {
-		.reduceBrightness();
 	}
 
 	.rtta_scoreCard {
@@ -97,14 +108,5 @@ html[data-theme=dark] {
 
 	.selected_dice {
 		border-color: var(--red-80);
-	}
-
-	.pegBoard,
-	.rtta_scoreCard,
-	#sc_disaster_info,
-	#player_pop,
-	#player_innovations,
-	.dice {
-		filter: var(--ext-bright);
 	}
 }

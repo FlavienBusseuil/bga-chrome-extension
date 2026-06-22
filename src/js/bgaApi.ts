@@ -20,6 +20,19 @@ const _init = () => {
   document.body.addEventListener('bga_ext_api_call', ((data: CustomEvent) => {
     console.debug('[bga extension] call bga api', data);
 
+    const evtDetail = JSON.parse(data.detail);
+    const evtType = evtDetail.type || 'CallApi';
+
+    if (evtType === 'ToggleTheme') {
+      // @ts-ignore
+      try {
+        (window as any).require('svelte/index').stores.darkMode.toggleThemePref();
+      } catch (e) {
+        console.error('[bga extension] error toggling theme', e);
+      }
+      return;
+    }
+
     const bgaConfig = (window as any).bgaConfig as BGAConfig; // defined by bga webrtc logic
     if (!bgaConfig || !bgaConfig.requestToken) {
       console.error('[bga extension] bgaConfig not initialized');
@@ -27,7 +40,6 @@ const _init = () => {
     }
 
     const headers = { 'x-request-token': bgaConfig.requestToken, 'Content-Type': 'application/x-www-form-urlencoded' };
-    const evtDetail = JSON.parse(data.detail);
 
     fetch(`${baseUrl}${evtDetail.endPoint}`, { method: evtDetail.method, body: evtDetail.body, headers, credentials: 'same-origin' }).then((response) => {
       response.json().then(json => {

@@ -1,16 +1,19 @@
 @import "./common";
 
 html[data-theme=dark] {
-	.player-resource .banished-cards .banished-empty {
-		border-color: var(--light-50);
-	}
-
 	#play-area:before {
 		.reduceBrightness();
 	}
 
-	.player-card-top {
+	.player-card-top,
+	.card-back-face {
 		filter: var(--ext-bright);
+	}
+}
+
+.bgaext_dark {
+	.player-resource .banished-cards .banished-empty {
+		border-color: var(--light-50);
 	}
 
 	.player-card-middle {
@@ -49,9 +52,5 @@ html[data-theme=dark] {
 	.paragon-info {
 		background: var(--dark-30);
 		color: var(--light-80);
-	}
-
-	.card-back-face {
-		filter: var(--ext-bright);
 	}
 }

@@ -1,6 +1,18 @@
 @import "./common";
 
 html[data-theme=dark] {
+	.market .patch {
+		filter: drop-shadow(2px 2px 2px black) var(--ext-bright);
+	}
+
+	.pboard,
+	.scoreboard,
+	.pbutton {
+		filter: var(--ext-bright);
+	}
+}
+
+.bgaext_dark {
 	.bgabutton .control-image {
 		filter: invert(1);
 	}
@@ -17,15 +29,5 @@ html[data-theme=dark] {
 
 	.time_icon {
 		filter: invert(0.9);
-	}
-
-	.market .patch {
-		filter: drop-shadow(2px 2px 2px black) var(--ext-bright);
-	}
-
-	.pboard,
-	.scoreboard,
-	.pbutton {
-		filter: var(--ext-bright);
 	}
 }

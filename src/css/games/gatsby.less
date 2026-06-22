@@ -1,6 +1,17 @@
 @import "./common";
 
 html[data-theme=dark] {
+	.gb_zone_boards {
+		filter: var(--ext-bright);
+	}
+
+	[class*="bg-board_main"],
+	[class*="bg-board_action"] {
+		filter: var(--ext-bright);
+	}
+}
+
+.bgaext_dark {
 	body {
 		background-color: #303030 !important;
 	}
@@ -11,14 +22,5 @@ html[data-theme=dark] {
 
 	.gb_playerpanel_special_value {
 		color: var(--light-80);
-	}
-
-	.gb_zone_boards {
-		filter: var(--ext-bright);
-	}
-
-	[class*="bg-board_main"],
-	[class*="bg-board_action"] {
-		filter: var(--ext-bright);
 	}
 }

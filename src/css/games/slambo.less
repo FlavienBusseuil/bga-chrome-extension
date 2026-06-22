@@ -1,4 +1,17 @@
 html[data-theme=dark] {
+
+	.slambo-opponent-cardback,
+	#slambo-shame-pot img,
+	#slambo-played-card,
+	#slambo-start-card,
+	.slambo-reference-card,
+	#slambo-hand .bga-cards_card>.bga-cards_card-sides>.bga-cards_card-side,
+	#slambo-preview-card {
+		filter: var(--ext-bright);
+	}
+}
+
+.bgaext_dark {
 	color: var(--light-80);
 
 	.slambo-total-label,
@@ -31,15 +44,5 @@ html[data-theme=dark] {
 	#bga-zoom-wrapper #bga-zoom-controls button:hover {
 		background: var(--dark-back);
 		color: var(--light-80);
-	}
-
-	.slambo-opponent-cardback,
-	#slambo-shame-pot img,
-	#slambo-played-card,
-	#slambo-start-card,
-	.slambo-reference-card,
-	#slambo-hand .bga-cards_card>.bga-cards_card-sides>.bga-cards_card-side,
-	#slambo-preview-card {
-		filter: var(--ext-bright);
 	}
 }

@@ -1,4 +1,14 @@
 html[data-theme=dark] {
+
+	.ldg-tile-face.ldg-tile-front,
+	.ldg-tile-face.ldg-tile-back,
+	.ldg-guest,
+	.ldg-lift {
+		filter: var(--ext-bright) var(--drop-shadow);
+	}
+}
+
+.bgaext_dark {
 	#ldg-tabContents {
 		background-color: var(--dark-back);
 	}
@@ -54,12 +64,5 @@ html[data-theme=dark] {
 
 	.ldg-scoreSheet * {
 		border-color: var(--light-50) !important;
-	}
-
-	.ldg-tile-face.ldg-tile-front,
-	.ldg-tile-face.ldg-tile-back,
-	.ldg-guest,
-	.ldg-lift {
-		filter: var(--ext-bright) var(--drop-shadow);
 	}
 }

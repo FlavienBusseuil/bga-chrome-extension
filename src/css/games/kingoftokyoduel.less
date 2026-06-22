@@ -1,6 +1,15 @@
 @import "./common";
 
 html[data-theme=dark] {
+
+	.card,
+	.monster-figure,
+	.monster-board {
+		filter: var(--ext-bright);
+	}
+}
+
+.bgaext_dark {
 	#bga-zoom-wrapper #bga-zoom-controls {
 		filter: var(--highlight);
 	}
@@ -16,12 +25,6 @@ html[data-theme=dark] {
 
 	.icon.skull {
 		filter: var(--highlight-min);
-	}
-
-	.card,
-	.monster-figure,
-	.monster-board {
-		filter: var(--ext-bright);
 	}
 
 	.monster-board .power {

@@ -1,6 +1,12 @@
 @import "./common";
 
 html[data-theme=dark] {
+	.card .card-sides .card-side.front {
+		filter: var(--ext-bright);
+	}
+}
+
+.bgaext_dark {
 
 	#round-counter-row #round-counter-block,
 	.player-table {
@@ -20,9 +26,5 @@ html[data-theme=dark] {
 
 	.dijitTooltipContainer [style="color: darkred"] {
 		color: #ff3333 !important;
-	}
-
-	.card .card-sides .card-side.front {
-		filter: var(--ext-bright);
 	}
 }

@@ -1,16 +1,18 @@
 @import "./common";
 
 html[data-theme=dark] {
+	.a-card.game-area-card {
+		filter: var(--ext-bright);
+	}
+}
+
+.bgaext_dark {
 	.background-container {
 		filter: brightness(0.6);
 	}
 
 	.log-arrow.log-arrow-right {
 		color: var(--light-80) !important;
-	}
-
-	.a-card.game-area-card {
-		filter: var(--ext-bright);
 	}
 
 	.table-container .table-owner-name-container {

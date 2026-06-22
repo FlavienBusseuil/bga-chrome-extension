@@ -1,14 +1,16 @@
 @import "./common";
 
 html[data-theme=dark] {
+	.box_wrap {
+		filter: var(--ext-bright);
+	}
+}
+
+.bgaext_dark {
 
 	#player_boards .stockitem,
 	.first_player_tile,
 	#objects>div {
 		filter: var(--highlight);
-	}
-
-	.box_wrap {
-		filter: var(--ext-bright);
 	}
 }

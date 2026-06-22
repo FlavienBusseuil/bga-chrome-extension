@@ -2,6 +2,16 @@
 
 html[data-theme=dark] {
 
+	#crops-deck,
+	.mtc_crop,
+	.mtc_field,
+	.mtc_farmer-card {
+		filter: var(--ext-bright);
+	}
+}
+
+.bgaext_dark {
+
 	#resource-supply .mtc_resource-quantity,
 	.mtc_player-panel .mtc_tokens-container .mtc_token,
 	.mtc_player-panel .mtc_round-information {
@@ -42,12 +52,5 @@ html[data-theme=dark] {
 		border: 2px solid var(--light-50);
 		box-shadow: none;
 		color: #cc6333;
-	}
-
-	#crops-deck,
-	.mtc_crop,
-	.mtc_field,
-	.mtc_farmer-card {
-		filter: var(--ext-bright);
 	}
 }

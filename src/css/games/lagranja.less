@@ -1,6 +1,16 @@
 @import "./common";
 
 html[data-theme=dark] {
+
+	.board,
+	.drawDeck,
+	.playerMat,
+	.card {
+		filter: var(--ext-bright);
+	}
+}
+
+.bgaext_dark {
 	.playerFarm>div:first-child>span:first-child {
 		background-color: transparent !important;
 	}
@@ -8,12 +18,5 @@ html[data-theme=dark] {
 	.card,
 	.drawDeck {
 		color: #000;
-	}
-
-	.board,
-	.drawDeck,
-	.playerMat,
-	.card {
-		filter: var(--ext-bright);
 	}
 }

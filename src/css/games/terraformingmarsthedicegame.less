@@ -3,6 +3,12 @@
 }
 
 html[data-theme=dark] {
+	.sprite {
+		filter: var(--ext-bright);
+	}
+}
+
+.bgaext_dark {
 	.tm_playerBoard {
 		background-color: var(--dark-back);
 	}
@@ -26,10 +32,6 @@ html[data-theme=dark] {
 		color: var(--light-80);
 		box-shadow: none;
 		filter: var(--drop-shadow-min);
-	}
-
-	.sprite {
-		filter: var(--ext-bright);
 	}
 
 	.sprite.sprite-b-2p,

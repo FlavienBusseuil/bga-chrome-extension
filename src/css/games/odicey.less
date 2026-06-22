@@ -2,6 +2,14 @@
 
 html[data-theme=dark] {
 
+	#odi_mainboard,
+	#dice_pit {
+		filter: var(--ext-bright);
+	}
+}
+
+.bgaext_dark {
+
 	#odi_bluePort:before,
 	#odi_redPort:before {
 		content: "";
@@ -13,10 +21,5 @@ html[data-theme=dark] {
 
 	.odi_port {
 		outline: var(--diceBorder) solid var(--dark-10);
-	}
-
-	#odi_mainboard,
-	#dice_pit {
-		filter: var(--ext-bright);
 	}
 }

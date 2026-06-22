@@ -1,6 +1,12 @@
 @import "./common";
 
 html[data-theme=dark] {
+	.spirit_tiles {
+		filter: var(--ext-bright) var(--drop-shadow);
+	}
+}
+
+.bgaext_dark {
 	--ext-overlay-color: #0002;
 
 	.pb_label {
@@ -15,9 +21,5 @@ html[data-theme=dark] {
 	.favor_tokens,
 	.icon_items {
 		filter: var(--drop-shadow);
-	}
-
-	.spirit_tiles {
-		filter: var(--ext-bright) var(--drop-shadow);
 	}
 }

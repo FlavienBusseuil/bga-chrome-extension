@@ -1,6 +1,14 @@
 @import "./common";
 
 html[data-theme=dark] {
+
+	.card-bg,
+	.card-fg {
+		filter: var(--ext-bright);
+	}
+}
+
+.bgaext_dark {
 	--card-outline-color: #b87c14;
 
 	#page-title,
@@ -57,10 +65,5 @@ html[data-theme=dark] {
 
 	.bgabutton {
 		border-color: var(--light-50);
-	}
-
-	.card-bg,
-	.card-fg {
-		filter: var(--ext-bright);
 	}
 }

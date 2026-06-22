@@ -1,11 +1,6 @@
 @import "./common";
 
 html[data-theme=dark] {
-	--ext-overall-color: #00000060;
-
-	.player-table {
-		background: var(--dark-back);
-	}
 
 	#map:before,
 	#destination-deck:before {
@@ -20,6 +15,14 @@ html[data-theme=dark] {
 	#map-and-borders .illustration,
 	.wagon {
 		filter: var(--ext-bright);
+	}
+}
+
+.bgaext_dark {
+	--ext-overall-color: #00000060;
+
+	.player-table {
+		background: var(--dark-back);
 	}
 
 	.player-board:before {

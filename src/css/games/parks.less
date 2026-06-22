@@ -1,14 +1,6 @@
 @import "./common";
 
 html[data-theme=dark] {
-	.pks-token.pks-token-resource {
-		color: #000;
-		filter: var(--drop-shadow);
-	}
-
-	#pks-bank {
-		background-color: var(--dark-40);
-	}
 
 	.pks-canteen,
 	.pks-backpack,
@@ -16,5 +8,16 @@ html[data-theme=dark] {
 	.pks-gear,
 	.pks-board {
 		filter: var(--ext-bright);
+	}
+}
+
+.bgaext_dark {
+	.pks-token.pks-token-resource {
+		color: #000;
+		filter: var(--drop-shadow);
+	}
+
+	#pks-bank {
+		background-color: var(--dark-40);
 	}
 }

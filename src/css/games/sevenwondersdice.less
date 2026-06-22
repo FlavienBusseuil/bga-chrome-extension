@@ -1,4 +1,16 @@
 html[data-theme=dark] {
+
+	.player_wonder .wonder_bg,
+	.spot_val,
+	.die,
+	.cp_btn,
+	.bga-score-sheet_corner,
+	.bga-score-sheet_entry-label {
+		filter: var(--ext-bright);
+	}
+}
+
+.bgaext_dark {
 	--ext-overlay-color: #00000040;
 
 	.player_wonder .plname {
@@ -53,14 +65,5 @@ html[data-theme=dark] {
 
 	#score_sheet tr:nth-child(odd) .bga-score-sheet_player-score-entry {
 		background-color: var(--dark-20);
-	}
-
-	.player_wonder .wonder_bg,
-	.spot_val,
-	.die,
-	.cp_btn,
-	.bga-score-sheet_corner,
-	.bga-score-sheet_entry-label {
-		filter: var(--ext-bright);
 	}
 }

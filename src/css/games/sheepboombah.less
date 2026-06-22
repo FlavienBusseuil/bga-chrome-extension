@@ -1,6 +1,14 @@
 @import "./common";
 
 html[data-theme=dark] {
+
+	.sbb_playerboard,
+	#sbb_field {
+		filter: var(--ext-bright);
+	}
+}
+
+.bgaext_dark {
 	div[id^="playersection_"]>div:first-child {
 		background-color: var(--dark-back);
 		padding: 0.2em 1em;
@@ -13,10 +21,5 @@ html[data-theme=dark] {
 	.sbb_icon_2,
 	.sbb_icon_3 {
 		border-radius: 50%;
-	}
-
-	.sbb_playerboard,
-	#sbb_field {
-		filter: var(--ext-bright);
 	}
 }

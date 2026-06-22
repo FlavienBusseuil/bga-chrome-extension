@@ -1,6 +1,14 @@
 @import "./common";
 
 html[data-theme=dark] {
+
+	.stockitem,
+	#gamezone #playertables .row .rowIndicatorWrapper #rowIndicator #rowIndicatorBackground {
+		filter: var(--ext-bright);
+	}
+}
+
+.bgaext_dark {
 	#gamezone #playertables {
 		background-color: #2a3d10;
 	}
@@ -20,10 +28,5 @@ html[data-theme=dark] {
 	.counters .counter-icon.card,
 	.counters .counter-icon.farmer-card {
 		filter: var(--highlight-min);
-	}
-
-	.stockitem,
-	#gamezone #playertables .row .rowIndicatorWrapper #rowIndicator #rowIndicatorBackground {
-		filter: var(--ext-bright);
 	}
 }

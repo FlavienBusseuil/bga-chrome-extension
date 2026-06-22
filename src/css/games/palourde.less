@@ -1,4 +1,13 @@
 html[data-theme=dark] {
+
+	.basket-card,
+	.palourde-card {
+		filter: var(--ext-bright) var(--drop-shadow);
+		box-shadow: none;
+	}
+}
+
+.bgaext_dark {
 	#maree-display {
 		background: var(--dark-back);
 		border: 2px solid #48c;
@@ -8,11 +17,5 @@ html[data-theme=dark] {
 
 	#table-separator {
 		background: var(--light-50);
-	}
-
-	.basket-card,
-	.palourde-card {
-		filter: var(--ext-bright) var(--drop-shadow);
-		box-shadow: none;
 	}
 }

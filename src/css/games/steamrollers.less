@@ -2,6 +2,16 @@
 
 html[data-theme=dark] {
 
+	#boardBackground,
+	.vls-playerMap,
+	.vls-action-tile,
+	.vls-action-tile-owner {
+		filter: var(--ext-bright);
+	}
+}
+
+.bgaext_dark {
+
 	.vls-scoreImage,
 	.vls-good,
 	.vls-personal_good {
@@ -10,12 +20,5 @@ html[data-theme=dark] {
 
 	.vls-firstPlayerToken {
 		filter: var(--highlight-min);
-	}
-
-	#boardBackground,
-	.vls-playerMap,
-	.vls-action-tile,
-	.vls-action-tile-owner {
-		filter: var(--ext-bright);
 	}
 }

@@ -1,4 +1,16 @@
 html[data-theme=dark] {
+
+	.ta_header .ta_help_card .sprite,
+	.ta_dice .dice .side,
+	.flippable-front,
+	.flippable-back,
+	.aal-popup-overlay .aal-popup-content .sprite,
+	.dijitTooltipContainer .sprite {
+		filter: var(--ext-bright);
+	}
+}
+
+.bgaext_dark {
 	--ext-overlay-color: #fff4;
 
 	.ta_header .ta_running_total,
@@ -29,14 +41,5 @@ html[data-theme=dark] {
 
 	.boom-active {
 		text-shadow: var(--text-w-shadow);
-	}
-
-	.ta_header .ta_help_card .sprite,
-	.ta_dice .dice .side,
-	.flippable-front,
-	.flippable-back,
-	.aal-popup-overlay .aal-popup-content .sprite,
-	.dijitTooltipContainer .sprite {
-		filter: var(--ext-bright);
 	}
 }

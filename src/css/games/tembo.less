@@ -1,4 +1,14 @@
 html[data-theme=dark] {
+
+	#tembo-board-resizable #tembo-board .board-tile,
+	.tembo-savanna-card .tembo-savanna-card-wrapper,
+	#tembo-board-resizable #tembo-board .board-destination,
+	#tembo-board-resizable #tembo-board .board-start {
+		filter: var(--ext-bright);
+	}
+}
+
+.bgaext_dark {
 	.player-board {
 		background-color: #4e3418;
 	}
@@ -13,12 +23,5 @@ html[data-theme=dark] {
 
 	#logs .log.notif_newUndoableStep .roundedbox {
 		background-color: #000;
-	}
-
-	#tembo-board-resizable #tembo-board .board-tile,
-	.tembo-savanna-card .tembo-savanna-card-wrapper,
-	#tembo-board-resizable #tembo-board .board-destination,
-	#tembo-board-resizable #tembo-board .board-start {
-		filter: var(--ext-bright);
 	}
 }

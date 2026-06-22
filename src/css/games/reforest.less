@@ -1,4 +1,10 @@
 html[data-theme=dark] {
+     .re-card {
+          filter: var(--ext-bright);
+     }
+}
+
+.bgaext_dark {
      --ext-overlay-color: #0004;
 
      .bgaext_overlay {
@@ -91,10 +97,9 @@ html[data-theme=dark] {
 
      .re-card {
           color: #000;
-          filter: var(--ext-bright);
      }
 }
 
-html[data-theme=dark].no-custom-background .bgaext_overlay {
+.bgaext_dark.no-custom-background .bgaext_overlay {
      display: none;
 }

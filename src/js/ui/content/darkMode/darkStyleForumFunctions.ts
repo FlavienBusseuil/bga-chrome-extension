@@ -36,7 +36,7 @@ const _setDarkStyle = () => {
     styleComponent.textContent = `${cssContents["dark_theme/background.css"]}${cssContents["dark_theme/icons.css"]}${cssContents["dark_theme/forum.css"]}${customCssCode}`;
   }
 
-  document.documentElement.classList.add("darkmode");
+  document.documentElement.classList.add("bgaext_dark");
 };
 
 const _setLightStyle = () => {
@@ -46,7 +46,7 @@ const _setLightStyle = () => {
     styleComponent.textContent = `${cssContents["light_theme/general.css"]}${customCssCode}`;;
   }
 
-  document.documentElement.classList.remove("darkmode");
+  document.documentElement.classList.remove("bgaext_dark");
 };
 
 export const setDarkStyle = (val: boolean, customCss: string) => {

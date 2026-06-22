@@ -1,6 +1,12 @@
 @import "./common";
 
 html[data-theme=dark] {
+	.card-inner {
+		filter: var(--ext-bright);
+	}
+}
+
+.bgaext_dark {
 	background: #004d24 !important;
 
 	#gamemode {
@@ -46,9 +52,5 @@ html[data-theme=dark] {
 	.notepad {
 		color: var(--light-80);
 		background-color: var(--dark-20);
-	}
-
-	.card-inner {
-		filter: var(--ext-bright);
 	}
 }

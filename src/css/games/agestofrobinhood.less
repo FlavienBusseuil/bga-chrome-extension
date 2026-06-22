@@ -1,10 +1,20 @@
 @import "./common";
 
 html[data-theme=dark] {
+
+	.gest_card_side,
+	.gest_force_side,
+	.gest_marker_side,
+	.gest_track_marker {
+		filter: var(--ext-bright);
+	}
+
 	#gest_game_map:before {
 		.reduceBrightness();
 	}
+}
 
+.bgaext_dark {
 	#overall-content {
 		color: var(--light-80);
 	}
@@ -70,12 +80,5 @@ html[data-theme=dark] {
 
 	#info_panel #gest_ballad_info {
 		border-bottom: 1px solid var(--light-50);
-	}
-
-	.gest_card_side,
-	.gest_force_side,
-	.gest_marker_side,
-	.gest_track_marker {
-		filter: var(--ext-bright);
 	}
 }

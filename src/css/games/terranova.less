@@ -7,6 +7,22 @@ html[data-theme=dark] {
 		.reduceBrightness();
 	}
 
+	#actions_overview,
+	.bonus_card,
+	.structure,
+	.track_token,
+	.power_token,
+	.terrain_tile,
+	.town_tile,
+	.bridge,
+	#scoring_endofgame,
+	.scoring_tile_holder {
+		filter: var(--ext-bright);
+	}
+}
+
+.bgaext_dark {
+
 	#faction_selection,
 	.faction_supply {
 		background-color: var(--dark-back);
@@ -28,18 +44,5 @@ html[data-theme=dark] {
 
 	.bridge {
 		border-radius: 50%;
-	}
-
-	#actions_overview,
-	.bonus_card,
-	.structure,
-	.track_token,
-	.power_token,
-	.terrain_tile,
-	.town_tile,
-	.bridge,
-	#scoring_endofgame,
-	.scoring_tile_holder {
-		filter: var(--ext-bright);
 	}
 }

@@ -7,6 +7,16 @@ html.vgincLib_layout_slider {
 }
 
 html[data-theme=dark] {
+
+	.vgincLib_commonZone.vgincLib_automataResources,
+	#vgincLib_material_cards .stockitem,
+	.log .vgincLib_cardLogItem,
+	.vgincLib_cards .stockitem {
+		filter: var(--ext-bright);
+	}
+}
+
+.bgaext_dark {
 	#player-tables .player-table[data-color=ff0000] {
 		background: linear-gradient(rgba(139, 0, 0, .7) -100%, hsla(0, 0%, 0%, .9));
 	}
@@ -125,16 +135,9 @@ html[data-theme=dark] {
 	.bga-score-sheet_sheet .bga-score-sheet_entry-label:after {
 		background: #451a4c;
 	}
-
-	.vgincLib_commonZone.vgincLib_automataResources,
-	#vgincLib_material_cards .stockitem,
-	.log .vgincLib_cardLogItem,
-	.vgincLib_cards .stockitem {
-		filter: var(--ext-bright);
-	}
 }
 
-html[data-theme=dark].vgincLib_layout_slider {
+.bgaext_dark.vgincLib_layout_slider {
 
 	.vgincLib_dot.vgincLib_sliderActive,
 	.vgincLib_dot:hover {

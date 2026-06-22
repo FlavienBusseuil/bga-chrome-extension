@@ -1,7 +1,3 @@
-html[data-theme=dark].vgincLib_thematic_background_on {
-	background: #000;
-}
-
 html[data-theme=dark].boardlessVariant {
 	#token-stocks .bga-cards_card-sides {
 		filter: var(--ext-bright);
@@ -15,6 +11,26 @@ html[data-theme=dark]:not(.boardlessVariant) {
 }
 
 html[data-theme=dark] {
+
+	.player-components .player-mat,
+	#shapes-cards-deck .bga-cards_card-sides,
+	#colors-cards-deck .bga-cards_card-sides,
+	#cards-line .bga-cards_card-sides,
+	#scoring-card .bga-cards_card-sides,
+	.vgincLib_tooltipBody .bga-cards_card-sides {
+		filter: var(--ext-bright);
+	}
+
+	#sun-tile-stock {
+		filter: var(--ext-bright) var(--drop-shadow);
+	}
+}
+
+.bgaext_dark.vgincLib_thematic_background_on {
+	background: #000;
+}
+
+.bgaext_dark {
 	.player-table {
 		background-color: var(--dark-back-50);
 	}
@@ -31,18 +47,5 @@ html[data-theme=dark] {
 
 	.bga-score-sheet_sheet tr:not(:last-child) {
 		box-shadow: 0 6px 2px -4px #ffffff1a;
-	}
-
-	.player-components .player-mat,
-	#shapes-cards-deck .bga-cards_card-sides,
-	#colors-cards-deck .bga-cards_card-sides,
-	#cards-line .bga-cards_card-sides,
-	#scoring-card .bga-cards_card-sides,
-	.vgincLib_tooltipBody .bga-cards_card-sides {
-		filter: var(--ext-bright);
-	}
-
-	#sun-tile-stock {
-		filter: var(--ext-bright) var(--drop-shadow);
 	}
 }

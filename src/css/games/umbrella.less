@@ -1,6 +1,14 @@
 @import "./common";
 
 html[data-theme=dark] {
+
+	.um_board,
+	.um_inter {
+		filter: var(--ext-bright);
+	}
+}
+
+.bgaext_dark {
 	.um_board p {
 		background-color: var(--dark-20);
 	}
@@ -12,11 +20,6 @@ html[data-theme=dark] {
 
 	.bg-point {
 		filter: var(--drop-shadow);
-	}
-
-	.um_board,
-	.um_inter {
-		filter: var(--ext-bright);
 	}
 
 	.um_popup_content {

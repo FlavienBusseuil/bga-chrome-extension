@@ -1,6 +1,14 @@
 @import "./common";
 
 html[data-theme=dark] {
+
+	.fika_card,
+	.fika_log_card {
+		filter: var(--ext-bright);
+	}
+}
+
+.bgaext_dark {
 	#fika_show_card_list span {
 		background-color: var(--dark-20);
 		color: var(--light-80);
@@ -13,10 +21,5 @@ html[data-theme=dark] {
 
 	.fika_greater {
 		color: var(--light-80);
-	}
-
-	.fika_card,
-	.fika_log_card {
-		filter: var(--ext-bright);
 	}
 }

@@ -1,15 +1,17 @@
 @import "./common";
 
 html[data-theme=dark] {
+	#mex_board {
+		filter: var(--ext-bright);
+	}
+}
+
+.bgaext_dark {
 	--ext-overall-color: #00000080;
 
 	#mex_supply {
 		background-color: var(--dark-back);
 		color: var(--light-80);
-	}
-
-	#mex_board {
-		filter: var(--ext-bright);
 	}
 
 	#bga-zoom-wrapper #bga-zoom-controls {

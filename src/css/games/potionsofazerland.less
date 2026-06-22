@@ -2,6 +2,17 @@
 
 html[data-theme=dark] {
 
+	#poa_mainBoard,
+	#centralZone,
+	.playerBoard_container,
+	.logElementsContainer .poaVisitorCard,
+	.logElementsContainer .poaMarketCard {
+		filter: var(--ext-bright);
+	}
+}
+
+.bgaext_dark {
+
 	.poa_PopinContainer.displayDiceResult,
 	.poa_PopinContainer.displayOrderPriorityChoice,
 	.poa_PopinContainer.displayRessourceChoice {
@@ -16,13 +27,5 @@ html[data-theme=dark] {
 
 	.playerName {
 		background: linear-gradient(90deg, #00000000, #00000000 30%, #000000e6 50%, #00000000 70%, #00000000);
-	}
-
-	#poa_mainBoard,
-	#centralZone,
-	.playerBoard_container,
-	.logElementsContainer .poaVisitorCard,
-	.logElementsContainer .poaMarketCard {
-		filter: var(--ext-bright);
 	}
 }

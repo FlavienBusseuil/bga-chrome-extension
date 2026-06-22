@@ -1,6 +1,16 @@
 @import "./common";
 
 html[data-theme=dark] {
+	.playerboard:before {
+		.reduceBrightness();
+	}
+
+	.card.tile .card-sides .card-side {
+		filter: var(--ext-bright);
+	}
+}
+
+.bgaext_dark {
 	--ext-overlay-color: #fff5;
 
 	.bgaext_overlay {
@@ -71,17 +81,9 @@ html[data-theme=dark] {
 	#GGA-table #hand_container #hand:empty+#hint_hand #empty-hand-hint {
 		color: var(--light-80);
 	}
-
-	.playerboard:before {
-		.reduceBrightness();
-	}
-
-	.card.tile .card-sides .card-side {
-		filter: var(--ext-bright);
-	}
 }
 
-html[data-theme=dark].custom_theme {
+.bgaext_dark.custom_theme {
 	.bgaext_overlay {
 		display: block;
 		background-image: var(--ext-game-back) !important;

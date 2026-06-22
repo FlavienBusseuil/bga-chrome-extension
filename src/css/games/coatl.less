@@ -1,6 +1,19 @@
 @import "./common";
 
 html[data-theme=dark] {
+
+	hand_prophecy .stockitem,
+	supply_prophecy .stockitem,
+	hand_temple .stockitem,
+	supply_temple .stockitem,
+	#supply_piece,
+	#deck_prophecy:empty,
+	player_board {
+		filter: var(--ext-bright);
+	}
+}
+
+.bgaext_dark {
 	--ext-overall-color: #00000080;
 
 	.player-board:before {
@@ -33,15 +46,5 @@ html[data-theme=dark] {
 	other_build coatls .coatl_container .coatl,
 	piece_log_icon {
 		filter: var(--drop-shadow);
-	}
-
-	hand_prophecy .stockitem,
-	supply_prophecy .stockitem,
-	hand_temple .stockitem,
-	supply_temple .stockitem,
-	#supply_piece,
-	#deck_prophecy:empty,
-	player_board {
-		filter: var(--ext-bright);
 	}
 }

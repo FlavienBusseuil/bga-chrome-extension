@@ -1,15 +1,21 @@
 @import "./common";
 
-html[data-theme=dark].vgincLib_thematic_background_on {
+html[data-theme=dark] {
+	.player-table .ari_village {
+		filter: var(--ext-bright);
+	}
+}
+
+.bgaext_dark.vgincLib_thematic_background_on {
 	--ext-overall-color: #00000060;
 	background: #000;
 }
 
-html[data-theme=dark].vgincLib_layout_slider .vgincLib_dot {
+.bgaext_dark.vgincLib_layout_slider .vgincLib_dot {
 	background-color: var(--dark-40);
 }
 
-html[data-theme=dark] {
+.bgaext_dark {
 
 	span[data-color="000000"],
 	strong[data-color="000000"] {
@@ -111,9 +117,5 @@ html[data-theme=dark] {
 
 	.vgincLib_objectivesToFavors {
 		filter: invert(1) hue-rotate(180deg);
-	}
-
-	.player-table .ari_village {
-		filter: var(--ext-bright);
 	}
 }

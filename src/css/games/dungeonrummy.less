@@ -1,6 +1,19 @@
 @import "./common";
 
 html[data-theme=dark] {
+
+	#monster_deck,
+	.monster,
+	.hero,
+	.stockitem,
+	.card,
+	.card_back,
+	.iconspace {
+		filter: var(--ext-bright);
+	}
+}
+
+.bgaext_dark {
 	--ext-overlay-color: #0007;
 
 	.bgaext_overlay {
@@ -44,15 +57,5 @@ html[data-theme=dark] {
 	.playertablename,
 	.player-name {
 		text-shadow: none !important;
-	}
-
-	#monster_deck,
-	.monster,
-	.hero,
-	.stockitem,
-	.card,
-	.card_back,
-	.iconspace {
-		filter: var(--ext-bright);
 	}
 }
