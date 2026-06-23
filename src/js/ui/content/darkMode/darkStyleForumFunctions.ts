@@ -1,4 +1,4 @@
-import { cookieName, createStyle, getFile } from "./darkStyleCommonFunctions";
+import { getDarkStyle, createStyle, getFile, DarkStyle, saveDarkStyle } from "./darkStyleCommonFunctions";
 
 const cssList = ["dark_theme/background.css", "dark_theme/forum.css", "dark_theme/icons.css", "light_theme/general.css"];
 const cssContents: Record<string, string> = {};
@@ -12,13 +12,9 @@ Promise.all(cssList.map(file => getFile(file))).then(fileContents => {
   _setDarkStyleIfActivated();
 });
 
-const isDarkStyle = () => {
-  return localStorage.getItem(cookieName) === "on";
-}
-
 const _setDarkStyleIfActivated = () => {
   try {
-    if (isDarkStyle()) {
+    if (getDarkStyle() === 'on') {
       _setDarkStyle();
     } else {
       _setLightStyle();
@@ -49,14 +45,14 @@ const _setLightStyle = () => {
   document.documentElement.classList.remove("bgaext_dark");
 };
 
-export const setDarkStyle = (val: boolean, customCss: string) => {
+export const setDarkStyle = (val: DarkStyle, customCss: string) => {
   customCssCode = customCss;
 
-  if (isDarkStyle() === val) {
+  if (getDarkStyle() === val) {
     return;
   }
 
-  localStorage.setItem(cookieName, val ? "on" : "off");
+  saveDarkStyle(val);
 
   if (val) {
     _setDarkStyle();

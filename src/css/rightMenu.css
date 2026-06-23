@@ -47,10 +47,14 @@ div.bgext_right_menu i {
 
 .desktop_version.logs_on_floating_panel #right-side-second-part {
 	border: 1px solid var(--dark-10);
-	outline: 1px solid var(--light-50);
+	outline: 1px solid var(--light-50, #8e8e8e);
 	background-color: rgb(235, 213, 189);
 	width: 260px !important;
 	right: -1500px;
+}
+
+html[data-theme=dark] .desktop_version.logs_on_floating_panel #right-side-second-part {
+	background: var(--dark-20) !important;
 }
 
 .desktop_version.logs_on_floating_panel.score_visible #right-side-first-part {

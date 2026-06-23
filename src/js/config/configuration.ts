@@ -738,7 +738,10 @@ class Configuration {
 		if (this._customConfig.darkMode != val) {
 			this._customConfig.darkMode = val;
 			storageSet({ darkMode: val });
+		}
 
+		const bgaDarkModeSelected = document.documentElement.style.colorScheme === 'dark';
+		if (bgaDarkModeSelected !== val) {
 			this.toggleNativeTheme();
 		}
 	}

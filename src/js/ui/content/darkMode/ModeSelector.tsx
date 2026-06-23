@@ -69,8 +69,18 @@ const ModeSelector = (props: ModeSelectorProps) => {
   }, []);
 
   useEffect(() => {
-    darkMode !== undefined && setDarkStyle(gameName, darkMode);
-  }, [gameName, darkMode]);
+    if (darkMode === undefined) {
+      return;
+    }
+
+    if (darkMode && darkModeNative) {
+      setDarkStyle(gameName, 'native');
+    } else if (darkMode) {
+      setDarkStyle(gameName, 'on');
+    } else {
+      setDarkStyle(gameName, 'off');
+    }
+  }, [gameName, darkMode, darkModeNative]);
 
   useEffect(() => {
     if (darkColorHue === recommandedConfig?.color && darkColorSaturation === recommandedConfig?.sat) {
@@ -157,9 +167,8 @@ const ModeSelector = (props: ModeSelectorProps) => {
 
   const toggleDarkModeNative = () => {
     const newDarkModeNative = !darkModeNative;
-
-    setDarkMode(newDarkModeNative);
-    config.setDarkMode(newDarkModeNative);
+    setDarkModeNative(newDarkModeNative);
+    config.setDarkModeNative(newDarkModeNative);
   }
 
   const toggleDarkMode = () => {
@@ -489,25 +498,33 @@ const ModeSelector = (props: ModeSelectorProps) => {
     };
 
     const getNativeCheckBox = () => {
-      return <span className="bgaext_reset_link" onClick={toggleDarkModeNative}>{i18n("darkModeNative")}<input type='checkbox' /></span>
+      return <span className="bgaext_native_link" onClick={toggleDarkModeNative}>
+        {i18n("darkModeNative")} {darkModeNative}
+        <input type='checkbox' checked={darkModeNative} />
+      </span>
     };
 
     return (
-      <div className="bgaext_palette_body" style={{ width }}>
+      <div className="bgaext_theme_container" >
         {getNativeCheckBox()}
-        {darkColorHue >= 0 && <div className="bgaext_palette" draggable={false} onDragStart={() => false}>
-          {getCells()}
-          {getCursor()}
-        </div>}
-        {darkColorHue >= 0 && <div className="bgaext_saturation_selector" style={saturationStyle} onClick={saturationClick} draggable={false} onDragStart={() => false}>
-          {getSaturationCursor()}
-        </div>}
-        <div className="bgaext_palette_bottom">
-          {getLeftLink()}
-          {getMiddleLink()}
-          {getResetCheckbox()}
-        </div>
-      </div>
+        <div className="bgaext_palette_body" style={{ width }}>
+          {darkColorHue >= 0 && <div className="bgaext_palette" draggable={false} onDragStart={() => false}>
+            {getCells()}
+            {getCursor()}
+          </div>
+          }
+          {
+            darkColorHue >= 0 && <div className="bgaext_saturation_selector" style={saturationStyle} onClick={saturationClick} draggable={false} onDragStart={() => false}>
+              {getSaturationCursor()}
+            </div>
+          }
+          <div className="bgaext_palette_bottom">
+            {getLeftLink()}
+            {getMiddleLink()}
+            {getResetCheckbox()}
+          </div>
+        </div >
+      </div >
     );
   };
 

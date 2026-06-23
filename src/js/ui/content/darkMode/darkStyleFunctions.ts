@@ -4,7 +4,7 @@ import { hexToRgb } from "../../../utils/misc/colors";
 import { gamesConfiguration } from "../../../config/darkThemeGames";
 import { ARCHIVE_FLOATING_MENU_CSS } from "../../../config/configuration.constants";
 import { PlayerData, getPlayersData, getPlayersPossibleColors } from "../players";
-import { cookieName, createStyle, getFile } from "./darkStyleCommonFunctions";
+import { createStyle, getFile, getDarkStyle, saveDarkStyle, DarkStyle } from "./darkStyleCommonFunctions";
 
 const darkThemeFlickerFixElementId = "bgaext-dark-theme-flicker-fix";
 const pageInfo = window.location.pathname.substring(1).split("/");
@@ -71,23 +71,17 @@ _init().then(() => {
   }
 });
 
-const _isDarkStyle = async () => {
-  return localStorage.getItem(cookieName) === "on";
-}
 
-// hack to avoid light theme flashing
-const _applyBackgroundFlickerFix = () => {
-  const s = document.createElement('style');
-  const htmlStyle = 'html { background: #000 !important; }';
-  const bodyStyle = (mode == 'general') ? 'body { visibility: hidden !important; }' : '';
-  s.id = darkThemeFlickerFixElementId;
-  s.textContent = `${htmlStyle} ${bodyStyle}`;
-  document.documentElement.appendChild(s);
-};
 
 try {
-  if (document && !isHtmlPage && !isStudioPage) {
-    _isDarkStyle().then(val => val && _applyBackgroundFlickerFix());
+  if (document && !isHtmlPage && !isStudioPage && getDarkStyle()) {
+    // hack to avoid light theme flashing
+    const s = document.createElement('style');
+    const htmlStyle = 'html { background: #000 !important; }';
+    const bodyStyle = (mode == 'general') ? 'body { visibility: hidden !important; }' : '';
+    s.id = darkThemeFlickerFixElementId;
+    s.textContent = `${htmlStyle} ${bodyStyle}`;
+    document.documentElement.appendChild(s);
   }
 }
 catch (error) {
@@ -242,17 +236,19 @@ const _setDarkStyleIfActivated = () => {
     }
 
   }).finally(() => {
-    _isDarkStyle().then(darkMode => {
-      if (darkMode) {
-        _setDarkStyle();
-      } else {
-        _setLightStyle();
-      }
+    const darkMode = getDarkStyle();
 
-      _manageHtmlTag();
-      _removeBackgroundFlickerFix();
-      _initClassObserver();
-    });
+    if (darkMode === 'native') {
+      _setNativeStyle();
+    } else if (darkMode === 'on') {
+      _setDarkStyle();
+    } else {
+      _setLightStyle();
+    }
+
+    _manageHtmlTag();
+    _removeBackgroundFlickerFix();
+    _initClassObserver();
   });
 };
 
@@ -324,6 +320,11 @@ const _applyDarkStyleForGame = () => {
   });
 }
 
+const _setNativeStyle = () => {
+  console.log(`[bga extension] set native dark mode for ${mode}`);
+  themeStyleComponent.textContent = '';
+};
+
 const _setDarkStyle = () => {
   console.log(`[bga extension] set dark mode for ${mode}`);
 
@@ -370,47 +371,64 @@ const _manageHtmlTag = () => {
       document.documentElement.classList.add("bgaext_cust_back");
     }
 
-    //const bgaNativeDarkThemeSelected = document.documentElement.style.colorScheme === 'dark';
+    const darkMode = getDarkStyle();
 
-    /*
-    if (document.documentElement.classList.contains("dark")) {
-      const detail = JSON.stringify({ type: 'ToggleTheme' });
-      document.body.dispatchEvent(new CustomEvent('bga_ext_api_call', { detail }));
+    const bgaNativeDarkThemeSelected = document.documentElement.style.colorScheme === 'dark';
+    const isDarkModeSelected = darkMode === 'on' || darkMode === 'native';
+
+    if (bgaNativeDarkThemeSelected !== isDarkModeSelected) {
+      (window as any).setDarkStyle(bgaNativeDarkThemeSelected);
+      return;
     }
-      */
 
-    _isDarkStyle().then(darkMode => {
-      if (darkMode) {
-        if (theme !== 'dark') {
-          document.documentElement.dataset.theme = 'dark';
-        }
-
-        if (!document.documentElement.classList.contains("bgaext_dark")) {
-          document.documentElement.classList.add("bgaext_dark");
-        }
-        if (customDarkClass && !document.documentElement.classList.contains(customDarkClass)) {
-          document.documentElement.classList.add(customDarkClass);
-        }
-
-        if (gameName && !config?.customPanel && !document.documentElement.classList.contains("darkpanel")) {
-          document.documentElement.classList.add("darkpanel");
-        }
-      } else {
-        if (theme !== 'light') {
-          document.documentElement.dataset.theme = 'light';
-        }
-
-        if (document.documentElement.classList.contains("bgaext_dark")) {
-          document.documentElement.classList.remove("bgaext_dark");
-        }
-        if (customDarkClass && document.documentElement.classList.contains(customDarkClass)) {
-          document.documentElement.classList.remove(customDarkClass);
-        }
-        if (document.documentElement.classList.contains("darkpanel")) {
-          document.documentElement.classList.remove("darkpanel");
-        }
+    if (darkMode === 'native') {
+      if (theme !== 'dark') {
+        document.documentElement.dataset.theme = 'dark';
       }
-    });
+
+      if (!document.documentElement.classList.contains("dark")) {
+        document.documentElement.classList.add("dark");
+      }
+
+      if (document.documentElement.classList.contains("bgaext_dark")) {
+        document.documentElement.classList.remove("bgaext_dark");
+      }
+    } else if (darkMode === 'on') {
+      if (theme !== 'dark') {
+        document.documentElement.dataset.theme = 'dark';
+      }
+
+      if (document.documentElement.classList.contains("dark")) {
+        document.documentElement.classList.remove("dark");
+      }
+
+      if (!document.documentElement.classList.contains("bgaext_dark")) {
+        document.documentElement.classList.add("bgaext_dark");
+      }
+      if (customDarkClass && !document.documentElement.classList.contains(customDarkClass)) {
+        document.documentElement.classList.add(customDarkClass);
+      }
+
+      if (gameName && !config?.customPanel && !document.documentElement.classList.contains("darkpanel")) {
+        document.documentElement.classList.add("darkpanel");
+      }
+    } else {
+      if (theme !== 'light') {
+        document.documentElement.dataset.theme = 'light';
+      }
+      if (document.documentElement.classList.contains("dark")) {
+        document.documentElement.classList.remove("dark");
+      }
+      if (document.documentElement.classList.contains("bgaext_dark")) {
+        document.documentElement.classList.remove("bgaext_dark");
+      }
+      if (customDarkClass && document.documentElement.classList.contains(customDarkClass)) {
+        document.documentElement.classList.remove(customDarkClass);
+      }
+      if (document.documentElement.classList.contains("darkpanel")) {
+        document.documentElement.classList.remove("darkpanel");
+      }
+    }
   }
   catch (error) {
     console.error("[bga extension] Error in dark mode observer", error);
@@ -428,21 +446,23 @@ const _initClassObserver = () => {
   return observer;
 };
 
-export const setDarkStyle = (newGameName: string, val: boolean) => {
+export const setDarkStyle = (newGameName: string, newDarkMode: DarkStyle) => {
   gameName = newGameName;
-  console.log(`[bga extension] set dark style to ${val} for ${newGameName}`);
+  console.log(`[bga extension] set dark style to ${newDarkMode} for ${newGameName}`);
 
-  _isDarkStyle().then(darkMode => {
-    if (darkMode !== val) {
-      localStorage.setItem(cookieName, val ? "on" : "off");
+  const darkMode = getDarkStyle();
 
-      if (val) {
-        _setDarkStyle();
-      } else {
-        _setLightStyle();
-      }
+  if (darkMode !== newDarkMode) {
+    saveDarkStyle(newDarkMode);
 
-      _manageHtmlTag();
+    if (newDarkMode === 'native') {
+      _setNativeStyle();
+    } else if (newDarkMode === 'on') {
+      _setDarkStyle();
+    } else {
+      _setLightStyle();
     }
-  });
+
+    _manageHtmlTag();
+  }
 };

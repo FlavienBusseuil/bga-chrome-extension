@@ -4,6 +4,17 @@ import { waitForObj } from '../../../utils/misc/wait';
 const themeStyleId = "bgaext-theme-style";
 export const cookieName = "ext_dark_theme";
 
+export type DarkStyle = 'on' | 'off' | 'native';
+
+export const getDarkStyle = (): DarkStyle => {
+  const mode = localStorage.getItem(cookieName) || 'off';
+  return ['on', 'native'].includes(mode) ? mode as DarkStyle : 'off';
+};
+
+export const saveDarkStyle = (mode: DarkStyle) => {
+  localStorage.setItem(cookieName, mode);
+};
+
 export const getFile = async (file: string, silentOnFailure: boolean = false) => {
   const fullPath = `/css/${file}`;
 

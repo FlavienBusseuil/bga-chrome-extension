@@ -25,9 +25,24 @@ const adjustDarkColors = () => {
   changeDarkColors(hue, saturation);
 };
 
+const getDarkStyle = () => {
+  const darkMode = config.isDarkMode();
+  const nativeDarkMode = config.isDarkModeNative();
+
+  if (darkMode && nativeDarkMode) {
+    return 'native';
+  }
+  if (darkMode) {
+    return 'on';
+  }
+  return 'off';
+};
+
 const initPage = () => {
   document.documentElement.classList.add('bgaext_forum');
-  setDarkStyle(config.isDarkMode(), config.getCustomCss());
+
+  const darkStyle = getDarkStyle();
+  setDarkStyle(darkStyle, config.getCustomCss());
   adjustDarkColors();
 
   if (config.isSolidBackground()) {
@@ -43,11 +58,11 @@ document.addEventListener('bga_ext_update_config', (data) => {
 
   if (key === 'dark') {
     adjustDarkColors();
-  } else if (key === 'darkMode') {
-    const isDarkMode = config.isDarkMode();
-    setDarkStyle(isDarkMode, config.getCustomCss());
+  } else if (key === 'darkMode' || key === 'darkModeNative') {
+    const darkStyle = getDarkStyle();
+    setDarkStyle(darkStyle, config.getCustomCss());
 
-    if (!isDarkMode) {
+    if (darkStyle !== 'on') {
       // refresh of the CSS to load the background image that was previously blocked
       const link = Array.from(document.querySelectorAll("link")).find(l => l.href.indexOf('stylesheet.css') > 0)
       if (link) {

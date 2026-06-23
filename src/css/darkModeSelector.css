@@ -151,6 +151,8 @@
 }
 
 .bgaext_palette_body {
+  position: relative;
+  margin-top: 1em;
   display: flex;
   flex-flow: column;
   gap: 20px;
@@ -189,11 +191,11 @@
 }
 
 #bgaext_palette_cursor {
-  top: 56px;
+  top: -4px;
 }
 
 #bgaext_saturation_cursor {
-  top: 110px;
+  top: 50px;
   display: block;
 }
 
@@ -283,9 +285,14 @@
   position: relative;
 }
 
-.bgaext_reset_link {
+.bgaext_reset_link,
+.bgaext_native_link {
   display: flex;
   flex-flow: row;
   gap: 0.5em;
   cursor: pointer;
+}
+
+.bgaext_native_link {
+  justify-content: flex-end;
 }
