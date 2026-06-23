@@ -13,7 +13,7 @@ const cssContents: Record<string, string> = {};
 let themeStyleComponent: HTMLStyleElement;
 let gameStyleComponent: HTMLStyleElement;
 let playersStyleComponent: HTMLStyleElement;
-let cssList: string[] = ["light_theme/general.css", "dark_theme/background.css", "dark_theme/common.css", "dark_theme/chat.css", "dark_theme/icons.css", "dark_theme/game.css"];
+let cssList: string[] = ["native_theme/general.css", "dark_theme/background.css", "dark_theme/common.css", "dark_theme/chat.css", "dark_theme/icons.css", "dark_theme/game.css"];
 let gameName: string = "general";
 let mode: string = "general";
 
@@ -27,7 +27,7 @@ if (pageInfo.length >= 2 && isNumber(pageInfo[0] as string)) {
   mode = "archive";
 } else {
   // General mode (website)
-  cssList = ["light_theme/general.css", "dark_theme/background.css", "dark_theme/common.css", "dark_theme/chat.css", "dark_theme/icons.css", "dark_theme/general.css"];
+  cssList = ["native_theme/general.css", "dark_theme/background.css", "dark_theme/common.css", "dark_theme/chat.css", "dark_theme/icons.css", "dark_theme/general.css"];
 }
 
 const isHtmlPage = pageInfo[pageInfo.length - 1]?.endsWith('.html');
@@ -320,11 +320,6 @@ const _applyDarkStyleForGame = () => {
   });
 }
 
-const _setNativeStyle = () => {
-  console.log(`[bga extension] set native dark mode for ${mode}`);
-  themeStyleComponent.textContent = '';
-};
-
 const _setDarkStyle = () => {
   console.log(`[bga extension] set dark mode for ${mode}`);
 
@@ -335,8 +330,10 @@ const _setDarkStyle = () => {
   }
 };
 
-const _setLightStyle = () => {
-  const generalStyle = cssContents["light_theme/general.css"] as string;
+const _setNativeStyle = () => {
+  console.log(`[bga extension] set native mode for ${mode}`);
+
+  const generalStyle = cssContents["native_theme/general.css"] as string;
 
   if (themeStyleComponent) {
     themeStyleComponent.textContent = generalStyle;
@@ -377,6 +374,7 @@ const _manageHtmlTag = () => {
     const isDarkModeSelected = darkMode === 'on' || darkMode === 'native';
 
     if (bgaNativeDarkThemeSelected !== isDarkModeSelected) {
+      console.info("[bga extension] The BGA switch has been used to change the theme");
       (window as any).setDarkStyle(bgaNativeDarkThemeSelected);
       return;
     }
@@ -455,12 +453,10 @@ export const setDarkStyle = (newGameName: string, newDarkMode: DarkStyle) => {
   if (darkMode !== newDarkMode) {
     saveDarkStyle(newDarkMode);
 
-    if (newDarkMode === 'native') {
-      _setNativeStyle();
-    } else if (newDarkMode === 'on') {
+    if (newDarkMode === 'on') {
       _setDarkStyle();
     } else {
-      _setLightStyle();
+      _setNativeStyle();
     }
 
     _manageHtmlTag();

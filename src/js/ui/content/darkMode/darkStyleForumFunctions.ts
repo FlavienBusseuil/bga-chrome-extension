@@ -1,6 +1,6 @@
 import { getDarkStyle, createStyle, getFile, DarkStyle, saveDarkStyle } from "./darkStyleCommonFunctions";
 
-const cssList = ["dark_theme/background.css", "dark_theme/forum.css", "dark_theme/icons.css", "light_theme/general.css"];
+const cssList = ["dark_theme/background.css", "dark_theme/forum.css", "dark_theme/icons.css", "native_theme/general.css"];
 const cssContents: Record<string, string> = {};
 let customCssCode = '';
 let styleComponent: HTMLStyleElement;
@@ -14,10 +14,10 @@ Promise.all(cssList.map(file => getFile(file))).then(fileContents => {
 
 const _setDarkStyleIfActivated = () => {
   try {
-    if (getDarkStyle() === 'on') {
+    if (getDarkStyle() === 'on' || getDarkStyle() === 'native') {
       _setDarkStyle();
     } else {
-      _setLightStyle();
+      _setNativeStyle();
     }
   }
   catch (error) {
@@ -35,11 +35,11 @@ const _setDarkStyle = () => {
   document.documentElement.classList.add("bgaext_dark");
 };
 
-const _setLightStyle = () => {
-  console.log("[bga extension - forum] Set light mode");
+const _setNativeStyle = () => {
+  console.log("[bga extension - forum] Set native mode");
 
   if (styleComponent) {
-    styleComponent.textContent = `${cssContents["light_theme/general.css"]}${customCssCode}`;;
+    styleComponent.textContent = `${cssContents["native_theme/general.css"]}${customCssCode}`;;
   }
 
   document.documentElement.classList.remove("bgaext_dark");

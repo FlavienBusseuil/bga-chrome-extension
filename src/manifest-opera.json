@@ -84,7 +84,7 @@
         "img/icon-48.png",
         "img/icon-grey.png",
         "css/dark_theme/*.less",
-        "css/light_theme/*.less",
+        "css/native_theme/*.less",
         "css/games/*.less",
         "js/homepage.ts",
         "js/bgaApi.ts",
