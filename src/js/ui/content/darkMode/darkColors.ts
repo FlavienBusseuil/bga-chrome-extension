@@ -1,18 +1,33 @@
+const STYLE_ELT_ID = 'bgaext-theme-colors';
+
 const changeDarkColors = (hue: number, saturation: number) => {
+  let style = document.getElementById(STYLE_ELT_ID);
+
+  if (!style) {
+    style = document.createElement('style');
+    style.id = STYLE_ELT_ID;
+    document.head.appendChild(style);
+  }
+
   if (hue < 0) {
-    document.body.style.removeProperty("--dark-10");
-    document.body.style.removeProperty("--dark-20");
-    document.body.style.removeProperty("--dark-30");
-    document.body.style.removeProperty("--dark-40");
-    document.body.style.removeProperty("--dark-back");
-    document.body.style.removeProperty("--dark-popup-back");
+    style.textContent = '';
   } else {
-    document.body.style.setProperty("--dark-10", `hsl(${hue}, ${saturation}%, 13%)`);
-    document.body.style.setProperty("--dark-20", `hsl(${hue}, ${saturation}%, 17%)`);
-    document.body.style.setProperty("--dark-30", `hsl(${hue}, ${saturation - 4}%, 22%)`);
-    document.body.style.setProperty("--dark-40", `hsl(${hue}, ${saturation - 4}%, 26%)`);
-    document.body.style.setProperty("--dark-back", `hsl(${hue}, ${saturation}%, 15%, 0.75)`);
-    document.body.style.setProperty("--dark-popup-back", `hsl(${hue}, ${saturation - 4}%, 22%)`);
+    style.textContent = `body {
+      --dark-10: hsl(${hue}, ${saturation}%, 13%);
+      --dark-20: hsl(${hue}, ${saturation}%, 17%);
+      --dark-30: hsl(${hue}, ${saturation - 4}%, 22%);
+      --dark-40: hsl(${hue}, ${saturation - 4}%, 26%);
+      --dark-back: hsl(${hue}, ${saturation}%, 15%, 0.75);
+      --dark-back-50: hsl(${hue}, ${saturation - 4}%, 22%);
+
+      --palette-bga-whitebg: hsl(${hue}, ${saturation - 1}%, 17.84%);
+      --palette-bga-gray-200: hsl(${hue}, ${saturation - 2.1}%, 21.57%);
+      --palette-bga-gray-204: hsl(${hue}, ${saturation - 2.1}%, 23.33%);
+      --palette-bga-gray-211: hsl(${hue}, ${saturation - 4.8}%, 23.92%);
+      --palette-bga-gray-233: hsl(${hue}, ${saturation + 3.5}%, 28.24%);
+      --palette-bga-gray-244: hsl(${hue}, ${saturation - 3.8}%, 27.65%);
+      --palette-bga-gray-300: hsl(${hue}, ${saturation - 3.45}%, 30.78%);
+    }`;
   }
 };
 

@@ -238,12 +238,10 @@ const _setDarkStyleIfActivated = () => {
   }).finally(() => {
     const darkMode = getDarkStyle();
 
-    if (darkMode === 'native') {
-      _setNativeStyle();
-    } else if (darkMode === 'on') {
+    if (darkMode === 'on') {
       _setDarkStyle();
     } else {
-      _setLightStyle();
+      _setNativeStyle();
     }
 
     _manageHtmlTag();

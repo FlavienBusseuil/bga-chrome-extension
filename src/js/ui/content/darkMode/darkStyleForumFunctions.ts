@@ -57,6 +57,6 @@ export const setDarkStyle = (val: DarkStyle, customCss: string) => {
   if (val) {
     _setDarkStyle();
   } else {
-    _setLightStyle();
+    _setNativeStyle();
   }
 };

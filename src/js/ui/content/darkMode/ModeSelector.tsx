@@ -141,7 +141,7 @@ const ModeSelector = (props: ModeSelectorProps) => {
     paletteCursor = document.getElementById("bgaext_palette_cursor");
 
     if (paletteCursor) {
-      const cursPos = (darkColorHue * MULT) + 16;
+      const cursPos = darkColorHue * MULT;
 
       paletteCursor.style.left = `${cursPos}px`;
       paletteCursor.style.display = "block";
@@ -152,7 +152,7 @@ const ModeSelector = (props: ModeSelectorProps) => {
     saturationCursor = document.getElementById("bgaext_saturation_cursor");
 
     if (saturationCursor) {
-      const cursPos = ((darkColorSaturation - 4) * SAT_STEP * MULT) + 16;
+      const cursPos = (darkColorSaturation - 4) * SAT_STEP * MULT;
 
       saturationCursor.style.left = `${cursPos}px`;
       saturationCursor.style.display = "block";
@@ -194,8 +194,8 @@ const ModeSelector = (props: ModeSelectorProps) => {
 
   const paletteCursorMove = (evt: MouseEvent) => {
     const leftEdge = paletteContainer.getBoundingClientRect().left;
-    const maxPos = (360 * MULT) + 16;
-    const pos = Math.min(Math.max(evt.clientX - leftEdge - 10, 16), maxPos) - 16;
+    const maxPos = 360 * MULT;
+    const pos = Math.min(Math.max(evt.clientX - leftEdge - 10, 0), maxPos);
     const hue = Math.round(pos / MULT);
 
     console.debug(`[bga extension] set dark color hue: ${hue}`);
@@ -205,13 +205,13 @@ const ModeSelector = (props: ModeSelectorProps) => {
     }
     timer = window.setTimeout(() => setDarkColorHue(hue), 200);
 
-    paletteCursor.style.left = `${pos + 16}px`;
+    paletteCursor.style.left = `${pos}px`;
   };
 
   const saturationCursorMove = (evt: MouseEvent) => {
     const leftEdge = paletteContainer.getBoundingClientRect().left;
-    const maxPos = (360 * MULT) + 16;
-    const pos = Math.min(Math.max(evt.clientX - leftEdge - 10, 16), maxPos) - 16;
+    const maxPos = 360 * MULT;
+    const pos = Math.min(Math.max(evt.clientX - leftEdge - 10, 0), maxPos);
     const sat = Math.round(pos / SAT_STEP / MULT) + 4;
 
     console.debug(`[bga extension] set dark color sat: ${sat}`);
@@ -221,7 +221,7 @@ const ModeSelector = (props: ModeSelectorProps) => {
     }
     timer = window.setTimeout(() => setDarkColorSaturation(sat), 200);
 
-    saturationCursor.style.left = `${pos + 16}px`;
+    saturationCursor.style.left = `${pos}px`;
   };
 
   const paletteClick = (evt: MouseEvent) => {
@@ -237,13 +237,13 @@ const ModeSelector = (props: ModeSelectorProps) => {
   };
 
   const paletteCursorMoveDown = () => {
-    paletteContainer = document.getElementById("bgaext_palette_container") as any;
+    paletteContainer = document.getElementById("bgaext_theme_container") as any;
     paletteCursor = document.getElementById("bgaext_palette_cursor") as any;
     setPaletteCursorMoving(true);
   };
 
   const saturationCursorMoveDown = () => {
-    paletteContainer = document.getElementById("bgaext_palette_container") as any;
+    paletteContainer = document.getElementById("bgaext_theme_container") as any;
     saturationCursor = document.getElementById("bgaext_saturation_cursor") as any;
     setSaturationCursorMoving(true);
   };
@@ -505,7 +505,7 @@ const ModeSelector = (props: ModeSelectorProps) => {
     };
 
     return (
-      <div className="bgaext_theme_container" >
+      <div id="bgaext_theme_container" >
         {getNativeCheckBox()}
         <div className="bgaext_palette_body" style={{ width }}>
           {darkColorHue >= 0 && <div className="bgaext_palette" draggable={false} onDragStart={() => false}>
