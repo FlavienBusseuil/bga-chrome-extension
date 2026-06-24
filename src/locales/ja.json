@@ -70,6 +70,7 @@
   "reportCreationWarningCss": "あなたは、ブラウザ拡張機能の設定からサイトのCSSコードをカスタマイズしていますので、まずは問題がご自身のカスタマイズによるものではないかご確認ください。",
   "darkColorConfigurationMain": "デフォルトの色設定",
   "darkColorResetMain": "色を使用しないダークモード",
+  "darkModeNative": "BGAネイティブダークモード",
   "darkColorConfigurationGame": "ゲームの色設定",
   "darkColorResetGame": "サイトのデフォルトの色",
   "darkColorRecommanded": "推奨色",

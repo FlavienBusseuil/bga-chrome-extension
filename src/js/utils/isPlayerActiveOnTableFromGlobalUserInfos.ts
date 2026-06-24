@@ -13,7 +13,20 @@ export function isPlayerActiveOnTableFromGlobalUserInfos({
 	tableId,
 	globalUserInfos,
 }: Input): boolean {
-	return !!globalUserInfos.async_status[String(tableId)]?.actives?.find(
-		(id) => id === playerId,
-	);
+	try {
+		const tableInfos = globalUserInfos.table_infos?.tables[tableId];
+
+		if (tableInfos) {
+			const playerInfo = tableInfos.players[playerId];
+
+			if (playerInfo?.myturn === '1') {
+				return true;
+			}
+		}
+	}
+	catch (error) {
+		console.error("Exception occured in isPlayerActiveOnTableFromGlobalUserInfos", error);
+	}
+
+	return false;
 }

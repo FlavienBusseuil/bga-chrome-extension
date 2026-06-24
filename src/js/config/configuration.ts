@@ -26,6 +26,7 @@ interface CustomConfig {
 	darkModeSat?: number;
 	darkModeBrightness?: number;
 	darkModeNative?: boolean;
+	darkModeNativeAvailable?: boolean;
 	trackTables?: boolean;
 	soundNotification?: boolean;
 	motionSensitivity?: boolean;
@@ -716,11 +717,6 @@ class Configuration {
 		return eloStyle;
 	}
 
-	toggleNativeTheme() {
-		const detail = JSON.stringify({ type: 'ToggleTheme' });
-		document.body.dispatchEvent(new CustomEvent('bga_ext_api_call', { detail }));
-	}
-
 	isDarkModeNative() {
 		return Boolean(this._customConfig.darkModeNative);
 	}
@@ -728,6 +724,15 @@ class Configuration {
 	setDarkModeNative(val: boolean) {
 		this._customConfig.darkModeNative = val;
 		storageSet({ darkModeNative: val });
+	}
+
+	isDarkModeNativeAvailable() {
+		return Boolean(this._customConfig.darkModeNativeAvailable);
+	}
+
+	setDarkModeNativeAvailable(val: boolean) {
+		this._customConfig.darkModeNativeAvailable = val;
+		storageSet({ darkModeNativeAvailable: val });
 	}
 
 	isDarkMode() {
@@ -740,9 +745,12 @@ class Configuration {
 			storageSet({ darkMode: val });
 		}
 
-		const bgaDarkModeSelected = document.documentElement.style.colorScheme === 'dark';
-		if (bgaDarkModeSelected !== val) {
-			this.toggleNativeTheme();
+		if (this.isDarkModeNativeAvailable()) {
+			const bgaDarkModeSelected = document.documentElement.style.colorScheme === 'dark';
+			if (bgaDarkModeSelected !== val) {
+				const detail = JSON.stringify({ type: 'ToggleTheme' });
+				document.body.dispatchEvent(new CustomEvent('bga_ext_api_call', { detail }));
+			}
 		}
 	}
 

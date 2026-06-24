@@ -1,20 +1,20 @@
 @import '../variables';
 
-html:not(.dark):not(.bgaext_cust_back).bgaext_solid_back {
+html[data-theme=light]:not(.bgaext_cust_back).bgaext_solid_back {
   background: #fff;
 }
 
-html:not(.dark):not(.bgaext_cust_back).bgaext_game.bgaext_solid_back {
+html[data-theme=light]:not(.bgaext_cust_back).bgaext_game.bgaext_solid_back {
   background: #dfb98b;
 }
 
-html:not(.dark).bgaext_forum_visible.bgaext_solid_back,
-html:not(.dark).bgaext_forum_visible.bgaext_solid_back body,
-html:not(.dark).bgaext_forum.bgaext_solid_back body {
+html[data-theme=light].bgaext_forum_visible.bgaext_solid_back,
+html[data-theme=light].bgaext_forum_visible.bgaext_solid_back body,
+html[data-theme=light].bgaext_forum.bgaext_solid_back body {
   background: #f5f7fa;
 }
 
-html.dark {
+html[data-theme=dark] {
 
   .bga-menu-bar__logo-holder svg,
   .emblempremium_big,
@@ -33,7 +33,7 @@ html.dark {
   }
 }
 
-html.dark.bgaext_gamelist {
+html[data-theme=dark].bgaext_gamelist {
 
   .bga-game-item__box-visible,
   .zoom-rounded,
@@ -43,7 +43,7 @@ html.dark.bgaext_gamelist {
   }
 }
 
-html.dark.bgaext_news {
+html[data-theme=dark].bgaext_news {
 
   pagesection__content>div:first-child,
   .newsblockimage {

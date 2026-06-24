@@ -70,6 +70,7 @@
   "reportCreationWarningCss": "També has modificat el codi CSS del lloc a través de les opcions de l'extensió, així que comprova primer que els teus problemes no estiguin causats per les teves personalitzacions.",
   "darkColorConfigurationMain": "Configuració de color predeterminada",
   "darkColorResetMain": "Mode fosc sense color",
+  "darkModeNative": "Mode fosc natiu de BGA",
   "darkColorConfigurationGame": "Configuració de color del joc",
   "darkColorResetGame": "Colors predeterminats del lloc",
   "darkColorRecommanded": "Colors suggerits",

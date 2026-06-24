@@ -51,25 +51,56 @@ const initPage = () => {
 
   configLoaded = true;
   sendForumLoaded();
+
+  let _manageHtmlTagTimeout: any = 0;
+
+  const observer = new MutationObserver(() => {
+    if (_manageHtmlTagTimeout) {
+      clearTimeout(_manageHtmlTagTimeout);
+    }
+    _manageHtmlTagTimeout = setTimeout(_manageHtmlTag, 100);
+  });
+  observer.observe(document.documentElement, { attributes: true });
+};
+
+const _manageHtmlTag = () => {
+  const style = getDarkStyle();
+
+  if (style === 'native') {
+    localStorage.setItem('bga-theme', 'dark');
+    if (!document.documentElement.classList.contains('dark')) {
+      document.documentElement.classList.add('dark');
+    }
+  } else {
+    localStorage.setItem('bga-theme', 'light');
+    if (document.documentElement.classList.contains('dark')) {
+      document.documentElement.classList.remove('dark');
+    }
+  }
 };
 
 document.addEventListener('bga_ext_update_config', (data) => {
   const key = (data as CustomEvent).detail.key as string;
 
-  if (key === 'dark') {
-    adjustDarkColors();
-  } else if (key === 'darkMode' || key === 'darkModeNative') {
-    const darkStyle = getDarkStyle();
-    setDarkStyle(darkStyle, config.getCustomCss());
+  switch (key) {
+    case 'darkModeColor':
+    case 'darkModeSat':
+      adjustDarkColors();
+      break;
+    case 'darkMode':
+    case 'darkModeNative':
+      const darkStyle = getDarkStyle();
+      setDarkStyle(darkStyle, config.getCustomCss());
 
-    if (darkStyle !== 'on') {
-      // refresh of the CSS to load the background image that was previously blocked
-      const link = Array.from(document.querySelectorAll("link")).find(l => l.href.indexOf('stylesheet.css') > 0)
-      if (link) {
-        setTimeout(() => link.href = `${link.href.split('?')[0]}?${cssCounter++}`, 100);
-        setTimeout(() => link.href = `${link.href.split('?')[0]}?${cssCounter++}`, 1000);
+      if (darkStyle !== 'on') {
+        // refresh of the CSS to load the background image that was previously blocked
+        const link = Array.from(document.querySelectorAll("link")).find(l => l.href.indexOf('stylesheet.css') > 0)
+        if (link) {
+          setTimeout(() => link.href = `${link.href.split('?')[0]}?${cssCounter++}`, 100);
+          setTimeout(() => link.href = `${link.href.split('?')[0]}?${cssCounter++}`, 1000);
+        }
       }
-    }
+      break;
   }
 });
 

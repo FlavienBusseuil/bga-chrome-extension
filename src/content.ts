@@ -265,7 +265,7 @@ const manageLocationChange = (pathname: string) => {
 const setHtmlClass = (mode: string) => {
 	const oldClasses = Array.from(document.documentElement.classList).filter(c => c.startsWith('bgaext'));
 
-	oldClasses.map(oldClass => {
+	oldClasses.forEach(oldClass => {
 		document.documentElement.classList.remove(oldClass);
 	})
 
@@ -279,6 +279,9 @@ const setHtmlClass = (mode: string) => {
 	}
 	if (config.isGeneralChatHidden()) {
 		document.documentElement.classList.add('bgaext_general_chat_hidden');
+	}
+	if (config.isDarkModeNativeAvailable()) {
+		document.documentElement.classList.add('bgaext_bgalab');
 	}
 };
 
@@ -379,6 +382,11 @@ const initSidePanel = () => {
 
 const initPage = () => {
 	config.isEmpty() && document.dispatchEvent(new CustomEvent('bga_ext_get_config', {}));
+
+	const nativeDarkModeAvailable = Boolean(document.documentElement.classList.contains('dark'));
+	if (nativeDarkModeAvailable && !config.isDarkModeNativeAvailable()) {
+		config.setDarkModeNativeAvailable(true);
+	}
 
 	locationChangeManager.onLocationChange(changeLocation);
 

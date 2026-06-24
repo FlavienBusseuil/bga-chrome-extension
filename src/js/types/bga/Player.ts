@@ -1,4 +1,4 @@
-export type PlayerId = string & { readonly __brand: unique symbol };;
+export type PlayerId = string & { readonly __brand: unique symbol };
 
 export type PlayerTableStatus = "play" | "playasync" | "expected";
 

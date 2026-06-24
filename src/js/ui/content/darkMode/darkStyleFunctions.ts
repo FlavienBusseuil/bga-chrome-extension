@@ -102,13 +102,26 @@ const _getDarkColorsStyle = (playersData: PlayerData[]) => {
     return `[color="${color}"], [style*=";color:${color}"], [style*=";color: ${color}"], [style*="; color:${color}"], [style*="; color: ${color}"], [style^="color:${color}"], [style^="color: ${color}"]`
   }
 
-  const getDeclarations = (color: string) => {
+  const getDeclarations = (color: string, managePlayerLink?: boolean) => {
     const colorRgb = _hexToRgb(color);
     const colorUp = color.toUpperCase();
 
     const declaration = [getDeclaration(color), getDeclaration(colorRgb)];
+
     if (color !== colorUp) {
       declaration.push(getDeclaration(colorUp))
+    }
+
+    if (managePlayerLink) {
+      declaration.push(`.player-name a[style^="color: ${color}"]`);
+      declaration.push(`.log .playername[style^="color:${color}"]`);
+      declaration.push(`#pagemaintitletext .playername[style^="color: ${color}"]`);
+
+      if (color !== colorUp) {
+        declaration.push(`.player-name a[style^="color: ${colorUp}"]`);
+        declaration.push(`.log .playername[style^="color:${colorUp}"]`);
+        declaration.push(`#pagemaintitletext .playername[style^="color: ${colorUp}"]`);
+      }
     }
 
     return declaration.join(', ');
@@ -121,7 +134,7 @@ const _getDarkColorsStyle = (playersData: PlayerData[]) => {
 
   const colorsToEnlightFiltered = playersData.filter(p => p.darkEnlight);
   const enlightStyle = colorsToEnlightFiltered.length
-    ? `${colorsToEnlightFiltered.map((p) => getDeclarations(p.color)).join(', ')} { text-shadow: var(--text-w-shadow) !important; }`
+    ? `${colorsToEnlightFiltered.map((p) => getDeclarations(p.color, true)).join(', ')} { text-shadow: var(--text-w-shadow) !important; }`
     : "";
 
   const playerColorsCss = playersData.map(p => {
@@ -368,13 +381,15 @@ const _manageHtmlTag = () => {
 
     const darkMode = getDarkStyle();
 
-    const bgaNativeDarkThemeSelected = document.documentElement.style.colorScheme === 'dark';
-    const isDarkModeSelected = darkMode === 'on' || darkMode === 'native';
+    if (document.documentElement.classList.contains('bgaext_bgalab')) {
+      const bgaNativeDarkThemeSelected = document.documentElement.style.colorScheme === 'dark';
+      const isDarkModeSelected = darkMode === 'on' || darkMode === 'native';
 
-    if (bgaNativeDarkThemeSelected !== isDarkModeSelected) {
-      console.info("[bga extension] The BGA switch has been used to change the theme");
-      (window as any).setDarkStyle(bgaNativeDarkThemeSelected);
-      return;
+      if (bgaNativeDarkThemeSelected !== isDarkModeSelected) {
+        console.info("[bga extension] The BGA switch has been used to change the theme");
+        (window as any).setDarkStyle(bgaNativeDarkThemeSelected);
+        return;
+      }
     }
 
     if (darkMode === 'native') {

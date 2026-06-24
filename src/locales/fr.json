@@ -70,6 +70,7 @@
   "reportCreationWarningCss": "Vous avez également modifié le code CSS du site via les options de l'extension, veuillez d'abord vérifier que vos problèmes ne viennent pas de vos personnalisations.",
   "darkColorConfigurationMain": "Configuration des couleurs par défaut",
   "darkColorResetMain": "Mode sombre sans couleur",
+  "darkModeNative": "Mode fosc natiu de BGA",
   "darkColorConfigurationGame": "Configuration des couleurs de ce jeu",
   "darkColorResetGame": "Couleurs par défaut du site",
   "darkColorRecommanded": "Couleurs suggérées",

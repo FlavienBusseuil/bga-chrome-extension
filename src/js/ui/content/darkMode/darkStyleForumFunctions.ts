@@ -48,13 +48,9 @@ const _setNativeStyle = () => {
 export const setDarkStyle = (val: DarkStyle, customCss: string) => {
   customCssCode = customCss;
 
-  if (getDarkStyle() === val) {
-    return;
-  }
-
   saveDarkStyle(val);
 
-  if (val) {
+  if (val === 'on') {
     _setDarkStyle();
   } else {
     _setNativeStyle();
