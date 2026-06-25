@@ -115,12 +115,16 @@ const _getDarkColorsStyle = (playersData: PlayerData[]) => {
     if (managePlayerLink) {
       declaration.push(`.player-name a[style^="color: ${color}"]`);
       declaration.push(`.log .playername[style^="color:${color}"]`);
+      declaration.push(`.gamelogreview .playername[style^="color:${color}"]`);
       declaration.push(`#pagemaintitletext .playername[style^="color: ${color}"]`);
+      declaration.push(`#chatbar .playername[style^="color:${color}"]`);
 
       if (color !== colorUp) {
         declaration.push(`.player-name a[style^="color: ${colorUp}"]`);
         declaration.push(`.log .playername[style^="color:${colorUp}"]`);
+        declaration.push(`.gamelogreview .playername[style^="color:${colorUp}"]`);
         declaration.push(`#pagemaintitletext .playername[style^="color: ${colorUp}"]`);
+        declaration.push(`#chatbar .playername[style^="color:${colorUp}"]`);
       }
     }
 
@@ -345,9 +349,10 @@ const _setNativeStyle = () => {
   console.log(`[bga extension] set native mode for ${mode}`);
 
   const generalStyle = cssContents["native_theme/general.css"] as string;
+  const iconStyle = cssContents["dark_theme/icons.css"] as string;
 
   if (themeStyleComponent) {
-    themeStyleComponent.textContent = generalStyle;
+    themeStyleComponent.textContent = `${generalStyle}${iconStyle}`;
   }
 
   if (playersStyleComponent) {

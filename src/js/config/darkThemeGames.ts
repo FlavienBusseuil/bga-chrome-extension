@@ -588,6 +588,11 @@ export const gamesConfiguration: Record<string, GameConfig> = {
   flipseven: {
     customBack: true
   },
+  flipsevenwithavengeance: {
+    customBack: true,
+    overlay: true,
+    playersBorder: ['.f7_player.player_status_[style^="border-color: {{player_color_rgb}}"]']
+  },
   fliptoons: {
     customBack: ["custom-background"]
   },
@@ -1175,6 +1180,10 @@ export const gamesConfiguration: Record<string, GameConfig> = {
   photosynthesis: {
     customBack: true
   },
+  piles: {
+    customBack: true,
+    playersTextColor: ['strong[data-color="{{player_color}}"]']
+  },
   pilipili: {
     customBack: true,
     overlay: true,
@@ -1313,6 +1322,10 @@ export const gamesConfiguration: Record<string, GameConfig> = {
   refuge: {
     customBack: true,
     playersBorder: ["#player-table-{{player_id}}"]
+  },
+  relativespace: {
+    customBack: ['vgincLib_thematic_background_on'],
+    playersTextColor: ["strong[data-color=\"{{player_color}}\"]"]
   },
   resarcana: {
     customBack: true

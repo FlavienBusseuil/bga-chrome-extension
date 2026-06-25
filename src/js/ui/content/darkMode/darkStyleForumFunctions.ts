@@ -39,7 +39,7 @@ const _setNativeStyle = () => {
   console.log("[bga extension - forum] Set native mode");
 
   if (styleComponent) {
-    styleComponent.textContent = `${cssContents["native_theme/general.css"]}${customCssCode}`;;
+    styleComponent.textContent = `${cssContents["native_theme/general.css"]}${customCssCode}`;
   }
 
   document.documentElement.classList.remove("bgaext_dark");

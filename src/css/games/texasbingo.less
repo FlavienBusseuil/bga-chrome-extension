@@ -1,0 +1,50 @@
+@import './common';
+
+html[data-theme=dark] {
+
+	.tb-card-image,
+	.tb-mission-card {
+		filter: var(--ext-bright);
+	}
+
+	#tb-player-aid-image:before {
+		.reduceBrightness();
+	}
+}
+
+.bgaext_dark {
+
+	#overall-content,
+	#tb-mission-panel.is-confirmed .tb-mission-title {
+		color: var(--light-80);
+	}
+
+	.tb-zoom-title {
+		color: var(--light-70);
+	}
+
+	#tb-zoom-controls {
+		background: var(--dark-back);
+		border-color: var(--light-50);
+	}
+
+	#tb-zoom-controls button {
+		.defaultButton();
+	}
+
+	#tb-zoom-controls button:hover {
+		.defaultButtonOver();
+	}
+
+	#tb-board {
+		background-color: var(--dark-10);
+	}
+
+	.tb-cell {
+		background: var(--dark-40) !important;
+	}
+
+	.tb-cell .tb-card-image {
+		filter: invert(0.8) hue-rotate(180deg);
+	}
+}

@@ -15,6 +15,7 @@ export const gamesWithRecommendedConfig: { [gameName: GameName]: RecommendedConf
 	betta: { color: 180, sat: 20 },
 	beyondthesun: { color: 197, sat: 35 },
 	bigmonster: { color: 241, sat: 24 },
+	biome: { color: 224, sat: 20 },
 	cafe: { color: 10, sat: 20 },
 	carnegie: { color: 169, sat: 10 },
 	cartographers: { color: 20, sat: 15 },

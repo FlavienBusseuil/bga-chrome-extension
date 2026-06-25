@@ -1,0 +1,113 @@
+html[data-theme=light] {
+	.bgabutton_gray i {
+		color: #fff !important;
+	}
+}
+
+html[data-theme=dark] {
+
+	.centerpiece,
+	.card .card-image .card-sprite {
+		filter: var(--ext-bright);
+	}
+}
+
+.bgaext_dark {
+	--game-bga-player-panel-background: var(--dark-40);
+
+	.player-hand-title {
+		background: var(--dark-20);
+		color: var(--blue-50);
+		border-color: var(--blue-50);
+	}
+
+	.starter-hand .starter-hand-title {
+		color: var(--blue-50);
+	}
+
+	.player-hand,
+	.starter-hand {
+		background: var(--dark-back);
+	}
+
+	.player-hand-section {
+		background: var(--dark-back-50);
+	}
+
+	.player-hand .hand-card-count {
+		color: var(--light-50);
+		background: var(--dark-back);
+	}
+
+	#overall-content,
+	.card-size-btn .icon-minus,
+	.card-size-btn .icon-plus,
+	.size-changer-btn .icon-minus,
+	.size-changer-btn .icon-plus {
+		color: var(--light-80);
+	}
+
+	span[style*="color: rgb(51, 51, 51)"] {
+		color: var(--light-70) !important;
+	}
+
+	.habitat-marsh {
+		background: linear-gradient(135deg, #09222a, #1f4b60 50%, #1f5061);
+		border-color: #2b506e
+	}
+
+	.habitat-marsh .habitat-title {
+		color: #3f75a2;
+		text-shadow: -1px -1px #0008, 1px 1px #0008, -1px 1px #0008, 1px -1px #0008;
+	}
+
+	.habitat-prairie {
+		background: linear-gradient(135deg, #2a1e09, #5e4622 50%, #5e4421);
+		border-color: #856514
+	}
+
+	.habitat-prairie .habitat-title {
+		color: #b68a1b;
+		text-shadow: -1px -1px #0008, 1px 1px #0008, -1px 1px #0008, 1px -1px #0008;
+	}
+
+	.habitat-jungle {
+		background: linear-gradient(135deg, #0e250e, #215e21 50%, #1e621e);
+		border-color: #1e7b1e
+	}
+
+	.habitat-jungle .habitat-title {
+		color: #1d771d;
+		text-shadow: -1px -1px #0008, 1px 1px #0008, -1px 1px #0008, 1px -1px #0008;
+	}
+
+	.habitat-cell {
+		background: var(--dark-20);
+	}
+
+	.habitat-cell:hover {
+		background: var(--dark-30);
+	}
+
+	.card-localized-overlay-name,
+	.card-localized-overlay-body {
+		background: var(--dark-20);
+		color: var(--light-80);
+	}
+
+	.modal-content {
+		background: var(--dark-10);
+		outline: 1px solid var(--dark-40);
+		color: var(--light-70);
+	}
+
+	.exchange-rule-banner {
+		border: 1px solid var(--dark-40);
+		background: var(--dark-20);
+	}
+
+	exchange-progress-pill {
+		background: #000;
+		color: var(--light-60);
+	}
+}

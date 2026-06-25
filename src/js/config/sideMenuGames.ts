@@ -1859,6 +1859,12 @@ const defaultGames: Partial<Game>[] = [
 		playerPanel: ".drako-player-area .drako-player-table-label",
 		playerPanelOffset: 10
 	},
+	{
+		name: "relativespace",
+		playerPanel: "player-table-{{player_id}}",
+		css: "#bga-jump-to_controls { display: none; }",
+	},
+
 ];
 
 export default defaultGames;

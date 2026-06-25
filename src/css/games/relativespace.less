@@ -1,0 +1,20 @@
+@import './common';
+
+html[data-theme=dark] {
+	.bga-cards_card-side:before {
+		.reduceBrightness();
+		border-radius: 6px;
+	}
+}
+
+.bgaext_dark {
+
+	#player-tables .player-table,
+	.player-board {
+		background: var(--dark-back);
+	}
+
+	.card-stock.cards .slot {
+		outline-color: var(--light-50) !important;
+	}
+}
