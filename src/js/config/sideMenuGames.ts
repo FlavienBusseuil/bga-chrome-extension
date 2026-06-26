@@ -1864,7 +1864,10 @@ const defaultGames: Partial<Game>[] = [
 		playerPanel: "player-table-{{player_id}}",
 		css: "#bga-jump-to_controls { display: none; }",
 	},
-
+	{
+		name: "biome",
+		playerPanel: "player-table-{{player_id}}"
+	},
 ];
 
 export default defaultGames;

@@ -1,0 +1,48 @@
+html[data-theme=dark] {
+
+	.tableau .card_space,
+	.tableau .pboard,
+	.tableau .card_land,
+	.tableau .card_water,
+	.carddisplay .card,
+	.carddisplay .deck,
+	.mainboard {
+		filter: var(--ext-bright);
+	}
+}
+
+html.bgaext_dark:before {
+	filter: invert(1) hue-rotate(180deg);
+	opacity: 1;
+}
+
+html.bgaext_dark {
+
+	#player_boards {
+
+		.player-board,
+		.player-board>* {
+			filter: invert(1) hue-rotate(180deg);
+		}
+	}
+
+	.miniboard {
+
+		.counter,
+		.guild_count,
+		.jtag_count,
+		.tracker {
+			color: #000;
+			text-shadow: var(--text-w-shadow);
+		}
+	}
+
+	.tooltipcontainer,
+	.tundra .dijitTooltipContainer {
+		background: var(--dark-10);
+	}
+
+	.pboard:after {
+		background-color: var(--dark-back);
+	}
+}

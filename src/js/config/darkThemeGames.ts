@@ -197,6 +197,9 @@ export const gamesConfiguration: Record<string, GameConfig> = {
   bossquest: {
     customBack: true
   },
+  bugoff: {
+    playersBorder: ['bugoff-player-zone-{{player_id}}']
+  },
   bunnyboom: {
     customBack: true,
     overlay: true
@@ -451,6 +454,10 @@ export const gamesConfiguration: Record<string, GameConfig> = {
     }
   },
   dragonarium: {
+    customBack: true,
+    overlay: true
+  },
+  dragonoverload: {
     customBack: true,
     overlay: true
   },
@@ -1059,6 +1066,10 @@ export const gamesConfiguration: Record<string, GameConfig> = {
   },
   nature: {
     customBack: true
+  },
+  nemesisretaliation: {
+    customBack: true,
+    customColors: ['#c81818', '#d41c98']
   },
   neonreign: {
     customBack: true
@@ -1829,6 +1840,11 @@ export const gamesConfiguration: Record<string, GameConfig> = {
   wanderingtowers: {
     customBack: true,
     overlay: true
+  },
+  wayfarers: {
+    customBack: true,
+    customPanel: true,
+    playersTextColor: ['#pboard_{{player_color}}:after']
   },
   welcometothemoon: {
     playersBorder: ["#score-sheet-{{player_id}}", "#score-sheet-{{player_id}} .player-name"]

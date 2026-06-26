@@ -1,0 +1,85 @@
+@import "./common";
+
+html[data-theme=dark] {
+
+	.bugoff-card {
+		filter: var(--ext-bright);
+	}
+
+	#bugoff-deck .pile-count,
+	#bugoff-score-pile .pile-count.bugoff-score-top-card {
+		position: relative;
+	}
+
+	#bugoff-deck .pile-count:before,
+	#bugoff-score-pile .pile-count.bugoff-score-top-card:before {
+		.reduceBrightness();
+	}
+}
+
+.bgaext_dark {
+
+	#game_play_area_wrap {
+		background: transparent;
+	}
+
+	#bugoff-center,
+	.bugoff-player-zone,
+	#bugoff-hand-zone {
+		background: var(--dark-back);
+	}
+
+	.pile-label,
+	.bugoff-points-summary {
+		color: var(--light-60);
+	}
+
+	.pile-count {
+		background: var(--dark-20);
+		border-color: var(--dark-40);
+		color: var(--light-80);
+	}
+
+	#bugoff-strip-cards {
+		background: var(--dark-30);
+		border-color: var(--yellow-10);
+	}
+
+	.bugoff-score-target {
+		border-color: var(--yellow-10);
+	}
+
+	.bugoff-color-col.color-red {
+		background-color: #2b0808;
+		border-color: #951d1d
+	}
+
+	.bugoff-color-col.color-blue {
+		background-color: #08152b;
+		border-color: #294e89
+	}
+
+	.bugoff-color-col.color-green {
+		background-color: #0e2516;
+		border-color: #268c43
+	}
+
+	.bugoff-color-col.color-yellow {
+		background-color: #2e2a05;
+		border-color: #b39b00
+	}
+
+	.bugoff-color-col.color-purple {
+		background-color: #1e082b;
+		border-color: #582b88
+	}
+
+	.bugoff-color-col.color-orange {
+		background-color: #301a03;
+		border-color: #9d4e15
+	}
+
+	.bugoff-place-target {
+		border-color: #9de1ac40;
+	}
+}

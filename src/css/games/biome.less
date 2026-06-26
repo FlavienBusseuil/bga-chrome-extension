@@ -1,3 +1,5 @@
+@import './common';
+
 html[data-theme=light] {
 	.bgabutton_gray i {
 		color: #fff !important;
@@ -7,7 +9,8 @@ html[data-theme=light] {
 html[data-theme=dark] {
 
 	.centerpiece,
-	.card .card-image .card-sprite {
+	.card .card-image .card-sprite,
+	.achievement-card {
 		filter: var(--ext-bright);
 	}
 }
@@ -21,7 +24,8 @@ html[data-theme=dark] {
 		border-color: var(--blue-50);
 	}
 
-	.starter-hand .starter-hand-title {
+	.starter-hand .starter-hand-title,
+	.activation-modal .card-name-highlight {
 		color: var(--blue-50);
 	}
 
@@ -43,12 +47,31 @@ html[data-theme=dark] {
 	.card-size-btn .icon-minus,
 	.card-size-btn .icon-plus,
 	.size-changer-btn .icon-minus,
-	.size-changer-btn .icon-plus {
+	.size-changer-btn .icon-plus,
+	.resource-mini-name,
+	.selected-resources h4 {
 		color: var(--light-80);
 	}
 
 	span[style*="color: rgb(51, 51, 51)"] {
 		color: var(--light-70) !important;
+	}
+
+	.first-player-indicator {
+		background-color: var(--blue-70);
+	}
+
+	.player-resources {
+		border-color: transparent;
+	}
+
+	.resource-item {
+		background: var(--dark-10);
+		outline: 1px solid var(--light-50);
+	}
+
+	.resource-amount {
+		color: var(--blue-70);
 	}
 
 	.habitat-marsh {
@@ -90,7 +113,9 @@ html[data-theme=dark] {
 	}
 
 	.card-localized-overlay-name,
-	.card-localized-overlay-body {
+	.card-localized-overlay-body,
+	.achievement-localized-criteria,
+	.achievement-localized-name {
 		background: var(--dark-20);
 		color: var(--light-80);
 	}
@@ -101,13 +126,167 @@ html[data-theme=dark] {
 		color: var(--light-70);
 	}
 
-	.exchange-rule-banner {
+	.modal-hide-btn {
+		background-color: var(--dark-10);
+		outline: 1px solid var(--dark-40);
+		color: var(--light-60);
+	}
+
+	.modal-hide-btn:hover {
+		background-color: #000;
+		color: var(--light-80);
+	}
+
+	.exchange-rule-banner,
+	.exchange-section {
 		border: 1px solid var(--dark-40);
 		background: var(--dark-20);
 	}
 
-	exchange-progress-pill {
+	.exchange-progress-pill,
+	.exchange-count-badge,
+	.discard-card-count,
+	.summary-count,
+	.selected-item,
+	.selected-resources ul li {
 		background: #000;
+		color: var(--light-70);
+		outline: 1px solid var(--dark-40);
+	}
+
+	.exchange-progress-pill.ready {
+		background: var(--green-10);
+		color: var(--green-80);
+	}
+
+	.selected-item .summary-count {
+		background: transparent;
+		outline: none;
+	}
+
+	.selected-item:hover {
+		background: var(--dark-10);
+	}
+
+	.exchange-rule-text span,
+	.summary-label,
+	.resource-mini-count,
+	.resource-mini-status {
 		color: var(--light-60);
+	}
+
+	.summary-group,
+	.card-options {
+		background: var(--dark-10);
+		border-color: var(--dark-40);
+	}
+
+	.exchange-helper-text {
+		color: var(--light-50);
+	}
+
+	.resource-mini-button,
+	.resource-mini-button.fully-selected {
+		background: var(--dark-20);
+	}
+
+	.resource-mini-button:hover:not(:disabled),
+	.resource-mini-button.fully-selected:not(:disabled) {
+		background: var(--dark-10);
+	}
+
+	.resource-mini-button.selected {
+		background: var(--dark-40);
+	}
+
+	.options-container h5 {
+		border-color: var(--light-50);
+	}
+
+	.card-option-wrapper {
+		background: #000;
+		border-color: var(--dark-40);
+	}
+
+	.resource-icon {
+		filter: saturate(3);
+	}
+
+	.remove-icon {
+		color: var(--red-80);
+	}
+
+	.confirm-disabled-reason {
+		color: var(--red-10);
+	}
+
+	.remove-resource-btn {
+		background: var(--red-10);
+	}
+
+	.selected-resources {
+		border: 1px solid var(--dark-40);
+		background-color: var(--dark-20);
+	}
+
+	.resource-button {
+		background: var(--dark-10);
+		color: var(--light-70);
+		border-color: var(--dark-40);
+	}
+
+	.resource-button.selected {
+		background-color: var(--dark-20);
+		color: var(--light-80);
+	}
+
+	.distribution-status {
+		background-color: var(--dark-20);
+		outline: 1px solid var(--dark-40);
+	}
+
+	.distribution-status h4 {
+		color: var(--light-80);
+	}
+
+	.activation-modal .resource-highlight {
+		background-color: var(--yellow-10);
+		color: var(--yellow-50);
+	}
+
+
+	.player-distribution-item {
+		background-color: var(--dark-30);
+		border-color: var(--dark-40);
+	}
+
+	.player-distribution-item:hover {
+		background-color: var(--dark-40);
+	}
+
+	.player-distribution-item .player-name,
+	.distribution-controls .distribution-amount {
+		color: var(--light-70);
+	}
+
+	.btn-primary {
+		.blueButton();
+	}
+
+	.btn-primary:hover {
+		.blueButtonOver();
+	}
+
+	.btn-primary:disabled,
+	.btn-primary:disabled:hover {
+		.disabledButton();
+	}
+
+	.btn-secondary {
+		.defaultButton();
+	}
+
+	.btn-secondary:hover {
+		.defaultButtonOver();
 	}
 }

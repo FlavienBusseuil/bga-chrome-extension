@@ -1,0 +1,22 @@
+@import './common';
+
+html[data-theme=dark] {
+
+	.slot:empty,
+	.bga-cards_card,
+	#DOL-table #pond .animal {
+		filter: var(--ext-bright);
+	}
+
+	#DOL-table #pond:before {
+		.reduceBrightness();
+	}
+}
+
+.bgaext_dark {
+	--ext-overlay-color: #0002;
+
+	#controls {
+		filter: invert(0.9);
+	}
+}
