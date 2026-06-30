@@ -1,6 +1,23 @@
 @import "./common";
 
+html[data-theme=dark] {
+
+	.pools,
+	.bside,
+	.cards-pile,
+	#board,
+	#maze-board,
+	#titan-board,
+	.play-area .stockitem {
+		filter: var(--ext-bright);
+	}
+}
+
 .bgaext_dark {
+	body {
+		background: transparent !important;
+	}
+
 	#nb-turns-container {
 		color: #fff;
 	}
@@ -15,5 +32,26 @@
 
 	.cards-pile {
 		box-shadow: 0 0 2px 0 #9f9393;
+	}
+
+	#maze-caption {
+		background-color: var(--dark-back);
+	}
+
+	.player-orange {
+		color: #d87b26;
+	}
+
+	.player-blue {
+		color: #6b9193;
+	}
+
+	.player-black {
+		color: #000;
+		text-shadow: var(--text-w-shadow);
+	}
+
+	.player-green {
+		color: #bfbe3f;
 	}
 }

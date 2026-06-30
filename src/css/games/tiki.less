@@ -1,5 +1,24 @@
 @import "./common";
 
+html[data-theme=dark] {
+
+	.ananas,
+	.badananas,
+	.villages,
+	.token1,
+	.token2 {
+		filter: var(--ext-bright);
+	}
+
+	.villages {
+
+		.token1,
+		.token2 {
+			filter: none;
+		}
+	}
+}
+
 .bgaext_dark {
 	.bgae_panel .bgae_content .panel {
 		background-color: var(--dark-back);

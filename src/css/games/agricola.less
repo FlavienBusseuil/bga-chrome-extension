@@ -1,9 +1,43 @@
 @import "./common";
 
 html[data-theme=dark] {
-	.player-card .player-card-resizable .player-card-inner {
+
+	.player-card .player-card-resizable .player-card-inner,
+	#central-board #modal-buttons-holder,
+	.action-card-holder .action-card,
+	.action-card-holder .resource-holder>div,
+	.action-card-tooltip .action-card-holder {
 		filter: var(--ext-bright);
-		color: #000;
+	}
+
+	#ebd-body:not(.mobile_version) .action-card-holder .farmer-holder:not([data-n="0"])~.action-card,
+	#ebd-body:not(.help-mode):not(.mobile_version) .action-card-holder.unselectable .action-card {
+		filter: var(--ext-bright) grayscale(75%);
+	}
+}
+
+/* override Agricola dark theme */
+html[data-theme=dark].bgaext_dark {
+
+	#logs .roundedbox,
+	#page-title:not(.fixed-page-title),
+	#page-title:not(.fixed-page-title) #gameaction_status,
+	#page-title:not(.fixed-page-title) #pagemaintitletext,
+	#player_boards,
+	#player_boards .player-board,
+	#spectatorbox,
+	.agricola_popin,
+	.chatwindowlogs_zone .log.notif_newUndoableStep .roundedboxinner,
+	.player-card .player-card-zoom {
+		color: var(--light-80);
+	}
+
+	.bgabutton_gray {
+		.defaultButton();
+	}
+
+	.bgabutton_gray:hover {
+		.defaultButtonOver();
 	}
 }
 
@@ -43,6 +77,10 @@ html[data-theme=dark] {
 
 	#logs .log.notif_startNewTurn .roundedbox {
 		background: var(--dark-0);
+	}
+
+	#settings-controls-container .settings-section .settings-section-heading {
+		color: var(--blue-80);
 	}
 
 	#popin_showExchanges:before,
@@ -109,7 +147,8 @@ html[data-theme=dark] {
 		background-color: var(--dark-40);
 	}
 
-	#popin_showScores_contents {
+	#popin_showScores_contents,
+	#settings-controls-container .row-data.row-data-boolean .boolean-setting-text {
 		color: var(--light-80);
 	}
 
@@ -172,6 +211,14 @@ html[data-theme=dark] {
 	#left-board,
 	#central-board {
 		filter: contrast(1.1) opacity(0.9);
+	}
+
+	.player-card .player-card-zoom {
+		background-color: var(--dark-back);
+	}
+
+	.player-card .resource-holder {
+		background-color: var(--dark-back-50);
 	}
 
 	#btnUndoLastStep {

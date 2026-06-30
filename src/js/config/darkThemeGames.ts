@@ -1281,6 +1281,9 @@ export const gamesConfiguration: Record<string, GameConfig> = {
   quartermastergeneraleastfront: {
     customBack: true
   },
+  quartermastergeneralsouthfront: {
+    customBack: true
+  },
   questinc: {
     customBack: true,
     overlay: true,
@@ -1688,6 +1691,9 @@ export const gamesConfiguration: Record<string, GameConfig> = {
       document.body.style.setProperty("--back-yellow", `url(${cssPath}img/windows/window_yellow.png)`);
     }
   },
+  theloop: {
+    customColors: ["#000000", "#008ec8", "#009838", "#e86e7b", "#dd812c", "#982fff"]
+  },
   theninesonsofthedragon: {
     customBack: true
   },
@@ -1836,6 +1842,9 @@ export const gamesConfiguration: Record<string, GameConfig> = {
   },
   vizia: {
     customColors: ['blue', 'red', 'green', 'orange', 'purple', 'yellow'],
+  },
+  waddle: {
+    playersBorder: ['#player-area-{{player_id}}']
   },
   wanderingtowers: {
     customBack: true,

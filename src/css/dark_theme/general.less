@@ -1,5 +1,6 @@
 :root {
   color-scheme: dark;
+  --palette-bga-notification: #311c1c;
 }
 
 /* seems to not be used, and cause a white flash */
@@ -57,6 +58,10 @@
 
 .text-bga-link-red {
   color: var(--red-80) !important;
+}
+
+.more_infos {
+  color: var(--light-80) !important;
 }
 
 .bga-toggle {
@@ -1112,6 +1117,13 @@ select.colorselector {
   color: var(--blue-90);
 }
 
+/* Modal displaying game information */
+
+.bga-modal:has([href^="/gamepanel?game="]) {
+  --palette-bga-gray-204: var(--dark-0);
+  --palette-bga-gray-233: var(--dark-10);
+}
+
 /* Page Jeux */
 .bga-game-browser__panel,
 .bga-game-browser__panel>div {
@@ -1120,9 +1132,6 @@ select.colorselector {
 }
 
 .bgaext_gamelist {
-  --palette-bga-gray-204: var(--dark-0);
-  --palette-bga-gray-233: var(--dark-10);
-
   .bga-game-browser__panel .items-center .text-gray-600 {
     color: var(--light-80);
   }
@@ -1236,24 +1245,6 @@ select.colorselector {
 .bgaext_gamelist .bga-button-dropdown-item:hover {
   background-color: var(--dark-20) !important;
   color: var(--blue-80) !important;
-}
-
-/* There are not result matching your search */
-.bgaext_gamelist [style^="background: linear-gradient(rgb(234, 234, 234), rgb(198, 198, 198));"] {
-  background: var(--dark-10) !important;
-}
-
-.bgaext_gamelist [style^="background: linear-gradient(rgb(234, 234, 234), rgb(198, 198, 198));"] *:not(.bga-link) {
-  color: var(--light-80);
-}
-
-/* area with play button and short description */
-.bga-modal [style="background: linear-gradient(0deg, rgb(204, 204, 204) 0%, rgb(238, 238, 238) 50%);"] {
-  background: var(--dark-10) !important;
-}
-
-.bga-modal [style="background: linear-gradient(0deg, rgb(204, 204, 204) 0%, rgb(238, 238, 238) 50%);"] *:not(.text-bga-blue) {
-  color: var(--light-80);
 }
 
 .bga-button-holder .bga-button-plus {
@@ -2045,7 +2036,6 @@ button.bga-dropdown-option:hover {
     background-color: var(--dark-20) !important;
   }
 }
-
 
 /* game invitation */
 .bga-toast-holder .bga-toast.bg-bga-gray-233 {

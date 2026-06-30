@@ -19,7 +19,7 @@ html.bgaext_dark body {
   --dark-30: hsl(${hue}, ${saturation - 4}%, 22%);
   --dark-40: hsl(${hue}, ${saturation - 4}%, 26%);
   --dark-back: hsl(${hue}, ${saturation}%, 15%, 0.75);
-  --dark-back-50: hsl(${hue}, ${saturation - 4}%, 22%);
+  --dark-back-50: hsl(${hue}, ${saturation - 4}%, 22%, 0.5);
 }
 html.dark body {
   --palette-bga-whitebg: hsl(${hue}, ${saturation - 1}%, 17.84%);

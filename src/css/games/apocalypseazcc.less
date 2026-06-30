@@ -1,6 +1,18 @@
 @import "./common";
 
+html[data-theme=dark] {
+
+	.card_front,
+	.card_back {
+		filter: var(--ext-bright);
+	}
+}
+
 .bgaext_dark {
+	#overall-content {
+		color: var(--light-80);
+	}
+
 	.bgae_panel .bgae_content .panel {
 		background-color: var(--dark-back);
 		opacity: 1;
