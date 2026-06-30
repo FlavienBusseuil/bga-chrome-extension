@@ -16,6 +16,7 @@ div.bgext_right_menu i {
 }
 
 .desktop_version.logs_on_floating_panel.score_visible #right-side-first-part {
+	overflow: visible;
 	max-height: initial;
 	width: 240px;
 }

@@ -338,10 +338,10 @@ const _applyDarkStyleForGame = () => {
 const _setDarkStyle = () => {
   console.log(`[bga extension] set dark mode for ${mode}`);
 
-  if (gameName !== 'general') {
-    _applyDarkStyleForGame();
-  } else {
+  if (['general', 'studio'].includes(gameName)) {
     themeStyleComponent.textContent = `${cssContents["dark_theme/background.css"]}${cssContents["dark_theme/icons.css"]}${cssContents["dark_theme/common.css"]}${cssContents["dark_theme/chat.css"]}${cssContents["dark_theme/general.css"]}`;
+  } else {
+    _applyDarkStyleForGame();
   }
 };
 
