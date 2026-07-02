@@ -115,7 +115,8 @@ input:not(.soundVolumeSlider)[type=range]:focus::-ms-thumb {
 .log .playername,
 .gamelogreview .playername,
 #pagemaintitletext .playername,
-#chatbar .playername {
+#chatbar .playername,
+.standard_popin .playername {
   text-shadow: none !important;
 }
 
@@ -909,4 +910,15 @@ div[id*="popin"][id$="underlay"] {
   position: absolute;
   width: 100%;
   height: 100%;
+}
+
+/* lock screen for non premium users */
+#lock_screen {
+  --palette-bga-gray-244: var(--dark-20);
+  --game-palette-bga-link: var(--blue-50);
+  color: var(--light-80);
+
+  .whypremium_icon {
+    filter: invert(1);
+  }
 }

@@ -238,6 +238,21 @@ const manageLocationChange = (pathname: string) => {
 		return 'general';
 	}
 
+	if (pageName === 'tableview') {
+		const quitToLobby = config.getQuitGameTo() === 'lobby';
+		const preventAutoStart = !config.replayWithAutoStart();
+
+		if (quitToLobby || preventAutoStart) {
+			waitForObj('#gameIframe').then((elt) => {
+				const iframe = elt as HTMLIFrameElement;
+				iframe.sandbox.add("allow-top-navigation");
+				iframe.src = `${iframe.src}&bgaext=true`;
+			});
+		}
+
+		return 'general';
+	}
+
 	initChatIcon(config);
 	initDarkMode(config, 'general');
 

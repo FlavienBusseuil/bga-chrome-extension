@@ -118,6 +118,7 @@ const _getDarkColorsStyle = (playersData: PlayerData[]) => {
       declaration.push(`.gamelogreview .playername[style^="color:${color}"]`);
       declaration.push(`#pagemaintitletext .playername[style^="color: ${color}"]`);
       declaration.push(`#chatbar .playername[style^="color:${color}"]`);
+      declaration.push(`.standard_popin .playername[style^="color:${color}"]`);
 
       if (color !== colorUp) {
         declaration.push(`.player-name a[style^="color: ${colorUp}"]`);
@@ -125,6 +126,7 @@ const _getDarkColorsStyle = (playersData: PlayerData[]) => {
         declaration.push(`.gamelogreview .playername[style^="color:${colorUp}"]`);
         declaration.push(`#pagemaintitletext .playername[style^="color: ${colorUp}"]`);
         declaration.push(`#chatbar .playername[style^="color:${colorUp}"]`);
+        declaration.push(`.standard_popin .playername[style^="color:${colorUp}"]`);
       }
     }
 
