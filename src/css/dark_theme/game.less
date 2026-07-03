@@ -38,826 +38,834 @@ input:not(.soundVolumeSlider)[type=range]:focus::-ms-thumb {
   outline: none !important;
 }
 
-.gamestart_overlay {
-  background: none var(--dark-20);
-  color: var(--light-80);
-}
-
-#topbar,
-#page-title,
-.current_player_is_active #page-title,
-.gamestate_gameEnd #page-title {
-  background: var(--dark-10) !important;
-  color: var(--light-80);
-}
-
-#topbar #logoiconimg,
-.pubbanner {
-  filter: var(--ext-bright);
-}
-
-#topbar.private-alpha-banner__gradient {
-  background: linear-gradient(90deg, #212121, #2a2a2a 30%, var(--dark-10) 65%) !important;
-}
-
-#topbar.alpha-banner__gradient {
-  background: linear-gradient(90deg, #70126f, #80197e 30%, var(--dark-10) 65%) !important;
-}
-
-#topbar.beta-banner__gradient {
-  background: linear-gradient(90deg, #705423, #996300 30%, var(--dark-10) 65%) !important;
-}
-
-.alpha-banner__gradient .topbar_left_content,
-.beta-banner__gradient .topbar_left_content,
-.private-alpha-banner__gradient .topbar_left_content {
-  background: var(--dark-10);
-}
-
-#topbar.private-alpha-banner__gradient .alpha-beta-banner__triangle-corner {
-  background: linear-gradient(132deg, var(--dark-10), var(--dark-10) 50%, rgba(33, 33, 33, .463) 0, rgba(33, 33, 33, 0) 62%);
-}
-
-#topbar.alpha-banner__gradient .alpha-beta-banner__triangle-corner {
-  background: linear-gradient(132deg, var(--dark-10), var(--dark-10) 50%, rgba(112, 18, 111, .463) 0, rgba(112, 18, 111, 0) 62%);
-}
-
-#topbar.beta-banner__gradient .alpha-beta-banner__triangle-corner {
-  background: linear-gradient(132deg, var(--dark-10), var(--dark-10) 50%, rgba(112, 84, 35, .463) 0, rgba(112, 84, 35, 0) 62%);
-}
-
-.alpha-beta-banner__description a.text-bga-blue {
-  color: var(--light-80);
-}
-
-#ingame_menu_content {
-  background: var(--dark-30);
-  color: var(--light-100);
-}
-
-#ingame_menu_content a {
-  color: var(--light-100);
-}
-
-.ingame_menu_item {
-  color: var(--light-100) !important;
-}
-
-.ingame_menu_item:hover {
-  color: var(--violet-80) !important;
-}
-
-.player-board {
-  color: var(--light-80);
-}
-
-.player-name a,
-.log .playername,
-.gamelogreview .playername,
-#pagemaintitletext .playername,
-#chatbar .playername,
-.standard_popin .playername {
-  text-shadow: none !important;
-}
-
-html.darkpanel #player_boards .player-board,
-html.darkpanel #player_boards .player-board .roundedboxinner,
-html.darkpanel #player_boards .player-board .roundedboxinner b,
-#player_boards .player-board .roundedbox_main,
-#player_boards .player-board .roundedbox_topleft,
-#player_boards .player-board .roundedbox_topmain,
-#player_boards .player-board .roundedbox_topright,
-#player_boards .player-board .roundedbox_bottomleft,
-#player_boards .player-board .roundedbox_bottommain,
-#player_boards .player-board .roundedbox_bottomright {
-  background: var(--dark-20) !important;
-}
-
-/* new version of loading messages ? */
-.roundedbox,
-.roundedbox .roundedbox_main,
-.roundedbox .roundedbox_topleft,
-.roundedbox .roundedbox_topmain,
-.roundedbox .roundedbox_topright,
-.roundedbox .roundedbox_bottomleft,
-.roundedbox .roundedbox_bottommain,
-.roundedbox .roundedbox_bottomright {
-  background-color: var(--dark-20);
-}
-
-#connect_status_text,
-#connect_gs_status_text,
-#connect_status_fail_text {
-  color: var(--light-80);
-}
-
-#spectatorbox_wrapper .player-board,
-#spectatorbox_wrapper .player-board .roundedboxinner,
-#spectatorbox_wrapper .player-board .roundedboxinner b,
-#spectatorbox_wrapper .player-board .roundedbox_main,
-#spectatorbox_wrapper .player-board .roundedbox_topleft,
-#spectatorbox_wrapper .player-board .roundedbox_topmain,
-#spectatorbox_wrapper .player-board .roundedbox_topright,
-#spectatorbox_wrapper .player-board .roundedbox_bottomleft,
-#spectatorbox_wrapper .player-board .roundedbox_bottommain,
-#spectatorbox_wrapper .player-board .roundedbox_bottomright {
-  background: var(--dark-20) !important;
-}
-
-.player-board.spectator-mode,
-.player-board.spectator-mode .roundedboxinner,
-.player-board.spectator-mode .roundedboxinner b,
-.player-board.spectator-mode .roundedbox_main,
-.player-board.spectator-mode .roundedbox_topleft,
-.player-board.spectator-mode .roundedbox_topmain,
-.player-board.spectator-mode .roundedbox_topright,
-.player-board.spectator-mode .roundedbox_bottomleft,
-.player-board.spectator-mode .roundedbox_bottommain,
-.player-board.spectator-mode .roundedbox_bottomright {
-  background: var(--dark-20) !important;
-  color: var(--light-80);
-}
-
-spectator-mode .log .roundedbox .playername {
-  display: inline !important;
-}
-
-#logs .log .roundedbox {
-  background: var(--dark-10);
-  color: var(--light-80);
-  text-shadow: none;
-}
-
-#logs .log.cancel .roundedbox {
-  background-color: var(--orange-10) !important;
-}
-
-#logs .log .timestamp {
-  color: var(--light-80);
-}
-
-#logs .log:hover .timestamp {
-  background: transparent;
-  color: var(--blue-90);
-}
-
-#logs .timestamp {
-  text-shadow: none;
-}
-
-#logs .log .icon20_fullscreen,
-#logs .log .icon20_mute,
-#logs .log .icon20_config {
-  filter: contrast(2) invert(0.8);
-}
-
-.log_replayable:hover {
-  background-color: var(--dark-back);
-}
-
-.bgabutton,
-.bgabutton i {
-  text-shadow: var(--text-b-shadow) !important;
-}
-
-.bgabutton_blue:not(.disabled):not(:disabled) {
-  background: linear-gradient(180deg, #0ba9b7, #248189);
-  border: 1px solid #36848c;
-}
-
-.bgabutton_blue:not(.disabled):not(:disabled):hover {
-  background: linear-gradient(180deg, #06d7ea, #248189);
-}
-
-.bgabutton_blue:not(.disabled):not(:disabled):active {
-  background: linear-gradient(180deg, #248189, #0ba9b7);
-}
-
-.bgabutton_gray,
-.bgabutton_white {
-  background: linear-gradient(#606060, #777);
-  border: 1px solid #999;
-  color: #fff !important;
-}
-
-.bgabutton_gray:hover,
-.bgabutton_white:hover {
-  background: linear-gradient(180deg, #727272, #777);
-}
-
-.debug_section {
-  .bgabutton_gray {
-    background: linear-gradient(#606060, #777) !important;
+html[data-theme=dark] {
+  .gamestart_overlay {
+    background: none var(--dark-20);
+    color: var(--light-80);
   }
 
-  .bgabutton_gray:hover {
-    background: linear-gradient(180deg, #727272, #777) !important;
+  #topbar,
+  #page-title,
+  .current_player_is_active #page-title,
+  .gamestate_gameEnd #page-title {
+    background: var(--dark-10) !important;
+    color: var(--light-80);
+  }
+
+  #topbar #logoiconimg,
+  .pubbanner {
+    filter: var(--ext-bright);
+  }
+
+  #topbar.private-alpha-banner__gradient {
+    background: linear-gradient(90deg, #212121, #2a2a2a 30%, var(--dark-10) 65%) !important;
+  }
+
+  #topbar.alpha-banner__gradient {
+    background: linear-gradient(90deg, #70126f, #80197e 30%, var(--dark-10) 65%) !important;
+  }
+
+  #topbar.beta-banner__gradient {
+    background: linear-gradient(90deg, #705423, #996300 30%, var(--dark-10) 65%) !important;
+  }
+
+  .alpha-banner__gradient .topbar_left_content,
+  .beta-banner__gradient .topbar_left_content,
+  .private-alpha-banner__gradient .topbar_left_content {
+    background: var(--dark-10);
+  }
+
+  #topbar.private-alpha-banner__gradient .alpha-beta-banner__triangle-corner {
+    background: linear-gradient(132deg, var(--dark-10), var(--dark-10) 50%, rgba(33, 33, 33, .463) 0, rgba(33, 33, 33, 0) 62%);
+  }
+
+  #topbar.alpha-banner__gradient .alpha-beta-banner__triangle-corner {
+    background: linear-gradient(132deg, var(--dark-10), var(--dark-10) 50%, rgba(112, 18, 111, .463) 0, rgba(112, 18, 111, 0) 62%);
+  }
+
+  #topbar.beta-banner__gradient .alpha-beta-banner__triangle-corner {
+    background: linear-gradient(132deg, var(--dark-10), var(--dark-10) 50%, rgba(112, 84, 35, .463) 0, rgba(112, 84, 35, 0) 62%);
+  }
+
+  .alpha-beta-banner__description a.text-bga-blue {
+    color: var(--light-80);
+  }
+
+  #ingame_menu_content {
+    background: var(--dark-30);
+    color: var(--light-100);
+  }
+
+  #ingame_menu_content a {
+    color: var(--light-100);
+  }
+
+  .ingame_menu_item {
+    color: var(--light-100) !important;
+  }
+
+  .ingame_menu_item:hover {
+    color: var(--violet-80) !important;
+  }
+
+  .player-board {
+    color: var(--light-80);
+  }
+
+  .player-name a,
+  .log .playername,
+  .gamelogreview .playername,
+  #pagemaintitletext .playername,
+  #chatbar .playername,
+  .standard_popin .playername {
+    text-shadow: none !important;
+  }
+
+  #player_boards .player-board .roundedbox_main,
+  #player_boards .player-board .roundedbox_topleft,
+  #player_boards .player-board .roundedbox_topmain,
+  #player_boards .player-board .roundedbox_topright,
+  #player_boards .player-board .roundedbox_bottomleft,
+  #player_boards .player-board .roundedbox_bottommain,
+  #player_boards .player-board .roundedbox_bottomright {
+    background: var(--dark-20) !important;
+  }
+
+  /* new version of loading messages ? */
+  .roundedbox,
+  .roundedbox .roundedbox_main,
+  .roundedbox .roundedbox_topleft,
+  .roundedbox .roundedbox_topmain,
+  .roundedbox .roundedbox_topright,
+  .roundedbox .roundedbox_bottomleft,
+  .roundedbox .roundedbox_bottommain,
+  .roundedbox .roundedbox_bottomright {
+    background-color: var(--dark-20);
+  }
+
+  #connect_status_text,
+  #connect_gs_status_text,
+  #connect_status_fail_text {
+    color: var(--light-80);
+  }
+
+  #spectatorbox_wrapper .player-board,
+  #spectatorbox_wrapper .player-board .roundedboxinner,
+  #spectatorbox_wrapper .player-board .roundedboxinner b,
+  #spectatorbox_wrapper .player-board .roundedbox_main,
+  #spectatorbox_wrapper .player-board .roundedbox_topleft,
+  #spectatorbox_wrapper .player-board .roundedbox_topmain,
+  #spectatorbox_wrapper .player-board .roundedbox_topright,
+  #spectatorbox_wrapper .player-board .roundedbox_bottomleft,
+  #spectatorbox_wrapper .player-board .roundedbox_bottommain,
+  #spectatorbox_wrapper .player-board .roundedbox_bottomright {
+    background: var(--dark-20) !important;
+  }
+
+  .player-board.spectator-mode,
+  .player-board.spectator-mode .roundedboxinner,
+  .player-board.spectator-mode .roundedboxinner b,
+  .player-board.spectator-mode .roundedbox_main,
+  .player-board.spectator-mode .roundedbox_topleft,
+  .player-board.spectator-mode .roundedbox_topmain,
+  .player-board.spectator-mode .roundedbox_topright,
+  .player-board.spectator-mode .roundedbox_bottomleft,
+  .player-board.spectator-mode .roundedbox_bottommain,
+  .player-board.spectator-mode .roundedbox_bottomright {
+    background: var(--dark-20) !important;
+    color: var(--light-80);
+  }
+
+  spectator-mode .log .roundedbox .playername {
+    display: inline !important;
+  }
+
+  #logs .log .roundedbox {
+    background: var(--dark-10);
+    color: var(--light-80);
+    text-shadow: none;
+  }
+
+  #logs .log.cancel .roundedbox {
+    background-color: var(--orange-10) !important;
+  }
+
+  #logs .log .timestamp {
+    color: var(--light-80);
+  }
+
+  #logs .log:hover .timestamp {
+    background: transparent;
+    color: var(--blue-90);
+  }
+
+  #logs .timestamp {
+    text-shadow: none;
+  }
+
+  #logs .log .icon20_fullscreen,
+  #logs .log .icon20_mute,
+  #logs .log .icon20_config {
+    filter: contrast(2) invert(0.8);
+  }
+
+  .log_replayable:hover {
+    background-color: var(--dark-back);
+  }
+
+  .bgabutton,
+  .bgabutton i {
+    text-shadow: var(--text-b-shadow) !important;
+  }
+
+  .bgabutton_blue:not(.disabled):not(:disabled) {
+    background: linear-gradient(180deg, #0ba9b7, #248189);
+    border: 1px solid #36848c;
+  }
+
+  .bgabutton_blue:not(.disabled):not(:disabled):hover {
+    background: linear-gradient(180deg, #06d7ea, #248189);
+  }
+
+  .bgabutton_blue:not(.disabled):not(:disabled):active {
+    background: linear-gradient(180deg, #248189, #0ba9b7);
+  }
+
+  .bgabutton_gray,
+  .bgabutton_white {
+    background: linear-gradient(#606060, #777);
+    border: 1px solid #999;
+    color: #fff !important;
+  }
+
+  .bgabutton_gray:hover,
+  .bgabutton_white:hover {
+    background: linear-gradient(180deg, #727272, #777);
+  }
+
+  .debug_section {
+    .bgabutton_gray {
+      background: linear-gradient(#606060, #777) !important;
+    }
+
+    .bgabutton_gray:hover {
+      background: linear-gradient(180deg, #727272, #777) !important;
+    }
+  }
+
+  .bgabutton_red {
+    border: 1px solid #69452e;
+  }
+
+  .bgabutton_green {
+    background: linear-gradient(#0bb76c, #24895d) !important;
+    border: 1px solid #004d05 !important;
+    color: #fff !important;
+  }
+
+  .bgabutton_green:hover {
+    background: linear-gradient(#06ea87, #24895d) !important;
+    color: #fff !important;
+  }
+
+  .bgabutton.disabled,
+  .bgabutton_disabled,
+  .bgabutton:disabled {
+    background: #787878 !important;
+    border-color: var(--light-50) !important;
+    color: #fff !important;
+    cursor: not-allowed;
+  }
+
+  .pagesection {
+    background: var(--dark-20);
+    color: var(--light-80);
+  }
+
+  .pagesection .whiteblock {
+    background: none var(--dark-40);
+  }
+
+  #pagesection_gameview .whiteblock,
+  #table-decision,
+  #neutralized_game_panel {
+    background: var(--dark-back);
+    color: white;
+  }
+
+  #zombieBack {
+    color: var(--light-80);
+  }
+
+  #log_history_status {
+    background-color: var(--dark-20);
+  }
+
+  #log_history_status div[class^="roundedbox"] {
+    background-color: transparent;
+  }
+
+  #log_history_status .ui-progress-bar {
+    background-color: var(--dark-40);
+  }
+
+  #log_history_status .ui-progress {
+    background-color: #3b7920;
+    background-image: repeating-linear-gradient(-45deg, transparent, transparent 1rem, hsl(0deg 0% 100% / 10%) 0, hsl(0deg 0% 100% / 10%) 2rem);
+  }
+
+  #log_history_status_text {
+    color: var(--light-70);
+  }
+
+  #logs [style^="color:#000000"],
+  #logs [style="color:#000"],
+  #logs [style$=";color:#000"],
+  #logs [style$=";color:#000000"],
+  #logs span[style="color:black"],
+  #logs span[style^="color:#000;"] {
+    text-shadow: var(--text-w-shadow);
+  }
+
+  #images_status_text {
+    color: #000;
+  }
+
+  #progress-bar__additional-context-wrapper {
+    background-color: var(--dark-20);
+  }
+
+  #progress-bar__additional-context__text {
+    color: var(--light-80);
+  }
+
+  .pagesection h2,
+  .pagesection h3 {
+    background: var(--dark-10);
+    color: var(--light-80);
+  }
+
+  .pagesection .bga-link {
+    color: var(--blue-80);
+  }
+
+  .pagesection .bga-link:hover {
+    color: var(--violet-80);
+  }
+
+  .preference_control {
+    background: var(--dark-40);
+    color: var(--light-80);
+  }
+
+  .chatwindowtype_table .chatbarbelowinput_item {
+    color: var(--dark-10) !important;
+  }
+
+  .chatwindowtype_table .chatbarbelowinput_item:hover {
+    color: var(--violet-80) !important;
+  }
+
+  #loader_mask {
+    background: #000;
+  }
+
+  a.replay_last_move_button {
+    color: var(--light-70) !important;
+  }
+
+  a.replay_last_move_button:hover {
+    color: var(--light-80) !important;
+  }
+
+  span.playername,
+  #pagemaintitletext>span:first-child {
+    background-color: transparent !important;
+  }
+
+  .icon32_replaylastmoves,
+  .ingame_menu_item .icon64,
+  .winpoints>img {
+    filter: invert(0.7);
+  }
+
+  .notouch-device .ingame_menu_item:hover {
+    background-color: var(--dark-40);
+    color: #fff !important;
+  }
+
+  #maingameview_menuheader,
+  #maingameview_menufooter {
+    background: var(--dark-10);
+    color: #fff;
+  }
+
+  #maingameview_menuheader .pageheader_menu>div,
+  #maingameview_menuheader .pageheader_menu>div {
+    color: var(--light-70);
+  }
+
+  .pageheader_menuitem,
+  a#pageheader_buy {
+    color: var(--light-70);
+  }
+
+  .avatar_active,
+  #active_player_statusbar_icon {
+    filter: drop-shadow(0px 0px 2px white);
+  }
+
+  /* popups */
+
+  .standard_popin {
+    background: var(--dark-20);
+    border: 2px solid var(--dark-30);
+  }
+
+  .standard_popin_underlay {
+    background-color: #000;
+  }
+
+  .tableWindow td {
+    border-bottom: 1px solid #ccc;
+    color: var(--light-70);
+  }
+
+  .tableWindow td [style="color:black"] {
+    text-shadow: var(--text-w-shadow);
+  }
+
+  .tableWindow tbody tr:hover td {
+    color: var(--light-100);
+  }
+
+  .tableWindow th {
+    border-bottom: 2px solid #cccccc;
+    color: #3377ff;
+  }
+
+  .mf_popup_content {
+    background-color: var(--dark-back);
+    color: var(--light-80);
+    border-color: var(--light-50);
+  }
+
+  .player-board .player-hand-card {
+    filter: invert(0.9);
+  }
+
+  #seemorelogs {
+    background-image: none;
+    background: linear-gradient(360deg, var(--dark-20) 25%, hsla(0, 0%, 100%, 0));
+  }
+
+  /* Hide the "You may note something for next time..." popup that would appear during round end, hiding the score and animation. */
+  #turnBasedNotesIncent {
+    display: none;
+  }
+
+  /* tooltips */
+
+  .dijitTooltipContainer .black {
+    text-shadow: var(--text-w-shadow);
+  }
+
+  .dijitTooltipContainer .blue {
+    color: #65adff !important;
+  }
+
+  .dijitTooltipContainer .red {
+    color: #ff6565 !important;
+  }
+
+  .dijitTooltipContainer .imgtext {
+    filter: var(--highlight);
+  }
+
+  .dijitTooltipContainer .icon.help,
+  .dijitTooltipContainer .icon_help,
+  .dijitTooltipContainer .help_info {
+    background-color: transparent;
+    background-image: var(--ext-icon-info);
+  }
+
+  .tundra.game_tutorial_mode .newArchiveCommentDisplay .dijitTooltipContainer,
+  .dijitTooltipContainer:has(.newArchiveComment) {
+    background-color: var(--dark-10) !important;
+  }
+
+  .tundra.game_tutorial_mode .newArchiveCommentDisplay .dijitTooltipConnector {
+    filter: invert(.85) grayscale();
+  }
+
+  .dj_webkit .tundra .dijitTooltipContainer {
+    box-shadow: 0 5px 10px #555;
+  }
+
+  .dijitTooltip .newbgatable td {
+    color: var(--light-80);
+  }
+
+  .help-marker {
+    color: #000;
+  }
+
+  .male {
+    color: #65adff;
+  }
+
+  .female {
+    color: #ff6565;
+  }
+
+  #arena_ending_soon {
+    background-color: var(--violet-60);
+  }
+
+  .head_error {
+    background-color: var(--red-10);
+    color: var(--light-80);
+  }
+
+  .fatalerror {
+    color: var(--light-80);
+  }
+
+  #previously_on,
+  #reflexiontimevalues {
+    color: var(--red-80);
+  }
+
+  .counter_in_progress {
+    color: var(--red-80) !important;
+  }
+
+  /* Tisaac games settings */
+
+  #player_config #help-mode-switch .label,
+  .player_config_row #help-mode-switch .label {
+    background-color: #697061;
+  }
+
+  #player_config #help-mode-switch svg,
+  #player_config #help-mode-switch svg *,
+  .player_config_row #help-mode-switch svg {
+    /* question mark icon */
+    width: 27px;
+    color: #fff;
+  }
+
+  #player_config #show-settings svg {
+    color: #fff;
+  }
+
+  #settings-controls-container #settings-controls-header div {
+    background: #4e3b27;
+    color: var(--light-80);
+    border-bottom: 1px solid #734f2a;
+    border-right: 1px solid #734f2a;
+  }
+
+  #settings-controls-container .row-data {
+    border-bottom: none;
+  }
+
+  #settings-controls-container .row-data .row-label,
+  #layout-controls-container .row-data .row-label {
+    color: #fff;
+  }
+
+  #settings-controls-container .row-data label.switch .slider {
+    background-color: #697061;
+  }
+
+  #settings-controls-container .row-data label.switch input:checked+.slider {
+    background-color: #39838a;
+  }
+
+  #popin_showSettings,
+  #popin_showTour {
+    background-color: #62411e;
+  }
+
+  #popin_showSettings h2,
+  #popin_showTour h2 {
+    background: #433423;
+    color: #fff;
+  }
+
+  .noUi-target {
+    background: #444;
+    border: 1px solid #aaa;
+    box-shadow: inset 0 1px 1px #444, 0 3px 6px -5px #aaa;
+  }
+
+  .noUi-handle {
+    background: #444;
+    border: 1px solid #d9d9d9;
+    box-shadow: inset 0 0 1px #000, inset 0 1px 7px #aaa, 0 3px 6px -3px #333;
+  }
+
+  #popin_showSettings_close,
+  #popin_showTour_close {
+    background-color: #62411e !important;
+  }
+
+  #popin_showTour #tour-slider-container .slide .bubble,
+  #popin_showTour #tour-slider-container .slide .bubble-tour {
+    background: #433423;
+    color: var(--light-80);
+  }
+
+  #popin_showTour #tour-slider-container .slide .bubble:before,
+  #popin_showTour #tour-slider-container .slide .bubble-tour:before {
+    filter: var(--drop-shadow);
+  }
+
+  #popin_showTour #tour-slide-footer {
+    background-color: #433423;
+    color: var(--light-80);
+  }
+
+  #popin_showTour #tour-slider-container .slide {
+    color: var(--light-80);
+  }
+
+  #popin_showTour #tour-slider-container .slide .tour-remark {
+    background: #00000066;
+    color: var(--light-80);
+  }
+
+  div[id*="popin"][id$="underlay"] {
+    background-color: #000 !important;
+  }
+
+  #popin_bgaHelpDialog {
+    --background-color: var(--dark-10);
+    background: var(--dark-10);
+  }
+
+  .bga-help_popin-button {
+    background-color: var(--red-10);
+  }
+
+  .game_result_status_important {
+    color: var(--red-10);
+  }
+
+  /* board game settings in some games (codexnaturalis, forage, ginkgopolis, grovesolitaire, ...) */
+
+  .scrollmap_form [type="submit"] {
+    background-color: var(--blue-70) !important;
+  }
+
+  .scrollmap_container>.scrollmap_btns_flex {
+    background-color: var(--dark-20);
+    color: var(--light-80);
+  }
+
+  .scrollmap_container .movetop.fa,
+  .scrollmap_container .moveleft.fa,
+  .scrollmap_container .moveright.fa,
+  .scrollmap_container .movedown.fa {
+    background-color: var(--dark-20) !important;
+    color: var(--light-80);
+  }
+
+  .scrollmap_form button {
+    cursor: pointer;
+  }
+
+  /* area background in some games (crybaby, dewan, loveletter, trok ...) */
+
+  .mf_zone {
+    background-color: var(--dark-back);
+  }
+
+  .mf_zone_highlight {
+    background-color: var(--dark-40);
+  }
+
+  .mf_zone_active {
+    background-color: var(--dark-back-50);
+  }
+
+  .mf_zone_discard {
+    background-color: var(--dark-back);
+    border: 1px solid var(--dark-40);
+  }
+
+  .mf_zone_nobg {
+    background-color: transparent !important;
+  }
+
+  /* wiki */
+
+  .wikicontent .wikimenu {
+    filter: var(--highlight-min);
+  }
+
+  .wikicontent a.external.text {
+    color: var(--blue-80) !important;
+  }
+
+  .wikicontent a.external.text:hover {
+    color: #fff !important;
+  }
+
+  .wikicontent h3 {
+    margin-top: 20px;
+  }
+
+  /* tournament */
+
+  #tournament-module {
+    color: var(--light-80);
+  }
+
+  /* info banner */
+
+  .head_info {
+    background-color: var(--dark-0);
+    border: 1px solid var(--dark-40);
+    color: var(--light-80);
+  }
+
+  /* dark sound controls */
+  .game_interface #soundControls {
+    background-color: var(--dark-10);
+    box-shadow: 0 0 10px -2px var(--light-50);
+  }
+
+  /* studio */
+  .whiteblock.debug_section {
+    color: var(--light-80);
+  }
+
+  /* hot seat */
+  #hotseat_mask {
+    background-color: var(--dark-40);
+    color: var(--light-80);
+  }
+
+  .loading_icon,
+  #loading {
+    filter: invert(0.7) grayscale(1);
+  }
+
+  /* tutorial & archive */
+  .dijitTooltipDialogPopup[aria-label=newArchiveComment] span[style="color:blue"] {
+    color: #65adff !important;
+  }
+
+  .dijitTooltipDialogPopup[aria-label=newArchiveComment] span[style="color:green"] {
+    color: #54aa54 !important;
+  }
+
+  .dijitTooltipDialogPopup[aria-label=newArchiveComment] span[style="color:red"] {
+    color: #ff6565 !important;
+  }
+
+  .game_tutorial_mode .archiveCommentPointed1 {
+    outline: 6px dashed #ff6565;
+  }
+
+  .game_tutorial_mode .archiveCommentPointed2 {
+    outline: 6px dashed #65adff;
+  }
+
+  .game_tutorial_mode .archiveCommentPointed3 {
+    outline: 6px dashed #54aa54;
+  }
+
+  .game_tutorial_mode .archiveCommentPointed6 {
+    background: linear-gradient(90deg, #ff6565 50%, transparent 0), linear-gradient(90deg, #ff6565 50%, transparent 0), linear-gradient(0deg, #ff6565 50%, transparent 0), linear-gradient(0deg, #ff6565 50%, transparent 0);
+    background-position: 0 0, 100% 100%, 0 100%, 100% 0;
+    background-repeat: repeat-x, repeat-x, repeat-y, repeat-y;
+    background-size: 15px 4px, 15px 4px, 4px 15px, 4px 15px;
+  }
+
+  .game_tutorial_mode .archiveCommentPointed7 {
+    background: linear-gradient(90deg, #65adff 50%, transparent 0), linear-gradient(90deg, #65adff 50%, transparent 0), linear-gradient(0deg, #65adff 50%, transparent 0), linear-gradient(0deg, #65adff 50%, transparent 0);
+    background-position: 0 0, 100% 100%, 0 100%, 100% 0;
+    background-repeat: repeat-x, repeat-x, repeat-y, repeat-y;
+    background-size: 15px 4px, 15px 4px, 4px 15px, 4px 15px;
+  }
+
+  .game_tutorial_mode .archiveCommentPointed8 {
+    background: linear-gradient(90deg, #54aa54 50%, transparent 0), linear-gradient(90deg, #54aa54 50%, transparent 0), linear-gradient(0deg, #54aa54 50%, transparent 0), linear-gradient(0deg, #54aa54 50%, transparent 0);
+    background-position: 0 0, 100% 100%, 0 100%, 100% 0;
+    background-repeat: repeat-x, repeat-x, repeat-y, repeat-y;
+    background-size: 15px 4px, 15px 4px, 4px 15px, 4px 15px;
+  }
+
+  #archivecontrol a {
+    color: var(--light-80);
+  }
+
+  #archive_history_backtotop {
+    color: #000 !important;
+  }
+
+  #right-side-second-part .whiteblock {
+    background-image: none;
+    background-color: var(--dark-back);
+    color: var(--light-80);
+  }
+
+  .mf_banner {
+    background-color: var(--orange-30);
+    color: var(--light-80);
+  }
+
+  /* switchs for some games (draftandwriterecords, earth, goldblivion...) */
+
+  .bx-checkbox-switch i {
+    background-color: var(--light-50);
+  }
+
+  .bx-checkbox-switch i:before {
+    background-color: var(--dark-40);
+  }
+
+  .bx-checkbox-switch i:after {
+    transform: translate3d(4px, 3px, 0);
+    background-color: #fff;
+    height: 20px;
+    width: 20px;
+  }
+
+  .bx-checkbox-switch input:checked+i {
+    background-color: var(--blue-70);
+  }
+
+  .bx-checkbox-switch input:checked+i:after {
+    transform: translate3d(22px, 3px, 0);
+  }
+
+  /* pour éviter que l'overlay sur #overall-content:before de certains jeux s'affiche par dessus des éléments de cette zone: */
+  #right-side-second-part>* {
+    position: relative;
+  }
+
+  .discussion_bubble {
+    background: var(--dark-10);
+    color: var(--light-80);
+    filter: var(--highlight-min);
+  }
+
+  .discussion_bubble:after {
+    border-color: var(--dark-10) transparent;
   }
 }
 
-.bgabutton_red {
-  border: 1px solid #69452e;
-}
-
-.bgabutton_green {
-  background: linear-gradient(#0bb76c, #24895d) !important;
-  border: 1px solid #004d05 !important;
-  color: #fff !important;
-}
-
-.bgabutton_green:hover {
-  background: linear-gradient(#06ea87, #24895d) !important;
-  color: #fff !important;
-}
-
-.bgabutton.disabled,
-.bgabutton_disabled,
-.bgabutton:disabled {
-  background: #787878 !important;
-  border-color: var(--light-50) !important;
-  color: #fff !important;
-  cursor: not-allowed;
-}
-
-.pagesection {
-  background: var(--dark-20);
-  color: var(--light-80);
-}
-
-.pagesection .whiteblock {
-  background: none var(--dark-40);
-}
-
-#pagesection_gameview .whiteblock,
-#table-decision,
-#neutralized_game_panel {
-  background: var(--dark-back);
-  color: white;
-}
-
-#zombieBack {
-  color: var(--light-80);
-}
-
-#log_history_status {
-  background-color: var(--dark-20);
-}
-
-#log_history_status div[class^="roundedbox"] {
-  background-color: transparent;
-}
-
-#log_history_status .ui-progress-bar {
-  background-color: var(--dark-40);
-}
-
-#log_history_status .ui-progress {
-  background-color: #3b7920;
-  background-image: repeating-linear-gradient(-45deg, transparent, transparent 1rem, hsl(0deg 0% 100% / 10%) 0, hsl(0deg 0% 100% / 10%) 2rem);
-}
-
-#log_history_status_text {
-  color: var(--light-70);
-}
-
-#logs [style^="color:#000000"],
-#logs [style="color:#000"],
-#logs [style$=";color:#000"],
-#logs [style$=";color:#000000"],
-#logs span[style="color:black"],
-#logs span[style^="color:#000;"] {
-  text-shadow: var(--text-w-shadow);
-}
-
-#images_status_text {
-  color: #000;
-}
-
-#progress-bar__additional-context-wrapper {
-  background-color: var(--dark-20);
-}
-
-#progress-bar__additional-context__text {
-  color: var(--light-80);
-}
-
-.pagesection h2,
-.pagesection h3 {
-  background: var(--dark-10);
-  color: var(--light-80);
-}
-
-.pagesection .bga-link {
-  color: var(--blue-80);
-}
-
-.pagesection .bga-link:hover {
-  color: var(--violet-80);
-}
-
-.preference_control {
-  background: var(--dark-40);
-  color: var(--light-80);
-}
-
-.chatwindowtype_table .chatbarbelowinput_item {
-  color: var(--dark-10) !important;
-}
-
-.chatwindowtype_table .chatbarbelowinput_item:hover {
-  color: var(--violet-80) !important;
-}
-
-#loader_mask {
-  background: #000;
-}
-
-a.replay_last_move_button {
-  color: var(--light-70) !important;
-}
-
-a.replay_last_move_button:hover {
-  color: var(--light-80) !important;
-}
-
-span.playername,
-#pagemaintitletext>span:first-child {
-  background-color: transparent !important;
-}
-
-.icon32_replaylastmoves,
-.ingame_menu_item .icon64,
-.winpoints>img {
-  filter: invert(0.7);
-}
-
-.notouch-device .ingame_menu_item:hover {
-  background-color: var(--dark-40);
-  color: #fff !important;
-}
-
-#maingameview_menuheader,
-#maingameview_menufooter {
-  background: var(--dark-10);
-  color: #fff;
-}
-
-#maingameview_menuheader .pageheader_menu>div,
-#maingameview_menuheader .pageheader_menu>div {
-  color: var(--light-70);
-}
-
-.pageheader_menuitem,
-a#pageheader_buy {
-  color: var(--light-70);
-}
-
-.avatar_active,
-#active_player_statusbar_icon {
-  filter: drop-shadow(0px 0px 2px white);
-}
-
-/* popups */
-
-.standard_popin {
-  background: var(--dark-20);
-  border: 2px solid var(--dark-30);
-}
-
-.standard_popin_underlay {
-  background-color: #000;
-}
-
-.tableWindow td {
-  border-bottom: 1px solid #ccc;
-  color: var(--light-70);
-}
-
-.tableWindow td [style="color:black"] {
-  text-shadow: var(--text-w-shadow);
-}
-
-.tableWindow tbody tr:hover td {
-  color: var(--light-100);
-}
-
-.tableWindow th {
-  border-bottom: 2px solid #cccccc;
-  color: #3377ff;
-}
-
-.mf_popup_content {
-  background-color: var(--dark-back);
-  color: var(--light-80);
-  border-color: var(--light-50);
-}
-
-.player-board .player-hand-card {
-  filter: invert(0.9);
-}
-
-#seemorelogs {
-  background-image: none;
-  background: linear-gradient(360deg, var(--dark-20) 25%, hsla(0, 0%, 100%, 0));
-}
-
-/* Hide the "You may note something for next time..." popup that would appear during round end, hiding the score and animation. */
-#turnBasedNotesIncent {
-  display: none;
-}
-
-/* tooltips */
-
-.dijitTooltipContainer .black {
-  text-shadow: var(--text-w-shadow);
-}
-
-.dijitTooltipContainer .blue {
-  color: #65adff !important;
-}
-
-.dijitTooltipContainer .red {
-  color: #ff6565 !important;
-}
-
-.dijitTooltipContainer .imgtext {
-  filter: var(--highlight);
-}
-
-.dijitTooltipContainer .icon.help,
-.dijitTooltipContainer .icon_help,
-.dijitTooltipContainer .help_info {
-  background-color: transparent;
-  background-image: var(--ext-icon-info);
-}
-
-.tundra.game_tutorial_mode .newArchiveCommentDisplay .dijitTooltipContainer,
-.dijitTooltipContainer:has(.newArchiveComment) {
-  background-color: var(--dark-10) !important;
-}
-
-.tundra.game_tutorial_mode .newArchiveCommentDisplay .dijitTooltipConnector {
-  filter: invert(.85) grayscale();
-}
-
-.dj_webkit .tundra .dijitTooltipContainer {
-  box-shadow: 0 5px 10px #555;
-}
-
-.dijitTooltip .newbgatable td {
-  color: var(--light-80);
-}
-
-.help-marker {
-  color: #000;
-}
-
-.male {
-  color: #65adff;
-}
-
-.female {
-  color: #ff6565;
-}
-
-#arena_ending_soon {
-  background-color: var(--violet-60);
-}
-
-.head_error {
-  background-color: var(--red-10);
-  color: var(--light-80);
-}
-
-.fatalerror {
-  color: var(--light-80);
-}
-
-#previously_on,
-#reflexiontimevalues {
-  color: var(--red-80);
-}
-
-.counter_in_progress {
-  color: var(--red-80) !important;
-}
-
-/* Tisaac games settings */
-
-#player_config #help-mode-switch .label,
-.player_config_row #help-mode-switch .label {
-  background-color: #697061;
-}
-
-#player_config #help-mode-switch svg,
-#player_config #help-mode-switch svg *,
-.player_config_row #help-mode-switch svg {
-  /* question mark icon */
-  width: 27px;
-  color: #fff;
-}
-
-#player_config #show-settings svg {
-  color: #fff;
-}
-
-#settings-controls-container #settings-controls-header div {
-  background: #4e3b27;
-  color: var(--light-80);
-  border-bottom: 1px solid #734f2a;
-  border-right: 1px solid #734f2a;
-}
-
-#settings-controls-container .row-data {
-  border-bottom: none;
-}
-
-#settings-controls-container .row-data .row-label,
-#layout-controls-container .row-data .row-label {
-  color: #fff;
-}
-
-#settings-controls-container .row-data label.switch .slider {
-  background-color: #697061;
-}
-
-#settings-controls-container .row-data label.switch input:checked+.slider {
-  background-color: #39838a;
-}
-
-#popin_showSettings,
-#popin_showTour {
-  background-color: #62411e;
-}
-
-#popin_showSettings h2,
-#popin_showTour h2 {
-  background: #433423;
-  color: #fff;
-}
-
-.noUi-target {
-  background: #444;
-  border: 1px solid #aaa;
-  box-shadow: inset 0 1px 1px #444, 0 3px 6px -5px #aaa;
-}
-
-.noUi-handle {
-  background: #444;
-  border: 1px solid #d9d9d9;
-  box-shadow: inset 0 0 1px #000, inset 0 1px 7px #aaa, 0 3px 6px -3px #333;
-}
-
-#popin_showSettings_close,
-#popin_showTour_close {
-  background-color: #62411e !important;
-}
-
-#popin_showTour #tour-slider-container .slide .bubble,
-#popin_showTour #tour-slider-container .slide .bubble-tour {
-  background: #433423;
-  color: var(--light-80);
-}
-
-#popin_showTour #tour-slider-container .slide .bubble:before,
-#popin_showTour #tour-slider-container .slide .bubble-tour:before {
-  filter: var(--drop-shadow);
-}
-
-#popin_showTour #tour-slide-footer {
-  background-color: #433423;
-  color: var(--light-80);
-}
-
-#popin_showTour #tour-slider-container .slide {
-  color: var(--light-80);
-}
-
-#popin_showTour #tour-slider-container .slide .tour-remark {
-  background: #00000066;
-  color: var(--light-80);
-}
-
-div[id*="popin"][id$="underlay"] {
-  background-color: #000 !important;
-}
-
-#popin_bgaHelpDialog {
-  --background-color: var(--dark-10);
-  background: var(--dark-10);
-}
-
-.bga-help_popin-button {
-  background-color: var(--red-10);
-}
-
-.game_result_status_important {
-  color: var(--red-10);
-}
-
-/* board game settings in some games (codexnaturalis, forage, ginkgopolis, grovesolitaire, ...) */
-
-.scrollmap_form [type="submit"] {
-  background-color: var(--blue-70) !important;
-}
-
-.bgaext_dark .scrollmap_container>.scrollmap_btns_flex {
-  background-color: var(--dark-20);
-  color: var(--light-80);
-}
-
-.scrollmap_container .movetop.fa,
-.scrollmap_container .moveleft.fa,
-.scrollmap_container .moveright.fa,
-.scrollmap_container .movedown.fa {
-  background-color: var(--dark-20) !important;
-  color: var(--light-80);
-}
-
-.scrollmap_form button {
-  cursor: pointer;
-}
-
-/* area background in some games (crybaby, dewan, loveletter, trok ...) */
-
-.mf_zone {
-  background-color: var(--dark-back);
-}
-
-.mf_zone_highlight {
-  background-color: var(--dark-40);
-}
-
-.mf_zone_active {
-  background-color: var(--dark-back-50);
-}
-
-.mf_zone_discard {
-  background-color: var(--dark-back);
-  border: 1px solid var(--dark-40);
-}
-
-.mf_zone_nobg {
-  background-color: transparent !important;
-}
-
-/* wiki */
-
-.wikicontent .wikimenu {
-  filter: var(--highlight-min);
-}
-
-.wikicontent a.external.text {
-  color: var(--blue-80) !important;
-}
-
-.wikicontent a.external.text:hover {
-  color: #fff !important;
-}
-
-.wikicontent h3 {
-  margin-top: 20px;
-}
-
-/* tournament */
-
-#tournament-module {
-  color: var(--light-80);
-}
-
-/* info banner */
-
-.head_info {
-  background-color: var(--dark-0);
-  border: 1px solid var(--dark-40);
-  color: var(--light-80);
-}
-
-/* dark sound controls */
-.game_interface #soundControls {
-  background-color: var(--dark-10);
-  box-shadow: 0 0 10px -2px var(--light-50);
-}
-
-/* studio */
-.whiteblock.debug_section {
-  color: var(--light-80);
-}
-
-/* hot seat */
-#hotseat_mask {
-  background-color: var(--dark-40);
-  color: var(--light-80);
-}
-
-.loading_icon,
-#loading {
-  filter: invert(0.7) grayscale(1);
-}
-
-/* tutorial & archive */
-.dijitTooltipDialogPopup[aria-label=newArchiveComment] span[style="color:blue"] {
-  color: #65adff !important;
-}
-
-.dijitTooltipDialogPopup[aria-label=newArchiveComment] span[style="color:green"] {
-  color: #54aa54 !important;
-}
-
-.dijitTooltipDialogPopup[aria-label=newArchiveComment] span[style="color:red"] {
-  color: #ff6565 !important;
-}
-
-.game_tutorial_mode .archiveCommentPointed1 {
-  outline: 6px dashed #ff6565;
-}
-
-.game_tutorial_mode .archiveCommentPointed2 {
-  outline: 6px dashed #65adff;
-}
-
-.game_tutorial_mode .archiveCommentPointed3 {
-  outline: 6px dashed #54aa54;
-}
-
-.game_tutorial_mode .archiveCommentPointed6 {
-  background: linear-gradient(90deg, #ff6565 50%, transparent 0), linear-gradient(90deg, #ff6565 50%, transparent 0), linear-gradient(0deg, #ff6565 50%, transparent 0), linear-gradient(0deg, #ff6565 50%, transparent 0);
-  background-position: 0 0, 100% 100%, 0 100%, 100% 0;
-  background-repeat: repeat-x, repeat-x, repeat-y, repeat-y;
-  background-size: 15px 4px, 15px 4px, 4px 15px, 4px 15px;
-}
-
-.game_tutorial_mode .archiveCommentPointed7 {
-  background: linear-gradient(90deg, #65adff 50%, transparent 0), linear-gradient(90deg, #65adff 50%, transparent 0), linear-gradient(0deg, #65adff 50%, transparent 0), linear-gradient(0deg, #65adff 50%, transparent 0);
-  background-position: 0 0, 100% 100%, 0 100%, 100% 0;
-  background-repeat: repeat-x, repeat-x, repeat-y, repeat-y;
-  background-size: 15px 4px, 15px 4px, 4px 15px, 4px 15px;
-}
-
-.game_tutorial_mode .archiveCommentPointed8 {
-  background: linear-gradient(90deg, #54aa54 50%, transparent 0), linear-gradient(90deg, #54aa54 50%, transparent 0), linear-gradient(0deg, #54aa54 50%, transparent 0), linear-gradient(0deg, #54aa54 50%, transparent 0);
-  background-position: 0 0, 100% 100%, 0 100%, 100% 0;
-  background-repeat: repeat-x, repeat-x, repeat-y, repeat-y;
-  background-size: 15px 4px, 15px 4px, 4px 15px, 4px 15px;
-}
-
-#archivecontrol a {
-  color: var(--light-80);
-}
-
-#archive_history_backtotop {
-  color: #000 !important;
-}
-
-#right-side-second-part .whiteblock {
-  background-image: none;
-  background-color: var(--dark-back);
-  color: var(--light-80);
-}
-
-.mf_banner {
-  background-color: var(--orange-30);
-  color: var(--light-80);
-}
-
-/* switchs for some games (draftandwriterecords, earth, goldblivion...) */
-
-.bx-checkbox-switch i {
-  background-color: var(--light-50);
-}
-
-.bx-checkbox-switch i:before {
-  background-color: var(--dark-40);
-}
-
-.bx-checkbox-switch i:after {
-  transform: translate3d(4px, 3px, 0);
-  background-color: #fff;
-  height: 20px;
-  width: 20px;
-}
-
-.bx-checkbox-switch input:checked+i {
-  background-color: var(--blue-70);
-}
-
-.bx-checkbox-switch input:checked+i:after {
-  transform: translate3d(22px, 3px, 0);
-}
-
-/* pour éviter que l'overlay sur #overall-content:before de certains jeux s'affiche par dessus des éléments de cette zone: */
-#right-side-second-part>* {
-  position: relative;
-}
-
-.discussion_bubble {
-  background: var(--dark-10);
-  color: var(--light-80);
-  filter: var(--highlight-min);
-}
-
-.discussion_bubble:after {
-  border-color: var(--dark-10) transparent;
+html[data-theme=dark].darkpanel {
+
+  #player_boards .player-board,
+  #player_boards .player-board .roundedboxinner,
+  #player_boards .player-board .roundedboxinner b {
+    background: var(--dark-20) !important;
+  }
 }
 
 /* hack to avoid light theme flashing */

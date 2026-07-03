@@ -1701,7 +1701,11 @@ export const gamesConfiguration: Record<string, GameConfig> = {
     customBack: true
   },
   thewhitecastle: {
-    customBack: ["custom-background"]
+    customBack: ["custom-background"],
+    customInit: (cssPath: string) => {
+      document.body.style.setProperty("--back-player-area", `url(${cssPath}img/twc-player-boards.png)`);
+      document.body.style.setProperty("--back-player-area-matcha", `url(${cssPath}img/matcha/twc-player-boards.png)`);
+    }
   },
   theyellowhouse: {
     customBack: true

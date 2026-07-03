@@ -1,24 +1,68 @@
 @import "./common";
 
-.bgaext_bright:not(.no-custom-background) {
+html[data-theme=dark].bgaext_bright:not(.no-custom-background) {
 	--ext-overall-color: #00000080;
 }
 
-.bgaext_bright {
-
-	.twc-main-card,
-	#twc-main-game-board,
-	.twc-player-area {
+html[data-theme=dark].bgaext_bright {
+	#twc-player-areas .twc-player-area .twc-player-board:before {
+		content: "";
+		position: absolute;
+		top: 0px;
+		left: 0px;
+		width: 100%;
+		height: 100%;
+		background-image: var(--back-player-area);
+		background-size: 200%;
 		filter: var(--ext-bright);
 	}
 
-	#jj-zoom-controls {
-		background: var(--dark-10);
-		color: var(--light-70);
+	#twc-player-areas .twc-player-area .twc-player-board[data-color="#5e96d0"]:before {
+		background-position: 0 0
+	}
+
+	#twc-player-areas .twc-player-area .twc-player-board[data-color="#0a9e36"]:before {
+		background-position: 100% 0
+	}
+
+	#twc-player-areas .twc-player-area .twc-player-board[data-color="#e4b54c"]:before {
+		background-position: 0 100%
+	}
+
+	#twc-player-areas .twc-player-area .twc-player-board[data-color="#df2a20"]:before {
+		background-position: 100% 100%
+	}
+
+	#twc-player-areas .twc-player-area .twc-player-board[data-game=MATCHA]:before {
+		background-image: var(--back-player-area-matcha);
+	}
+
+	#twc-main-game-board:before {
+		.reduceBrightness();
+	}
+
+	.twc-main-card,
+	#twc-main-game-board .twc-yard-tile .card-side,
+	.twc-die-tile-art,
+	.twc-ceremony-tile-art,
+	.twc-solo-card-art.back,
+	.twc-solo-card-art.front,
+	.twc-garden-card .card-side,
+	.twc-daimyo-card .card-side {
+		filter: var(--ext-bright);
+	}
+
+	.jj-icon-stock.twc-icon-art {
+		filter: var(--ext-bright) !important;
 	}
 }
 
 .bgaext_dark {
+	#jj-zoom-controls {
+		background: var(--dark-10);
+		color: var(--light-70);
+	}
+
 	#twc-draft-area {
 		background-color: var(--dark-back);
 	}
@@ -76,6 +120,12 @@
 		background: var(--dark-10);
 	}
 
+	.bga-cards_deck-counter.round {
+		background: var(--dark-10);
+		box-shadow: 0 0 2px 1px #fff;
+		color: var(--light-80);
+	}
+
 	#undoAll,
 	#undoLast {
 		.redButton();
@@ -84,5 +134,14 @@
 	#undoAll:hover,
 	#undoLast:hover {
 		.redButtonOver();
+	}
+}
+
+/* override game dark theme */
+html[data-theme=dark].bgaext_dark {
+
+	#jj-preferences-panel-toggle-button,
+	.twc-actions-tooltip .twc-actions-tooltip-action-block {
+		color: var(--light-80);
 	}
 }
