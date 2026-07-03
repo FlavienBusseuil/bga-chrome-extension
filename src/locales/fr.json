@@ -223,5 +223,9 @@
   "optionTournamentsEliminatedOn": "Les tournois où je suis éliminé sont affichés",
   "optionTournamentsEliminatedOff": "Les tournois où je suis éliminé sont cachés",
   "optionTournamentsFutureOn": "Les tournois à venir sont affichés",
-  "optionTournamentsFutureOff": "Les tournois à venir sont cachés"
+  "optionTournamentsFutureOff": "Les tournois à venir sont cachés",
+  "darkModePopupTitle": "Le mode sombre est maintenant disponible de manière native sur Board Game Arena !",
+  "darkModePopupLine1": "Le mode sombre est nativement intégré à BGA à partir du 8 juillet.",
+  "darkModePopupLine2": "Une nouvelle option (1) a été ajoutée dans l'extension pour vous permettre de passer facilement du mode sombre de l'extension au mode sombre natif du site. Par défaut le mode sombre utilisé est celui de l'extension.",
+  "darkModePopupLine3": "Les jeux auxquels vous jouez habituellement sont susceptibles d'être mis à jour dans les prochains jours afin de mieux intégrer le mode sombre natif. Ces modifications risquent de créer des conflits avec notre extension. Si vous constatez des dysfonctionnements visuels avec le mode sombre de l'extension, merci de nous signaler le bug via le bouton (2)."
 }

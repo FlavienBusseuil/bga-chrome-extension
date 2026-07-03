@@ -32,6 +32,7 @@ html[data-theme=dark] #bgaext_popup_container {
 
 #bgaext_popup.large {
   max-width: 600px;
+  overflow-y: auto;
 }
 
 #bgaext_popup.huge {

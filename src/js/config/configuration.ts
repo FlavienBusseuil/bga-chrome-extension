@@ -26,7 +26,6 @@ interface CustomConfig {
 	darkModeSat?: number;
 	darkModeBrightness?: number;
 	darkModeNative?: boolean;
-	darkModeNativeAvailable?: boolean;
 	trackTables?: boolean;
 	soundNotification?: boolean;
 	motionSensitivity?: boolean;
@@ -84,6 +83,7 @@ export interface PopupsConfig {
 	muteWarning: boolean;
 	reportMsg: boolean;
 	infosDialog?: string;
+	darkModeDialog?: string;
 }
 
 export interface InProgressConfig {
@@ -726,15 +726,6 @@ class Configuration {
 		storageSet({ darkModeNative: val });
 	}
 
-	isDarkModeNativeAvailable() {
-		return Boolean(this._customConfig.darkModeNativeAvailable);
-	}
-
-	setDarkModeNativeAvailable(val: boolean) {
-		this._customConfig.darkModeNativeAvailable = val;
-		storageSet({ darkModeNativeAvailable: val });
-	}
-
 	isDarkMode() {
 		return Boolean(this._customConfig.darkMode);
 	}
@@ -745,12 +736,10 @@ class Configuration {
 			storageSet({ darkMode: val });
 		}
 
-		if (this.isDarkModeNativeAvailable()) {
-			const bgaDarkModeSelected = document.documentElement.style.colorScheme === 'dark';
-			if (bgaDarkModeSelected !== val) {
-				const detail = JSON.stringify({ type: 'ToggleTheme' });
-				document.body.dispatchEvent(new CustomEvent('bga_ext_api_call', { detail }));
-			}
+		const bgaDarkModeSelected = document.documentElement.style.colorScheme === 'dark';
+		if (bgaDarkModeSelected !== val) {
+			const detail = JSON.stringify({ type: 'ToggleTheme' });
+			document.body.dispatchEvent(new CustomEvent('bga_ext_api_call', { detail }));
 		}
 	}
 

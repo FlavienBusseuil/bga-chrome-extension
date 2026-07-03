@@ -504,13 +504,10 @@ const ModeSelector = (props: ModeSelectorProps) => {
     };
 
     const getNativeCheckBox = () => {
-      if (config.isDarkModeNativeAvailable()) {
-        return <span className="bgaext_native_link" onClick={toggleDarkModeNative}>
-          {i18n("darkModeNative")} {darkModeNative}
-          <input type='checkbox' checked={darkModeNative} />
-        </span>
-      }
-      return <></>;
+      return <span className="bgaext_native_link" onClick={toggleDarkModeNative}>
+        {i18n("darkModeNative")} {darkModeNative}
+        <input type='checkbox' checked={darkModeNative} />
+      </span>
     };
 
     return (

@@ -11,6 +11,7 @@ import { initGameListObserver } from './gameList/functions';
 import { initDarkMode } from './darkMode/functions';
 import ConfirmationPopup from './misc/ConfirmationPopup';
 import InformationPopup from './misc/InformationPopup';
+import DarkModePopup from './misc/DarkModePopup';
 import { waitForObj } from '../../utils/misc/wait';
 import shouldFilter from '../../config/filteredLogs';
 import { isMobile } from "../../utils/browser";
@@ -101,7 +102,7 @@ const displayInformationPopup = (config: Configuration) => {
 	const popupConfig = config.getPopupConfiguration();
 
 	if (popupConfig?.infosDialog === "off") {
-		return;
+		return displayDarkModePopup(config);
 	}
 
 	const now = new Date().getTime();
@@ -109,7 +110,7 @@ const displayInformationPopup = (config: Configuration) => {
 
 	if (showDate > now) {
 		console.debug("[bga extension] Information popup not yet ready to be displayed", { showDate });
-		return;
+		return displayDarkModePopup(config);
 	}
 
 	popupConfig.infosDialog = `${now + 8 * 60 * 60 * 1000}`;
@@ -129,6 +130,40 @@ const displayInformationPopup = (config: Configuration) => {
 	};
 
 	render(<InformationPopup later={later} close={close} />, container);
+};
+
+const displayDarkModePopup = (config: Configuration) => {
+	const popupConfig = config.getPopupConfiguration();
+
+	if (popupConfig?.darkModeDialog === "off") {
+		return;
+	}
+
+	const now = new Date().getTime();
+	const showDate = parseInt(popupConfig.darkModeDialog || '0', 10);
+
+	if (showDate > now) {
+		console.debug("[bga extension] Dark mode popup not yet ready to be displayed", { showDate });
+		return;
+	}
+
+	popupConfig.darkModeDialog = `${now + 8 * 60 * 60 * 1000}`;
+	config.setPopupConfiguration(popupConfig);
+
+	const container = document.createElement('div');
+	container.id = "bgaext_popup_container";
+	document.body.appendChild(container);
+
+	const close = () => {
+		popupConfig.darkModeDialog = "off";
+		config.setPopupConfiguration(popupConfig);
+		container.remove();
+	}
+	const later = () => {
+		container.remove();
+	};
+
+	render(<DarkModePopup later={later} close={close} />, container);
 };
 
 const refreshMutedPlayers = (config: Configuration) => {

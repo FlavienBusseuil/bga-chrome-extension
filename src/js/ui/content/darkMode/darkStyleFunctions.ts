@@ -388,15 +388,13 @@ const _manageHtmlTag = () => {
 
     const darkMode = getDarkStyle();
 
-    if (document.documentElement.classList.contains('bgaext_bgalab')) {
-      const bgaNativeDarkThemeSelected = document.documentElement.style.colorScheme === 'dark';
-      const isDarkModeSelected = darkMode === 'on' || darkMode === 'native';
+    const bgaNativeDarkThemeSelected = document.documentElement.style.colorScheme === 'dark';
+    const isDarkModeSelected = darkMode === 'on' || darkMode === 'native';
 
-      if (bgaNativeDarkThemeSelected !== isDarkModeSelected) {
-        console.info("[bga extension] The BGA switch has been used to change the theme");
-        (window as any).setDarkStyle(bgaNativeDarkThemeSelected);
-        return;
-      }
+    if (bgaNativeDarkThemeSelected !== isDarkModeSelected) {
+      console.info("[bga extension] The BGA switch has been used to change the theme");
+      (window as any).setDarkStyle(bgaNativeDarkThemeSelected);
+      return;
     }
 
     if (darkMode === 'native') {

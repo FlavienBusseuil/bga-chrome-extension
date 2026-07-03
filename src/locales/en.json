@@ -223,5 +223,9 @@
   "optionTournamentsEliminatedOn": "Tournaments I'm eliminated from are displayed",
   "optionTournamentsEliminatedOff": "Tournaments I'm eliminated from are hidden",
   "optionTournamentsFutureOn": "Upcoming tournaments are displayed",
-  "optionTournamentsFutureOff": "Upcoming tournaments are hidden"
+  "optionTournamentsFutureOff": "Upcoming tournaments are hidden",
+  "darkModePopupTitle": "Dark mode is now available natively on Board Game Arena!",
+  "darkModePopupLine1": "BGA natively supports dark mode starting July 8th.",
+  "darkModePopupLine2": "A new option (see below) has been added to the extension to let you easily switch from the extension's dark mode to the site's native dark mode. By default, the dark mode used is the one provided by the extension.",
+  "darkModePopupLine3": "The games you usually play are likely to be updated in the coming days to better support native dark mode. These changes may conflict with our extension. If you notice any visual issues using extension dark mode, please report the bug using button (2)."
 }
