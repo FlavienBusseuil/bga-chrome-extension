@@ -92,11 +92,13 @@ const ModeSelector = (props: ModeSelectorProps) => {
   }, [gameName, darkColorHue, darkColorSaturation]);
 
   useEffect(() => {
-    if (brightness) {
+    if (darkModeNative) {
+      changeDarkBrightness(100);
+    } else if (brightness) {
       config.setDarkModeBrightness(gameName, brightness);
       changeDarkBrightness(brightness);
     }
-  }, [gameName, brightness]);
+  }, [gameName, brightness, darkModeNative]);
 
   useEffect(() => {
     if (popupVisible) {
@@ -442,6 +444,10 @@ const ModeSelector = (props: ModeSelectorProps) => {
           </div >
         </>
       );
+    }
+
+    if (darkModeNative) {
+      return <></>;
     }
 
     const brightnessHandler = (evt: any) => evt.target && setBrightness(parseInt((evt.target as any).value));

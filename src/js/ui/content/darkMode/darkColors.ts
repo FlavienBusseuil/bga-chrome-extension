@@ -41,14 +41,22 @@ html.dark body {
 };
 
 const changeDarkBrightness = (val: number) => {
-  if (val === 90) {
+  if (val === 100) {
+    document.documentElement.classList.remove("bgaext_bright");
     document.body.style.removeProperty("--ext-bright");
     document.body.style.removeProperty("--ext-alpha");
   } else {
-    const brightness = val / 100;
-    const alpha = Math.round((1 - brightness) * 255).toString(16).padStart(2, '0').toUpperCase();
-    document.body.style.setProperty("--ext-bright", `brightness(${brightness})`);
-    document.body.style.setProperty("--ext-alpha", `#000000${alpha}`);
+    document.documentElement.classList.add("bgaext_bright");
+
+    if (val === 90) {
+      document.body.style.removeProperty("--ext-bright");
+      document.body.style.removeProperty("--ext-alpha");
+    } else {
+      const brightness = val / 100;
+      const alpha = Math.round((1 - brightness) * 255).toString(16).padStart(2, '0').toUpperCase();
+      document.body.style.setProperty("--ext-bright", `brightness(${brightness})`);
+      document.body.style.setProperty("--ext-alpha", `#000000${alpha}`);
+    }
   }
 };
 

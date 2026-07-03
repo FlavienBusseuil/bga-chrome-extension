@@ -278,14 +278,14 @@ const manageLocationChange = (pathname: string) => {
 	return 'general';
 };
 
-const setHtmlClass = (mode: string) => {
-	const oldClasses = Array.from(document.documentElement.classList).filter(c => c.startsWith('bgaext'));
+const setHtmlClass = (page: string) => {
+	const oldClasses = Array.from(document.documentElement.classList).filter(c => c.startsWith('bgaext') && c !== 'bgaext_bright');
 
 	oldClasses.forEach(oldClass => {
 		document.documentElement.classList.remove(oldClass);
 	})
 
-	document.documentElement.classList.add(`bgaext_${mode}`);
+	document.documentElement.classList.add(`bgaext_${page}`);
 
 	if (config.isSolidBackground()) {
 		document.documentElement.classList.add('bgaext_solid_back');
