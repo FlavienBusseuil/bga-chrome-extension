@@ -277,10 +277,16 @@ html[data-theme="dark"] .bgaext_overlay{
   cursor: pointer;
 }
 @media (min-width: 900px) {
-  html:not(.bgaext_game):not(.bgaext_tableview):not(.bgaext_sidepanel_opened):not(.bgaext_forum_visible) #bgaext-side-panel {
+  #bgaext-side-panel {
     display: block;
   }
 }
+.bgaext_game #bgaext-side-panel,
+.bgaext_tableview #bgaext-side-panel,
+.bgaext_sidepanel_opened #bgaext-side-panel,
+.bgaext_forum_visible #bgaext-side-panel {
+    display: none;
+  }
 `;
 
 export const ARCHIVE_FLOATING_MENU_CSS = `

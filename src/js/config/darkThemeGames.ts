@@ -589,6 +589,9 @@ export const gamesConfiguration: Record<string, GameConfig> = {
     playersBorder: ["#playerboard_{{player_id}}"],
     playersTextColor: ["#playerboard_{{player_id}}  .player_name"]
   },
+  fivepairs: {
+    customBack: true
+  },
   fled: {
     playersBorder: ['#fled_player-area-{{player_id}}']
   },

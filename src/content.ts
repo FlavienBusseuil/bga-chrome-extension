@@ -250,6 +250,7 @@ const manageLocationChange = (pathname: string) => {
 			});
 		}
 
+		setHtmlClass(pageName);
 		return 'general';
 	}
 

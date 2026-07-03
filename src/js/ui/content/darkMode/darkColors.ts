@@ -29,6 +29,13 @@ html.dark body {
   --palette-bga-gray-233: hsl(${hue}, ${saturation + 3.5}%, 28.24%);
   --palette-bga-gray-244: hsl(${hue}, ${saturation - 3.8}%, 27.65%);
   --palette-bga-gray-300: hsl(${hue}, ${saturation - 3.45}%, 30.78%);
+  --game-palette-bga-gray-200: hsl(${hue}, ${saturation - 2.1}%, 21.57%);
+  --game-palette-bga-gray-204: hsl(${hue}, ${saturation - 2.1}%, 23.33%);
+  --game-palette-bga-gray-211: hsl(${hue}, ${saturation - 4.8}%, 23.92%);
+  --game-palette-bga-gray-233: hsl(${hue}, ${saturation + 3.5}%, 28.24%);
+  --game-palette-bga-gray-244: hsl(${hue}, ${saturation - 3.8}%, 27.65%);
+  --game-palette-bga-gray-300: hsl(${hue}, ${saturation - 3.45}%, 30.78%);
+  --game-bga-player-panel-background: hsl(${hue}, ${saturation + 3}%, 28.24%);
 }`;
   }
 };
