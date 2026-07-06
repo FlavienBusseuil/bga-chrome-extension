@@ -1,0 +1,33 @@
+@import "./common";
+
+html[data-theme=dark].bgaext_bright {
+	#va-market-panel:before {
+		.reduceBrightness();
+		border-radius: 8px;
+	}
+
+	.va-card-sprite,
+	.va-wren-token-img {
+		filter: var(--ext-bright);
+	}
+}
+
+html[data-theme=dark].bgaext_dark {
+	.va-panel {
+		background: var(--dark-20);
+		color: var(--light-80)
+	}
+
+	.va-cell,
+	.va-display-empty {
+		background: var(--dark-0);
+	}
+
+	.va-market-cell.va-market-empty {
+		background: transparent;
+	}
+
+	.va-empty {
+		color: var(--light-50);
+	}
+}

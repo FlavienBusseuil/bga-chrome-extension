@@ -135,7 +135,7 @@ const displayInformationPopup = (config: Configuration) => {
 const displayDarkModePopup = (config: Configuration) => {
 	const popupConfig = config.getPopupConfiguration();
 
-	if (popupConfig?.darkModeDialog === "off") {
+	if (!config.isDarkMode() || popupConfig?.darkModeDialog === "off") {
 		return;
 	}
 

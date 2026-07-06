@@ -7,6 +7,7 @@
   --bga-win-condition-banner-color: var(--light-80);
   --ext-overlay-color: transparent;
   --ext-overall-color: transparent;
+  --game-palette-bga-link: var(--blue-50);
 }
 
 :root,
@@ -36,6 +37,82 @@ input:not(.soundVolumeSlider)[type=range]:focus::-webkit-slider-thumb,
 input:not(.soundVolumeSlider)[type=range]:focus::-moz-range-thumb,
 input:not(.soundVolumeSlider)[type=range]:focus::-ms-thumb {
   outline: none !important;
+}
+
+
+.bgabutton,
+.bgabutton i {
+  text-shadow: var(--text-b-shadow) !important;
+}
+
+.bgabutton_blue:not(.disabled):not(:disabled) {
+  background: linear-gradient(180deg, #0ba9b7, #248189);
+  border: 1px solid #36848c;
+}
+
+.bgabutton_blue:not(.disabled):not(:disabled):hover {
+  background: linear-gradient(180deg, #06d7ea, #248189);
+}
+
+.bgabutton_blue:not(.disabled):not(:disabled):active {
+  background: linear-gradient(180deg, #248189, #0ba9b7);
+}
+
+.bgabutton_gray,
+.bgabutton_white {
+  background: linear-gradient(#606060, #777);
+  border: 1px solid #999;
+  color: #fff !important;
+}
+
+.bgabutton_gray:hover,
+.bgabutton_white:hover {
+  background: linear-gradient(180deg, #727272, #777);
+}
+
+.debug_section {
+  .bgabutton_gray {
+    background: linear-gradient(#606060, #777) !important;
+  }
+
+  .bgabutton_gray:hover {
+    background: linear-gradient(180deg, #727272, #777) !important;
+  }
+}
+
+.bgabutton_red {
+  border: 1px solid #69452e;
+}
+
+.bgabutton_green {
+  background: linear-gradient(#0bb76c, #24895d) !important;
+  border: 1px solid #004d05 !important;
+  color: #fff !important;
+}
+
+.bgabutton_green:hover {
+  background: linear-gradient(#06ea87, #24895d) !important;
+  color: #fff !important;
+}
+
+.bgabutton.disabled,
+.bgabutton_disabled,
+.bgabutton:disabled {
+  background: #787878 !important;
+  border-color: var(--light-50) !important;
+  color: #fff !important;
+  cursor: not-allowed;
+}
+
+/* revert new BGA style for player names */
+/* a shadow is applied by the extension for specific colors when needed */
+.player-name a,
+.log .playername,
+.gamelogreview .playername,
+#pagemaintitletext .playername,
+#chatbar .playername,
+.standard_popin .playername {
+  text-shadow: none !important;
 }
 
 html[data-theme=dark] {
@@ -110,15 +187,6 @@ html[data-theme=dark] {
 
   .player-board {
     color: var(--light-80);
-  }
-
-  .player-name a,
-  .log .playername,
-  .gamelogreview .playername,
-  #pagemaintitletext .playername,
-  #chatbar .playername,
-  .standard_popin .playername {
-    text-shadow: none !important;
   }
 
   #player_boards .player-board .roundedbox_main,
@@ -211,70 +279,6 @@ html[data-theme=dark] {
 
   .log_replayable:hover {
     background-color: var(--dark-back);
-  }
-
-  .bgabutton,
-  .bgabutton i {
-    text-shadow: var(--text-b-shadow) !important;
-  }
-
-  .bgabutton_blue:not(.disabled):not(:disabled) {
-    background: linear-gradient(180deg, #0ba9b7, #248189);
-    border: 1px solid #36848c;
-  }
-
-  .bgabutton_blue:not(.disabled):not(:disabled):hover {
-    background: linear-gradient(180deg, #06d7ea, #248189);
-  }
-
-  .bgabutton_blue:not(.disabled):not(:disabled):active {
-    background: linear-gradient(180deg, #248189, #0ba9b7);
-  }
-
-  .bgabutton_gray,
-  .bgabutton_white {
-    background: linear-gradient(#606060, #777);
-    border: 1px solid #999;
-    color: #fff !important;
-  }
-
-  .bgabutton_gray:hover,
-  .bgabutton_white:hover {
-    background: linear-gradient(180deg, #727272, #777);
-  }
-
-  .debug_section {
-    .bgabutton_gray {
-      background: linear-gradient(#606060, #777) !important;
-    }
-
-    .bgabutton_gray:hover {
-      background: linear-gradient(180deg, #727272, #777) !important;
-    }
-  }
-
-  .bgabutton_red {
-    border: 1px solid #69452e;
-  }
-
-  .bgabutton_green {
-    background: linear-gradient(#0bb76c, #24895d) !important;
-    border: 1px solid #004d05 !important;
-    color: #fff !important;
-  }
-
-  .bgabutton_green:hover {
-    background: linear-gradient(#06ea87, #24895d) !important;
-    color: #fff !important;
-  }
-
-  .bgabutton.disabled,
-  .bgabutton_disabled,
-  .bgabutton:disabled {
-    background: #787878 !important;
-    border-color: var(--light-50) !important;
-    color: #fff !important;
-    cursor: not-allowed;
   }
 
   .pagesection {
@@ -923,7 +927,6 @@ html[data-theme=dark].darkpanel {
 /* lock screen for non premium users */
 #lock_screen {
   --palette-bga-gray-244: var(--dark-20);
-  --game-palette-bga-link: var(--blue-50);
   color: var(--light-80);
 
   .whypremium_icon {

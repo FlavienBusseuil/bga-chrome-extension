@@ -1,6 +1,6 @@
 @import "./common";
 
-.bgaext_dark {
+html[data-theme=dark].bgaext_dark {
 	#gwt_markets {
 		color: #fff;
 	}
@@ -68,23 +68,23 @@
 	}
 }
 
-.bgaext_dark.fixed-player-board .me.white .player-board-and-tiles:not(.no-fixed),
-.bgaext_dark.fixed-player-cards .me.white .player-cards:not(.no-fixed) {
+html[data-theme=dark].bgaext_dark.fixed-player-board .me.white .player-board-and-tiles:not(.no-fixed),
+html[data-theme=dark].bgaext_dark.fixed-player-cards .me.white .player-cards:not(.no-fixed) {
 	box-shadow: 0 0 10px 1px #999;
 }
 
-.bgaext_dark.fixed-player-cards .me .player-cards:not(.no-fixed),
-.bgaext_dark.fixed-player-board .player-board-and-tiles:not(.no-fixed) {
+html[data-theme=dark].bgaext_dark.fixed-player-cards .me .player-cards:not(.no-fixed),
+html[data-theme=dark].bgaext_dark.fixed-player-board .player-board-and-tiles:not(.no-fixed) {
 	background-color: var(--dark-back);
 }
 
-.bgaext_dark.fixed-player-cards .me .player-cards:not(.no-fixed) .player-cards-button,
-.bgaext_dark.fixed-player-board .player-board-and-tiles:not(.no-fixed) .player-board-button {
+html[data-theme=dark].bgaext_dark.fixed-player-cards .me .player-cards:not(.no-fixed) .player-cards-button,
+html[data-theme=dark].bgaext_dark.fixed-player-board .player-board-and-tiles:not(.no-fixed) .player-board-button {
 	background-color: var(--dark-20);
 	border: 1px solid var(--dark-40);
 	box-shadow: 0 2px 3px 1px var(--dark-40);
 }
 
-.bgaext_dark.fixed-player-board.fixed-player-cards .me {
+html[data-theme=dark].bgaext_dark.fixed-player-board.fixed-player-cards .me {
 	background-color: transparent;
 }

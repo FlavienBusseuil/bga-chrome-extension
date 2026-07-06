@@ -1,15 +1,15 @@
 @import "./common";
 
-.bgaext_dark:not(.no-custom-background) {
+html[data-theme=dark].bgaext_dark:not(.no-custom-background) {
 	--ext-overall-color: #00000080;
 }
 
-.bgaext_dark.floating-objectives #fes-objective-crowd-pleaser-row {
+html[data-theme=dark].bgaext_dark.floating-objectives #fes-objective-crowd-pleaser-row {
 	background: var(--dark-back);
 	border: 1px solid var(--light-50);
 }
 
-.bgaext_dark {
+html[data-theme=dark].bgaext_dark {
 	#fes-objective-crowd-pleaser-row-pin-button {
 		background: var(--dark-back);
 		border: 1px solid var(--light-50);
