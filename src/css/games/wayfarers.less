@@ -11,12 +11,24 @@ html[data-theme=dark].bgaext_bright {
 	}
 }
 
-htmlhtml[data-theme=dark].bgaext_dark:before {
+html[data-theme=dark].bgaext_dark:before {
+	background-image: var(--ext-game-back);
+	background-position: 50% 100%;
+	background-repeat: no-repeat;
+	background-size: cover;
+	content: " ";
+	display: block;
+	height: 100%;
+	left: 0;
+	position: fixed;
+	top: 0;
+	width: 100%;
+	z-index: -1;
 	filter: invert(1) hue-rotate(180deg);
 	opacity: 1;
 }
 
-htmlhtml[data-theme=dark].bgaext_dark {
+html[data-theme=dark].bgaext_dark {
 
 	#player_boards {
 

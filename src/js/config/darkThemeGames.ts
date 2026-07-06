@@ -1860,7 +1860,10 @@ export const gamesConfiguration: Record<string, GameConfig> = {
   wayfarers: {
     customBack: true,
     customPanel: true,
-    playersTextColor: ['#pboard_{{player_color}}:after']
+    playersTextColor: ['#pboard_{{player_color}}:after'],
+    customInit: (cssPath: string) => {
+      document.documentElement.style.setProperty("--ext-game-back", `url(${cssPath}img/bg.jpg)`);
+    }
   },
   welcometothemoon: {
     playersBorder: ["#score-sheet-{{player_id}}", "#score-sheet-{{player_id}} .player-name"]
