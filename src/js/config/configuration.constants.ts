@@ -191,7 +191,10 @@ export const ARENA_DISABLED_GAMES = `
 .rankingmode_arena .game_box_wrap:has(.beginner),
 .rankingmode_arena .game_box_wrap:has(.howtoplay),
 .rankingmode_arena .lobby_section:has(.suggestion_othergames) {
-    display: none !important;
+  display: none !important;
+}
+.game_box_wrap:has(.gamerank_beginner) .gametable_list_arenavail {
+  display: none !important;
 }
 `;
 
