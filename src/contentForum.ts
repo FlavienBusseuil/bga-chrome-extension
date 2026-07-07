@@ -8,8 +8,10 @@ let cssCounter = 0;
 
 const sendForumLoaded = () => {
   if (windowLoaded && configLoaded) {
-    // hack to avoid light theme flashing
-    chrome.runtime.sendMessage({ to: 'MAIN_PAGE', payload: { key: 'bga_ext_forum_visible' } });
+    // hack to avoid default theme flashing
+    setTimeout(() => {
+      chrome.runtime.sendMessage({ to: 'MAIN_PAGE', payload: { key: 'bga_ext_forum_visible' } });
+    }, 200);
   }
 };
 

@@ -6,7 +6,6 @@ import { ARCHIVE_FLOATING_MENU_CSS } from "../../../config/configuration.constan
 import { PlayerData, getPlayersData, getPlayersPossibleColors } from "../players";
 import { createStyle, getFile, getDarkStyle, saveDarkStyle, DarkStyle } from "./darkStyleCommonFunctions";
 
-const darkThemeFlickerFixElementId = "bgaext-dark-theme-flicker-fix";
 const pageInfo = window.location.pathname.substring(1).split("/");
 const cssContents: Record<string, string> = {};
 
@@ -31,7 +30,6 @@ if (pageInfo.length >= 2 && isNumber(pageInfo[0] as string)) {
 }
 
 const isHtmlPage = pageInfo[pageInfo.length - 1]?.endsWith('.html');
-const isStudioPage = window.location.hostname === 'studio.boardgamearena.com';
 
 const _init = async () => {
   const fileContentsTask = Promise.all(cssList.map(file => getFile(file)));
@@ -71,27 +69,6 @@ _init().then(() => {
   }
 });
 
-
-
-try {
-  if (document && !isHtmlPage && !isStudioPage && getDarkStyle()) {
-    // hack to avoid light theme flashing
-    const s = document.createElement('style');
-    const htmlStyle = 'html { background: #000 !important; }';
-    const bodyStyle = (mode == 'general') ? 'body { visibility: hidden !important; }' : '';
-    s.id = darkThemeFlickerFixElementId;
-    s.textContent = `${htmlStyle} ${bodyStyle}`;
-    document.documentElement.appendChild(s);
-  }
-}
-catch (error) {
-  console.log("[bga extension] Can't apply background flicker fix", error);
-}
-
-const _removeBackgroundFlickerFix = () => {
-  document.getElementById(darkThemeFlickerFixElementId)?.remove();
-};
-
 const _hexToRgb = (hex: string) => {
   var result = /^#?([a-f\d]{2})([a-f\d]{2})([a-f\d]{2})$/i.exec(hex);
   return result ? `rgb(${parseInt(result[1] as string, 16)}, ${parseInt(result[2] as string, 16)}, ${parseInt(result[3] as string, 16)})` : hex;
@@ -117,6 +94,7 @@ const _getDarkColorsStyle = (playersData: PlayerData[]) => {
       declaration.push(`.log .playername[style^="color:${color}"]`);
       declaration.push(`.gamelogreview .playername[style^="color:${color}"]`);
       declaration.push(`#pagemaintitletext .playername[style^="color: ${color}"]`);
+      declaration.push(`#gameaction_status .playername[style^="color: ${color}"]`);
       declaration.push(`#chatbar .playername[style^="color:${color}"]`);
       declaration.push(`.standard_popin .playername[style^="color:${color}"]`);
 
@@ -125,6 +103,7 @@ const _getDarkColorsStyle = (playersData: PlayerData[]) => {
         declaration.push(`.log .playername[style^="color:${colorUp}"]`);
         declaration.push(`.gamelogreview .playername[style^="color:${colorUp}"]`);
         declaration.push(`#pagemaintitletext .playername[style^="color: ${colorUp}"]`);
+        declaration.push(`#gameaction_status .playername[style^="color: ${colorUp}"]`);
         declaration.push(`#chatbar .playername[style^="color:${colorUp}"]`);
         declaration.push(`.standard_popin .playername[style^="color:${colorUp}"]`);
       }
@@ -264,7 +243,6 @@ const _setDarkStyleIfActivated = () => {
     }
 
     _manageHtmlTag();
-    _removeBackgroundFlickerFix();
     _initClassObserver();
   });
 };

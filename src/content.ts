@@ -546,7 +546,7 @@ chrome.runtime.onMessage.addListener((message) => {
 	if (message.to === "MAIN_PAGE") {
 		switch (message.payload.key) {
 			case 'bga_ext_forum_visible':
-				// hack to avoid light theme flashing for forum
+				// hack to avoid default theme flashing for forum
 				setTimeout(displayForum, 0);
 				break;
 			case 'bga_ext_melodice_visible':
