@@ -1,0 +1,31 @@
+@import './common';
+
+html[data-theme=dark].bgaext_bright {
+	.board:before {
+		.reduceBrightness();
+	}
+
+	.cardInner .cardBack,
+	.cardInner .cardFront,
+	.cardIcon,
+	.buttonToken {
+		filter: var(--ext-bright);
+	}
+
+	.token,
+	.commissaire {
+		filter: var(--ext-bright) var(--drop-shadow);
+	}
+}
+
+html[data-theme=dark].bgaext_dark {
+	--ext-overall-color: #0005;
+
+	.frameWrapper:before {
+		.reduceBrightness(#0008);
+	}
+
+	.playerBoard.actif {
+		border-color: var(--yellow-10);
+	}
+}

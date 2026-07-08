@@ -1,6 +1,10 @@
 :root {
   color-scheme: dark;
   --palette-bga-notification: #311c1c;
+  --palette-asmodee-red: var(--red-80);
+  --palette-bga-input-green: var(--green-80);
+  --palette-asmodee-blue: var(--blue-50);
+  --palette-bga-game-alpha: var(--pink-80);
 }
 
 /* seems to not be used, and cause a white flash */
@@ -47,6 +51,10 @@
 
 .text-bga-blue {
   color: var(--blue-80);
+}
+
+.text-blue-800 {
+  color: var(--blue-50);
 }
 
 .text-red-500,
@@ -319,10 +327,6 @@ textarea#reviewcomment {
 
 .tundra .dijitComboBoxHighlightMatch {
   background-color: var(--dark-40);
-}
-
-.board_fake_input {
-  filter: invert(1);
 }
 
 .extended_message_hidden:after,
@@ -1621,14 +1625,8 @@ button.bga-dropdown-option:hover {
 }
 
 .bgaext_bugs {
-
   .bga-bugs-filters__form-label {
     color: var(--light-60) !important;
-  }
-
-  .bga-bugs-filters__open-reports[style*="background-color: transparent;"] {
-    color: #6271d0 !important;
-    border-color: #6271d0 !important;
   }
 
   .bga-radiobox__label {
@@ -1694,6 +1692,24 @@ button.bga-dropdown-option:hover {
 }
 
 /* Arena suggestions */
+
+.arena-suggestions-page {
+  --palette-bga-whitebg: var(--dark-20);
+  color: var(--light-80);
+
+  .bga-button,
+  .bgabutton {
+    text-shadow: none;
+  }
+}
+
+.arena-suggestions-page__section-title {
+  color: var(--light-60) !important;
+}
+
+.arena-suggestions-page__block img {
+  filter: var(--highlight);
+}
 
 .bgaext_arenasuggestions {
   .bga-toggle__label {

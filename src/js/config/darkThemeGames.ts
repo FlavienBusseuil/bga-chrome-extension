@@ -886,6 +886,10 @@ export const gamesConfiguration: Record<string, GameConfig> = {
       document.body.style.setProperty("--playmat", `url(${cssPath}img/background.jpg)`);
     }
   },
+  lestoitsdeparis: {
+    customBack: true,
+    playersTextColor: ['#playerBoard_{{player_id}} .playerHeader']
+  },
   letsgotojapan: {
     playersBorder: ["#playerhandtitle_{{player_id}}", "#playerhand_{{player_id}}", "#nameplayer_{{player_id}}"]
   },

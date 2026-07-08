@@ -67,6 +67,7 @@ export const gamesWithRecommendedConfig: { [gameName: GameName]: RecommendedConf
 	kado: { color: 30, sat: 15 },
 	kumata: { color: 0, sat: 20 },
 	legions: { color: 0, sat: 20 },
+	lestoitsdeparis: { color: 0, sat: 20 },
 	locomomo: { color: 91, sat: 14 },
 	lodge: { color: 190, sat: 45 },
 	lielow: { color: 13, sat: 15 },

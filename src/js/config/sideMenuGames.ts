@@ -1863,6 +1863,10 @@ const defaultGames: Partial<Game>[] = [
 		name: "biome",
 		playerPanel: "player-table-{{player_id}}"
 	},
+	{
+		name: "lestoitsdeparis",
+		playerPanel: "playerBoard_{{player_id}}"
+	},
 ];
 
 export default defaultGames;
