@@ -10,48 +10,15 @@ declare global {
 const config = new Configuration();
 let redirectConfigured = false;
 let newsfeedRedirectConfigured = false;
-let solidBackground = false;
-let darkMode = false;
-let preventBack = false;
 let initialized = false;
 let sidePanelOpen = false;
 
 const setBackgroundFilters = () => {
-  const newPreventBack = solidBackground || darkMode;
-
-  if (preventBack !== newPreventBack) {
-    preventBack = newPreventBack;
-
-    if (preventBack) {
-      console.log("[bga extension] Add filters to prevent default website background");
-      // rule 1 : prevent display of default background in main site
-      // rule 2 : prevent display of default background in forum
-      // rule 3 : prevent display of default background in games
-
-      chrome.declarativeNetRequest.updateDynamicRules({
-        removeRuleIds: [1, 2, 3],
-        addRules: [{
-          id: 1,
-          action: { type: "block" },
-          condition: { urlFilter: "https://*.boardgamearena.net/data/themereleases/*/img/layout/back-main.jpg" },
-        }, {
-          id: 2,
-          action: { type: "block" },
-          condition: { urlFilter: "https://forum.boardgamearena.com/styles/prosilver/theme/images/bga/back-main.jpg" },
-        }, {
-          id: 3,
-          action: { type: "block" },
-          condition: { urlFilter: "https://*.boardgamearena.net/data/themereleases/*/img/layout/back-main_games.jpg" },
-        }]
-      });
-    } else {
-      console.log("[bga extension] Remove filters to prevent default website background");
-
-      chrome.declarativeNetRequest.updateDynamicRules({
-        removeRuleIds: [1, 2, 3]
-      });
-    }
-  }
+  // The rules for blocking default backgrounds are no longer needed now that BGA has its own native dark mode
+  console.log("[bga extension] Remove filters to prevent default website background");
+  chrome.declarativeNetRequest.updateDynamicRules({
+    removeRuleIds: [1, 2, 3]
+  });
 };
 
 const setLobbyUrlFilters = (isRedirectEnable: boolean) => {
@@ -148,9 +115,6 @@ const init = async () => {
   chrome.alarms.create("keepAlive1", { when: now + 20000, periodInMinutes: 1 });
   chrome.alarms.create("keepAlive2", { when: now + 40000, periodInMinutes: 1 });
 
-  darkMode = config.isDarkMode();
-  solidBackground = config.isSolidBackground();
-
   setBackgroundFilters();
   setLobbyUrlFilters(config.isLobbyRedirectionEnable());
   setNewsfeedFilters(config.areSocialMessagesHidden());
@@ -241,13 +205,7 @@ addChangeListener((changes) => {
 
   init();
 
-  if (changes.darkMode) {
-    darkMode = changes.darkMode.newValue as boolean;
-    setBackgroundFilters();
-  } else if (changes.solidBack) {
-    solidBackground = changes.solidBack.newValue as boolean;
-    setBackgroundFilters();
-  } else if (changes.hideSocialMessages) {
+  if (changes.hideSocialMessages) {
     setNewsfeedFilters(changes.hideSocialMessages.newValue as boolean);
   } else if (changes.lobbyRedirect) {
     setLobbyUrlFilters(changes.lobbyRedirect.newValue as boolean);
