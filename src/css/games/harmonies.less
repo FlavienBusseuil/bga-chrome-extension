@@ -1,82 +1,12 @@
 @import "./common";
 
 html[data-theme=dark].bgaext_bright {
-	#player-help-visible-wrapper .player-help-visible {
-		position: relative;
-		filter: var(--ext-bright);
-	}
-
-	.card .card-sides .card-side {
-		filter: var(--ext-bright);
-	}
-
 	#score #score-wrapper:before {
 		.reduceBrightness();
 	}
 }
 
 html[data-theme=dark].bgaext_dark {
-	--ext-overall-color: #000000A0;
-
-	.counters,
-	#central-board-counter-wrapper {
-		color: var(--light-80);
-	}
-
-	.card-stock .slot {
-		background: hsl(0deg 0% 11.5% / 40%);
-		outline: 1px solid hsl(0deg 0% 54.37% / 40%);
-	}
-
-	#generalactions .show-player-tableau a {
-		color: var(--light-80);
-	}
-
-	.active-zone .border {
-		background: linear-gradient(90deg, #4e453b99 20%, #4e453b99 40%, #00000033 50%, #00000033 55%, #51493e10 70%, #4e453b99);
-		background-size: 200% auto;
-	}
-
-	.player-table .player-name {
-		text-shadow: none;
-		background: var(--dark-20);
-		height: 20px;
-		padding: 0.2em 0.5em;
-		border-radius: 6px;
-	}
-
-	.show-player-tableau {
-		filter: invert(0.9);
-	}
-
-	.bga-help_popin-button {
-		background-color: #817765;
-		color: #fff;
-	}
-
-	.player-board[data-player-color=ff0000]:before {
-		background-color: #800000;
-	}
-
-	.player-board[data-player-color="008000"]:before {
-		background-color: #060;
-	}
-
-	.player-board[data-player-color="0000ff"]:before {
-		background-color: #000080;
-	}
-
-	.player-board[data-player-color=ffa500]:before {
-		background-color: #996300;
-	}
-
-	#score #score-wrapper .player-name {
-		background: var(--dark-back);
-		padding: 0.25em 0.5em;
-		border-radius: 8px;
-		text-shadow: none;
-	}
-
 	#score .cards-container {
 		color: #603b06;
 	}

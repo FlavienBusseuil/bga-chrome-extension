@@ -543,9 +543,6 @@ export const gamesConfiguration: Record<string, GameConfig> = {
   evolution: {
     customBack: true
   },
-  exhibitiontwentiethcentury: {
-    customBack: true
-  },
   expeditions: {
     customBack: true
   },
