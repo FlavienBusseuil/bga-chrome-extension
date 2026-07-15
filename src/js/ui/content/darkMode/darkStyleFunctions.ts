@@ -375,7 +375,7 @@ const _manageHtmlTag = () => {
       return;
     }
 
-    if (darkMode === 'native') {
+    if (darkMode === 'native' || (darkMode === 'on' && !config?.customDarkMode?.applyGeneralCss)) {
       if (theme !== 'dark') {
         document.documentElement.dataset.theme = 'dark';
       }
@@ -392,7 +392,7 @@ const _manageHtmlTag = () => {
         document.documentElement.dataset.theme = 'dark';
       }
 
-      if (document.documentElement.classList.contains("dark")) {
+      if (document.documentElement.classList.contains("dark") && config?.customDarkMode?.className !== "dark") {
         document.documentElement.classList.remove("dark");
       }
 

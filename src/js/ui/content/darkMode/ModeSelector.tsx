@@ -308,7 +308,7 @@ const ModeSelector = (props: ModeSelectorProps) => {
     if (gameConfiguration?.customDarkMode && !gameConfiguration?.customDarkMode?.applyGeneralCss) {
       return (
         <span>
-          <i class="fa fa-caret-up" style={{ visibility: 'hidden' }}></i>
+          <i class="fa fa-caret-up" style={{ fontSize: '24px', paddingRight: '0.3em', visibility: 'hidden' }}></i>
         </span>
       );
     }
