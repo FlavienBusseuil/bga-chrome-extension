@@ -1,0 +1,23 @@
+html[data-theme=dark].bgaext_bright {
+	.vg-card-art {
+		filter: var(--ext-bright);
+	}
+}
+
+html[data-theme=dark].bgaext_dark {
+	--ext-overall-color: #0009;
+
+	#jj-zoom-controls {
+		background: var(--dark-10);
+		color: var(--light-70);
+	}
+
+	#vg-game #vg-player-areas .vg-player-area,
+	#vg-game #vg-display .vg-display-day-wrapper {
+		background-color: var(--dark-back);
+	}
+
+	.vg-player-area-name .playername {
+		text-shadow: none !important;
+	}
+}
