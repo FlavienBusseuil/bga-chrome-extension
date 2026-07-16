@@ -10,6 +10,10 @@
 	content: "\f005";
 }
 
+.solo_game #bga_extension_sidebar {
+	display: none;
+}
+
 html[data-theme=dark].bgaext_bright {
 
 	#goal_board_img,
@@ -36,7 +40,8 @@ html[data-theme=dark].bgaext_dark.wsp_background_paper {
 	--ext-overall-color: #000000b3;
 
 	body {
-		background: none !important;
+		background: var(--ext-game-back);
+		background-position: 0 0;
 	}
 }
 
@@ -67,7 +72,10 @@ html[data-theme=dark].bgaext_dark {
 	.player_score_value,
 	#discard_label,
 	#birdtray_label,
-	.wsp_scoresheet_text {
+	.wsp_scoresheet_text,
+	.wsp_scoresheet_birds_automa,
+	.wsp_automa_scoresheet_automubon,
+	.wsp_automa_text {
 		color: var(--light-80);
 	}
 
@@ -94,7 +102,7 @@ html[data-theme=dark].bgaext_dark {
 	#feeder_outside,
 	.wsp_scoresheet_img,
 	.wsp_scoresheet_img>* {
-		filter: invert(1);
+		filter: invert(1) hue-rotate(180deg);
 	}
 
 	.wsp_scoresheet_img {

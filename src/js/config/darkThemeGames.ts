@@ -1873,7 +1873,10 @@ export const gamesConfiguration: Record<string, GameConfig> = {
     twoTeams: true
   },
   wingspan: {
-    customBack: ["wsp_background_paper"]
+    customBack: ["wsp_background_paper"],
+    customInit: (cssPath: string) => {
+      document.documentElement.style.setProperty("--ext-game-back", `url(${cssPath}img/background.jpg)`);
+    }
   },
   wispwood: {
     customBack: ["dark_background_on"],

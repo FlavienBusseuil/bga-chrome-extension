@@ -375,7 +375,7 @@ const _manageHtmlTag = () => {
       return;
     }
 
-    if (darkMode === 'native' || (darkMode === 'on' && !config?.customDarkMode?.applyGeneralCss)) {
+    if (darkMode === 'native' || (darkMode === 'on' && config?.customDarkMode?.applyGeneralCss === false)) {
       if (theme !== 'dark') {
         document.documentElement.dataset.theme = 'dark';
       }
