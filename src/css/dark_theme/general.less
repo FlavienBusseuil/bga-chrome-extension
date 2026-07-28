@@ -1682,6 +1682,14 @@ button.bga-dropdown-option:hover {
   }
 }
 
+.bug-vote-button:has(.fa-thumbs-down) {
+  border-color: var(--red-80) !important;
+}
+
+.bug-vote-button .fa-thumbs-down {
+  color: var(--red-80) !important;
+}
+
 .bga-bug-create-page {
   section {
     border-color: var(--red-80) !important;
@@ -2666,24 +2674,30 @@ svg.bga-tournament-list-item__pointer polygon {
 
 .bgaext_premium {
   color: var(--light-80);
-}
 
-.bgaext_premium .bga-premium-page-section--full {
-  background: var(--dark-10) !important;
-}
 
-.bgaext_premium .text-gray-600,
-.bgaext_premium .text-gray-700 {
-  color: var(--light-70);
-}
+  .bga-premium-page-section--full {
+    background: var(--dark-10) !important;
+  }
 
-.bgaext_premium .desktop\:bg-white,
-.bgaext_premium .even\:bg-white:nth-child(2n) {
-  background-color: var(--dark-20);
-}
+  .text-gray-600,
+  .text-gray-700 {
+    color: var(--light-70);
+  }
 
-.bgaext_premium .odd\:bg-gray-100:nth-child(odd) {
-  background-color: var(--dark-30);
+  .desktop\:bg-white,
+  .even\:bg-white:nth-child(2n) {
+    background-color: var(--dark-20);
+  }
+
+  .odd\:bg-gray-100:nth-child(odd) {
+    background-color: var(--dark-30);
+  }
+
+  .bga-premium-page-section--features:before,
+  .bga-premium-page-section--gift-banner:before {
+    filter: invert(1) hue-rotate(180deg);
+  }
 }
 
 /* Login popup */

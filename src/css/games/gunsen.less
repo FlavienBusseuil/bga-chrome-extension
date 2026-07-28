@@ -1,0 +1,65 @@
+@import './common';
+
+html[data-theme=dark].bgaext_bright {
+
+	#tsn-main-board:before,
+	.tsn_player-board:before {
+		.reduceBrightness();
+	}
+
+	.tsn_building-tile,
+	.tsn_shrine-tile,
+	.tsn_army,
+	.tsn_village-container,
+	.tsn_player-board-upgrade-tile-1>div,
+	.tsn_player-board-upgrade-tile-2>div,
+	.tsn_player-board-upgrade-tile-3>div,
+	.tsn_player-board-upgrade-tile-4>div {
+		filter: var(--ext-bright);
+	}
+
+	.tsn_starting-fort,
+	.tsn_card,
+	.tsn_fan,
+	.tsn_player-board-troops>div,
+	.tsn_player-board-gold>div,
+	.tsn_player-board-wood>div,
+	.tsn_player-board-influence>div,
+	#tsn-grid-upgrade-tile-1,
+	#tsn-grid-upgrade-tile-2,
+	#tsn-grid-upgrade-tile-3,
+	#tsn-grid-upgrade-tile-4,
+	.tsn_village {
+		filter: var(--ext-bright) var(--drop-shadow);
+	}
+
+	.tsn_clan-choice .tsn_fan.tsn_highlighted {
+		filter: var(--ext-bright) drop-shadow(0 0 .3rem red) drop-shadow(0 0 .3rem red)
+	}
+
+	.tsn_clan-choice .tsn_fan:hover {
+		filter: var(--ext-bright) drop-shadow(0 0 .3rem red)
+	}
+
+	.tsn_card.tsn_highlighted {
+		filter: var(--ext-bright) drop-shadow(0 0 .2rem goldenrod) drop-shadow(0 0 .2rem goldenrod) drop-shadow(0 0 .2rem goldenrod) drop-shadow(0 0 .2rem goldenrod) drop-shadow(0 0 .2rem goldenrod)
+	}
+
+	.tsn_starting-fort.tsn_highlighted {
+		filter: var(--ext-bright) drop-shadow(0 0 .5rem red) drop-shadow(0 0 .5rem red) drop-shadow(0 0 .5rem red);
+	}
+}
+
+html[data-theme=dark].bgaext_dark {
+	.whiteblock {
+		outline: 1px solid var(--dark-40);
+	}
+
+	.tsn_player-board-wrapper>h3 {
+		text-shadow: none;
+	}
+
+	.tsn_icon {
+		filter: var(--drop-shadow);
+	}
+}

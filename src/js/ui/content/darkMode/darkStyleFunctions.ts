@@ -122,7 +122,7 @@ const _getDarkColorsStyle = (playersData: PlayerData[]) => {
     ? `${colorsToEnlightFiltered.map((p) => getDeclarations(p.color, true)).join(', ')} { text-shadow: var(--text-w-shadow) !important; }`
     : "";
 
-  const playerColorsCss = playersData.map(p => {
+  const playerColorsCss = playersData.filter(p => p.id).map(p => {
     if (p.darkEnlight) {
       return `.ext_player_${p.id} { color: ${p.color} !important; text-shadow: var(--text-w-shadow)!important; }`;
     }

@@ -1,0 +1,37 @@
+html[data-theme=dark].bgaext_bright {
+
+	.tsk-board-shadow image,
+	.tsk-tile image,
+	.tsk-tile-img,
+	.tsk-preview img {
+		filter: var(--ext-bright);
+	}
+}
+
+html[data-theme=dark].bgaext_dark {
+	--ext-overlay-color: #0002;
+
+	.tsk-zoom-btn {
+		background: var(--dark-10);
+		border-color: var(--dark-40);
+		color: var(--light-70);
+	}
+
+	.tsk-zoom-btn:hover {
+		background: var(--dark-20);
+	}
+
+	.tsk-preview {
+		background: var(--dark-20);
+		color: var(--light-70);
+	}
+
+	.tsk-cost-badge circle {
+		fill: var(--dark-10);
+		stroke: var(--light-70);
+	}
+
+	.tsk-cost-text {
+		fill: var(--light-70);
+	}
+}

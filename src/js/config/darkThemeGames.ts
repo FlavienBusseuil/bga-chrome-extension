@@ -183,6 +183,9 @@ export const gamesConfiguration: Record<string, GameConfig> = {
   biomos: {
     customPlayerStyle: "#playersboard div[id^=\"playerposition_\"]"
   },
+  bizarremanor: {
+    customBack: true
+  },
   bloodrage: {
     customBack: true
   },
@@ -724,6 +727,10 @@ export const gamesConfiguration: Record<string, GameConfig> = {
     customInit: (cssPath: string) => {
       document.body.style.setProperty("--ext-game-back", `url(${cssPath}img/bg.jpg)`);
     }
+  },
+  gunsen: {
+    customBack: true,
+    customColors: ['#2d395a', '#9b1c18', '#2c6c50', '#6f91b0', '#603c87', '#e63312']
   },
   gygesdeluxe: {
     customBack: true
@@ -1303,6 +1310,11 @@ export const gamesConfiguration: Record<string, GameConfig> = {
     playersBack: ["#qwinto-player-board-background-{{player_id}} .qwinto_name_tag"],
     playersBorder: ["#qwinto-player-board-background-{{player_id}}"]
   },
+  rabbitzandrobots: {
+    customInit(cssPath) {
+      document.body.style.setProperty("--gameBack", `url(${cssPath}img/RABBITZ-BACK-opt.jpg)`);
+    },
+  },
   raceforthegalaxy: {
     customBack: true
   },
@@ -1777,6 +1789,10 @@ export const gamesConfiguration: Record<string, GameConfig> = {
     customBack: true
   },
   trok: {
+    customBack: true,
+    overlay: true
+  },
+  tsukimi: {
     customBack: true,
     overlay: true
   },

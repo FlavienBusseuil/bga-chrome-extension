@@ -1,0 +1,20 @@
+html[data-theme=dark].bgaext_bright {
+
+	.d216-obj-card__art,
+	.d216-deck-slot .d216-deck-card__sprite,
+	.d216-help-card__art {
+		filter: var(--ext-bright);
+	}
+}
+
+html[data-theme=dark].bgaext_dark {
+
+	.d216-offer-mesa,
+	.d216-offer-mesa>* {
+		filter: invert(1) hue-rotate(180deg)
+	}
+
+	.d216-player-help-stock {
+		color: var(--blue-50);
+	}
+}

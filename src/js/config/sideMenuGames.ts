@@ -1866,6 +1866,10 @@ const defaultGames: Partial<Game>[] = [
 	{
 		name: "lestoitsdeparis",
 		playerPanel: "playerBoard_{{player_id}}"
+	}, {
+		name: "gunsen",
+		playerPanel: "tsn-player-board-wrapper-{{player_id}}",
+		css: " "
 	},
 ];
 

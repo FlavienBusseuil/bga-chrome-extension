@@ -1,0 +1,62 @@
+html[data-theme=dark].bgaext_bright {
+	.stockitem.scale_hand {
+		filter: var(--ext-bright);
+	}
+}
+
+html[data-theme=dark].bgaext_dark {
+
+	.playertable,
+	.bid_suit_separate {
+		color: var(--light-80);
+	}
+
+	.playertablecard {
+		background-color: var(--dark-back);
+	}
+
+	@keyframes blinking {
+		0% {
+			background-color: var(--dark-back)
+		}
+
+		to {
+			background-color: var(--dark-back-50)
+		}
+	}
+
+	#option_content {
+		background: var(--dark-20);
+		color: var(--light-80);
+
+		span[style="color:black;"] {
+			text-shadow: var(--text-w-shadow);
+		}
+
+		span[style="color:red;"] {
+			color: var(--red-80) !important;
+		}
+	}
+
+	font[color="black"] {
+		text-shadow: var(--text-w-shadow);
+	}
+
+	font[color="red"] {
+		color: var(--red-80) !important;
+	}
+
+	.batsu:after,
+	.batsu:before {
+		background: var(--light-80);
+	}
+
+	#option_menu button {
+		background: var(--dark-20);
+	}
+
+	.bid_suit_image[src*="notrump"],
+	.playertablebid .suit[style*="notrump.png"] {
+		filter: invert(0.8);
+	}
+}

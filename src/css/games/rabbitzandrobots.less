@@ -1,0 +1,25 @@
+@import './common';
+
+html[data-theme=dark].bgaext_bright {
+	.player-area {
+		position: relative;
+	}
+
+	.player-area:before {
+		.reduceBrightness();
+	}
+}
+
+html[data-theme=dark].bgaext_dark {
+	#game-board {
+		background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), var(--gameBack) 50% / cover no-repeat;
+	}
+
+	.counter-value span {
+		color: var(--light-80);
+	}
+
+	.path-slot:hover {
+		background: var(--dark-back);
+	}
+}
