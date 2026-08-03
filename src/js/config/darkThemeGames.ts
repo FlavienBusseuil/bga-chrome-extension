@@ -552,6 +552,9 @@ export const gamesConfiguration: Record<string, GameConfig> = {
   explodingkittens: {
     customBack: true
   },
+  falloflumen: {
+    customBack: true
+  },
   faraway: {
     customBack: true
   },
@@ -711,6 +714,10 @@ export const gamesConfiguration: Record<string, GameConfig> = {
     overlay: true,
     playersBack: ["#mf_playertitle_{{player_index_1}}"],
     playersOutline: ["#mf_zone_player_{{player_index_1}}"]
+  },
+  gotwhatitbakes: {
+    customBack: ['thematic_background'],
+    playersBorder: ['player_area[color="{{player_color}}"]']
   },
   gravitysuperstar: {
     customBack: true
@@ -1365,6 +1372,10 @@ export const gamesConfiguration: Record<string, GameConfig> = {
   },
   restinpeace: {
     customBack: true
+  },
+  rivals: {
+    customBack: true,
+    customColors: ["#008f9f", "#539c8d", "#d8b360", "#00f5d2", "#ed6b5a", "#491617", "#a7284e", "#856a91"]
   },
   riverofgold: {
     customColors: ["#000000", "#ff0000", "#008000", "#0000ff", "#ffffff"],

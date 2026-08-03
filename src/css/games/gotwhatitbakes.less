@@ -1,0 +1,26 @@
+@import './common';
+
+html[data-theme=dark].bgaext_bright {
+
+	main_board:before,
+	player_board:before {
+		.reduceBrightness();
+	}
+
+	recipe:before,
+	recipe:after,
+	pantry,
+	pantry_deck,
+	upgrade,
+	upgrade_deck,
+	goal,
+	goal_deck {
+		filter: var(--ext-bright);
+	}
+}
+
+html[data-theme=dark].bgaext_dark {
+	#overall-content {
+		color: var(--light-80);
+	}
+}

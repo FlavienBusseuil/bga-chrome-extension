@@ -1,0 +1,29 @@
+@import "./common";
+
+html[data-theme=dark].bgaext_bright {
+	.bga-cards_card>.bga-cards_card-sides>.bga-cards_card-side {
+		filter: var(--ext-bright);
+	}
+
+	.riv_tile {
+		filter: var(--ext-bright) drop-shadow(0 0 1px);
+	}
+
+	.riv_ashak-board:before {
+		.reduceBrightness();
+		border-radius: 10px;
+	}
+}
+
+html[data-theme=dark].bgaext_dark {
+
+	#overall-content,
+	#riv-ashak-draft-info {
+		color: var(--light-80);
+	}
+
+	.riv_floating-selection,
+	.riv_ashak-board-temporary-effects:empty {
+		background: var(--dark-back);
+	}
+}

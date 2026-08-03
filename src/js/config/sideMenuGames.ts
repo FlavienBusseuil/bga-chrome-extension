@@ -1866,11 +1866,21 @@ const defaultGames: Partial<Game>[] = [
 	{
 		name: "lestoitsdeparis",
 		playerPanel: "playerBoard_{{player_id}}"
-	}, {
+	},
+	{
 		name: "gunsen",
 		playerPanel: "tsn-player-board-wrapper-{{player_id}}",
 		css: " "
 	},
-];
+	{
+		name: "gotwhatitbakes",
+		playerPanel: ".player_board .player_name_txt > div",
+		playerPanelOffset: 70
+	},
+	{
+		name: "theoracleofdelphi",
+		playerPanel: ".delphi-opp-name"
+	},
+}
 
 export default defaultGames;

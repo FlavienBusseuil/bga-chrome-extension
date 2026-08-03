@@ -23,7 +23,8 @@ const _getPlayersData = (returnFunc: (data: PlayerData[]) => void, twoTeams: boo
     return;
   }
 
-  const playerContainers = Array.from(document.querySelectorAll("#player_boards div.player-name[id^=\"player_name_\"]")).filter(elt => elt.id.length > 13 || elt.id === "player_name_7");
+  const regex = /^player_name_(7|[1-9]\d*)$/;
+  const playerContainers = Array.from(document.querySelectorAll("#player_boards div.player-name[id^='player_name_']")).filter(elt => regex.test(elt.id));
   const playerlinks = document.querySelectorAll("#player_boards div.player-name[id^=\"player_name_\"] a[href*=\"/player?id\"]");
   let result: PlayerData[] | undefined = undefined;
 
