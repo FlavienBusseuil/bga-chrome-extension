@@ -91,21 +91,13 @@ const _getDarkColorsStyle = (playersData: PlayerData[]) => {
 
     if (managePlayerLink) {
       declaration.push(`.player-name a[style^="color: ${color}"]`);
-      declaration.push(`.log .playername[style^="color:${color}"]`);
-      declaration.push(`.gamelogreview .playername[style^="color:${color}"]`);
-      declaration.push(`#pagemaintitletext .playername[style^="color: ${color}"]`);
-      declaration.push(`#gameaction_status .playername[style^="color: ${color}"]`);
-      declaration.push(`#chatbar .playername[style^="color:${color}"]`);
-      declaration.push(`.standard_popin .playername[style^="color:${color}"]`);
+      declaration.push(`.playername[style^="color:${color}"]`);
+      declaration.push(`.playername[style^="color: ${color}"]`);
 
       if (color !== colorUp) {
         declaration.push(`.player-name a[style^="color: ${colorUp}"]`);
-        declaration.push(`.log .playername[style^="color:${colorUp}"]`);
-        declaration.push(`.gamelogreview .playername[style^="color:${colorUp}"]`);
-        declaration.push(`#pagemaintitletext .playername[style^="color: ${colorUp}"]`);
-        declaration.push(`#gameaction_status .playername[style^="color: ${colorUp}"]`);
-        declaration.push(`#chatbar .playername[style^="color:${colorUp}"]`);
-        declaration.push(`.standard_popin .playername[style^="color:${colorUp}"]`);
+        declaration.push(`.playername[style^="color:${colorUp}"]`);
+        declaration.push(`.playername[style^="color: ${colorUp}"]`);
       }
     }
 
