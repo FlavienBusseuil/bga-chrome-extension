@@ -200,6 +200,10 @@ export const gamesConfiguration: Record<string, GameConfig> = {
   bossquest: {
     customBack: true
   },
+  bower: {
+    customBack: true,
+    overlay: true
+  },
   bugoff: {
     playersBorder: ['bugoff-player-zone-{{player_id}}']
   },
