@@ -17,6 +17,7 @@
 
 html.popup {
   width: 500px !important;
+  overflow-x: hidden;
 }
 
 body {
