@@ -1,6 +1,7 @@
+import Configuration from "../../../config/configuration";
 import { getDarkStyle, createStyle, getFile, DarkStyle, saveDarkStyle } from "./darkStyleCommonFunctions";
 
-const cssList = ["dark_theme/background.css", "dark_theme/forum.css", "dark_theme/icons.css", "native_theme/general.css"];
+const cssList = ["dark_theme/background.css", "dark_theme/forum.css", "dark_theme/icons.css", "native_theme/forum.css", "native_theme/general.css"];
 const cssContents: Record<string, string> = {};
 let customCssCode = '';
 let styleComponent: HTMLStyleElement;
@@ -26,10 +27,10 @@ const _setDarkStyleIfActivated = () => {
 };
 
 const _setDarkStyle = () => {
-  console.log("[bga extension - forum] Set dark mode");
+  console.log("[bga extension - forum] Set dark mode", cssContents["forum.css"]);
 
   if (styleComponent) {
-    styleComponent.textContent = `${cssContents["dark_theme/background.css"]}${cssContents["dark_theme/icons.css"]}${cssContents["dark_theme/forum.css"]}${customCssCode}`;
+    styleComponent.textContent = `${cssContents["dark_theme/background.css"]}${cssContents["dark_theme/icons.css"]}${cssContents["native_theme/forum.css"]}${cssContents["dark_theme/forum.css"]}${customCssCode}`;
   }
 
   document.documentElement.classList.add("bgaext_dark");
@@ -39,18 +40,18 @@ const _setNativeStyle = () => {
   console.log("[bga extension - forum] Set native mode");
 
   if (styleComponent) {
-    styleComponent.textContent = `${cssContents["native_theme/general.css"]}${customCssCode}`;
+    styleComponent.textContent = `${cssContents["native_theme/forum.css"]}${cssContents["native_theme/general.css"]}${customCssCode}`;
   }
 
   document.documentElement.classList.remove("bgaext_dark");
 };
 
-export const setDarkStyle = (val: DarkStyle, customCss: string) => {
-  customCssCode = customCss;
+export const setStyle = (darkStyle: DarkStyle, config: Configuration) => {
+  customCssCode = config.getCustomCss();
 
-  saveDarkStyle(val);
+  saveDarkStyle(darkStyle);
 
-  if (val === 'on') {
+  if (darkStyle === 'on') {
     _setDarkStyle();
   } else {
     _setNativeStyle();

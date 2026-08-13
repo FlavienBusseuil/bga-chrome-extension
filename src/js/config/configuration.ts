@@ -54,6 +54,7 @@ interface CustomConfig {
 	autoClickStart?: boolean;
 	displayEliminatedTournaments?: boolean;
 	displayFutureTournaments?: boolean;
+	forumFoldersHidden?: number[]
 }
 
 export interface HomeConfig {
@@ -651,6 +652,23 @@ class Configuration {
 			default:
 				return this._customConfig.hidden.map(name => `div: has(> a[href = "/gamepanel?game=${name}"]) { display: none; }`).join(" ");
 		}
+	}
+
+	changeFolderVisibility(id: number, visibility: boolean) {
+		this._customConfig.forumFoldersHidden = [
+			...(this._customConfig.forumFoldersHidden || []).filter((elt) => elt !== id)
+		];
+
+		if (!visibility) {
+			this._customConfig.forumFoldersHidden.push(id);
+		}
+
+		storageSet({ forumFoldersHidden: this._customConfig.forumFoldersHidden });
+		return this._customConfig.forumFoldersHidden;
+	}
+
+	getHiddenFolders() {
+		return this._customConfig.forumFoldersHidden || [];
 	}
 
 	isGeneralChatHidden() {

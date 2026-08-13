@@ -1,0 +1,67 @@
+#bgaext_folder_config {
+	display: flex;
+	gap: 0.5em;
+	float: left;
+	padding: 16px 0px 0px 1em;
+	font-size: 1.1em;
+	font-weight: 600;
+}
+
+#bgaext_folder_config input {
+	border: 1px solid var(--blue-80, var(--phpbb-link, #4871b6));
+	appearance: none;
+	width: 16px;
+	height: 16px;
+	border-radius: 4px;
+
+	display: inline-flex;
+	align-items: center;
+	justify-content: center;
+	vertical-align: middle;
+}
+
+#bgaext_folder_config input:checked::after {
+	content: '✓';
+	font-size: 10px;
+	line-height: 1;
+	font-weight: bold;
+	color: var(--blue-80, var(--phpbb-link, #4871b6));
+}
+
+#bgaext_folder_config label,
+#bgaext_folder_config span {
+	color: var(--blue-80, var(--phpbb-link, #4871b6));
+	cursor: pointer;
+}
+
+dl.row-item dt a.folder_config_link {
+	opacity: 0;
+	visibility: hidden;
+	padding-left: 0.5em;
+	cursor: pointer;
+	transition: opacity 0.3s ease, visibility 0.3s ease;
+	font-size: 16px;
+}
+
+.row[data-visible="false"] {
+	display: none;
+	transition: all 0.3s linear;
+}
+
+.bgaext_folder_config {
+	dl.row-item dt a.folder_config_link {
+		opacity: 1;
+		visibility: visible;
+	}
+
+	.row[data-visible="false"] {
+		--hatch-width: 15px;
+		display: block;
+		opacity: 0.8;
+		background: repeating-linear-gradient(235deg,
+				var(--dark-10, var(--phpbb-surface, #e0e0e0)),
+				var(--dark-10, var(--phpbb-surface, #e0e0e0)) var(--hatch-width),
+				var(--dark-40, var(--phpbb-border, #f5f5f5)) var(--hatch-width),
+				var(--dark-40, var(--phpbb-border, #f5f5f5)) calc(var(--hatch-width) * 2)) !important;
+	}
+}

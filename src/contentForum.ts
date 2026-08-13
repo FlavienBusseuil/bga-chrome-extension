@@ -1,10 +1,10 @@
 import Configuration from "./js/config/configuration";
-import { setDarkStyle } from "./js/ui/content/darkMode/darkStyleForumFunctions";
+import { setStyle } from "./js/ui/content/darkMode/darkStyleForumFunctions";
 import { changeDarkColors } from "./js/ui/content/darkMode/darkColors";
+import { i18n } from "./js/utils/browser/i18n";
 
 let windowLoaded = false;
 let configLoaded = false;
-let cssCounter = 0;
 
 const sendForumLoaded = () => {
   if (windowLoaded && configLoaded) {
@@ -44,7 +44,7 @@ const initPage = () => {
   document.documentElement.classList.add('bgaext_forum');
 
   const darkStyle = getDarkStyle();
-  setDarkStyle(darkStyle, config.getCustomCss());
+  setStyle(darkStyle, config);
   adjustDarkColors();
 
   if (config.isSolidBackground()) {
@@ -54,15 +54,20 @@ const initPage = () => {
   configLoaded = true;
   sendForumLoaded();
 
-  let _manageHtmlTagTimeout: any = 0;
+  let _manageMutationTimeout: any = 0;
 
   const observer = new MutationObserver(() => {
-    if (_manageHtmlTagTimeout) {
-      clearTimeout(_manageHtmlTagTimeout);
+    if (_manageMutationTimeout) {
+      clearTimeout(_manageMutationTimeout);
     }
-    _manageHtmlTagTimeout = setTimeout(_manageHtmlTag, 100);
+    _manageMutationTimeout = setTimeout(_manageMutation, 100);
   });
-  observer.observe(document.documentElement, { attributes: true });
+  observer.observe(document.documentElement, { attributes: true, childList: true, subtree: true });
+};
+
+const _manageMutation = () => {
+  _manageHtmlTag();
+  _manageFoldersLinks();
 };
 
 const _manageHtmlTag = () => {
@@ -81,6 +86,78 @@ const _manageHtmlTag = () => {
   }
 };
 
+const _createFolderConfigInput = () => {
+  if (document.querySelector('#bgaext_folder_config')) {
+    return;
+  }
+
+  const searchBox = document.querySelector('#search-box');
+
+  if (!searchBox?.parentElement) {
+    return;
+  }
+
+  const configInputArea = document.createElement('div');
+  configInputArea.id = 'bgaext_folder_config';
+  configInputArea.title = `${i18n('folderConfigTitle')}\n${i18n('deleteGameText2')}`;
+
+  const configInput = document.createElement('input');
+  configInput.type = 'checkbox';
+  configInput.id = 'bgaext_folder_config_input';
+
+  const configLabel = document.createElement('label');
+  configLabel.innerHTML = `${i18n('folderConfigInput')} <i class="icon fa-question-circle fa-fw"></i>`;
+  configLabel.htmlFor = 'bgaext_folder_config_input';
+
+  configInputArea.appendChild(configInput);
+  configInputArea.appendChild(configLabel);
+
+  searchBox.parentElement.insertBefore(configInputArea, searchBox);
+
+  configInput.addEventListener('change', () => {
+    if (configInput.checked) {
+      document.documentElement.classList.add('bgaext_folder_config');
+    } else {
+      document.documentElement.classList.remove('bgaext_folder_config');
+    }
+  });
+};
+
+const _manageFoldersLinks = () => {
+  const foldersLink = Array.from(document.querySelectorAll('.forumtitle[href*="?f="]'));
+
+  if (foldersLink.length) {
+    _createFolderConfigInput();
+
+    const hiddenFolders = new Set(config.getHiddenFolders());
+
+    foldersLink.forEach((el) => {
+      const link = el as HTMLAnchorElement;
+      const folderId = parseInt(link.href.split('?f=')[1] || '', 10);
+      const row = link.closest('.row') as HTMLDivElement;
+
+      if (folderId && !row.dataset.visible) {
+        let folderVisibility = !hiddenFolders.has(folderId);
+        row.dataset.visible = folderVisibility.toString();
+
+        const parentDiv = link.parentElement as HTMLDivElement;
+        const eyeIcon = document.createElement('a');
+        eyeIcon.className = 'folder_config_link';
+        eyeIcon.innerHTML = folderVisibility ? '<i class="fa fa-eye-slash"></i>' : '<i class="fa fa-eye"></i>';
+
+        eyeIcon.addEventListener('click', () => {
+          folderVisibility = !folderVisibility;
+          row.dataset.visible = folderVisibility.toString();
+          eyeIcon.innerHTML = folderVisibility ? '<i class="fa fa-eye-slash"></i>' : '<i class="fa fa-eye"></i>';
+          config.changeFolderVisibility(folderId, folderVisibility);
+        });
+
+        parentDiv.insertBefore(eyeIcon, link.nextSibling);
+      }
+    });
+  }
+};
+
 document.addEventListener('bga_ext_update_config', (data) => {
   const key = (data as CustomEvent).detail.key as string;
 
@@ -92,16 +169,7 @@ document.addEventListener('bga_ext_update_config', (data) => {
     case 'darkMode':
     case 'darkModeNative':
       const darkStyle = getDarkStyle();
-      setDarkStyle(darkStyle, config.getCustomCss());
-
-      if (darkStyle !== 'on') {
-        // refresh of the CSS to load the background image that was previously blocked
-        const link = Array.from(document.querySelectorAll("link")).find(l => l.href.indexOf('stylesheet.css') > 0)
-        if (link) {
-          setTimeout(() => link.href = `${link.href.split('?')[0]}?${cssCounter++}`, 100);
-          setTimeout(() => link.href = `${link.href.split('?')[0]}?${cssCounter++}`, 1000);
-        }
-      }
+      setStyle(darkStyle, config);
       break;
   }
 });
