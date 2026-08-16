@@ -3,7 +3,7 @@
 }
 
 html[data-theme=dark].bgaext_bright {
-	.sprite {
+	.sprite:not(:has(.sprite)) {
 		filter: var(--ext-bright);
 	}
 }
@@ -49,5 +49,10 @@ html[data-theme=dark].bgaext_dark {
 
 	.logs_custom_highlight {
 		background-color: var(--yellow-10);
+	}
+
+	.tm_hand {
+		background-color: var(--dark-back);
+		color: var(--light-70);
 	}
 }

@@ -361,7 +361,7 @@ const _manageHtmlTag = () => {
     const bgaNativeDarkThemeSelected = document.documentElement.style.colorScheme === 'dark';
     const isDarkModeSelected = darkMode === 'on' || darkMode === 'native';
 
-    if (bgaNativeDarkThemeSelected !== isDarkModeSelected) {
+    if (bgaNativeDarkThemeSelected !== isDarkModeSelected && Boolean(document.querySelector('.bga-dark-mode-toggler'))) {
       console.info("[bga extension] The BGA switch has been used to change the theme");
       (window as any).setDarkStyle(bgaNativeDarkThemeSelected);
       return;
