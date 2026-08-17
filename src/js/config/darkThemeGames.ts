@@ -1487,6 +1487,9 @@ export const gamesConfiguration: Record<string, GameConfig> = {
   shogi: {
     customBack: ["shg_theme1", "shg_theme2"]
   },
+  shokoba: {
+    playersBorder: ["#player_hand_{{player_id}}"]
+  },
   siam: {
     customColors: ["#0000ff", "#ffa500"]
   },
