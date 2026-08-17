@@ -67,6 +67,7 @@
   "sideMenuMainBoard": "Main board",
   "reportCreationWarning": "You're using a browser extension that significantly alters the visuals of the site and certain games. If you have a problem with one of <a href='https://en.doc.boardgamearena.com/ChromeExtension' target='_blank' class='bga-link'>the extension's features</a>, please don't create a report, come and talk about it on the forum!",
   "reportCreationWarningLink": "HERE",
+  "reportCreationWarningDarkMode": "You are using dark mode, check if the issue disappears when disabling it. If so, report it via the dropdown menu next to the dedicated icon ({0}).",
   "reportCreationWarningCss": "You've also modified the CSS code of the site via the extension options, so please check first that your problems aren't caused by your customisations.",
   "darkColorConfigurationMain": "General dark mode settings",
   "darkColorResetMain": "Dark mode without color",

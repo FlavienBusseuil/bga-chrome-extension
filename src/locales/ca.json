@@ -67,6 +67,7 @@
   "sideMenuMainBoard": "Tauler principal",
   "reportCreationWarning": "Estàs utilitzant una extensió de navegador que altera significativament els visuals del lloc i de certs jocs. Si tens un problema amb una de <a href='https://en.doc.boardgamearena.com/ChromeExtension' target='_blank' class='bga-link'>les funcions de l'extensió</a>, si us plau no creïs un informe, vine i parla'n al fòrum!",
   "reportCreationWarningLink": "AQUÍ",
+  "reportCreationWarningDarkMode": "Utilitzes el mode fosc, comprova si el problema desapareix en desactivar-lo. Si és així, informa'n mitjançant el menú desplegable al costat de la icona dedicada ({0}).",
   "reportCreationWarningCss": "També has modificat el codi CSS del lloc a través de les opcions de l'extensió, així que comprova primer que els teus problemes no estiguin causats per les teves personalitzacions.",
   "darkColorConfigurationMain": "Configuració general del mode fosc",
   "darkColorResetMain": "Mode fosc sense color",

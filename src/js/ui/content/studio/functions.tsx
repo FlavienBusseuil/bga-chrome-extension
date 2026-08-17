@@ -16,11 +16,19 @@ export const initBugMessage = (config: Configuration) => {
 			extensionComment.appendChild(DOMPurify.sanitize(`${warningSymbol} ${i18n("reportCreationWarning")} ${forumLink}`, { RETURN_DOM_FRAGMENT: true, }));
 			firstComment.parentNode!.insertBefore(extensionComment, firstComment.nextSibling);
 
+			const insertComment = (text: string) => {
+				const comment = document.createElement("p");
+				comment.className = "text-sm text-bga-gray-78";
+				comment.appendChild(DOMPurify.sanitize(text, { RETURN_DOM_FRAGMENT: true, }));
+				firstComment.parentNode!.insertBefore(comment, extensionComment.nextSibling);
+			};
+
 			if (config.isCssCustomized()) {
-				const cssComment = document.createElement("p");
-				cssComment.className = "text-sm text-bga-gray-78";
-				cssComment.appendChild(DOMPurify.sanitize(i18n("reportCreationWarningCss"), { RETURN_DOM_FRAGMENT: true, }));
-				firstComment.parentNode!.insertBefore(cssComment, extensionComment.nextSibling);
+				insertComment(i18n("reportCreationWarningCss"));
+			}
+
+			if (config.isDarkMode()) {
+				insertComment(i18n("reportCreationWarningDarkMode").replace('{0}', '<i class="fa fa-moon-o"></i>'));
 			}
 
 			return;

@@ -67,6 +67,7 @@
   "sideMenuMainBoard": "Hauptbereich",
   "reportCreationWarning": "Du verwendest eine Browser-Erweiterung, die das Aussehen der Seite und mancher Spiele signifikant verändert. Falls du Probleme mit <a href='https://en.doc.boardgamearena.com/ChromeExtension' target='_blank' class='bga-link'>Funktionen der Erweiterung</a> hast, erstelle bitte keine BGA-Fehlermeldung, sondern melde diese im Forumsbeitrag der Erweiterung!",
   "reportCreationWarningLink": "HIER",
+  "reportCreationWarningDarkMode": "Sie nutzen den Dunkelmodus, bitte prüfen Sie, ob das Problem nach dem Deaktivieren verschwindet. Falls ja, melden Sie es über das Dropdown-Menü neben dem entsprechenden Symbol ({0}).",
   "reportCreationWarningCss": "Du hast zusätzlich den CSS code der Seite über die Erweiterung angepasst, überprüfe deshalbt das deine Änderungen nicht zu den Problemen führen.",
   "darkColorConfigurationMain": "Allgemeine Dunkelmodus-Einstellungen",
   "darkColorResetMain": "Dunkler Modus ohne Farben",

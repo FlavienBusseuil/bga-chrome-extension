@@ -67,6 +67,7 @@
   "sideMenuMainBoard": "メインボード",
   "reportCreationWarning": "あなたは、ブラウザ拡張機能を使用しており、それによって当サイトおよび一部のゲームにて表示が大幅に変化しています。<a href='https://ja.doc.boardgamearena.com/ChromeExtension' target='_blank' class='bga-link'>ブラウザ拡張機能の機能</a>に問題がある場合は、バグ報告や提案を提出せず、フォーラムで議論してください！",
   "reportCreationWarningLink": "フォーラムはこちら",
+  "reportCreationWarningDarkMode": "ダークモードを使用中です。無効化して問題が解消するかご確認ください。解消する場合は、専用アイコン（{0}）の隣にあるドロップダウンメニューから報告してください。",
   "reportCreationWarningCss": "あなたは、ブラウザ拡張機能の設定からサイトのCSSコードをカスタマイズしていますので、まずは問題がご自身のカスタマイズによるものではないかご確認ください。",
   "darkColorConfigurationMain": "ダークモードの一般設定",
   "darkColorResetMain": "色を使用しないダークモード",
