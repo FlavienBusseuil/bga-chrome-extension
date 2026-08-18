@@ -1,0 +1,55 @@
+@import "./common";
+
+html[data-theme=dark].bgaext_bright {
+
+	#boat_id:before {
+		.reduceBrightness();
+		border-radius: 10px;
+	}
+
+	#scorepad_id:before {
+		.reduceBrightness();
+		border-radius: 2%;
+	}
+
+	.od_cards,
+	.od_cards_light {
+		filter: var(--ext-bright);
+	}
+}
+
+html[data-theme=dark].bgaext_dark {
+
+	#od_help_button {
+		background: #13373a;
+	}
+
+	.player_table,
+	.player_table>*,
+	#river_id,
+	#river_id>* {
+		filter: invert(1) hue-rotate(180deg);
+	}
+
+	.od_logicons {
+		border-radius: 50%;
+	}
+
+	.modal-content,
+	.tooltip_bigcontent {
+		background: #13373a;
+	}
+
+	.tooltip_bigtitle,
+	.tooltip_desc {
+		color: var(--light-70);
+	}
+
+	.close {
+		color: var(--light-60);
+	}
+
+	.close:hover {
+		color: var(--light-80);
+	}
+}

@@ -1,7 +1,24 @@
 @import "./common";
 
+html[data-theme=dark].bgaext_bright {
+	.ERAstarPeople img {
+		filter: var(--ext-bright);
+	}
+}
+
 html[data-theme=dark].bgaext_dark {
 	.ERAview {
 		filter: invert(1);
+	}
+
+	.ERA-info,
+	.ERA-subphase {
+		background-color: #4c331a;
+		color: var(--light-80);
+	}
+
+	.ERA-phase {
+		background-color: #7d4003;
+		color: var(--light-80);
 	}
 }

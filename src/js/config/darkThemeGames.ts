@@ -1167,6 +1167,9 @@ export const gamesConfiguration: Record<string, GameConfig> = {
   nylonppong: {
     overlay: true
   },
+  odysseus: {
+    playersBorder: ['player_table_{{player_id}}']
+  },
   ofknightsandninjas: {
     customBack: true
   },
