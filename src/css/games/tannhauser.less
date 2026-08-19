@@ -1,0 +1,75 @@
+@import './common';
+
+html[data-theme=dark].bgaext_dark {
+	.TANNphase {
+		background-color: var(--orange-30);
+		color: var(--light-80);
+	}
+
+	.TANNsubPhase {
+		background-color: var(--yellow-10);
+		color: var(--light-80);
+	}
+
+	.TANNcharacter.TANNdead {
+		filter: brightness(25%) var(--highlight-min);
+	}
+
+	.TANNcharacteristic,
+	.TANNpack-lore,
+	.TANNpack-description {
+		color: var(--light-80);
+	}
+
+	.TANNpack {
+		border-color: var(--light-50);
+	}
+
+	.TANNpack[data-faction=Reich] {
+		background-color: #3f5a48
+	}
+
+	.TANNpack[data-faction=Reich]>.TANNpack-description {
+		background-color: #2b3b32;
+	}
+
+	.TANNpack[data-faction=Union] {
+		background-color: #675e32
+	}
+
+	.TANNpack[data-faction=Union]>.TANNpack-description {
+		background-color: #473c1f
+	}
+
+	.TANNpack[data-pack="COMBAT PACK"] {
+		background-color: #841517;
+	}
+
+	.TANNpack[data-pack="COMBAT PACK"]>.TANNpack-description {
+		background-color: #551c11
+	}
+
+	.TANNpack[data-pack="STAMINA PACK"] {
+		background-color: #3f5a40;
+	}
+
+	.TANNpack[data-pack="STAMINA PACK"]>.TANNpack-description {
+		background-color: #2f4125
+	}
+
+	.TANNpack[data-pack="COMMAND PACK"] {
+		background-color: #1f367a;
+	}
+
+	.TANNpack[data-pack="COMMAND PACK"]>.TANNpack-description {
+		background-color: #163250
+	}
+
+	.TANNpack-banner {
+		.defaultButton();
+	}
+
+	.TANNpack-banner:hover {
+		.defaultButtonOver();
+	}
+}

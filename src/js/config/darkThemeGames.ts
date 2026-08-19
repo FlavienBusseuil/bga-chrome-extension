@@ -1661,6 +1661,9 @@ export const gamesConfiguration: Record<string, GameConfig> = {
   tanglewoodsred: {
     customBack: true
   },
+  tannhauser: {
+    customBack: true
+  },
   tapestry: {
     customBack: true,
     overlay: true
