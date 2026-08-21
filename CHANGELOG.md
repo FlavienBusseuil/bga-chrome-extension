@@ -1,5 +1,13 @@
 # Changelog
 
+## [v1.14.16](https://github.com/FlavienBusseuil/bga-chrome-extension/tree/v1.14.16) (2026-08-21)
+
+[Full Changelog](https://github.com/FlavienBusseuil/bga-chrome-extension/compare/v1.14.15...v1.14.16)
+
+**Closed issues:**
+
+- count of boards-where-it's-your-turn no longer shows up in extension icon [\#145](https://github.com/FlavienBusseuil/bga-chrome-extension/issues/145)
+
 ## [v1.14.15](https://github.com/FlavienBusseuil/bga-chrome-extension/tree/v1.14.15) (2026-08-16)
 
 [Full Changelog](https://github.com/FlavienBusseuil/bga-chrome-extension/compare/v1.14.14...v1.14.15)
