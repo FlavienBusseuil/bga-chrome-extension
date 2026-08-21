@@ -1,0 +1,23 @@
+html[data-theme=dark].bgaext_bright {
+
+	.mf_item_back,
+	.mf_item_front,
+	.mf_tooltip_card {
+		filter: var(--ext-bright);
+	}
+}
+
+html[data-theme=dark].bgaext_dark {
+	--ext-overall-color: #0009;
+
+	.mf_help {
+		color: var(--light-70);
+	}
+
+	.bg-icon_action_1,
+	.bg-icon_action_1_1,
+	.bg-icon_action_5,
+	.bg-icon_action_5_1 {
+		filter: var(--highlight-min);
+	}
+}

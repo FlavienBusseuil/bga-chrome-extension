@@ -1,0 +1,99 @@
+@import './common';
+
+html[data-theme=dark].bgaext_bright {
+
+	#cid-council-seats:before {
+		.reduceBrightness();
+	}
+
+	.bga-cards_card>.bga-cards_card-sides>.bga-cards_card-side,
+	.cid_character-reveal .cid_character-small-icon {
+		filter: var(--ext-bright);
+	}
+
+	.cid_council-seat-back,
+	.cid_council-seat-front,
+	.cid_gold-back,
+	.cid_gold-front {
+		filter: var(--ext-bright) var(--drop-shadow) !important;
+	}
+
+	.cid_district {
+		filter: var(--ext-bright) drop-shadow(0 0 1px black) !important;
+	}
+
+	.cid_selectable-district,
+	.cid_selectable-character {
+		filter: var(--ext-bright) drop-shadow(0 0 5px orange) drop-shadow(0 0 5px orange) drop-shadow(0 0 5px orange) !important;
+	}
+
+	.cid_selectable-district:hover,
+	.cid_selected-district,
+	.cid_selectable-character:hover,
+	.cid_selected-character {
+		filter: var(--ext-bright) drop-shadow(0 0 5px lightgreen) drop-shadow(0 0 5px lightgreen) drop-shadow(0 0 5px lightgreen) !important;
+	}
+
+	.cid_last-played-district,
+	.gamestate_discardUniqueDistrict .cid_selectable-district:hover,
+	.gamestate_discardUniqueDistrict .cid_selected-district,
+	.gamestate_draftPhaseDiscard .cid_selectable-character:hover,
+	.gamestate_draftPhaseDiscard .cid_selected-character,
+	.gamestate_draftPhaseKeep .cid_selectable-character:hover,
+	.gamestate_draftPhaseKeep .cid_selected-character {
+		filter: var(--ext-bright) drop-shadow(0 0 5px orangered) drop-shadow(0 0 5px orangered) drop-shadow(0 0 5px orangered) !important;
+	}
+
+	@keyframes animKingsGuard {
+		0% {
+			filter: var(--ext-bright) drop-shadow(0 0 0 goldenrod) drop-shadow(0 0 0 goldenrod) !important;
+		}
+
+		50% {
+			filter: var(--ext-bright) drop-shadow(0 0 3rem goldenrod) drop-shadow(0 0 3rem goldenrod) !important;
+		}
+
+		to {
+			filter: var(--ext-bright) drop-shadow(0 0 0 goldenrod) drop-shadow(0 0 0 goldenrod) !important;
+		}
+	}
+}
+
+html[data-theme=dark].bgaext_dark {
+	--ext-overall-color: var(--dark-40);
+	--areaBackgroundColor: var(--dark-back);
+
+	.cid_council-seat-back,
+	.cid_council-seat-front,
+	.cid_gold-back,
+	.cid_gold-front {
+		filter: var(--drop-shadow);
+	}
+
+	#game_play_area h2 {
+		color: var(--light-70);
+	}
+
+	hr {
+		background-color: var(--dark-30);
+		border: none;
+		height: 2px;
+	}
+
+	.cid_character-translation {
+		background: var(--dark-10);
+		color: var(--light-80);
+	}
+
+	.cid_district-space.bga-cards_selectable-slot:not(:hover) {
+		background: var(--dark-40);
+	}
+
+	#cid-player-aid:not(.cid_maximized) {
+		.defaultButton();
+	}
+
+	#cid-player-aid:not(.cid_maximized):hover {
+		.defaultButtonOver();
+	}
+}

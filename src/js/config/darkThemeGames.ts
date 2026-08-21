@@ -100,6 +100,9 @@ export const gamesConfiguration: Record<string, GameConfig> = {
     customBack: true,
     customPanel: true
   },
+  away: {
+    customBack: true
+  },
   azul: {
     customBack: true,
     overlay: true,
@@ -323,6 +326,9 @@ export const gamesConfiguration: Record<string, GameConfig> = {
   citadels: {
     customBack: true,
     overlay: true
+  },
+  citadelsduel: {
+    customBack: true
   },
   cities: {
     customBack: true
@@ -1146,6 +1152,9 @@ export const gamesConfiguration: Record<string, GameConfig> = {
       document.body.style.setProperty("--ext-game-back", `url(${cssPath}img/html-background.jpg)`);
     }
   },
+  niwashi: {
+    customBack: true
+  },
   noah: {
     customBack: true
   },
@@ -1166,6 +1175,9 @@ export const gamesConfiguration: Record<string, GameConfig> = {
   },
   nylonppong: {
     overlay: true
+  },
+  odeon: {
+    customBack: true
   },
   odysseus: {
     playersBorder: ['player_table_{{player_id}}']

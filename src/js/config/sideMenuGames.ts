@@ -1880,7 +1880,17 @@ const defaultGames: Partial<Game>[] = [
 	{
 		name: "theoracleofdelphi",
 		playerPanel: ".delphi-opp-name"
-	}
+	},
+	{
+		name: "niwashi",
+		playerPanel: ".mf_playerboard .playername",
+		playerPanelOffset: 20
+	},
+	{
+		name: "odeon",
+		playerPanel: ".mf_playerboard .playername",
+		playerPanelOffset: 20
+	},
 ];
 
 export default defaultGames;

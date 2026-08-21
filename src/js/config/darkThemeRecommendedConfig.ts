@@ -82,6 +82,7 @@ export const gamesWithRecommendedConfig: { [gameName: GameName]: RecommendedConf
 	mycityrb: { color: 25, sat: 22 },
 	nature: { color: 0, sat: 20 },
 	nimalia: { color: 220, sat: 30 },
+	niwashi: { color: 30, sat: 16 },
 	noah: { color: 220, sat: 22 },
 	oriflamme: { color: 202, sat: 55 },
 	origin: { color: 110, sat: 15 },
