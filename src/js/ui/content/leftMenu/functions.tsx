@@ -1,9 +1,9 @@
 import { render } from "preact";
+
 import SideMenu from "./SideMenu";
 import { getPlayersData, PlayerData } from "../players"
-
-import type Configuration from "~/js/config/configuration";
-import type { Game } from "~/js/config/models";
+import type Configuration from "../../../config/configuration";
+import type { Game } from "../../../config/models";
 
 let playersData: PlayerData[] = [];
 

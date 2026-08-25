@@ -1,0 +1,37 @@
+html[data-theme=dark].bgaext_bright {
+
+	.card .card-sides .card-side.front,
+	.card .card-sides .card-side.back {
+		filter: var(--ext-bright);
+	}
+}
+
+html[data-theme=dark].bgaext_dark {
+	--ext-overlay-color: #0001;
+
+	#page-title,
+	#maingameview_menuheader,
+	#maingameview_menufooter {
+		border: 1px solid var(--dark-40);
+	}
+
+	#maingameview_menuheader {
+		border-top: none;
+		top: -1px;
+	}
+
+	.player-table .player-name {
+		text-shadow: none;
+	}
+
+	#table #market-title {
+		background: var(--dark-back);
+		border-color: var(--green-50);
+		color: var(--green-50);
+	}
+
+	.player-table {
+		border-style: solid;
+		border-width: 2px;
+	}
+}

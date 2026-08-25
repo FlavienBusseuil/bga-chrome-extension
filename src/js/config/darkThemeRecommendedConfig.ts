@@ -92,6 +92,7 @@ export const gamesWithRecommendedConfig: { [gameName: GameName]: RecommendedConf
 	pescadonovo: { color: 110, sat: 4 },
 	pixies: { color: 95, sat: 15 },
 	pioneerdaysproject: { color: 25, sat: 22 },
+	pointsalad: { color: 120, sat: 16 },
 	postcards: { color: 0, sat: 16 },
 	powervacuum: { color: 0, sat: 15 },
 	quato: { color: 0, sat: 20 },

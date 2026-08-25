@@ -1,0 +1,34 @@
+@import './common';
+
+html[data-theme=dark].bgaext_bright {
+
+	.maq_card,
+	.maq_room-tile {
+		filter: var(--ext-bright);
+	}
+
+	#board:before {
+		.reduceBrightness();
+	}
+}
+
+html[data-theme=dark].bgaext_dark {
+
+	.maq_whiteblock,
+	.maq_available-space:hover {
+		background: var(--dark-back);
+		color: var(--light-80);
+	}
+
+	.maq_active-space {
+		background-color: #123e6e;
+	}
+
+	.maq_space-with-available-worker {
+		background-color: #12416e;
+	}
+
+	.maq_space-with-available-worker:hover {
+		background-color: #11406f;
+	}
+}

@@ -101,7 +101,7 @@ const defaultGames: Partial<Game>[] = [
 		name: "akropolis",
 		top: "100px",
 		playerPanel: "player-table-{{player_id}}",
-		css: "#jump-controls { display: none; }",
+		css: ".bga-jump-to_controls { display: none; }",
 	},
 	{
 		name: "villagers",
@@ -180,7 +180,7 @@ const defaultGames: Partial<Game>[] = [
 	{
 		name: "getonboard",
 		playerPanel: "player-table-{{player_id}}",
-		css: "#jump-controls { display: none; }",
+		css: "#jump-controls, .bga-jump-to_controls { display: none; }",
 	},
 	{
 		name: "lumen",
@@ -255,7 +255,7 @@ const defaultGames: Partial<Game>[] = [
 		iconBackground: "#ffffff",
 		playerPanel: "player-table-{{player_id}}",
 		playerPanelOffset: 10,
-		css: "#jump-controls { display: none; } .desktop_version #game_play_area { padding-left: 50px; }",
+		css: "#jump-controls, .bga-jump-to_controls { display: none; } .desktop_version #game_play_area { padding-left: 50px; }",
 	},
 	{
 		name: "oasis",
@@ -308,7 +308,7 @@ const defaultGames: Partial<Game>[] = [
 	{
 		name: "elawa",
 		playerPanel: "player-table-{{player_id}}",
-		css: "#bga-jump-to_controls { display: none; } .desktop_version #tables { padding-left: 45px; }",
+		css: "#bga-jump-to_controls, .bga-jump-to_controls { display: none; } .desktop_version #tables { padding-left: 45px; }",
 		iconBackgroundDark: "#6a552f"
 	},
 	{
@@ -565,7 +565,7 @@ const defaultGames: Partial<Game>[] = [
 		name: "lookatthestars",
 		iconBackground: "#fff",
 		playerPanel: "player-table-{{player_id}}",
-		css: "#jump-controls { display: none; } .desktop_version #game_play_area { padding-left: 50px; }",
+		css: "#jump-controls, .bga-jump-to_controls { display: none; } .desktop_version #game_play_area { padding-left: 50px; }",
 	},
 	{
 		name: "dungeonpetz",
@@ -593,7 +593,7 @@ const defaultGames: Partial<Game>[] = [
 	{
 		name: "theisleofcatsduel",
 		playerPanel: "tioc-player-board-{{player_id}}",
-		css: "#bga-jump-to_controls { display: none; }",
+		css: "#bga-jump-to_controls, .bga-jump-to_controls { display: none; }",
 	},
 	{
 		name: "tucano",
@@ -666,7 +666,7 @@ const defaultGames: Partial<Game>[] = [
 	{
 		name: "afterus",
 		playerPanel: "player-table-{{player_id}}-deck",
-		css: "#bga-jump-to_controls { display: none; } .desktop_version #game_play_area { padding-left: 50px; }",
+		css: "#bga-jump-to_controls, .bga-jump-to_controls { display: none; } .desktop_version #game_play_area { padding-left: 50px; }",
 	},
 	{
 		name: "livingforest",
@@ -682,7 +682,7 @@ const defaultGames: Partial<Game>[] = [
 		boardPanel: "canvas-board",
 		boardPanelText: "#bga-jump-to_canvas-board > span",
 		playerPanel: "player-table-{{player_id}}",
-		css: "#bga-jump-to_controls { display: none; }",
+		css: "#bga-jump-to_controls, .bga-jump-to_controls { display: none; }",
 	},
 	{
 		name: "forbiddenisland",
@@ -704,7 +704,7 @@ const defaultGames: Partial<Game>[] = [
 		name: "knarr",
 		playerPanel: "player-table-{{player_id}}",
 		iconBackground: "#dfeaeb",
-		css: "#bga-jump-to_controls { display: none; }",
+		css: ".bga-jump-to_controls { display: none; }",
 	},
 	{
 		name: "legendraiders",
@@ -837,12 +837,12 @@ const defaultGames: Partial<Game>[] = [
 		playerPanel: "player-table-{{player_id}}",
 		boardPanel: "research-board",
 		boardPanelText: "#bga-jump-to_board-1 > span",
-		css: "#bga-jump-to_controls { display: none; } .desktop_version #game_play_area { padding-left: 50px; }",
+		css: "#bga-jump-to_controls, .bga-jump-to_controls { display: none; } .desktop_version #game_play_area { padding-left: 50px; }",
 	},
 	{
 		name: "skatelegend",
 		playerPanel: "player-table-{{player_id}}",
-		css: "#bga-jump-to_controls { display: none; } .desktop_version #game_play_area { padding-left: 50px; }",
+		css: "#bga-jump-to_controls, .bga-jump-to_controls { display: none; } .desktop_version #game_play_area { padding-left: 50px; }",
 	},
 	{
 		name: "almadi",
@@ -989,13 +989,13 @@ const defaultGames: Partial<Game>[] = [
 		playerPanel: "player-table-{{player_id}}",
 		bottomPanel: "legend-table",
 		iconBackgroundDark: "#663d00",
-		css: "#bga-jump-to_controls { display: none; } .desktop_version #game_play_area { padding-left: 50px; }",
+		css: "#bga-jump-to_controls, .bga-jump-to_controls { display: none; } .desktop_version #game_play_area { padding-left: 50px; }",
 	},
 	{
 		name: "heatchampionship",
 		playerPanel: "player-table-{{player_id}}",
 		bottomPanel: "legend-table",
-		css: "#bga-jump-to_controls { display: none; } .desktop_version #game_play_area { padding-left: 50px; }",
+		css: "#bga-jump-to_controls, .bga-jump-to_controls { display: none; } .desktop_version #game_play_area { padding-left: 50px; }",
 	},
 	{
 		name: "hydroracers",
@@ -1060,7 +1060,7 @@ const defaultGames: Partial<Game>[] = [
 		name: "bagofchips",
 		playerPanel: "player-table-{{player_id}}",
 		bottomPanel: "skin",
-		css: "#bga-jump-to_controls { display: none; }",
+		css: "#bga-jump-to_controls, .bga-jump-to_controls { display: none; }",
 	},
 	{
 		name: "thewolves",
@@ -1084,7 +1084,7 @@ const defaultGames: Partial<Game>[] = [
 		name: "ancientknowledge",
 		playerPanel: "player-table-{{player_id}}",
 		iconBackgroundDark: "#644f5c",
-		css: "#bga-jump-to_controls { display: none; }",
+		css: "#bga-jump-to_controls, .bga-jump-to_controls { display: none; }",
 	},
 	{
 		name: "captainflip",
@@ -1187,7 +1187,7 @@ const defaultGames: Partial<Game>[] = [
 		playerPanel: "player-table-{{player_id}}",
 		boardPanel: "cards-wrapper",
 		boardPanelText: "#bga-jump-to_table-cards .bga-jump-to_label",
-		css: "#bga-jump-to_controls { display: none; }",
+		css: "#bga-jump-to_controls, .bga-jump-to_controls { display: none; }",
 		iconBackground: "#c4aec5",
 		iconBackgroundDark: "#394260"
 	},
@@ -1199,7 +1199,7 @@ const defaultGames: Partial<Game>[] = [
 	{
 		name: "hiddenleaders",
 		playerPanel: "player-head-{{player_id}}",
-		css: "#bga-jump-to_controls { display: none; } .desktop_version #game_play_area { padding-left: 50px; } #tabs-container { margin-left: -60px; }",
+		css: "#bga-jump-to_controls, .bga-jump-to_controls { display: none; } .desktop_version #game_play_area { padding-left: 50px; } #tabs-container { margin-left: -60px; }",
 		position: "bottom"
 	},
 	{
@@ -1257,7 +1257,7 @@ const defaultGames: Partial<Game>[] = [
 		bottomPanel: "rules-wrapper",
 		iconBackground: "#93d4df",
 		iconBackgroundDark: "#246975",
-		css: "#bga-jump-to_controls { display: none; }",
+		css: "#bga-jump-to_controls, .bga-jump-to_controls { display: none; }",
 	},
 	{
 		name: "draftandwriterecords",
@@ -1288,7 +1288,7 @@ const defaultGames: Partial<Game>[] = [
 		playerPanel: "player-table-{{player_id}}",
 		boardPanel: "technology-board",
 		boardPanelText: "#bga-jump-to_technology-board > span",
-		css: "#bga-jump-to_controls { display: none; }",
+		css: ".bga-jump-to_controls { display: none; }",
 	},
 	{
 		name: "batalladecoronas",
@@ -1373,12 +1373,12 @@ const defaultGames: Partial<Game>[] = [
 	{
 		name: "refuge",
 		playerPanel: "player-table-{{player_id}}",
-		css: "#bga-jump-to_controls { display: none; } .desktop_version #game_play_area { padding-left: 50px; }",
+		css: "#bga-jump-to_controls, .bga-jump-to_controls { display: none; } .desktop_version #game_play_area { padding-left: 50px; }",
 	},
 	{
 		name: "rumbleplanet",
 		playerPanel: "player-table-{{player_id}}",
-		css: "#bga-jump-to_controls { display: none; }",
+		css: "#bga-jump-to_controls, .bga-jump-to_controls { display: none; }",
 		iconBackgroundDark: "#415b59"
 	},
 	{
@@ -1396,7 +1396,7 @@ const defaultGames: Partial<Game>[] = [
 		boardPanel: "available_burials",
 		boardPanelText: "#available_burials > h1",
 		bottomPanel: "discard",
-		css: "#bga-jump-to_controls { display: none; } .desktop_version #game_play_area { padding-left: 50px; }",
+		css: "#bga-jump-to_controls, .bga-jump-to_controls { display: none; } .desktop_version #game_play_area { padding-left: 50px; }",
 	},
 	{
 		name: "tulipandrose",
@@ -1412,7 +1412,7 @@ const defaultGames: Partial<Game>[] = [
 		boardPanel: "dlv_darkness_board_wrapper",
 		boardPanelText: "#bga-jump-to_dlv_darkness_board > span",
 		bottomPanel: "dlv_demons",
-		css: "#bga-jump-to_controls { display: none; }"
+		css: "#bga-jump-to_controls, .bga-jump-to_controls { display: none; }"
 	},
 	{
 		name: "revive",
@@ -1512,7 +1512,7 @@ const defaultGames: Partial<Game>[] = [
 	{
 		name: "aiye",
 		playerPanel: "aiye-player-area-{{player_id}}",
-		css: "#bga-jump-to_controls { display: none; } .desktop_version #game_play_area { padding-left: 50px; }",
+		css: "#bga-jump-to_controls, .bga-jump-to_controls { display: none; } .desktop_version #game_play_area { padding-left: 50px; }",
 	},
 	{
 		name: "tactile",
@@ -1522,7 +1522,7 @@ const defaultGames: Partial<Game>[] = [
 	{
 		name: "coatl",
 		playerPanel: "player-table-{{player_id}}",
-		css: "#bga-jump-to_controls { display: none; } .desktop_version #game_play_area { padding-left: 50px; }",
+		css: "#bga-jump-to_controls, .bga-jump-to_controls { display: none; } .desktop_version #game_play_area { padding-left: 50px; }",
 	},
 	{
 		name: "abrachadabra",
@@ -1541,7 +1541,7 @@ const defaultGames: Partial<Game>[] = [
 	{
 		name: "apiary",
 		playerPanel: "ap-player-area-{{player_id}}",
-		css: "#bga-jump-to_controls { display: none; }"
+		css: "#bga-jump-to_controls, .bga-jump-to_controls { display: none; }"
 	},
 	{
 		name: "fateoffellowship",
@@ -1599,7 +1599,7 @@ const defaultGames: Partial<Game>[] = [
 	{
 		name: "arigato",
 		playerPanel: "player-table-{{player_id}}",
-		css: "#bga-jump-to_controls, .vgincLib_layout_slider #bga_extension_sidebar { display: none; }"
+		css: "#bga-jump-to_controls, .bga-jump-to_controls, .vgincLib_layout_slider #bga_extension_sidebar { display: none; }"
 	},
 	{
 		name: "forestshuffledartmoor",
@@ -1666,13 +1666,20 @@ const defaultGames: Partial<Game>[] = [
 		css: " "
 	},
 	{
+		name: "pointsalad",
+		playerPanel: "player-table-{{player_id}}",
+		iconBackground: "#d3f591",
+		iconBackgroundDark: "#360",
+		css: ".bga-jump-to_controls { display: none; }"
+	},
+	{
 		name: "popcorn",
 		playerPanel: "pop-player-{{player_id}}",
 	},
 	{
 		name: "spirited",
 		playerPanel: "sp-player-area-{{player_id}}",
-		css: "#bga-jump-to_controls { display: none; }",
+		css: "#bga-jump-to_controls, .bga-jump-to_controls { display: none; }",
 		iconBackgroundDark: "#53481d",
 	},
 	{
@@ -1682,12 +1689,12 @@ const defaultGames: Partial<Game>[] = [
 	{
 		name: "limit",
 		playerPanel: "player-table-{{player_id}}",
-		css: "#bga-jump-to_controls { display: none; }",
+		css: "#bga-jump-to_controls, .bga-jump-to_controls { display: none; }",
 	},
 	{
 		name: "reforest",
 		playerPanel: "re-player-area-{{player_id}}",
-		css: "#bga-jump-to_controls { display: none; }",
+		css: "#bga-jump-to_controls, .bga-jump-to_controls { display: none; }",
 	},
 	{
 		name: "postcards",
@@ -1768,7 +1775,7 @@ const defaultGames: Partial<Game>[] = [
 		playerPanel: "wc-player-area-{{player_id}}",
 		boardPanel: "wc-display-area-wrapper",
 		boardPanelText: "#bga-jump-to_wc-wilderness-area .bga-jump-to_label",
-		css: "#bga-jump-to_controls { display: none; } .desktop_version #game_play_area { padding-left: 50px; }",
+		css: "#bga-jump-to_controls, .bga-jump-to_controls { display: none; } .desktop_version #game_play_area { padding-left: 50px; }",
 		iconBackgroundDark: "#1e3448",
 		iconShadowDark: "#777",
 	},
@@ -1783,7 +1790,7 @@ const defaultGames: Partial<Game>[] = [
 		name: "diggingfordinos",
 		playerPanel: "player-table-{{player_id}}",
 		iconBackgroundDark: "#744625",
-		css: "#bga-jump-to_controls { display: none; }",
+		css: "#bga-jump-to_controls, .bga-jump-to_controls { display: none; }",
 	},
 	{
 		name: "seashells",
@@ -1857,7 +1864,7 @@ const defaultGames: Partial<Game>[] = [
 	{
 		name: "relativespace",
 		playerPanel: "player-table-{{player_id}}",
-		css: "#bga-jump-to_controls { display: none; }",
+		css: "#bga-jump-to_controls, .bga-jump-to_controls { display: none; }",
 	},
 	{
 		name: "biome",
@@ -1890,6 +1897,10 @@ const defaultGames: Partial<Game>[] = [
 		name: "odeon",
 		playerPanel: ".mf_playerboard .playername",
 		playerPanelOffset: 20
+	},
+	{
+		name: "paladins",
+		playerPanel: "player-table-{{player_id}}"
 	},
 ];
 

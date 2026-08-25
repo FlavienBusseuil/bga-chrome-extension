@@ -515,6 +515,9 @@ export const gamesConfiguration: Record<string, GameConfig> = {
   easypeasy: {
     customBack: true
   },
+  echoesoftime: {
+    customBack: true
+  },
   ekko: {
     customBack: true
   },
@@ -1203,6 +1206,9 @@ export const gamesConfiguration: Record<string, GameConfig> = {
   orleans: {
     customBack: true
   },
+  paladins: {
+    customColors: ['#404040']
+  },
   pandaspin: {
     customBack: true,
     overlay: true
@@ -1279,6 +1285,11 @@ export const gamesConfiguration: Record<string, GameConfig> = {
   },
   pocketcats: {
     customBack: true
+  },
+  pointsalad: {
+    customBack: true,
+    overlay: true,
+    playersBorder: ['#player-table-{{player_id}}']
   },
   pondscape: {
     customBack: true,

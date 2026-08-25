@@ -1,0 +1,55 @@
+@import './common';
+
+html[data-theme=dark].bgaext_bright {
+
+	#board_actions:before,
+	.pwk-player-board:before {
+		.reduceBrightness();
+	}
+
+	.bga-cards_card-side {
+		filter: var(--ext-bright);
+	}
+}
+
+html[data-theme=dark].bgaext_dark {
+
+	#scrollmap_board,
+	.pwk-player-table,
+	#score_sheet {
+		background-color: var(--dark-back);
+	}
+
+	.pwk-inquisition-banner {
+		background: var(--yellow-10);
+	}
+
+	#score_sheet table {
+		color: var(--light-80);
+	}
+
+	#score_sheet table * {
+		border-color: var(--light-50);
+	}
+
+	#score_sheet table td {
+		background-color: var(--dark-40);
+	}
+
+	#score_sheet table td.bga-score-sheet_corner {
+		background-color: transparent;
+	}
+
+	#score_sheet table tr:nth-child(2n) td {
+		background-color: var(--dark-20);
+	}
+
+	.player_board_content .pwk-icon {
+		will-change: transform;
+	}
+
+	[style^="color: #404040"],
+	[style="--player-color: #404040;"] {
+		text-shadow: var(--text-w-shadow);
+	}
+}

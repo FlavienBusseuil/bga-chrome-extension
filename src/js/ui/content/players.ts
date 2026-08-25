@@ -23,14 +23,16 @@ const _getPlayersData = (returnFunc: (data: PlayerData[]) => void, twoTeams: boo
     return;
   }
 
-  const regex = /^player_name_(7|[1-9]\d*)$/;
-  const playerContainers = Array.from(document.querySelectorAll("#player_boards div.player-name[id^='player_name_']")).filter(elt => regex.test(elt.id));
-  const playerlinks = document.querySelectorAll("#player_boards div.player-name[id^=\"player_name_\"] a[href*=\"/player?id\"]");
+  //sourisdudesert is not connecting since years, let's simplify the regex
+  //const regex = /^player_name_(7|[1-9]\d*)$/;
+  const regex = /^player_name_([1-9]\d+)$/;
+  const playerContainers = Array.from(document.querySelectorAll<HTMLElement>("#player_boards div.player-name[id^='player_name_']")).filter(elt => regex.test(elt.id));
+  const playerLinks = playerContainers.map(container => container.querySelector<HTMLAnchorElement>('a[href*="/player?id"]')).filter((link): link is HTMLAnchorElement => link !== null);
   let result: PlayerData[] | undefined = undefined;
 
   document.documentElement.classList.add("bgaext_get_players_data");
 
-  if (playerContainers && playerlinks && playerContainers.length && playerContainers.length === playerlinks.length) {
+  if (playerContainers && playerLinks && playerContainers.length && playerContainers.length === playerLinks.length) {
     const playersIdList = Object.values(playerContainers)
       .filter((d) => d.id)
       .map((d) => parseInt(d.id.substring(12), 10))
@@ -45,7 +47,7 @@ const _getPlayersData = (returnFunc: (data: PlayerData[]) => void, twoTeams: boo
     }
 
     const playersData = playersIdList.map((id, index) => {
-      const userLink = playerlinks[index] as any;
+      const userLink = playerLinks[index] as any;
       const avatar = document.getElementById(`avatar_${id}`) as any;
       const color = `#${rgbHex(getColor(userLink))}`;
       const darkConfig = getColorForDarkMode(color);

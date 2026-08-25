@@ -28,3 +28,63 @@ div.bgext_side_menu_item {
 	display: flex;
 	flex-flow: row;
 }
+
+.bgaext-sandwich-icon .bgaext-bar {
+	transition: transform 0.6s ease-in-out, opacity 0.6s ease-in-out;
+	transform-box: fill-box;
+	transform-origin: center;
+}
+
+.bgaext-opened .bgaext-sandwich-icon {
+	stroke-width: 8px;
+}
+
+.bgaext-opened .bgaext-sandwich-icon .bgaext-top {
+	transform: translateY(18px) rotate(45deg);
+}
+
+.bgaext-opened .bgaext-sandwich-icon .bgaext-middle {
+	opacity: 0;
+}
+
+.bgaext-opened .bgaext-sandwich-icon .bgaext-bottom {
+	transform: translateY(-18px) rotate(-45deg);
+}
+
+/* On remonte la boîte de masquage de 10px sans décaler son contenu */
+#bgaext-side-menu-content {
+	margin-top: -10px;
+	padding-top: 10px;
+	clip-path: inset(0px -50px -50px -50px);
+}
+
+#bgaext-side-menu-content>div {
+	display: grid;
+	grid-template-rows: 1fr;
+	transition: grid-template-rows 0.6s ease-in-out;
+}
+
+#bgaext-side-menu-content>div>div {
+	display: flex;
+	flex-direction: column;
+	gap: 0.8em;
+	/* Aucun padding interne qui décalerait les éléments */
+	transition: transform 0.6s ease-in-out, opacity 0.6s ease-in-out;
+	transform: translateY(0);
+	opacity: 1;
+}
+
+/* ÉTAT FERMÉ */
+.bgaext-closed #bgaext-side-menu-content>div {
+	grid-template-rows: 0fr;
+}
+
+.bgaext-closed #bgaext-side-menu-content>div>div {
+	transform: translateY(-100%);
+	opacity: 0;
+	pointer-events: none;
+}
+
+.bgaext-closed.bgaext-pos-bottom #bgaext-side-menu-content>div>div {
+	transform: translateY(100%);
+}

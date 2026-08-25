@@ -5,7 +5,6 @@ import { i18n } from "../../../utils/browser/i18n";
 
 import SideMenuItem from "./SideMenuItem";
 import PlayerIcon from "./PlayerIcon";
-import CloseIcon from "./icons/CloseIcon";
 import TopArrowIcon from "./icons/TopArrowIcon";
 import SandwichIcon from "./icons/SandwichIcon";
 import Avatar from "./Avatar";
@@ -243,7 +242,7 @@ const SideMenu = (props: SideMenuProps) => {
 	const iconColor = darkMode ? gameConfig.iconColorDark : gameConfig.iconColor;
 
 	return (
-		<div style={containerStyle}>
+		<div className={`${visible ? 'bgaext-opened' : 'bgaext-closed'} bgaext-pos-${position}`} style={containerStyle}>
 			{position === "top" && (
 				<SideMenuItem onClick={toggleMenu}>
 					<Avatar
@@ -252,34 +251,36 @@ const SideMenu = (props: SideMenuProps) => {
 						shadowColor={iconShadow}
 						iconColor={iconColor}
 					>
-						{visible && <CloseIcon />}
-						{!visible && <SandwichIcon />}
+						<SandwichIcon />
 					</Avatar>
 				</SideMenuItem>
 			)}
-			{visible && (
-				<SideMenuItem onClick={scrollToTop}>
-					<Avatar
-						backColor={iconBackground}
-						borderColor={iconBorder}
-						shadowColor={iconShadow}
-						iconColor={iconColor}
-					>
-						<TopArrowIcon />
-					</Avatar>
-				</SideMenuItem>
-			)}
-			{visible && getButtons()}
+			<div id="bgaext-side-menu-content">
+				<div>
+					<div>
+						<SideMenuItem onClick={scrollToTop}>
+							<Avatar
+								backColor={iconBackground}
+								borderColor={iconBorder}
+								shadowColor={iconShadow}
+								iconColor={iconColor}
+							>
+								<TopArrowIcon />
+							</Avatar>
+						</SideMenuItem>
+						{getButtons()}
+					</div>
+				</div>
+			</div>
 			{position === "bottom" && (
-				<SideMenuItem onClick={toggleMenu}>
+				<SideMenuItem onClick={toggleMenu} >
 					<Avatar
 						backColor={iconBackground}
 						borderColor={iconBorder}
 						shadowColor={iconShadow}
 						iconColor={iconColor}
 					>
-						{visible && <CloseIcon />}
-						{!visible && <SandwichIcon />}
+						<SandwichIcon />
 					</Avatar>
 				</SideMenuItem>
 			)}
