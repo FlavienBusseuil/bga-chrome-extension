@@ -1,0 +1,55 @@
+@import './common';
+
+html[data-theme=dark].bgaext_bright {
+	#bc-board {
+		filter: var(--ext-bright) var(--drop-shadow);
+	}
+}
+
+html[data-theme=dark].bgaext_dark {
+	--ext-overlay-color: #0002;
+
+	#bc-guesser-head {
+		color: #ebdbc7;
+		text-shadow: 0 1px 3px #140d00f2;
+	}
+
+	#bc-modal-content,
+	#bc-reveal {
+		background: var(--dark-back);
+	}
+
+	.bc-rv-phraseline {
+		background: var(--dark-10);
+		color: var(--blue-50);
+	}
+
+	.bc-rv-crumb-txt {
+		color: #b46b18;
+	}
+
+	.bc-rvorder,
+	.bc-rvplayer,
+	.bc-cgtable-row,
+	.bc-rvscoring {
+		color: #a27744;
+	}
+
+	.bc-rvscoring summary {
+		color: var(--blue-50);
+	}
+
+	.bc-rvrow.bc-row-correct {
+		background: #4a803329;
+	}
+
+	.bc-rv-yourresult.bc-rv-good {
+		background: var(--green-10);
+		color: var(--green-80);
+	}
+
+	.bc-rv-yourresult.bc-rv-bad {
+		background: var(--red-10);
+		color: var(--red-80);
+	}
+}

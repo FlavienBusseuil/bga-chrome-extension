@@ -1902,6 +1902,13 @@ const defaultGames: Partial<Game>[] = [
 		name: "paladins",
 		playerPanel: "player-table-{{player_id}}"
 	},
+	{
+		name: "journey",
+		playerPanel: "playerArea_{{player_id}}",
+		iconBackground: "#d6c1a9",
+		iconBackgroundDark: "#785934",
+		playerPanelOffset: 15
+	},
 ];
 
 export default defaultGames;

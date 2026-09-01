@@ -1,0 +1,42 @@
+html[data-theme=dark].bgaext_bright {
+
+	#villager-deck,
+	.card-villager,
+	.card-village,
+	.card-villain,
+	.bga-cards_card>.bga-cards_card-sides>.bga-cards_card-side,
+	.bga-dice_die .bga-dice_die-faces>div {
+		filter: var(--ext-bright);
+	}
+}
+
+html[data-theme=dark].bgaext_dark {
+
+	#overall-content,
+	#tooltip {
+		color: var(--light-80);
+	}
+
+	.discard-deck[data-empty=true],
+	.card-stock.deck[data-empty=true] {
+		background: var(--dark-back);
+	}
+
+	.discard-deck-div {
+		border-color: var(--red-80);
+	}
+
+	.player-space>div:first-child {
+		background: var(--dark-20);
+		padding: 0.2em 0.5em;
+		border-radius: 6px;
+	}
+
+	.bga-dice_die.bga-dice_selectable-die {
+		outline-color: var(--green-80) !important;
+	}
+
+	.bga-dice_die.bga-dice_selectable-die.bga-dice_selected-die {
+		outline-color: var(--red-80) !important;
+	}
+}

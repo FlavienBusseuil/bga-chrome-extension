@@ -1,0 +1,64 @@
+html[data-theme=dark].bgaext_bright {
+
+	#gg-board-svg,
+	.gg-objective-card,
+	.gg-chain-bug,
+	.gg-bug-sprite,
+	.gg-terrain-sprite {
+		filter: var(--ext-bright);
+	}
+}
+
+html[data-theme=dark].bgaext_dark {
+
+	#gg-deck-info,
+	.gg-chains-toggle,
+	.gg-scored-toggle,
+	.gg-stats-label {
+		color: var(--light-60);
+	}
+
+	.gg-market-title,
+	.gg-bug-label,
+	.gg-chains-toggle:hover,
+	.gg-scored-toggle:hover {
+		color: var(--light-80);
+	}
+
+	.gg-terrain-counter,
+	.gg-bug-counter {
+		background: var(--dark-40);
+	}
+
+	.gg-chains-count {
+		color: var(--green-80);
+	}
+
+	.gg-scored-count,
+	.gg-secret-score {
+		color: var(--red-80);
+	}
+
+	#gg-my-stats * {
+		border-color: var(--light-50) !important;
+	}
+
+	#gg-my-stats {
+		background: var(--dark-10);
+	}
+
+	.gg-stats-section {
+		background: var(--dark-20);
+	}
+
+	.gg-summary-item,
+	.gg-summary-chain {
+		background: var(--dark-40);
+		color: var(--light-80);
+	}
+
+	.gg-chain-bug,
+	.gg-bug-sprite {
+		will-change: transform;
+	}
+}

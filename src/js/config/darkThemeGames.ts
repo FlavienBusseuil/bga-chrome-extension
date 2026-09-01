@@ -207,6 +207,10 @@ export const gamesConfiguration: Record<string, GameConfig> = {
     customBack: true,
     overlay: true
   },
+  breadcrumbs: {
+    customBack: true,
+    overlay: true
+  },
   bugoff: {
     playersBorder: ['bugoff-player-zone-{{player_id}}']
   },
@@ -612,12 +616,13 @@ export const gamesConfiguration: Record<string, GameConfig> = {
     playersBorder: ['#fled_player-area-{{player_id}}']
   },
   flipseven: {
-    customBack: true
+    customBack: true,
+    playersBorder: ['[style^="border-color: {{player_color_rgb}}"]']
   },
   flipsevenwithavengeance: {
     customBack: true,
     overlay: true,
-    playersBorder: ['.f7_player.player_status_[style^="border-color: {{player_color_rgb}}"]']
+    playersBorder: ['[style^="border-color: {{player_color_rgb}}"]']
   },
   fliptoons: {
     customBack: ["custom-background"]
@@ -837,6 +842,10 @@ export const gamesConfiguration: Record<string, GameConfig> = {
   jekyllvshide: {
     customBack: true
   },
+  journey: {
+    customBack: true,
+    overlay: true,
+  },
   jumpdrive: {
     customBack: true,
     playersBorder: ["#jdr-tableau-{{player_id}}"]
@@ -1016,6 +1025,11 @@ export const gamesConfiguration: Record<string, GameConfig> = {
   },
   miams: {
     customBack: true
+  },
+  microlonies: {
+    customBack: true,
+    overlay: true,
+    playersTextColor: ['#mli-player-zone_{{player_id}} .mli-player-name']
   },
   middleages: {
     customBack: true

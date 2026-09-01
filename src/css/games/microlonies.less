@@ -1,0 +1,58 @@
+@import './common';
+
+html[data-theme=dark].bgaext_bright {
+
+	.mli-species-cartouche,
+	.mli-objective-card-back,
+	.mli-anthill-bg,
+	.mli-room-tile,
+	.mli-hex,
+	.mli-termite-mound,
+	.mli-river-row--display,
+	.mli-log-prey-card,
+	.mli-prey-card-back,
+	.mli-prey-card-front,
+	.mli-log-objective-card,
+	.mli-objective-card-back,
+	.mli-objective-card-front,
+	.mli-species-cartouche,
+	#mli-score-sheet {
+		filter: var(--ext-bright);
+	}
+}
+
+html[data-theme=dark].bgaext_dark {
+	.mli-player-badges-box {
+		background: var(--dark-back);
+		color: var(--light-80);
+	}
+
+	.mli-player-objectives-row {
+		color: var(--light-80);
+	}
+
+	.mli-species-board__frame .mli-tooltip--species {
+		background: var(--dark-10);
+		padding-bottom: 1em;
+		border-radius: 60px 60px 0px 0px;
+		color: var(--light-80);
+	}
+
+	[style="color:#0090d1"] {
+		color: var(--blue-50) !important;
+	}
+
+	.mli-tab-btn.mli-tab-btn--active {
+		background: var(--dark-20);
+		color: #a27644;
+	}
+
+	.mli-species-choice {
+		background: var(--dark-back);
+		border-color: var(--light-50);
+	}
+
+	.card-stock.deck[data-empty=true] {
+		background: var(--dark-back);
+	}
+}

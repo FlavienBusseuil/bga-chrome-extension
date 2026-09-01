@@ -1,0 +1,17 @@
+@import './common';
+
+html[data-theme=dark].bgaext_bright {
+	.bga-cards_card>.bga-cards_card-sides>.bga-cards_card-side {
+		filter: var(--ext-bright);
+	}
+
+	.ink_mat:before {
+		.reduceBrightness();
+	}
+}
+
+html[data-theme=dark].bgaext_dark {
+	.ink_playerZone {
+		background-color: var(--dark-back);
+	}
+}

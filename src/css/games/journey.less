@@ -1,0 +1,59 @@
+html[data-theme=dark].bgaext_bright {
+
+	.bga-cards_card>.bga-cards_card-sides>.bga-cards_card-side,
+	.token_type1,
+	.token_type2,
+	.token_type3 {
+		filter: var(--ext-bright);
+	}
+}
+
+html[data-theme=dark].bgaext_dark {
+	.mainLeft {
+		background-color: var(--dark-back);
+		border-color: var(--light-50);
+	}
+
+	#directionLabel,
+	#roundLabel {
+		color: var(--light-70);
+		text-shadow: none;
+	}
+
+	.playerHeader {
+		filter: invert(1) var(--drop-shadow);
+	}
+
+	.player_score .fa.fa-star,
+	.playerHeader>* {
+		filter: invert(1);
+	}
+
+	.jny_tooltip {
+		color: var(--light-80);
+	}
+
+	.playerArea {
+		background-image: linear-gradient(90deg, color-mix(in srgb, color-mix(in srgb, var(--player-color) 35%, #000 65%) 70%, transparent), color-mix(in srgb, color-mix(in srgb, var(--player-color) 15%, #000 85%) 70%, transparent));
+	}
+
+	[style*="--player-color: #ffa500"] {
+		--player-color: #ffc965 !important;
+	}
+
+	[style*="--player-color: #ff0000"] {
+		--player-color: #ff6565 !important;
+	}
+
+	[style*="--player-color: #0000ff"] {
+		--player-color: #6565ff !important;
+	}
+
+	[style*="--player-color: #0000ff"] {
+		--player-color: #6565ff !important;
+	}
+
+	[style*="--player-color: #000000"] {
+		text-shadow: var(--text-w-shadow) !important;
+	}
+}
