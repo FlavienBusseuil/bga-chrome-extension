@@ -30,7 +30,8 @@ type Props = {
 	children: ComponentChildren,
 	onAcceptInvite: (tableId: TableId) => Promise<void>,
 	onDeclineInvite: (tableId: TableId) => Promise<void>,
-	motionSensitivityEnable: boolean
+	motionSensitivityEnable: boolean,
+	closePopupOnClick: boolean
 };
 
 export function Table({
@@ -48,6 +49,7 @@ export function Table({
 	isWaitingCurrentPlayer,
 	children,
 	motionSensitivityEnable,
+	closePopupOnClick
 }: Props) {
 	const renderIcons = [
 		isPartOfTournament ? (
@@ -62,8 +64,22 @@ export function Table({
 		),
 	].filter(Boolean);
 
+	const onClickFunc = () => {
+		const sidePanel = document.documentElement.classList.contains('side-panel');
+		const active = sidePanel || closePopupOnClick;
+
+		chrome.tabs.create({
+			url: link,
+			active
+		});
+
+		if (closePopupOnClick && !sidePanel) {
+			window.close();
+		}
+	};
+
 	return (
-		<Card onClick={() => window.open(link, "_blank")}>
+		<Card onClick={onClickFunc}>
 			<TableIndicator
 				{...{
 					isInvitePendingForCurrentPlayer,

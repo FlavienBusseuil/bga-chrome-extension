@@ -54,7 +54,8 @@ interface CustomConfig {
 	autoClickStart?: boolean;
 	displayEliminatedTournaments?: boolean;
 	displayFutureTournaments?: boolean;
-	forumFoldersHidden?: number[]
+	forumFoldersHidden?: number[],
+	closePopupOnClick?: boolean;
 }
 
 export interface HomeConfig {
@@ -733,6 +734,15 @@ class Configuration {
 		}
 
 		return eloStyle;
+	}
+
+	shouldClosePopupOnClick(def: boolean) {
+		return this._customConfig.closePopupOnClick === undefined ? def : this._customConfig.closePopupOnClick;
+	}
+
+	setClosePopupOnClick(val: boolean) {
+		this._customConfig.closePopupOnClick = val;
+		storageSet({ closePopupOnClick: val });
 	}
 
 	isDarkModeNative() {

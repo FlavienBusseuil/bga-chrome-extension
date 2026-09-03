@@ -17,6 +17,7 @@ import { updateBadgeAndIcon } from "../utils/updateBadgeAndIcon";
 import { i18n } from "../utils/browser/i18n";
 import { isMobile } from "../utils/browser";
 import { cn } from "./utils/cn";
+import { isFirefox } from "../utils/browser";
 import { useFetch } from "./hooks/useFetch";
 import { Tabs } from "./base/Tabs";
 import { Tab } from "./base/Tab";
@@ -39,6 +40,7 @@ export const App = ({ config }: Props) => {
 	const [activeTab, setActiveTab] = useState<string>("tables");
 	const error = fetchError ?? childError;
 	const motionSensitivityEnable = config.isMotionSensitivityEnable();
+	const closePopupOnClick = config.shouldClosePopupOnClick(!isFirefox);
 	const [hasConfigChange, setConfigChange] = useSyncedState("configChange", false);
 	const [locale] = useSyncedState('locale', config.getLocale());
 	const [sortedTables, setSortedTables] = useState<TransformedTable[]>([]);
@@ -114,12 +116,13 @@ export const App = ({ config }: Props) => {
 					onAcceptInvite={handleAcceptOrDeclineInvite}
 					onDeclineInvite={handleAcceptOrDeclineInvite}
 					motionSensitivityEnable={motionSensitivityEnable}
+					closePopupOnClick={closePopupOnClick}
 				/>;
 			}
 			if (activeTab === "tournaments") {
-				return <TournamentsView config={config} className="w-full" tournaments={sortedTournaments} />;
+				return <TournamentsView config={config} className="w-full" tournaments={sortedTournaments} closePopupOnClick={closePopupOnClick} />;
 			}
-			return <FriendsView className="w-full" getGroupTables={result.getGroupTables} groups={result.groups} motionSensitivityEnable={motionSensitivityEnable} />;
+			return <FriendsView className="w-full" getGroupTables={result.getGroupTables} groups={result.groups} motionSensitivityEnable={motionSensitivityEnable} closePopupOnClick={closePopupOnClick} />;
 		}
 
 		return (
@@ -140,6 +143,7 @@ export const App = ({ config }: Props) => {
 					onAcceptInvite={handleAcceptOrDeclineInvite}
 					onDeclineInvite={handleAcceptOrDeclineInvite}
 					motionSensitivityEnable={motionSensitivityEnable}
+					closePopupOnClick={closePopupOnClick}
 				/>
 				<TournamentsView
 					config={config}
@@ -150,6 +154,7 @@ export const App = ({ config }: Props) => {
 						activeTab !== "tournaments" && "invisible",
 					])}
 					tournaments={sortedTournaments}
+					closePopupOnClick={closePopupOnClick}
 				/>
 				<FriendsView
 					className={cn([
@@ -161,6 +166,7 @@ export const App = ({ config }: Props) => {
 					getGroupTables={result.getGroupTables}
 					groups={result.groups}
 					motionSensitivityEnable={motionSensitivityEnable}
+					closePopupOnClick={closePopupOnClick}
 				/>
 			</div>
 		);

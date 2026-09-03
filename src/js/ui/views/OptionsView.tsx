@@ -54,6 +54,7 @@ export const OptionsView = ({ config, onChange }: Props) => {
   const [animatedTitle, setAnimatedTitle] = useSyncedState('animatedTitle', config.isAnimatedTitle());
   const [configVisible, setConfigVisible] = useSyncedState('configVisible', 'about');
   const [playerRestriction, setPlayerRestriction] = useSyncedState('playerRestriction', betterPlayerRestriction || levelPlayerRestriction > 0);
+  const [closePopupOnClick, setClosePopupOnClick] = useSyncedState('closePopupOnClick', config.shouldClosePopupOnClick(!isFirefox));
 
   const [advancedHomeConfig, setAdvancedHomeConfig] = useSyncedState<AdvancedHomeConfig>('advancedHomeConfig', config.getAdvancedHomeConfig());
   const [advancedHomeHtml, setAdvancedHomeHtml] = useSyncedState<string>('advancedHomeHtml', advancedHomeConfig.html);
@@ -123,6 +124,11 @@ export const OptionsView = ({ config, onChange }: Props) => {
   const updateAnimatedTitle = (val: boolean) => {
     setAnimatedTitle(val);
     config.setAnimatedTitle(val)
+  };
+
+  const updateClosePopupOnClick = (val: boolean) => {
+    setClosePopupOnClick(val);
+    config.setClosePopupOnClick(val);
   };
 
   const updateMuteWarning = (val: boolean) => {
@@ -415,6 +421,7 @@ export const OptionsView = ({ config, onChange }: Props) => {
           </>}
           {getSwitch(!motionSensitivity, updateFlashing, "optionsFlashingOn", "optionsFlashingOff")}
           {desktopVersion && getSwitch(animatedTitle, updateAnimatedTitle, "optionsAnimatedTitleOn", "optionsAnimatedTitleOff")}
+          {desktopVersion && getSwitch(closePopupOnClick, updateClosePopupOnClick, "optionClosePopupOnClickOn", "optionClosePopupOnClickOff")}
         </div>
       );
     }

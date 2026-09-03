@@ -15,9 +15,10 @@ type Props = {
 	config: Configuration,
 	className?: string,
 	tournaments: Array<TransformedTournament>,
+	closePopupOnClick: boolean
 };
 
-export const TournamentsView = ({ config, className, tournaments }: Props) => {
+export const TournamentsView = ({ config, className, tournaments, closePopupOnClick }: Props) => {
 	const [dispEliminated, setDispEliminated] = useSyncedState('isDisplayEliminatedTournaments', config.isDisplayEliminatedTournaments());
 	const [dispFuture, setDispFuture] = useSyncedState('isDisplayFutureTournaments', config.isDisplayFutureTournaments());
 
@@ -55,8 +56,21 @@ export const TournamentsView = ({ config, className, tournaments }: Props) => {
 				<div className="max-result">
 					<CardList className={className || ''}>
 						{filteredTournaments.map(
-							({ gameImg, championshipName, name, link, date, playerStatus }) => (
-								<Card onClick={() => window.open(link, "_blank")} className={playerStatus === 'eliminated' || playerStatus === 'withdrawn' ? 'eliminated' : ''}>
+							({ gameImg, championshipName, name, link, date, playerStatus }) => {
+								const onClickFunc = () => {
+									const sidePanel = document.documentElement.classList.contains('side-panel');
+									const active = sidePanel || closePopupOnClick;
+
+									chrome.tabs.create({
+										url: link,
+										active
+									});
+
+									if (closePopupOnClick && !sidePanel) {
+										window.close();
+									}
+								};
+								return <Card onClick={onClickFunc} className={playerStatus === 'eliminated' || playerStatus === 'withdrawn' ? 'eliminated' : ''}>
 									<div className="flex items-center px-1 py-2 gap-2">
 										<img
 											src={gameImg}
@@ -69,8 +83,8 @@ export const TournamentsView = ({ config, className, tournaments }: Props) => {
 											<p>{date.toLocaleDateString()}</p>
 										</div>
 									</div>
-								</Card>
-							),
+								</Card>;
+							},
 						)}
 					</CardList>
 				</div>

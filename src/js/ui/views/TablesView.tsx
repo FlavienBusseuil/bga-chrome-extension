@@ -15,6 +15,7 @@ type Props = {
 	onAcceptInvite: (arg: TableId) => Promise<void>,
 	onDeclineInvite: (arg: TableId) => Promise<void>,
 	motionSensitivityEnable: boolean,
+	closePopupOnClick: boolean,
 };
 
 export const TablesView = ({
@@ -22,7 +23,8 @@ export const TablesView = ({
 	tables,
 	onAcceptInvite,
 	onDeclineInvite,
-	motionSensitivityEnable
+	motionSensitivityEnable,
+	closePopupOnClick
 }: Props) => {
 	return (
 		<div className={cn(["flex justify-between flex-col gap-2", className || ''])}>
@@ -72,36 +74,37 @@ export const TablesView = ({
 											isOpenForPlayers,
 											isWaitingCurrentPlayer,
 											motionSensitivityEnable,
+											closePopupOnClick,
 											...restTable,
 										}}
 									>
 										<PlayerList>
-												{[
-													...players.map(
-														({
-															playerId,
-															playerName,
-															isActivePlayer,
-															isInvitePending,
-														}) => (
-															<Player
-																key={String(playerId)}
-																playerName={playerName}
-																isActivePlayer={
-																	isActivePlayer
-																}
-																isInvitePending={
-																	isInvitePending
-																}
-															/>
-														),
+											{[
+												...players.map(
+													({
+														playerId,
+														playerName,
+														isActivePlayer,
+														isInvitePending,
+													}) => (
+														<Player
+															key={String(playerId)}
+															playerName={playerName}
+															isActivePlayer={
+																isActivePlayer
+															}
+															isInvitePending={
+																isInvitePending
+															}
+														/>
 													),
-													...Array.from(
-														Array(nbMissingPlayers),
-													).map(() => (
-														<Player playerName="🪑 ..." />
-													)),
-												]}
+												),
+												...Array.from(
+													Array(nbMissingPlayers),
+												).map(() => (
+													<Player playerName="🪑 ..." />
+												)),
+											]}
 										</PlayerList>
 									</Table>
 								);
