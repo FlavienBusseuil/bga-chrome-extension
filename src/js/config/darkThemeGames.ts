@@ -386,6 +386,9 @@ export const gamesConfiguration: Record<string, GameConfig> = {
   cosmoctopus: {
     customColors: ["#20134b"]
   },
+  coveryourassets: {
+    customBack: true
+  },
   craftingthecosmos: {
     customBack: true
   },
@@ -889,6 +892,9 @@ export const gamesConfiguration: Record<string, GameConfig> = {
   },
   kumata: {
     customBack: true
+  },
+  labyrinth: {
+    customBack: ['thematic_background']
   },
   lafamiglia: {
     customBack: true
@@ -1696,6 +1702,9 @@ export const gamesConfiguration: Record<string, GameConfig> = {
     customBack: true
   },
   tanglewoodsred: {
+    customBack: true
+  },
+  tangramcity: {
     customBack: true
   },
   tannhauser: {

@@ -1,0 +1,34 @@
+	html[data-theme=dark].bgaext_bright {
+
+		tile:before,
+		treasure,
+		card {
+			filter: var(--ext-bright);
+		}
+	}
+
+	html[data-theme=dark].bgaext_dark {
+
+		#page-title,
+		#maingameview_menuheader,
+		#maingameview_menufooter {
+			border: 1px solid var(--dark-40);
+		}
+
+		#maingameview_menuheader {
+			border-top: none;
+			top: -1px;
+		}
+
+		arrow[active=true] {
+			background-color: var(--dark-40);
+		}
+
+		arrow[active=true]:hover {
+			background-color: var(--dark-30);
+		}
+
+		small_arrow {
+			background-color: var(--yellow-50);
+		}
+	}

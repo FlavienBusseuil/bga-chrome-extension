@@ -1,0 +1,69 @@
+@import './common';
+
+html[data-theme=dark].bgaext_bright {
+	.tc-board-grid:before {
+		.reduceBrightness();
+	}
+
+	.tc-card,
+	.tc-piece,
+	.tc-board-sprite {
+		filter: var(--ext-bright);
+	}
+
+	.tc-card.is-current {
+		filter: saturate(1.03) contrast(1.04) var(--ext-bright);
+	}
+
+	.tc-card.is-played {
+		filter: grayscale(1) var(--ext-bright);
+	}
+
+	.tc-card.is-future {
+		filter: saturate(.85) var(--ext-bright);
+	}
+
+	.tc-piece.tc-ghost {
+		filter: drop-shadow(0 2px 4px rgba(0, 0, 0, .25)) var(--ext-bright);
+	}
+
+	.tc-piece.tc-last-tile {
+		filter: grayscale(15%) var(--ext-bright);
+	}
+}
+
+html[data-theme=dark].bgaext_dark {
+	--ext-overall-color: #000A;
+	--tc-ui-bg: var(--dark-back);
+
+	.tc-board-title {
+		color: var(--light-80);
+	}
+
+	.tc-board-base:before {
+		content: "";
+		position: absolute;
+		top: 0;
+		left: 0;
+		width: 100%;
+		height: 100%;
+		background: #0008;
+	}
+
+	.tc-scorebar-inner {
+		color: var(--light-80);
+	}
+
+	.tc-scorebar .tc-ico.tc-ico-s.bg-balance {
+		filter: var(--highlight-min);
+	}
+
+	.tc-scoretable td.is-current-round,
+	.tc-scoretable th.is-current-round {
+		color: var(--red-80);
+	}
+
+	.bgaext_dark .tc-scoretable * {
+		border-color: var(--dark-40);
+	}
+}
