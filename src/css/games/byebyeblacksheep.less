@@ -1,0 +1,24 @@
+html[data-theme=dark].bgaext_bright {
+
+	#draw_pile_stack,
+	.bbbs_card,
+	.bbbs_card_back,
+	.bbbs_watering_hole_card,
+	.bbbs_zoo_tooltip_card {
+		filter: var(--ext-bright);
+	}
+}
+
+html[data-theme=dark].bgaext_dark {
+	.bbbs_player_area {
+		--bbbs-area-top-color: var(--dark-back);
+	}
+
+	#bbbs_my_area {
+		background: var(--dark-back);
+	}
+
+	.bbbs_player_name {
+		text-shadow: none;
+	}
+}

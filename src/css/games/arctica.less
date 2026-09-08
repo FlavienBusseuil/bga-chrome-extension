@@ -1,0 +1,53 @@
+html[data-theme=dark].bgaext_bright {
+
+	#ATK-table #mainBoard-container #mainBoard .tile-container,
+	#ATK-table .ice-token-container .iceTile,
+	#ATK-table #mainBoard-container #mainBoard #pole,
+	.bga-cards_card>.bga-cards_card-sides>.bga-cards_card-side,
+	#playerAid {
+		filter: var(--ext-bright);
+	}
+
+	#ATK-table .gamezone .board {
+		filter: var(--ext-bright) drop-shadow(2px 4px 6px black);
+	}
+}
+
+html[data-theme=dark].bgaext_dark {
+	--ext-overlay-color: #0002;
+
+	#ATK-table #mainBoard-container {
+		border-color: var(--light-50);
+	}
+
+	#ATK-table #mainBoard-container:before {
+		content: "";
+		position: absolute;
+		top: 0;
+		left: 0;
+		width: 100%;
+		height: 100%;
+		background-image: var(--back-main);
+		filter: invert(1) hue-rotate(180deg);
+		opacity: 0.9;
+	}
+
+	#nextEventBear,
+	#nextEventEagle,
+	#nextEventMoose {
+		background-color: var(--dark-40);
+		outline: 1px solid var(--light-50);
+	}
+
+	.noEventInfo {
+		color: var(--light-80);
+	}
+
+	.bga-cards_card>.bga-cards_card-sides>.bga-cards_card-side {
+		color: #000;
+	}
+
+	.player-board-game-specific-content .TPY-counter-row .counter.cardsCounter:before {
+		will-change: transform;
+	}
+}

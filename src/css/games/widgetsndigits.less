@@ -1,0 +1,33 @@
+@import './common';
+
+html[data-theme=dark].bgaext_bright {
+
+	.wnd-market:before,
+	#wnd-fiscal-year:before,
+	.wnd-no-worker-wars .wnd-production-line:before,
+	.wnd-dweeb:before,
+	#wnd-card-market .wnd-card-deck:before,
+	.wnd-card:before,
+	#wnd-dweeb-overlay:before {
+		.reduceBrightness();
+	}
+
+	.wnd-token,
+	.wnd-stage-zoom {
+		filter: var(--ext-bright);
+	}
+}
+
+html[data-theme=dark].bgaext_dark {
+	#overall-content {
+		color: var(--light-80);
+	}
+
+	.wnd-player-panel .wnd-profit-wage-icon {
+		filter: invert(0.9);
+	}
+
+	#wnd-card-market .wnd-card-deck-count {
+		background: var(--yellow-10);
+	}
+}

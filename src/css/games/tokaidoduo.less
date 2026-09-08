@@ -1,0 +1,28 @@
+html[data-theme=dark].bgaext_bright {
+
+	#tdn-board,
+	.tdn-player-summary,
+	#tdn-layout #tdn-condensed-panel,
+	.tdn-player-divider,
+	#tdn-action-panel {
+		filter: var(--ext-bright);
+	}
+}
+
+html[data-theme=dark].bgaext_dark {
+	#bga-zoom_controls>* {
+		--bga-zoom-button-color: var(--light-70);
+	}
+
+	.tdn-panel-stat {
+		background: var(--dark-40);
+	}
+
+	.tdn-panel-stat-label {
+		color: var(--light-80);
+	}
+
+	.tdn-panel-stat-count {
+		color: var(--light-70);
+	}
+}

@@ -76,6 +76,13 @@ export const gamesConfiguration: Record<string, GameConfig> = {
     customBack: true,
     customPlayerStyle: ".player-table-board h3"
   },
+  arctica: {
+    customBack: true,
+    overlay: true,
+    customInit: (cssPath: string) => {
+      document.body.style.setProperty("--back-main", `url(${cssPath}img/background.png)`);
+    }
+  },
   arigato: {
     customBack: ["vgincLib_thematic_background_on"]
   },
@@ -226,6 +233,10 @@ export const gamesConfiguration: Record<string, GameConfig> = {
   },
   butterfly: {
     customPlayerStyle: ".playerHand h3"
+  },
+  byebyeblacksheep: {
+    customBack: true,
+    overlay: true
   },
   cakemaster: {
     customBack: true,
@@ -675,6 +686,11 @@ export const gamesConfiguration: Record<string, GameConfig> = {
   },
   fugitive: {
     customBack: true
+  },
+  fugu: {
+    customBack: true,
+    playersTextColor: ['.a-hand-container[data-owner-id="{{player_id}}"] .my-hand-title-text'],
+    playersBorder: ['.a-hand-container[data-owner-id="{{player_id}}"]', '.a-hand-container[data-owner-id="{{player_id}}"] .my-hand-title']
   },
   galacticcruise: {
     customBack: true
@@ -1556,6 +1572,9 @@ export const gamesConfiguration: Record<string, GameConfig> = {
   skirmishbattlefordraconia: {
     customBack: true
   },
+  skytotems: {
+    customBack: true
+  },
   skull: {
     customBack: true
   },
@@ -1957,6 +1976,9 @@ export const gamesConfiguration: Record<string, GameConfig> = {
   },
   whist: {
     twoTeams: true
+  },
+  widgetsndigits: {
+    playersTextColor: ["#wnd-player-panel-{{player_id}} .wnd-player-username"]
   },
   wingspan: {
     customBack: ["wsp_background_paper"],

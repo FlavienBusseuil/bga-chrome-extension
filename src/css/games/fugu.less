@@ -1,0 +1,22 @@
+html[data-theme=dark].bgaext_bright {
+
+	.a-card,
+	.tooltip-wrapper {
+		filter: var(--ext-bright);
+	}
+}
+
+html[data-theme=dark].bgaext_dark {
+	--ext-overall-color: #0008;
+
+	#player-hands-container .a-hand-container .my-hand-title {
+		text-shadow: none;
+		background: var(--dark-20);
+		padding: 0.2em 0.5em;
+		border: 1px solid;
+	}
+
+	.player-board .fa-anchor {
+		color: var(--blue-50);
+	}
+}

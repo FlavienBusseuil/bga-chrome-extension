@@ -1,0 +1,68 @@
+html[data-theme=dark].bgaext_bright {
+
+	.card,
+	.deck-container {
+		filter: var(--ext-bright);
+	}
+}
+
+html[data-theme=dark].bgaext_dark {
+	body {
+		background: linear-gradient(-45deg, #ac2024, #9d3e0b, #793f01);
+	}
+
+	.aide_btn,
+	.aide_croix {
+		background-color: var(--dark-20);
+		color: var(--light-80);
+		border-color: var(--light-50);
+	}
+
+	.aide_btn:hover,
+	.aide_croix:hover {
+		color: var(--red-80);
+		border-color: var(--red-80);
+	}
+
+	.aide_modal {
+		background-color: var(--dark-20);
+		color: var(--light-80);
+	}
+
+	.sets-container,
+	.discard-container,
+	#hand_container,
+	#table_cards_container {
+		background-color: var(--dark-back);
+	}
+
+	.deck-counter,
+	.counter_hand {
+		background-color: var(--dark-10);
+		border-color: var(--light-70);
+		color: var(--light-70);
+	}
+
+	[style="border: 2px solid #ff0000;"] {
+		border-color: var(--red-80) !important;
+	}
+
+	.selectable,
+	.selectablemulti,
+	.selectablemulti2,
+	.selected,
+	.selectable_ff0000,
+	.challenged_ff0000 {
+		outline-color: var(--red-80);
+	}
+
+	.selectable_008000,
+	.challenged_008000 {
+		outline-color: var(--green-80);
+	}
+
+	.selectable_0000ff,
+	.challenged_0000ff {
+		outline-color: var(--blue-80);
+	}
+}
