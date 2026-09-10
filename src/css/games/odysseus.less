@@ -13,8 +13,16 @@ html[data-theme=dark].bgaext_bright {
 	}
 
 	.od_cards,
-	.od_cards_light {
+	.od_cards_light,
+	.od_river_tiles,
+	.od_tiles,
+	.od_epics,
+	.my_player_board {
 		filter: var(--ext-bright);
+	}
+
+	.my_player_board * {
+		filter: none;
 	}
 }
 
@@ -51,5 +59,9 @@ html[data-theme=dark].bgaext_dark {
 
 	.close:hover {
 		color: var(--light-80);
+	}
+
+	.player_table {
+		box-shadow: 3px 3px 3px #ffffff80;
 	}
 }

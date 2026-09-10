@@ -1,0 +1,38 @@
+html[data-theme=dark].bgaext_bright {
+	#chicken-board {
+		filter: var(--ext-bright);
+	}
+
+	.chicken-die,
+	.chicken-face-preview {
+		filter: var(--ext-bright) saturate(0.8);
+	}
+
+	.chicken-track-token {
+		filter: var(--ext-bright) var(--drop-shadow);
+	}
+}
+
+html[data-theme=dark].bgaext_dark {
+	#chicken-table {
+		--ink: #99644d;
+		--blue: var(--blue-50);
+	}
+
+	.chicken-zone h3 span {
+		color: #99644dcc;
+	}
+
+	.chicken-panel-score {
+		color: #99644d;
+	}
+
+	.chicken-panel,
+	.chicken-zone {
+		background: var(--dark-back);
+	}
+
+	.chicken-die-preview {
+		background: var(--dark-20);
+	}
+}

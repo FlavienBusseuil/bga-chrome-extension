@@ -1,0 +1,25 @@
+@import './common';
+
+html[data-theme=dark].bgaext_bright {
+
+	.goalcard,
+	.bga-cards_card>.bga-cards_card-sides>.bga-cards_card-side {
+		filter: var(--ext-bright);
+	}
+
+	.board:before {
+		.reduceBrightness();
+	}
+}
+
+html[data-theme=dark].bgaext_dark {
+	--ext-overlay-color: #0002;
+
+	.pioneer-player-table span.playername {
+		background: var(--dark-20) !important;
+	}
+
+	.discard-deck[data-empty=true] {
+		background: var(--dark-back);
+	}
+}

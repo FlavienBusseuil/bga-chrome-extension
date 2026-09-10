@@ -55,6 +55,10 @@ export const gamesConfiguration: Record<string, GameConfig> = {
   altered: {
     customBack: true
   },
+  atrah: {
+    customBack: true,
+    overlay: true
+  },
   ancientknowledge: {
     customBack: true,
     overlay: true
@@ -1219,7 +1223,7 @@ export const gamesConfiguration: Record<string, GameConfig> = {
     customBack: true
   },
   odysseus: {
-    playersBorder: ['player_table_{{player_id}}']
+    playersBorder: ['#player_table_{{player_id}}']
   },
   ofknightsandninjas: {
     customBack: true
@@ -1288,6 +1292,11 @@ export const gamesConfiguration: Record<string, GameConfig> = {
   },
   pioneerdaysproject: {
     playersBorder: ["#playerbox-{{player_id}}"]
+  },
+  pioneerrails: {
+    customBack: true,
+    overlay: true,
+    playersTextColor: ["[style*=\"--player-color: #{{player_color}}\"]"]
   },
   piratas: {
     customPlayerStyle: "#playmats .playmat h3",
@@ -1952,6 +1961,10 @@ export const gamesConfiguration: Record<string, GameConfig> = {
   },
   vivacatrina: {
     customBack: true
+  },
+  vivo: {
+    customBack: true,
+    playersBorder: ["[style*=\"border-color:#{{player_color}}\"]"]
   },
   vizia: {
     customColors: ['blue', 'red', 'green', 'orange', 'purple', 'yellow'],

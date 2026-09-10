@@ -1,0 +1,37 @@
+html[data-theme=dark].bgaext_bright {
+
+	.vivo-harmony-card,
+	.vivo-scored-card,
+	.bga-cards_card>.bga-cards_card-sides>.bga-cards_card-side {
+		filter: var(--ext-bright);
+	}
+}
+
+html[data-theme=dark].bgaext_dark {
+
+	#ebd-body,
+	#overall-content {
+		background: radial-gradient(circle at 18% 12%, hsla(0, 0%, 100%, .08), transparent 24%), radial-gradient(circle at 82% 18%, rgba(0, 0, 0, .3), transparent 30%), linear-gradient(90deg, rgba(0, 0, 0, .2) 0 1px, transparent 1px 14px), linear-gradient(0deg, hsla(0, 0%, 100%, .04) 0 1px, transparent 1px 46px), linear-gradient(135deg, #3d2712, #4d331a 38%, #2b190a);
+	}
+
+	.vivo-player-head {
+		background: var(--dark-10);
+	}
+
+	.vivo-player-name {
+		text-shadow: none;
+	}
+
+	.vivo-scored-zone {
+		background: var(--dark-40);
+	}
+
+	.vivo-scored-total,
+	.vivo-panel-label {
+		color: var(--light-60);
+	}
+
+	.vivo-panel-row {
+		color: var(--light-80);
+	}
+}
