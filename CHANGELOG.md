@@ -1,5 +1,13 @@
 # Changelog
 
+## [v1.14.20](https://github.com/FlavienBusseuil/bga-chrome-extension/tree/v1.14.20) (2026-09-11)
+
+[Full Changelog](https://github.com/FlavienBusseuil/bga-chrome-extension/compare/v1.14.19...v1.14.20)
+
+**Closed issues:**
+
+- Possible fix\(deps\): 2 vulnerable dependencies in yarn.lock [\#146](https://github.com/FlavienBusseuil/bga-chrome-extension/issues/146)
+
 ## [v1.14.19](https://github.com/FlavienBusseuil/bga-chrome-extension/tree/v1.14.19) (2026-09-10)
 
 [Full Changelog](https://github.com/FlavienBusseuil/bga-chrome-extension/compare/v1.14.18...v1.14.19)
