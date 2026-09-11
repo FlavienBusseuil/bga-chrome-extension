@@ -86,6 +86,8 @@
   "optionsTrackingOff": "Tables status notification disabled",
   "optionClosePopupOnClickOn": "The popup closes when clicking on a table or tournament",
   "optionClosePopupOnClickOff": "The popup remains open when clicking on a table or tournament",
+  "optionFocusOnNewTabOn": "Newly opened tabs are automatically selected",
+  "optionFocusOnNewTabOff": "Newly opened tabs are not automatically selected (default behavior)",
   "optionsNotificationSoundOn": "Sound notification when you are expected on at least one table",
   "optionsNotificationSoundOff": "Sound notification disabled",
   "optionsNotificationCustomSoundOn": "Custom sound file",

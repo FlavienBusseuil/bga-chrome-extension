@@ -86,6 +86,8 @@
   "optionsTrackingOff": "Notificació d'estat de taules desactivada",
   "optionClosePopupOnClickOn": "La finestra emergent es tanca quan es fa clic en una taula o un torneig",
   "optionClosePopupOnClickOff": "La finestra emergent es manté oberta quan es fa clic en una taula o un torneig",
+  "optionFocusOnNewTabOn": "Les pestanyes noves obertes se seleccionen automàticament",
+  "optionFocusOnNewTabOff": "Les pestanyes noves obertes no se seleccionen automàticament (comportament predeterminat)",
   "optionsNotificationSoundOn": "Notificació sonora quan se t'espera en almenys una taula",
   "optionsNotificationSoundOff": "Notificació sonora desactivada",
   "optionsNotificationCustomSoundOn": "Fitxer de so personalitzat",

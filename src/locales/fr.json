@@ -86,6 +86,8 @@
   "optionsTrackingOff": "Notification de l'état de vos tables désactivée",
   "optionClosePopupOnClickOn": "Le popup se ferme lorsqu'on clique sur une table ou un tournoi",
   "optionClosePopupOnClickOff": "Le popup reste ouvert lorsqu'on clique sur une table ou un tournoi",
+  "optionFocusOnNewTabOn": "Les nouveaux onglets ouverts sont automatiquement sélectionnés",
+  "optionFocusOnNewTabOff": "Les nouveaux onglets ouverts ne sont pas automatiquement sélectionnés (comportement par défaut)",
   "optionsNotificationSoundOn": "Notification sonore quand vous êtes attendu sur au moins une table",
   "optionsNotificationSoundOff": "Notification sonore désactivée",
   "optionsNotificationCustomSoundOn": "Son personnalisé",

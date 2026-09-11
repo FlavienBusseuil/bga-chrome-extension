@@ -86,6 +86,8 @@
   "optionsTrackingOff": "Notificación de estado de mesas desactivada",
   "optionClosePopupOnClickOn": "La ventana emergente se cierra al hacer clic en una mesa o torneo",
   "optionClosePopupOnClickOff": "La ventana emergente permanece abierta al hacer clic en una mesa o torneo",
+  "optionFocusOnNewTabOn": "Las nuevas pestañas abiertas se seleccionan automáticamente",
+  "optionFocusOnNewTabOff": "Las nuevas pestañas abiertas no se seleccionan automáticamente (comportamiento predeterminado)",
   "optionsNotificationSoundOn": "Notificación sonora cuando se te espera en al menos una mesa",
   "optionsNotificationSoundOff": "Notificación sonora desactivada",
   "optionsNotificationCustomSoundOn": "Archivo de sonido personalizado",
