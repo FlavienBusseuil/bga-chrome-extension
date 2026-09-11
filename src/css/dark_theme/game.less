@@ -117,6 +117,12 @@ input:not(.soundVolumeSlider)[type=range]:focus::-ms-thumb {
   text-shadow: none !important;
 }
 
+/* to remove shadow in some games, as for the bot name in Reflection */
+#pagemaintitletext {
+  --game-bga-color-white: transparent;
+}
+
+
 html[data-theme=dark] {
   .gamestart_overlay {
     background: none var(--dark-20);
