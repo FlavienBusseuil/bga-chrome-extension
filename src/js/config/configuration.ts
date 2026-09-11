@@ -56,6 +56,7 @@ interface CustomConfig {
 	displayFutureTournaments?: boolean;
 	forumFoldersHidden?: number[],
 	closePopupOnClick?: boolean;
+	focusOnNewTab?: boolean;
 }
 
 export interface HomeConfig {
@@ -743,6 +744,15 @@ class Configuration {
 	setClosePopupOnClick(val: boolean) {
 		this._customConfig.closePopupOnClick = val;
 		storageSet({ closePopupOnClick: val });
+	}
+
+	shouldFocusOnNewTab() {
+		return Boolean(this._customConfig.focusOnNewTab);
+	}
+
+	setFocusOnNewTab(val: boolean) {
+		this._customConfig.focusOnNewTab = val;
+		storageSet({ focusOnNewTab: val });
 	}
 
 	isDarkModeNative() {

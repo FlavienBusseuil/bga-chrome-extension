@@ -41,6 +41,7 @@ export const App = ({ config }: Props) => {
 	const error = fetchError ?? childError;
 	const motionSensitivityEnable = config.isMotionSensitivityEnable();
 	const closePopupOnClick = config.shouldClosePopupOnClick(!isFirefox);
+	const focusOnNewTab = isFirefox ? config.shouldFocusOnNewTab() : undefined;
 	const [hasConfigChange, setConfigChange] = useSyncedState("configChange", false);
 	const [locale] = useSyncedState('locale', config.getLocale());
 	const [sortedTables, setSortedTables] = useState<TransformedTable[]>([]);
@@ -117,12 +118,13 @@ export const App = ({ config }: Props) => {
 					onDeclineInvite={handleAcceptOrDeclineInvite}
 					motionSensitivityEnable={motionSensitivityEnable}
 					closePopupOnClick={closePopupOnClick}
+					focusOnNewTab={focusOnNewTab}
 				/>;
 			}
 			if (activeTab === "tournaments") {
-				return <TournamentsView config={config} className="w-full" tournaments={sortedTournaments} closePopupOnClick={closePopupOnClick} />;
+				return <TournamentsView config={config} className="w-full" tournaments={sortedTournaments} closePopupOnClick={closePopupOnClick} focusOnNewTab={focusOnNewTab} />;
 			}
-			return <FriendsView className="w-full" getGroupTables={result.getGroupTables} groups={result.groups} motionSensitivityEnable={motionSensitivityEnable} closePopupOnClick={closePopupOnClick} />;
+			return <FriendsView className="w-full" getGroupTables={result.getGroupTables} groups={result.groups} motionSensitivityEnable={motionSensitivityEnable} closePopupOnClick={closePopupOnClick} focusOnNewTab={focusOnNewTab} />;
 		}
 
 		return (
@@ -144,6 +146,7 @@ export const App = ({ config }: Props) => {
 					onDeclineInvite={handleAcceptOrDeclineInvite}
 					motionSensitivityEnable={motionSensitivityEnable}
 					closePopupOnClick={closePopupOnClick}
+					focusOnNewTab={focusOnNewTab}
 				/>
 				<TournamentsView
 					config={config}
@@ -155,6 +158,7 @@ export const App = ({ config }: Props) => {
 					])}
 					tournaments={sortedTournaments}
 					closePopupOnClick={closePopupOnClick}
+					focusOnNewTab={focusOnNewTab}
 				/>
 				<FriendsView
 					className={cn([
@@ -167,6 +171,7 @@ export const App = ({ config }: Props) => {
 					groups={result.groups}
 					motionSensitivityEnable={motionSensitivityEnable}
 					closePopupOnClick={closePopupOnClick}
+					focusOnNewTab={focusOnNewTab}
 				/>
 			</div>
 		);

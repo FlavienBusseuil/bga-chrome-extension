@@ -16,6 +16,7 @@ type Props = {
 	onDeclineInvite: (arg: TableId) => Promise<void>,
 	motionSensitivityEnable: boolean,
 	closePopupOnClick: boolean,
+	focusOnNewTab: boolean | undefined
 };
 
 export const TablesView = ({
@@ -24,7 +25,8 @@ export const TablesView = ({
 	onAcceptInvite,
 	onDeclineInvite,
 	motionSensitivityEnable,
-	closePopupOnClick
+	closePopupOnClick,
+	focusOnNewTab
 }: Props) => {
 	return (
 		<div className={cn(["flex justify-between flex-col gap-2", className || ''])}>
@@ -75,6 +77,7 @@ export const TablesView = ({
 											isWaitingCurrentPlayer,
 											motionSensitivityEnable,
 											closePopupOnClick,
+											focusOnNewTab,
 											...restTable,
 										}}
 									>

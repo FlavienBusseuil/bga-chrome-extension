@@ -31,7 +31,8 @@ type Props = {
 	onAcceptInvite: (tableId: TableId) => Promise<void>,
 	onDeclineInvite: (tableId: TableId) => Promise<void>,
 	motionSensitivityEnable: boolean,
-	closePopupOnClick: boolean
+	closePopupOnClick: boolean,
+	focusOnNewTab: boolean | undefined
 };
 
 export function Table({
@@ -49,7 +50,8 @@ export function Table({
 	isWaitingCurrentPlayer,
 	children,
 	motionSensitivityEnable,
-	closePopupOnClick
+	closePopupOnClick,
+	focusOnNewTab
 }: Props) {
 	const renderIcons = [
 		isPartOfTournament ? (
@@ -66,7 +68,7 @@ export function Table({
 
 	const onClickFunc = () => {
 		const sidePanel = document.documentElement.classList.contains('side-panel');
-		const active = sidePanel || closePopupOnClick;
+		const active = focusOnNewTab === undefined ? sidePanel || closePopupOnClick : focusOnNewTab;
 
 		chrome.tabs.create({
 			url: link,

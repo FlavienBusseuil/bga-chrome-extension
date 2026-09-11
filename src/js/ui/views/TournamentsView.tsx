@@ -15,10 +15,11 @@ type Props = {
 	config: Configuration,
 	className?: string,
 	tournaments: Array<TransformedTournament>,
-	closePopupOnClick: boolean
+	closePopupOnClick: boolean,
+	focusOnNewTab: boolean | undefined
 };
 
-export const TournamentsView = ({ config, className, tournaments, closePopupOnClick }: Props) => {
+export const TournamentsView = ({ config, className, tournaments, closePopupOnClick, focusOnNewTab }: Props) => {
 	const [dispEliminated, setDispEliminated] = useSyncedState('isDisplayEliminatedTournaments', config.isDisplayEliminatedTournaments());
 	const [dispFuture, setDispFuture] = useSyncedState('isDisplayFutureTournaments', config.isDisplayFutureTournaments());
 
@@ -59,7 +60,7 @@ export const TournamentsView = ({ config, className, tournaments, closePopupOnCl
 							({ gameImg, championshipName, name, link, date, playerStatus }) => {
 								const onClickFunc = () => {
 									const sidePanel = document.documentElement.classList.contains('side-panel');
-									const active = sidePanel || closePopupOnClick;
+									const active = focusOnNewTab === undefined ? sidePanel || closePopupOnClick : focusOnNewTab;
 
 									chrome.tabs.create({
 										url: link,

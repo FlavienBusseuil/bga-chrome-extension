@@ -19,10 +19,11 @@ type Props = {
   getGroupTables: ((groupId: string) => Promise<TransformedTable[]>) | undefined,
   groups: Group[],
   motionSensitivityEnable: boolean,
-  closePopupOnClick: boolean
+  closePopupOnClick: boolean,
+  focusOnNewTab: boolean | undefined;
 };
 
-export const FriendsView = ({ className, getGroupTables, groups, motionSensitivityEnable, closePopupOnClick }: Props) => {
+export const FriendsView = ({ className, getGroupTables, groups, motionSensitivityEnable, closePopupOnClick, focusOnNewTab }: Props) => {
   const [tables, setTables] = useState<TransformedTable[]>([]);
   const [loading, setLoading] = useState(false);
   const [requested, setRequested] = useState(false);
@@ -114,6 +115,7 @@ export const FriendsView = ({ className, getGroupTables, groups, motionSensitivi
                       isWaitingCurrentPlayer,
                       motionSensitivityEnable,
                       closePopupOnClick,
+                      focusOnNewTab,
                       ...restTable,
                     }}
                   >

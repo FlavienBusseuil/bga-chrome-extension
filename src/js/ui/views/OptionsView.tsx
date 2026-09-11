@@ -55,6 +55,7 @@ export const OptionsView = ({ config, onChange }: Props) => {
   const [configVisible, setConfigVisible] = useSyncedState('configVisible', 'about');
   const [playerRestriction, setPlayerRestriction] = useSyncedState('playerRestriction', betterPlayerRestriction || levelPlayerRestriction > 0);
   const [closePopupOnClick, setClosePopupOnClick] = useSyncedState('closePopupOnClick', config.shouldClosePopupOnClick(!isFirefox));
+  const [focusOnNewtab, setFocusOnNewTab] = useSyncedState('focusOnNewtab', config.shouldFocusOnNewTab());
 
   const [advancedHomeConfig, setAdvancedHomeConfig] = useSyncedState<AdvancedHomeConfig>('advancedHomeConfig', config.getAdvancedHomeConfig());
   const [advancedHomeHtml, setAdvancedHomeHtml] = useSyncedState<string>('advancedHomeHtml', advancedHomeConfig.html);
@@ -129,6 +130,11 @@ export const OptionsView = ({ config, onChange }: Props) => {
   const updateClosePopupOnClick = (val: boolean) => {
     setClosePopupOnClick(val);
     config.setClosePopupOnClick(val);
+  };
+
+  const updateFocusOnNewTab = (val: boolean) => {
+    setFocusOnNewTab(val);
+    config.setFocusOnNewTab(val);
   };
 
   const updateMuteWarning = (val: boolean) => {
@@ -422,6 +428,7 @@ export const OptionsView = ({ config, onChange }: Props) => {
           {getSwitch(!motionSensitivity, updateFlashing, "optionsFlashingOn", "optionsFlashingOff")}
           {desktopVersion && getSwitch(animatedTitle, updateAnimatedTitle, "optionsAnimatedTitleOn", "optionsAnimatedTitleOff")}
           {desktopVersion && getSwitch(closePopupOnClick, updateClosePopupOnClick, "optionClosePopupOnClickOn", "optionClosePopupOnClickOff")}
+          {desktopVersion && isFirefox && getSwitch(focusOnNewtab, updateFocusOnNewTab, "optionFocusOnNewTabOn", "optionFocusOnNewTabOff")}
         </div>
       );
     }
