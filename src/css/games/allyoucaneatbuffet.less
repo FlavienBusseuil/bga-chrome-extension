@@ -1,0 +1,68 @@
+html[data-theme=dark].bgaext_bright {
+
+	.aycb-card,
+	#aycb-hand {
+		filter: var(--ext-bright);
+	}
+}
+
+html[data-theme=dark].bgaext_dark {
+	--ext-overlay-color: #0001;
+	--slate: var(--light-80);
+	--ink: var(--light-70);
+
+	.aycb-col-block {
+		background: repeating-linear-gradient(45deg, hsl(16deg 15% 15% / 2%) 0 3px, transparent 3px 6px), var(--dark-20);
+	}
+
+	.aycb-title {
+		background: linear-gradient(180deg, #2a4136, #22352b);
+	}
+
+	.aycb-col-score {
+		color: #2a4136;
+	}
+
+	#aycb-zoom button,
+	.aycb-deckcount,
+	.aycb-marker {
+		background: var(--dark-10);
+	}
+
+	#aycb-reveal-area {
+		background: var(--dark-back);
+		outline: 1px solid var(--dark-40);
+	}
+
+	.aycb-col-you,
+	.aycb-reveal-pos {
+		background: #000;
+	}
+
+	#aycb-first-notice {
+		background: linear-gradient(var(--dark-10), var(--dark-30));
+		color: #b36b00;
+	}
+
+	.aycb-col-group {
+		background: var(--dark-40);
+	}
+
+	.aycb-grp-score {
+		background: #000;
+	}
+
+	.aycb-grp-score.aycb-pos {
+		border-color: var(--green-80);
+		color: var(--green-80);
+	}
+
+	.aycb-grp-score.aycb-neg {
+		border-color: var(--red-80);
+		color: var(--red-80);
+	}
+
+	.aycb-grp-score {
+		color: var(--light-50);
+	}
+}

@@ -5,6 +5,7 @@ export const gamesWithRecommendedConfig: { [gameName: GameName]: RecommendedConf
 	abyss: { color: 226, sat: 16 },
 	agricola: { color: 100, sat: 12 },
 	aiye: { color: 20, sat: 25 },
+	allyoucaneatbuffet: { color: 0, sat: 20 },
 	architectsofamytis: { color: 16, sat: 10 },
 	arknova: { color: 33, sat: 15 },
 	arknovamw: { color: 33, sat: 15 },

@@ -46,6 +46,11 @@ export const gamesConfiguration: Record<string, GameConfig> = {
     customBack: true,
     overlay: true
   },
+  allyoucaneatbuffet: {
+    customBack: true,
+    overlay: true,
+    playersBorder: ['[style="border-top-color:#{{player_color}}"]']
+  },
   almadi: {
     customPlayerStyle: ".playgroundContainer h2"
   },

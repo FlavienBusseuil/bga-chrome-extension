@@ -1,0 +1,26 @@
+@import './common';
+
+html[data-theme=dark].bgaext_bright {
+
+	.bus-map:before,
+	.bus-actionBar-section:before {
+		.reduceBrightness();
+	}
+
+	.bus-wheelWedge,
+	.bus-actionBar-text {
+		filter: var(--ext-bright);
+	}
+}
+
+html[data-theme=dark].bgaext_dark {
+
+	.bus-map-outer,
+	.bus-actionBar-outer {
+		border-color: var(--light-50);
+	}
+
+	.bus-finalRound {
+		background-color: var(--red-10);
+	}
+}
