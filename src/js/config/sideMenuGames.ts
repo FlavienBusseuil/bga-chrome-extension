@@ -1914,7 +1914,11 @@ const defaultGames: Partial<Game>[] = [
 		playerPanel: "wnd-player-panel-{{player_id}}",
 		css: ".desktop_version #game_play_area { padding-left: 50px; } .desktop_version .wnd-player-boards-row { margin-left: 50px; } .desktop_version .wnd-player-boards-row { width: calc(100% - 50px) !important; }"
 	},
-
+	{
+		name: "pointcity",
+		playerPanel: "player_table_{{player_id}}",
+		position: "bottom"
+	},
 ];
 
 export default defaultGames;

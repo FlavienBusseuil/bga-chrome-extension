@@ -1,0 +1,68 @@
+html[data-theme=dark].bgaext_bright {
+
+	.pc_buildings,
+	.pc_logbuildings,
+	.pc_logresources,
+	.pc_resources,
+	.pc_icons,
+	.pc_logicons,
+	.pc_logtokens,
+	.pc_tokens {
+		filter: var(--ext-bright);
+	}
+}
+
+html[data-theme=dark].bgaext_dark {
+	--ext-overlay-color: #fff6;
+
+	.modal-content {
+		background: var(--dark-10);
+	}
+
+	.score_table th {
+		background: #000;
+	}
+
+	.tooltip_bigtitle,
+	.tooltip_desc,
+	.score_table td,
+	.score_table th {
+		color: var(--blue-50);
+	}
+
+	.close {
+		color: var(--light-60);
+	}
+
+	.close:hover {
+		color: var(--light-80);
+	}
+
+	.player_table {
+		position: relative;
+	}
+
+	.player_table:before {
+		content: "";
+		position: absolute;
+		top: 0;
+		left: 0;
+		width: 100%;
+		height: 100%;
+		background: #0008;
+	}
+
+	.player_table strong {
+		position: relative;
+	}
+
+	#pc_help_button,
+	#pc_score_button {
+		background: #19494d;
+	}
+
+	#pc_zoom_minus_button,
+	#pc_zoom_plus_button {
+		background: #601f37;
+	}
+}

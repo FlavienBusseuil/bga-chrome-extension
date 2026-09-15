@@ -1,0 +1,42 @@
+html[data-theme=dark].bgaext_bright {
+    .pt_rot {
+        filter: var(--ext-bright);
+    }
+}
+
+html[data-theme=dark].bgaext_dark {
+    #petals_board_scroll {
+        background: var(--dark-40);
+        background-image: radial-gradient(#231d10 1px, transparent 0);
+        background-size: 24px 24px;
+        border-color: var(--light-50);
+    }
+
+    #petals_hand_wrap {
+        background: var(--dark-40);
+        border-color: var(--light-50);
+    }
+
+    #pt_deckinfo {
+        background: var(--dark-10);
+        color: #baa078;
+    }
+
+    .pt_zoombtn {
+        background: var(--dark-20);
+    }
+
+    .pt_zoombtn:hover {
+        background: var(--dark-10);
+        text-decoration: none !important;
+    }
+
+    .pt_firstplayer {
+        background: #000;
+        color: #baa078;
+    }
+
+    #pt_lastround {
+        background: var(--red-10);
+    }
+}

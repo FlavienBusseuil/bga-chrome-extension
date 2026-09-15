@@ -1,0 +1,60 @@
+@import './common';
+
+html[data-theme=dark].bgaext_bright {
+
+	#lwog-board::before {
+		.reduceBrightness();
+	}
+
+	.bga-cards_card>.bga-cards_card-sides>.bga-cards_card-side,
+	.lwog-character-card-preview,
+	.loot-ref__label {
+		filter: var(--ext-bright);
+	}
+
+	.lwog-reputation-token {
+		filter: var(--ext-bright) var(--drop-shadow);
+	}
+
+	.lwog-loot-token {
+		filter: var(--ext-bright) drop-shadow(0 2px 4px rgba(0, 0, 0, .42));
+	}
+
+	.lwog-loot-token--selectable {
+		filter: var(--ext-bright) drop-shadow(0 0 6px rgba(255, 215, 0, .9)) drop-shadow(0 2px 4px rgba(0, 0, 0, .42));
+	}
+
+	.lwog-loot-token--selectable:hover {
+		filter: var(--ext-bright) drop-shadow(0 0 10px rgb(255, 215, 0)) drop-shadow(0 2px 4px rgba(0, 0, 0, .42));
+	}
+
+	.lwog-loot-token--selected {
+		filter: var(--ext-bright) drop-shadow(0 0 10px rgba(0, 191, 255, .95)) drop-shadow(0 0 4px rgba(0, 191, 255, .6)) drop-shadow(0 2px 4px rgba(0, 0, 0, .42));
+	}
+}
+
+html[data-theme=dark].bgaext_dark {
+	#lwog-board-row>.lwog-ship-area {
+		background: var(--dark-back);
+		color: var(--light-80);
+	}
+
+	.lwog-phase-icon {
+		will-change: transform;
+		filter: var(--highlight-min);
+	}
+
+	.lwog-loot-grid {
+		background-color: var(--dark-20);
+	}
+
+	.loot-ref__bg {
+		background: var(--dark-back);
+	}
+
+	html[data-theme=dark] .loot-ref__textbox {
+		color: #000;
+		background: var(--dark-10);
+		color: var(--light-80);
+	}
+}

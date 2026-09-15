@@ -957,6 +957,9 @@ export const gamesConfiguration: Record<string, GameConfig> = {
   letsgotojapan: {
     playersBorder: ["#playerhandtitle_{{player_id}}", "#playerhand_{{player_id}}", "#nameplayer_{{player_id}}"]
   },
+  libertaliawindsofgalecrest: {
+    playersTextColor: ["[style*=\"--player-color:#{{player_color}}\"]"]
+  },
   lielow: {
     customBack: true
   },
@@ -1335,6 +1338,11 @@ export const gamesConfiguration: Record<string, GameConfig> = {
   },
   pocketcats: {
     customBack: true
+  },
+  pointcity: {
+    customBack: true,
+    overlay: true,
+    playersBorder: ['[style*="border: 2px solid #{{player_color}}"]']
   },
   pointsalad: {
     customBack: true,
