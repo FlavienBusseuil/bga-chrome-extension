@@ -19,6 +19,13 @@ export interface GameConfig {
   customInit?: (cssPath: string) => void;
 }
 
+const setNextStationBackgrounds = (cssPath: string) => {
+  const cities = ['paris', 'tokyo', 'berlin'];
+  cities.forEach(city => {
+    document.body.style.setProperty(`--back-${city}`, `url(${cssPath}img/bg_${city}.jpg)`);
+  });
+};
+
 export const gamesConfiguration: Record<string, GameConfig> = {
   aero: {
     customBack: true,
@@ -666,6 +673,10 @@ export const gamesConfiguration: Record<string, GameConfig> = {
     playersBack: ["#title_{{player_id}}"],
     playersBorder: ["#FSDtable_{{player_id}}"]
   },
+  forestshufflesmokymountains: {
+    playersBack: ["#title_{{player_id}}"],
+    playersBorder: ["#FSDtable_{{player_id}}"]
+  },
   formulad: {
     customInit: (cssPath: string) => {
       document.body.style.setProperty("--gears", `url(${cssPath}img/gears.svg)`);
@@ -1173,17 +1184,15 @@ export const gamesConfiguration: Record<string, GameConfig> = {
   },
   nextstationparis: {
     overlay: true,
-    customInit: (cssPath: string) => {
-      document.body.style.setProperty("--back-paris", `url(${cssPath}img/bg_paris.jpg)`);
-      document.body.style.setProperty("--back-tokyo", `url(${cssPath}img/bg_tokyo.jpg)`);
-    }
+    customInit: setNextStationBackgrounds
   },
   nextstationtokyo: {
     overlay: true,
-    customInit: (cssPath: string) => {
-      document.body.style.setProperty("--back-paris", `url(${cssPath}img/bg_paris.jpg)`);
-      document.body.style.setProperty("--back-tokyo", `url(${cssPath}img/bg_tokyo.jpg)`);
-    }
+    customInit: setNextStationBackgrounds
+  },
+  nextstationberlin: {
+    overlay: true,
+    customInit: setNextStationBackgrounds
   },
   nicodemus: {
     customBack: true

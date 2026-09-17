@@ -1,3 +1,21 @@
+@import './common';
+
+html[data-theme=dark].bgaext_bright {
+
+	#board:before {
+		.reduceBrightness();
+	}
+
+	.card .sides .side {
+		filter: var(--ext-bright);
+	}
+
+	#cards .card.selectedToPay,
+	#cards .selectedToPay.futurePlace.selectable {
+		filter: var(--ext-bright) grayscale(80%);
+	}
+}
+
 html[data-theme=dark].bgaext_dark.custom_theme {
 	--ext-overall-color: #00000080;
 }
@@ -33,5 +51,21 @@ html[data-theme=dark].bgaext_dark {
 	.mobile_version #cards:not(.changed) #pin,
 	body:not(.mobile_version) #cards.changed #pin {
 		background-color: var(--dark-20);
+	}
+
+	#popin_showCards .tinyHint:after,
+	.fa6-square-xmark {
+		color: var(--red-80);
+	}
+
+	#FSD_caution,
+	[id^=player_name] .card,
+	[id^=player_name] .futurePlace.selectable {
+		background-color: var(--red-80);
+	}
+
+	#cards .card.selectedToPay,
+	#cards .selectedToPay.futurePlace.selectable {
+		border-color: var(--red-80);
 	}
 }

@@ -1608,6 +1608,12 @@ const defaultGames: Partial<Game>[] = [
 		position: "bottom"
 	},
 	{
+		name: "forestshufflesmokymountains",
+		playerPanel: "FSSMtable_{{player_id}}",
+		playerPanelOffset: 20,
+		position: "bottom"
+	},
+	{
 		name: "cities",
 		playerPanel: "player-container-{{player_id}}",
 		iconBackground: "#dcebef",
