@@ -1754,7 +1754,7 @@ const defaultGames: Partial<Game>[] = [
 		name: "arabella",
 		playerPanel: ".abl-player-board",
 		boardPanel: ".abl-game-board",
-		boardPanelText: "[data-tab-id=\"board\"] .abl-tab-bar-label",
+		boardPanelText: "#game_play_area [data-tab-id=\"board\"] .abl-tab-bar-label",
 		css: ".abl-tab-bar { display: none!important; }"
 	},
 	{
@@ -1925,6 +1925,14 @@ const defaultGames: Partial<Game>[] = [
 		playerPanel: "player_table_{{player_id}}",
 		position: "bottom"
 	},
+	{
+		name: "expeditionsnineteentwenty",
+		playerPanel: "ex-player-area-{{player_id}}",
+		boardPanel: "ex-base-camp",
+		boardPanelText: "Base camp",
+		css: ".bga-jump-to_controls { display: none; } .desktop_version #game_play_area { padding-left: 50px; }",
+		position: "bottom",
+	}
 ];
 
 export default defaultGames;

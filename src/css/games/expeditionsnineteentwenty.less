@@ -1,0 +1,39 @@
+@import './common';
+
+html[data-theme=dark].bgaext_bright {
+
+	.ex-mech-mat-art:before,
+	#ex-game #ex-base-camp:before {
+		.reduceBrightness();
+	}
+
+	.bga-cards_card>.bga-cards_card-sides>.bga-cards_card-side {
+		filter: var(--ext-bright);
+	}
+
+	.bga-cards_card>.bga-cards_card-sides>.bga-cards_card-side.token {
+		filter: var(--drop-shadow) var(--ext-bright);
+	}
+}
+
+html[data-theme=dark].bgaext_dark {
+	#ex-player-areas .ex-player-area .ex-player-area-name {
+		background: var(--dark-10);
+	}
+
+	#ex-player-areas .ex-player-area {
+		background: var(--dark-20);
+	}
+
+	#ex-player-areas .ex-player-area .ex-player-area-active,
+	#ex-player-areas .ex-player-area .ex-player-area-hand,
+	#ex-player-areas .ex-player-area .ex-player-area-middle-row .ex-mech-mat-wrapper .ex-player-solved,
+	#ex-player-areas .ex-player-area .ex-player-area-middle-row .ex-mech-mat-wrapper .ex-player-upgraded,
+	#ex-player-areas .ex-player-area .ex-player-area-middle-row .ex-mech-mat-wrapper .ex-player-melded {
+		background-color: var(--dark-40);
+	}
+
+	.discard-deck[data-empty=true] {
+		background: var(--dark-back);
+	}
+}

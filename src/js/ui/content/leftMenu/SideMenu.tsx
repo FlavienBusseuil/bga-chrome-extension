@@ -30,10 +30,26 @@ const SideMenu = (props: SideMenuProps) => {
 	const [zoomVisible, setZoomVisible] = useState(false);
 	const [buttonsOrder, setButtonsOrder] = useState("");
 	const [boardButtonText, setBoardButtonText] = useState<string>();
+	const [visibilityChanging, setVisibilityChanging] = useState(false);
+	const [className, setClassName] = useState("");
+
+	useEffect(() => {
+		if (visible) {
+			setClassName(visibilityChanging ? "bgaext-opening" : "bgaext-opened");
+		} else {
+			setClassName(visibilityChanging ? "bgaext-closing" : "bgaext-closed");
+		}
+	}, [visible, visibilityChanging]);
 
 	const getBoardName = () => {
-		if (gameConfig.boardPanelText && !boardButtonText) {
+		if (!gameConfig.boardPanelText || boardButtonText) {
+			return;
+		}
+
+		if (gameConfig.boardPanelText.startsWith('#')) {
 			setBoardButtonText(document.querySelector(gameConfig.boardPanelText)?.textContent);
+		} else {
+			setBoardButtonText(gameConfig.boardPanelText);
 		}
 	};
 
@@ -84,7 +100,17 @@ const SideMenu = (props: SideMenuProps) => {
 			});
 	};
 
-	const toggleMenu = () => setVisible(!visible);
+	const toggleMenu = () => {
+		if (visible) {
+			setVisible(false);
+			setVisibilityChanging(true);
+			setTimeout(() => setVisibilityChanging(false), 500);
+		} else {
+			setVisibilityChanging(true);
+			setTimeout(() => setVisible(true), 1);
+			setTimeout(() => setVisibilityChanging(false), 500);
+		}
+	}
 	const containerStyle = {
 		display: "flex",
 		flexFlow: "column",
@@ -242,7 +268,7 @@ const SideMenu = (props: SideMenuProps) => {
 	const iconColor = darkMode ? gameConfig.iconColorDark : gameConfig.iconColor;
 
 	return (
-		<div className={`${visible ? 'bgaext-opened' : 'bgaext-closed'} bgaext-pos-${position}`} style={containerStyle}>
+		<div className={`${className} bgaext-pos-${position}`} style={containerStyle}>
 			{position === "top" && (
 				<SideMenuItem onClick={toggleMenu}>
 					<Avatar

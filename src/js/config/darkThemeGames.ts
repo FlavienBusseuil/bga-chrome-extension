@@ -596,6 +596,10 @@ export const gamesConfiguration: Record<string, GameConfig> = {
   expeditions: {
     customBack: true
   },
+  expeditionsnineteentwenty: {
+    customBack: true,
+    playersBorder: ['#ex-player-area-{{player_id}}', '#ex-player-area-{{player_id}} .ex-player-area-name']
+  },
   explodingkittens: {
     customBack: true
   },
