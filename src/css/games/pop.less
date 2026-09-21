@@ -1,0 +1,48 @@
+    html[data-theme=dark].bgaext_bright {
+
+    	.pop-card,
+    	.pop-queue-letter {
+    		filter: var(--ext-bright);
+    	}
+    }
+
+    html[data-theme=dark].bgaext_dark {
+    	--ext-overlay-color: #0002;
+
+    	.pop-whiteblock {
+    		background-color: var(--dark-10);
+    		border-color: var(--light-50);
+    	}
+
+    	#pop-direction-indicator {
+    		background-color: var(--dark-30);
+    		color: var(--light-80);
+    	}
+
+    	#pop-direction-indicator .pop-round-turn {
+    		color: var(--light-70);
+    	}
+
+    	.pop-order-asc {
+    		color: var(--green-80);
+    	}
+
+    	.pop-chief-captured-info,
+    	.pop-order-desc {
+    		color: var(--red-80);
+    	}
+
+    	.pop-player-name,
+    	.pop-slot-label {
+    		text-shadow: none;
+    	}
+
+    	.pop-chief-captured {
+    		background-color: var(--dark-30);
+    		border-color: var(--red-80);
+    	}
+
+    	.pop-placeholder.pop-active {
+    		background-color: var(--dark-40);
+    	}
+    }

@@ -1932,7 +1932,14 @@ const defaultGames: Partial<Game>[] = [
 		boardPanelText: "Base camp",
 		css: ".bga-jump-to_controls { display: none; } .desktop_version #game_play_area { padding-left: 50px; }",
 		position: "bottom",
-	}
+	},
+	{
+		name: "piles",
+		playerPanel: "player-table-{{player_id}}",
+		iconBackground: "#ffe433",
+		iconBackgroundDark: "#005e99",
+		css: "#bga-jump-to_controls { display: none; }",
+	},
 ];
 
 export default defaultGames;

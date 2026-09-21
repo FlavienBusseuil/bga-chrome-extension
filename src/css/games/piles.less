@@ -7,10 +7,17 @@ html[data-theme=dark].bgaext_bright {
 }
 
 html[data-theme=dark].bgaext_dark {
-	--ext-overall-color: #0009;
+	.player-table {
+		position: relative;
+	}
 
-	#player-tables .player-table,
-	#player-tables .player-table>* {
-		filter: invert(1);
+	.player-table:before {
+		content: "";
+		position: absolute;
+		top: 0;
+		left: 0;
+		width: 100%;
+		height: 100%;
+		background: #0009;
 	}
 }

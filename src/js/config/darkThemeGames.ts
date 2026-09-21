@@ -1297,7 +1297,7 @@ export const gamesConfiguration: Record<string, GameConfig> = {
   },
   piles: {
     customBack: true,
-    playersTextColor: ['strong[data-color="{{player_color}}"]']
+    playersTextColor: ['#player-table-{{player_id}} > strong']
   },
   pilipili: {
     customBack: true,
@@ -1366,6 +1366,12 @@ export const gamesConfiguration: Record<string, GameConfig> = {
     customBack: true,
     overlay: true,
     playersTextColor: ['#player-table-{{player_id}} h3', '[style="--player-color: #{{player_color}};"]']
+  },
+  pop: {
+    customBack: true,
+    overlay: true,
+    playersBorder: ['#pop-reveal-slot-{{player_id}} .pop-placeholder', '.pop-whiteblock[style="border-color:#{{player_color}};"]'],
+    playersBack: ['[style="background:#{{player_color}};"]']
   },
   popcorn: {
     customBack: ["pop-game-bg"]
