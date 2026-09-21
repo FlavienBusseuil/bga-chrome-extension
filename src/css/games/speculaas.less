@@ -1,0 +1,44 @@
+html[data-theme=dark].bgaext_bright {
+
+	.spl_card_back,
+	spl-card {
+		filter: var(--ext-bright);
+	}
+}
+
+html[data-theme=dark].bgaext_dark {
+	--ext-overlay-color: #fff6;
+
+	.bgaext_overlay {
+		z-index: -1;
+	}
+
+	.spl_play_area {
+		background-color: var(--dark-back-50);
+	}
+
+	.spl_avail_square {
+		border-color: var(--light-50);
+	}
+
+	.spl_cardname_clove {
+		color: #a11282;
+	}
+
+	.spl_cardname_nutmeg,
+	.spl_cardname_recipe {
+		color: #b36e00;
+	}
+
+	.spl_cardname_cardamom {
+		color: var(--green-80);
+	}
+
+	.spl_play_area .spl_tools .spl_tool {
+		filter: invert() hue-rotate(180deg) saturate(0.5);
+	}
+
+	.spl_score_star_container {
+		filter: var(--drop-shadow);
+	}
+}

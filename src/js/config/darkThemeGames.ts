@@ -1661,6 +1661,10 @@ export const gamesConfiguration: Record<string, GameConfig> = {
     customBack: true,
     customPanel: true
   },
+  speculaas: {
+    customBack: true,
+    overlay: true
+  },
   spellcrafter: {
     customBack: true
   },
@@ -1821,6 +1825,12 @@ export const gamesConfiguration: Record<string, GameConfig> = {
   theguildofmerchantexplorers: {
     customPlayerStyle: ".tab_header, .player_board .player_nametag",
     playersBorder: ["#tab_header_board_{{player_id}}"]
+  },
+  thehappiestcatintheworld: {
+    customBack: true,
+    overlay: true,
+    playersBorder: ['#gamezone-{{player_id}}'],
+    playersBack: ['#gamezone-{{player_id}} .title']
   },
   thehanginggardens: {
     customBack: true,

@@ -1,0 +1,58 @@
+html[data-theme=dark].bgaext_bright {
+
+	.game-card.tile.objective,
+	.bga-cards_card>.bga-cards_card-sides>.bga-cards_card-side {
+		filter: var(--ext-bright);
+	}
+}
+
+html[data-theme=dark].bgaext_dark {
+
+	.player-name [style*="color: #ff7f38"],
+	.player-name [style*="color:#ff7f38"],
+	.playername[style*="color: #ff7f38"],
+	.playername[style*="color:#ff7f38"],
+	span[style*="color: #ff7f38"],
+	span[style*="color:#ff7f38"],
+	.player-name [style*="color: #af96db"],
+	.player-name [style*="color:#af96db"],
+	.playername[style*="color: #af96db"],
+	.playername[style*="color:#af96db"],
+	span[style*="color: #af96db"],
+	span[style*="color:#af96db"],
+	.player-name [style*="color: #ffffff"],
+	.player-name [style*="color:#ffffff"],
+	.playername[style*="color: #ffffff"],
+	.playername[style*="color:#ffffff"],
+	span[style*="color: #ffffff"],
+	span[style*="color:#ffffff"],
+	.player-name [style*="color: #63252e"],
+	.player-name [style*="color:#63252e"],
+	.playername[style*="color: #63252e"],
+	.playername[style*="color:#63252e"],
+	span[style*="color: #63252e"],
+	span[style*="color:#63252e"] {
+		text-shadow: none;
+	}
+
+	#THC-table .gamezone .title {
+		color: #000 !important;
+	}
+
+	.card-stock.deck[data-empty=true] {
+		background: var(--dark-back);
+	}
+
+	.card-stock.deck {
+		color: var(--light-80);
+	}
+
+	#THC-table .gamezone .gamezone-footer .deck,
+	#THC-table .gamezone .gamezone-footer .discard {
+		border-color: var(--light-80);
+	}
+
+	.firstPlayerPlaceHolder #firstPlayerToken {
+		filter: var(--highlight-min);
+	}
+}
