@@ -433,6 +433,11 @@ export const gamesConfiguration: Record<string, GameConfig> = {
   cuttle: {
     customBack: ["theme_cuttlefish"]
   },
+  daleofmerchants: {
+    customBack: true,
+    overlay: true,
+    playersBack: ['#daleofmerchants-play-area-{{player_id}} .daleofmerchants-play-area-title']
+  },
   darwinsjourney: {
     customBack: true
   },

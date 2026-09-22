@@ -1,0 +1,50 @@
+@import './common';
+
+html[data-theme=dark].bgaext_bright {
+	#daleofmerchants-market-board-background:before {
+		.reduceBrightness();
+	}
+
+	.daleofmerchants-card {
+		filter: var(--ext-bright);
+	}
+}
+
+html[data-theme=dark].bgaext_dark {
+	--ext-overlay-color: #0003;
+
+	.daleofmerchants-play-area-title {
+		color: #000;
+	}
+
+	#daleofmerchants-page-deck-selection .daleofmerchants-log-span .daleofmerchants-icon,
+	.daleofmerchants-card-tooltip .daleofmerchants-icon,
+	.player_score .daleofmerchants-icon {
+		filter: invert(1) hue-rotate(180deg);
+	}
+
+	#daleofmerchants-page-deck-selection #daleofmerchants-pick-random .daleofmerchants-log-span .daleofmerchants-icon {
+		filter: none;
+	}
+
+	.daleofmerchants-filters {
+		background-color: var(--dark-back);
+		color: var(--light-80);
+	}
+
+	.daleofmerchants-filters .daleofmerchants-bga-button {
+		background-color: #000;
+	}
+
+	.daleofmerchants-filters .daleofmerchants-bga-button.active {
+		.orangeButton();
+	}
+
+	.daleofmerchants-filters .daleofmerchants-bga-button.active:hover {
+		.orangeButtonOver();
+	}
+
+	.daleofmerchants-filters .filter {
+		background-color: var(--dark-20);
+	}
+}
