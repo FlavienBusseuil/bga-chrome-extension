@@ -706,7 +706,6 @@ export const gamesConfiguration: Record<string, GameConfig> = {
   },
   frostedblooms: {
     customBack: ['thematic_background'],
-    overlay: true,
     playersTextColor: ['html player_area_wrapper player_name[color="{{player_color}}"]'],
     playersBorder: ['html garden[color="{{player_color}}"]', '#overall_player_board_{{player_id}}'],
     customInit: (cssPath: string) => {
@@ -1292,6 +1291,10 @@ export const gamesConfiguration: Record<string, GameConfig> = {
   },
   perch: {
     customBack: ["bx-background-dark"]
+  },
+  perfectwords: {
+    customBack: true,
+    overlay: true
   },
   pergola: {
     customBack: true,

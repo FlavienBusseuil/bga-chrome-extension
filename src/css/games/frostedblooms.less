@@ -31,10 +31,6 @@ html[data-theme=dark].bgaext_bright {
 html[data-theme=dark].bgaext_dark {
 	--ext-overlay-color: #0002;
 
-	.bgaext_overlay {
-		display: none;
-	}
-
 	#bga-zoom-wrapper #bga-zoom-controls {
 		filter: invert(0.9);
 	}
@@ -81,13 +77,8 @@ html[data-theme=dark].bgaext_dark {
 		background-color: var(--green-10);
 		color: var(--light-80);
 	}
-}
 
-html[data-theme=dark].bgaext_dark.thematic_background .bgaext_overlay {
-	display: block;
-	background: var(--ext-game-back);
-	background-repeat: no-repeat;
-	background-size: cover;
-	background-attachment: fixed;
-	background-position: 50%;
+	#popin_bgaHelpDialog_title {
+		color: var(--light-80) !important;
+	}
 }
