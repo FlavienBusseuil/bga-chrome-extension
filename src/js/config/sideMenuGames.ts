@@ -1941,6 +1941,12 @@ const defaultGames: Partial<Game>[] = [
 		iconBackgroundDark: "#005e99",
 		css: "#bga-jump-to_controls { display: none; }",
 	},
+	{
+		name: "circadia",
+		playerPanel: ".player_area",
+		css: ".bga-jump-to_controls { display: none; }",
+	},
+
 ];
 
 export default defaultGames;

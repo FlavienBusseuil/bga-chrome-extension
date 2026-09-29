@@ -86,7 +86,6 @@ export interface PopupsConfig {
 	muteWarning: boolean;
 	reportMsg: boolean;
 	infosDialog?: string;
-	darkModeDialog?: string;
 }
 
 export interface InProgressConfig {

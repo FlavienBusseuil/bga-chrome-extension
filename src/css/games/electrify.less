@@ -1,0 +1,42 @@
+@import './common';
+
+html[data-theme=dark].bgaext_bright {
+
+	.efy-roundTrack:before,
+	.efy-board:before,
+	.efy-sector:before {
+		.reduceBrightness();
+	}
+
+	.efy-roundTrack-slot,
+	.efy-card {
+		filter: var(--ext-bright);
+	}
+
+	.efy-icon {
+		filter: var(--ext-bright) drop-shadow(0 0 3px rgba(0, 0, 0, .2666666667));
+	}
+}
+
+html[data-theme=dark].bgaext_dark {
+	.efy-playerName {
+		background-color: var(--dark-10);
+	}
+
+	#efy-floatingHand,
+	#efy-floatingHand .efy-toggle {
+		background: var(--dark-20) !important;
+	}
+
+	#efy-floatingHand .efy-toggle .efy-toggle-arrow.efy-pointing-up {
+		border-bottom: 8px solid var(--light-80);
+	}
+
+	#efy-floatingHand .efy-toggle .efy-toggle-arrow.efy-pointing-down {
+		border-top: 8px solid var(--light-80);
+	}
+
+	.efy-finalRound {
+		background-color: var(--red-10);
+	}
+}

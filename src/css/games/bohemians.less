@@ -2,7 +2,8 @@
 
 html[data-theme=dark].bgaext_bright {
 
-	#myhand:before {
+	#myhand:before,
+	.player_routine_board:before {
 		.reduceBrightness()
 	}
 
@@ -16,8 +17,8 @@ html[data-theme=dark].bgaext_bright {
 	.job_tile_attendant,
 	.stockitem,
 	.job_tile_busker,
-	.player_routine_board,
-	.player_achievement {
+	.player_achievement,
+	.job_tile {
 		filter: var(--ext-bright);
 	}
 }
@@ -40,7 +41,11 @@ html[data-theme=dark].bgaext_dark {
 	}
 
 	.gmk_atelier,
-	.gmk_inspiration {
+	.gmk_inspiration,
+	.gmk_achievement,
+	.gmk_hardship,
+	.gmk_evening,
+	.gmk_habit {
 		filter: invert(1);
 		color: #000;
 	}

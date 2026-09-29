@@ -1,0 +1,22 @@
+html[data-theme=dark].bgaext_bright {
+
+	creature,
+	habitat,
+	creature_deck {
+		filter: var(--ext-bright);
+	}
+}
+
+html[data-theme=dark].bgaext_dark {
+	player_area {
+		background-color: var(--dark-back);
+	}
+
+	player_area[color=ff0000] name_txt,
+	player_area[color="008000"] name_txt,
+	player_area[color="0000ff"] name_txt,
+	player_area[color=ffa500] name_txt,
+	player_area[color=e94190] name_txt {
+		text-shadow: none;
+	}
+}

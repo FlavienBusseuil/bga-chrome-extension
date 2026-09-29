@@ -318,6 +318,10 @@ export const gamesConfiguration: Record<string, GameConfig> = {
   catannewenergies: {
     customBack: true
   },
+  catopomp: {
+    customBack: true,
+    overlay: true
+  },
   cathood: {
     customBack: true
   },
@@ -353,6 +357,10 @@ export const gamesConfiguration: Record<string, GameConfig> = {
   },
   chromino: {
     customBack: true
+  },
+  circadia: {
+    customBack: true,
+    playersTextColor: ['html player_area[color={{player_color}}] name_txt']
   },
   citadels: {
     customBack: true,
@@ -908,6 +916,9 @@ export const gamesConfiguration: Record<string, GameConfig> = {
   },
   kaiser: {
     twoTeams: true
+  },
+  kelp: {
+    customBack: true
   },
   khiva: {
     customBack: true
@@ -1499,6 +1510,9 @@ export const gamesConfiguration: Record<string, GameConfig> = {
   riverrats: {
     customBack: true
   },
+  roadmaster: {
+    customBack: true
+  },
   roadtothreehoundred: {
     playersTextColor: ["#rt300_plname_{{player_id}}"]
   },
@@ -1930,6 +1944,9 @@ export const gamesConfiguration: Record<string, GameConfig> = {
   trickarus: {
     customBack: true
   },
+  tricknchef: {
+    customBack: true
+  },
   trickykids: {
     customBack: true
   },
@@ -2042,6 +2059,12 @@ export const gamesConfiguration: Record<string, GameConfig> = {
   },
   widgetsndigits: {
     playersTextColor: ["#wnd-player-panel-{{player_id}} .wnd-player-username"]
+  },
+  wildspace: {
+    customBack: true,
+    overlay: true,
+    playersTextColor: ['#ws-player-{{player_id}} .pname'],
+    playersBorder: ['#ws-player-{{player_id}}'],
   },
   wingspan: {
     customBack: ["wsp_background_paper"],

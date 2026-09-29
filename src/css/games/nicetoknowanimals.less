@@ -1,0 +1,82 @@
+html[data-theme=dark].bgaext_bright {
+
+	.ntka-card-image,
+	.ntka-quest-image,
+	.ntka-player-helper-image {
+		filter: var(--ext-bright);
+	}
+
+	#ntka-player-helper-close {
+		z-index: 1;
+	}
+}
+
+html[data-theme=dark].bgaext_dark {
+
+	#ntka-board,
+	#ntka-map,
+	#ntka-research-area,
+	#ntka-meeple-area,
+	#ntka-quest-offer-area {
+		background: var(--dark-back);
+		color: var(--light-70);
+	}
+
+	#ntka-meeple-help {
+		color: var(--light-50);
+	}
+
+	.ntka-board-row-label {
+		color: #6e9176;
+	}
+
+	.ntka-row-cost--study {
+		background: #14391ee6;
+		border-color: #2d9f606b;
+	}
+
+	.ntka-row-cost--study strong {
+		color: #2d9f60;
+	}
+
+	.ntka-row-cost--research {
+		background: #332600e6;
+		border-color: #b37d1975;
+	}
+
+	.ntka-row-cost--research strong {
+		color: #c48208;
+	}
+
+	.ntka-row-cost-label {
+		color: var(--light-70);
+	}
+
+	.ntka-research-group {
+		background: var(--dark-back);
+		border-color: var(--dark-40);
+	}
+
+	.ntka-card-slot,
+	.ntka-quest-card {
+		background: var(--dark-20);
+	}
+
+	.ntka-continent-summary-player h4 strong {
+		outline: 1px solid var(--light-50);
+	}
+
+	.ntka-meeple-card {
+		background: var(--dark-20);
+		color: var(--light-70);
+		border-color: var(--green-30);
+	}
+
+	.ntka-meeple-card--selected {
+		border-color: var(--green-50);
+	}
+
+	#ntka-player-helper-frame {
+		background: #755224db;
+	}
+}

@@ -1,0 +1,45 @@
+html[data-theme=dark].bgaext_bright {
+
+	#ws-aid-image,
+	.planet,
+	.bga-cards_card>.bga-cards_card-sides>.bga-cards_card-side {
+		filter: var(--ext-bright);
+	}
+
+	.ws_card.bga-cards_unselectable-card {
+		filter: grayscale(.9) brightness(.7) contrast(.95);
+	}
+
+	.ws_card.bga-cards_unselectable-card:hover {
+		filter: grayscale(.45) brightness(.85)
+	}
+}
+
+html[data-theme=dark].bgaext_dark {
+
+	#ws-supply,
+	.player-panel,
+	.card-stock.deck[data-empty=true] {
+		background: var(--dark-back);
+	}
+
+	#ws-my-hand-panel {
+		background: var(--dark-back);
+		border-color: var(--light-50);
+	}
+
+	.supply-label,
+	.hand-count,
+	.my-hand-label {
+		color: var(--light-70);
+	}
+
+	#ws-aid-dialog {
+		background: var(--dark-10);
+		border: 1px solid var(--dark-40);
+	}
+
+	#ws-aid-title {
+		color: #4d7a99;
+	}
+}

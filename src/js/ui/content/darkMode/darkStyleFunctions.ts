@@ -94,6 +94,10 @@ const _getDarkColorsStyle = (playersData: PlayerData[]) => {
       declaration.push(`.playername[style^="color:${color}"]`);
       declaration.push(`.playername[style^="color: ${color}"]`);
 
+      declaration.push(`.player-name a[style^="color: ${colorRgb}"]`);
+      declaration.push(`.playername[style^="color:${colorRgb}"]`);
+      declaration.push(`.playername[style^="color: ${colorRgb}"]`);
+
       if (color !== colorUp) {
         declaration.push(`.player-name a[style^="color: ${colorUp}"]`);
         declaration.push(`.playername[style^="color:${colorUp}"]`);
