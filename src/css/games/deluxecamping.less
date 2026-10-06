@@ -1,0 +1,11 @@
+@import './common';
+
+html[data-theme=dark].bgaext_bright {
+	#dc_board_wrapper:before {
+		.reduceBrightness();
+	}
+
+	.dc_piece {
+		filter: var(--ext-bright);
+	}
+}

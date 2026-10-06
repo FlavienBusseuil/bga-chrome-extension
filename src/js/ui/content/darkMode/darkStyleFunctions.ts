@@ -31,12 +31,30 @@ if (pageInfo.length >= 2 && isNumber(pageInfo[0] as string)) {
 
 const isHtmlPage = pageInfo[pageInfo.length - 1]?.endsWith('.html');
 
+const _injectGamePageScript = () => {
+  // must be done as soon as possible to be executed before the game script
+  if (!gamesConfiguration[gameName]?.pageScript || document.getElementById('ext_game_script')) {
+    return;
+  }
+
+  console.debug(`[bga extension] load ${gameName} page script`);
+  const script = document.createElement('script');
+  script.id = 'ext_game_script';
+  script.src = chrome.runtime.getURL(`/js/games/${gameName}.js`);
+  (document.head || document.documentElement).appendChild(script);
+};
+
+if (mode !== "archive" && !isHtmlPage) {
+  _injectGamePageScript();
+}
+
 const _init = async () => {
   const fileContentsTask = Promise.all(cssList.map(file => getFile(file)));
 
   if (mode === "archive") {
     const elt: any = await waitForObj('[href*="table="]');
     gameName = elt.href.substring(elt.href.lastIndexOf('/') + 1).split('?')[0];
+    _injectGamePageScript();
   }
 
   const fileContents = await fileContentsTask;

@@ -1,0 +1,21 @@
+    html[data-theme=dark].bgaext_bright {
+
+    	.card,
+    	.bluecard-front,
+    	.redcard-front {
+    		filter: var(--ext-bright);
+    	}
+    }
+
+    html[data-theme=dark].bgaext_dark {
+    	--ext-overall-color: #000A;
+
+    	#overall-content {
+    		color: var(--light-80);
+    	}
+
+    	.sectiondiscard {
+    		backdrop-filter: none;
+    		background: var(--dark-back);
+    	}
+    }

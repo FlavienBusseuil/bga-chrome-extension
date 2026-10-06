@@ -1,12 +1,11 @@
 import { addChangeListener, localStorageClear, localStorageGet, localStorageSet, storageClear, storageGet, storageSet } from "../utils/browser";
 import { i18n, setI18nLocale, getI18nDefaultLocale } from "../utils/browser/i18n";
 import { ADVANCED_HOME_STYLE, ARENA_DISABLED_GAMES, COLORFUL_TABLES, DEF_HOME_HTML, HIDE_FULLSCREEN_LOADING_LOGO } from "./configuration.constants";
-import { DarkModeConfig, BrightnessConfig, Game } from "./models";
+import { DarkModeConfig, BrightnessConfig } from "./models";
 
 interface CustomConfig {
 	clientId: string;
 	locale?: string;
-	games: Game[];
 	dark: DarkModeConfig[];
 	brightness: BrightnessConfig[];
 	disabled: string[];
@@ -105,7 +104,6 @@ interface LocalConfig {
 class Configuration {
 	_customConfig: CustomConfig;
 	_localConfig: LocalConfig;
-	_config: { games: Game[] };
 	_initialized: boolean;
 
 	get initialized(): boolean {
@@ -115,7 +113,6 @@ class Configuration {
 	constructor() {
 		this._customConfig = {
 			clientId: "",
-			games: [],
 			dark: [],
 			brightness: [],
 			disabled: [],
@@ -123,15 +120,11 @@ class Configuration {
 			hidden: [],
 			muted: []
 		};
-		this._config = { games: [] };
 		this._localConfig = { css: "" };
 		this._initialized = false;
 	}
 
 	_init() {
-		if (!this._customConfig.games) {
-			this._customConfig.games = [];
-		}
 		if (!this._customConfig.dark) {
 			this._customConfig.dark = [];
 		}
@@ -196,7 +189,6 @@ class Configuration {
 			this._customConfig.floatingRightMenu === undefined &&
 			this._customConfig.onlineMessages === undefined &&
 			!this._customConfig.disabled.length &&
-			!this._customConfig.games.length &&
 			!this._customConfig.floating.length
 		);
 	}
@@ -214,19 +206,6 @@ class Configuration {
 		this._customConfig.locale = val;
 		storageSet({ locale: val });
 		await setI18nLocale(val);
-	}
-
-	getGameConfig(game: string): Game | undefined {
-		return this._config.games.find((c: any) => c.name === game);
-	}
-
-	getGamesList(): Game[] {
-		return this._config.games.sort((a, b) => a.name.localeCompare(b.name));
-	}
-
-	isCustomized(name: string) {
-		const custGame = this._customConfig.games.find((g) => g.name === name);
-		return !!custGame;
 	}
 
 	isTrackingEnable() {

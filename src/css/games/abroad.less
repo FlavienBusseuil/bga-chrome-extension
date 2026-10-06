@@ -1,0 +1,37 @@
+@import './common';
+
+html[data-theme=dark].bgaext_bright {
+	#abroad_map:before {
+		.reduceBrightness();
+	}
+
+	.abroad_tile {
+		filter: var(--ext-bright) drop-shadow(1px 1px 1px black);
+	}
+
+	.abroad_hand-card,
+	.abroad_postcard-card {
+		filter: var(--ext-bright);
+	}
+
+	.abroad_hand-card.abroad_hand-card--ineligible {
+		filter: grayscale(0.9) var(--ext-bright);
+	}
+}
+
+html[data-theme=dark].bgaext_dark {
+	--ext-overlay-color: #0002;
+
+	.abroad_supply-icon {
+		filter: var(--highlight-min);
+	}
+
+	#abroad_hand {
+		color: var(--light-80);
+	}
+
+	.abroad_hand-info {
+		background: var(--dark-10);
+		color: var(--light-80);
+	}
+}

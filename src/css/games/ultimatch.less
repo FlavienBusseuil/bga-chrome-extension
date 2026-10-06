@@ -1,0 +1,32 @@
+html[data-theme=dark].bgaext_bright {
+
+	.ultimatch-pile-discard .ultimatch-pile-card {
+		filter: grayscale(45%) var(--ext-bright);
+	}
+
+	.ultimatch-card,
+	.ultimatch-pile-card,
+	.ultimatch-pile-discard .ultimatch-pile-card-faceup,
+	.ultimatch-minicard {
+		filter: var(--ext-bright);
+	}
+}
+
+html[data-theme=dark].bgaext_dark {
+	#ultimatch-board {
+		--um-mat: var(--dark-20);
+		--um-ink: var(--light-70);
+		--um-chip-bg: var(--dark-back);
+		--um-face-border: var(--light-50);
+		--um-thread: var(--dark-20);
+	}
+
+	.ultimatch-stat-badge {
+		border-color: var(--light-70);
+	}
+
+	#ultimatch-hand,
+	.ultimatch-side-panel {
+		border-color: var(--light-50);
+	}
+}

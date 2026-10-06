@@ -1,91 +1,18 @@
-import { useEffect, useState } from "preact/hooks";
+import { useState } from "preact/hooks";
 import { getFile } from "easy-file-picker";
 
 import { i18n } from "../../utils/browser/i18n";
 import { OptionsView } from "../views/OptionsView";
 import { useSyncedState } from "../hooks/useSyncedState";
 import type ConfigurationWithGames from "../../config/configurationWithGames";
-import type { Game } from "../../config/models";
 
 const Options = (props: { config: ConfigurationWithGames }) => {
 	const { config } = props;
-	const [list, setList] = useState(config.getGamesList());
-	const [selected, setSelected] = useState(list[0] as Game);
-	const [changed, setChanged] = useState(false);
-	const [text, setText] = useState("");
 	const [css, setCss] = useState(config.getCustomCss());
 	const [tabSelected, setTabSelected] = useState("general");
 	const [troubleshootingMessage, setTroubleshootingMessage] = useState('');
 	const [, setConfigChange] = useSyncedState("configChange", false);
 	const [locale] = useSyncedState('locale', config.getLocale());
-
-	const serialize = (game: Game) => {
-		return JSON.stringify(
-			game,
-			[
-				"name",
-				"position",
-				"top",
-				"bottom",
-				"left",
-				"boardPanel",
-				"boardPanelOffset",
-				"boardPanelText",
-				"myPanel",
-				"playerPanel",
-				"playerPanelOffset",
-				"bottomPanel",
-				"bottomPanelOffset",
-				"iconBackground",
-				"iconBackgroundDark",
-				"iconBorder",
-				"iconBorderDark",
-				"iconColor",
-				"iconColorDark",
-				"iconShadow",
-				"iconShadowDark",
-				"css",
-			],
-			2,
-		);
-	};
-
-	useEffect(() => setText(serialize(selected)), [selected]);
-	useEffect(() => setChanged(serialize(selected) !== text), [selected, text]);
-	useEffect(() => {
-		const newSelected = list.find((g) => g.name === selected.name);
-		if (newSelected) {
-			setSelected({ ...newSelected });
-		} else {
-			setSelected(list[0] as Game);
-		}
-	}, [list, selected.name]);
-
-	const reset = () => {
-		setList(config.resetGame(selected.name));
-	};
-
-	const save = () => {
-		try {
-			const game = JSON.parse(text);
-			setList(config.saveGame(selected.name, game));
-			setSelected(game);
-		}
-		catch (error) {
-			window.location.reload();
-		}
-	};
-
-	const duplicate = () => {
-		const newGame = { ...selected, name: `${selected.name}_copy` };
-		setList(config.saveGame(newGame.name, newGame));
-		setSelected(newGame);
-	};
-
-	const isCustomized = config.isCustomized(selected.name);
-	const isDefault = config.isDefault(selected.name);
-	const couldReset = changed || (isCustomized && isDefault);
-	const couldDelete = isCustomized && !isDefault;
 
 	const exportFile = (filename: string, json: string) => {
 		const blob = new Blob([json], { type: "text/json" });
@@ -152,80 +79,6 @@ const Options = (props: { config: ConfigurationWithGames }) => {
 		);
 	};
 
-	const getNavigationConfiguration = () => {
-		return (
-			<>
-				<div className="bgext_options_title">
-					{i18n("optionNavigationTitle")}
-				</div>
-				<div className="bgext_options_container">
-					<div className="bgext_options_gamelist_container">
-						<div className="bgext_options_gamelist">
-							{list.map((g, i) => {
-								const className =
-									selected.name === g.name
-										? "bgext_options_gameitem_selected"
-										: "bgext_options_gameitem";
-								return (
-									<div
-										className={className}
-										key={`game_${i}`}
-										onClick={() => setSelected(g)}
-									>
-										{g.name}
-									</div>
-								);
-							})}
-						</div>
-					</div>
-					<div className="bgext_options_col_container">
-						<div className="bgext_options_gameconfig_container">
-							<textarea
-								id="game_config"
-								className="bgext_options_input"
-								value={text}
-								onChange={(evt) => setText((evt.target as any).value)}
-								onKeyUp={() => setText((document.getElementById("game_config") as any).value)}
-							/>
-						</div>
-						<div className="bgext_options_row_container">
-							<button
-								class={"appearance-auto w-100px"}
-								onClick={duplicate}
-							>
-								{i18n("optionDuplicate")}
-							</button>
-							<button
-								class={"appearance-auto w-100px"}
-								disabled={!couldReset}
-								onClick={reset}
-							>
-								{i18n("optionReset")}
-							</button>
-							<button
-								class={"appearance-auto w-100px"}
-								disabled={!couldDelete}
-								onClick={reset}
-							>
-								{i18n("optionDelete")}
-							</button>
-							<button
-								class={"appearance-auto w-100px"}
-								disabled={!changed}
-								onClick={save}
-							>
-								{i18n("optionSave")}
-							</button>
-						</div>
-					</div>
-				</div>
-				<div className="bgext_options_warning">
-					{i18n("optionNavigationWarning")}
-				</div>
-			</>
-		);
-	};
-
 	const getCssConfiguration = () => {
 		return (
 			<>
@@ -279,12 +132,10 @@ const Options = (props: { config: ConfigurationWithGames }) => {
 				<div className="bgext_options_config_area">
 					<div key={`options_${locale}`} className="bgext_links_area">
 						{getTab("general", i18n("optionGeneralTab"))}
-						{getTab("navigation", i18n("optionNavigationTab"))}
 						{getTab("css", i18n("optionCssTab"))}
 						{getTab("troubleshooting", i18n("troubleshooting"))}
 					</div>
 					{tabSelected === "general" && getGeneralSection()}
-					{tabSelected === "navigation" && getNavigationConfiguration()}
 					{tabSelected === "css" && getCssConfiguration()}
 					{tabSelected === "troubleshooting" && getTroubleshootingSection()}
 				</div>

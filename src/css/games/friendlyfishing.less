@@ -1,0 +1,21 @@
+@import './common';
+
+html[data-theme=dark].bgaext_bright {
+	#ff-board:before {
+		.reduceBrightness();
+		border-radius: 8px;
+	}
+}
+
+html[data-theme=dark].bgaext_dark {
+	--ext-overall-color: #0007;
+
+	.ff-player-name {
+		background: var(--dark-10);
+	}
+
+
+	.ff-panel-score span {
+		color: #508c95;
+	}
+}

@@ -93,6 +93,7 @@
         "css/games/*.less",
         "js/homepage.ts",
         "js/bgaApi.ts",
+        "js/games/*.ts",
         "sound/myturn.mp3",
         "offscreen.html",
         "locales/*.json"

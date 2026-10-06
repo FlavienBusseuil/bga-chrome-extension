@@ -1,0 +1,38 @@
+html[data-theme=dark].bgaext_bright {
+
+	.lx_cell,
+	.lx_mini_grid {
+		filter: var(--ext-bright);
+	}
+}
+
+html[data-theme=dark].bgaext_dark {
+	.lx_panel {
+		background: var(--dark-10);
+		color: var(--light-70);
+	}
+
+	.lx_panel.lx_panel_blue {
+		background: #0e383e;
+	}
+
+	.lx_inv_piece {
+		background: #000;
+		border-color: var(--dark-40);
+	}
+
+	#lx_board_frame {
+		border-color: var(--dark-10);
+	}
+
+	.lx_cell {
+		border-color: var(--light-50);
+	}
+
+	#lx_board_frame:after,
+	#lx_board_frame:before {
+		z-index: 0;
+		border-color: transparent;
+		background: var(--dark-10);
+	}
+}

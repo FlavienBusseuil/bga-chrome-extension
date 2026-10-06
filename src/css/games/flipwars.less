@@ -1,0 +1,11 @@
+@import './common';
+
+html[data-theme=dark].bgaext_bright {
+	.tbp-board:before {
+		.reduceBrightness();
+	}
+
+	.tbp-tile .tbp-tile-face {
+		filter: var(--ext-bright);
+	}
+}

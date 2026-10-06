@@ -17,6 +17,7 @@ export interface GameConfig {
   playersTextColor?: string[];
   customColors?: string[];
   customInit?: (cssPath: string) => void;
+  pageScript?: boolean; // inject the script "js/games/{gameName}.ts" in the page context
 }
 
 const setNextStationBackgrounds = (cssPath: string) => {
@@ -27,6 +28,10 @@ const setNextStationBackgrounds = (cssPath: string) => {
 };
 
 export const gamesConfiguration: Record<string, GameConfig> = {
+  abroad: {
+    customBack: true,
+    overlay: true
+  },
   aero: {
     customBack: true,
   },
@@ -91,6 +96,10 @@ export const gamesConfiguration: Record<string, GameConfig> = {
   aquatica: {
     customBack: true,
     customPlayerStyle: ".player-table-board h3"
+  },
+  archipels: {
+    customBack: true,
+    overlay: true,
   },
   arctica: {
     customBack: true,
@@ -470,6 +479,10 @@ export const gamesConfiguration: Record<string, GameConfig> = {
   deliverance: {
     customColors: ["#8b4513", "#ee0000", "#ffd700", "#007f00"]
   },
+  deluxecamping: {
+    customBack: true,
+    overlay: true
+  },
   dewan: {
     customBack: true
   },
@@ -694,6 +707,9 @@ export const gamesConfiguration: Record<string, GameConfig> = {
     playersBack: ["#title_{{player_id}}"],
     playersBorder: ["#FSDtable_{{player_id}}"]
   },
+  forfort: {
+    customBack: true
+  },
   formulad: {
     customInit: (cssPath: string) => {
       document.body.style.setProperty("--gears", `url(${cssPath}img/gears.svg)`);
@@ -707,6 +723,10 @@ export const gamesConfiguration: Record<string, GameConfig> = {
   },
   frenchtarot: {
     customBack: true
+  },
+  friendlyfishing: {
+    customBack: true,
+    playersTextColor: ['#ff-player-area-{{player_id}} .ff-player-name'],
   },
   fromage: {
     customBack: true,
@@ -1178,7 +1198,11 @@ export const gamesConfiguration: Record<string, GameConfig> = {
   },
   nemesisretaliation: {
     customBack: true,
-    customColors: ['#c81818', '#d41c98']
+    customPanel: true,
+    customColors: ['#c81818', '#d41c98'],
+    playersTextColor: ['#player-board-{{player_id}} .player-name'],
+    playersBorder: ['#player-board-{{player_id}}', '#player-board-{{player_id}} .player-name'],
+    pageScript: true // replace "applyMenuTheme" that forces the dark theme
   },
   neonreign: {
     customBack: true
@@ -1322,6 +1346,10 @@ export const gamesConfiguration: Record<string, GameConfig> = {
     customBack: true,
     overlay: true,
     playersOutline: ["div[style^=\"outline-color: {{player_color_rgb}};\"]", "div[style^=\"outline: {{player_color_rgb}} solid 4px;\"]"]
+  },
+  pilipiliextraspicy: {
+    customBack: true,
+    playersOutline: ["div[style^=\"outline-color: {{player_color_rgb}};\"]"]
   },
   pinacoladice: {
     customBack: true,
@@ -1874,6 +1902,10 @@ export const gamesConfiguration: Record<string, GameConfig> = {
   },
   theninesonsofthedragon: {
     customBack: true
+  },
+  theoracleofdelphi: {
+    customBack: true,
+    overlay: true
   },
   thewhitecastle: {
     customBack: ["custom-background"],

@@ -1,0 +1,49 @@
+@import './common';
+
+html[data-theme=dark].bgaext_bright {
+
+	.lata-player-board:before {
+		.reduceBrightness();
+	}
+
+	.bga-cards_card>.bga-cards_card-sides>.bga-cards_card-side,
+	.lata-deck-facedown,
+	.lata-production-card-front {
+		filter: var(--ext-bright);
+	}
+}
+
+html[data-theme=dark].bgaext_dark {
+	.lata-round-indicator-row {
+		background: var(--dark-10);
+	}
+
+	.lata-table-row.lata-row-scoring,
+	.lata-player-board-panel-active,
+	.lata-player-board-card-row.lata-row-scoring {
+		background: var(--dark-back);
+	}
+
+	.lata-panel-icon-ap {
+		outline: 1px solid var(--dark-40);
+	}
+
+	.lata-ghost-scoring {
+		border-color: var(--light-50);
+	}
+
+	.lata-player-tab {
+		color: var(--light-50) !important;
+		background: var(--dark-20);
+	}
+
+	.lata-player-tab-active {
+		color: var(--light-80) !important;
+		background: var(--dark-10);
+	}
+
+	#lata-player-boards,
+	.lata-player-boards-panels {
+		color: var(--light-80);
+	}
+}

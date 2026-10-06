@@ -116,3 +116,8 @@ html[data-theme=dark] .desktop_version.logs_on_floating_panel #right-side-second
 .desktop_version.logs_on_floating_panel.logs_visible #cde-floating-menu-log .fa-caret-down {
 	display: none;
 }
+
+#cde-floating-menu-score .fa-star {
+	display: block;
+	visibility: visible;
+}
