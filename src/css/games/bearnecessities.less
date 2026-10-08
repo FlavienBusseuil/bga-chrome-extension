@@ -1,0 +1,21 @@
+html[data-theme=dark].bgaext_bright {
+	.bn-face {
+		filter: var(--ext-bright);
+	}
+}
+
+html[data-theme=dark].bgaext_dark {
+	--bn-ink: var(--light-70);
+	--bn-water-ink: var(--green-80);
+	--bn-clay-ink: var(--red-80);
+	--bn-paper-lt: #c2baa5;
+	--bn-paper: var(--dark-20);
+
+	#bn-reserve-slot {
+		border-color: var(--light-50);
+	}
+
+	.bn-note:after {
+		background: var(--light-50);
+	}
+}

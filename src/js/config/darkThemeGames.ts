@@ -186,6 +186,10 @@ export const gamesConfiguration: Record<string, GameConfig> = {
   battlespiritssaga: {
     customBack: true
   },
+  bearnecessities: {
+    customBack: true,
+    overlay: true
+  },
   beasts: {
     customBack: true,
     overlay: true
@@ -1308,6 +1312,9 @@ export const gamesConfiguration: Record<string, GameConfig> = {
   },
   paladins: {
     customColors: ['#404040']
+  },
+  pandapanda: {
+    playersBorder: ["#pp_area_{{player_id}}"]
   },
   pandaspin: {
     customBack: true,
