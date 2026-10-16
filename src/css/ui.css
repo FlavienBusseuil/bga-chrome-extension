@@ -395,142 +395,451 @@ html.dark .view-empty-text {
 
 /* ---------- Tables ---------- */
 
-.table-indicator {
+:root {
+  --tc-line: #e7e3cf;
+  --tc-line-hover: var(--bga-blue-light);
+  --tc-chip: #f1eee0;
+  --tc-chip-line: #ddd6bb;
+  --tc-muted: #6b6f78;
+  --tc-title: #2f4f86;
+  --st-turn: #14857f;
+  --st-turn-bg: #dff3f1;
+  --st-invite: #b7791f;
+  --st-invite-bg: #fdf0d9;
+  --st-realtime: #8a6d00;
+  --st-realtime-bg: #fdf6c7;
+  --st-waiting: #6b7f9d;
+  --st-waiting-bg: #eef1f6;
+  --mode-realtime: #b7d35d;
+  --mode-turn-based: #f0b353;
+  --ic-tournament: #b07a00;
+  --ic-tournament-bg: #fbefcf;
+  --ic-arena: #7a4fc2;
+  --ic-arena-bg: #ece4fa;
+  --ic-training: #2f6fb0;
+  --ic-training-bg: #e0ebf7;
+}
+
+html.dark {
+  --tc-line: #3a3d43;
+  --tc-line-hover: #0ba9b7;
+  --tc-chip: #383c43;
+  --tc-chip-line: #50555e;
+  --tc-muted: #9aa0a8;
+  --tc-title: #e6e7e9;
+  --st-turn: #3fd0c4;
+  --st-turn-bg: #1d3b3a;
+  --st-invite: #f0b555;
+  --st-invite-bg: #3d3222;
+  --st-realtime: #f5dc5a;
+  --st-realtime-bg: #3b371e;
+  --st-waiting: #9fb4d3;
+  --st-waiting-bg: #2e3440;
+  --ic-tournament: #f0c24b;
+  --ic-tournament-bg: #3d3420;
+  --ic-arena: #b79cf0;
+  --ic-arena-bg: #312a44;
+  --ic-training: #8ab4e6;
+  --ic-training-bg: #263341;
+}
+
+.card.table-card {
+  gap: 0;
+  padding-left: 0;
+  border-color: var(--tc-line);
+  border-radius: 10px;
+  box-shadow: none;
+  transition: border-color 150ms, box-shadow 150ms;
+}
+
+.card.table-card:hover {
+  border-color: var(--tc-line-hover);
+  box-shadow: 0 4px 12px rgb(0 0 0 / 0.08);
+}
+
+html.dark .card.table-card {
+  border-color: var(--tc-line);
+}
+
+html.dark .card.table-card:hover {
+  border-color: var(--tc-line-hover);
+}
+
+.table-card-main {
+  position: relative;
+  display: grid;
+  grid-template-columns: 48px minmax(0, 1fr);
+  align-items: start;
+  gap: 10px;
+  padding: 9px 10px 9px 30px;
+}
+
+/* Tables where nothing is expected from the player are dimmed */
+.table-card--waiting .table-card-main {
+  opacity: 0.62;
+  transition: opacity 150ms;
+}
+
+.table-card--waiting:hover .table-card-main {
+  opacity: 1;
+}
+
+/* BGA game mode wedge: orange + clock for turn based, green + lightning for real time.
+   Fixed size (height of a one-line card) so it looks the same whatever the card height */
+.table-mode {
   position: absolute;
   top: 0;
   left: 0;
-  width: 0.5rem;
-  height: 100%;
-  background-color: var(--bga-blue-lighter);
+  width: 46px;
+  height: 76px;
+  background-color: var(--mode-turn-based);
+  clip-path: polygon(0 0, 100% 50%, 0 100%);
 }
 
-.table-indicator--realtime {
-  background-color: var(--bga-yellow);
+.table-mode--realtime {
+  background-color: var(--mode-realtime);
 }
 
-.table-indicator--waiting {
-  background-color: var(--bga-green);
+.table-mode svg {
+  position: absolute;
+  top: 50%;
+  left: 4px;
+  width: 22px;
+  height: 22px;
+  transform: translateY(-50%);
+  color: #fff;
+  filter: drop-shadow(0 1px 1px rgb(0 0 0 / 0.3));
 }
 
-.table-indicator--invite,
-.table-indicator--open {
-  background-color: var(--bga-orange);
+.table-img {
+  position: relative;
+  z-index: 1;
+  margin-top: 5px;
+  width: 48px;
+  height: 48px;
+  object-fit: contain;
+  filter: drop-shadow(0 1px 2px rgb(0 0 0 / 0.35));
 }
 
-.table-indicator--pulse {
+.table-img--icon {
+  border-radius: 8px;
+  filter: none;
+  box-shadow: 0 1px 3px rgb(0 0 0 / 0.25);
+}
+
+/* Title row with mode icons at the top right, players below using the full width */
+.table-card-body {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) auto;
+  align-items: center;
+  column-gap: 8px;
+  row-gap: 5px;
+  min-width: 0;
+}
+
+.table-card-row {
+  grid-area: 1 / 1;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  min-width: 0;
+}
+
+.table-content {
+  grid-area: 2 / 1 / 3 / 3;
+}
+
+/* Negative margins: the 28px tiles must not make the 21px title row taller */
+.table-icons {
+  grid-area: 1 / 2;
+  display: flex;
+  gap: 4px;
+  margin: -4px 0;
+}
+
+.table-title {
+  min-width: 0;
+  font-size: 14px;
+  line-height: 21px;
+  font-weight: 650;
+  color: var(--tc-title);
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.table-status {
+  flex-shrink: 0;
+  display: inline-flex;
+  align-items: center;
+  gap: 5px;
+  padding: 1px 8px 1px 6px;
+  border-radius: 999px;
+  font-size: 11px;
+  font-weight: 600;
+  color: var(--st-waiting);
+  background-color: var(--st-waiting-bg);
+}
+
+.table-status::before {
+  content: "";
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background-color: currentColor;
+}
+
+.table-card--turn .table-status {
+  color: var(--st-turn);
+  background-color: var(--st-turn-bg);
+}
+
+.table-card--invite .table-status,
+.table-card--open .table-status {
+  color: var(--st-invite);
+  background-color: var(--st-invite-bg);
+}
+
+.table-card--realtime .table-status {
+  color: var(--st-realtime);
+  background-color: var(--st-realtime-bg);
+}
+
+/* Same rhythms as before: 1.5s for "your turn" / invitation, 0.75s for real time (pill + wedge) */
+.table-card--pulse .table-status {
   animation: pulse 1.5s cubic-bezier(0.4, 0, 0.6, 1) infinite;
 }
 
-.table-indicator--pulse-fast {
+.table-card--pulse.table-card--realtime .table-status,
+.table-card--pulse.table-card--realtime .table-mode {
   animation: pulse 0.75s cubic-bezier(0.4, 0, 0.6, 1) infinite;
 }
 
-.table-icons {
-  position: absolute;
-  top: 0.25rem;
-  right: 0.25rem;
-  z-index: 10;
-  display: flex;
-  gap: 0.25rem;
-  opacity: 0.8;
+.table-icon {
+  display: grid;
+  place-items: center;
+  width: 28px;
+  height: 28px;
+  border-radius: 7px;
+  cursor: default;
 }
 
-.table-icon {
-  width: 1.25rem;
-  height: 1.25rem;
-  text-align: center;
-  font-size: 0.875rem;
-  line-height: 1.25rem;
-  border-radius: 0.25rem;
-  cursor: default;
+.table-icon svg {
+  width: 20px;
+  height: 20px;
 }
 
 .table-icon--clickable {
   cursor: pointer;
+  transition: transform 150ms, box-shadow 150ms;
 }
 
 .table-icon--clickable:hover {
-  background-color: var(--bga-blue-light);
+  transform: scale(1.1);
+  box-shadow: 0 0 0 1.5px currentColor;
 }
 
-.table-header {
+.table-icon--tournament {
+  --tb: var(--ic-tournament-bg);
+  color: var(--ic-tournament);
+  background-color: var(--ic-tournament-bg);
+}
+
+.table-icon--arena {
+  --tb: var(--ic-arena-bg);
+  color: var(--ic-arena);
+  background-color: var(--ic-arena-bg);
+}
+
+.table-icon--training {
+  --tb: var(--ic-training-bg);
+  color: var(--ic-training);
+  background-color: var(--ic-training-bg);
+}
+
+/* Icon parts: "s" is stroked, "cut" is drawn with the tile background to carve the shape */
+.ic {
+  fill: currentColor;
+  stroke: none;
+}
+
+.ic .s {
+  fill: none;
+  stroke: currentColor;
+  stroke-width: 1.5;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+}
+
+.ic .cut {
+  fill: none;
+  stroke: var(--tb);
+}
+
+.player-list {
   display: flex;
+  flex-wrap: wrap;
+  gap: 4px;
+}
+
+.player {
+  display: inline-flex;
   align-items: center;
-  gap: 0.5rem;
-  padding: 0.5rem 0.5rem 0;
-}
-
-.game-img {
-  width: 1.5rem;
-  height: 1.5rem;
-  border-radius: 0.25rem;
-}
-
-.table-title {
-  flex-grow: 1;
-  font-size: 1.125rem;
-  line-height: 1.75rem;
+  gap: 5px;
+  max-width: 160px;
+  height: 32px;
+  padding: 0 10px 0 0;
+  border-radius: 999px;
+  font-size: 12px;
   font-weight: 600;
-  color: var(--bga-blue-light);
+  background-color: var(--tc-chip);
+  box-shadow: inset 0 0 0 1px var(--tc-chip-line);
 }
 
-.table-content {
-  padding: 0 0.5rem;
+.player-name {
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.player-avatar {
+  flex-shrink: 0;
+  width: 32px;
+  height: 32px;
+  border-radius: 50%;
+  object-fit: cover;
+}
+
+.player-avatar--initials {
+  display: grid;
+  place-items: center;
+  font-size: 12px;
+  font-weight: 700;
+  color: #fff;
+}
+
+.player--active {
+  color: var(--st-turn);
+  background-color: var(--st-turn-bg);
+  box-shadow: inset 0 0 0 1px color-mix(in srgb, var(--st-turn) 45%, transparent);
+}
+
+.player--active .player-avatar {
+  box-shadow: 0 0 0 2px var(--st-turn);
+}
+
+.player--active::after {
+  content: "⏳";
+  margin-left: -2px;
+  font-size: 10px;
+}
+
+.player--pending {
+  color: var(--st-invite);
+  background-color: transparent;
+  border: 1px dashed var(--st-invite);
+  box-shadow: none;
+}
+
+.player--pending .player-avatar {
+  opacity: 0.7;
+}
+
+.player--pending::after {
+  content: "✉";
+  margin-left: -2px;
+  font-size: 11px;
+}
+
+.player--seat {
+  padding-left: 8px;
+  font-weight: 500;
+  color: var(--tc-muted);
+  background-color: transparent;
+  border: 1px dashed var(--tc-muted);
+  box-shadow: none;
 }
 
 .table-footer {
   display: flex;
   align-items: center;
-  justify-content: flex-end;
-  gap: 0.25rem;
-  padding: 0.5rem;
-  background-color: var(--bga-orange-lighter);
-}
-
-.table-invite {
-  flex-grow: 1;
-  color: #4b5563;
-  font-size: 0.875rem;
-  line-height: 1.25rem;
+  gap: 6px;
+  padding: 5px 10px;
+  font-size: 12px;
+  background-color: var(--st-invite-bg);
+  border-top: 1px solid var(--tc-line);
 }
 
 .table-invite-creator {
-  color: var(--bga-blue-lighter);
-}
-
-.player-list {
-  display: grid;
-  grid-template-columns: repeat(4, minmax(0, 1fr));
-  column-gap: 0.5rem;
-}
-
-.player {
   font-weight: 700;
-  color: var(--bga-blue-lighter);
+  color: var(--st-invite);
 }
 
-.player--active {
-  color: var(--bga-green);
+@media (prefers-reduced-motion: reduce) {
+  .table-card *,
+  .table-card *::before {
+    animation: none !important;
+  }
 }
 
 /* ---------- Tournaments ---------- */
 
-.tournament {
-  display: flex;
+/* Same card look as the tables, without the game mode wedge */
+.tournament-main {
+  display: grid;
+  grid-template-columns: 48px minmax(0, 1fr);
   align-items: center;
-  gap: 0.5rem;
-  padding: 0.5rem 0.25rem;
+  gap: 10px;
+  padding: 9px 10px;
+}
+
+.tournament-main .table-img {
+  margin-top: 0;
+}
+
+.tournament-card--out .tournament-main {
+  opacity: 0.62;
+  transition: opacity 150ms;
+}
+
+.tournament-card--out:hover .tournament-main {
+  opacity: 1;
 }
 
 .tournament-text {
   display: flex;
   flex-direction: column;
-  line-height: 0.75rem;
+  gap: 2px;
+  min-width: 0;
+}
+
+.tournament-row {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  min-width: 0;
+}
+
+.tournament-row .table-title {
+  flex-grow: 1;
+}
+
+.tournament-date {
+  flex-shrink: 0;
+  padding: 1px 8px;
+  border-radius: 999px;
+  font-size: 11px;
+  font-weight: 600;
+  color: var(--st-waiting);
+  background-color: var(--st-waiting-bg);
 }
 
 .tournament-name {
-  font-size: 1rem;
-  line-height: 1.5rem;
+  font-size: 12px;
+  color: var(--tc-muted);
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
 }
 
 .tournament-filters {

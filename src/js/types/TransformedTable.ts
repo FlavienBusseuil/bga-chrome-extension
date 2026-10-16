@@ -17,6 +17,7 @@ export interface TransformedTable {
 	players: Array<{
 		playerId: PlayerId,
 		playerName: null | string,
+		avatarUrl: null | string,
 		isActivePlayer: boolean,
 		isCurrentPlayer: boolean,
 		isInvitePending: boolean,
@@ -24,4 +25,5 @@ export interface TransformedTable {
 	tableCreatorName: null | string,
 	tableId: TableId,
 	tableImg: string,
+	tableBoxImg: string,
 };

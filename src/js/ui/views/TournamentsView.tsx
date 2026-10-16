@@ -10,6 +10,7 @@ import { bgaUrl } from "../../utils/constants";
 import { i18n } from "../../utils/browser/i18n";
 import Configuration from "../../config/configuration";
 import { useSyncedState } from "../hooks/useSyncedState";
+import { TableImg } from "../TableImg";
 
 type Props = {
 	config: Configuration,
@@ -57,7 +58,7 @@ export const TournamentsView = ({ config, className, tournaments, closePopupOnCl
 				<div className="max-result">
 					<CardList className={className || ''}>
 						{filteredTournaments.map(
-							({ gameImg, championshipName, name, link, date, playerStatus }) => {
+							({ gameImg, gameBoxImg, championshipName, name, link, date, playerStatus }) => {
 								const onClickFunc = () => {
 									const sidePanel = document.documentElement.classList.contains('side-panel');
 									const active = focusOnNewTab === undefined ? sidePanel || closePopupOnClick : focusOnNewTab;
@@ -71,17 +72,16 @@ export const TournamentsView = ({ config, className, tournaments, closePopupOnCl
 										window.close();
 									}
 								};
-								return <Card onClick={onClickFunc} className={playerStatus === 'eliminated' || playerStatus === 'withdrawn' ? 'eliminated' : ''}>
-									<div className="tournament">
-										<img
-											src={gameImg}
-											className="game-img"
-										/>
+								const isOut = playerStatus === 'eliminated' || playerStatus === 'withdrawn';
+								return <Card onClick={onClickFunc} className={cn(["table-card", "tournament-card", isOut && "tournament-card--out"])}>
+									<div className="tournament-main">
+										<TableImg tableImg={gameImg} tableBoxImg={gameBoxImg} />
 										<div className="tournament-text">
-											<h1 className="tournament-name">
-												{championshipName} ‧ {name}
-											</h1>
-											<p>{date.toLocaleDateString()}</p>
+											<div className="tournament-row">
+												<h1 className="table-title" title={championshipName}>{championshipName}</h1>
+												<span className="tournament-date">{date.toLocaleDateString()}</span>
+											</div>
+											<div className="tournament-name" title={name}>{name}</div>
 										</div>
 									</div>
 								</Card>;

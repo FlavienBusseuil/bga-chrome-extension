@@ -6,7 +6,7 @@ import type { TableId } from "../../types/bga/Table";
 import { i18n } from "../../utils/browser/i18n";
 
 import { PlayerList } from "../PlayerList";
-import { Player } from "../Player";
+import { EmptySeat, Player } from "../Player";
 import { Button } from "../base/Button";
 import { Table } from "../Table";
 import { CardList } from "../base/CardList";
@@ -125,12 +125,14 @@ export const FriendsView = ({ className, getGroupTables, groups, motionSensitivi
                           ({
                             playerId,
                             playerName,
+                            avatarUrl,
                             isActivePlayer,
                             isInvitePending,
                           }) => (
                             <Player
                               key={String(playerId)}
                               playerName={playerName}
+                              avatarUrl={avatarUrl}
                               isActivePlayer={
                                 isActivePlayer
                               }
@@ -142,8 +144,8 @@ export const FriendsView = ({ className, getGroupTables, groups, motionSensitivi
                         ),
                         ...Array.from(
                           Array(nbMissingPlayers),
-                        ).map(() => (
-                          <Player playerName="🪑 ..." />
+                        ).map((_, index) => (
+                          <EmptySeat key={`seat_${index}`} />
                         )),
                       ]}
                     </PlayerList>

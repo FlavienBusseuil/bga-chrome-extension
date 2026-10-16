@@ -8,7 +8,7 @@ export function TableFooter({
 	children,
 }: Props) {
 	if (!Boolean(children)) {
-		return <div />;
+		return null;
 	}
 
 	return <div className={cn(["table-footer", className ?? null])}>{children}</div>;

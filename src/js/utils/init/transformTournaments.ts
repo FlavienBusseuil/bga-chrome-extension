@@ -35,6 +35,7 @@ function transformTournament({
 		playersPerMatchMin: players_per_match_min,
 		avatarImage: avatar_image,
 		gameImg: `${bgaGameMediaUrl}${game_name}/icon/default.png`,
+		gameBoxImg: `${bgaGameMediaUrl}${game_name}/box/`,
 		link: `${bgaUrl}/tournament?id=${castToString(id)}`,
 		...rest,
 	};

@@ -1,13 +1,17 @@
+import type { JSX } from "preact";
+import { cn } from "./utils/cn";
+
 type Props = {
-	children: string,
+	children: JSX.Element,
 	title: string,
+	className: string,
 };
 
-export function TableIcon({ children, title }: Props) {
+export function TableIcon({ children, title, className }: Props) {
 	return (
 		<div
 			title={title}
-			class="table-icon"
+			class={cn(["table-icon", className])}
 			onClick={(e) => e.stopPropagation()}
 		>
 			{children}

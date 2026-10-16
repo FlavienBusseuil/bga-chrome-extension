@@ -43,4 +43,5 @@ const i18Instance = new I18N();
 
 export const i18n = (key: string): string => i18Instance.getMessage(key);
 export const setI18nLocale = async (locale: string) => i18Instance.setLocale(locale);
+export const getI18nLocale = () => i18Instance.curLocale;
 export const getI18nDefaultLocale = () => chrome.i18n.getMessage('current_locale');

@@ -1,7 +1,7 @@
 import type { TransformedTable } from "../../types/TransformedTable";
 
 import { PlayerList } from "../PlayerList";
-import { Player } from "../Player";
+import { EmptySeat, Player } from "../Player";
 import { StartNewGameButton } from "../StartNewGameButton";
 import { Table } from "../Table";
 import type { TableId } from "../../types/bga/Table";
@@ -87,12 +87,14 @@ export const TablesView = ({
 													({
 														playerId,
 														playerName,
+														avatarUrl,
 														isActivePlayer,
 														isInvitePending,
 													}) => (
 														<Player
 															key={String(playerId)}
 															playerName={playerName}
+															avatarUrl={avatarUrl}
 															isActivePlayer={
 																isActivePlayer
 															}
@@ -104,8 +106,8 @@ export const TablesView = ({
 												),
 												...Array.from(
 													Array(nbMissingPlayers),
-												).map(() => (
-													<Player playerName="🪑 ..." />
+												).map((_, index) => (
+													<EmptySeat key={`seat_${index}`} />
 												)),
 											]}
 										</PlayerList>

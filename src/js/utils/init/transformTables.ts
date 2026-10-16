@@ -11,7 +11,7 @@ import {
 	castToString as castNumberStringToString,
 	castToNumber,
 } from "../../types/bga/NumberString";
-import { bgaGameMediaUrl, bgaUrl } from "../constants";
+import { bgaAvatarUrl, bgaGameMediaUrl, bgaUrl } from "../constants";
 import { isPlayerActiveOnTableFromGlobalUserInfos } from "../isPlayerActiveOnTableFromGlobalUserInfos";
 import type { TransformedTable } from "../../types/TransformedTable";
 import { castToDate } from "../../types/bga/DateString";
@@ -35,6 +35,23 @@ export function getTableCreatorName({ tableCreatorPlayerId, players }: { tableCr
 		players[castPlayerIdToString(tableCreatorPlayerId)]?.fullname ??
 		castPlayerIdToString(tableCreatorPlayerId)
 	);
+}
+
+// Uploaded avatar: https://x.boardgamearena.net/data/avatar/0/85/85147/85147159_50.jpg?h=a6a52d8b50
+// Avatar picked in BGA's default gallery (avatar = "_def_2085"): https://x.boardgamearena.net/data/avatar/defaults/default-2085_92.jpg
+export function getAvatarUrl(playerId: PlayerId, avatarHash: string | undefined, size = 50): null | string {
+	if (!avatarHash) {
+		return null;
+	}
+
+	// 92px is the only size seen so far for default avatars
+	if (avatarHash.startsWith("_def_")) {
+		return `${bgaAvatarUrl}defaults/default-${avatarHash.slice("_def_".length)}_92.jpg`;
+	}
+
+	const id = Number(castPlayerIdToString(playerId));
+	const folder = [Math.floor(id / 1e9), Math.floor(id / 1e6), Math.floor(id / 1e3)].join("/");
+	return `${bgaAvatarUrl}${folder}/${id}_${size}.jpg?h=${avatarHash}`;
 }
 
 export function transformTable({
@@ -84,11 +101,14 @@ export function transformTable({
 		}),
 		tableId,
 		tableImg: `${bgaGameMediaUrl}${gameNameKey}/icon/default.png`,
+		// Prefix of the localized box image used by BGA, e.g. .../limit/box/fr_75.png
+		tableBoxImg: `${bgaGameMediaUrl}${gameNameKey}/box/`,
 		players: Object.keys(players).map((playerKey) => {
 			const player = players[playerKey];
 
 			const playerId = player!.id;
 			const playerName = player!.fullname ?? null;
+			const avatarUrl = getAvatarUrl(playerId, player!.avatar);
 			const isCurrentPlayer = currentPlayerId === playerId;
 			const isActivePlayer = isPlayerActiveOnTableFromGlobalUserInfos({
 				playerId,
@@ -101,6 +121,7 @@ export function transformTable({
 			return {
 				playerId,
 				playerName,
+				avatarUrl,
 				isActivePlayer,
 				isCurrentPlayer,
 				isInvitePending,

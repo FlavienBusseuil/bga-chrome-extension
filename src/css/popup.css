@@ -70,27 +70,14 @@ select {
   margin: 0px;
 }
 
-.card.eliminated {
-  background: #eee;
-}
-
 html.dark .card {
   background: var(--dark-20);
   border-color: var(--dark-40);
   box-shadow: 0 4px 6px -1px #5555551a, 0 2px 4px -2px #5555551a;
 }
 
-html.dark .card.eliminated {
-  background: var(--dark-40);
-}
-
 html.dark .card:hover {
   background: var(--dark-30);
-  border-color: var(--light-50);
-}
-
-html.dark .card.eliminated:hover {
-  background: var(--dark-40);
   border-color: var(--light-50);
 }
 
@@ -102,18 +89,6 @@ html.dark .options-button {
 html.dark .btn--primary:hover,
 html.dark .options-button:hover {
   background: linear-gradient(180deg, #06d7ea, #248189);
-}
-
-html.dark .table-title {
-  color: var(--light-80);
-}
-
-html.dark .table-footer {
-  background: var(--dark-10);
-}
-
-html.dark .table-invite {
-  color: var(--light-70);
 }
 
 html.dark .options-frame.reduced:hover {
@@ -147,23 +122,8 @@ p {
   font-size: 12px;
 }
 
-.card:has(.table-indicator--inactive):before {
-  content: "";
-  background: #fff6;
-  position: absolute;
-  width: 100%;
-  height: 100%;
-  top: 0px;
-  left: 0px;
-  z-index: 1;
-}
-
-.max-result ul {
+.max-result > ul {
   padding-bottom: 4px;
-}
-
-html.dark .card:has(.table-indicator--inactive):before {
-  background: #0006;
 }
 
 html.dark .tab--inactive:not(:hover) {
