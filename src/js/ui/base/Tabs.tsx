@@ -8,6 +8,6 @@ interface TabsProps {
 
 export function Tabs({ children, className }: TabsProps) {
   return (
-    <div className={cn(["flex gap-1 w-full", className ?? null])}>{children}</div>
+    <div className={cn(["tabs", className ?? null])}>{children}</div>
   );
 }

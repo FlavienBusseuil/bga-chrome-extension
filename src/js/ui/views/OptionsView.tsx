@@ -298,13 +298,13 @@ export const OptionsView = ({ config, onChange }: Props) => {
         <>
           {i18n("optionsClearHiddenGamesConfirm")}
           <button
-            className="bg-bgaBlue hover:bg-bgaBlue-light options-button"
+            className="options-button"
             onClick={() => setHiddenGames(config.displayAllGames())}
           >
             {i18n("buttonConfirm")}
           </button>
           <button
-            className="bg-bgaBlue hover:bg-bgaBlue-light options-button"
+            className="options-button"
             onClick={() => setConfirmClear(false)}
           >
             {i18n("buttonCancel")}
@@ -373,7 +373,7 @@ export const OptionsView = ({ config, onChange }: Props) => {
           <div className="options-frame-title">{i18n("optionMiscTitle")}</div>
           <div className="options-line">
             <span>{i18n('current_locale')}</span>
-            <select className="border border-black dark:dark:border-white rounded flags" onChange={(evt: any) => updateLocale(evt.target?.value)} value={locale}>
+            <select className="select flags" onChange={(evt: any) => updateLocale(evt.target?.value)} value={locale}>
               <option value='ca'>🇦🇩 Català</option>
               <option value='de'>🇩🇪 Deutsch</option>
               <option value='en'>🇬🇧 English</option>
@@ -499,13 +499,13 @@ export const OptionsView = ({ config, onChange }: Props) => {
         return (
           <div className="options-buttons-container">
             <button
-              className="bg-bgaBlue hover:bg-bgaBlue-light options-button"
+              className="options-button"
               onClick={() => window.open(i18n('htmlHelpPage'), "_blank")}
             >
               {i18n('buttonHelp')}
             </button>
             <button
-              className="bg-bgaBlue hover:bg-bgaBlue-light options-button"
+              className="options-button"
               onClick={saveHtml}
             >
               {i18n('buttonSave')}
@@ -630,7 +630,7 @@ export const OptionsView = ({ config, onChange }: Props) => {
           {getSwitch(autoOpen && fastCreate, updateAutoOpen, "optionsFastCreateAutoOpenOn", "optionsFastCreateAutoOpenOff", !fastCreate)}
           {getSwitch(playerRestriction && fastCreate, updatePlayerRestriction, "optionsFastCreateLevelOn", "optionsFastCreateLevelOff", !fastCreate)}
           {playerRestriction && fastCreate &&
-            <select className="border border-black dark:dark:border-white rounded w-full" onChange={(evt: any) => updateLevelPlayerRestriction(+evt.target?.value)} value={levelPlayerRestriction}>
+            <select className="select full-width" onChange={(evt: any) => updateLevelPlayerRestriction(+evt.target?.value)} value={levelPlayerRestriction}>
               <option value={0}>{i18n('optionsFastCreateLevel0')}</option>
               <option value={1}>{i18n('optionsFastCreateLevel1')}</option>
               <option value={2}>{i18n('optionsFastCreateLevel2')}</option>

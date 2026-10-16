@@ -20,10 +20,9 @@ export function Tab({
   return (
     <Button
       className={cn([
-        fullWidth ? "w-full whitespace-nowrap truncate" : "whitespace-nowrap",
-        !isActive && "!bg-bgaBlue-lighter",
-        !isActive && "hover:!bg-bgaBlue-light",
-        "!border-0",
+        "tab",
+        fullWidth && "tab--full",
+        !isActive && "tab--inactive",
       ])}
       type="primary"
       text={children as JSX.Element}

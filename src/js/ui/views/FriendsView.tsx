@@ -45,8 +45,8 @@ export const FriendsView = ({ className, getGroupTables, groups, motionSensitivi
 
   if (loading) {
     return (
-      <div className={cn(["flex justify-center flex-row", className || ''])}>
-        <div className="max-result flex justify-center flex-col">
+      <div className={cn(["view-loading", className || ''])}>
+        <div className="max-result">
           <Loading />
         </div>
       </div>
@@ -56,8 +56,8 @@ export const FriendsView = ({ className, getGroupTables, groups, motionSensitivi
   const noGame = () => {
     const msg = requested ? i18n("no_games_friends") : i18n("search_games_friends");
     return (
-      <div className="flex justify-center flex-col grow" style={{ minHeight: "60px" }}>
-        <span class="text-black dark:text-white text-center text-xl">
+      <div className="view-empty">
+        <span class="view-empty-text">
           {msg}
         </span>
       </div>
@@ -69,7 +69,7 @@ export const FriendsView = ({ className, getGroupTables, groups, motionSensitivi
   }
 
   return (
-    <div className={cn(["flex justify-between flex-col gap-2", className || ''])}>
+    <div className={cn(["view", className || ''])}>
       {tables.length === 0 && noGame()}
 
       {(tables.length === 0 && !requested) && (
@@ -154,10 +154,10 @@ export const FriendsView = ({ className, getGroupTables, groups, motionSensitivi
           </CardList>
         </div>
       )}
-      <div className={cn(["flex justify-between flex-row gap-2", className || ''])}>
+      <div className={cn(["view-actions", className || ''])}>
         <select
           id="group-select"
-          className="flex-grow border border-black dark:dark:border-white rounded"
+          className="select grow"
           value={group}
           onChange={(evt: any) => evt.target && setGroup(evt.target.value)}
         >
@@ -167,7 +167,7 @@ export const FriendsView = ({ className, getGroupTables, groups, motionSensitivi
         <Button
           {...{
             text: i18n("search"),
-            className: "flex-grow",
+            className: "grow",
             onClick: search,
           }}
         />

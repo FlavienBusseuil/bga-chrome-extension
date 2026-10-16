@@ -8,7 +8,7 @@ interface CardListProps {
 
 export function CardList({ className, children }: CardListProps) {
   return (
-    <ul className={cn(["container flex flex-col space-y-2", className ?? null])}>
+    <ul className={cn(["card-list", className ?? null])}>
       {children}
     </ul>
   );

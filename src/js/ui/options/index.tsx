@@ -69,9 +69,9 @@ const Options = (props: { config: ConfigurationWithGames }) => {
 				<div className="bgext_options_title">{i18n('troubleshooting')}</div>
 				<div className="bgext_about_container">
 					<div className="bgext_buttons_container">
-						<button class={"appearance-auto"} onClick={exportClick}>{i18n('configurationExport')}</button>
-						<button class={"appearance-auto"} onClick={importClick}>{i18n('configurationImport')}</button>
-						<button class={"appearance-auto"} onClick={resetClick}>{i18n('configurationReset')}</button>
+						<button class="native-button" onClick={exportClick}>{i18n('configurationExport')}</button>
+						<button class="native-button" onClick={importClick}>{i18n('configurationImport')}</button>
+						<button class="native-button" onClick={resetClick}>{i18n('configurationReset')}</button>
 					</div>
 					<div className="bgext_buttons_container">{troubleshootingMessage}</div>
 				</div>
@@ -96,7 +96,7 @@ const Options = (props: { config: ConfigurationWithGames }) => {
 				</div>
 				<div className="bgext_css_buttons">
 					<button
-						class={"appearance-auto w-100px"}
+						class="native-button"
 						onClick={() => config.setCustomCss(css).catch(_ => window.location.reload())}
 					>
 						{i18n("optionSave")}

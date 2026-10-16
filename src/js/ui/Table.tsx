@@ -94,14 +94,14 @@ export function Table({
 			<TableIcons>{renderIcons}</TableIcons>
 			<TableHeader {...{ gameName, tableImg }} />
 			<TableContent>{children}</TableContent>
-			<TableFooter className="flex gap-1 items-center justify-end bg-bgaOrange-lighter">
+			<TableFooter>
 				{
 					isInvitePendingForCurrentPlayer &&
 					tableCreatorName !== null && (
 						<span
-							className="flex-grow text-gray-600 text-sm leading none"
+							className="table-invite"
 							dangerouslySetInnerHTML={{
-								__html: i18n("player_invited_you").replace('$player$', `<a class="text-bgaBlue-lighter">${tableCreatorName}</a>`),
+								__html: i18n("player_invited_you").replace('$player$', `<a class="table-invite-creator">${tableCreatorName}</a>`),
 							}}
 						></span>
 					)

@@ -12,6 +12,11 @@
 
 .options-button {
   color: #fff;
+  background-color: var(--bga-blue);
+}
+
+.options-button:hover {
+  background-color: var(--bga-blue-light);
 }
 
 .options-container {

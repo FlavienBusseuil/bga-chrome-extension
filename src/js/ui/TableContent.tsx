@@ -10,5 +10,5 @@ export function TableContent({
 	className,
 	children,
 }: Props) {
-	return <div className={cn(["px-2", className ?? ''])}>{children}</div>;
+	return <div className={cn(["table-content", className ?? ''])}>{children}</div>;
 }

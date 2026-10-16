@@ -4,7 +4,7 @@ type Props = {
 
 export function TableTitle({ gameName }: Props) {
 	return (
-		<h1 className="text-lg text-bgaBlue-light font-semibold grow">
+		<h1 className="table-title">
 			{gameName}
 		</h1>
 	);

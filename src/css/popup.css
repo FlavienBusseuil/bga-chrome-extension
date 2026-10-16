@@ -54,7 +54,7 @@ html.dark body {
 }
 
 html.dark,
-html.dark body.container {
+html.dark body.app {
   background: var(--dark-10);
 }
 
@@ -70,46 +70,49 @@ select {
   margin: 0px;
 }
 
-.bg-white.eliminated {
+.card.eliminated {
   background: #eee;
 }
 
-html.dark .bg-white {
+html.dark .card {
   background: var(--dark-20);
   border-color: var(--dark-40);
+  box-shadow: 0 4px 6px -1px #5555551a, 0 2px 4px -2px #5555551a;
 }
 
-html.dark .bg-white.eliminated {
+html.dark .card.eliminated {
   background: var(--dark-40);
 }
 
-html.dark .bg-white:hover {
+html.dark .card:hover {
   background: var(--dark-30);
   border-color: var(--light-50);
 }
 
-html.dark .bg-white.eliminated:hover {
+html.dark .card.eliminated:hover {
   background: var(--dark-40);
   border-color: var(--light-50);
 }
 
-html.dark .bg-bgaBlue {
+html.dark .btn--primary,
+html.dark .options-button {
   background: linear-gradient(180deg, #0ba9b7, #248189);
 }
 
-html.dark .bg-bgaBlue:hover {
+html.dark .btn--primary:hover,
+html.dark .options-button:hover {
   background: linear-gradient(180deg, #06d7ea, #248189);
 }
 
-html.dark h1.text-bgaBlue-light {
+html.dark .table-title {
   color: var(--light-80);
 }
 
-html.dark .bg-bgaOrange-lighter {
+html.dark .table-footer {
   background: var(--dark-10);
 }
 
-html.dark .text-gray-600 {
+html.dark .table-invite {
   color: var(--light-70);
 }
 
@@ -144,7 +147,7 @@ p {
   font-size: 12px;
 }
 
-li:has(.bg-bgaBlue-lighter):before {
+.card:has(.table-indicator--inactive):before {
   content: "";
   background: #fff6;
   position: absolute;
@@ -159,21 +162,12 @@ li:has(.bg-bgaBlue-lighter):before {
   padding-bottom: 4px;
 }
 
-html.dark li:has(.bg-bgaBlue-lighter):before {
+html.dark .card:has(.table-indicator--inactive):before {
   background: #0006;
 }
 
-html.dark div[role="button"].\!bg-bgaBlue-lighter:not(:hover) {
+html.dark .tab--inactive:not(:hover) {
   filter: grayscale(0.5);
-}
-
-html.dark .shadow-md {
-  --tw-shadow: 0 4px 6px -1px #5555551a, 0 2px 4px -2px #5555551a;
-}
-
-html.dark * {
-  --tw-ring-offset-shadow: 0 0 #555;
-  --tw-ring-shadow: 0 0 #555;
 }
 
 /* Special style for Android version */
@@ -185,7 +179,7 @@ html.dark * {
     max-width: max-content !important;
   }
 
-  .container {
+  .app {
     max-width: none;
   }
 }

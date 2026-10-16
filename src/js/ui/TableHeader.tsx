@@ -11,7 +11,7 @@ export function TableHeader({
 	tableImg,
 }: Props) {
 	return (
-		<div className="flex items-center px-2 pt-2 gap-2">
+		<div className="table-header">
 			<TableImg tableImg={tableImg} />
 			<TableTitle gameName={gameName} />
 		</div>

@@ -112,7 +112,7 @@ export const App = ({ config }: Props) => {
 		if (isMobile) {
 			if (activeTab === "tables") {
 				return <TablesView
-					className="w-full"
+					className="view-slide"
 					tables={sortedTables}
 					onAcceptInvite={handleAcceptOrDeclineInvite}
 					onDeclineInvite={handleAcceptOrDeclineInvite}
@@ -122,24 +122,22 @@ export const App = ({ config }: Props) => {
 				/>;
 			}
 			if (activeTab === "tournaments") {
-				return <TournamentsView config={config} className="w-full" tournaments={sortedTournaments} closePopupOnClick={closePopupOnClick} focusOnNewTab={focusOnNewTab} />;
+				return <TournamentsView config={config} className="view-slide" tournaments={sortedTournaments} closePopupOnClick={closePopupOnClick} focusOnNewTab={focusOnNewTab} />;
 			}
-			return <FriendsView className="w-full" getGroupTables={result.getGroupTables} groups={result.groups} motionSensitivityEnable={motionSensitivityEnable} closePopupOnClick={closePopupOnClick} focusOnNewTab={focusOnNewTab} />;
+			return <FriendsView className="view-slide" getGroupTables={result.getGroupTables} groups={result.groups} motionSensitivityEnable={motionSensitivityEnable} closePopupOnClick={closePopupOnClick} focusOnNewTab={focusOnNewTab} />;
 		}
 
 		return (
 			<div
 				className={cn([
-					"relative flex w-[300%] transition-all gap-0.5",
-					activeTab === "tables" ? "left-[100%]" : activeTab === "tournaments" ? "left-[0%]" : "-left-[100%]",
+					"views-slider",
+					activeTab === "tables" ? "views-slider--tables" : activeTab === "tournaments" ? "views-slider--tournaments" : "views-slider--friends",
 				])}
 			>
 				<TablesView
 					className={cn([
-						"w-full",
-						"transition-all",
-						activeTab !== "tables" && "opacity-0",
-						activeTab !== "tables" && "invisible",
+						"view-slide",
+						activeTab !== "tables" && "view-slide--hidden",
 					])}
 					tables={sortedTables}
 					onAcceptInvite={handleAcceptOrDeclineInvite}
@@ -151,10 +149,8 @@ export const App = ({ config }: Props) => {
 				<TournamentsView
 					config={config}
 					className={cn([
-						"w-full",
-						"transition-all",
-						activeTab !== "tournaments" && "opacity-0",
-						activeTab !== "tournaments" && "invisible",
+						"view-slide",
+						activeTab !== "tournaments" && "view-slide--hidden",
 					])}
 					tournaments={sortedTournaments}
 					closePopupOnClick={closePopupOnClick}
@@ -162,10 +158,8 @@ export const App = ({ config }: Props) => {
 				/>
 				<FriendsView
 					className={cn([
-						"w-full",
-						"transition-all",
-						activeTab !== "friends" && "opacity-0",
-						activeTab !== "friends" && "invisible",
+						"view-slide",
+						activeTab !== "friends" && "view-slide--hidden",
 					])}
 					getGroupTables={result.getGroupTables}
 					groups={result.groups}
@@ -179,14 +173,14 @@ export const App = ({ config }: Props) => {
 
 	return (
 		<>
-			<Tabs className="mb-1" key={`tabs_${locale}`}>
+			<Tabs key={`tabs_${locale}`}>
 				<Tab
 					k="tables"
 					fullWidth={true}
 					isActive={activeTab === "tables"}
 					onClick={(k) => setActiveTab(k)}
 				>
-					<span className="mr-1">🎲</span>
+					<span className="icon-prefix">🎲</span>
 					{i18n("tables")} ({sortedTables.length})
 				</Tab>
 				<Tab
@@ -195,7 +189,7 @@ export const App = ({ config }: Props) => {
 					isActive={activeTab === "tournaments"}
 					onClick={(k) => setActiveTab(k)}
 				>
-					<span className="mr-1">🏆</span>
+					<span className="icon-prefix">🏆</span>
 					{i18n("tournaments")} (
 					{sortedTournaments.length})
 				</Tab>
@@ -205,7 +199,7 @@ export const App = ({ config }: Props) => {
 					isActive={activeTab === "friends"}
 					onClick={(k) => setActiveTab(k)}
 				>
-					<span className="mr-1">🙋</span>
+					<span className="icon-prefix">🙋</span>
 					{i18n("friends")}
 				</Tab>
 				<Tab
@@ -214,7 +208,7 @@ export const App = ({ config }: Props) => {
 					isActive={activeTab === "options"}
 					onClick={(k) => setActiveTab(k)}
 				>
-					<span className="mr-1">⚙</span>
+					<span className="icon-prefix">⚙</span>
 					{i18n("options")}
 				</Tab>
 			</Tabs>

@@ -148,6 +148,9 @@ export const gamesConfiguration: Record<string, GameConfig> = {
   azulduel: {
     customBack: true
   },
+  azulstainedglassofsintra: {
+    customBack: true
+  },
   azulsummerpavilion: {
     customBack: true,
     overlay: true,

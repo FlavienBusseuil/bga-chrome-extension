@@ -45,10 +45,10 @@ export const TournamentsView = ({ config, className, tournaments, closePopupOnCl
 	}, [dispEliminated, dispFuture, tournaments]);
 
 	return (
-		<div className={cn(["flex justify-between flex-col gap-2", className || ''])}>
+		<div className={cn(["view", className || ''])}>
 			{filteredTournaments.length === 0 && (
-				<div className="flex justify-center flex-col grow" style={{ minHeight: "60px" }}>
-					<span class="text-black dark:text-white text-center text-xl">
+				<div className="view-empty">
+					<span class="view-empty-text">
 						{i18n("no_tournaments")}
 					</span>
 				</div>
@@ -72,13 +72,13 @@ export const TournamentsView = ({ config, className, tournaments, closePopupOnCl
 									}
 								};
 								return <Card onClick={onClickFunc} className={playerStatus === 'eliminated' || playerStatus === 'withdrawn' ? 'eliminated' : ''}>
-									<div className="flex items-center px-1 py-2 gap-2">
+									<div className="tournament">
 										<img
 											src={gameImg}
-											className="w-6 h-6 rounded"
+											className="game-img"
 										/>
-										<div className="flex flex-col leading-3">
-											<h1 className="text-base">
+										<div className="tournament-text">
+											<h1 className="tournament-name">
 												{championshipName} ‧ {name}
 											</h1>
 											<p>{date.toLocaleDateString()}</p>
@@ -90,13 +90,13 @@ export const TournamentsView = ({ config, className, tournaments, closePopupOnCl
 					</CardList>
 				</div>
 			)}
-			<div className={cn(["flex justify-between flex-row gap-2", className || ''])}>
-				<div style={{ display: 'flex', flexFlow: 'column', gap: '0.5em' }}>
+			<div className={cn(["view-actions", className || ''])}>
+				<div className="tournament-filters">
 					<Switch checked={dispEliminated} textOn={i18n('optionTournamentsEliminatedOn')} textOff={i18n('optionTournamentsEliminatedOff')} onChange={toggleDispEliminated} />
 					<Switch checked={dispFuture} textOn={i18n('optionTournamentsFutureOn')} textOff={i18n('optionTournamentsFutureOff')} onChange={toggleDispFuture} />
 				</div>
-				<div style={{ height: 'fit-content', margin: 'auto 0px 0px 0px' }}>
-					<Button className="whitespace-nowrap"
+				<div className="tournament-actions">
+					<Button className="nowrap"
 						{...{
 							text: i18n("play_tournament"),
 							url: `${bgaUrl}/tournamentlist`,

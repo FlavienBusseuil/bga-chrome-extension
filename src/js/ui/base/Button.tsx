@@ -27,16 +27,8 @@ export function Button({
   type = "primary",
   ...rest
 }: ButtonProps) {
-  const styleFromSize = {
-    "1": "font-normal px-2 py-0.5",
-    "2": "font-normal px-4 py-2",
-  }[String(size) as "1" | "2"];
-
-  const styleFromType = {
-    primary: "bg-bgaBlue hover:bg-bgaBlue-light border-bgaBlue-light",
-    accept: "bg-bgaGreen hover:bg-bgaGreen-light border-bgaGreen",
-    secondary: "bg-gray-400 hover:bg-gray-350 border-gray-400",
-  }[type];
+  const styleFromSize = size === 1 ? "btn--small" : "btn--normal";
+  const styleFromType = `btn--${type}`;
 
   const handleClick = (() => {
     if ('url' in rest && rest.url) {
@@ -54,14 +46,9 @@ export function Button({
     <div
       role="button"
       className={cn([
-        "text-white",
-        "text-center",
-        "shadow",
-        "border",
+        "btn",
         styleFromSize,
         styleFromType,
-        "cursor-pointer",
-        "rounded",
         className ?? null,
       ])}
       onClick={handleClick}

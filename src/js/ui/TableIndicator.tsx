@@ -16,22 +16,22 @@ function getIndicatorClassnames({
     motionSensitivityEnable
 }: IndicatorProps): string {
     if (!isTurnBased) {
-        return motionSensitivityEnable ? "bg-yellow-300" : "bg-yellow-300 animate-pulse-0.25";
+        return motionSensitivityEnable ? "table-indicator--realtime" : "table-indicator--realtime table-indicator--pulse-fast";
     }
 
     if (isWaitingCurrentPlayer) {
-        return motionSensitivityEnable ? "bg-bgaGreen" : "bg-bgaGreen animate-pulse-0.5";
+        return motionSensitivityEnable ? "table-indicator--waiting" : "table-indicator--waiting table-indicator--pulse";
     }
 
     if (isInvitePendingForCurrentPlayer) {
-        return motionSensitivityEnable ? "bg-bgaOrange" : "bg-bgaOrange animate-pulse-0.5";
+        return motionSensitivityEnable ? "table-indicator--invite" : "table-indicator--invite table-indicator--pulse";
     }
 
     if (isOpenForPlayers) {
-        return "bg-bgaOrange";
+        return "table-indicator--open";
     }
 
-    return "bg-bgaBlue-lighter";
+    return "table-indicator--inactive";
 }
 
 export function TableIndicator({
@@ -44,7 +44,7 @@ export function TableIndicator({
     return (
         <div
             className={cn([
-                "absolute",
+                "table-indicator",
                 getIndicatorClassnames({
                     isInvitePendingForCurrentPlayer,
                     isOpenForPlayers,
@@ -52,12 +52,6 @@ export function TableIndicator({
                     isWaitingCurrentPlayer,
                     motionSensitivityEnable
                 }),
-                "h-full",
-                "left-0",
-                "right-0",
-                "top-0",
-                "transform",
-                "w-2",
             ])}
         />
     );

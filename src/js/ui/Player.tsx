@@ -17,10 +17,10 @@ function getPlayerNamePrefixText({ isActivePlayer, isInvitePending }: PlayerName
 
 function getPlayerNameColorClassname({ isActivePlayer }: PlayerNameProps) {
 	if (isActivePlayer) {
-		return "text-bgaGreen";
+		return "player--active";
 	}
 
-	return "text-bgaBlue-lighter";
+	return "";
 }
 
 interface Props {
@@ -41,9 +41,9 @@ export function Player({
 		isInvitePending,
 	});
 	return (
-		<li className={`${playerNameColorClassname} font-bold`}>
+		<li className={`player ${playerNameColorClassname}`}>
 			{hasPrefix && (
-				<span className="mr-1">
+				<span className="icon-prefix">
 					{getPlayerNamePrefixText({
 						isActivePlayer,
 						isInvitePending,

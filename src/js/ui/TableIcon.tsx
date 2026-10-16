@@ -7,7 +7,7 @@ export function TableIcon({ children, title }: Props) {
 	return (
 		<div
 			title={title}
-			class="text-center text-sm w-5 h-5 cursor-default rounded"
+			class="table-icon"
 			onClick={(e) => e.stopPropagation()}
 		>
 			{children}

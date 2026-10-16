@@ -5,5 +5,5 @@ type Props = {
 };
 
 export function PlayerList({ children }: Props) {
-	return <ul className="grid gap-x-2 grid-cols-4">{children}</ul>;
+	return <ul className="player-list">{children}</ul>;
 }

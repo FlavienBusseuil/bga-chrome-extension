@@ -13,7 +13,7 @@ export function ClickableTableIcon({ children, title, url }: Props) {
 	return (
 		<div
 			title={title}
-			class="text-center text-sm w-5 h-5 cursor-pointer rounded hover:!bg-bgaBlue-light"
+			class="table-icon table-icon--clickable"
 			onClick={handleClick}
 		>
 			{children}

@@ -13,7 +13,7 @@ export function Error({ errorMessage, errorDetails }: ErrorProps) {
     : "report_error";
 
   return (
-    <div className="p-2 text-red-600 font-bold flex flex-col gap-2">
+    <div className="error">
       <div>{`${errorMessage} (${errorDetails})`}</div>
       <Markup markup={i18n(message)} type='html' trim={false} />
     </div>

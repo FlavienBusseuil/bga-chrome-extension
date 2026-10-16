@@ -7,7 +7,6 @@ export function StartNewGameButton() {
 		<Button
 			{...{
 				text: i18n("play_new_game"),
-				className: "",
 				url: `${bgaUrl}/lobby`,
 			}}
 		/>

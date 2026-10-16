@@ -29,10 +29,10 @@ export const TablesView = ({
 	focusOnNewTab
 }: Props) => {
 	return (
-		<div className={cn(["flex justify-between flex-col gap-2", className || ''])}>
+		<div className={cn(["view", className || ''])}>
 			{tables.length === 0 && (
-				<div className="flex justify-center flex-col grow" style={{ minHeight: "60px" }}>
-					<span class="text-black dark:text-white text-center text-xl">
+				<div className="view-empty">
+					<span class="view-empty-text">
 						{i18n("no_games")}
 					</span>
 				</div>
