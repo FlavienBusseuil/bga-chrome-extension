@@ -1,8 +1,12 @@
 import rgbHex from "rgb-hex";
 import { gamesConfiguration } from "../../config/darkThemeGames";
 import { getColorForDarkMode } from "../../utils/misc/colors";
+import { waitForObj } from "../../utils/misc/wait";
+
+const PLAYER_LINKS = "#player_boards div.player-name[id^='player_name_'] a[href*='/player?id']";
 
 let playersData: PlayerData[] | undefined = undefined;
+let pendingPlayersData: Promise<PlayerData[]> | undefined = undefined;
 
 export interface PlayerData {
   id: string;
@@ -13,8 +17,20 @@ export interface PlayerData {
   darkEnlight: boolean;
 };
 
-export const getPlayersData = async (twoTeams: boolean): Promise<PlayerData[]> => {
-  return new Promise<PlayerData[]>(resolve => _getPlayersData(resolve, twoTeams, 0));
+// Shared by the left menu and the dark mode: the players are searched only once
+export const getPlayersData = (twoTeams: boolean): Promise<PlayerData[]> => {
+  if (!pendingPlayersData) {
+    pendingPlayersData = (async () => {
+      try {
+        // The player boards are created by the game setup: react as soon as they are in the page
+        await waitForObj(PLAYER_LINKS, 30000);
+      } catch (error) {
+        // not found: the search below gives up after a few tries
+      }
+      return new Promise<PlayerData[]>(resolve => _getPlayersData(resolve, twoTeams, 0));
+    })();
+  }
+  return pendingPlayersData;
 };
 
 const _getPlayersData = (returnFunc: (data: PlayerData[]) => void, twoTeams: boolean, iteration: number, fromStyle?: boolean) => {
@@ -77,14 +93,14 @@ const _getPlayersData = (returnFunc: (data: PlayerData[]) => void, twoTeams: boo
       return;
     }
 
-    if (iteration >= 10 && iteration < 25) {
-      setTimeout(() => _getPlayersData(returnFunc, twoTeams, iteration + 1, true), 100);
+    if (iteration >= 20 && iteration < 50) {
+      setTimeout(() => _getPlayersData(returnFunc, twoTeams, iteration + 1, true), 50);
       return;
     }
   }
 
-  if (iteration < 25) {
-    setTimeout(() => _getPlayersData(returnFunc, twoTeams, iteration + 1), 100);
+  if (iteration < 50) {
+    setTimeout(() => _getPlayersData(returnFunc, twoTeams, iteration + 1), 50);
   } else {
     console.error("[bga extension] Too many iterations in getPlayersData");
     document.documentElement.classList.remove("bgaext_get_players_data");

@@ -24,8 +24,12 @@ export const initLeftMenu = (config: Configuration, gameConfig: Game, leftMenuEn
 		}
 	}
 
-	document.addEventListener("DOMContentLoaded", _init);
-	setTimeout(_init, 2000);
+	// The page can already be parsed (late configuration loading, navigation without reload): no need to wait
+	if (document.readyState === "loading") {
+		document.addEventListener("DOMContentLoaded", _init, { once: true });
+	} else {
+		_init();
+	}
 };
 
 export const buildLeftMenu = (config: Configuration, gameConfig: Game, enable: boolean) => {
