@@ -1,6 +1,6 @@
 import { bgPeriodic } from "./js/bgPeriodic";
 import Configuration from "./js/config/configuration";
-import { addChangeListener } from "./js/utils/browser";
+import { addChangeListener, isFirefox } from "./js/utils/browser";
 import { updateBadgeAndIcon } from "./js/utils/updateBadgeAndIcon";
 
 // Firefox WebExtensions API type support
@@ -100,20 +100,34 @@ const init = () => {
   return initialization;
 };
 
+// Alarms survive the service worker: recreating them on each wake up would reset their schedule
+const createAlarmIfMissing = async (name: string, alarmInfo: chrome.alarms.AlarmCreateInfo) => {
+  if (!(await chrome.alarms.get(name))) {
+    await chrome.alarms.create(name, alarmInfo);
+  }
+};
+
+const KEEP_ALIVE_ALARMS = ["keepAlive0", "keepAlive1", "keepAlive2"];
+
 const doInit = async () => {
   console.log("[bga extension] Background script initialisation");
 
   await config.init();
 
   // set alarm to run update every minute
-  chrome.alarms.create("bgPeriodic", { delayInMinutes: 1, periodInMinutes: 1 });
+  await createAlarmIfMissing("bgPeriodic", { delayInMinutes: 1, periodInMinutes: 1 });
   bgPeriodic(config);
 
-  // hack to be sure that the background script will not be terminated after 30 seconds inactivity on FF
-  const now = new Date().getTime();
-  chrome.alarms.create("keepAlive0", { delayInMinutes: 0, periodInMinutes: 1 });
-  chrome.alarms.create("keepAlive1", { when: now + 20000, periodInMinutes: 1 });
-  chrome.alarms.create("keepAlive2", { when: now + 40000, periodInMinutes: 1 });
+  if (isFirefox) {
+    // hack to be sure that the background script will not be terminated after 30 seconds inactivity on FF
+    const now = new Date().getTime();
+    await createAlarmIfMissing("keepAlive0", { delayInMinutes: 0, periodInMinutes: 1 });
+    await createAlarmIfMissing("keepAlive1", { when: now + 20000, periodInMinutes: 1 });
+    await createAlarmIfMissing("keepAlive2", { when: now + 40000, periodInMinutes: 1 });
+  } else {
+    // Not needed with Chrome (the bgPeriodic alarm wakes the service worker up): remove the ones created by older versions
+    await Promise.all(KEEP_ALIVE_ALARMS.map(name => chrome.alarms.clear(name)));
+  }
 
   setBackgroundFilters();
   setLobbyUrlFilters(config.isLobbyRedirectionEnable());
@@ -134,15 +148,8 @@ chrome.runtime.onStartup.addListener(() => {
 const sendSidePanelStatusToAllTabs = async (status: string) => {
   const tabs = await chrome.tabs.query({});
 
-  for (const tab of tabs) {
-    try {
-      if (tab.id) {
-        await sendSidePanelStatus(tab.id, status);
-      }
-    } catch (e) {
-      // no content script => ignore
-    }
-  }
+  // Sent in parallel: most tabs have no content script and reject the message (ignored)
+  await Promise.allSettled(tabs.map(tab => tab.id ? sendSidePanelStatus(tab.id, status) : Promise.resolve()));
 };
 
 const sendSidePanelStatus = async (tabId: number, status: string) => {

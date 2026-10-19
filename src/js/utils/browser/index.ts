@@ -2,15 +2,53 @@ import { isMobile as detectMobile } from "is-mobile";
 
 export const isMobile = detectMobile({ featureDetect: true, tablet: true });
 
+// Last known value (as JSON) of each synced key: writing an unchanged value is skipped.
+// The sync storage is limited (120 writes per minute) and many settings are saved again without being changed.
+const syncedValues = new Map<string, string>();
+
+const rememberSyncedValues = (values: Record<string, any>) => {
+	Object.entries(values).forEach(([key, value]) => {
+		if (value === undefined) {
+			syncedValues.delete(key);
+		} else {
+			syncedValues.set(key, JSON.stringify(value));
+		}
+	});
+};
+
+chrome.storage.onChanged.addListener((changes, areaName) => {
+	if (areaName === "sync") {
+		rememberSyncedValues(Object.fromEntries(Object.entries(changes).map(([key, { newValue }]) => [key, newValue])));
+	}
+});
+
 export const storageGet = async (): Promise<Record<string, any>> => {
-	return await chrome.storage.sync.get();
+	const values = await chrome.storage.sync.get();
+	rememberSyncedValues(values);
+	return values;
 };
 
 export const storageSet = async (val: Record<string, any>): Promise<void> => {
-	return await chrome.storage.sync.set(val);
+	const changes = Object.fromEntries(Object.entries(val).filter(([key, value]) => syncedValues.get(key) !== JSON.stringify(value)));
+
+	if (!Object.keys(changes).length) {
+		return;
+	}
+
+	rememberSyncedValues(changes);
+
+	try {
+		await chrome.storage.sync.set(changes);
+	} catch (error) {
+		// not saved (quota...): it must be written again next time
+		Object.keys(changes).forEach(key => syncedValues.delete(key));
+		console.error("[bga extension] Unable to save the configuration", { keys: Object.keys(changes), error });
+		throw error;
+	}
 };
 
 export const storageClear = async (): Promise<void> => {
+	syncedValues.clear();
 	await chrome.storage.sync.clear();
 };
 

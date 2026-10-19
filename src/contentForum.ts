@@ -73,13 +73,16 @@ const _manageMutation = () => {
 const _manageHtmlTag = () => {
   const style = getDarkStyle();
 
+  const theme = style === 'native' ? 'dark' : 'light';
+  if (localStorage.getItem('bga-theme') !== theme) {
+    localStorage.setItem('bga-theme', theme);
+  }
+
   if (style === 'native') {
-    localStorage.setItem('bga-theme', 'dark');
     if (!document.documentElement.classList.contains('dark')) {
       document.documentElement.classList.add('dark');
     }
   } else {
-    localStorage.setItem('bga-theme', 'light');
     if (document.documentElement.classList.contains('dark')) {
       document.documentElement.classList.remove('dark');
     }

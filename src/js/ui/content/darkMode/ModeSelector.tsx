@@ -1,4 +1,4 @@
-import { useState, useEffect, useMemo } from "preact/hooks";
+import { useState, useEffect, useMemo, useRef } from "preact/hooks";
 import Markup from 'preact-markup';
 
 import Configuration from "../../../config/configuration";
@@ -10,6 +10,23 @@ import { setDarkStyle } from "./darkStyleFunctions";
 import { changeDarkBrightness, changeDarkColors } from "./darkColors";
 
 import "../../../../css/darkModeSelector.css";
+
+// The display follows the sliders right away, but the configuration (synced storage, limited number of writes)
+// is only saved once the user stops moving them, or when the selector is closed
+const useDebouncedSave = (save: () => void, deps: unknown[]) => {
+  const pendingSave = useRef<(() => void) | null>(null);
+
+  useEffect(() => {
+    pendingSave.current = save;
+    const timer = setTimeout(() => {
+      pendingSave.current = null;
+      save();
+    }, 400);
+    return () => clearTimeout(timer);
+  }, deps);
+
+  useEffect(() => () => pendingSave.current?.(), []);
+};
 import "../../../../css/modeSelector.css";
 
 const isGeneralMode = (gameName: string) => {
@@ -83,20 +100,28 @@ const ModeSelector = (props: ModeSelectorProps) => {
   }, [gameName, darkMode, darkModeNative]);
 
   useEffect(() => {
+    changeDarkColors(darkColorHue, darkColorSaturation);
+  }, [darkColorHue, darkColorSaturation]);
+
+  useDebouncedSave(() => {
     if (darkColorHue === recommandedConfig?.color && darkColorSaturation === recommandedConfig?.sat) {
       config.clearDarkModeColor(gameName);
     } else {
       config.setDarkModeColor(gameName, darkColorHue, darkColorSaturation, Boolean(recommandedConfig));
     }
-    changeDarkColors(darkColorHue, darkColorSaturation);
   }, [gameName, darkColorHue, darkColorSaturation]);
 
   useEffect(() => {
     if (darkModeNative) {
       changeDarkBrightness(100);
     } else if (brightness) {
-      config.setDarkModeBrightness(gameName, brightness);
       changeDarkBrightness(brightness);
+    }
+  }, [brightness, darkModeNative]);
+
+  useDebouncedSave(() => {
+    if (!darkModeNative && brightness) {
+      config.setDarkModeBrightness(gameName, brightness);
     }
   }, [gameName, brightness, darkModeNative]);
 

@@ -173,7 +173,16 @@ const _init = () => {
       advancedSetPageElements();
 
       if (!observer) {
-        observer = new MutationObserver(advancedSetPageElements)
+        // BGA updates its home page often (newsfeed, counters): copy the sections at most once per frame
+        let copyFrame = 0;
+        observer = new MutationObserver(() => {
+          if (!copyFrame) {
+            copyFrame = requestAnimationFrame(() => {
+              copyFrame = 0;
+              advancedSetPageElements();
+            });
+          }
+        });
         observer.observe(mainContent, { childList: true, subtree: true });
 
         /* Fix click on calendar event with advanced display mode */

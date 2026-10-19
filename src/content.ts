@@ -36,20 +36,33 @@ let prevPageType = '';
 let chatbardock: Element | null = null;
 let gameName = '';
 
-const autoHideChat = (e: MouseEvent) => {
-	if (chatbardock) {
+// mousemove is fired many times per frame: the chat bar position is checked once per frame with the last mouse position
+let lastMouseEvent: MouseEvent | null = null;
+let autoHideFrame = 0;
+
+const checkChatVisibility = () => {
+	autoHideFrame = 0;
+
+	if (!chatbardock?.isConnected) {
+		chatbardock = document.querySelector('#chatbardock');
+	}
+
+	if (chatbardock && lastMouseEvent) {
 		const clientRect = chatbardock.getBoundingClientRect();
 		const minX = clientRect.x - 100;
 		const maxX = clientRect.x + clientRect.width + 100;
 		const minY = clientRect.y - 50;
+		const visible = lastMouseEvent.clientX > minX && lastMouseEvent.clientX < maxX && lastMouseEvent.clientY > minY;
 
-		if (e.clientX > minX && e.clientX < maxX && e.clientY > minY) {
-			chatbardock.classList.remove('bgaext_hidden');
-		} else {
-			chatbardock.classList.add('bgaext_hidden');
-		}
-	} else {
-		chatbardock = document.querySelector('#chatbardock');
+		chatbardock.classList.toggle('bgaext_hidden', !visible);
+	}
+};
+
+const autoHideChat = (e: MouseEvent) => {
+	lastMouseEvent = e;
+
+	if (!autoHideFrame) {
+		autoHideFrame = requestAnimationFrame(checkChatVisibility);
 	}
 };
 

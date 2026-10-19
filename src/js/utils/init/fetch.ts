@@ -31,13 +31,24 @@ export type FetchResult =
 
 type Output = Promise<FetchResult>;
 
-export async function fetch(): Output {
-	// Fetch global info
-	const { globalUserInfos, assetsUrl, jsBundleVersion } = await fetchGlobalInfo();
-	const { lang } = globalUserInfos;
+// Starts a request before knowing if its result will be used: a failure is only reported if it's awaited
+const startEarly = <T>(task: Promise<T>): Promise<T> => {
+	task.catch(() => { /* handled by the caller awaiting it */ });
+	return task;
+};
 
-	// Fetch current player info
-	const currentPlayer = await fetchCurrentPlayer();
+// Open tables are shared by all the friends / groups searches for a short time
+const OPEN_TABLES_CACHE_DELAY = 30000;
+
+export async function fetch(): Output {
+	// Independent requests are started together (the tables and tournaments are only used if the user is logged in)
+	const tablesTask = startEarly(fetchTablesFromTableManager('play'));
+	const tournamentsTask = startEarly(fetchTournaments());
+	const [{ globalUserInfos, assetsUrl, jsBundleVersion }, currentPlayer] = await Promise.all([
+		fetchGlobalInfo(),
+		fetchCurrentPlayer(),
+	]);
+	const { lang } = globalUserInfos;
 	const { token: currentPlayerToken, id: currentPlayerId } = currentPlayer;
 
 	// No user logged
@@ -54,15 +65,16 @@ export async function fetch(): Output {
 	groups.sort((a, b) => (a.name || '').localeCompare(b.name || ''));
 
 	// Fetch number of waiting tables, global translation, friends and tables
-	const [activityForPlayer, translations, tables] = await Promise.all([
+	const [activityForPlayer, translations, tables, tournaments] = await Promise.all([
 		fetchActivityForPlayer(currentPlayerId, currentPlayerToken),
 		fetchTranslations({
 			assetsUrl,
 			jsBundleVersion,
 			lang,
 		}),
-		fetchTablesFromTableManager('play')
-	])
+		tablesTask,
+		tournamentsTask,
+	]);
 
 	const { nbWaitingTables } = activityForPlayer;
 
@@ -82,13 +94,24 @@ export async function fetch(): Output {
 		return groups.find(g => g.id === t.filter_group);
 	};
 
-	const getPlayersTables = async (players: string[]) => {
-		const result = await Promise.all([
-			fetchTablesFromTableManager('realtime_open'),
-			fetchTablesFromTableManager('async_open')
-		]);
+	let openTables: { time: number, task: Promise<Array<Table>> } | undefined;
 
-		const list = [...result[0], ...result[1]];
+	const getOpenTables = () => {
+		if (!openTables || Date.now() - openTables.time > OPEN_TABLES_CACHE_DELAY) {
+			const task = Promise.all([
+				fetchTablesFromTableManager('realtime_open'),
+				fetchTablesFromTableManager('async_open')
+			]).then(([realtime, async]) => [...realtime, ...async]);
+
+			openTables = { time: Date.now(), task };
+			// a failed request must not be reused
+			task.catch(() => openTables = undefined);
+		}
+		return openTables.task;
+	};
+
+	const getPlayersTables = async (players: string[]) => {
+		const list = await getOpenTables();
 		return list.filter(t => isTablePlayersMatching(t, players)).filter(isTableGroupsMatching);
 	};
 
@@ -104,8 +127,6 @@ export async function fetch(): Output {
 	};
 
 	const nbPendingInvites = tables.reduce((total, table) => total + (table.players[currentPlayer.id]?.table_status === "expected" ? 1 : 0), 0);
-
-	const tournaments = await fetchTournaments();
 
 	return {
 		isLoggedOut: false,

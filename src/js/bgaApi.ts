@@ -59,4 +59,23 @@ const _init = () => {
   console.debug('[bga extension] bga api intialized');
 };
 
+// Relay the page navigations (history.pushState / replaceState) to the content script, which can't see them
+// when the browser has no Navigation API (see locationChangeManager.ts)
+const relayHistoryChanges = () => {
+  if ((window as any).navigation || (history as any).bgaExtRelayed) {
+    return;
+  }
+  (history as any).bgaExtRelayed = true;
+
+  (['pushState', 'replaceState'] as const).forEach((method) => {
+    const original = history[method];
+    history[method] = function (this: History, ...args: Parameters<History['pushState']>) {
+      const result = original.apply(this, args);
+      document.dispatchEvent(new CustomEvent('bga_ext_location_change'));
+      return result;
+    };
+  });
+};
+
+relayHistoryChanges();
 _init();

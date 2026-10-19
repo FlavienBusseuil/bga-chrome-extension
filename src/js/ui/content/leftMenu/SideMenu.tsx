@@ -71,7 +71,7 @@ const SideMenu = (props: SideMenuProps) => {
 			window.removeEventListener("resize", setMenuPosition);
 			clearInterval(timer);
 		};
-	});
+	}, []); // once: the functions only use props (constant) and state setters
 
 	useEffect(() => {
 		const barContainer = document.getElementById("bga_extension_sidebar");
@@ -151,9 +151,7 @@ const SideMenu = (props: SideMenuProps) => {
 		checkPlayerPanels();
 		getBoardName();
 
-		if (config.isDarkMode() !== darkMode) {
-			setDarkMode(!darkMode);
-		}
+		setDarkMode(config.isDarkMode());
 
 		const toSort = players.map((p, index) => {
 			const id = getPlayerPanelId(gameConfig, p, index);

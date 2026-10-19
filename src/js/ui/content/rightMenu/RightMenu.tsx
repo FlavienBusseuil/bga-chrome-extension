@@ -29,6 +29,17 @@ const setMenuPosition = (tries: unknown = 50) => {
 	}
 };
 
+// Scroll and resize events can come several times per frame: compute the position once per frame
+let positionFrame = 0;
+const scheduleMenuPosition = () => {
+	if (!positionFrame) {
+		positionFrame = requestAnimationFrame(() => {
+			positionFrame = 0;
+			setMenuPosition();
+		});
+	}
+};
+
 const CLASS_LOGS_VISIBLE = "logs_visible";
 const CLASS_SCORE_VISIBLE = "score_visible";
 
@@ -72,13 +83,13 @@ const RightMenu = (props: RightMenuProps) => {
 
 	useEffect(() => {
 		setMenuPosition();
-		window.addEventListener("resize", setMenuPosition);
-		window.addEventListener("scroll", setMenuPosition);
+		window.addEventListener("resize", scheduleMenuPosition);
+		window.addEventListener("scroll", scheduleMenuPosition, { passive: true });
 		document.addEventListener("click", onClick);
 		document.addEventListener("bga_ext_update_config", onUpdateConfig);
 		return () => {
-			window.removeEventListener("resize", setMenuPosition);
-			window.removeEventListener("scroll", setMenuPosition);
+			window.removeEventListener("resize", scheduleMenuPosition);
+			window.removeEventListener("scroll", scheduleMenuPosition);
 			document.removeEventListener("click", onClick);
 			document.removeEventListener("bga_ext_update_config", onUpdateConfig);
 		};
