@@ -98,11 +98,10 @@
         "sound/myturn.mp3",
         "locales/*.json"
       ],
-      "extension_ids": [
-        "*"
-      ],
       "matches": [
-        "<all_urls>"
+        "https://boardgamearena.com/*",
+        "https://*.boardgamearena.com/*",
+        "https://melodice.org/*"
       ]
     }
   ],
