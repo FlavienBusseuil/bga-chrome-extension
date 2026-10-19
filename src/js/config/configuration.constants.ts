@@ -276,8 +276,12 @@ html[data-theme="dark"] .bgaext_overlay{
   right: 5px;
   z-index: 10000;
   color: var(--header-icons-color);
-  font-size: 24px;
   cursor: pointer;
+}
+#bgaext-side-panel svg {
+  display: block;
+  width: 24px;
+  height: 24px;
 }
 @media (min-width: 900px) {
   #bgaext-side-panel {

@@ -511,15 +511,30 @@ select.colorselector {
 
 /* Liens */
 .bga-link,
-.bga-link .pagesection__content,
-.gamename {
+.bga-link .pagesection__content {
   color: var(--blue-80);
 }
 
 .bga-link:hover,
-.bga-link:hover .pagesection__content,
-.gamename:hover {
+.bga-link:hover .pagesection__content {
   color: var(--blue-90);
+}
+
+/* Noms de jeux : BGA cible a:link.gamename / a:visited.gamename (spécificité 0,2,1), la couleur passe par des variables
+   pour que les règles contextuelles n'aient pas à reprendre ces sélecteurs (une règle sans :hover fixe les deux) */
+.gamename {
+  --bgaext-gamename: var(--blue-80);
+  --bgaext-gamename-hover: var(--blue-90);
+}
+
+.gamename,
+a.gamename:is(:link, :visited) {
+  color: var(--bgaext-gamename);
+}
+
+.gamename:is(:hover, :active),
+a.gamename:is(:link, :visited):is(:hover, :active) {
+  color: var(--bgaext-gamename-hover);
 }
 
 .bga-link--active,
@@ -848,11 +863,12 @@ select.colorselector {
 }
 
 .pagesection__title .gamename {
-  color: var(--blue-80);
+  --bgaext-gamename: var(--blue-80);
+  --bgaext-gamename-hover: var(--blue-80);
 }
 
 .pagesection__title .gamename:hover {
-  color: var(--blue-90);
+  --bgaext-gamename-hover: var(--blue-90);
 }
 
 .pagesection__content {
@@ -928,7 +944,8 @@ select.colorselector {
 }
 
 #mostwanted_games .gamename {
-  color: var(--blue-50);
+  --bgaext-gamename: var(--blue-50);
+  --bgaext-gamename-hover: var(--blue-50);
 }
 
 .bga-quick-play-widget__item {
@@ -1014,7 +1031,8 @@ select.colorselector {
 .bgaext_lobby .gametable_upper_part .gameinfoname .gamename,
 .bgaext_gameinprogress .gametable_upper_part .gameinfoname .gamename,
 .bgaext_lobby .game_box_wrap .gamename {
-  color: var(--blue-70);
+  --bgaext-gamename: var(--blue-70);
+  --bgaext-gamename-hover: var(--blue-70);
 }
 
 .player_is_at_table .gametable.gametable_status_asyncinit,
@@ -1028,7 +1046,7 @@ select.colorselector {
 }
 
 .bgaext_lobby .game_box_wrap .gamename:hover {
-  color: var(--blue-90);
+  --bgaext-gamename-hover: var(--blue-90);
 }
 
 .bgaext_lobby.switch_to_arena,
@@ -1038,7 +1056,8 @@ select.colorselector {
 }
 
 .bgaext_lobby .switch_to_arena_inline .gamename {
-  color: var(--light-80);
+  --bgaext-gamename: var(--light-80);
+  --bgaext-gamename-hover: var(--light-80);
 }
 
 .panel-block--buttons__play-wrapper--glow {
@@ -1046,7 +1065,8 @@ select.colorselector {
 }
 
 .bgaext_lobby .gamename {
-  color: var(--blue-50);
+  --bgaext-gamename: var(--blue-50);
+  --bgaext-gamename-hover: var(--blue-50);
 }
 
 .bgaext_lobby .bubblebanner {
