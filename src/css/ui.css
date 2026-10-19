@@ -625,7 +625,8 @@ html.dark .card.table-card:hover {
   width: 28px;
   height: 28px;
   border-radius: 7px;
-  cursor: default;
+  /* a click opens the table, like the rest of the card */
+  cursor: inherit;
 }
 
 .table-icon svg {

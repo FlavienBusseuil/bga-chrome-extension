@@ -11,7 +11,7 @@ import { TournamentsView } from "./views/TournamentsView";
 import { FriendsView } from "./views/FriendsView";
 import { OptionsView } from "./views/OptionsView";
 
-import { useState, useEffect, useErrorBoundary } from "preact/hooks";
+import { useState, useEffect, useErrorBoundary, useMemo } from "preact/hooks";
 import { useSyncedState } from "./hooks/useSyncedState";
 import { useLocale } from "./hooks/useLocale";
 import { requestBadgeAndIconUpdate } from "../utils/updateBadgeAndIcon";
@@ -45,19 +45,21 @@ export const App = ({ config }: Props) => {
 	const focusOnNewTab = isFirefox ? config.shouldFocusOnNewTab() : undefined;
 	const [hasConfigChange, setConfigChange] = useSyncedState("configChange", false);
 	const locale = useLocale(config.getLocale());
-	const [sortedTables, setSortedTables] = useState<TransformedTable[]>([]);
-	const [sortedTournaments, setSortedTournaments] = useState<TransformedTournament[]>([]);
+	// Sorted during the render: with an effect, the first render after loading would show empty lists
+	const sortedTables = useMemo<TransformedTable[]>(
+		() => result && !result.isLoggedOut ? sortTables(result.transformedTables) : [],
+		[result],
+	);
+	const sortedTournaments = useMemo<TransformedTournament[]>(
+		() => result && !result.isLoggedOut ? sortTournaments(result.transformedTournaments) : [],
+		[result],
+	);
 
 	useEffect(fetch, []);
 
 	useEffect(() => {
 		if (result && !result.isLoggedOut) {
-			const {
-				nbWaitingTables,
-				nbPendingInvites,
-				transformedTables,
-				transformedTournaments
-			} = result;
+			const { nbWaitingTables, nbPendingInvites } = result;
 
 			requestBadgeAndIconUpdate({
 				nbWaitingTables,
@@ -65,9 +67,6 @@ export const App = ({ config }: Props) => {
 				tracking: config.isTrackingEnable(),
 				soundNotification: config.isTrackingEnable() && config.isSoundNotificationEnable()
 			});
-
-			setSortedTables(sortTables(transformedTables));
-			setSortedTournaments(sortTournaments(transformedTournaments));
 		}
 	}, [result]);
 

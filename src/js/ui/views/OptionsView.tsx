@@ -341,14 +341,12 @@ export const OptionsView = ({ config, onChange }: Props) => {
     const newHomeConfig = { ...homeConfig, [param]: val };
     setHomeConfig(newHomeConfig);
     config.setHomeConfig(newHomeConfig);
-    onChange();
   };
 
   const updateInProgressConfig = (param: string, val: boolean) => {
     const newInProgressConfig = { ...inProgressConfig, [param]: val };
     setInProgressConfig(newInProgressConfig);
     config.setInProgressConfig(newInProgressConfig);
-    onChange();
   };
 
   const updateHideGameButtonDisplay = (val: boolean) => {
@@ -400,7 +398,7 @@ export const OptionsView = ({ config, onChange }: Props) => {
         </>
       );
     }
-    return <a href="#" onClick={() => setConfirmClear(true)}>{i18n("optionsClearHiddenGames")}</a>;
+    return <a href="#" onClick={(evt) => { evt.preventDefault(); setConfirmClear(true); }}>{i18n("optionsClearHiddenGames")}</a>;
   };
 
   const getMutedConfiguration = () => {

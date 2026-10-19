@@ -12,7 +12,6 @@ export function TableIcon({ children, title, className }: Props) {
 		<div
 			title={title}
 			class={cn(["table-icon", className])}
-			onClick={(e) => e.stopPropagation()}
 		>
 			{children}
 		</div>

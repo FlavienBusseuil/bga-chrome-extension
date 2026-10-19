@@ -17,21 +17,28 @@ async function resolveQueryFromStatus(status: 'progress' | 'future'): Promise<Qu
 	return result;
 }
 
+// A failure only empties the tournaments list: the tables are still displayed
+async function fetchTournamentsFromStatus(status: 'progress' | 'future'): Promise<Array<Tournament>> {
+	try {
+		const result = await resolveQueryFromStatus(status);
+
+		if (result.status === "0") {
+			const { code, error } = result;
+			throw new Error(`${code}: ${error}`);
+		}
+
+		return result.data.list;
+	} catch (error) {
+		console.error(`[bga extension] Fetching ${status} tournaments failed`, error);
+		return [];
+	}
+}
+
 export async function fetchTournaments(): Promise<Array<Tournament>> {
 	const results = await Promise.all([
-		resolveQueryFromStatus("progress"),
-		resolveQueryFromStatus("future"),
+		fetchTournamentsFromStatus("progress"),
+		fetchTournamentsFromStatus("future"),
 	]);
 
-	return results
-		.flat()
-		.map((result) => {
-			if (result.status === "0") {
-				const { code, error } = result;
-				throw new Error(`Fetching tournaments failed (${code}: ${error})`);
-			}
-
-			return result.data.list;
-		})
-		.flat();
+	return results.flat();
 }
