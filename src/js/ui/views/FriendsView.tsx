@@ -6,7 +6,7 @@ import type { TableId } from "../../types/bga/Table";
 import { i18n } from "../../utils/browser/i18n";
 
 import { PlayerList } from "../PlayerList";
-import { EmptySeat, Player } from "../Player";
+import { EmptySeats, Player } from "../Player";
 import { Button } from "../base/Button";
 import { Table } from "../Table";
 import { CardList } from "../base/CardList";
@@ -32,15 +32,20 @@ export const FriendsView = ({ className, getGroupTables, groups, motionSensitivi
   const handleAcceptOrDeclineInvite = (tableId: TableId) => { return Promise.resolve(); };
 
   const search = () => {
+    if (!getGroupTables) {
+      return;
+    }
+
     setLoading(true);
     setRequested(true);
 
-    if (getGroupTables) {
-      getGroupTables(group).then(tables => {
-        setTables(tables);
-        setLoading(false);
-      });
-    }
+    getGroupTables(group)
+      .then(setTables)
+      .catch((error) => {
+        console.error("[bga extension] Unable to fetch group tables", error);
+        setTables([]);
+      })
+      .finally(() => setLoading(false));
   }
 
   if (loading) {
@@ -142,11 +147,7 @@ export const FriendsView = ({ className, getGroupTables, groups, motionSensitivi
                             />
                           ),
                         ),
-                        ...Array.from(
-                          Array(nbMissingPlayers),
-                        ).map((_, index) => (
-                          <EmptySeat key={`seat_${index}`} />
-                        )),
+                        <EmptySeats key="seats" count={nbMissingPlayers} />,
                       ]}
                     </PlayerList>
                   </Table>

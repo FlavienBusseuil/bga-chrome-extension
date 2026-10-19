@@ -57,7 +57,10 @@ const setupOffscreenDocument = async (path: string) => {
       reasons: [chrome.offscreen.Reason.AUDIO_PLAYBACK],
       justification: "Play a notification sound",
     });
-    await creating;
-    creating = null;
+    try {
+      await creating;
+    } finally {
+      creating = null;
+    }
   }
 };

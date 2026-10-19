@@ -28,7 +28,8 @@
         "https://studio.boardgamearena.com/*"
       ],
       "exclude_matches": [
-        "https://boardgamearena.com/blank?*"
+        "https://boardgamearena.com/blank?*",
+        "https://studio.boardgamearena.com/blank?*"
       ],
       "run_at": "document_start",
       "js": [

@@ -17,6 +17,8 @@ export const setFloatingRightMenu = (config: Configuration, val: boolean) => {
 		let container = document.getElementById(menuContainerId);
 
 		if (container && !val) {
+			// unmount first so the component cleans up its listeners
+			render(null, container);
 			container.parentNode!.removeChild(container);
 		}
 

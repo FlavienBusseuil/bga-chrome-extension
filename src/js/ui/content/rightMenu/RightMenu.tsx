@@ -4,7 +4,8 @@ import type Configuration from "../../../config/configuration";
 
 import "../../../../css/rightMenu.css";
 
-const setMenuPosition = () => {
+// The menu header can be rendered a bit later: retry during 5 seconds at most
+const setMenuPosition = (tries: unknown = 50) => {
 	const scoreContent = document.getElementById("right-side-first-part");
 	const logContent = document.getElementById("right-side-second-part");
 	const menuHeader = document.getElementById("cde-floating-menu-score");
@@ -23,8 +24,8 @@ const setMenuPosition = () => {
 		} else {
 			scoreContent.classList.remove('ext-overflow');
 		}
-	} else {
-		setTimeout(setMenuPosition, 100);
+	} else if (typeof tries === "number" && tries > 0) {
+		setTimeout(() => setMenuPosition(tries - 1), 100);
 	}
 };
 

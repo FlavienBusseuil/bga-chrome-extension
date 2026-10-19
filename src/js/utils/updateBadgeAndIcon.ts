@@ -25,7 +25,23 @@ function getTotalFromBadgeText({ text }: { text: string }): null | number {
 	return result;
 }
 
-export async function updateBadgeAndIcon({
+// Updates are chained: the badge is read then written, concurrent updates would both see the old value
+let pendingUpdate: Promise<void> = Promise.resolve();
+
+export function updateBadgeAndIcon(props: Props): Promise<void> {
+	pendingUpdate = pendingUpdate
+		.then(() => doUpdateBadgeAndIcon(props))
+		.catch((error) => console.error("[bga extension] Unable to update badge", error));
+	return pendingUpdate;
+}
+
+// Used by the popup and the side panel: the background script owns the badge
+export function requestBadgeAndIconUpdate(props: Props): void {
+	chrome.runtime.sendMessage({ type: "updateBadgeAndIcon", data: props })
+		.catch((error) => console.error("[bga extension] Unable to request badge update", error));
+}
+
+async function doUpdateBadgeAndIcon({
 	nbPendingInvites,
 	nbWaitingTables,
 	tracking,
@@ -71,12 +87,16 @@ export async function updateBadgeAndIcon({
 		await chrome.action.setIcon({ path: "img/icon-48.png" });
 	}
 
-	if (oldTotal === 0 && soundNotification) {
-		await playMp3();
-	}
-
 	setBadge({
 		text: `${newTotal}`,
 		color: "#4871b6",
 	});
+
+	if (oldTotal === 0 && soundNotification) {
+		try {
+			await playMp3();
+		} catch (error) {
+			console.error("[bga extension] Unable to play notification sound", error);
+		}
+	}
 }

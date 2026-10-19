@@ -1,6 +1,7 @@
 import { bgPeriodic } from "./js/bgPeriodic";
 import Configuration from "./js/config/configuration";
 import { addChangeListener } from "./js/utils/browser";
+import { updateBadgeAndIcon } from "./js/utils/updateBadgeAndIcon";
 
 // Firefox WebExtensions API type support
 declare global {
@@ -8,10 +9,11 @@ declare global {
 }
 
 const config = new Configuration();
-let redirectConfigured = false;
-let newsfeedRedirectConfigured = false;
-let initialized = false;
-let sidePanelOpen = false;
+let initialization: Promise<void> | null = null;
+
+// The side panel state is kept in session storage: globals are lost when the service worker is stopped
+const setSidePanelOpen = (open: boolean) => chrome.storage.session.set({ sidePanelOpen: open });
+const isSidePanelOpen = async () => !!(await chrome.storage.session.get("sidePanelOpen")).sidePanelOpen;
 
 const setBackgroundFilters = () => {
   // The rules for blocking default backgrounds are no longer needed now that BGA has its own native dark mode
@@ -22,63 +24,55 @@ const setBackgroundFilters = () => {
 };
 
 const setLobbyUrlFilters = (isRedirectEnable: boolean) => {
-  if (redirectConfigured !== isRedirectEnable) {
-    redirectConfigured = isRedirectEnable;
+  if (isRedirectEnable) {
+    console.log("[bga extension] Add filters to redirect to classic lobby");
+    // rule 4 : redirect to classic lobby
 
-    if (redirectConfigured) {
-      console.log("[bga extension] Add filters to redirect to classic lobby");
-      // rule 4 : redirect to classic lobby
-
-      chrome.declarativeNetRequest.updateDynamicRules({
-        removeRuleIds: [4],
-        addRules: [{
-          id: 4,
-          action: { type: "redirect", "redirect": { "regexSubstitution": "https://boardgamearena.com/table?table=\\2&nr=true" } },
-          condition: {
-            regexFilter: "^https://boardgamearena\\.com/gamepanel\\?game=([a-z]*)&table=([0-9]*)",
-            resourceTypes: ["main_frame"]
-          },
-        }]
-      });
-    } else {
-      console.log("[bga extension] Remove filters to redirect to classic lobby");
-      chrome.declarativeNetRequest.updateDynamicRules({
-        removeRuleIds: [4]
-      });
-    }
+    chrome.declarativeNetRequest.updateDynamicRules({
+      removeRuleIds: [4],
+      addRules: [{
+        id: 4,
+        action: { type: "redirect", "redirect": { "regexSubstitution": "https://boardgamearena.com/table?table=\\2&nr=true" } },
+        condition: {
+          regexFilter: "^https://boardgamearena\\.com/gamepanel\\?game=([a-z]*)&table=([0-9]*)",
+          resourceTypes: ["main_frame"]
+        },
+      }]
+    });
+  } else {
+    console.log("[bga extension] Remove filters to redirect to classic lobby");
+    chrome.declarativeNetRequest.updateDynamicRules({
+      removeRuleIds: [4]
+    });
   }
 };
 
 const setNewsfeedFilters = (isRedirectEnable: boolean) => {
-  if (newsfeedRedirectConfigured !== isRedirectEnable) {
-    newsfeedRedirectConfigured = isRedirectEnable;
+  if (isRedirectEnable) {
+    console.log("[bga extension] Add filters to remove social messages from newsfeed");
+    // rule 5 & 6  : remove social messages from newsfeed
 
-    if (newsfeedRedirectConfigured) {
-      console.log("[bga extension] Add filters to remove social messages from newsfeed");
-      // rule 5 & 6  : remove social messages from newsfeed
-
-      chrome.declarativeNetRequest.updateDynamicRules({
-        removeRuleIds: [5, 6],
-        addRules: [{
-          id: 5,
-          action: { type: "redirect", "redirect": { "regexSubstitution": "https://boardgamearena.com/message/board?type=player&id=\\1&social=true&per_page=30&dojo.preventCache=\\3" } },
-          condition: {
-            regexFilter: "^https://boardgamearena\\.com/message/board\\?type=player&id=([0-9]*)&social=true&per_page=([0-9]*)&dojo.preventCache=([0-9]*)"
-          },
-        }, {
-          id: 6,
-          action: { type: "redirect", "redirect": { "regexSubstitution": "https://boardgamearena.com/message/board?type=player&id=\\1&social=true&page=\\2&per_page=30&from_time=\\4&from_id=\\5&dojo.preventCache=\\6" } },
-          condition: {
-            regexFilter: "^https://boardgamearena\\.com/message/board\\?type=player&id=([0-9]*)&social=true&page=([0-9]*)&per_page=([0-9]*)&from_time=([0-9]*)&from_id=([0-9]*)&dojo.preventCache=([0-9]*)"
-          }
-        }]
-      });
-    } else {
-      console.log("[bga extension] Remove filters to remove social messages from newsfeed");
-      chrome.declarativeNetRequest.updateDynamicRules({
-        removeRuleIds: [5, 6]
-      });
-    }
+    chrome.declarativeNetRequest.updateDynamicRules({
+      removeRuleIds: [5, 6],
+      addRules: [{
+        id: 5,
+        action: { type: "redirect", "redirect": { "regexSubstitution": "https://boardgamearena.com/message/board?type=player&id=\\1&social=true&per_page=30&dojo.preventCache=\\3" } },
+        condition: {
+          regexFilter: "^https://boardgamearena\\.com/message/board\\?type=player&id=([0-9]*)&social=true&per_page=([0-9]*)&dojo.preventCache=([0-9]*)"
+        },
+      }, {
+        id: 6,
+        action: { type: "redirect", "redirect": { "regexSubstitution": "https://boardgamearena.com/message/board?type=player&id=\\1&social=true&page=\\2&per_page=30&from_time=\\4&from_id=\\5&dojo.preventCache=\\6" } },
+        condition: {
+          regexFilter: "^https://boardgamearena\\.com/message/board\\?type=player&id=([0-9]*)&social=true&page=([0-9]*)&per_page=([0-9]*)&from_time=([0-9]*)&from_id=([0-9]*)&dojo.preventCache=([0-9]*)"
+        }
+      }]
+    });
+  } else {
+    console.log("[bga extension] Remove filters to remove social messages from newsfeed");
+    chrome.declarativeNetRequest.updateDynamicRules({
+      removeRuleIds: [5, 6]
+    });
   }
 };
 
@@ -95,12 +89,18 @@ const setSidePanelMenu = () => {
   });
 };
 
-const init = async () => {
-  if (initialized) {
-    return;
+const init = () => {
+  if (!initialization) {
+    // Retry on next event if the initialisation failed
+    initialization = doInit().catch((error) => {
+      console.error("[bga extension] Background script initialisation failed", error);
+      initialization = null;
+    });
   }
-  initialized = true;
+  return initialization;
+};
 
+const doInit = async () => {
   console.log("[bga extension] Background script initialisation");
 
   await config.init();
@@ -152,13 +152,13 @@ const sendSidePanelStatus = async (tabId: number, status: string) => {
 
 if (chrome.sidePanel) {
   chrome.sidePanel.onOpened.addListener(() => {
-    sidePanelOpen = true;
+    setSidePanelOpen(true);
     sendSidePanelStatusToAllTabs('bga_ext_sidepanel_opened');
     console.log("[bga extension] Side panel opened");
   });
 
   chrome.sidePanel.onClosed.addListener(() => {
-    sidePanelOpen = false;
+    setSidePanelOpen(false);
     sendSidePanelStatusToAllTabs('bga_ext_sidepanel_closed');
     console.log("[bga extension] Side panel closed");
   });
@@ -171,7 +171,16 @@ chrome.runtime.onMessage.addListener((message: any, sender: chrome.runtime.Messa
   }
 
   if (message.type === 'checkSidePanel' && sender.tab?.id) {
-    sendSidePanelStatus(sender.tab.id, sidePanelOpen ? 'bga_ext_sidepanel_opened' : 'bga_ext_sidepanel_closed');
+    const tabId = sender.tab.id;
+    isSidePanelOpen()
+      .then((open) => sendSidePanelStatus(tabId, open ? 'bga_ext_sidepanel_opened' : 'bga_ext_sidepanel_closed'))
+      .catch(() => { /* no content script => ignore */ });
+    return;
+  }
+
+  // The popup and the side panel delegate the badge update, so it is never done twice at the same time (double sound)
+  if (message.type === 'updateBadgeAndIcon') {
+    updateBadgeAndIcon(message.data);
     return;
   }
 
@@ -182,7 +191,7 @@ chrome.runtime.onMessage.addListener((message: any, sender: chrome.runtime.Messa
 
 chrome.contextMenus.onClicked.addListener((info: any, tab: any) => {
   if (info.menuItemId === "bgaext-sidepanel-menu") {
-    if (typeof browser !== undefined && browser.sidebarAction) {
+    if (typeof browser !== "undefined" && browser.sidebarAction) {
       browser.sidebarAction.open();
     } else {
       chrome.sidePanel.open({ windowId: tab.windowId });
@@ -207,9 +216,11 @@ addChangeListener((changes) => {
 
   if (changes.hideSocialMessages) {
     setNewsfeedFilters(changes.hideSocialMessages.newValue as boolean);
-  } else if (changes.lobbyRedirect) {
+  }
+  if (changes.lobbyRedirect) {
     setLobbyUrlFilters(changes.lobbyRedirect.newValue as boolean);
-  } else if (changes.sidePanelMenu) {
+  }
+  if (changes.sidePanelMenu) {
     setSidePanelMenu();
   }
 });

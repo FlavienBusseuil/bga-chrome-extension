@@ -13,7 +13,8 @@ export async function fetchGroupPlayers(groupId: number): Promise<string[]> {
     const { count, members } = await fetchGroupPlayersOffset(requestToken, groupId, offset);
     result = [...result, ...members];
 
-    finished = result.length >= count;
+    // the members count can be greater than the visible members: stop on an empty page
+    finished = members.length === 0 || result.length >= count;
 
     offset += 100;
   } while (!finished);
@@ -34,5 +35,5 @@ async function fetchGroupPlayersOffset(requestToken: string, groupId: number, of
     body: rawBody,
   })
     .then((response) => response.json())
-    .then((json) => ({ count: json.data.membersCount, members: json.data.members.map((m: any) => m.id) }));
+    .then((json) => ({ count: json.data?.membersCount ?? 0, members: (json.data?.members ?? []).map((m: any) => m.id) }));
 }

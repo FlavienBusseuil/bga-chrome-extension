@@ -73,7 +73,7 @@ export const TournamentsView = ({ config, className, tournaments, closePopupOnCl
 									}
 								};
 								const isOut = playerStatus === 'eliminated' || playerStatus === 'withdrawn';
-								return <Card onClick={onClickFunc} className={cn(["table-card", "tournament-card", isOut && "tournament-card--out"])}>
+								return <Card key={link} onClick={onClickFunc} className={cn(["table-card", "tournament-card", isOut && "tournament-card--out"])}>
 									<div className="tournament-main">
 										<TableImg tableImg={gameImg} tableBoxImg={gameBoxImg} />
 										<div className="tournament-text">

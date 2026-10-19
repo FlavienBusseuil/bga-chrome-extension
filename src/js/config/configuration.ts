@@ -151,8 +151,8 @@ class Configuration {
 	async init() {
 		const [syncStorage, localStorage] = await Promise.all([storageGet(), localStorageGet()]);
 
-		this._customConfig = syncStorage as CustomConfig; // unsafe cast
-		this._localConfig = localStorage as LocalConfig; // unsafe cast
+		this._customConfig = syncStorage as CustomConfig;
+		this._localConfig = localStorage as LocalConfig;
 
 		this._customConfig.locale ||= getI18nDefaultLocale();
 
@@ -165,17 +165,24 @@ class Configuration {
 
 		this._init();
 
-		addChangeListener((changes, namespace) => {
-			try {
-				for (let [key, { newValue }] of Object.entries(changes)) {
-					if (namespace === "local") {
-						(this._localConfig as Record<keyof LocalConfig, any>)[key as keyof LocalConfig] = newValue; // unsafe cast
+		addChangeListener((changes, areaName) => {
+			// The configuration is only stored in "local" and "sync" (see storageSet / localStorageSet)
+			if (areaName !== "local" && areaName !== "sync") {
+				return;
+			}
+
+			for (let [key, { newValue }] of Object.entries(changes)) {
+				try {
+					if (areaName === "local") {
+						(this._localConfig as Record<keyof LocalConfig, any>)[key as keyof LocalConfig] = newValue;
 					} else {
-						(this._customConfig as Record<keyof CustomConfig, any>)[key as keyof CustomConfig] = newValue; // unsafe cast
+						(this._customConfig as Record<keyof CustomConfig, any>)[key as keyof CustomConfig] = newValue;
 					}
-					document && document.dispatchEvent(new CustomEvent('bga_ext_update_config', { detail: { key } }));
-				}
-			} catch (error) { } // not a big deal, catches failing casts
+					if (typeof document !== "undefined") {
+						document.dispatchEvent(new CustomEvent('bga_ext_update_config', { detail: { key } }));
+					}
+				} catch (error) { } // not a big deal, catches failing casts
+			}
 		});
 
 		this._initialized = true;
@@ -630,7 +637,7 @@ class Configuration {
 			case "lobby":
 				return this._customConfig.hidden.map(name => `div:has(> a[href="/gamepanel?game=${name}"]), div.game_box_wrap:has(> div > div > div > a[href="/gamepanel?game=${name}"]) { display: none; }`).join(" ");
 			default:
-				return this._customConfig.hidden.map(name => `div: has(> a[href = "/gamepanel?game=${name}"]) { display: none; }`).join(" ");
+				return this._customConfig.hidden.map(name => `div:has(> a[href = "/gamepanel?game=${name}"]) { display: none; }`).join(" ");
 		}
 	}
 

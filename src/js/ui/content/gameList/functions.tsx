@@ -21,8 +21,8 @@ const createHiddenGameStyle = (content: string) => {
 };
 
 let pageNotFoundError = false;
-let links: NodeListOf<HTMLAnchorElement> | undefined;
 let lastLink: string | undefined;
+let linkListenerAdded = false;
 
 const findClickableParent = (element: HTMLElement, maxDepth = 10): HTMLAnchorElement | null => {
 	let current = element;
@@ -37,14 +37,33 @@ const findClickableParent = (element: HTMLElement, maxDepth = 10): HTMLAnchorEle
 };
 
 const linkClick = (evt: MouseEvent): void => {
+	// only a plain left click navigates in this tab (no new tab / window)
+	if (evt.button !== 0 || evt.ctrlKey || evt.metaKey || evt.shiftKey || evt.altKey) {
+		return;
+	}
+
 	const target = evt.target as HTMLElement;
 	const clickableElement = findClickableParent(target);
 
-	if (clickableElement?.href) {
-		lastLink = clickableElement.href;
-		console.debug('[bga extension] click on', lastLink);
-		locationChangeManager.setCurrentLocation(new URL(lastLink).pathname);
+	if (!clickableElement?.href || (clickableElement.target && clickableElement.target !== '_self')) {
+		return;
 	}
+
+	let url: URL;
+	try {
+		url = new URL(clickableElement.href);
+	} catch (error) {
+		return;
+	}
+
+	// external links (and javascript: links) are not BGA pages
+	if (url.origin !== window.location.origin) {
+		return;
+	}
+
+	lastLink = url.href;
+	console.debug('[bga extension] click on', lastLink);
+	locationChangeManager.setCurrentLocation(url.pathname);
 };
 
 export const initGameListObserver = (config: Configuration, page: string) => {
@@ -52,6 +71,12 @@ export const initGameListObserver = (config: Configuration, page: string) => {
 
 	if (!mainElt) {
 		return null;
+	}
+
+	if (!linkListenerAdded) {
+		// a single listener for the whole document (capture phase: called even if BGA stops the propagation)
+		linkListenerAdded = true;
+		document.addEventListener("click", linkClick, true);
 	}
 
 	const style = createHiddenGameStyle(config.getHiddenGamesStyle(page));
@@ -158,10 +183,6 @@ export const initGameListObserver = (config: Configuration, page: string) => {
 			window.location.replace(lastLink);
 			return;
 		}
-
-		links?.forEach(l => l.removeEventListener("click", linkClick));
-		links = document.querySelectorAll('[href]') as NodeListOf<HTMLAnchorElement>;
-		links.forEach(l => l.addEventListener("click", linkClick));
 
 		// attempt to fix "Page not found" bug => end
 

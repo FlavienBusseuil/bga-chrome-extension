@@ -3,6 +3,7 @@
   "name": "Board Game Arena (BGA) Chrome Extension - boardgamearena.com",
   "short_name": "BGA Chrome Extension",
   "version": "1.14.25",
+  "minimum_chrome_version": "116",
   "action": {
     "default_popup": "popup.html",
     "default_icon": {
@@ -31,7 +32,8 @@
         "https://studio.boardgamearena.com/*"
       ],
       "exclude_matches": [
-        "https://boardgamearena.com/blank?*"
+        "https://boardgamearena.com/blank?*",
+        "https://studio.boardgamearena.com/blank?*"
       ],
       "run_at": "document_start",
       "js": [

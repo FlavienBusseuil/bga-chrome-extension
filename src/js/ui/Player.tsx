@@ -47,6 +47,12 @@ export function Player({
 	);
 }
 
-export function EmptySeat() {
-	return <li className="player player--seat">+ {i18n("empty_seat")}</li>;
+// A single chip for all the free seats of a table
+export function EmptySeats({ count }: { count: number }) {
+	if (count <= 0) {
+		return null;
+	}
+
+	const label = i18n(count === 1 ? "empty_seat" : "empty_seats").replace("$count$", `${count}`);
+	return <li className="player player--seat">+ {label}</li>;
 }

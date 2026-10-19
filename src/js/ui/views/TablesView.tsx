@@ -1,7 +1,7 @@
 import type { TransformedTable } from "../../types/TransformedTable";
 
 import { PlayerList } from "../PlayerList";
-import { EmptySeat, Player } from "../Player";
+import { EmptySeats, Player } from "../Player";
 import { StartNewGameButton } from "../StartNewGameButton";
 import { Table } from "../Table";
 import type { TableId } from "../../types/bga/Table";
@@ -104,11 +104,7 @@ export const TablesView = ({
 														/>
 													),
 												),
-												...Array.from(
-													Array(nbMissingPlayers),
-												).map((_, index) => (
-													<EmptySeat key={`seat_${index}`} />
-												)),
+												<EmptySeats key="seats" count={nbMissingPlayers} />,
 											]}
 										</PlayerList>
 									</Table>

@@ -48,14 +48,14 @@ const _getPlayersData = (returnFunc: (data: PlayerData[]) => void, twoTeams: boo
 
     const playersData = playersIdList.map((id, index) => {
       const userLink = playerLinks[index] as any;
-      const avatar = document.getElementById(`avatar_${id}`) as any;
+      const avatar = document.getElementById(`avatar_${id}`) as HTMLImageElement | null;
       const color = `#${rgbHex(getColor(userLink))}`;
       const darkConfig = getColorForDarkMode(color);
 
       return {
         id,
         name: userLink.innerText || userLink.innerHTML,
-        avatar: avatar.src,
+        avatar: avatar?.src ?? '',
         color,
         darkColor: darkConfig.color === color ? undefined : darkConfig.color,
         darkEnlight: darkConfig.enlight

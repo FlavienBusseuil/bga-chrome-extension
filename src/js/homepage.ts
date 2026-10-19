@@ -15,25 +15,44 @@ const _init = () => {
 
   _initialized = true;
 
-  const maximizeTournamentsList = () => {
+  // Wait for home page elements 10 seconds at most
+  const maxTries = 200;
+  let tournamentsListMaximized = false;
+
+  const maximizeTournamentsList = (tries = maxTries) => {
+    if (tournamentsListMaximized) {
+      return;
+    }
+
     if (document.querySelector('.bga-homepage__content')) {
-      const innerWidth = window.innerWidth;
-      window.innerWidth = 600;
+      tournamentsListMaximized = true;
+
+      // innerWidth can't be restored by assignment (the getter would be replaced by a fixed value)
+      const innerWidthDescriptor = Object.getOwnPropertyDescriptor(window, 'innerWidth');
+      Object.defineProperty(window, 'innerWidth', { configurable: true, get: () => 600 });
       window.dispatchEvent(new Event('resize'));
 
       console.debug("[bga extension] resize UI to maximize tournaments list");
 
       setTimeout(() => {
-        window.innerWidth = innerWidth;
+        if (innerWidthDescriptor) {
+          Object.defineProperty(window, 'innerWidth', innerWidthDescriptor);
+        } else {
+          delete (window as any).innerWidth;
+        }
         window.dispatchEvent(new Event('resize'));
         addTournamentsItems();
       }, 10);
-    } else {
-      setTimeout(maximizeTournamentsList, 50);
+    } else if (tries > 0) {
+      setTimeout(() => maximizeTournamentsList(tries - 1), 50);
     }
   };
 
-  const addTournamentsItems = () => {
+  const addTournamentsItems = (tries = maxTries) => {
+    if (tries <= 0) {
+      return;
+    }
+
     if (document.querySelector('.bga-tournament-list-item')) {
       const but = document.querySelector('.bga-homepage__newsfeed-controls > button:last-child') as HTMLButtonElement | null;
 
@@ -43,7 +62,7 @@ const _init = () => {
         but?.click();
       }
     } else {
-      setTimeout(addTournamentsItems, 50);
+      setTimeout(() => addTournamentsItems(tries - 1), 50);
     }
   };
 
@@ -135,7 +154,7 @@ const _init = () => {
   let observer: MutationObserver | undefined;
   let customMainContent: HTMLElement | undefined;
 
-  const advancedSetPage = (homeConfig: AdvancedHomeConfig) => {
+  const advancedSetPage = (homeConfig: AdvancedHomeConfig, tries = maxTries) => {
     const mainContent = document.querySelector('.bga-homepage');
 
     if (mainContent) {
@@ -173,8 +192,8 @@ const _init = () => {
           }
         });
       }
-    } else {
-      setTimeout(() => advancedSetPage(homeConfig), 50);
+    } else if (tries > 0) {
+      setTimeout(() => advancedSetPage(homeConfig, tries - 1), 50);
     }
   };
 
@@ -201,10 +220,11 @@ const _init = () => {
   document.body.addEventListener('bga_ext_send_homepage_config', (data) => {
     const config = JSON.parse((data as CustomEvent).detail) as AdvancedHomeConfig;
     setPage(config);
+    // The configuration is sent each time we navigate to the home page (BGA doesn't always reload the page)
+    tournamentsListMaximized = false;
+    maximizeTournamentsList();
   });
   document.body.dispatchEvent(new CustomEvent('bga_ext_get_homepage_config', {}));
-
-  maximizeTournamentsList();
 
   console.debug('[bga extension] home page management initialized');
 };

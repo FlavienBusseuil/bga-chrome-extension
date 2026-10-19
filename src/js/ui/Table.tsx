@@ -1,4 +1,4 @@
-import { ComponentChildren } from "preact";
+import { ComponentChildren, Fragment } from "preact";
 import type { TableId } from "../types/bga/Table";
 
 import { i18n } from "../utils/browser/i18n";
@@ -113,12 +113,15 @@ export function Table({
 				{
 					isInvitePendingForCurrentPlayer &&
 					tableCreatorName !== null && (
-						<span
-							className="table-invite"
-							dangerouslySetInnerHTML={{
-								__html: i18n("player_invited_you").replace('$player$', `<a class="table-invite-creator">${tableCreatorName}</a>`),
-							}}
-						></span>
+						<span className="table-invite">
+							{/* The creator name comes from BGA: render it as text, never as HTML */}
+							{i18n("player_invited_you").split("$player$").map((text, index) => (
+								<Fragment key={index}>
+									{index > 0 && <strong className="table-invite-creator">{tableCreatorName}</strong>}
+									{text}
+								</Fragment>
+							))}
+						</span>
 					)
 
 					// Button({

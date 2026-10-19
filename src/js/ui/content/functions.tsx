@@ -158,6 +158,12 @@ const displayElement = (elt: Element, force?: boolean) => {
 	}
 };
 
+// The name must be a whole word: muting "Bob" must not hide "Bobby"
+const containsPlayerName = (text: string, name: string) => {
+	const escapedName = name.replace(/[.*+?^${}()|[\]\\]/g, '\\$&');
+	return new RegExp(`(?<![\\p{L}\\p{N}_.-])${escapedName}(?![\\p{L}\\p{N}_.-])`, 'u').test(text);
+};
+
 const hideMutedPlayerWriting = (writingSpanId: string, writingAreaId: string, titleAreaId: string) => {
 	const writingSpan = document.getElementById(writingSpanId);
 	const writingArea = document.getElementById(writingAreaId);
@@ -168,7 +174,7 @@ const hideMutedPlayerWriting = (writingSpanId: string, writingAreaId: string, ti
 		return;
 	}
 
-	if (writingArea.style.display === 'none' || !writingSpan?.innerHTML || mutedPlayers.find(name => writingSpan.innerHTML.indexOf(name) >= 0)) {
+	if (writingArea.style.display === 'none' || !writingSpan?.innerHTML || mutedPlayers.find(name => containsPlayerName(writingSpan.textContent || '', name))) {
 		hideElement(writingArea);
 		displayElement(titleArea, true);
 	} else {
@@ -282,7 +288,7 @@ const muteChatTable = (config: Configuration, chatTable: Element) => {
 			} else {
 				const sourceElement = document.getElementById(`chatwindowlogstitle_content_table_${id}`);
 
-				if (previewArea && sourceElement) {
+				if (previewArea && sourceElement && previewArea.innerHTML !== sourceElement.innerHTML) {
 					previewArea.replaceChildren();
 
 					Array.from(sourceElement.childNodes).forEach(node => {
@@ -356,7 +362,16 @@ const initChatObserver = (config: Configuration) => {
 			console.warn(`[bga extension] can't disconnect previous chatbar observer`);
 		}
 
-		chatbarObserver = new MutationObserver(() => muteChatAll(config, chatContainer));
+		let pendingFrame = 0;
+		chatbarObserver = new MutationObserver(() => {
+			// mutations come in bursts (and our own changes trigger the observer): process them once per frame
+			if (!pendingFrame) {
+				pendingFrame = requestAnimationFrame(() => {
+					pendingFrame = 0;
+					muteChatAll(config, chatContainer);
+				});
+			}
+		});
 		chatbarObserver.observe(chatContainer, { childList: true, subtree: true });
 	});
 
@@ -417,20 +432,42 @@ const initGamesObserver = (config: Configuration, gameName: string) => {
 		return null;
 	}
 
-	const observer = new MutationObserver(() => {
-		if (!config.isOnlineMessagesEnabled()) {
-			const elements = document.querySelectorAll('#logs .log:not(.hidden)');
+	const filterLog = (elt: Element) => {
+		const text = elt.innerHTML;
+		if (text && text.indexOf('<!--PNS-->') >= 0 && shouldFilter(text)) {
+			elt.classList.add('hidden');
+		}
+	};
 
-			elements.forEach((elt, index) => {
-				const text = elt.innerHTML;
-				if (text && text.indexOf('<!--PNS-->') >= 0 && shouldFilter(text)) {
-					elt.classList.add('hidden');
-				}
-				if (index > 20) {
-					return;
+	if (!config.isOnlineMessagesEnabled()) {
+		logsContainer.querySelectorAll('.log:not(.hidden)').forEach(filterLog);
+	}
+
+	// Only the logs added or changed by the mutations are checked, not the whole history
+	const observer = new MutationObserver((mutations) => {
+		if (config.isOnlineMessagesEnabled()) {
+			return;
+		}
+
+		const logs = new Set<Element>();
+
+		mutations.forEach(mutation => {
+			const parentLog = (mutation.target as Element).closest?.('.log');
+			if (parentLog) {
+				logs.add(parentLog);
+			}
+
+			mutation.addedNodes.forEach(node => {
+				if (node instanceof Element) {
+					if (node.matches('.log')) {
+						logs.add(node);
+					}
+					node.querySelectorAll('.log').forEach(log => logs.add(log));
 				}
 			});
-		}
+		});
+
+		logs.forEach(log => !log.classList.contains('hidden') && filterLog(log));
 	});
 
 	observer.observe(logsContainer, { childList: true, subtree: true });

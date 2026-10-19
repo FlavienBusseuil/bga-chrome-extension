@@ -13,7 +13,8 @@ import { OptionsView } from "./views/OptionsView";
 
 import { useState, useEffect, useErrorBoundary } from "preact/hooks";
 import { useSyncedState } from "./hooks/useSyncedState";
-import { updateBadgeAndIcon } from "../utils/updateBadgeAndIcon";
+import { useLocale } from "./hooks/useLocale";
+import { requestBadgeAndIconUpdate } from "../utils/updateBadgeAndIcon";
 import { i18n } from "../utils/browser/i18n";
 import { isMobile } from "../utils/browser";
 import { cn } from "./utils/cn";
@@ -43,7 +44,7 @@ export const App = ({ config }: Props) => {
 	const closePopupOnClick = config.shouldClosePopupOnClick(!isFirefox);
 	const focusOnNewTab = isFirefox ? config.shouldFocusOnNewTab() : undefined;
 	const [hasConfigChange, setConfigChange] = useSyncedState("configChange", false);
-	const [locale] = useSyncedState('locale', config.getLocale());
+	const locale = useLocale(config.getLocale());
 	const [sortedTables, setSortedTables] = useState<TransformedTable[]>([]);
 	const [sortedTournaments, setSortedTournaments] = useState<TransformedTournament[]>([]);
 
@@ -58,7 +59,7 @@ export const App = ({ config }: Props) => {
 				transformedTournaments
 			} = result;
 
-			updateBadgeAndIcon({
+			requestBadgeAndIconUpdate({
 				nbWaitingTables,
 				nbPendingInvites,
 				tracking: config.isTrackingEnable(),
@@ -74,7 +75,7 @@ export const App = ({ config }: Props) => {
 		if (config.isTrackingEnable()) {
 			fetch();
 		} else {
-			updateBadgeAndIcon({ nbPendingInvites: 0, nbWaitingTables: 0, tracking: false, soundNotification: false });
+			requestBadgeAndIconUpdate({ nbPendingInvites: 0, nbWaitingTables: 0, tracking: false, soundNotification: false });
 		}
 	};
 

@@ -30,8 +30,9 @@ export function useFetch(): Output {
 
 	const handleFetch = () => {
 		fetch()
-			.catch(setError)
 			.then((response) => {
+				setError(null);
+
 				if (response) {
 					if (response.isLoggedOut) {
 						setResult({ isLoggedOut: response.isLoggedOut });
@@ -56,9 +57,7 @@ export function useFetch(): Output {
 						transformedTables,
 						transformedTournaments,
 						getGroupTables: async (groupId: string) => {
-							rest.tables = await getGroupTables(groupId);
-
-							const openedTables = transformTables(rest);
+							const openedTables = transformTables({ ...rest, tables: await getGroupTables(groupId) });
 							const availableTables = openedTables.filter(t => t.nbMaxPlayers > t.players.length);
 
 							availableTables.sort((a, b) => a.gameName.localeCompare(b.gameName));
@@ -67,7 +66,8 @@ export function useFetch(): Output {
 						groups,
 					});
 				}
-			});
+			})
+			.catch(setError);
 	};
 
 	return [handleFetch, { result, error }];

@@ -25,6 +25,10 @@ import {
 } from './js/ui/content/functions';
 import { gamesConfiguration } from "./js/config/darkThemeGames";
 
+// The script is injected in every frame: in an iframe, only a game (like #gameIframe of the table view) needs it
+const isTopFrame = window.self === window.top;
+const isGameFrame = !isTopFrame && /^\/\d+\/[^/]+/.test(window.location.pathname);
+
 const config = new ConfigurationWithGames();
 let currentObserver: MutationObserver | null = null;
 let pageType: string;
@@ -49,7 +53,14 @@ const autoHideChat = (e: MouseEvent) => {
 	}
 };
 
-const initObserver = (page: string) => {
+// Incremented on each navigation: pending retries of the previous page are dropped
+let locationVersion = 0;
+
+const initObserver = (page: string, version = locationVersion, tries = 60) => {
+	if (version !== locationVersion) {
+		return;
+	}
+
 	console.debug(`[bga extension] init observer for page ${page}`);
 
 	if (page === 'game') {
@@ -61,7 +72,9 @@ const initObserver = (page: string) => {
 	}
 
 	if (!currentObserver) {
-		setTimeout(() => initObserver(page), 500);
+		if (tries > 0) {
+			setTimeout(() => initObserver(page, version, tries - 1), 500);
+		}
 	} else {
 		initChatObserver(config);
 
@@ -93,55 +106,55 @@ const initGame = (gameName: string, mode: 'game' | 'archive') => {
 	if (!isMobile && mode === 'archive') {
 		const el = document.getElementById('archivecontrol_editmode');
 
-		if (el) {
+		// the page can be initialized several times: create the button and its listeners once
+		if (el && !el.querySelector(':scope > .fa-window-restore')) {
 			const fa = document.createElement('i');
 			fa.className = 'fa fa-window-restore';
-			fa.onclick = () => {
-				document.documentElement.classList.add('bgaext_archive_floating_menu');
+			fa.onclick = () => document.documentElement.classList.add('bgaext_archive_floating_menu');
 
-				let isDragging = false;
-				let startX: number, startY: number, initialLeft: number, initialTop: number;
+			let isDragging = false;
+			let startX: number, startY: number, initialLeft: number, initialTop: number;
 
-				el.addEventListener('mousedown', (e: any) => {
-					if (e.target.tagName === 'A') {
-						return;
-					}
+			el.addEventListener('mousedown', (e: any) => {
+				// the menu can only be moved once it is floating
+				if (e.target.tagName === 'A' || !document.documentElement.classList.contains('bgaext_archive_floating_menu')) {
+					return;
+				}
 
-					e.preventDefault();
+				e.preventDefault();
 
-					isDragging = true;
+				isDragging = true;
 
-					startX = e.clientX;
-					startY = e.clientY;
+				startX = e.clientX;
+				startY = e.clientY;
 
-					const rect = el.getBoundingClientRect();
-					initialLeft = rect.left;
-					initialTop = rect.top;
+				const rect = el.getBoundingClientRect();
+				initialLeft = rect.left;
+				initialTop = rect.top;
 
-					el.style.cursor = 'grabbing';
-				});
+				el.style.cursor = 'grabbing';
+			});
 
-				document.addEventListener('mousemove', (e) => {
-					if (!isDragging) return;
+			document.addEventListener('mousemove', (e) => {
+				if (!isDragging) return;
 
-					const deltaX = e.clientX - startX;
-					const deltaY = e.clientY - startY;
-					const left = Math.max(initialLeft + deltaX, 0);
-					const top = Math.max(initialTop + deltaY, 0);
+				const deltaX = e.clientX - startX;
+				const deltaY = e.clientY - startY;
+				const left = Math.max(initialLeft + deltaX, 0);
+				const top = Math.max(initialTop + deltaY, 0);
 
-					el.style.left = `${left}px`;
-					el.style.top = `${top}px`;
-					el.style.bottom = 'auto';
-					el.style.right = 'auto';
-				});
+				el.style.left = `${left}px`;
+				el.style.top = `${top}px`;
+				el.style.bottom = 'auto';
+				el.style.right = 'auto';
+			});
 
-				document.addEventListener('mouseup', () => {
-					if (isDragging) {
-						isDragging = false;
-						el.style.cursor = 'grab';
-					}
-				});
-			}
+			document.addEventListener('mouseup', () => {
+				if (isDragging) {
+					isDragging = false;
+					el.style.cursor = 'grab';
+				}
+			});
 			el.prepend(fa);
 		}
 	}
@@ -152,6 +165,7 @@ const initGame = (gameName: string, mode: 'game' | 'archive') => {
 
 const manageLocationChange = (pathname: string) => {
 	console.log('[bga extension] load path', pathname);
+	locationVersion++;
 
 	const pageInfo = pathname.substring(1).split('.')[0]?.split('/');
 	const gamePage = pageInfo && pageInfo.length >= 2 && isNumber(pageInfo[0] as string);
@@ -414,7 +428,7 @@ const initPage = () => {
 			setTimeout(() => displayInformationPopup(config), 2000);
 		}
 
-		if (config.isSidePanelIconVisible()) {
+		if (isTopFrame && config.isSidePanelIconVisible()) {
 			initSidePanel();
 		}
 
@@ -465,11 +479,18 @@ const initPage = () => {
 			}
 		});
 
-		document.body.addEventListener('bga_ext_get_homepage_config', sendHomeConfiguration);
+		document.body.addEventListener('bga_ext_get_homepage_config', () => {
+			// the home page script is loaded on every page, the configuration is only useful on the home page
+			if (document.documentElement.classList.contains("bgaext_welcome")) {
+				sendHomeConfiguration();
+			}
+		});
 	});
 };
 
-config.init().then(initPage);
+if (isTopFrame || isGameFrame) {
+	config.init().then(initPage);
+}
 
 document.addEventListener('bga_ext_update_config', (data) => {
 	const key = (data as CustomEvent).detail.key as string;

@@ -20,15 +20,16 @@ export async function bgPeriodic(config: Configuration) {
 				return;
 			}
 
-			// Fetch number of waiting tables
-			const { nbWaitingTables } = await fetchActivityForPlayer(playerId, playerToken);
+			// Fetch number of waiting tables and pending invites
+			const [{ nbWaitingTables }, tables] = await Promise.all([
+				fetchActivityForPlayer(playerId, playerToken),
+				fetchTablesFromTableManager('play'),
+			]);
+			const nbPendingInvites = tables.reduce((total, table) => total + (table.players[castToString(playerId)]?.table_status === "expected" ? 1 : 0), 0,);
 
-			const tables = await fetchTablesFromTableManager('play');
-			const nbPendingInvites = tables.reduce((total, table) => total + (table.players[castToString(playerId)]!.table_status === "expected" ? 1 : 0), 0,);
-
-			updateBadgeAndIcon({ nbPendingInvites, nbWaitingTables, tracking: true, soundNotification: config.isSoundNotificationEnable() });
+			await updateBadgeAndIcon({ nbPendingInvites, nbWaitingTables, tracking: true, soundNotification: config.isSoundNotificationEnable() });
 		} else {
-			updateBadgeAndIcon({ nbPendingInvites: 0, nbWaitingTables: 0, tracking: false, soundNotification: false });
+			await updateBadgeAndIcon({ nbPendingInvites: 0, nbWaitingTables: 0, tracking: false, soundNotification: false });
 		}
 	} catch (error) {
 		console.error(error);

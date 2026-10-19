@@ -50,6 +50,8 @@ export const buildLeftMenu = (config: Configuration, gameConfig: Game, enable: b
 
 	const container = document.getElementById(menuContainerId);
 	if (container) {
+		// unmount first so the component cleans up its interval and listeners
+		render(null, container);
 		container.parentNode?.removeChild(container);
 	}
 };

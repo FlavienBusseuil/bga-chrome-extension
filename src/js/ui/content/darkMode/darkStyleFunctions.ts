@@ -162,8 +162,10 @@ const _checkContent = (elt: any, text: string) => {
   return false;
 };
 
-const _setPlayersColor = (query: string | undefined, playersData: PlayerData[]) => {
-  if (query) {
+let playersColorRun = 0;
+
+const _setPlayersColor = (query: string | undefined, playersData: PlayerData[], run = ++playersColorRun, tries = 120) => {
+  if (query && run === playersColorRun) {
     const elements = document.querySelectorAll(query);
 
     let ok = false;
@@ -175,8 +177,8 @@ const _setPlayersColor = (query: string | undefined, playersData: PlayerData[]) 
       }
     });
 
-    if (!ok) {
-      setTimeout(() => _setPlayersColor(query, playersData), 100);
+    if (!ok && tries > 0) {
+      setTimeout(() => _setPlayersColor(query, playersData, run, tries - 1), 250);
       return;
     }
   }

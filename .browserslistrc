@@ -1,3 +1,8 @@
-last 2 versions
-not dead
-> 0.2%
+# Chrome 116: chrome.sidePanel.open() and chrome.runtime.getContexts()
+chrome >= 116
+edge >= 116
+# Opera 102 is based on Chromium 116
+opera >= 102
+# Same as strict_min_version in manifest-firefox.json
+firefox >= 115
+and_ff >= 115

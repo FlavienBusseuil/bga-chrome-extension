@@ -17,7 +17,12 @@ export const storageClear = async (): Promise<void> => {
 export const addChangeListener = (
 	func: (changes: Record<string, chrome.storage.StorageChange>, areaName: string) => void
 ): void => {
-	chrome.storage.onChanged.addListener(func);
+	chrome.storage.onChanged.addListener((changes, areaName) => {
+		// session storage only holds the background script state, not the configuration
+		if (areaName !== "session") {
+			func(changes, areaName);
+		}
+	});
 };
 
 export const getUrl = (localUrl: string): string => {

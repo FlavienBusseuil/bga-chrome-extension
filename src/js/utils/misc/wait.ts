@@ -1,82 +1,77 @@
 type Waiter = {
 	resolve: (value: Element | PromiseLike<Element>) => void,
-	error: (reason?: any) => void,
 	timestamp: number,
-	timeout: number | undefined,
+	timer: ReturnType<typeof setTimeout>,
 };
+
+// Waiters without an explicit timeout are dropped after this delay (the element will most likely never appear)
+const DEFAULT_TIMEOUT = 60000;
 
 class Wait {
 	observer: MutationObserver;
 	observerStarted: boolean;
 	waiting: Record<string, Waiter[]>;
-	interval: number;
 
 	constructor() {
 		this.waiting = {};
 		this.observerStarted = false;
 		this.observer = new MutationObserver(() => this.check());
-		this.interval = 0;
 	}
 
 	private check() {
 		try {
-			const keys = Object.keys(this.waiting);
+			const timestamp = new Date().getTime();
 
-			if (keys.length) {
-				const timestamp = new Date().getTime();
+			Object.entries(this.waiting).forEach(([selector, waiters]) => {
+				const elt = document.querySelector(selector);
 
-				keys.forEach(selector => {
-					const elt = document.querySelector(selector);
-					const waiters = this.waiting[selector] || [];
-
-					if (elt) {
-						waiters.forEach(waiter => {
-							console.debug(`[bga extension] wait for elt '${selector}'`, { result: true, delay: `${timestamp - waiter.timestamp}ms` });
-							waiter.resolve(elt);
-						});
-						delete this.waiting[selector];
-					} else {
-						const timeoutWaiters = waiters.filter(waiter => waiter.timeout && timestamp - waiter.timestamp > waiter.timeout);
-
-						if (timeoutWaiters.length) {
-							console.debug(`[bga extension] wait for elt '${selector}`, { result: false });
-
-							timeoutWaiters.forEach(waiter => {
-								waiter.error();
-							});
-
-							if (timeoutWaiters.length === waiters.length) {
-								delete this.waiting[selector];
-							} else {
-								this.waiting[selector] = waiters.filter(waiter => !waiter.timeout || timestamp - waiter.timestamp <= waiter.timeout);
-							}
-						}
-					}
-				});
-			} else {
-				this.stopObserver();
-			}
+				if (elt) {
+					waiters.forEach(waiter => {
+						console.debug(`[bga extension] wait for elt '${selector}'`, { result: true, delay: `${timestamp - waiter.timestamp}ms` });
+						clearTimeout(waiter.timer);
+						waiter.resolve(elt);
+					});
+					delete this.waiting[selector];
+				}
+			});
 		}
 		catch (error) {
 			console.error('[bga extension] exception occured in waiter', error);
 		}
+
+		this.stopObserverIfIdle();
+	}
+
+	private expire(selector: string, waiter: Waiter, onTimeout: (() => void) | null) {
+		const waiters = (this.waiting[selector] || []).filter(w => w !== waiter);
+
+		if (waiters.length) {
+			this.waiting[selector] = waiters;
+		} else {
+			delete this.waiting[selector];
+		}
+
+		console.debug(`[bga extension] wait for elt '${selector}'`, { result: false });
+
+		// Without an explicit timeout the promise stays pending, as the callers don't expect an error
+		onTimeout?.();
+		this.stopObserverIfIdle();
 	}
 
 	private startObserver() {
 		if (!this.observerStarted) {
 			console.debug('[bga extension] start objects observer');
 			this.observerStarted = true;
-			this.observer.observe(document.documentElement, { childList: true, subtree: true, attributes: true });
-			this.interval = setInterval(() => this.check(), 1000);
+			// Only attributes which can make an element match a selector: style changes (animations) are ignored
+			this.observer.observe(document.documentElement, { childList: true, subtree: true, attributes: true, attributeFilter: ['id', 'class', 'href'] });
 		}
 	}
 
-	private stopObserver() {
-		if (this.observerStarted) {
+	private stopObserverIfIdle() {
+		if (this.observerStarted && !Object.keys(this.waiting).length) {
 			console.debug('[bga extension] stop objects observer');
 			this.observerStarted = false;
 			this.observer.disconnect();
-			clearInterval(this.interval);
 		}
 	}
 
@@ -90,23 +85,15 @@ class Wait {
 
 		this.startObserver();
 
-		if (!this.waiting[selector]) {
-			this.waiting[selector] = [];
-		}
+		return new Promise<Element>((resolve, reject) => {
+			const waiter: Waiter = {
+				resolve,
+				timestamp: new Date().getTime(),
+				timer: setTimeout(() => this.expire(selector, waiter, timeout ? reject : null), timeout ?? DEFAULT_TIMEOUT),
+			};
 
-		return new Promise<Element>((resolve, error) => {
-			if (this.waiting[selector]) {
-				this.waiting[selector].push({
-					resolve,
-					error,
-					timestamp: new Date().getTime(),
-					timeout
-				});
-
-				console.debug(`[bga extension] enqueue waiter for elt '${selector}'`, { waiters: this.waiting[selector].length });
-			} else {
-				error('Init error');
-			}
+			this.waiting[selector] = [...(this.waiting[selector] || []), waiter];
+			console.debug(`[bga extension] enqueue waiter for elt '${selector}'`, { waiters: this.waiting[selector].length });
 		});
 	}
 }

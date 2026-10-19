@@ -30,7 +30,8 @@
 	"targets": {
 		"dev": {
 			"sourceMap": false,
-			"optimize": false
+			"optimize": false,
+			"scopeHoist": true
 		},
 		"prod": {
 			"sourceMap": false

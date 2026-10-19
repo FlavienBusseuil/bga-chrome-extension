@@ -4,6 +4,7 @@ import { getFile } from "easy-file-picker";
 import { i18n } from "../../utils/browser/i18n";
 import { OptionsView } from "../views/OptionsView";
 import { useSyncedState } from "../hooks/useSyncedState";
+import { useLocale } from "../hooks/useLocale";
 import type ConfigurationWithGames from "../../config/configurationWithGames";
 
 const Options = (props: { config: ConfigurationWithGames }) => {
@@ -12,7 +13,7 @@ const Options = (props: { config: ConfigurationWithGames }) => {
 	const [tabSelected, setTabSelected] = useState("general");
 	const [troubleshootingMessage, setTroubleshootingMessage] = useState('');
 	const [, setConfigChange] = useSyncedState("configChange", false);
-	const [locale] = useSyncedState('locale', config.getLocale());
+	const locale = useLocale(config.getLocale());
 
 	const exportFile = (filename: string, json: string) => {
 		const blob = new Blob([json], { type: "text/json" });
