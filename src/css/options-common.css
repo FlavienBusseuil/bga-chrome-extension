@@ -1,5 +1,9 @@
+:root {
+  --options-frame-border: #000;
+}
+
 .options-frame-title {
-  background-color: #fefce8;
+  background-color: var(--page-bg);
 }
 
 .options-frame.reduced:hover {
@@ -29,7 +33,7 @@
 .options-frame {
   display: flex;
   flex-flow: column;
-  border: 1px solid #000;
+  border: 1px solid var(--options-frame-border);
   border-radius: 8px;
   padding: 1.2em;
   margin-top: 0.5em;
@@ -38,7 +42,6 @@
   display: flex;
   flex-flow: column;
   gap: 0.5em;
-  transition: all .5s linear;
 }
 
 .options-frame:not(.reduced) {
@@ -61,7 +64,6 @@
   left: 1em;
   padding: 0em 0.5em;
   font-weight: bold;
-  transition: all .5s linear;
 }
 
 .options-frame-title span {
@@ -81,6 +83,90 @@
 .reduced .options-frame-title svg {
   width: 24px;
   height: 24px;
+}
+
+/* The titles are labels: no text selection nor blinking cursor when clicking them */
+.options-frame-title {
+  user-select: none;
+  caret-color: transparent;
+}
+
+/* ---------- Opening a section ---------- */
+
+/* View transitions (see OptionsView): the sections and their titles move to their new place */
+:root {
+  view-transition-name: none;
+}
+
+::view-transition-group(*) {
+  animation-duration: 400ms;
+  animation-timing-function: cubic-bezier(0.2, 0.7, 0.2, 1);
+}
+
+::view-transition-image-pair(*) {
+  overflow: hidden;
+}
+
+::view-transition-old(*),
+::view-transition-new(*) {
+  width: 100%;
+  height: 100%;
+  object-fit: none;
+  object-position: left top;
+  animation-duration: 300ms;
+}
+
+/* The snapshots of a section don't have the size of the animated frame: their borders would appear and disappear
+   inside it. During the transition the borders are hidden in the page and drawn by the animated frames instead. */
+html.bgaext-section-transition .options-frame {
+  border-color: transparent !important;
+}
+
+::view-transition-group(bgaext-section-misc),
+::view-transition-group(bgaext-section-notif),
+::view-transition-group(bgaext-section-games),
+::view-transition-group(bgaext-section-home),
+::view-transition-group(bgaext-section-inProgress),
+::view-transition-group(bgaext-section-fastStart),
+::view-transition-group(bgaext-section-hidden),
+::view-transition-group(bgaext-section-muted),
+::view-transition-group(bgaext-section-about) {
+  box-sizing: border-box;
+  border: 1px solid var(--options-frame-border);
+  border-radius: 8px;
+}
+
+/* The title of an opened section is drawn on the frame border: it hides the border behind it */
+html.bgaext-section-transition .options-frame:not(.reduced)>.options-frame-title span {
+  background: inherit;
+  padding: 0 0.5em;
+  margin: 0 -0.5em;
+}
+
+/* Without view transitions (Firefox < 144): the content of the opened section fades in */
+@supports not (view-transition-name: none) {
+  @media (prefers-reduced-motion: no-preference) {
+    .options-frame:not(.reduced)>.options-frame-title {
+      animation: options-fade 180ms ease-out both;
+    }
+
+    .options-frame:not(.reduced)>:not(.options-frame-title) {
+      animation: options-reveal 180ms cubic-bezier(0.2, 0.7, 0.2, 1) both;
+    }
+  }
+}
+
+@keyframes options-fade {
+  from {
+    opacity: 0;
+  }
+}
+
+@keyframes options-reveal {
+  from {
+    opacity: 0;
+    transform: translateY(-6px);
+  }
 }
 
 .options-version {
@@ -203,4 +289,68 @@
 .flags,
 .flags>option {
   font-family: "Twemoji Country Flags", serif;
+}
+/* ---------- Dark mode (extension setting, html.dark): popup, side panel and options page ---------- */
+
+:root.dark {
+  color-scheme: dark;
+
+  --dark-10: #1d2023;
+  --dark-20: #272a2f;
+  --dark-30: #35373c;
+  --dark-40: #404347;
+
+  --blue-70: #009aa0;
+
+  --light-50: #8e8e8e;
+  --light-70: #ccc;
+  --light-80: #dcddde;
+
+  --options-frame-border: #fff;
+}
+
+html.dark,
+html.dark body {
+  color: var(--light-80);
+  background: var(--dark-10);
+}
+
+html.dark .card {
+  background: var(--dark-20);
+  border-color: var(--dark-40);
+  box-shadow: 0 4px 6px -1px #5555551a, 0 2px 4px -2px #5555551a;
+}
+
+html.dark .card:hover {
+  background: var(--dark-30);
+  border-color: var(--light-50);
+}
+
+html.dark .btn--primary,
+html.dark .options-button {
+  background: linear-gradient(180deg, #0ba9b7, #248189);
+}
+
+html.dark .btn--primary:hover,
+html.dark .options-button:hover {
+  background: linear-gradient(180deg, #06d7ea, #248189);
+}
+
+html.dark .tab--inactive:not(:hover) {
+  filter: grayscale(0.5);
+}
+
+html.dark .options-frame-title {
+  background-color: var(--dark-10);
+}
+
+html.dark .options-frame.reduced:hover,
+html.dark .options-frame.reduced:hover .options-frame-title {
+  background: var(--dark-40);
+}
+
+html.dark .bgext_hidden_game {
+  background: var(--dark-40);
+  border: 1px solid var(--light-50);
+  color: var(--light-80);
 }

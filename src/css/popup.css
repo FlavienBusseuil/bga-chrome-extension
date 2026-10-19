@@ -1,20 +1,5 @@
 @import 'options-common.css';
 
-:root.dark {
-  color-scheme: dark;
-
-  --dark-10: #1d2023;
-  --dark-20: #272a2f;
-  --dark-30: #35373c;
-  --dark-40: #404347;
-
-  --blue-70: #009aa0;
-
-  --light-50: #8e8e8e;
-  --light-70: #ccc;
-  --light-80: #dcddde;
-}
-
 html.popup {
   width: 500px !important;
   overflow-x: hidden;
@@ -49,15 +34,6 @@ html.side-panel .options-container {
   overflow: auto;
 }
 
-html.dark body {
-  color: var(--light-80);
-}
-
-html.dark,
-html.dark body.app {
-  background: var(--dark-10);
-}
-
 select {
   height: 26px;
   padding: 0em 1em;
@@ -68,49 +44,6 @@ select {
   height: 36px;
   padding: 0em 0.5em;
   margin: 0px;
-}
-
-html.dark .card {
-  background: var(--dark-20);
-  border-color: var(--dark-40);
-  box-shadow: 0 4px 6px -1px #5555551a, 0 2px 4px -2px #5555551a;
-}
-
-html.dark .card:hover {
-  background: var(--dark-30);
-  border-color: var(--light-50);
-}
-
-html.dark .btn--primary,
-html.dark .options-button {
-  background: linear-gradient(180deg, #0ba9b7, #248189);
-}
-
-html.dark .btn--primary:hover,
-html.dark .options-button:hover {
-  background: linear-gradient(180deg, #06d7ea, #248189);
-}
-
-html.dark .options-frame.reduced:hover {
-  background: var(--dark-40);
-}
-
-html.dark .options-frame {
-  border-color: #fff;
-}
-
-html.dark .options-frame.reduced:hover .options-frame-title {
-  background: var(--dark-40);
-}
-
-html.dark .options-frame-title {
-  background-color: var(--dark-10);
-}
-
-html.dark .bgext_hidden_game {
-  background: var(--dark-40);
-  border: 1px solid var(--light-50);
-  color: var(--light-80);
 }
 
 a {
@@ -124,10 +57,6 @@ p {
 
 .max-result > ul {
   padding-bottom: 4px;
-}
-
-html.dark .tab--inactive:not(:hover) {
-  filter: grayscale(0.5);
 }
 
 /* Special style for Android version */

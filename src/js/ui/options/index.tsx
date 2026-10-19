@@ -3,6 +3,8 @@ import { getFile } from "easy-file-picker";
 
 import { i18n } from "../../utils/browser/i18n";
 import { OptionsView } from "../views/OptionsView";
+import { Tabs } from "../base/Tabs";
+import { Tab } from "../base/Tab";
 import { useSyncedState } from "../hooks/useSyncedState";
 import { useLocale } from "../hooks/useLocale";
 import type ConfigurationWithGames from "../../config/configurationWithGames";
@@ -111,19 +113,12 @@ const Options = (props: { config: ConfigurationWithGames }) => {
 		return <OptionsView config={config} onChange={() => setConfigChange(true)} />;
 	};
 
+	// Same tabs as the popup
 	const getTab = (tabId: string, tabText: string) => {
 		return (
-			<div
-				id={`bgext_options_tab_${tabId}`}
-				className={
-					tabSelected === tabId
-						? "bgext_link_selected"
-						: "bgext_link"
-				}
-				onClick={() => setTabSelected(tabId)}
-			>
+			<Tab k={tabId} fullWidth={true} isActive={tabSelected === tabId} onClick={setTabSelected}>
 				{tabText}
-			</div>
+			</Tab>
 		);
 	};
 
@@ -132,9 +127,11 @@ const Options = (props: { config: ConfigurationWithGames }) => {
 			<div className="bgext_options_main">
 				<div className="bgext_options_config_area">
 					<div key={`options_${locale}`} className="bgext_links_area">
-						{getTab("general", i18n("optionGeneralTab"))}
-						{getTab("css", i18n("optionCssTab"))}
-						{getTab("troubleshooting", i18n("troubleshooting"))}
+						<Tabs>
+							{getTab("general", i18n("optionGeneralTab"))}
+							{getTab("css", i18n("optionCssTab"))}
+							{getTab("troubleshooting", i18n("troubleshooting"))}
+						</Tabs>
 					</div>
 					{tabSelected === "general" && getGeneralSection()}
 					{tabSelected === "css" && getCssConfiguration()}

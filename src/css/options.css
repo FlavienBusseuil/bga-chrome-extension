@@ -21,41 +21,18 @@ button.native-button {
 	justify-content: center;
 }
 
+/* Same tabs as the popup */
+.bgext_links_area {
+	padding: 0.5em 0.5em 0;
+}
+
 .bgext_options_config_area {
-	border-top: 1px solid #aaaaaa;
 	width: 860px;
 	height: 540px;
 	display: flex;
 	flex-flow: column;
 	gap: 0.5em;
 	overflow: auto;
-}
-
-.bgext_links_area {
-	display: flex;
-	flex-flow: row;
-	gap: 1em;
-	padding: 0.5em 0em 0em 2em;
-}
-
-.bgext_link,
-.bgext_link_selected {
-	white-space: nowrap;
-	line-height: 24px;
-	text-decoration: none;
-	padding: 0px 10px;
-	font-size: 0.875rem;
-	cursor: pointer;
-}
-
-.bgext_link {
-	border-bottom: 3px solid transparent;
-	color: rgb(96, 107, 133);
-}
-
-.bgext_link_selected {
-	border-bottom: 3px solid #0263e0;
-	color: #0263e0;
 }
 
 .bgext_options_title {
@@ -182,10 +159,6 @@ textarea.options-textarea {
 	text-decoration: underline;
 }
 
-.options-frame-title {
-	background-color: #fff;
-}
-
 .small_button {
 	width: 150px;
 }
@@ -239,80 +212,15 @@ textarea.options-textarea {
 		padding: 0;
 	}
 
-	.bgext_options_config_area {
-		border-top: none;
-	}
-
 	.options-frame.reduced {
 		min-width: 50%;
 	}
 }
 
-@media (prefers-color-scheme: dark) {
+html.dark textarea {
+	background: transparent;
+}
 
-	:root,
-	select,
-	input,
-	textarea {
-		color-scheme: dark;
-		--dark-10: #1d2023;
-		--dark-20: #272a2f;
-		--dark-30: #35373c;
-		--dark-40: #404347;
-
-		--blue-70: #009aa0;
-
-		--light-50: #8e8e8e;
-		--light-70: #ccc;
-		--light-80: #dcddde;
-	}
-
-	body {
-		background: var(--dark-10);
-		color: #fff;
-	}
-
-	.bgext_options_gameitem_selected {
-		background: #0e4871;
-	}
-
-	.bgext_hidden_game {
-		background: var(--dark-40);
-		border: 1px solid var(--light-50);
-		color: var(--light-80);
-	}
-
-	.bgext_options_title {
-		color: lightgrey;
-	}
-
-	.bgext_link {
-		color: #b5bbc9;
-	}
-
-	.bgext_link_selected {
-		color: #8ab4f8;
-		border-bottom: 3px solid #8ab4f8;
-	}
-
-	textarea {
-		background: transparent;
-	}
-
-	.options-frame {
-		border-color: #fff;
-	}
-
-	.options-frame {
-		border-color: #fff;
-	}
-
-	.options-frame.reduced:hover,
-	.options-frame.reduced:hover .options-frame-title {
-		background: var(--dark-40);
-	}
-
-	.options-frame-title {
-		background-color: var(--dark-10);
-	}
+html.dark .bgext_options_title {
+	color: lightgrey;
 }
