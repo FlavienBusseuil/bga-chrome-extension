@@ -412,9 +412,12 @@ const changeLocation = (loc: string) => {
 
 const initSidePanel = () => {
 	if (!isMobile && !isFirefox && !document.getElementById("bgaext-side-panel")) {
-		const extIcon = document.createElement('i');
+		const extIcon = document.createElement('span');
 		extIcon.id = "bgaext-side-panel";
-		extIcon.className = "fa fa-puzzle-piece";
+		// A window with a column on the right, like the side panel icon of Chrome
+		extIcon.innerHTML = '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linejoin="round" aria-hidden="true">'
+			+ '<rect x="3" y="4" width="18" height="16" rx="2.5"/><path d="M14.5 4v16"/>'
+			+ '<path d="M17 8.5h1.5M17 11.5h1.5M17 14.5h1.5" stroke-linecap="round"/></svg>';
 		extIcon.addEventListener('click', () => chrome.runtime.sendMessage({ type: 'openSidePanel' }));
 		document.body.appendChild(extIcon);
 		chrome.runtime.sendMessage({ type: 'checkSidePanel' });
