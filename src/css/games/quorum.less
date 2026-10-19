@@ -1,0 +1,26 @@
+html[data-theme=dark].bgaext_bright {
+
+	.bga-cards_card>.bga-cards_card-sides>.bga-cards_card-side,
+	#help-dialog-content #help-popin .help-scoring-card {
+		filter: var(--ext-bright);
+	}
+
+	#board .province {
+		filter: var(--ext-bright) drop-shadow(3px 2px 4px black);
+	}
+}
+
+html[data-theme=dark].bgaext_dark {
+	.bga-help_popin-button {
+		color: var(--light-80);
+	}
+
+	.card-stock .slot {
+		background: var(--dark-back);
+		outline-color: var(--dark-40);
+	}
+
+	#player-tables .player-name {
+		text-shadow: none;
+	}
+}

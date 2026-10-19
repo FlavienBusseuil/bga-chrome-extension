@@ -639,7 +639,14 @@ export const gamesConfiguration: Record<string, GameConfig> = {
   falloflumen: {
     customBack: true
   },
+  fantasytiles: {
+    customBack: true,
+    overlay: true
+  },
   faraway: {
+    customBack: true
+  },
+  fate: {
     customBack: true
   },
   fateoffellowship: {
@@ -1475,6 +1482,9 @@ export const gamesConfiguration: Record<string, GameConfig> = {
     overlay: true
   },
   quirkyquarks: {
+    customBack: true
+  },
+  quorum: {
     customBack: true
   },
   qwinto: {

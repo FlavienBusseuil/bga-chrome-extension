@@ -1,0 +1,57 @@
+@import './common';
+
+html[data-theme=dark].bgaext_bright {
+	#board-grid:before {
+		.reduceBrightness();
+	}
+
+	.legacy-card>.bga-cards_card-sides>.bga-cards_card-side,
+	.token-card>.bga-cards_card-sides>.bga-cards_card-side,
+	.treasure-card>.bga-cards_card-sides>.bga-cards_card-side {
+		filter: var(--ext-bright) drop-shadow(calc(var(--bga-cards_card-side_shadow-x)*-1) calc(var(--bga-cards_card-side_shadow-y)*-1) 2px var(--bga-cards_card-side_shadow-color))
+	}
+
+	.legacy-card>.bga-cards_card-sides>.bga-cards_card-side.bga-cards_selectable-card,
+	.token-card>.bga-cards_card-sides>.bga-cards_card-side.bga-cards_selectable-card,
+	.treasure-card>.bga-cards_card-sides>.bga-cards_card-side.bga-cards_selectable-card {
+		filter: var(--ext-bright) drop-shadow(calc(var(--bga-cards_card-side_shadow-x)*-1) calc(var(--bga-cards_card-side_shadow-y)*-1) 2px rgb(200, 255, 47)) drop-shadow(3px 3px 2px rgb(200, 255, 47))
+	}
+
+	.treasure-card {
+		filter: var(--ext-bright) drop-shadow(var(--bga-cards_card-side_shadow-x) var(--bga-cards_card-side_shadow-y) 2px var(--bga-cards_card-side_shadow-color))
+	}
+
+	.treasure-pile .treasure-counter {
+		filter: var(--ext-bright) drop-shadow(2px 2px 2px rgba(0, 0, 0, .65));
+	}
+
+	.discovery {
+		filter: var(--ext-bright) drop-shadow(2px 2px 2px rgb(0, 0, 0));
+	}
+
+	.bga-cards_card>.bga-cards_card-sides>.bga-cards_card-side,
+	.nation-tile-counter-icon {
+		filter: var(--ext-bright);
+	}
+}
+
+html[data-theme=dark].bgaext_dark {
+	--ext-overlay-color: #0002;
+
+	.player-name {
+		background: var(--dark-10);
+		text-shadow: none;
+	}
+
+	#board-info-counters #tile-counter-wrapper span,
+	#board-info-counters #treasure-counter-wrapper span,
+	#nation-tile-counters .counter span {
+		background: var(--dark-20);
+		outline: 1px solid var(--light-70);
+		color: var(--light-70);
+	}
+
+	.icon.legacy {
+		filter: invert(1);
+	}
+}
