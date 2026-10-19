@@ -2,8 +2,6 @@ import type { PlayerId } from "./bga/Player";
 import type { TableId } from "./bga/Table";
 
 export interface TransformedTable {
-	acceptInviteLink: string,
-	declineInviteLink: string,
 	gameName: string,
 	gameStart: null | Date,
 	hasArenaMode: boolean,

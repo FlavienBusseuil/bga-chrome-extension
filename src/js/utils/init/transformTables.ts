@@ -75,12 +75,6 @@ export function transformTable({
 	} = table;
 
 	return {
-		acceptInviteLink: `${bgaUrl}/table/table/joingame.html?table=${castTableIdToString(
-			tableId,
-		)}`,
-		declineInviteLink: `${bgaUrl}/table/table/refuseInvitation.html?table=${castTableIdToString(
-			tableId,
-		)}`,
 		// It seems that sometime some translations doesn't exists for some game [issues/22]
 		// So we fall back on gameNameKey
 		gameName: translations[`${gameNameKey}_displayed`] ?? gameNameKey,

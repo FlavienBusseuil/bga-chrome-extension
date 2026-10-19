@@ -66,58 +66,6 @@ button.native-button {
 	padding-right: 2em;
 }
 
-.bgext_options_container {
-	display: flex;
-	flex-flow: row;
-	gap: 1em;
-	justify-content: center;
-}
-
-.bgext_options_col_container {
-	display: flex;
-	flex-flow: column;
-	align-items: flex-end;
-	gap: 0.5em;
-}
-
-.bgext_options_row_container {
-	display: flex;
-	flex-flow: row;
-	gap: 0.5em;
-}
-
-.bgext_options_gamelist_container {
-	width: 200px;
-	height: 380px;
-	border: 1px solid #aaaaaa;
-	overflow: auto;
-}
-
-.bgext_options_gamelist {
-	display: flex;
-	flex-flow: column;
-}
-
-.bgext_options_gameitem,
-.bgext_options_gameitem_selected {
-	line-height: 24px;
-	padding-left: 1em;
-	cursor: pointer;
-}
-
-.bgext_options_gameitem_selected {
-	background: #cee7f9;
-}
-
-.bgext_options_gameconfig_container {
-	width: 600px;
-	height: 380px;
-	border: 1px solid #aaaaaa;
-	box-sizing: border-box;
-	overflow: hidden;
-	padding: 1em;
-}
-
 .bgext_about_container {
 	padding: 1em;
 	margin: 0em 2em;
@@ -139,11 +87,6 @@ textarea.options-textarea {
 	resize: none;
 	box-shadow: none !important;
 	outline: none !important;
-}
-
-.bgext_options_warning {
-	padding: 0em 2em;
-	text-align: right;
 }
 
 .bgext_buttons_container {
@@ -181,10 +124,6 @@ textarea.options-textarea {
 	.bgext_buttons_container {
 		flex-flow: column;
 	}
-
-	#bgext_options_tab_navigation {
-		display: none;
-	}
 }
 
 /* Configuration for Firefox */
@@ -192,24 +131,6 @@ textarea.options-textarea {
 	body {
 		font-family: Segoe UI;
 		font-size: 14px;
-	}
-
-	.bgext_options_container {
-		padding: 0 5px;
-	}
-
-	.bgext_options_gameconfig_container {
-		height: 350px;
-		width: 100%;
-	}
-
-	.bgext_options_gamelist_container {
-		height: 350px;
-	}
-
-	.bgext_options_warning {
-		text-align: center;
-		padding: 0;
 	}
 
 	.options-frame.reduced {

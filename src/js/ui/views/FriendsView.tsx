@@ -1,7 +1,6 @@
 import { useState } from "preact/hooks";
 
 import type { TransformedTable } from "../../types/TransformedTable";
-import type { TableId } from "../../types/bga/Table";
 
 import { i18n } from "../../utils/browser/i18n";
 
@@ -28,8 +27,6 @@ export const FriendsView = ({ className, getGroupTables, groups, motionSensitivi
   const [loading, setLoading] = useState(false);
   const [requested, setRequested] = useState(false);
   const [group, setGroup] = useState("0");
-  // @ts-ignore
-  const handleAcceptOrDeclineInvite = (tableId: TableId) => { return Promise.resolve(); };
 
   const search = () => {
     if (!getGroupTables) {
@@ -77,10 +74,6 @@ export const FriendsView = ({ className, getGroupTables, groups, motionSensitivi
     <div className={cn(["view", className || ''])}>
       {tables.length === 0 && noGame()}
 
-      {(tables.length === 0 && !requested) && (
-        <span></span>
-      )}
-
       {tables.length > 0 && (
         <div className="max-result">
           <CardList>
@@ -111,9 +104,6 @@ export const FriendsView = ({ className, getGroupTables, groups, motionSensitivi
                   <Table
                     key={String(tableId)}
                     {...{
-                      onAcceptInvite: handleAcceptOrDeclineInvite,
-                      onDeclineInvite: handleAcceptOrDeclineInvite,
-                      tableId,
                       hasArenaMode,
                       isInvitePendingForCurrentPlayer,
                       isOpenForPlayers,
@@ -157,7 +147,7 @@ export const FriendsView = ({ className, getGroupTables, groups, motionSensitivi
           </CardList>
         </div>
       )}
-      <div className={cn(["view-actions", className || ''])}>
+      <div className="view-actions">
         <select
           id="group-select"
           className="select grow"

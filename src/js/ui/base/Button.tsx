@@ -5,7 +5,7 @@ type BaseButtonProps = {
   text: JSX.Element | string;
   className?: string;
   size?: 1 | 2;
-  type?: "primary" | "secondary" | "accept";
+  type?: "primary";
 }
 
 type UrlButtonProps = BaseButtonProps & {

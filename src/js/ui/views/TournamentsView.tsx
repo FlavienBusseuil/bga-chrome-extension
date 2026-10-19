@@ -56,7 +56,7 @@ export const TournamentsView = ({ config, className, tournaments, closePopupOnCl
 			)}
 			{filteredTournaments.length > 0 && (
 				<div className="max-result">
-					<CardList className={className || ''}>
+					<CardList>
 						{filteredTournaments.map(
 							({ gameImg, gameBoxImg, championshipName, name, link, date, playerStatus }) => {
 								const onClickFunc = () => {
@@ -90,7 +90,7 @@ export const TournamentsView = ({ config, className, tournaments, closePopupOnCl
 					</CardList>
 				</div>
 			)}
-			<div className={cn(["view-actions", className || ''])}>
+			<div className="view-actions">
 				<div className="tournament-filters">
 					<Switch checked={dispEliminated} textOn={i18n('optionTournamentsEliminatedOn')} textOff={i18n('optionTournamentsEliminatedOff')} onChange={toggleDispEliminated} />
 					<Switch checked={dispFuture} textOn={i18n('optionTournamentsFutureOn')} textOff={i18n('optionTournamentsFutureOff')} onChange={toggleDispFuture} />

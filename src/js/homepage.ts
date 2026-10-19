@@ -17,15 +17,18 @@ const _init = () => {
 
   // Wait for home page elements 10 seconds at most
   const maxTries = 200;
-  let tournamentsListMaximized = false;
+  // The home page content already processed: the configuration can be received twice for the same page
+  // (sent on load and on request of this script), BGA creates a new content when navigating to the home page again
+  let maximizedContent: Element | null = null;
 
   const maximizeTournamentsList = (tries = maxTries) => {
-    if (tournamentsListMaximized) {
-      return;
-    }
+    const content = document.querySelector('.bga-homepage__content');
 
-    if (document.querySelector('.bga-homepage__content')) {
-      tournamentsListMaximized = true;
+    if (content) {
+      if (content === maximizedContent) {
+        return;
+      }
+      maximizedContent = content;
 
       // innerWidth can't be restored by assignment (the getter would be replaced by a fixed value)
       const innerWidthDescriptor = Object.getOwnPropertyDescriptor(window, 'innerWidth');
@@ -230,7 +233,6 @@ const _init = () => {
     const config = JSON.parse((data as CustomEvent).detail) as AdvancedHomeConfig;
     setPage(config);
     // The configuration is sent each time we navigate to the home page (BGA doesn't always reload the page)
-    tournamentsListMaximized = false;
     maximizeTournamentsList();
   });
   document.body.dispatchEvent(new CustomEvent('bga_ext_get_homepage_config', {}));

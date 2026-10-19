@@ -4,7 +4,6 @@ import { PlayerList } from "../PlayerList";
 import { EmptySeats, Player } from "../Player";
 import { StartNewGameButton } from "../StartNewGameButton";
 import { Table } from "../Table";
-import type { TableId } from "../../types/bga/Table";
 import { i18n } from "../../utils/browser/i18n";
 import { CardList } from "../base/CardList";
 import { cn } from "../utils/cn";
@@ -12,8 +11,6 @@ import { cn } from "../utils/cn";
 type Props = {
 	className?: string,
 	tables: Array<TransformedTable>,
-	onAcceptInvite: (arg: TableId) => Promise<void>,
-	onDeclineInvite: (arg: TableId) => Promise<void>,
 	motionSensitivityEnable: boolean,
 	closePopupOnClick: boolean,
 	focusOnNewTab: boolean | undefined
@@ -22,8 +19,6 @@ type Props = {
 export const TablesView = ({
 	className,
 	tables,
-	onAcceptInvite,
-	onDeclineInvite,
 	motionSensitivityEnable,
 	closePopupOnClick,
 	focusOnNewTab
@@ -68,9 +63,6 @@ export const TablesView = ({
 									<Table
 										key={String(tableId)}
 										{...{
-											onAcceptInvite,
-											onDeclineInvite,
-											tableId,
 											hasArenaMode,
 											isInvitePendingForCurrentPlayer,
 											isOpenForPlayers,

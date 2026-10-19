@@ -1,4 +1,4 @@
-import { useEffect, useLayoutEffect, useRef, useState } from "preact/hooks";
+import { useLayoutEffect, useRef, useState } from "preact/hooks";
 import { useSyncedState } from '../hooks/useSyncedState';
 import Markup from 'preact-markup';
 
@@ -10,12 +10,21 @@ import { getExtensionVersion, isFirefox, isMobile } from "../../utils/browser";
 import { i18n } from "../../utils/browser/i18n";
 import { polyfillCountryFlagEmojis } from "country-flag-emoji-polyfill";
 
+// Flags of the language selector (missing on Windows): the font is loaded from a CDN only when needed.
+// Done once per page: the polyfill adds a new style tag on each call.
+let flagsPolyfilled = false;
+
 type Props = {
   config: Configuration,
   onChange: () => void
 };
 
 export const OptionsView = ({ config, onChange }: Props) => {
+  if (!flagsPolyfilled) {
+    flagsPolyfilled = true;
+    polyfillCountryFlagEmojis();
+  }
+
   const [locale, setLocale] = useSyncedState('locale', config.getLocale());
   const [onlineMessages, setOnlineMessages] = useSyncedState('isOnlineMessagesEnabled', config.isOnlineMessagesEnabled());
   const [areLogTimestampsHidden, setLogTimestampHidden] = useSyncedState('areLogTimestampsHidden', config.areLogTimestampsHidden());
@@ -446,10 +455,6 @@ export const OptionsView = ({ config, onChange }: Props) => {
 
     return <Switch checked={checked} textOn={textOn} textOff={textOff} onChange={updateSoundCustom} disabled={disabled} />
   };
-
-  useEffect(() => {
-    polyfillCountryFlagEmojis();
-  }, []);
 
   const getMiscSection = () => {
     const desktopVersion = !isMobile;

@@ -183,6 +183,9 @@ class Configuration {
 					}
 				} catch (error) { } // not a big deal, catches failing casts
 			}
+
+			// keys removed by another page (configuration imported or reset) get their default value back
+			this._init();
 		});
 
 		this._initialized = true;
@@ -627,7 +630,7 @@ class Configuration {
 	}
 
 	getHiddenGames() {
-		return this._customConfig.hidden.sort();
+		return [...this._customConfig.hidden].sort();
 	}
 
 	getHiddenGamesStyle(page: string) {
@@ -1061,22 +1064,30 @@ class Configuration {
 		}, null, '	');
 	}
 
-	importConfig(jsonConfig: string) {
+	// Throws if the file is not a configuration exported by the extension (nothing is changed then)
+	async importConfig(jsonConfig: string) {
 		const config = JSON.parse(jsonConfig);
+		const isObject = (val: unknown) => typeof val === "object" && val !== null && !Array.isArray(val);
 
-		if (config.local) {
-			this._localConfig = config.local;
-			localStorageClear();
-			localStorageSet(this._localConfig);
+		if (!isObject(config) || (!isObject(config.local) && !isObject(config.custom))) {
+			throw new Error("Invalid configuration file");
 		}
 
-		if (config.custom) {
+		if (isObject(config.local)) {
+			this._localConfig = config.local;
+			await localStorageClear();
+			await localStorageSet(this._localConfig);
+		}
+
+		if (isObject(config.custom)) {
 			this._customConfig = {
 				...config.custom,
 				clientId: this._customConfig.clientId
 			};
-			storageClear();
-			storageSet(this._customConfig);
+			// an incomplete file: missing lists get their default value
+			this._init();
+			await storageClear();
+			await storageSet(this._customConfig);
 		}
 	}
 

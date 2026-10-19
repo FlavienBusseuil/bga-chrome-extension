@@ -29,7 +29,8 @@ const setMenuPosition = (tries: unknown = 50) => {
 	}
 };
 
-// Scroll and resize events can come several times per frame: compute the position once per frame
+// The position is computed at most once per displayed frame (requestAnimationFrame), right before the rendering:
+// it writes styles then reads the layout, which forces the browser to compute the layout again
 let positionFrame = 0;
 const scheduleMenuPosition = () => {
 	if (!positionFrame) {

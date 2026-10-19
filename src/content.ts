@@ -36,7 +36,8 @@ let prevPageType = '';
 let chatbardock: Element | null = null;
 let gameName = '';
 
-// mousemove is fired many times per frame: the chat bar position is checked once per frame with the last mouse position
+// The chat bar position is read at most once per displayed frame (requestAnimationFrame), with the last mouse position:
+// whatever the browser and the mouse, and right before the rendering, when reading the layout costs the least
 let lastMouseEvent: MouseEvent | null = null;
 let autoHideFrame = 0;
 

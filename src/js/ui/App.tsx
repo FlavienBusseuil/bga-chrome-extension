@@ -1,4 +1,3 @@
-import type { TableId } from "../types/bga/Table";
 import { setBadge } from "../utils/badge/setBadge";
 import { sortTables, sortTournaments } from "../utils/init/sort";
 import Configuration from "../config/configuration";
@@ -25,11 +24,6 @@ import { Tab } from "./base/Tab";
 import { TransformedTable } from "../types/TransformedTable";
 import { TransformedTournament } from "../types/TransformedTournament";
 
-// @ts-ignore
-async function handleAcceptOrDeclineInvite(tableId: TableId) {
-	// TODO: https://github.com/FlavienBusseuil/bga-chrome-extension/projects/1
-	// console.log(tableId);
-}
 
 type Props = {
 	config: Configuration,
@@ -114,8 +108,6 @@ export const App = ({ config }: Props) => {
 				return <TablesView
 					className="view-slide"
 					tables={sortedTables}
-					onAcceptInvite={handleAcceptOrDeclineInvite}
-					onDeclineInvite={handleAcceptOrDeclineInvite}
 					motionSensitivityEnable={motionSensitivityEnable}
 					closePopupOnClick={closePopupOnClick}
 					focusOnNewTab={focusOnNewTab}
@@ -140,8 +132,6 @@ export const App = ({ config }: Props) => {
 						activeTab !== "tables" && "view-slide--hidden",
 					])}
 					tables={sortedTables}
-					onAcceptInvite={handleAcceptOrDeclineInvite}
-					onDeclineInvite={handleAcceptOrDeclineInvite}
 					motionSensitivityEnable={motionSensitivityEnable}
 					closePopupOnClick={closePopupOnClick}
 					focusOnNewTab={focusOnNewTab}

@@ -206,24 +206,6 @@ html.options-page {
   background-color: var(--bga-blue-light);
 }
 
-.btn--accept {
-  background-color: var(--bga-green);
-  border-color: var(--bga-green);
-}
-
-.btn--accept:hover {
-  background-color: var(--bga-green-light);
-}
-
-.btn--secondary {
-  background-color: #9ca3af;
-  border-color: #9ca3af;
-}
-
-.btn--secondary:hover {
-  background-color: #b0b4ba;
-}
-
 .tabs {
   display: flex;
   gap: 0.25rem;

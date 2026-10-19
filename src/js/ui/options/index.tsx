@@ -32,7 +32,9 @@ const Options = (props: { config: ConfigurationWithGames }) => {
 		});
 
 		link.dispatchEvent(evt);
-		link.remove()
+		link.remove();
+		// the download has started: the file content can be released
+		setTimeout(() => window.URL.revokeObjectURL(link.href), 1000);
 	}
 
 	const getTroubleshootingSection = () => {
@@ -53,8 +55,12 @@ const Options = (props: { config: ConfigurationWithGames }) => {
 
 					reader.onload = (event: any) => {
 						const fileData = event.target.result as string;
-						config.importConfig(fileData);
-						setMessage('configurationImported');
+						config.importConfig(fileData)
+							.then(() => setMessage('configurationImported'))
+							.catch((error) => {
+								console.error("[bga extension] Configuration import failed", error);
+								setMessage('configurationImportFailed');
+							});
 					};
 
 					reader.readAsText(file);
@@ -93,8 +99,7 @@ const Options = (props: { config: ConfigurationWithGames }) => {
 						id="css_config"
 						className="bgext_options_input"
 						value={css}
-						onChange={(evt) => setCss((evt.target as any).value)}
-						onKeyUp={() => setCss((document.getElementById("css_config") as any).value)}
+						onInput={(evt) => setCss((evt.target as HTMLTextAreaElement).value)}
 					/>
 				</div>
 				<div className="bgext_css_buttons">
@@ -122,28 +127,22 @@ const Options = (props: { config: ConfigurationWithGames }) => {
 		);
 	};
 
-	try {
-		return (
-			<div className="bgext_options_main">
-				<div className="bgext_options_config_area">
-					<div key={`options_${locale}`} className="bgext_links_area">
-						<Tabs>
-							{getTab("general", i18n("optionGeneralTab"))}
-							{getTab("css", i18n("optionCssTab"))}
-							{getTab("troubleshooting", i18n("troubleshooting"))}
-						</Tabs>
-					</div>
-					{tabSelected === "general" && getGeneralSection()}
-					{tabSelected === "css" && getCssConfiguration()}
-					{tabSelected === "troubleshooting" && getTroubleshootingSection()}
+	return (
+		<div className="bgext_options_main">
+			<div className="bgext_options_config_area">
+				<div key={`options_${locale}`} className="bgext_links_area">
+					<Tabs>
+						{getTab("general", i18n("optionGeneralTab"))}
+						{getTab("css", i18n("optionCssTab"))}
+						{getTab("troubleshooting", i18n("troubleshooting"))}
+					</Tabs>
 				</div>
+				{tabSelected === "general" && getGeneralSection()}
+				{tabSelected === "css" && getCssConfiguration()}
+				{tabSelected === "troubleshooting" && getTroubleshootingSection()}
 			</div>
-		);
-	}
-	catch (error) {
-		window.location.reload();
-		return <></>;
-	}
+		</div>
+	);
 };
 
 export default Options;

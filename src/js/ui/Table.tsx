@@ -1,11 +1,10 @@
 import { ComponentChildren, Fragment } from "preact";
-import type { TableId } from "../types/bga/Table";
 
 import { i18n } from "../utils/browser/i18n";
 import { TableContent } from "./TableContent";
 import { TableFooter } from "./TableFooter";
-import { TableIcon } from "./TableIcon.jsx";
-import { TableIcons } from "./TableIcons.jsx";
+import { TableIcon } from "./TableIcon";
+import { TableIcons } from "./TableIcons";
 import { TableImg } from "./TableImg";
 import { TableMode } from "./TableMode";
 import { TableStatus, getTableState } from "./TableStatus";
@@ -16,14 +15,11 @@ import { ArenaIcon, HandshakeIcon, TrophyIcon } from "./icons";
 import { cn } from "./utils/cn";
 
 type Props = {
-	tableId: TableId,
 	gameName: string,
 	tableCreatorName: null | string,
 	tableImg: string,
 	tableBoxImg: string,
 	link: string,
-	acceptInviteLink: string,
-	declineInviteLink: string,
 	hasArenaMode: boolean,
 	hasTrainingMode: boolean,
 	isInvitePendingForCurrentPlayer: boolean,
@@ -33,8 +29,6 @@ type Props = {
 	isTurnBased: boolean,
 	isWaitingCurrentPlayer: boolean,
 	children: ComponentChildren,
-	onAcceptInvite: (tableId: TableId) => Promise<void>,
-	onDeclineInvite: (tableId: TableId) => Promise<void>,
 	motionSensitivityEnable: boolean,
 	closePopupOnClick: boolean,
 	focusOnNewTab: boolean | undefined
@@ -123,34 +117,6 @@ export function Table({
 							))}
 						</span>
 					)
-
-					// Button({
-					//   className: "shrink-0",
-					//   text: i18n("decline"),
-					//   onClick: async () => {
-					//     const { status, error } = await fetch(
-					//       declineInviteLink
-					//     ).then((r) => r.json());
-					//     // ... status === 1 ?
-					//     onDeclineInvite({ tableId });
-					//   },
-					//   size: 1,
-					//   type: "secondary",
-					// }),
-
-					// Button({
-					//   className: "shrink-0",
-					//   text: i18n("accept"),
-					//   onClick: async () => {
-					//     const { status, error } = await fetch(
-					//       acceptInviteLink
-					//     ).then((r) => r.json());
-					//     // ... status === 1 ?
-					//     onAcceptInvite({ tableId });
-					//   },
-					//   size: 1,
-					//   type: "accept",
-					// }),
 				}
 			</TableFooter>
 		</Card>
