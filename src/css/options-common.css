@@ -136,6 +136,13 @@ html.bgaext-section-transition .options-frame {
   border-radius: 8px;
 }
 
+/* The title has its own view transition: an inline element is not captured by Firefox, the title would stay in the
+   snapshot of its section, cut by its edges during the animation (it is drawn above the top border) */
+.options-frame:not(.reduced)>.options-frame-title span {
+  display: inline-block;
+  min-width: 0;
+}
+
 /* The title of an opened section is drawn on the frame border: it hides the border behind it */
 html.bgaext-section-transition .options-frame:not(.reduced)>.options-frame-title span {
   background: inherit;
