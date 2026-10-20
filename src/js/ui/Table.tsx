@@ -22,6 +22,7 @@ type Props = {
 	link: string,
 	hasArenaMode: boolean,
 	hasTrainingMode: boolean,
+	isCurrentPlayerAtTable: boolean,
 	isInvitePendingForCurrentPlayer: boolean,
 	isOpenForPlayers: boolean,
 	isPartOfTournament: boolean,
@@ -42,6 +43,7 @@ export function Table({
 	link,
 	hasArenaMode,
 	hasTrainingMode,
+	isCurrentPlayerAtTable,
 	isInvitePendingForCurrentPlayer,
 	isOpenForPlayers,
 	isPartOfTournament,
@@ -70,7 +72,10 @@ export function Table({
 		isTurnBased,
 		isWaitingCurrentPlayer,
 	});
-	const pulse = !motionSensitivityEnable && (state === "realtime" || state === "turn" || state === "invite");
+	// Only the tables where the player is expected flash (as said by the option): a real time table only if the player
+	// is one of its players (present during the whole game), not the open tables of the friends view
+	const pulse = !motionSensitivityEnable
+		&& ((state === "realtime" && isCurrentPlayerAtTable) || state === "turn" || state === "invite");
 
 	const onClickFunc = () => {
 		const sidePanel = document.documentElement.classList.contains('side-panel');
@@ -89,7 +94,7 @@ export function Table({
 	return (
 		<Card
 			onClick={onClickFunc}
-			className={cn(["table-card", `table-card--${state}`, pulse && "table-card--pulse"])}
+			className={cn(["table-card", `table-card--${state}`, hasArenaMode && "table-card--arena", hasTrainingMode && "table-card--training", pulse && "table-card--pulse"])}
 		>
 			<div className="table-card-main">
 				<TableMode isTurnBased={isTurnBased} />

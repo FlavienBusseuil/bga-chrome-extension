@@ -94,6 +94,7 @@ export const FriendsView = ({ className, getGroupTables, groups, motionSensitivi
                   ({ isCurrentPlayer, isActivePlayer }) =>
                     isCurrentPlayer && isActivePlayer,
                 );
+                const isCurrentPlayerAtTable = players.some(({ isCurrentPlayer }) => isCurrentPlayer);
                 const isInvitePendingForCurrentPlayer =
                   players.some(
                     ({ isCurrentPlayer, isInvitePending }) =>
@@ -105,6 +106,7 @@ export const FriendsView = ({ className, getGroupTables, groups, motionSensitivi
                     key={String(tableId)}
                     {...{
                       hasArenaMode,
+                      isCurrentPlayerAtTable,
                       isInvitePendingForCurrentPlayer,
                       isOpenForPlayers,
                       isWaitingCurrentPlayer,

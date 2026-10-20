@@ -53,6 +53,7 @@ export const TablesView = ({
 									({ isCurrentPlayer, isActivePlayer }) =>
 										isCurrentPlayer && isActivePlayer,
 								);
+								const isCurrentPlayerAtTable = players.some(({ isCurrentPlayer }) => isCurrentPlayer);
 								const isInvitePendingForCurrentPlayer =
 									players.some(
 										({ isCurrentPlayer, isInvitePending }) =>
@@ -64,6 +65,7 @@ export const TablesView = ({
 										key={String(tableId)}
 										{...{
 											hasArenaMode,
+											isCurrentPlayerAtTable,
 											isInvitePendingForCurrentPlayer,
 											isOpenForPlayers,
 											isWaitingCurrentPlayer,

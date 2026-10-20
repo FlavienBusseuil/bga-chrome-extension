@@ -102,7 +102,7 @@ const _getPlayersData = (returnFunc: (data: PlayerData[]) => void, twoTeams: boo
   if (iteration < 50) {
     setTimeout(() => _getPlayersData(returnFunc, twoTeams, iteration + 1), 50);
   } else {
-    console.error("[bga extension] Too many iterations in getPlayersData");
+    console.warn("[bga extension] Too many iterations in getPlayersData");
     document.documentElement.classList.remove("bgaext_get_players_data");
     playersData = result || [];
     returnFunc(result || []);

@@ -242,7 +242,7 @@ html.options-page {
   flex-direction: column;
 }
 
-.card-list > :not([hidden]) ~ :not([hidden]) {
+.card-list> :not([hidden])~ :not([hidden]) {
   margin-top: 0.5rem;
 }
 
@@ -361,7 +361,7 @@ html.dark .view-empty-text {
   justify-content: center;
 }
 
-.view-loading > div {
+.view-loading>div {
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -384,6 +384,7 @@ html.dark .view-empty-text {
 :root {
   --tc-line: #e3e6ea;
   --tc-line-hover: var(--bga-blue-light);
+  --tc-normal: #0b9aa6;
   --tc-chip: #eef0f3;
   --tc-chip-line: #d5d9e0;
   --tc-muted: #6b6f78;
@@ -408,7 +409,9 @@ html.dark .view-empty-text {
 
 html.dark {
   --tc-line: #3a3d43;
-  --tc-line-hover: #0ba9b7;
+  /* softer than the tint of normal tables, it is mixed with the default border */
+  --tc-line-hover: color-mix(in srgb, var(--tc-normal) 55%, var(--tc-line));
+  --tc-normal: #0ba9b7;
   --tc-chip: #383c43;
   --tc-chip-line: #50555e;
   --tc-muted: #9aa0a8;
@@ -449,6 +452,32 @@ html.dark .card.table-card {
 
 html.dark .card.table-card:hover {
   border-color: var(--tc-line-hover);
+}
+
+/* Table background slightly tinted: BGA teal for normal tables, the color of their icon for arena and friendly tables
+   (the tournaments list also uses table-card, it is not tinted) */
+.card.table-card:not(.tournament-card) {
+  --tc-tint: var(--tc-normal);
+}
+
+.card.table-card.table-card--arena {
+  --tc-tint: var(--ic-arena);
+}
+
+.card.table-card.table-card--training {
+  --tc-tint: var(--ic-training);
+}
+
+.card.table-card:not(.tournament-card) {
+  background-color: color-mix(in srgb, var(--tc-tint) 10%, #fff);
+}
+
+html.dark .card.table-card:not(.tournament-card) {
+  background: color-mix(in srgb, var(--tc-tint) 15%, var(--dark-20));
+}
+
+html.dark .card.table-card:not(.tournament-card):hover {
+  background: color-mix(in srgb, var(--tc-tint) 15%, var(--dark-30));
 }
 
 .table-card-main {
@@ -763,6 +792,7 @@ html.dark .card.table-card:hover {
 }
 
 @media (prefers-reduced-motion: reduce) {
+
   .table-card *,
   .table-card *::before {
     animation: none !important;

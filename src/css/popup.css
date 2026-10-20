@@ -57,6 +57,8 @@ p {
 
 .max-result > ul {
   padding-bottom: 4px;
+  /* space between the cards and the scrollbar */
+  padding-right: 4px;
 }
 
 /* Special style for Android version */
