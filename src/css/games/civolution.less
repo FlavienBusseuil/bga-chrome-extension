@@ -1,0 +1,72 @@
+@import './common';
+
+html[data-theme=dark].bgaext_bright {
+
+	#CIVleft:before,
+	#CIVframe:before,
+	#CIVright:before {
+		.reduceBrightness();
+	}
+
+	.CIVconsoleBoard {
+		background: none;
+	}
+
+	.CIVconsoleBoard:before {
+		content: "";
+		position: absolute;
+		inset: 0;
+		background-image: var(--console-bg);
+		background-size: 100%;
+		filter: var(--ext-bright);
+	}
+
+	.CIVresearchCard,
+	.CIVtoken:not(.CIVcontinentTile .CIVtoken),
+	.CIVeventCard,
+	.CIVsite,
+	.CIVdice,
+	.CIVcontinentTile {
+		filter: var(--ext-bright);
+	}
+
+	.CIVmeeple {
+		filter: var(--ext-bright) drop-shadow(0 0 1px #181818) drop-shadow(0 0 1px #181818) drop-shadow(0 2px 2px #00000073);
+	}
+
+	.CIVmeeple:hover {
+		filter: var(--ext-bright) drop-shadow(0 0 1px #181818) drop-shadow(0 0 1px #181818) drop-shadow(2px 2px 3px black);
+	}
+
+	.CIVdice.CIVdisabled {
+		filter: var(--ext-bright) brightness(50%);
+	}
+
+	.CIVdiceArea .CIVdice {
+		filter: var(--ext-bright) drop-shadow(2px 4px 6px black);
+	}
+
+	#maintitlebar_content .CIVdice.CIVselectable:hover {
+		filter: var(--ext-bright) brightness(130%);
+	}
+
+	#maintitlebar_content .CIVdice.CIVselected {
+		filter: var(--ext-bright) drop-shadow(0 0 3px black) drop-shadow(0 0 6px black);
+	}
+
+	#maintitlebar_content .CIVdice.CIVselected:hover {
+		filter: var(--ext-bright) drop-shadow(0 0 3px black) drop-shadow(0 0 6px black) brightness(130%);
+	}
+
+	.CIVresearchCard:not([data-type_arg="0"]):hover {
+		filter: var(--ext-bright) drop-shadow(10px 10px 5px black);
+	}
+
+	.CIVcontainer>.CIVresearchCard.CIVdisabled {
+		filter: var(--ext-bright) grayscale(100%);
+	}
+
+	#CIVplayArea .CIVtoken:not(.CIVcontinentTile .CIVtoken):hover:not(:focus) {
+		filter: var(--ext-bright) drop-shadow(2px 2px 3px black);
+	}
+}
