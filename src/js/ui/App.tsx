@@ -39,6 +39,8 @@ export const App = ({ config }: Props) => {
 	const focusOnNewTab = isFirefox ? config.shouldFocusOnNewTab() : undefined;
 	const [hasConfigChange, setConfigChange] = useSyncedState("configChange", false);
 	const locale = useLocale(config.getLocale());
+	const [playersCompact, setPlayersCompact] = useState(config.isPopupPlayersCompact());
+	const colorfulTables = config.isPopupColorfulTables();
 	// Sorted during the render: with an effect, the first render after loading would show empty lists
 	const sortedTables = useMemo<TransformedTable[]>(
 		() => result && !result.isLoggedOut ? sortTables(result.transformedTables) : [],
@@ -50,6 +52,18 @@ export const App = ({ config }: Props) => {
 	);
 
 	useEffect(fetch, []);
+
+	// Without colors, all the tables have the same neutral background
+	useEffect(() => {
+		document.documentElement.classList.toggle("neutral-tables", !colorfulTables);
+	}, [colorfulTables]);
+
+	const updatePlayersCompact = (compact: boolean) => {
+		setPlayersCompact(compact);
+		config.setPopupPlayersCompact(compact);
+	};
+	// The friends tables have their own players display (FriendsView)
+	const playersProps = { playersCompact, onPlayersCompactChange: updatePlayersCompact };
 
 	useEffect(() => {
 		if (result && !result.isLoggedOut) {
@@ -111,12 +125,13 @@ export const App = ({ config }: Props) => {
 					motionSensitivityEnable={motionSensitivityEnable}
 					closePopupOnClick={closePopupOnClick}
 					focusOnNewTab={focusOnNewTab}
+					{...playersProps}
 				/>;
 			}
 			if (activeTab === "tournaments") {
 				return <TournamentsView config={config} className="view-slide" tournaments={sortedTournaments} closePopupOnClick={closePopupOnClick} focusOnNewTab={focusOnNewTab} />;
 			}
-			return <FriendsView className="view-slide" getGroupTables={result.getGroupTables} groups={result.groups} motionSensitivityEnable={motionSensitivityEnable} closePopupOnClick={closePopupOnClick} focusOnNewTab={focusOnNewTab} />;
+			return <FriendsView className="view-slide" getGroupTables={result.getGroupTables} groups={result.groups} motionSensitivityEnable={motionSensitivityEnable} closePopupOnClick={closePopupOnClick} focusOnNewTab={focusOnNewTab} config={config} />;
 		}
 
 		return (
@@ -135,6 +150,7 @@ export const App = ({ config }: Props) => {
 					motionSensitivityEnable={motionSensitivityEnable}
 					closePopupOnClick={closePopupOnClick}
 					focusOnNewTab={focusOnNewTab}
+					{...playersProps}
 				/>
 				<TournamentsView
 					config={config}
@@ -156,6 +172,7 @@ export const App = ({ config }: Props) => {
 					motionSensitivityEnable={motionSensitivityEnable}
 					closePopupOnClick={closePopupOnClick}
 					focusOnNewTab={focusOnNewTab}
+					config={config}
 				/>
 			</div>
 		);

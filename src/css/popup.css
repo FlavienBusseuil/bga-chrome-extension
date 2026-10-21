@@ -17,7 +17,7 @@ html.popup body {
 
 html.side-panel body {
   margin: 0 auto;
-  padding-top: 1em;
+  padding-top: 0.5em;
 }
 
 .max-result {
@@ -27,6 +27,15 @@ html.side-panel body {
 
 html.side-panel .max-result {
   max-height: calc(100vh - 100px);
+}
+
+/* The filters of the friends tables (one or two lines, height measured by FriendsView) and the gap of the view */
+.view--toolbar .max-result {
+  max-height: calc(472px - 8px - var(--toolbar-height, 30px));
+}
+
+html.side-panel .view--toolbar .max-result {
+  max-height: calc(100vh - 90px - var(--toolbar-height, 30px));
 }
 
 html.side-panel .options-container {
@@ -55,7 +64,7 @@ p {
   font-size: 12px;
 }
 
-.max-result > ul {
+.max-result>ul {
   padding-bottom: 4px;
   /* space between the cards and the scrollbar */
   padding-right: 4px;

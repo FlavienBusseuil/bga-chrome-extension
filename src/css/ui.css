@@ -476,6 +476,11 @@ html.dark .card.table-card:not(.tournament-card) {
   background: color-mix(in srgb, var(--tc-tint) 15%, var(--dark-20));
 }
 
+/* Option: no colors, the same neutral grey for all the tables */
+html.neutral-tables .card.table-card:not(.tournament-card) {
+  --tc-tint: #8a9099;
+}
+
 html.dark .card.table-card:not(.tournament-card):hover {
   background: color-mix(in srgb, var(--tc-tint) 15%, var(--dark-30));
 }
@@ -486,7 +491,7 @@ html.dark .card.table-card:not(.tournament-card):hover {
   grid-template-columns: 48px minmax(0, 1fr);
   align-items: start;
   gap: 10px;
-  padding: 9px 10px 9px 30px;
+  padding: 9px 10px 9px 28px;
 }
 
 /* Tables where nothing is expected from the player are dimmed */
@@ -776,6 +781,337 @@ html.dark .card.table-card:not(.tournament-card):hover {
   box-shadow: none;
 }
 
+.player-seat-count {
+  display: none;
+}
+
+/* Compact mode: avatars only, the name is shown on mouse over by a floating label (PlayerList) */
+.player-list--compact .player:not(.player--seat) {
+  gap: 0;
+  padding: 0;
+}
+
+.player-list--compact .player::after,
+.player-list--compact .player-name,
+.player-list--compact .player-seat-label {
+  display: none;
+}
+
+/* The dashed border is drawn inside the chip: the avatar keeps the same left edge as the others */
+.player-list--compact .player--pending {
+  border: 0;
+  outline: 1px dashed var(--st-invite);
+  outline-offset: -1px;
+}
+
+.player-list--compact .player--seat {
+  justify-content: center;
+  min-width: 32px;
+  padding: 0 6px;
+}
+
+.player-list--compact .player-seat-count {
+  display: inline;
+}
+
+.player-label {
+  position: fixed;
+  z-index: 100;
+  top: 0;
+  left: 0;
+  max-width: 220px;
+  padding: 4px 9px;
+  border-radius: 6px;
+  font-size: 12px;
+  font-weight: 600;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  pointer-events: none;
+  background-color: var(--tc-chip);
+  box-shadow: inset 0 0 0 1px var(--tc-chip-line), 0 4px 12px rgb(0 0 0 / 0.18);
+  opacity: 0;
+  transform: translateY(-4px);
+  transition: opacity 120ms, transform 120ms;
+}
+
+.player-label--visible {
+  opacity: 1;
+  transform: none;
+}
+
+.player-label[data-state="active"] {
+  color: var(--st-turn);
+  background-color: var(--st-turn-bg);
+  box-shadow: inset 0 0 0 1px color-mix(in srgb, var(--st-turn) 45%, transparent), 0 4px 12px rgb(0 0 0 / 0.18);
+}
+
+.player-label[data-state="active"]::after {
+  content: " ⏳";
+  font-size: 10px;
+}
+
+.player-label[data-state="pending"] {
+  color: var(--st-invite);
+  background-color: var(--st-invite-bg);
+  box-shadow: inset 0 0 0 1px var(--st-invite), 0 4px 12px rgb(0 0 0 / 0.18);
+}
+
+.player-label[data-state="pending"]::after {
+  content: " ✉";
+  font-size: 11px;
+}
+
+.player-label[data-state="seat"] {
+  font-weight: 500;
+  color: var(--tc-muted);
+}
+
+/* Players display switch: avatars only / avatars and names */
+.display-switch {
+  flex: none;
+  align-self: center;
+  display: inline-flex;
+  align-items: center;
+  gap: 2px;
+  padding: 2px;
+  border-radius: 999px;
+  background-color: var(--tc-chip);
+  box-shadow: inset 0 0 0 1px var(--tc-chip-line);
+}
+
+.display-switch button {
+  display: grid;
+  place-items: center;
+  width: 34px;
+  height: 26px;
+  padding: 0;
+  border: 0;
+  border-radius: 999px;
+  color: var(--tc-muted);
+  background: transparent;
+  cursor: pointer;
+  transition: background-color 150ms, color 150ms;
+}
+
+.display-switch button:hover {
+  color: var(--tc-title);
+}
+
+.display-switch button[aria-checked="true"] {
+  color: #fff;
+  background-color: var(--tc-normal);
+}
+
+/* Dark mode: the selected buttons and filters are filled with deeper colors than the dots, with a white text */
+html.dark {
+  --selected-normal: #0e8f99;
+  --selected-realtime: #6e8f1f;
+  --selected-turn-based: #b7791f;
+  --selected-arena: #7a4fc2;
+  --selected-training: #2f6fb0;
+}
+
+html.dark .display-switch button[aria-checked="true"] {
+  background-color: var(--selected-normal);
+}
+
+.display-switch button:focus-visible,
+.table-filter:focus-visible {
+  outline: 2px solid var(--tc-normal);
+  outline-offset: 2px;
+}
+
+.display-switch svg {
+  width: 20px;
+  height: 14px;
+  fill: currentColor;
+  stroke: currentColor;
+}
+
+.display-switch svg circle {
+  stroke: none;
+}
+
+/* Filters of the friends tables: the mode, the kinds of tables and the players display switch on the right, on one
+   line when possible (the height of the list depends on it, see popup.css) */
+.view-toolbar {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 6px 8px;
+}
+
+.view-toolbar .display-switch {
+  margin-left: auto;
+}
+
+.table-filters {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+
+.table-filter {
+  display: inline-flex;
+  align-items: center;
+  gap: 5px;
+  height: 26px;
+  padding: 0 10px 0 8px;
+  border: 1px dashed var(--tc-chip-line);
+  border-radius: 999px;
+  font-size: 12px;
+  font-weight: 600;
+  color: var(--tc-muted);
+  background: transparent;
+  cursor: pointer;
+  transition: background-color 150ms, color 150ms, border-color 150ms;
+}
+
+.table-filter::before {
+  content: "";
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background-color: var(--tf-color);
+}
+
+.table-filter:hover {
+  color: var(--tc-title);
+  border-color: var(--tf-color);
+}
+
+/* Selected: filled with the color of the type, a check mark instead of the dot */
+.table-filter[aria-pressed="true"] {
+  color: var(--tf-text, #1f2933);
+  background-color: var(--tf-selected, var(--tf-color));
+  border: 1px solid var(--tf-selected, var(--tf-color));
+  box-shadow: 0 1px 3px rgb(0 0 0 / 0.2);
+}
+
+.table-filter[aria-pressed="true"]::before {
+  content: "✓";
+  width: auto;
+  height: auto;
+  font-size: 11px;
+  font-weight: 800;
+  background: none;
+}
+
+/* Realtime / turn based switch: the selected mode is filled with its color */
+.mode-switch {
+  display: inline-flex;
+  gap: 2px;
+  padding: 2px;
+  border-radius: 999px;
+  background-color: var(--tc-chip);
+  box-shadow: inset 0 0 0 1px var(--tc-chip-line);
+}
+
+.mode-switch button {
+  height: 22px;
+  padding: 0 10px;
+  border: 0;
+  border-radius: 999px;
+  font-size: 12px;
+  font-weight: 600;
+  white-space: nowrap;
+  color: var(--tc-muted);
+  background: transparent;
+  cursor: pointer;
+  transition: background-color 150ms, color 150ms;
+}
+
+.mode-switch button:hover {
+  color: var(--tc-title);
+}
+
+.mode-switch button[aria-checked="true"] {
+  color: var(--ms-text, #1f2933);
+  background-color: var(--ms-selected, var(--ms-color));
+  box-shadow: 0 1px 3px rgb(0 0 0 / 0.2);
+}
+
+.mode-switch button:focus-visible {
+  outline: 2px solid var(--tc-normal);
+  outline-offset: 2px;
+}
+
+.mode-switch-icon {
+  display: none;
+}
+
+/* Icons instead of the labels when they keep the filters on one line (FriendsView) */
+.view-toolbar--icons .mode-switch-icon {
+  display: grid;
+  place-items: center;
+}
+
+.view-toolbar--icons .mode-switch-label--icon {
+  display: none;
+}
+
+.mode-switch-icon svg {
+  width: 14px;
+  height: 14px;
+}
+
+.mode-switch-all {
+  --ms-color: var(--tc-normal);
+  --ms-text: #fff;
+}
+
+.mode-switch-realtime {
+  --ms-color: var(--mode-realtime);
+}
+
+.mode-switch-turn {
+  --ms-color: var(--mode-turn-based);
+}
+
+html.dark .mode-switch button {
+  --ms-text: #fff;
+}
+
+html.dark .mode-switch-all {
+  --ms-selected: var(--selected-normal);
+}
+
+html.dark .mode-switch-realtime {
+  --ms-selected: var(--selected-realtime);
+}
+
+html.dark .mode-switch-turn {
+  --ms-selected: var(--selected-turn-based);
+}
+
+.table-filter--ranked {
+  --tf-color: var(--tc-normal);
+  --tf-text: #fff;
+}
+
+.table-filter--arena {
+  --tf-color: var(--ic-arena);
+  --tf-text: #fff;
+}
+
+.table-filter--training {
+  --tf-color: var(--ic-training);
+  --tf-text: #fff;
+}
+
+html.dark .table-filter--ranked {
+  --tf-selected: var(--selected-normal);
+}
+
+html.dark .table-filter--arena {
+  --tf-selected: var(--selected-arena);
+}
+
+html.dark .table-filter--training {
+  --tf-selected: var(--selected-training);
+}
+
 .table-footer {
   display: flex;
   align-items: center;
@@ -796,6 +1132,14 @@ html.dark .card.table-card:not(.tournament-card):hover {
   .table-card *,
   .table-card *::before {
     animation: none !important;
+  }
+
+  .player-label,
+  .display-switch button,
+  .mode-switch button,
+  .table-filter {
+    transition: none;
+    transform: none;
   }
 }
 

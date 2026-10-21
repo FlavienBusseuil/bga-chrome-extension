@@ -56,7 +56,17 @@ interface CustomConfig {
 	forumFoldersHidden?: number[],
 	closePopupOnClick?: boolean;
 	focusOnNewTab?: boolean;
+	popupPlayersCompact?: boolean;
+	popupFriendsMode?: TablesMode;
+	popupFriendsHiddenKinds?: TableKind[];
+	popupFriendsPlayersCompact?: boolean;
+	popupColorfulTables?: boolean;
 }
+
+// Friends tables of the popup shown by mode: all, realtime only or turn based only
+export type TablesMode = "all" | "realtime" | "turn";
+// Kinds of tables, they are exclusive: ranked (normal), arena or training (friendly)
+export type TableKind = "ranked" | "arena" | "training";
 
 export interface HomeConfig {
 	header: boolean;
@@ -741,6 +751,51 @@ class Configuration {
 	setFocusOnNewTab(val: boolean) {
 		this._customConfig.focusOnNewTab = val;
 		storageSet({ focusOnNewTab: val });
+	}
+
+	isPopupPlayersCompact() {
+		return Boolean(this._customConfig.popupPlayersCompact);
+	}
+
+	setPopupPlayersCompact(val: boolean) {
+		this._customConfig.popupPlayersCompact = val;
+		storageSet({ popupPlayersCompact: val });
+	}
+
+	getPopupFriendsMode(): TablesMode {
+		return this._customConfig.popupFriendsMode ?? "all";
+	}
+
+	setPopupFriendsMode(val: TablesMode) {
+		this._customConfig.popupFriendsMode = val;
+		storageSet({ popupFriendsMode: val });
+	}
+
+	getPopupFriendsHiddenKinds(): TableKind[] {
+		return this._customConfig.popupFriendsHiddenKinds ?? [];
+	}
+
+	setPopupFriendsHiddenKinds(val: TableKind[]) {
+		this._customConfig.popupFriendsHiddenKinds = val;
+		storageSet({ popupFriendsHiddenKinds: val });
+	}
+
+	isPopupFriendsPlayersCompact() {
+		return Boolean(this._customConfig.popupFriendsPlayersCompact);
+	}
+
+	setPopupFriendsPlayersCompact(val: boolean) {
+		this._customConfig.popupFriendsPlayersCompact = val;
+		storageSet({ popupFriendsPlayersCompact: val });
+	}
+
+	isPopupColorfulTables() {
+		return this._customConfig.popupColorfulTables === undefined || this._customConfig.popupColorfulTables;
+	}
+
+	setPopupColorfulTables(val: boolean) {
+		this._customConfig.popupColorfulTables = val;
+		storageSet({ popupColorfulTables: val });
 	}
 
 	isDarkModeNative() {

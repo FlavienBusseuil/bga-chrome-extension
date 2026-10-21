@@ -1,5 +1,6 @@
-import { useState } from "preact/hooks";
+import { useContext, useState } from "preact/hooks";
 import { i18n } from "../utils/browser/i18n";
+import { CompactContext } from "./PlayerList";
 import { cn } from "./utils/cn";
 
 function getInitials(name: string) {
@@ -29,11 +30,15 @@ export function Player({
 	const [sourceIndex, setSourceIndex] = useState(0);
 	const name = playerName ?? "";
 	const src = sources[sourceIndex];
+	// In compact mode, the name is shown by the floating label of the list (data-label, data-state)
+	const compact = useContext(CompactContext);
 
 	return (
 		<li
 			className={cn(["player", isActivePlayer && "player--active", isInvitePending && "player--pending"])}
-			title={name}
+			title={compact ? undefined : name}
+			data-label={name}
+			data-state={isActivePlayer ? "active" : isInvitePending ? "pending" : undefined}
 		>
 			{src ? (
 				<img className="player-avatar" src={src} alt="" onError={() => setSourceIndex(sourceIndex + 1)} />
@@ -54,5 +59,11 @@ export function EmptySeats({ count }: { count: number }) {
 	}
 
 	const label = i18n(count === 1 ? "empty_seat" : "empty_seats").replace("$count$", `${count}`);
-	return <li className="player player--seat">+ {label}</li>;
+	// The short label is shown in compact mode, the full one in the floating label of the list
+	return (
+		<li className="player player--seat" data-label={label} data-state="seat">
+			<span className="player-seat-label">+ {label}</span>
+			<span className="player-seat-count">+{count}</span>
+		</li>
+	);
 }

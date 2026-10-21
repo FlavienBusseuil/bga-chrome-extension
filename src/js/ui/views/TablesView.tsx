@@ -3,6 +3,7 @@ import type { TransformedTable } from "../../types/TransformedTable";
 import { PlayerList } from "../PlayerList";
 import { EmptySeats, Player } from "../Player";
 import { StartNewGameButton } from "../StartNewGameButton";
+import { PlayersDisplaySwitch } from "../PlayersDisplaySwitch";
 import { Table } from "../Table";
 import { i18n } from "../../utils/browser/i18n";
 import { CardList } from "../base/CardList";
@@ -13,7 +14,9 @@ type Props = {
 	tables: Array<TransformedTable>,
 	motionSensitivityEnable: boolean,
 	closePopupOnClick: boolean,
-	focusOnNewTab: boolean | undefined
+	focusOnNewTab: boolean | undefined,
+	playersCompact: boolean,
+	onPlayersCompactChange: (compact: boolean) => void,
 };
 
 export const TablesView = ({
@@ -21,7 +24,9 @@ export const TablesView = ({
 	tables,
 	motionSensitivityEnable,
 	closePopupOnClick,
-	focusOnNewTab
+	focusOnNewTab,
+	playersCompact,
+	onPlayersCompactChange,
 }: Props) => {
 	return (
 		<div className={cn(["view", className || ''])}>
@@ -75,7 +80,7 @@ export const TablesView = ({
 											...restTable,
 										}}
 									>
-										<PlayerList>
+										<PlayerList compact={playersCompact}>
 											{[
 												...players.map(
 													({
@@ -108,7 +113,10 @@ export const TablesView = ({
 					</CardList>
 				</div>
 			)}
-			<StartNewGameButton />
+			<div className="view-actions">
+				{tables.length > 0 && <PlayersDisplaySwitch compact={playersCompact} onChange={onPlayersCompactChange} />}
+				<StartNewGameButton className="grow" />
+			</div>
 		</div>
 	);
 }

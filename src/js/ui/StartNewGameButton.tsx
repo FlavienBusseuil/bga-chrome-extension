@@ -2,12 +2,13 @@ import { bgaUrl } from "../utils/constants";
 import { Button } from "./base/Button";
 import { i18n } from "../utils/browser/i18n";
 
-export function StartNewGameButton() {
+export function StartNewGameButton({ className }: { className?: string }) {
 	return (
 		<Button
 			{...{
 				text: i18n("play_new_game"),
 				url: `${bgaUrl}/lobby`,
+				className: className ?? "",
 			}}
 		/>
 	);
