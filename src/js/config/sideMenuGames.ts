@@ -314,6 +314,17 @@ const defaultGames: Record<string, Partial<Game>> = {
 		boardPanel: "available_companies_wrapper",
 		bottomPanel: "board_bottom"
 	},
+	civolution: {
+		position: "bottom",
+		playerPanel: "CIVconsole-{{player_color}}",
+		iconBackground: "#333",
+		iconBackgroundDark: "#333",
+		iconBorder: "#bfbfbf",
+		iconBorderDark: "#bfbfbf",
+		iconColor: "#bfbfbf",
+		iconColorDark: "#bfbfbf",
+		css: ".bga-jump-to_controls { display: none; }",
+	},
 	clansofcaledonia: {
 		playerPanel: "playerboard_row_{{player_id}}",
 	},
@@ -1460,6 +1471,11 @@ const defaultGames: Record<string, Partial<Game>> = {
 	},
 	thewhitecastle: {
 		playerPanel: "twc-player-area-{{player_id}}",
+	},
+	thewhitecastleduel: {
+		playerPanel: "twcd-player-area-{{player_id}}",
+		iconBackgroundDark: "#6f502a",
+		css: ".bga-jump-to_controls { display: none; }",
 	},
 	thewolves: {
 		playerPanel: "wolves-player-container-{{player_id}}",

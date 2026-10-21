@@ -246,6 +246,12 @@ export const gamesConfiguration: Record<string, GameConfig> = {
     customBack: true,
     overlay: true
   },
+  brasslancashire: {
+    customBack: true,
+    customInit: (cssPath: string) => {
+      document.body.style.setProperty("--ext-page-title-back", `url(${cssPath}img/bricks.jpg)`);
+    }
+  },
   breadcrumbs: {
     customBack: true,
     overlay: true
@@ -388,11 +394,21 @@ export const gamesConfiguration: Record<string, GameConfig> = {
   cities: {
     customBack: true
   },
+  civolution: {
+    customBack: true,
+    customInit: (cssPath: string) => {
+      document.body.style.setProperty("--console-bg", `url(${cssPath}img/console.png)`);
+    }
+  },
   clashofdecks: {
     customBack: true
   },
   classifiedinformation: {
     playersBorder: ["#player-guard-{{player_id}}"]
+  },
+  classofeightynine: {
+    customBack: true,
+    overlay: true
   },
   coatl: {
     customBack: true,
@@ -1933,6 +1949,14 @@ export const gamesConfiguration: Record<string, GameConfig> = {
       document.body.style.setProperty("--back-player-area", `url(${cssPath}img/twc-player-boards.png)`);
       document.body.style.setProperty("--back-player-area-matcha", `url(${cssPath}img/matcha/twc-player-boards.png)`);
     }
+  },
+  thewhitecastleduel: {
+    customBack: ["custom-background"],
+    playersTextColor: ["#twcd-player-board-wrapper-{{player_id}} .twcd-player-board-name-wrapper"],
+    playersOutline: [
+      "#twcd-player-areas .twcd-player-area .twcd-player-board-wrapper[data-color=\"{{player_color}}\"]",
+      "#twcd-player-areas .twcd-player-area .twcd-player-board-wrapper .twcd-player-board .twcd-player-board-name-wrapper[data-color=\"{{player_color}}\"]"
+    ]
   },
   theyellowhouse: {
     customBack: true
