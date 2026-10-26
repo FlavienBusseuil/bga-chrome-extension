@@ -1,0 +1,13 @@
+{
+	"customBack": true,
+	"playersBorder": [
+		"#player-table-{{player_id}}"
+	],
+	"rootCssVars": {
+		"--ext-game-back": "img/background-dark.jpg"
+	},
+	"sideMenu": {
+		"playerPanel": "player-table-{{player_id}}",
+		"css": " "
+	}
+}

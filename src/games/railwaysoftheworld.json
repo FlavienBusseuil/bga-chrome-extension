@@ -1,0 +1,6 @@
+{
+	"sideMenu": {
+		"playerPanel": "rotw_playertable_{{player_id}}_wrap",
+		"boardPanel": "hideShowOpCards"
+	}
+}

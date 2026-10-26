@@ -1,0 +1,9 @@
+{
+	"customBack": true,
+	"sideMenu": {
+		"top": "90px",
+		"iconBackground": "#c7cccd",
+		"playerPanel": "resources-bar-holder-{{player_id}}",
+		"css": ".desktop_version #game_play_area { padding-left: 50px; } #position-wrapper { padding-left: 10px; }"
+	}
+}

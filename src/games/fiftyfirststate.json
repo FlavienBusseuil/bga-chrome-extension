@@ -1,0 +1,10 @@
+{
+	"customColors": [
+		"#ff0000",
+		"#0000ff",
+		"#ffa500"
+	],
+	"sideMenu": {
+		"playerPanel": "faction_{{player_id}}"
+	}
+}

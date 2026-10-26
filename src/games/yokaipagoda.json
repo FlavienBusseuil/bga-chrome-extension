@@ -1,0 +1,5 @@
+{
+	"playersBorder": [
+		".game_results_player[style=\"border-left: 4px solid #{{player_color}}\"]"
+	]
+}

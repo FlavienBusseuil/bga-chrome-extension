@@ -1,0 +1,16 @@
+{
+	"customBack": [
+		"black-background",
+		"dark-wood-background"
+	],
+	"customPanel": true,
+	"recommendedColor": {
+		"hue": 14,
+		"saturation": 15
+	},
+	"sideMenu": {
+		"playerPanel": "fes-player-area-{{player_id}}",
+		"iconBackgroundDark": "#5f483a",
+		"iconShadow": "#666"
+	}
+}

@@ -1,0 +1,10 @@
+{
+	"sideMenu": {
+		"top": "100px",
+		"playerPanel": ".nameslot > h3",
+		"playerPanelOffset": 20,
+		"bottomPanel": "limbo",
+		"bottomPanelOffset": 10,
+		"css": ".button_top { display: none; }"
+	}
+}

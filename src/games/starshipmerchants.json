@@ -1,0 +1,5 @@
+{
+	"sideMenu": {
+		"playerPanel": "disp_{{player_id}}"
+	}
+}

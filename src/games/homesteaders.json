@@ -1,0 +1,8 @@
+{
+	"customPlayerStyle": "#main_container div[id^=\"player_name_\"]",
+	"sideMenu": {
+		"playerPanel": ".boardheader",
+		"playerPanelOffset": 30,
+		"bottomPanel": "bottom"
+	}
+}

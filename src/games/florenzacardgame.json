@@ -1,0 +1,6 @@
+{
+	"sideMenu": {
+		"playerPanel": "board-florenza-player-{{player_id}}-card-container",
+		"playerPanelOffset": 45
+	}
+}

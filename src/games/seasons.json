@@ -1,0 +1,20 @@
+{
+	"customBack": true,
+	"overlay": true,
+	"playersBack": [
+		"#leftPlayerBoard_{{player_id}}"
+	],
+	"cssVars": {
+		"--frame": "img/parchmentFrame.png"
+	},
+	"recommendedColor": {
+		"hue": 0,
+		"saturation": 10
+	},
+	"sideMenu": {
+		"position": "bottom",
+		"playerPanel": "anchor_player_{{player_id}}",
+		"iconBackgroundDark": "#725325",
+		"css": ".desktop_version .tableau { margin-left: 46px; } .anchor-up { display: none; } .show-player-tableau { visibility: hidden; }"
+	}
+}

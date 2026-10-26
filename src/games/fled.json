@@ -1,0 +1,10 @@
+{
+	"playersBorder": [
+		"#fled_player-area-{{player_id}}"
+	],
+	"sideMenu": {
+		"playerPanel": "fled_player-area-{{player_id}}",
+		"boardPanel": "fled_board-container",
+		"css": ".fled_sticky { position: initial; } #fled_player-areas { padding-top: 2em; }"
+	}
+}

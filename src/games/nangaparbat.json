@@ -1,0 +1,5 @@
+{
+	"sideMenu": {
+		"playerPanel": "np_playerboard_{{player_id}}_wrap"
+	}
+}

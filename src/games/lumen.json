@@ -1,0 +1,11 @@
+{
+	"customBack": true,
+	"customPanel": true,
+	"customColors": [
+		"#1f3067"
+	],
+	"sideMenu": {
+		"playerPanel": "player-table-{{player_id}}",
+		"css": ".desktop_version #page-content { padding-left: 50px; }"
+	}
+}

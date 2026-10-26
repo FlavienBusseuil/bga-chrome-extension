@@ -1,0 +1,6 @@
+{
+	"sideMenu": {
+		"playerPanel": ".opp_container",
+		"boardPanel": "main_board"
+	}
+}

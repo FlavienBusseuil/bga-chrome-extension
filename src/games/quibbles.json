@@ -1,0 +1,7 @@
+{
+	"sideMenu": {
+		"iconBackground": "#99639c",
+		"playerPanel": "player-area-{{player_id}}",
+		"bottomPanel": "quibbles-ui-row-1"
+	}
+}

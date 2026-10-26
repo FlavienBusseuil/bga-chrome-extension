@@ -1,0 +1,21 @@
+{
+	"customBack": [
+		"custom-background"
+	],
+	"playersTextColor": [
+		"#twcd-player-board-wrapper-{{player_id}} .twcd-player-board-name-wrapper"
+	],
+	"playersOutline": [
+		"#twcd-player-areas .twcd-player-area .twcd-player-board-wrapper[data-color=\"{{player_color}}\"]",
+		"#twcd-player-areas .twcd-player-area .twcd-player-board-wrapper .twcd-player-board .twcd-player-board-name-wrapper[data-color=\"{{player_color}}\"]"
+	],
+	"recommendedColor": {
+		"hue": 0,
+		"saturation": 16
+	},
+	"sideMenu": {
+		"playerPanel": "twcd-player-area-{{player_id}}",
+		"iconBackgroundDark": "#6f502a",
+		"css": ".bga-jump-to_controls { display: none; }"
+	}
+}

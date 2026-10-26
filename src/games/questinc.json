@@ -1,0 +1,7 @@
+{
+	"customBack": true,
+	"overlay": true,
+	"playersBack": [
+		"#questinc-company-{{player_color_cap}} .questinc-title"
+	]
+}

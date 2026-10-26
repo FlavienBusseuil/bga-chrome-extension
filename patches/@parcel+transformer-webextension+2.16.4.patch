@@ -1,0 +1,17 @@
+diff --git a/node_modules/@parcel/transformer-webextension/lib/WebExtensionTransformer.js b/node_modules/@parcel/transformer-webextension/lib/WebExtensionTransformer.js
+index 98df4ed..232cbe0 100644
+--- a/node_modules/@parcel/transformer-webextension/lib/WebExtensionTransformer.js
++++ b/node_modules/@parcel/transformer-webextension/lib/WebExtensionTransformer.js
+@@ -163,6 +163,12 @@ async function collectDependencies(asset, program, ptrs, hmrOptions) {
+       const files = isMV2 ? [currentEntry] : currentEntry.resources;
+       let currentFiles = [];
+       for (let j = 0; j < files.length; ++j) {
++        // rebuild the manifest when a new file matches the pattern (a new game in watch mode)
++        if ((0, _utils().isGlob)(files[j])) {
++          asset.invalidateOnFileCreate({
++            glob: _path().default.join(assetDir, files[j])
++          });
++        }
+         const globFiles = (await (0, _utils().glob)(_path().default.join(assetDir, files[j]), fs, {})).map(fp => asset.addURLDependency(_path().default.relative(assetDir, fp), {
+           bundleBehavior: 'isolated',
+           needsStableName: true,

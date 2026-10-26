@@ -1,0 +1,11 @@
+{
+	"customBack": true,
+	"overlay": true,
+	"playersBorder": [
+		"#pop-reveal-slot-{{player_id}} .pop-placeholder",
+		".pop-whiteblock[style=\"border-color:#{{player_color}};\"]"
+	],
+	"playersBack": [
+		"[style=\"background:#{{player_color}};\"]"
+	]
+}

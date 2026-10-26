@@ -1,0 +1,6 @@
+{
+	"sideMenu": {
+		"playerPanel": "playercoinicon_{{player_id}}",
+		"playerPanelOffset": 20
+	}
+}

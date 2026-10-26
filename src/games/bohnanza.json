@@ -1,0 +1,8 @@
+{
+	"sideMenu": {
+		"playerPanel": ".bean_field_block",
+		"boardPanel": "container_posted_offers",
+		"boardPanelText": "#container_posted_offers .to_translate:first-child",
+		"bottomPanel": "container_deck_of_cards"
+	}
+}

@@ -1,0 +1,5 @@
+{
+	"sideMenu": {
+		"playerPanel": "boc_castleWrapper:{{player_id}}"
+	}
+}

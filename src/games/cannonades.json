@@ -1,0 +1,8 @@
+{
+	"customBack": true,
+	"customPlayerStyle": ".player-table .c-title",
+	"sideMenu": {
+		"playerPanel": "player-table-{{player_id}}",
+		"playerPanelOffset": 15
+	}
+}

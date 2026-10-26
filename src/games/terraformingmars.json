@@ -1,0 +1,16 @@
+{
+	"customBack": true,
+	"customPlayerStyle": ".mfull .playerboard_side_name, .mcompact .player_area_name",
+	"customColors": [
+		"#ff0000",
+		"#0000ff",
+		"#008000",
+		"#ffa500"
+	],
+	"sideMenu": {
+		"playerPanel": "#players_area .player_area",
+		"boardPanel": "main_board",
+		"bottomPanel": "allcards",
+		"css": "#bga_extension_sidebar { z-index: 999 !important; } .desktop_version #game_play_area { padding-left: 50px; } #ebd-body[data-localsetting_handplace=floating] #hand_area_buttons #hand_area_button_pop { background-color: #ebd5bd; } .bgaext_dark #ebd-body[data-localsetting_handplace=floating] #hand_area_buttons #hand_area_button_pop { background-color: #b9b9b9; }"
+	}
+}

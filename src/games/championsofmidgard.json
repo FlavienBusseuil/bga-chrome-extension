@@ -1,0 +1,7 @@
+{
+	"sideMenu": {
+		"playerPanel": "playerboard_p{{player_id}}",
+		"boardPanel": "availablelongboats",
+		"boardPanelText": "#availablelongboats .to_translate:first-child"
+	}
+}

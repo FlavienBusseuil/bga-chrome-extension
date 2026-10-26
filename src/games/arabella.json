@@ -1,0 +1,8 @@
+{
+	"sideMenu": {
+		"playerPanel": ".abl-player-board",
+		"boardPanel": ".abl-game-board",
+		"boardPanelText": "#game_play_area [data-tab-id=\"board\"] .abl-tab-bar-label",
+		"css": ".abl-tab-bar { display: none!important; }"
+	}
+}

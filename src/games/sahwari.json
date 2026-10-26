@@ -1,0 +1,5 @@
+{
+	"sideMenu": {
+		"playerPanel": "leaderBoardZone_{{player_id}}"
+	}
+}

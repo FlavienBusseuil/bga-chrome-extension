@@ -1,0 +1,5 @@
+{
+	"playersTextColor": [
+		"#player-zone-{{player_id}} .tomatoss-player-zone__name"
+	]
+}

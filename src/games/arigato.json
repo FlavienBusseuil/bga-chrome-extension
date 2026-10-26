@@ -1,0 +1,9 @@
+{
+	"customBack": [
+		"vgincLib_thematic_background_on"
+	],
+	"sideMenu": {
+		"playerPanel": "player-table-{{player_id}}",
+		"css": "#bga-jump-to_controls, .bga-jump-to_controls, .vgincLib_layout_slider #bga_extension_sidebar { display: none; }"
+	}
+}

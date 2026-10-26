@@ -1,0 +1,6 @@
+{
+	"sideMenu": {
+		"playerPanel": ".gnfd_playertable > .gnfd_playertablename",
+		"playerPanelOffset": 10
+	}
+}

@@ -1,0 +1,6 @@
+{
+	"sideMenu": {
+		"playerPanel": "map-container-{{player_id}}",
+		"bottomPanel": "sag-intermezzo-spaces"
+	}
+}

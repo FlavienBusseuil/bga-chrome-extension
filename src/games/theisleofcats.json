@@ -1,0 +1,5 @@
+{
+	"sideMenu": {
+		"playerPanel": "tioc-player-board-{{player_id}}"
+	}
+}

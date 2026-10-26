@@ -1,0 +1,7 @@
+{
+	"customBack": true,
+	"sideMenu": {
+		"playerPanel": "species_wrap_{{player_id}}",
+		"css": ".eye_panelicon, .up_arrow { display: none; } .desktop_version #game_play_area { padding-left: 50px; }"
+	}
+}

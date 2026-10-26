@@ -1,0 +1,13 @@
+{
+	"customBack": [
+		"custom_theme"
+	],
+	"overlay": true,
+	"cssVars": {
+		"--ext-game-back": "img/bg.jpg"
+	},
+	"recommendedColor": {
+		"hue": 0,
+		"saturation": 16
+	}
+}

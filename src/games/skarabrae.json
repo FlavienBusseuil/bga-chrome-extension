@@ -1,0 +1,16 @@
+{
+	"customBack": true,
+	"playersTextColor": [
+		".tableau[style=\"--player-color: #{{player_color}}\"]:after",
+		".bga-score-sheet_player-name[style=\"--player-color: #{{player_color}};\"]"
+	],
+	"rootCssVars": {
+		"--ext-game-back": "img/stonex.jpg"
+	},
+	"sideMenu": {
+		"playerPanel": "tableau_{{player_color}}",
+		"iconBackground": "#d7e8ee",
+		"iconBorderDark": "#989a9a",
+		"css": " "
+	}
+}

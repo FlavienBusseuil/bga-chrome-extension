@@ -1,0 +1,13 @@
+{
+	"playersBack": [
+		"#title_{{player_id}}"
+	],
+	"playersBorder": [
+		"#FSDtable_{{player_id}}"
+	],
+	"sideMenu": {
+		"playerPanel": "FSDtable_{{player_id}}",
+		"playerPanelOffset": 20,
+		"position": "bottom"
+	}
+}

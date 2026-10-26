@@ -1,7 +1,7 @@
 import Configuration from "./js/config/configuration";
 import { setDarkStyle } from "./js/ui/content/darkMode/darkStyleMelodiceFunctions";
 import { changeDarkColors } from "./js/ui/content/darkMode/darkColors";
-import { gamesWithRecommendedConfig } from "./js/config/darkThemeRecommendedConfig";
+import { getGameConfig, loadGameConfig } from "./js/config/games";
 
 const isInIFrame = window.self !== window.top;
 
@@ -35,11 +35,15 @@ if (isInIFrame) {
 
 	const adjustDarkColors = () => {
 		if (gameName) {
-			const recommandedConfig = gamesWithRecommendedConfig[gameName];
-			const hue = config.getDarkModeColor(gameName, recommandedConfig?.color);
-			const saturation = config.getDarkModeSaturation(gameName, recommandedConfig?.sat);
+			const currentGameName = gameName;
 
-			changeDarkColors(hue, saturation);
+			loadGameConfig(currentGameName).then(() => {
+				const recommendedColor = getGameConfig(currentGameName)?.recommendedColor;
+				const hue = config.getDarkModeColor(currentGameName, recommendedColor?.hue);
+				const saturation = config.getDarkModeSaturation(currentGameName, recommendedColor?.saturation);
+
+				changeDarkColors(hue, saturation);
+			});
 		}
 	};
 

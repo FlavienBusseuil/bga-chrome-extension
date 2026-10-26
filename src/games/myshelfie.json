@@ -1,0 +1,6 @@
+{
+	"customPlayerStyle": ".shelf-name",
+	"sideMenu": {
+		"playerPanel": "shelf_{{player_id}}"
+	}
+}

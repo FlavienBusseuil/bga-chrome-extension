@@ -1,0 +1,6 @@
+{
+	"sideMenu": {
+		"playerPanel": "player{{player_id}}",
+		"css": ".desktop_version #page-title { margin-left: 52px; } .desktop_version #pagesection_gameview { padding-left: 52px; }"
+	}
+}

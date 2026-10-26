@@ -1,0 +1,6 @@
+{
+	"sideMenu": {
+		"playerPanel": ".uptown_player_area ",
+		"myPanel": "#uptown_mytiles_wrap"
+	}
+}

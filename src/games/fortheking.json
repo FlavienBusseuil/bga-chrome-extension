@@ -1,0 +1,8 @@
+{
+	"sideMenu": {
+		"playerPanel": ".container1 .mycards .playernameclass",
+		"playerPanelOffset": 25,
+		"boardPanel": "centercard",
+		"boardPanelOffset": 50
+	}
+}

@@ -1,0 +1,6 @@
+{
+	"sideMenu": {
+		"playerPanel": "spt-cards{{player_id}}",
+		"css": ".desktop_version #spt-gameArea { margin-left: 25px; }"
+	}
+}

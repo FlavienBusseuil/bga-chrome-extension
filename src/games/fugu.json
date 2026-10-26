@@ -1,0 +1,10 @@
+{
+	"customBack": true,
+	"playersTextColor": [
+		".a-hand-container[data-owner-id=\"{{player_id}}\"] .my-hand-title-text"
+	],
+	"playersBorder": [
+		".a-hand-container[data-owner-id=\"{{player_id}}\"]",
+		".a-hand-container[data-owner-id=\"{{player_id}}\"] .my-hand-title"
+	]
+}

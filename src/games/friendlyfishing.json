@@ -1,0 +1,6 @@
+{
+	"customBack": true,
+	"playersTextColor": [
+		"#ff-player-area-{{player_id}} .ff-player-name"
+	]
+}

@@ -1,0 +1,6 @@
+{
+	"sideMenu": {
+		"playerPanel": "miniboard_{{player_id}}",
+		"css": "#thurntaxis_board, .desktop_version #page-title { margin-left: 55px; }"
+	}
+}

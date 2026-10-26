@@ -1,0 +1,6 @@
+{
+	"sideMenu": {
+		"top": "140px",
+		"playerPanel": "player_mat_{{player_id}}"
+	}
+}

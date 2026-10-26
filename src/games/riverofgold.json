@@ -1,0 +1,12 @@
+{
+	"customColors": [
+		"#000000",
+		"#ff0000",
+		"#008000",
+		"#0000ff",
+		"#ffffff"
+	],
+	"playersBorder": [
+		"#rog_player_delivered_resizable-{{player_id}}"
+	]
+}

@@ -1,0 +1,6 @@
+{
+	"sideMenu": {
+		"playerPanel": "playerZone_{{player_id}}",
+		"css": "#mainBoard { left: -50px; } .desktop_version #game_play_area { padding-left: 50px; }"
+	}
+}

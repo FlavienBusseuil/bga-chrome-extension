@@ -1,0 +1,5 @@
+{
+	"sideMenu": {
+		"playerPanel": "wrapper_player_{{player_id}}"
+	}
+}

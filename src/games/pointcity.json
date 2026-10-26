@@ -1,0 +1,11 @@
+{
+	"customBack": true,
+	"overlay": true,
+	"playersBorder": [
+		"[style*=\"border: 2px solid #{{player_color}}\"]"
+	],
+	"sideMenu": {
+		"playerPanel": "player_table_{{player_id}}",
+		"position": "bottom"
+	}
+}

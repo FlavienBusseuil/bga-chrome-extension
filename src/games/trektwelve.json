@@ -1,0 +1,9 @@
+{
+	"customBack": true,
+	"sideMenu": {
+		"playerPanel": "board_{{player_id}}",
+		"iconBackground": "#efd6a1",
+		"iconBackgroundDark": "#75593e",
+		"css": "#upback, .show-sheet-button { display: none; }"
+	}
+}

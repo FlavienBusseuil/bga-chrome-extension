@@ -1,0 +1,7 @@
+{
+	"sideMenu": {
+		"playerPanel": "leader_{{player_id}}",
+		"boardPanel": "board",
+		"css": ".desktop_version #game_play_area, #day_number { padding-left: 50px; }"
+	}
+}

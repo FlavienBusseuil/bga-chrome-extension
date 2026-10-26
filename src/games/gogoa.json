@@ -1,0 +1,6 @@
+{
+	"sideMenu": {
+		"playerPanel": "goa-holder-{{player_id}}",
+		"css": ".desktop_version #page-content { padding-left: 50px; }"
+	}
+}

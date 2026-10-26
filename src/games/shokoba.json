@@ -1,0 +1,5 @@
+{
+	"playersBorder": [
+		"#player_hand_{{player_id}}"
+	]
+}

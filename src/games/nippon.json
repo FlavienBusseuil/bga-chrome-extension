@@ -1,0 +1,6 @@
+{
+	"sideMenu": {
+		"playerPanel": "player_space_{{player_id}}",
+		"bottomPanel": "sideboard_anchor"
+	}
+}

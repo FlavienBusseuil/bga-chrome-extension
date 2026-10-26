@@ -1,0 +1,6 @@
+{
+	"sideMenu": {
+		"playerPanel": "prs_playerArea${{player_id}}",
+		"bottomPanel": "prs_publicArea"
+	}
+}

@@ -1,0 +1,6 @@
+{
+	"sideMenu": {
+		"playerPanel": "playerMat_{{player_id}}",
+		"playerPanelOffset": 50
+	}
+}

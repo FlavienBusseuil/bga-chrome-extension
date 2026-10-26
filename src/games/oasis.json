@@ -1,0 +1,6 @@
+{
+	"sideMenu": {
+		"playerPanel": "board_{{player_id}}",
+		"playerPanelOffset": 10
+	}
+}

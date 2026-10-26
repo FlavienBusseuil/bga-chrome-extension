@@ -1,0 +1,8 @@
+{
+	"customBack": [
+		"smlb_background"
+	],
+	"sideMenu": {
+		"playerPanel": ".smlb_playertable"
+	}
+}

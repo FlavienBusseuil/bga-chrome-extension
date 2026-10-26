@@ -1,0 +1,11 @@
+{
+	"customBack": [
+		"goa_pref_background_1"
+	],
+	"sideMenu": {
+		"playerPanel": "goa_player_table-{{player_id}}",
+		"playerPanelOffset": 25,
+		"iconBackgroundDark": "#8f663d",
+		"css": " "
+	}
+}

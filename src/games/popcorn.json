@@ -1,0 +1,8 @@
+{
+	"customBack": [
+		"pop-game-bg"
+	],
+	"sideMenu": {
+		"playerPanel": "pop-player-{{player_id}}"
+	}
+}

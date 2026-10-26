@@ -1,0 +1,10 @@
+{
+	"customBack": true,
+	"overlay": true,
+	"playersBack": [
+		"#mf_playertitle_{{player_index_1}}"
+	],
+	"playersOutline": [
+		"#mf_zone_player_{{player_index_1}}"
+	]
+}

@@ -1,0 +1,5 @@
+{
+	"sideMenu": {
+		"playerPanel": ".whiteblock:has(>.gw-player-board-wrap-wrap)"
+	}
+}

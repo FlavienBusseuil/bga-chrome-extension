@@ -1,0 +1,16 @@
+{
+	"customBack": true,
+	"recommendedColor": {
+		"hue": 25,
+		"saturation": 22
+	},
+	"sideMenu": {
+		"iconBackground": "#d8ba7f",
+		"iconBackgroundDark": "#302317",
+		"iconColorDark": "#eee",
+		"iconShadowDark": "#777",
+		"playerPanel": "cty_board_{{player_id}}",
+		"bottomPanel": "cty_proba",
+		"css": " "
+	}
+}

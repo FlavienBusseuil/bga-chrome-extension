@@ -1,0 +1,6 @@
+{
+	"sideMenu": {
+		"playerPanel": "tioc-player-board-{{player_id}}",
+		"css": "#bga-jump-to_controls, .bga-jump-to_controls { display: none; }"
+	}
+}

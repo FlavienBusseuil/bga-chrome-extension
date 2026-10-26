@@ -1,0 +1,6 @@
+{
+	"customBack": true,
+	"sideMenu": {
+		"playerPanel": ".playername.fo_zone_title"
+	}
+}

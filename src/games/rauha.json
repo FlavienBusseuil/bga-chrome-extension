@@ -1,0 +1,7 @@
+{
+	"customBack": true,
+	"sideMenu": {
+		"iconBackground": "#e7e1da",
+		"playerPanel": "board-{{player_id}}"
+	}
+}

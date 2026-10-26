@@ -1,0 +1,7 @@
+{
+	"sideMenu": {
+		"top": "100px",
+		"playerPanel": "player-table-{{player_id}}",
+		"css": ".bga-jump-to_controls { display: none; }"
+	}
+}

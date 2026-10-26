@@ -1,0 +1,8 @@
+{
+	"sideMenu": {
+		"iconBackground": "#e6e6fa",
+		"playerPanelOffset": 15,
+		"playerPanel": "vmg_playername_{{player_id}}",
+		"css": ".desktop_version #game_play_area { padding-left: 40px; }"
+	}
+}

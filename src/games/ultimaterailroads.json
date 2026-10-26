@@ -1,0 +1,16 @@
+{
+	"customBack": true,
+	"recommendedColor": {
+		"hue": 8,
+		"saturation": 15
+	},
+	"sideMenu": {
+		"iconBackground": "#e5d6d1",
+		"iconBackgroundDark": "#b5552b",
+		"playerPanel": ".nameslot > h3",
+		"playerPanelOffset": 20,
+		"bottomPanel": "limbo",
+		"bottomPanelOffset": 10,
+		"css": ".button_top { display: none; }"
+	}
+}

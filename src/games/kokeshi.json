@@ -1,0 +1,5 @@
+{
+	"sideMenu": {
+		"playerPanel": "kokeshi-artisan-board-{{player_id}}"
+	}
+}

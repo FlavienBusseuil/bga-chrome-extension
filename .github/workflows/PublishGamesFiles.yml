@@ -1,0 +1,59 @@
+name: Publish games files
+
+# Publishes the games CSS and configurations updated since the last release, downloaded by the extension without updating it
+# (see src/js/utils/remoteGames.ts). Run manually from the Actions tab.
+on:
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+concurrency:
+  group: publish-games-files
+
+jobs:
+  publish:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+        with:
+          ref: main
+          fetch-depth: 0
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+
+      - name: Build the games files updated since the last release
+        run: |
+          VERSION=$(node -p "require('./package.json').version")
+          # The files of the release are the reference: only the games changed since are published
+          git worktree add "$RUNNER_TEMP/release" "v$VERSION"
+          npm install --prefix "$RUNNER_TEMP/tools" --no-save less@4.6.4
+          NODE_PATH="$RUNNER_TEMP/tools/node_modules" node scripts/buildRemoteGames.js "$RUNNER_TEMP/release/src" src "$VERSION" "$RUNNER_TEMP/games.json"
+
+      - name: Commit on the games-files branch
+        run: |
+          PUBLISH="$RUNNER_TEMP/publish"
+          if git ls-remote --exit-code --heads origin games-files; then
+            git fetch origin games-files
+            git worktree add -B games-files "$PUBLISH" origin/games-files
+          else
+            git worktree add --orphan -b games-files "$PUBLISH"
+          fi
+          cp "$RUNNER_TEMP/games.json" "$PUBLISH/games.json"
+          cd "$PUBLISH"
+          git add games.json
+          if git diff --cached --quiet; then
+            echo "Nothing has changed since the last publication"
+            exit 0
+          fi
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git commit -m "Publish games files"
+          git push origin games-files
+
+      - name: Purge the jsDelivr cache
+        run: curl -fsS "https://purge.jsdelivr.net/gh/${GITHUB_REPOSITORY}@games-files/games.json"

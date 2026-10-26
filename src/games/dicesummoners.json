@@ -1,0 +1,7 @@
+{
+	"sideMenu": {
+		"playerPanel": "#pagesection_gameview .playertable.whiteblock",
+		"boardPanel": "community_basic",
+		"bottomPanel": "community_spell"
+	}
+}

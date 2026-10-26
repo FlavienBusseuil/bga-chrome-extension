@@ -1,0 +1,17 @@
+{
+	"customBack": [
+		"vgincLib_thematic_background_on"
+	],
+	"playersTextColor": [
+		"strong[data-color=\"{{player_color}}\"]"
+	],
+	"recommendedColor": {
+		"hue": 190,
+		"saturation": 22
+	},
+	"sideMenu": {
+		"playerPanel": "player-table-{{player_id}}",
+		"iconBackgroundDark": "#007399",
+		"iconBackground": "#3cf"
+	}
+}

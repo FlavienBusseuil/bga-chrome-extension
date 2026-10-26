@@ -1,0 +1,11 @@
+{
+	"customBack": true,
+	"recommendedColor": {
+		"hue": 30,
+		"saturation": 16
+	},
+	"sideMenu": {
+		"playerPanel": ".mf_playerboard .playername",
+		"playerPanelOffset": 20
+	}
+}

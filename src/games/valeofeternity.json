@@ -1,0 +1,5 @@
+{
+	"sideMenu": {
+		"playerPanel": "zone_title_{{player_index_1}}"
+	}
+}

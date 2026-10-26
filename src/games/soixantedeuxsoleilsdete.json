@@ -1,0 +1,10 @@
+{
+	"customBack": true,
+	"overlay": true,
+	"cssVars": {
+		"--die-background": "img/dice-sprite-36x36.png"
+	},
+	"sideMenu": {
+		"playerPanel": "player-table-{{player_id}}"
+	}
+}

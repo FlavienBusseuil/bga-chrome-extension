@@ -1,0 +1,9 @@
+{
+	"customBack": true,
+	"overlay": true,
+	"sideMenu": {
+		"playerPanel": ".tm_playerBoard .tm_name",
+		"boardPanel": ".sprite.sprite-board",
+		"playerPanelOffset": 20
+	}
+}

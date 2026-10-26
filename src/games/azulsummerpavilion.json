@@ -1,0 +1,21 @@
+{
+	"customBack": true,
+	"overlay": true,
+	"customPlayerStyle": ".player-name.color",
+	"playersBorder": [
+		"#player-table-wrapper-{{player_id}} .player-name-box",
+		"#player-table-wrapper-{{player_id}} .player-table"
+	],
+	"playersTextColor": [
+		"#player-name-shift-{{player_id}}"
+	],
+	"recommendedColor": {
+		"hue": 0,
+		"saturation": 15
+	},
+	"sideMenu": {
+		"playerPanel": "player-hand-{{player_id}}",
+		"playerPanelOffset": 20,
+		"iconBackgroundDark": "#663f24"
+	}
+}

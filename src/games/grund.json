@@ -1,0 +1,6 @@
+{
+	"customBack": true,
+	"sideMenu": {
+		"playerPanel": "playerbox-{{player_id}}"
+	}
+}

@@ -1,0 +1,6 @@
+{
+	"customBack": true,
+	"sideMenu": {
+		"playerPanel": "ebl-player-stats-{{player_id}}"
+	}
+}

@@ -1,0 +1,223 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "title": "Configuration of a game",
+  "description": "Configuration of a game, in src/games/{gameName}.json (see GameConfig in src/js/config/games.ts). Also used to validate the files before publishing them (scripts/buildRemoteGames.js)",
+  "type": "object",
+  "additionalProperties": false,
+  "properties": {
+    "customBack": {
+      "description": "true: the game has its own dark background. A list of classes: only when the html tag has one of them",
+      "anyOf": [
+        {
+          "type": "boolean"
+        },
+        {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        }
+      ]
+    },
+    "customPanel": {
+      "description": "The game has its own player panels: the dark panels of the extension are not applied",
+      "type": "boolean"
+    },
+    "twoTeams": {
+      "description": "The players are in two teams",
+      "type": "boolean"
+    },
+    "overlay": {
+      "description": "Add an inverted overlay of the background image (CSS variable --ext-game-back, img/background.jpg by default)",
+      "type": "boolean"
+    },
+    "customDarkMode": {
+      "description": "The game manages its own dark mode with this class",
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "className",
+        "applyGeneralCss"
+      ],
+      "properties": {
+        "className": {
+          "type": "string"
+        },
+        "applyGeneralCss": {
+          "type": "boolean"
+        }
+      }
+    },
+    "customPlayerStyle": {
+      "description": "Selector of the elements containing a player name: they get the class ext_player_{id}, colored with the player color",
+      "type": "string"
+    },
+    "playersBack": {
+      "description": "Selectors whose background color is the player color in dark mode, only for the colors changed by the dark mode ({{player_id}}, {{player_color}}, {{player_color_rgb}}, {{player_index_1}})",
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    },
+    "playersBorder": {
+      "description": "Selectors whose border color is the player color in dark mode, only for the colors changed by the dark mode ({{player_id}}, {{player_color}}, {{player_color_rgb}}, {{player_index_1}})",
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    },
+    "playersOutline": {
+      "description": "Selectors whose outline color is the player color in dark mode, only for the colors changed by the dark mode ({{player_id}}, {{player_color}}, {{player_color_rgb}}, {{player_index_1}})",
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    },
+    "playersTextColor": {
+      "description": "Selectors whose text color is the player color in dark mode, for all the players ({{player_id}}, {{player_color}}, {{player_color_rgb}}, {{player_index_1}})",
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    },
+    "customColors": {
+      "description": "Players colors the game can use, adapted to the dark mode even if no player has them",
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    },
+    "cssVars": {
+      "description": "CSS variables set on the body with an image of the game: { \"--back-main\": \"img/background.png\" }",
+      "type": "object",
+      "additionalProperties": {
+        "type": "string"
+      }
+    },
+    "rootCssVars": {
+      "description": "CSS variables set on the html tag with an image of the game: { \"--ext-game-back\": \"img/bg.jpg\" }",
+      "type": "object",
+      "additionalProperties": {
+        "type": "string"
+      }
+    },
+    "recommendedColor": {
+      "description": "Dark mode colors of the game, until the user chooses other ones",
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "hue",
+        "saturation"
+      ],
+      "properties": {
+        "hue": {
+          "description": "Hue, from 0 to 360",
+          "type": "number",
+          "minimum": 0,
+          "maximum": 360
+        },
+        "saturation": {
+          "description": "Saturation, in %",
+          "type": "number",
+          "minimum": 0,
+          "maximum": 100
+        }
+      }
+    },
+    "sideMenu": {
+      "description": "Side menu of the game (left menu with the players and board shortcuts). Missing properties take the default values (see ConfigurationWithGames)",
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "position": {
+          "description": "Vertical position of the menu",
+          "enum": [
+            "top",
+            "bottom",
+            "auto"
+          ]
+        },
+        "top": {
+          "description": "Distance from the top of the page (CSS value), default 75px",
+          "type": "string"
+        },
+        "bottom": {
+          "description": "Distance from the bottom of the page (CSS value), default auto",
+          "type": "string"
+        },
+        "left": {
+          "description": "Distance from the left of the page (CSS value), default 0.5em",
+          "type": "string"
+        },
+        "playerPanel": {
+          "description": "Id of the panel of each player with {{player_id}}, or a CSS selector of the panels (each one found with the player name)",
+          "type": "string"
+        },
+        "playerPanelOffset": {
+          "description": "Offset when scrolling to a player panel, default 5",
+          "type": "number"
+        },
+        "myPanel": {
+          "description": "CSS selector of the panel of the current player, when it differs from playerPanel",
+          "type": "string"
+        },
+        "boardPanel": {
+          "description": "Id of the main board, or a CSS selector",
+          "type": "string"
+        },
+        "boardPanelOffset": {
+          "description": "Offset when scrolling to the board, default 5",
+          "type": "number"
+        },
+        "boardPanelText": {
+          "description": "Text of the board button, or a CSS selector starting with # of the element containing it",
+          "type": "string"
+        },
+        "bottomPanel": {
+          "description": "Id of a panel at the bottom of the page, or a CSS selector",
+          "type": "string"
+        },
+        "bottomPanelOffset": {
+          "description": "Offset when scrolling to the bottom panel, default 5",
+          "type": "number"
+        },
+        "iconBackground": {
+          "description": "Background color of the icons",
+          "type": "string"
+        },
+        "iconBackgroundDark": {
+          "description": "Background color of the icons in dark mode",
+          "type": "string"
+        },
+        "iconBorder": {
+          "description": "Border color of the icons",
+          "type": "string"
+        },
+        "iconBorderDark": {
+          "description": "Border color of the icons in dark mode",
+          "type": "string"
+        },
+        "iconColor": {
+          "description": "Color of the icons",
+          "type": "string"
+        },
+        "iconColorDark": {
+          "description": "Color of the icons in dark mode",
+          "type": "string"
+        },
+        "iconShadow": {
+          "description": "Shadow color of the icons",
+          "type": "string"
+        },
+        "iconShadowDark": {
+          "description": "Shadow color of the icons in dark mode",
+          "type": "string"
+        },
+        "css": {
+          "description": "CSS added to the page when the menu is displayed (replaces the default one which makes room for the menu)",
+          "type": "string"
+        }
+      }
+    }
+  }
+}

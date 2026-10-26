@@ -1,0 +1,17 @@
+{
+	"customBack": true,
+	"overlay": true,
+	"customColors": [
+		"#770405",
+		"#097138",
+		"#011d4d",
+		"#522886"
+	],
+	"playersTextColor": [
+		"#player-table-{{player_id}} .name-wrapper .name"
+	],
+	"recommendedColor": {
+		"hue": 0,
+		"saturation": 20
+	}
+}

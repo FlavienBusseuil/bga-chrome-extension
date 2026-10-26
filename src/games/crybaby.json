@@ -1,0 +1,8 @@
+{
+	"customBack": true,
+	"overlay": true,
+	"playersOutline": [
+		"div[style^=\"outline: {{player_color_rgb}}\"]",
+		"div[style^=\"outline-color: {{player_color_rgb}};\"]"
+	]
+}

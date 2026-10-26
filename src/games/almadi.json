@@ -1,0 +1,7 @@
+{
+	"customPlayerStyle": ".playgroundContainer h2",
+	"sideMenu": {
+		"myPanel": "#playgroundCurrentPlayer",
+		"playerPanel": ".playgroundContainer"
+	}
+}

@@ -1,0 +1,7 @@
+{
+	"sideMenu": {
+		"playerPanel": "hand-{{player_id}}",
+		"playerPanelOffset": 35,
+		"boardPanel": "mission-board"
+	}
+}

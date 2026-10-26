@@ -1,0 +1,8 @@
+{
+	"customBack": [
+		"goi_thematicBackground"
+	],
+	"playersBorder": [
+		"#goi_playerZoneContainer\\:{{player_id}}"
+	]
+}

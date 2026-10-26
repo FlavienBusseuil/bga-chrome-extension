@@ -1,0 +1,6 @@
+{
+	"sideMenu": {
+		"boardPanel": "supply_sources",
+		"playerPanel": "areaForPlayer_{{player_id}}"
+	}
+}

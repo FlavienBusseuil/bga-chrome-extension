@@ -1,0 +1,7 @@
+{
+	"sideMenu": {
+		"boardPanel": "builderMarket",
+		"playerPanel": "playerArea-{{player_id}}",
+		"playerPanelOffset": 10
+	}
+}

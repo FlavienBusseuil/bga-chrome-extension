@@ -1,0 +1,6 @@
+{
+	"sideMenu": {
+		"playerPanel": "tableau_{{player_id}}",
+		"css": ".desktop_version #game_play_area { padding-left: 50px; } .desktop_version .store, .desktop_version .board { margin-left: 50px; }"
+	}
+}

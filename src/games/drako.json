@@ -1,0 +1,6 @@
+{
+	"sideMenu": {
+		"playerPanel": ".drako-player-area .drako-player-table-label",
+		"playerPanelOffset": 10
+	}
+}

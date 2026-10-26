@@ -1,0 +1,6 @@
+{
+	"sideMenu": {
+		"playerPanel": "board_{{player_id}}",
+		"boardPanel": "main_board"
+	}
+}

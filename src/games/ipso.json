@@ -1,0 +1,9 @@
+{
+	"customBack": true,
+	"playersBorder": [
+		"[style*=\"--plcolor:#{{player_color}}\"]"
+	],
+	"playersTextColor": [
+		"[style*=\"--plcolor:#{{player_color}}\"] .player_name_holder"
+	]
+}

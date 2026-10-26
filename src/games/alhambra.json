@@ -1,0 +1,5 @@
+{
+	"sideMenu": {
+		"playerPanel": "alhambra-wrapper-{{player_id}}"
+	}
+}

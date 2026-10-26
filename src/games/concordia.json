@@ -1,0 +1,11 @@
+{
+	"playersTextColor": [
+		"[style=\"--player-color: #{{player_color}}\";]"
+	],
+	"sideMenu": {
+		"playerPanel": "player-table-{{player_id}}",
+		"css": "#cia_playersBoard { margin-left: 50px; }",
+		"position": "bottom",
+		"iconBorderDark": "#ccc"
+	}
+}

@@ -92,10 +92,10 @@
         "img/icon-grey.png",
         "css/dark_theme/*.less",
         "css/native_theme/*.less",
-        "css/games/*.less",
+        "games/*.less",
+        "games/*.ts",
         "js/homepage.ts",
         "js/bgaApi.ts",
-        "js/games/*.ts",
         "sound/myturn.mp3",
         "offscreen.html",
         "locales/*.json"

@@ -1,0 +1,6 @@
+{
+	"sideMenu": {
+		"playerPanel": "board_{{player_index_1}}",
+		"bottomPanel": "turn_slider"
+	}
+}

@@ -1,0 +1,7 @@
+{
+	"sideMenu": {
+		"playerPanel": ".pupitrePlayerContainer",
+		"myPanel": "#pupitreCurrentPlayer",
+		"css": "#zoneboard { position: relative; } .desktop_version #game_play_area { padding-left: 50px; }"
+	}
+}

@@ -1,0 +1,14 @@
+{
+	"customBack": true,
+	"customPlayerStyle": ".tuc_header",
+	"recommendedColor": {
+		"hue": 138,
+		"saturation": 15
+	},
+	"sideMenu": {
+		"iconBackground": "#a5cdbf",
+		"iconBackgroundDark": "#326755",
+		"playerPanel": "player-{{player_id}}-tableau",
+		"playerPanelOffset": 30
+	}
+}

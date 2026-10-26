@@ -1,0 +1,5 @@
+{
+	"sideMenu": {
+		"playerPanel": "neom-cityboard-{{player_id}}-goods"
+	}
+}

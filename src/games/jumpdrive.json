@@ -1,0 +1,12 @@
+{
+	"customBack": true,
+	"playersBorder": [
+		"#jdr-tableau-{{player_id}}"
+	],
+	"sideMenu": {
+		"iconBackground": "#afafaf",
+		"iconBorder": "#000",
+		"iconShadow": "#666",
+		"playerPanel": "jdr-tableau-{{player_id}}"
+	}
+}

@@ -1,0 +1,6 @@
+{
+	"sideMenu": {
+		"playerPanel": "rvr-map-index-{{player_index}}",
+		"playerPanelOffset": 20
+	}
+}

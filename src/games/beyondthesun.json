@@ -1,0 +1,13 @@
+{
+	"customBack": true,
+	"recommendedColor": {
+		"hue": 197,
+		"saturation": 35
+	},
+	"sideMenu": {
+		"playerPanel": "bts-playerArea{{player_id}}",
+		"iconColor": "#eee",
+		"iconBackground": "#40678c",
+		"iconBackgroundDark": "#40678c"
+	}
+}

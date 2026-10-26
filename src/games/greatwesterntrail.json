@@ -1,0 +1,7 @@
+{
+	"sideMenu": {
+		"top": "100px",
+		"playerPanel": "player_area_{{player_id}}",
+		"css": ".desktop_version #game_play_area_wrap { padding-left: 50px; }"
+	}
+}

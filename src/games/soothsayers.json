@@ -1,0 +1,16 @@
+{
+	"customBack": true,
+	"playersOutline": [
+		"#player-board-{{player_id}}"
+	],
+	"recommendedColor": {
+		"hue": 290,
+		"saturation": 25
+	},
+	"sideMenu": {
+		"playerPanel": "player-board-{{player_id}}",
+		"boardPanel": "market-area",
+		"boardPanelText": "#market-area .market-header h3",
+		"css": " "
+	}
+}

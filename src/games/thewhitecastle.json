@@ -1,0 +1,12 @@
+{
+	"customBack": [
+		"custom-background"
+	],
+	"cssVars": {
+		"--back-player-area": "img/twc-player-boards.png",
+		"--back-player-area-matcha": "img/matcha/twc-player-boards.png"
+	},
+	"sideMenu": {
+		"playerPanel": "twc-player-area-{{player_id}}"
+	}
+}

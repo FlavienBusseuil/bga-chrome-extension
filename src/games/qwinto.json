@@ -1,0 +1,8 @@
+{
+	"playersBack": [
+		"#qwinto-player-board-background-{{player_id}} .qwinto_name_tag"
+	],
+	"playersBorder": [
+		"#qwinto-player-board-background-{{player_id}}"
+	]
+}

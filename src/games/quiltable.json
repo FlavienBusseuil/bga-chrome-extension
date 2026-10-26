@@ -1,0 +1,6 @@
+{
+	"overlay": true,
+	"sideMenu": {
+		"playerPanel": "player-table-{{player_id}}"
+	}
+}

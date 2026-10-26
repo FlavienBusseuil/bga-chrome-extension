@@ -1,0 +1,12 @@
+{
+	"customBack": true,
+	"customPlayerStyle": ".wg-title",
+	"playersBorder": [
+		".wg-title.ext_player_{{player_id}}",
+		"#player-table-{{player_id}}-health",
+		"#player-table-{{player_id}} .player-table"
+	],
+	"sideMenu": {
+		"playerPanel": "player-table-{{player_id}}"
+	}
+}

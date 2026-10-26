@@ -1,0 +1,6 @@
+{
+	"sideMenu": {
+		"playerPanel": "CRUPlayerTWBDBoard_{{player_id}}",
+		"playerPanelOffset": 100
+	}
+}

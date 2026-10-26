@@ -1,0 +1,8 @@
+{
+	"customBack": true,
+	"sideMenu": {
+		"position": "bottom",
+		"playerPanel": "QQ-questsZone-{{player_id}}",
+		"css": " "
+	}
+}

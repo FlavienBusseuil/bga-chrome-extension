@@ -1,0 +1,6 @@
+{
+	"sideMenu": {
+		"playerPanel": "tbp-playerCards-{{player_id}}",
+		"css": ".desktop_version #tbp { margin-left: 50px; }"
+	}
+}

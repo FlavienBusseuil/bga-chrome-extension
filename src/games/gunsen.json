@@ -1,0 +1,15 @@
+{
+	"customBack": true,
+	"customColors": [
+		"#2d395a",
+		"#9b1c18",
+		"#2c6c50",
+		"#6f91b0",
+		"#603c87",
+		"#e63312"
+	],
+	"sideMenu": {
+		"playerPanel": "tsn-player-board-wrapper-{{player_id}}",
+		"css": " "
+	}
+}

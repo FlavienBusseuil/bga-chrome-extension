@@ -1,0 +1,7 @@
+{
+	"overlay": true,
+	"cssVars": {
+		"--back-0": "img/ui/texture.jpg",
+		"--back-1": "img/ui/texture_light.jpg"
+	}
+}

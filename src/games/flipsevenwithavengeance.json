@@ -1,0 +1,7 @@
+{
+	"customBack": true,
+	"overlay": true,
+	"playersBorder": [
+		"[style^=\"border-color: {{player_color_rgb}}\"]"
+	]
+}

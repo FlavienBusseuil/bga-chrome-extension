@@ -1,0 +1,8 @@
+{
+	"sideMenu": {
+		"playerPanel": "player-table-{{player_id}}",
+		"boardPanel": "research-board",
+		"boardPanelText": "#bga-jump-to_board-1 > span",
+		"css": "#bga-jump-to_controls, .bga-jump-to_controls { display: none; } .desktop_version #game_play_area { padding-left: 50px; }"
+	}
+}

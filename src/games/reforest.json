@@ -1,0 +1,13 @@
+{
+	"overlay": true,
+	"playersBack": [
+		"#re-player-area-{{player_id}} .re-player-area-name"
+	],
+	"cssVars": {
+		"--ext-game-back": "img/re-background-light.jpg"
+	},
+	"sideMenu": {
+		"playerPanel": "re-player-area-{{player_id}}",
+		"css": "#bga-jump-to_controls, .bga-jump-to_controls { display: none; }"
+	}
+}

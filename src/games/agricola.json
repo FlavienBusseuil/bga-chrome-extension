@@ -1,0 +1,13 @@
+{
+	"customBack": true,
+	"recommendedColor": {
+		"hue": 100,
+		"saturation": 12
+	},
+	"sideMenu": {
+		"playerPanel": "player-board-resizable-{{player_id}}",
+		"css": "#position-wrapper { padding-left: 52px; }",
+		"iconBackground": "#87c147",
+		"iconBackgroundDark": "#28621d"
+	}
+}

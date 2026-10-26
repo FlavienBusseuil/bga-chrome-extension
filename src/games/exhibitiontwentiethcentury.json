@@ -1,0 +1,5 @@
+{
+	"sideMenu": {
+		"playerPanel": "etc-player-area-{{player_id}}"
+	}
+}

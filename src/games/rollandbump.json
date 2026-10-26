@@ -1,0 +1,10 @@
+{
+	"customBack": true,
+	"sideMenu": {
+		"iconBackground": "#d7d0cd",
+		"playerPanel": "#rnb_players > div > h2 > span",
+		"playerPanelOffset": 15,
+		"bottomPanel": "rnb_rewards",
+		"css": " "
+	}
+}

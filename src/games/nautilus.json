@@ -1,0 +1,6 @@
+{
+	"sideMenu": {
+		"playerPanel": "#player_domains_wrap, #opponent_domains_wrap",
+		"bottomPanel": "special_cards_discarded_wrap"
+	}
+}

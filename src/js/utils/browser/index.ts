@@ -84,5 +84,33 @@ export const getExtensionVersion = () => chrome.runtime.getManifest().version;
 
 const cleanPath = (path: string) => (path.startsWith('/')) ? path.substring(1) : path;
 const resources = new Set(chrome.runtime.getManifest().web_accessible_resources?.filter(r => typeof r !== 'string').map(r => r.resources.map(cleanPath)).flat() || []);
+const resourcePatterns = [...resources]
+	.filter(resource => resource.includes('*'))
+	.map(resource => new RegExp(`^${resource.split('*').map(part => part.replace(/[.+?^${}()|[\]\\]/g, '\\$&')).join('[^/]*')}$`));
 
-export const checkIfResourcePathExists = (path: string): boolean => resources.has(cleanPath(path));
+// The files of a folder declared with patterns are listed in "<folder>/_index.json" (see scripts/finalizeGamesBuild.js)
+const folderIndexes = new Map<string, Promise<string[] | null>>();
+
+const getFolderIndex = (folder: string): Promise<string[] | null> => {
+	if (!folderIndexes.has(folder)) {
+		folderIndexes.set(folder, fetch(getUrl(`/${folder}_index.json`))
+			.then(response => response.ok ? response.json() : null)
+			.catch(() => null));
+	}
+	return folderIndexes.get(folder)!;
+};
+
+export const checkIfResourcePathExists = async (path: string): Promise<boolean> => {
+	const resource = cleanPath(path);
+	if (resources.has(resource)) {
+		return true;
+	}
+	if (!resourcePatterns.some(pattern => pattern.test(resource))) {
+		return false;
+	}
+
+	const separator = resource.lastIndexOf('/') + 1;
+	const index = await getFolderIndex(resource.substring(0, separator));
+	// Without index, the pattern is the only information available
+	return index === null || index.includes(resource.substring(separator));
+};

@@ -1,7 +1,7 @@
 import { isNumber } from "../../../utils/misc/isNumber";
 import { waitForObj } from "../../../utils/misc/wait";
 import { hexToRgb } from "../../../utils/misc/colors";
-import { gamesConfiguration } from "../../../config/darkThemeGames";
+import { getGameConfig, getGameStyle, hasPageScript, loadGameConfig } from "../../../config/games";
 import { ARCHIVE_FLOATING_MENU_CSS } from "../../../config/configuration.constants";
 import { PlayerData, getPlayersData, getPlayersPossibleColors } from "../players";
 import { createStyle, getFile, getDarkStyle, saveDarkStyle, DarkStyle } from "./darkStyleCommonFunctions";
@@ -31,16 +31,16 @@ if (pageInfo.length >= 2 && isNumber(pageInfo[0] as string)) {
 
 const isHtmlPage = pageInfo[pageInfo.length - 1]?.endsWith('.html');
 
-const _injectGamePageScript = () => {
+const _injectGamePageScript = async () => {
   // must be done as soon as possible to be executed before the game script
-  if (!gamesConfiguration[gameName]?.pageScript || document.getElementById('ext_game_script')) {
+  if (!(await hasPageScript(gameName)) || document.getElementById('ext_game_script')) {
     return;
   }
 
   console.debug(`[bga extension] load ${gameName} page script`);
   const script = document.createElement('script');
   script.id = 'ext_game_script';
-  script.src = chrome.runtime.getURL(`/js/games/${gameName}.js`);
+  script.src = chrome.runtime.getURL(`/games/${gameName}.js`);
   (document.head || document.documentElement).appendChild(script);
 };
 
@@ -57,6 +57,9 @@ const _init = async () => {
     _injectGamePageScript();
   }
 
+  // the configuration of the game may have been updated since the release of the extension
+  await loadGameConfig(gameName);
+
   const fileContents = await fileContentsTask;
   fileContents.forEach(({ file, content }) => cssContents[file] = content);
 };
@@ -68,7 +71,7 @@ _init().then(() => {
   }
 
   if (gameName !== 'general') {
-    const gameStyleFile = `games/${gameName}.css`;
+    const gameStyleFile = `${gameName}.css`;
     const gameStyle = cssContents[gameStyleFile];
 
     gameStyleComponent = createStyle('bgaext-game-style');
@@ -79,10 +82,9 @@ _init().then(() => {
       return;
     }
 
-    getFile(gameStyleFile, true).then(fileContent => {
-      const { file, content } = fileContent;
-      cssContents[file] = content;
-      gameStyleComponent.textContent = (mode === "archive") ? `${cssContents[file]}${ARCHIVE_FLOATING_MENU_CSS}` : cssContents[file];
+    getGameStyle(gameName).then(content => {
+      cssContents[gameStyleFile] = content ?? "";
+      gameStyleComponent.textContent = (mode === "archive") ? `${cssContents[gameStyleFile]}${ARCHIVE_FLOATING_MENU_CSS}` : cssContents[gameStyleFile];
     });
   }
 });
@@ -233,16 +235,17 @@ const _addInvertOverlay = (cssPath: string) => {
 
 const _setDarkStyleIfActivated = () => {
   waitForObj('#overall-content', 5000).then(() => {
-    const config = gamesConfiguration[gameName];
-    const customInit = config?.customInit;
+    const config = getGameConfig(gameName);
+    const hasCssVars = Boolean(config?.cssVars || config?.rootCssVars);
     const hasOverlay = Boolean(config?.overlay);
 
-    if (customInit || hasOverlay) {
+    if (hasCssVars || hasOverlay) {
       const cssPath = _getCssPath(`${gameName}.css`);
       console.debug(`[bga extension] ${gameName} css path is '${cssPath}'`);
 
-      if (customInit) {
-        customInit(cssPath);
+      if (hasCssVars) {
+        Object.entries(config?.cssVars ?? {}).forEach(([name, img]) => document.body.style.setProperty(name, `url(${cssPath}${img})`));
+        Object.entries(config?.rootCssVars ?? {}).forEach(([name, img]) => document.documentElement.style.setProperty(name, `url(${cssPath}${img})`));
       } else {
         document.body.style.setProperty("--ext-game-back", `url(${cssPath}img/background.jpg)`);
       }
@@ -264,7 +267,7 @@ const _setDarkStyleIfActivated = () => {
 };
 
 const _applyDarkStyleForGame = () => {
-  const config = gamesConfiguration[gameName];
+  const config = getGameConfig(gameName);
   const applyGeneralCss = !(config?.customDarkMode) || config.customDarkMode?.applyGeneralCss;
   const backStyle = applyGeneralCss && config?.customBack === true ? "" : cssContents["dark_theme/background.css"];
 
@@ -364,7 +367,7 @@ const _manageHtmlTag = () => {
 
   try {
     const theme = document.documentElement.dataset.theme;
-    const config = gameName ? gamesConfiguration[gameName] : undefined;
+    const config = gameName ? getGameConfig(gameName) : undefined;
     const customDarkClass = config?.customDarkMode?.className;
     const classesList = Array.isArray(config?.customBack) ? config.customBack : undefined;
 

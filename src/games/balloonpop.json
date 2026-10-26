@@ -1,0 +1,6 @@
+{
+	"sideMenu": {
+		"playerPanel": "pad_{{player_id}}",
+		"playerPanelOffset": 60
+	}
+}

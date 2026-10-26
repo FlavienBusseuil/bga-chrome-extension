@@ -1,0 +1,9 @@
+{
+	"customDarkMode": {
+		"className": "dark",
+		"applyGeneralCss": false
+	},
+	"sideMenu": {
+		"playerPanel": "area_{{player_id}}"
+	}
+}

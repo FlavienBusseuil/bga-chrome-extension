@@ -1,0 +1,12 @@
+{
+	"sideMenu": {
+		"top": "40vh",
+		"left": "1em",
+		"iconBackground": "#ffffff",
+		"iconBackgroundDark": "#272a2f",
+		"iconShadowDark": "#eee",
+		"iconColorDark": "#eee",
+		"playerPanel": "AMBPlayArea_{{player_id}}",
+		"css": ".desktop_version #AMBOtherPlayersLayout { padding-left: 65px; }"
+	}
+}

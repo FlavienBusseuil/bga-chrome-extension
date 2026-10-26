@@ -1,0 +1,15 @@
+{
+	"playersBack": [
+		"#sp-player-area-{{player_id}} .sp-player-area-name-spacer"
+	],
+	"playersOutline": [
+		"#sp-player-area-{{player_id}} .sp-road-slot",
+		"#sp-player-area-{{player_id}} .sp-player-area-wonders",
+		"#sp-player-area-{{player_id}} .sp-player-area-camp>.slot"
+	],
+	"sideMenu": {
+		"playerPanel": "sp-player-area-{{player_id}}",
+		"css": "#bga-jump-to_controls, .bga-jump-to_controls { display: none; }",
+		"iconBackgroundDark": "#53481d"
+	}
+}

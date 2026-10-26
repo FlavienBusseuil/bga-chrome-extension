@@ -1,0 +1,14 @@
+{
+	"recommendedColor": {
+		"hue": 200,
+		"saturation": 20
+	},
+	"sideMenu": {
+		"playerPanel": "wc-player-area-{{player_id}}",
+		"boardPanel": "wc-display-area-wrapper",
+		"boardPanelText": "#bga-jump-to_wc-wilderness-area .bga-jump-to_label",
+		"css": "#bga-jump-to_controls, .bga-jump-to_controls { display: none; } .desktop_version #game_play_area { padding-left: 50px; }",
+		"iconBackgroundDark": "#1e3448",
+		"iconShadowDark": "#777"
+	}
+}

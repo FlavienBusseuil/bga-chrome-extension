@@ -1,0 +1,6 @@
+{
+	"customBack": true,
+	"playersOutline": [
+		"div[style^=\"outline: {{player_color_rgb}}\"]"
+	]
+}

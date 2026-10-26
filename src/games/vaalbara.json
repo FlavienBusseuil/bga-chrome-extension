@@ -1,0 +1,8 @@
+{
+	"customBack": true,
+	"sideMenu": {
+		"iconBackground": "#ffffff",
+		"iconBackgroundDark": "#3c5f77",
+		"playerPanel": ".vlb_zone_title > h2 > span:last-child"
+	}
+}

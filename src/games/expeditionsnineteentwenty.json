@@ -1,0 +1,14 @@
+{
+	"customBack": true,
+	"playersBorder": [
+		"#ex-player-area-{{player_id}}",
+		"#ex-player-area-{{player_id}} .ex-player-area-name"
+	],
+	"sideMenu": {
+		"playerPanel": "ex-player-area-{{player_id}}",
+		"boardPanel": "ex-base-camp",
+		"boardPanelText": "Base camp",
+		"css": ".bga-jump-to_controls { display: none; } .desktop_version #game_play_area { padding-left: 50px; }",
+		"position": "bottom"
+	}
+}

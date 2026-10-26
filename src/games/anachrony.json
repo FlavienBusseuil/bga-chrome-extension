@@ -1,0 +1,6 @@
+{
+	"sideMenu": {
+		"playerPanel": "player{{player_id}}",
+		"css": "div.playeroverall > div:last-child { display: none; } .desktop_version #game_play_area { padding-left: 50px; }"
+	}
+}

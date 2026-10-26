@@ -1,0 +1,13 @@
+{
+	"customBack": true,
+	"sideMenu": {
+		"playerPanel": "playerTable_{{player_id}}",
+		"playerPanelOffset": 45,
+		"iconColor": "#eee",
+		"iconBackground": "#2a0620",
+		"iconBackgroundDark": "#2a0620",
+		"iconShadow": "#918e8e",
+		"iconShadowDark": "#918e8e",
+		"css": ".desktop_version #game_play_area { margin-left: 50px; }"
+	}
+}

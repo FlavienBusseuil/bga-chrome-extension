@@ -1,0 +1,12 @@
+{
+	"customBack": [
+		"thematic_background"
+	],
+	"playersBorder": [
+		"player_area[color=\"{{player_color}}\"]"
+	],
+	"sideMenu": {
+		"playerPanel": ".player_board .player_name_txt > div",
+		"playerPanelOffset": 70
+	}
+}

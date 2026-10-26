@@ -1,0 +1,20 @@
+{
+	"customBack": true,
+	"overlay": true,
+	"playersBack": [
+		"#player_{{player_id}}_label"
+	],
+	"playersBorder": [
+		"#player_board_{{player_id}}"
+	],
+	"recommendedColor": {
+		"hue": 300,
+		"saturation": 20
+	},
+	"sideMenu": {
+		"playerPanel": "player_board_{{player_id}}",
+		"iconBackgroundDark": "var(--dark-40)",
+		"iconBackground": "#60c2cb",
+		"iconColor": "#fff"
+	}
+}

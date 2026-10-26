@@ -1,0 +1,7 @@
+{
+	"customBack": true,
+	"sideMenu": {
+		"playerPanel": "sheet-{{player_id}}",
+		"iconBackground": "#ffffff"
+	}
+}

@@ -1,0 +1,15 @@
+{
+	"customBack": true,
+	"overlay": true,
+	"playersTextColor": [
+		"[style=\"--color: #{{player_color}}\"]"
+	],
+	"playersBack": [
+		"[style=\"--color: #{{player_color}}\"]:before",
+		"[style=\"--color: #{{player_color}}\"]:after"
+	],
+	"recommendedColor": {
+		"hue": 130,
+		"saturation": 20
+	}
+}

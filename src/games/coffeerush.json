@@ -1,0 +1,10 @@
+{
+	"customBack": true,
+	"overlay": true,
+	"sideMenu": {
+		"playerPanel": "player_zone_{{player_id}}",
+		"css": ".desktop_version #game_play_area { padding-left: 0px; }",
+		"iconBackgroundDark": "#4b3621",
+		"iconBorderDark": "#fff"
+	}
+}

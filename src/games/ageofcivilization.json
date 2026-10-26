@@ -1,0 +1,6 @@
+{
+	"sideMenu": {
+		"playerPanel": "playertable_{{player_id}}",
+		"boardPanel": "rivers"
+	}
+}

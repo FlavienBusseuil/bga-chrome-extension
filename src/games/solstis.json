@@ -1,0 +1,9 @@
+{
+	"customBack": true,
+	"sideMenu": {
+		"playerPanel": "zone_playername_{{player_index_1}}",
+		"iconBackground": "#4fb9e5",
+		"iconBackgroundDark": "#156584",
+		"css": " "
+	}
+}

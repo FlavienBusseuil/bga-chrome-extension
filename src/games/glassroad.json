@@ -1,0 +1,7 @@
+{
+	"sideMenu": {
+		"playerPanel": "playerboard_row_{{player_id}}",
+		"boardPanel": "board-row",
+		"bottomPanel": "history_section"
+	}
+}

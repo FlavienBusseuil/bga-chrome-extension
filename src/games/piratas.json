@@ -1,0 +1,10 @@
+{
+	"customPlayerStyle": "#playmats .playmat h3",
+	"playersBorder": [
+		"#playmat_{{player_id}}"
+	],
+	"sideMenu": {
+		"playerPanel": "playmat_{{player_id}}",
+		"bottomPanel": "discard_wrap"
+	}
+}

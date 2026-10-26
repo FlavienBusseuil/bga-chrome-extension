@@ -1,0 +1,7 @@
+{
+	"sideMenu": {
+		"playerPanel": "pyramid_{{player_id}}",
+		"position": "bottom",
+		"css": "#board { left: -50px; } .desktop_version #game_play_area { padding-left: 50px; }"
+	}
+}

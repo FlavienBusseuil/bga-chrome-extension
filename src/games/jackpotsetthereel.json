@@ -1,0 +1,6 @@
+{
+	"customBack": true,
+	"playersBorder": [
+		"#player-table-{{player_index_1}}"
+	]
+}

@@ -1,0 +1,15 @@
+{
+	"customBack": true,
+	"recommendedColor": {
+		"hue": 202,
+		"saturation": 55
+	},
+	"sideMenu": {
+		"iconColor": "#eee",
+		"iconBackground": "#084864",
+		"iconBackgroundDark": "#084864",
+		"playerPanel": "discard-{{player_id}}",
+		"playerPanelOffset": 45,
+		"css": ".desktop_version #game_play_area { padding-left: 35px; }"
+	}
+}

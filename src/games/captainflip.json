@@ -1,0 +1,13 @@
+{
+	"customBack": true,
+	"recommendedColor": {
+		"hue": 193,
+		"saturation": 39
+	},
+	"sideMenu": {
+		"playerPanel": ".cf_title",
+		"bottomPanel": "o-help",
+		"iconBackground": "#87c0cc",
+		"iconBackgroundDark": "#07515f"
+	}
+}

@@ -1,0 +1,10 @@
+{
+	"overlay": true,
+	"cssVars": {
+		"--back-2": "img/backgrounds/tt-bg-blue.jpg",
+		"--back-3": "img/backgrounds/tt-bg-green.jpg",
+		"--back-4": "img/backgrounds/tt-bg-purple.jpg",
+		"--back-5": "img/backgrounds/tt-bg-red.jpg",
+		"--back-6": "img/backgrounds/tt-bg-yellow.jpg"
+	}
+}

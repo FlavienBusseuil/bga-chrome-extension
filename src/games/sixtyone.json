@@ -1,0 +1,5 @@
+{
+	"sideMenu": {
+		"playerPanel": "sxt_player_area_{{player_id}}"
+	}
+}

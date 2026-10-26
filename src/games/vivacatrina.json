@@ -1,0 +1,13 @@
+{
+	"customBack": true,
+	"recommendedColor": {
+		"hue": 15,
+		"saturation": 15
+	},
+	"sideMenu": {
+		"playerPanel": ".mf_playerpanel",
+		"iconBackground": "#5d493c",
+		"iconBackgroundDark": "#5d493c",
+		"iconColor": "#eee"
+	}
+}

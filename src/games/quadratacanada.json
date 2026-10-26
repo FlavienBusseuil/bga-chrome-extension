@@ -1,0 +1,6 @@
+{
+	"customBack": true,
+	"sideMenu": {
+		"playerPanel": "playertable_{{player_index_1}}"
+	}
+}

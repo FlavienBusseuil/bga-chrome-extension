@@ -1,0 +1,6 @@
+{
+	"sideMenu": {
+		"playerPanel": "#tkd_game_area > #collections > div > h3",
+		"playerPanelOffset": 20
+	}
+}

@@ -1,0 +1,9 @@
+{
+	"customBack": true,
+	"playersBorder": [
+		"#player-table-{{player_id}}"
+	],
+	"playersTextColor": [
+		"#player-table-{{player_id}} .player-table-name"
+	]
+}

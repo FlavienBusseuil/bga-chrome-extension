@@ -1,0 +1,13 @@
+{
+	"customBack": true,
+	"customColors": [
+		"#2d3691"
+	],
+	"playersBorder": [
+		"#house_{{player_id}}"
+	],
+	"recommendedColor": {
+		"hue": 140,
+		"saturation": 15
+	}
+}

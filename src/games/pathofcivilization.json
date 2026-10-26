@@ -1,0 +1,8 @@
+{
+	"sideMenu": {
+		"playerPanel": "player-table-{{player_id}}",
+		"boardPanel": "technology-board",
+		"boardPanelText": "#bga-jump-to_technology-board > span",
+		"css": ".bga-jump-to_controls { display: none; }"
+	}
+}

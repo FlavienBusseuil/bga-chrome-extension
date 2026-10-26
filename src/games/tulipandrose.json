@@ -1,0 +1,5 @@
+{
+	"sideMenu": {
+		"playerPanel": "hand_{{player_id}}_block"
+	}
+}

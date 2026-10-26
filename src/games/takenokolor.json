@@ -1,0 +1,11 @@
+{
+	"customBack": true,
+	"customPlayerStyle": ".player-table .name",
+	"sideMenu": {
+		"playerPanel": "player-table-{{player_id}}",
+		"bottomPanel": "rules-wrapper",
+		"iconBackground": "#93d4df",
+		"iconBackgroundDark": "#246975",
+		"css": "#bga-jump-to_controls, .bga-jump-to_controls { display: none; }"
+	}
+}

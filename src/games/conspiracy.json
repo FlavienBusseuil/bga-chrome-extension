@@ -1,0 +1,20 @@
+{
+	"customBack": true,
+	"recommendedColor": {
+		"hue": 226,
+		"saturation": 16
+	},
+	"sideMenu": {
+		"position": "bottom",
+		"bottom": "140px",
+		"left": "12px",
+		"playerPanel": "player-table-{{player_id}}",
+		"iconBackground": "#36697c",
+		"iconBackgroundDark": "#36697c",
+		"iconColor": "#eee",
+		"iconColorDark": "#eee",
+		"iconShadow": "#000",
+		"iconShadowDark": "#000",
+		"css": ".show-playermat-button { visibility: hidden; }"
+	}
+}

@@ -1,0 +1,7 @@
+{
+	"customBack": true,
+	"customPlayerStyle": ".wk_zone_playername",
+	"sideMenu": {
+		"playerPanel": ".wk_zone_playername"
+	}
+}

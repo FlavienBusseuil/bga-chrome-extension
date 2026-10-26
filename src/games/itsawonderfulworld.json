@@ -1,0 +1,6 @@
+{
+	"customBack": true,
+	"playersBorder": [
+		"#iww-player{{player_id}}"
+	]
+}

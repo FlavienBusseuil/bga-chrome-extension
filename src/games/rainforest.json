@@ -1,0 +1,11 @@
+{
+	"playersBorder": [
+		"#playerZone_{{player_id}}"
+	],
+	"playersTextColor": [
+		"#playerZone_{{player_id}} p"
+	],
+	"sideMenu": {
+		"playerPanel": "playerZone_{{player_id}}"
+	}
+}

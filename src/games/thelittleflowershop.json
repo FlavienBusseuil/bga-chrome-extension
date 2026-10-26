@@ -1,0 +1,11 @@
+{
+	"cssVars": {
+		"--back-blue": "img/windows/window_blue.png",
+		"--back-green": "img/windows/window_green.png",
+		"--back-red": "img/windows/window_red.png",
+		"--back-yellow": "img/windows/window_yellow.png"
+	},
+	"sideMenu": {
+		"playerPanel": "player_board_{{player_id}}"
+	}
+}

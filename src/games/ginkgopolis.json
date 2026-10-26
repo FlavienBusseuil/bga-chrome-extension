@@ -1,0 +1,5 @@
+{
+	"sideMenu": {
+		"playerPanel": "#visiblePlayerBoards > .whiteblock"
+	}
+}

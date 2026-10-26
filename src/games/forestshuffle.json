@@ -1,0 +1,6 @@
+{
+	"sideMenu": {
+		"playerPanel": "FOStable_{{player_id}}",
+		"position": "bottom"
+	}
+}

@@ -1,0 +1,6 @@
+{
+	"sideMenu": {
+		"playerPanel": "player-crops-{{player_id}}",
+		"playerPanelOffset": 40
+	}
+}

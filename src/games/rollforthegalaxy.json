@@ -1,0 +1,6 @@
+{
+	"sideMenu": {
+		"playerPanel": "tableau_panel_{{player_id}}",
+		"css": ".desktop_version .tableau_panel, .desktop_version #roll_infos { padding-left: 50px; }"
+	}
+}

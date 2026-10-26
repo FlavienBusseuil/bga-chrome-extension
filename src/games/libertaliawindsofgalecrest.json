@@ -1,0 +1,9 @@
+{
+	"playersTextColor": [
+		"[style*=\"--player-color:#{{player_color}}\"]"
+	],
+	"recommendedColor": {
+		"hue": 245,
+		"saturation": 15
+	}
+}

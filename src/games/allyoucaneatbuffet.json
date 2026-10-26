@@ -1,0 +1,11 @@
+{
+	"customBack": true,
+	"overlay": true,
+	"playersBorder": [
+		"[style=\"border-top-color:#{{player_color}}\"]"
+	],
+	"recommendedColor": {
+		"hue": 0,
+		"saturation": 20
+	}
+}

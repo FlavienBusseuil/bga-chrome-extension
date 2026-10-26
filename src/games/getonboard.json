@@ -1,0 +1,6 @@
+{
+	"sideMenu": {
+		"playerPanel": "player-table-{{player_id}}",
+		"css": "#jump-controls, .bga-jump-to_controls { display: none; }"
+	}
+}

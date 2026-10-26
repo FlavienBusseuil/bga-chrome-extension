@@ -1,0 +1,9 @@
+{
+	"customBack": true,
+	"playersTextColor": [
+		".name[id=\"{{player_id}}\"]"
+	],
+	"sideMenu": {
+		"playerPanel": "{{player_id}}"
+	}
+}

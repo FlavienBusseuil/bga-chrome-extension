@@ -1,0 +1,8 @@
+{
+	"customColors": [
+		"#404040"
+	],
+	"sideMenu": {
+		"playerPanel": "player-table-{{player_id}}"
+	}
+}

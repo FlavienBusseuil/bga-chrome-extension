@@ -1,0 +1,6 @@
+{
+	"playersBack": [
+		"#playerBoard[data-p-id=\"{{player_id}}\"] #title",
+		"#playerBoard[data-p-id=\"{{player_id}}\"] #shells"
+	]
+}

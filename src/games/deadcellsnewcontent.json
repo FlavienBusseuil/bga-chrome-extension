@@ -1,0 +1,16 @@
+{
+	"customBack": true,
+	"customColors": [
+		"#3c733a",
+		"#ab3237",
+		"#5c5aa5",
+		"#c97014"
+	],
+	"sideMenu": {
+		"playerPanel": "dc-beheaded-{{player_id}}-board",
+		"boardPanel": "dc-annexe-combat-board-wrapper",
+		"boardPanelText": "#dc-scroll-to-annexe-board",
+		"bottomPanel": "dc-mutation-board",
+		"css": "#dc-scroll-to-boards { display: none; }"
+	}
+}

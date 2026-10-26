@@ -1,0 +1,12 @@
+{
+	"customBack": true,
+	"customPanel": true,
+	"sideMenu": {
+		"iconBackground": "#dadada",
+		"iconBorder": "#000000",
+		"iconShadow": "#666",
+		"playerPanel": ".side_title > span",
+		"playerPanelOffset": 20,
+		"bottomPanel": "common_space"
+	}
+}

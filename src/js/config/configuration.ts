@@ -2,6 +2,7 @@ import { addChangeListener, localStorageClear, localStorageGet, localStorageSet,
 import { i18n, setI18nLocale, getI18nDefaultLocale } from "../utils/browser/i18n";
 import { ADVANCED_HOME_STYLE, ARENA_DISABLED_GAMES, COLORFUL_TABLES, DEF_HOME_HTML, HIDE_FULLSCREEN_LOADING_LOGO } from "./configuration.constants";
 import { DarkModeConfig, BrightnessConfig } from "./models";
+import { isRemoteGamesKey } from "../utils/remoteGames";
 
 interface CustomConfig {
 	clientId: string;
@@ -162,7 +163,8 @@ class Configuration {
 		const [syncStorage, localStorage] = await Promise.all([storageGet(), localStorageGet()]);
 
 		this._customConfig = syncStorage as CustomConfig;
-		this._localConfig = localStorage as LocalConfig;
+		// The games files downloaded are also in the local storage, but are not part of the configuration
+		this._localConfig = Object.fromEntries(Object.entries(localStorage).filter(([key]) => !isRemoteGamesKey(key))) as LocalConfig;
 
 		this._customConfig.locale ||= getI18nDefaultLocale();
 
@@ -181,7 +183,12 @@ class Configuration {
 				return;
 			}
 
-			for (let [key, { newValue }] of Object.entries(changes)) {
+			const configChanges = Object.entries(changes).filter(([key]) => areaName !== "local" || !isRemoteGamesKey(key));
+			if (!configChanges.length) {
+				return;
+			}
+
+			for (let [key, { newValue }] of configChanges) {
 				try {
 					if (areaName === "local") {
 						(this._localConfig as Record<keyof LocalConfig, any>)[key as keyof LocalConfig] = newValue;

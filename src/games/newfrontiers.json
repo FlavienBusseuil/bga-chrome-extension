@@ -1,0 +1,20 @@
+{
+	"customBack": true,
+	"customDarkMode": {
+		"className": "nft_background_space",
+		"applyGeneralCss": true
+	},
+	"sideMenu": {
+		"iconColorDark": "#000",
+		"iconBackground": "#afafaf",
+		"iconBackgroundDark": "#afafaf",
+		"iconBorder": "#000",
+		"iconBorderDark": "#000",
+		"iconShadow": "#666",
+		"iconShadowDark": "#666",
+		"playerPanel": "empire_{{player_id}}",
+		"boardPanel": "smalldev",
+		"boardPanelText": "#choose_action_label > span",
+		"css": ".nft_topbutton { display: none; }"
+	}
+}

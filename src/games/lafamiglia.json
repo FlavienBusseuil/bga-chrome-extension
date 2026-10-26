@@ -1,0 +1,9 @@
+{
+	"customBack": true,
+	"sideMenu": {
+		"playerPanel": "laf-family-mat-{{player_index_1}}-container",
+		"boardPanel": "laf-gameboard",
+		"boardPanelText": "#laf-scroll-to-hq",
+		"css": "#laf-scroll-to-boards { display: none; }"
+	}
+}

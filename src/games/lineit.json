@@ -1,0 +1,8 @@
+{
+	"customBack": true,
+	"customPlayerStyle": ".player-table .name-wrapper",
+	"recommendedColor": {
+		"hue": 250,
+		"saturation": 28
+	}
+}

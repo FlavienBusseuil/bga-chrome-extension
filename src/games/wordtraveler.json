@@ -1,0 +1,6 @@
+{
+	"customBack": true,
+	"sideMenu": {
+		"playerPanel": "wot-word-cards-{{player_id}}-container"
+	}
+}

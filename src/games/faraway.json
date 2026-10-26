@@ -1,0 +1,6 @@
+{
+	"customBack": true,
+	"sideMenu": {
+		"playerPanel": ".o-table .mf_zone_title"
+	}
+}

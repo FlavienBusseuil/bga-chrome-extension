@@ -23,7 +23,7 @@ import {
 	refreshMutedPlayers,
 	displayInformationPopup
 } from './js/ui/content/functions';
-import { gamesConfiguration } from "./js/config/darkThemeGames";
+import { getGameConfig as getGameFileConfig, loadGameConfig as loadGameFileConfig } from "./js/config/games";
 
 // The script is injected in every frame: in an iframe, only a game (like #gameIframe of the table view) needs it
 const isTopFrame = window.self === window.top;
@@ -103,19 +103,22 @@ const initObserver = (page: string, version = locationVersion, tries = 60) => {
 };
 
 const initGame = (gameName: string, mode: 'game' | 'archive') => {
-	const gameConfig = config.getGameConfig(gameName);
-
 	if (!isMobile && mode === 'game' && (config.isGlobalFloatingMenu() || config.isGameFloatingMenu(gameName))) {
 		setFloatingRightMenu(config, true);
 	}
 
-	buildOptions(config, gameName, gameConfig, mode === 'game');
+	// the side menu is configured in the configuration file of the game
+	loadGameFileConfig(gameName).then(() => {
+		const gameConfig = config.getGameConfig(gameName);
 
-	if (gameConfig) {
-		initLeftMenu(config, gameConfig, config.isLeftMenuEnabled(gameName), gamesConfiguration[gameName]?.twoTeams || false);
-	} else {
-		console.debug(`[bga extension] no configuration found for game ${gameName}`);
-	}
+		buildOptions(config, gameName, gameConfig, mode === 'game');
+
+		if (gameConfig) {
+			initLeftMenu(config, gameConfig, config.isLeftMenuEnabled(gameName), getGameFileConfig(gameName)?.twoTeams || false);
+		} else {
+			console.debug(`[bga extension] no configuration found for game ${gameName}`);
+		}
+	});
 
 	if (!isMobile && mode === 'archive') {
 		const el = document.getElementById('archivecontrol_editmode');

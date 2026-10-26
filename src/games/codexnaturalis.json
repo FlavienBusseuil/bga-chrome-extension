@@ -1,0 +1,6 @@
+{
+	"customBack": true,
+	"sideMenu": {
+		"playerPanel": "map-player-name-{{player_id}}"
+	}
+}

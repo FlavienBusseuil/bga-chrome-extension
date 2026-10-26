@@ -1,6 +1,6 @@
 import Configuration from "./configuration";
+import { getGameConfig as getGameFileConfig } from "./games";
 import { Game } from "./models";
-import defaultGames from "./sideMenuGames";
 
 const baseGame: Partial<Game> = {
 	iconBackground: "#ebd5bd",
@@ -22,8 +22,9 @@ const baseGame: Partial<Game> = {
 };
 
 class ConfigurationWithGames extends Configuration {
+	// The configuration of the game must have been loaded (see loadGameConfig)
 	getGameConfig(game: string): Game | undefined {
-		const config = defaultGames[game];
+		const config = getGameFileConfig(game)?.sideMenu;
 
 		if (config) {
 			return { name: game, ...baseGame, ...config } as Game;

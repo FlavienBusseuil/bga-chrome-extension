@@ -1,0 +1,17 @@
+{
+	"overlay": true,
+	"cssVars": {
+		"--gameBack": "img/background.jpg"
+	},
+	"recommendedColor": {
+		"hue": 0,
+		"saturation": 16
+	},
+	"sideMenu": {
+		"playerPanel": ".player_area",
+		"iconBorderDark": "#beaca7",
+		"iconBackgroundDark": "#3b2f2b",
+		"boardPanel": "postcards_5",
+		"css": " "
+	}
+}

@@ -1,0 +1,10 @@
+{
+	"overlay": true,
+	"customColors": [
+		"#333333"
+	],
+	"recommendedColor": {
+		"hue": 0,
+		"saturation": 20
+	}
+}

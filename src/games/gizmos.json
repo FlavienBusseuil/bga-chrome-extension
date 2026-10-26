@@ -1,0 +1,5 @@
+{
+	"sideMenu": {
+		"playerPanel": "gizmo_track_{{player_id}}"
+	}
+}

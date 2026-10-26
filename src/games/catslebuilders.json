@@ -1,0 +1,17 @@
+{
+	"customBack": true,
+	"overlay": true,
+	"playersTextColor": [
+		"[style*=\"--color: #{{player_color}}\"]"
+	],
+	"recommendedColor": {
+		"hue": 0,
+		"saturation": 20
+	},
+	"sideMenu": {
+		"playerPanel": "cln-player-{{player_id}}",
+		"iconBackground": "#ee8f77",
+		"iconBackgroundDark": "#9c4630",
+		"css": " "
+	}
+}

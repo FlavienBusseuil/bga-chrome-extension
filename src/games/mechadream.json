@@ -1,0 +1,5 @@
+{
+	"sideMenu": {
+		"playerPanel": "mad_playerboard_{{player_id}}"
+	}
+}

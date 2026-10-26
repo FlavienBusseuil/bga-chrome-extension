@@ -1,0 +1,17 @@
+{
+	"playersBorder": [
+		"#player-table-{{player_id}}"
+	],
+	"playersTextColor": [
+		".player-table[data-color=\"{{player_color_cap}}\"] strong"
+	],
+	"recommendedColor": {
+		"hue": 0,
+		"saturation": 20
+	},
+	"sideMenu": {
+		"playerPanel": "player-table-{{player_id}}",
+		"iconBackgroundDark": "#744625",
+		"css": "#bga-jump-to_controls, .bga-jump-to_controls { display: none; }"
+	}
+}

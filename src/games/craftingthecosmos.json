@@ -1,0 +1,10 @@
+{
+	"customBack": true,
+	"recommendedColor": {
+		"hue": 116,
+		"saturation": 10
+	},
+	"sideMenu": {
+		"playerPanel": ".ctc_board-section"
+	}
+}

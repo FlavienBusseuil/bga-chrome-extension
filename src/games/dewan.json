@@ -1,0 +1,7 @@
+{
+	"customBack": true,
+	"sideMenu": {
+		"playerPanel": ".mf_zone_player",
+		"boardPanel": "mf_zone_board_0"
+	}
+}

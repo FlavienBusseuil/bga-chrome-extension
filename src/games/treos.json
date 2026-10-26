@@ -1,0 +1,8 @@
+{
+	"playersBack": [
+		"#gamezone-{{player_id}} .player-board-name"
+	],
+	"playersBorder": [
+		"#gamezone-{{player_id}}"
+	]
+}

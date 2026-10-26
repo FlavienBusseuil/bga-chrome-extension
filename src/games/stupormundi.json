@@ -1,0 +1,6 @@
+{
+	"customPlayerStyle": ".stm_playermat_label",
+	"sideMenu": {
+		"playerPanel": "playermat_{{player_id}}"
+	}
+}

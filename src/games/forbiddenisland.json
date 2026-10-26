@@ -1,0 +1,13 @@
+{
+	"customBack": true,
+	"recommendedColor": {
+		"hue": 216,
+		"saturation": 20
+	},
+	"sideMenu": {
+		"playerPanel": "player_adventurer_{{player_id}}",
+		"bottomPanel": "flood_deck_area",
+		"iconBackground": "#69b7fc",
+		"iconBackgroundDark": "#02357e"
+	}
+}

@@ -1,0 +1,6 @@
+{
+	"customPlayerStyle": ".tab_header, .player_board .player_nametag",
+	"playersBorder": [
+		"#tab_header_board_{{player_id}}"
+	]
+}

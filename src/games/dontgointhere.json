@@ -1,0 +1,6 @@
+{
+	"customBack": true,
+	"sideMenu": {
+		"playerPanel": "dgit_player_{{player_id}}_header"
+	}
+}

@@ -1,0 +1,10 @@
+{
+	"customBack": true,
+	"overlay": true,
+	"sideMenu": {
+		"playerPanel": "playerArea_{{player_id}}",
+		"iconBackground": "#d6c1a9",
+		"iconBackgroundDark": "#785934",
+		"playerPanelOffset": 15
+	}
+}

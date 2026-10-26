@@ -1,0 +1,14 @@
+{
+	"customBack": true,
+	"overlay": true,
+	"playersBack": [
+		"#obrPlayerboardId_{{player_id}} .obr_playerboard_name"
+	],
+	"playersBorder": [
+		"#obrPlayerboardId_{{player_id}}"
+	],
+	"sideMenu": {
+		"playerPanel": "obrPlayerboardId_{{player_id}}",
+		"iconBackgroundDark": "#766a56"
+	}
+}

@@ -1,0 +1,10 @@
+{
+	"customBack": true,
+	"customPanel": true,
+	"playersTextColor": [
+		"#pboard_{{player_color}}:after"
+	],
+	"rootCssVars": {
+		"--ext-game-back": "img/bg.jpg"
+	}
+}

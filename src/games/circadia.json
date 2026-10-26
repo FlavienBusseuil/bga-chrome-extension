@@ -1,0 +1,10 @@
+{
+	"customBack": true,
+	"playersTextColor": [
+		"html player_area[color={{player_color}}] name_txt"
+	],
+	"sideMenu": {
+		"playerPanel": ".player_area",
+		"css": ".bga-jump-to_controls { display: none; }"
+	}
+}

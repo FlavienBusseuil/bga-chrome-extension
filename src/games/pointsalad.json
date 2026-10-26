@@ -1,0 +1,17 @@
+{
+	"customBack": true,
+	"overlay": true,
+	"playersBorder": [
+		"#player-table-{{player_id}}"
+	],
+	"recommendedColor": {
+		"hue": 120,
+		"saturation": 16
+	},
+	"sideMenu": {
+		"playerPanel": "player-table-{{player_id}}",
+		"iconBackground": "#d3f591",
+		"iconBackgroundDark": "#360",
+		"css": ".bga-jump-to_controls { display: none; }"
+	}
+}

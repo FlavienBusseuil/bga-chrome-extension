@@ -1,0 +1,12 @@
+{
+	"customBack": [
+		"vgincLib_thematic_background_on"
+	],
+	"playersTextColor": [
+		"strong[data-color=\"{{player_color}}\"]"
+	],
+	"sideMenu": {
+		"playerPanel": "player-table-{{player_id}}",
+		"css": "#bga-jump-to_controls, .bga-jump-to_controls { display: none; }"
+	}
+}

@@ -1,0 +1,13 @@
+{
+	"customBack": true,
+	"customDarkMode": {
+		"className": "ea-background-dark",
+		"applyGeneralCss": true
+	},
+	"sideMenu": {
+		"top": "40vh",
+		"boardPanel": "ea-area-common",
+		"playerPanel": "ea-area-player-{{player_id}}",
+		"css": "#ea-shortcut-area { visibility: hidden; } .ea-player-panel-row:has(>.bx-checkbox-switch>#ea-shortcuts-checkbox) { display: none; }"
+	}
+}

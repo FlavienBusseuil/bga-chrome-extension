@@ -1,0 +1,12 @@
+{
+	"playersBorder": [
+		"#playerbox-{{player_id}}"
+	],
+	"recommendedColor": {
+		"hue": 25,
+		"saturation": 22
+	},
+	"sideMenu": {
+		"playerPanel": "playerbox-{{player_id}}"
+	}
+}

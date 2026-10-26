@@ -1,0 +1,14 @@
+{
+	"customBack": true,
+	"overlay": true,
+	"playersOutline": [
+		"#mf_zone_player_{{player_index_1}}"
+	],
+	"cssVars": {
+		"--sceau": "img/bg-sceau.png"
+	},
+	"recommendedColor": {
+		"hue": 0,
+		"saturation": 20
+	}
+}

@@ -1,0 +1,8 @@
+{
+	"customBack": [
+		"dark_background_on"
+	],
+	"playersOutline": [
+		"#player-wrap-{{player_id}} .grid-background"
+	]
+}

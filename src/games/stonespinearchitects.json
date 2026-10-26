@@ -1,0 +1,10 @@
+{
+	"customBack": true,
+	"customPanel": true,
+	"cssVars": {
+		"--ext-score-back": "img/sa-scorepad-multi.png"
+	},
+	"sideMenu": {
+		"playerPanel": "sa-player-area-{{player_id}}"
+	}
+}

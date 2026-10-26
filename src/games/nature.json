@@ -1,0 +1,13 @@
+{
+	"customBack": true,
+	"recommendedColor": {
+		"hue": 0,
+		"saturation": 20
+	},
+	"sideMenu": {
+		"playerPanel": ".na_player_area",
+		"iconBackgroundDark": "#4b3621",
+		"iconBorderDark": "#c19971",
+		"css": " "
+	}
+}

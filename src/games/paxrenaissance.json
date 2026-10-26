@@ -1,0 +1,12 @@
+{
+	"customBack": true,
+	"recommendedColor": {
+		"hue": 25,
+		"saturation": 15
+	},
+	"sideMenu": {
+		"playerPanel": "pr_player_tableau_{{player_id}}",
+		"iconBackground": "#a78d59",
+		"iconBackgroundDark": "#5d493c"
+	}
+}

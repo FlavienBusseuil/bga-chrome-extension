@@ -1,0 +1,9 @@
+{
+	"customBack": true,
+	"sideMenu": {
+		"boardPanel": "progress_board",
+		"playerPanel": ".player-board-dp > .shopping-cart-wrapper > .side_title",
+		"playerPanelOffset": 20,
+		"bottomPanel": "happyland"
+	}
+}

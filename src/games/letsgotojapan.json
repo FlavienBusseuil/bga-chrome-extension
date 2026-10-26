@@ -1,0 +1,7 @@
+{
+	"playersBorder": [
+		"#playerhandtitle_{{player_id}}",
+		"#playerhand_{{player_id}}",
+		"#nameplayer_{{player_id}}"
+	]
+}

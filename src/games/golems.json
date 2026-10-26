@@ -1,0 +1,8 @@
+{
+	"playersBack": [
+		"#pl{{player_id}}_label"
+	],
+	"sideMenu": {
+		"playerPanel": "pl{{player_id}}_area"
+	}
+}

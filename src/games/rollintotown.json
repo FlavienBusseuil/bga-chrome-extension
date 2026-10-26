@@ -1,0 +1,8 @@
+{
+	"customBack": [
+		"rt-pref-background-dark"
+	],
+	"sideMenu": {
+		"playerPanel": "rt-holder-{{player_id}}"
+	}
+}

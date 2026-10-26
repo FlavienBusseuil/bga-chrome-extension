@@ -1,0 +1,13 @@
+{
+	"customBack": true,
+	"overlay": true,
+	"playersBack": [
+		"#player-table-{{player_id}} .name-wrapper"
+	],
+	"playersBorder": [
+		"#player-table-{{player_id}}"
+	],
+	"sideMenu": {
+		"playerPanel": "player-table-{{player_id}}"
+	}
+}

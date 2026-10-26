@@ -1,0 +1,6 @@
+{
+	"sideMenu": {
+		"playerPanel": "playersection_{{player_id}}",
+		"boardPanel": "tower_storageboard"
+	}
+}

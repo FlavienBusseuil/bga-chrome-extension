@@ -1,0 +1,12 @@
+{
+	"customBack": true,
+	"playersTextColor": [
+		"#player-table-{{player_id}} > strong"
+	],
+	"sideMenu": {
+		"playerPanel": "player-table-{{player_id}}",
+		"iconBackground": "#ffe433",
+		"iconBackgroundDark": "#005e99",
+		"css": "#bga-jump-to_controls { display: none; }"
+	}
+}

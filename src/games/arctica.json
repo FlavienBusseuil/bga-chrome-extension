@@ -1,0 +1,7 @@
+{
+	"customBack": true,
+	"overlay": true,
+	"cssVars": {
+		"--back-main": "img/background.png"
+	}
+}

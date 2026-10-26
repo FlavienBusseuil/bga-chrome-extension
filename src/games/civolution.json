@@ -1,0 +1,17 @@
+{
+	"customBack": true,
+	"cssVars": {
+		"--console-bg": "img/console.png"
+	},
+	"sideMenu": {
+		"position": "bottom",
+		"playerPanel": "CIVconsole-{{player_color}}",
+		"iconBackground": "#333",
+		"iconBackgroundDark": "#333",
+		"iconBorder": "#bfbfbf",
+		"iconBorderDark": "#bfbfbf",
+		"iconColor": "#bfbfbf",
+		"iconColorDark": "#bfbfbf",
+		"css": ".bga-jump-to_controls { display: none; }"
+	}
+}

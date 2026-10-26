@@ -1,0 +1,8 @@
+{
+	"customBack": true,
+	"customPanel": true,
+	"sideMenu": {
+		"playerPanel": "player-table-{{player_id}}",
+		"css": "#bga-jump-to_controls, .bga-jump-to_controls { display: none; } .desktop_version #game_play_area { padding-left: 50px; }"
+	}
+}

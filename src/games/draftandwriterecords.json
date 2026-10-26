@@ -1,0 +1,12 @@
+{
+	"customBack": true,
+	"customDarkMode": {
+		"className": "bx-background-dark",
+		"applyGeneralCss": true
+	},
+	"sideMenu": {
+		"playerPanel": "dwr-area-player-{{player_id}}",
+		"bottomPanel": "dwr-area-pref",
+		"css": "#dwr-shortcut-area, #dwr-area-pref-shortcuts { display: none; }"
+	}
+}

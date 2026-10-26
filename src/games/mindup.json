@@ -1,0 +1,7 @@
+{
+	"customBack": true,
+	"customPlayerStyle": ".player-table .name-wrapper",
+	"sideMenu": {
+		"playerPanel": "player-table-{{player_id}}"
+	}
+}

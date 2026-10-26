@@ -1,0 +1,12 @@
+{
+	"customBack": [
+		"classic_theme_disabled"
+	],
+	"playersBorder": [
+		"#overall_player_board_{{player_id}}"
+	],
+	"recommendedColor": {
+		"hue": 0,
+		"saturation": 16
+	}
+}

@@ -1,0 +1,5 @@
+{
+	"playersBorder": [
+		"#player-guard-{{player_id}}"
+	]
+}

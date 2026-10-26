@@ -1,0 +1,5 @@
+{
+	"sideMenu": {
+		"playerPanel": "board_castle_name_p{{player_id}}"
+	}
+}

@@ -1,0 +1,11 @@
+{
+	"customPlayerStyle": "#tables .name-wrapper",
+	"playersBorder": [
+		"#player-table-{{player_id}}"
+	],
+	"sideMenu": {
+		"playerPanel": "player-table-{{player_id}}",
+		"bottomPanel": "skin",
+		"css": "#bga-jump-to_controls, .bga-jump-to_controls { display: none; }"
+	}
+}

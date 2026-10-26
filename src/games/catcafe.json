@@ -1,0 +1,5 @@
+{
+	"sideMenu": {
+		"playerPanel": "ctc_player_board_{{player_id}}"
+	}
+}

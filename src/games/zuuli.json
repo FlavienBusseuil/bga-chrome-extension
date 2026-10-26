@@ -1,0 +1,8 @@
+{
+	"customPlayerStyle": ".writes.lg",
+	"sideMenu": {
+		"playerPanel": "div[id^=\"inside\"]",
+		"myPanel": "#inside-me",
+		"top": "140px"
+	}
+}

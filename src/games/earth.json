@@ -1,0 +1,18 @@
+{
+	"customBack": true,
+	"customDarkMode": {
+		"className": "ea-background-dark",
+		"applyGeneralCss": true
+	},
+	"recommendedColor": {
+		"hue": 130,
+		"saturation": 20
+	},
+	"sideMenu": {
+		"top": "40vh",
+		"boardPanel": "ea-area-common",
+		"playerPanel": "ea-area-player-{{player_id}}",
+		"iconBackgroundDark": "#293d2c",
+		"css": "#ea-shortcut-area { visibility: hidden; } .ea-player-panel-row:has(>.bx-checkbox-switch>#ea-shortcuts-checkbox) { display: none; }"
+	}
+}

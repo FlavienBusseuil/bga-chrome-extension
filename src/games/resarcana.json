@@ -1,0 +1,7 @@
+{
+	"customBack": true,
+	"sideMenu": {
+		"playerPanel": "player_area_{{player_id}}",
+		"css": ".desktop_version #page-content { padding-left: 50px; }"
+	}
+}

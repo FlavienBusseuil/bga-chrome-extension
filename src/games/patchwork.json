@@ -1,0 +1,6 @@
+{
+	"sideMenu": {
+		"playerPanel": "#central > .tableau",
+		"boardPanel": "mainboard"
+	}
+}

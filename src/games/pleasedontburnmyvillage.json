@@ -1,0 +1,9 @@
+{
+	"customBack": true,
+	"playersBorder": [
+		".tableau-container[data-player-id=\"{{player_id}}\"]"
+	],
+	"playersTextColor": [
+		".tableau-container[data-player-id=\"{{player_id}}\"] .player-tableau-title"
+	]
+}

@@ -1,0 +1,11 @@
+{
+	"customBack": [
+		"scp_pref-themedBg"
+	],
+	"playersBorder": [
+		"#scp_playerZone-{{player_id}}"
+	],
+	"sideMenu": {
+		"playerPanel": "scp_playerZone-{{player_id}}"
+	}
+}

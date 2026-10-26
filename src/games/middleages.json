@@ -1,0 +1,6 @@
+{
+	"customBack": true,
+	"sideMenu": {
+		"playerPanel": "zone_playername_{{player_index_1}}"
+	}
+}

@@ -1,0 +1,7 @@
+{
+	"sideMenu": {
+		"playerPanel": "playername_{{player_index_1}}",
+		"playerPanelOffset": 15,
+		"css": ".desktop_version #game_play_area { padding-left: 30px; }"
+	}
+}

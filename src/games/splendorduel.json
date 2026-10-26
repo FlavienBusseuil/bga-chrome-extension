@@ -1,0 +1,11 @@
+{
+	"customBack": true,
+	"sideMenu": {
+		"playerPanel": "player-table-{{player_id}}",
+		"boardPanel": "cards-wrapper",
+		"boardPanelText": "#bga-jump-to_table-cards .bga-jump-to_label",
+		"css": "#bga-jump-to_controls, .bga-jump-to_controls { display: none; }",
+		"iconBackground": "#c4aec5",
+		"iconBackgroundDark": "#394260"
+	}
+}

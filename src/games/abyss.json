@@ -1,0 +1,14 @@
+{
+	"recommendedColor": {
+		"hue": 226,
+		"saturation": 16
+	},
+	"sideMenu": {
+		"iconBackground": "#36697c",
+		"iconBackgroundDark": "#36697c",
+		"iconColor": "#eee",
+		"iconColorDark": "#eee",
+		"playerPanel": "player-panel-{{player_id}}",
+		"css": ".desktop_version #centered-table { margin-left: 46px; }"
+	}
+}

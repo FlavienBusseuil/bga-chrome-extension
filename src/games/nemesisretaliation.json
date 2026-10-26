@@ -1,0 +1,24 @@
+{
+	"customBack": true,
+	"customPanel": true,
+	"customColors": [
+		"#c81818",
+		"#d41c98"
+	],
+	"playersTextColor": [
+		"#player-board-{{player_id}} .player-name"
+	],
+	"playersBorder": [
+		"#player-board-{{player_id}}",
+		"#player-board-{{player_id}} .player-name"
+	],
+	"sideMenu": {
+		"playerPanel": "player-board-{{player_id}}",
+		"position": "bottom",
+		"iconBackground": "#41584a",
+		"iconBackgroundDark": "#41584a",
+		"iconColor": "#eee",
+		"playerPanelOffset": 30,
+		"css": "#quick-access { display: none; }"
+	}
+}

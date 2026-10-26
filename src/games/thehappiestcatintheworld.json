@@ -1,0 +1,10 @@
+{
+	"customBack": true,
+	"overlay": true,
+	"playersBorder": [
+		"#gamezone-{{player_id}}"
+	],
+	"playersBack": [
+		"#gamezone-{{player_id}} .title"
+	]
+}

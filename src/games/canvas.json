@@ -1,0 +1,9 @@
+{
+	"customBack": true,
+	"sideMenu": {
+		"boardPanel": "canvas-board",
+		"boardPanelText": "#bga-jump-to_canvas-board > span",
+		"playerPanel": "player-table-{{player_id}}",
+		"css": "#bga-jump-to_controls, .bga-jump-to_controls { display: none; }"
+	}
+}

@@ -1,0 +1,6 @@
+{
+	"sideMenu": {
+		"playerPanel": "botanicus-garden-board-holder-{{player_id}}",
+		"css": "#botanicus-tab-holder { display: none; }"
+	}
+}

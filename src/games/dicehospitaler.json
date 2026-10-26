@@ -1,0 +1,7 @@
+{
+	"sideMenu": {
+		"playerPanel": "sheet_{{player_id}}",
+		"boardPanel": "game",
+		"css": " "
+	}
+}

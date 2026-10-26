@@ -1,0 +1,6 @@
+{
+	"sideMenu": {
+		"iconBackground": "#fff",
+		"playerPanel": "player-table-{{player_id}}"
+	}
+}

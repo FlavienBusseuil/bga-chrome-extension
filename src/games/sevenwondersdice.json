@@ -1,0 +1,7 @@
+{
+	"customBack": true,
+	"overlay": true,
+	"playersTextColor": [
+		".bga-score-sheet_player-name[style=\"--player-color: #{{player_color}}\";]"
+	]
+}

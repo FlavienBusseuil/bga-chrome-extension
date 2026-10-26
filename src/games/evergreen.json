@@ -1,0 +1,6 @@
+{
+	"sideMenu": {
+		"iconBackground": "#ffffff",
+		"playerPanel": "grid-{{player_id}}"
+	}
+}

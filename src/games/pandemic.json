@@ -1,0 +1,10 @@
+{
+	"customBack": true,
+	"customColors": [
+		"#252525"
+	],
+	"sideMenu": {
+		"myPanel": "#pdm-myhand",
+		"playerPanel": "#o-otherhands .pdm-hand"
+	}
+}

@@ -1,0 +1,7 @@
+{
+	"sideMenu": {
+		"playerPanel": "player_{{player_id}}",
+		"boardPanel": "available_companies_wrapper",
+		"bottomPanel": "board_bottom"
+	}
+}

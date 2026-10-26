@@ -1,0 +1,6 @@
+{
+	"sideMenu": {
+		"playerPanel": "player-mat-wrap-{{player_id}}",
+		"bottomPanel": "baddies-content-large"
+	}
+}

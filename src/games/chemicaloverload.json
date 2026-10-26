@@ -1,0 +1,6 @@
+{
+	"customPlayerStyle": ".player-table > h3",
+	"sideMenu": {
+		"playerPanel": "player-table-{{player_id}}-board"
+	}
+}

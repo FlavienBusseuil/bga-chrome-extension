@@ -1,0 +1,10 @@
+{
+	"customPlayerStyle": ".player-board-name",
+	"playersBorder": [
+		"#gamezone-{{player_id}}"
+	],
+	"sideMenu": {
+		"playerPanel": "gamezone-{{player_id}}",
+		"boardPanel": "secondary-boards"
+	}
+}

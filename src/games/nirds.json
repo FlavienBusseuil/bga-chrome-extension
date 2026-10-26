@@ -1,0 +1,12 @@
+{
+	"overlay": true,
+	"playersBack": [
+		"#player_table_{{player_id}} .title"
+	],
+	"playersBorder": [
+		"#player_table_{{player_id}}"
+	],
+	"cssVars": {
+		"--ext-game-back": "img/html-background.jpg"
+	}
+}

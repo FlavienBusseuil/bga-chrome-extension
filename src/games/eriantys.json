@@ -1,0 +1,8 @@
+{
+	"customBack": true,
+	"sideMenu": {
+		"iconBackground": "#ffffff",
+		"playerPanel": "school_{{player_id}}",
+		"css": "#players_school { max-height: initial !important; } .desktop_version #game_play_area { padding-left: 50px; }"
+	}
+}

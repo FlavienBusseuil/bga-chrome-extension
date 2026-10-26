@@ -1,0 +1,5 @@
+{
+	"playersBack": [
+		"[style=\"background-color: {{player_color_rgb}};\"]"
+	]
+}

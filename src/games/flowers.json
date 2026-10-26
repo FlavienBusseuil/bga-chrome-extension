@@ -1,0 +1,8 @@
+{
+	"playersBorder": [
+		"#flw_playZone_{{player_id}}"
+	],
+	"sideMenu": {
+		"playerPanel": "flw_playZone_{{player_id}}"
+	}
+}

@@ -1,0 +1,7 @@
+{
+	"customBack": true,
+	"sideMenu": {
+		"playerPanel": "playerZone_{{player_id}}",
+		"css": ".desktop_version #game_play_area { padding-left: 50px; } .keyhole { display: none; }"
+	}
+}

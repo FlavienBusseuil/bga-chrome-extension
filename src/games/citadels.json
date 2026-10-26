@@ -1,0 +1,7 @@
+{
+	"customBack": true,
+	"overlay": true,
+	"sideMenu": {
+		"playerPanel": "city-{{player_id}}-container"
+	}
+}

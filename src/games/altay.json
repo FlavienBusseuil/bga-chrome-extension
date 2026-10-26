@@ -1,0 +1,12 @@
+{
+	"customColors": [
+		"#000000",
+		"#ebb41b",
+		"#e12129",
+		"#00a7d2",
+		"#47a34b"
+	],
+	"sideMenu": {
+		"playerPanel": "ALTAYplayerArea-{{player_id}}"
+	}
+}

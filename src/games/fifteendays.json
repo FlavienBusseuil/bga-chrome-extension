@@ -1,0 +1,7 @@
+{
+	"customBack": true,
+	"overlay": true,
+	"sideMenu": {
+		"playerPanel": "playerarea_{{player_id}}"
+	}
+}

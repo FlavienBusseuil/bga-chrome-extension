@@ -1,0 +1,5 @@
+{
+	"playersBorder": [
+		".player_view[style*=\"border-color: #{{player_color}}\"]"
+	]
+}

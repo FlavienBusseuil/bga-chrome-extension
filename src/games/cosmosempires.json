@@ -1,0 +1,11 @@
+{
+	"recommendedColor": {
+		"hue": 233,
+		"saturation": 27
+	},
+	"sideMenu": {
+		"playerPanel": "player_{{player_id}}_container",
+		"iconBackground": "#aaabad",
+		"iconBackgroundDark": "#36384a"
+	}
+}

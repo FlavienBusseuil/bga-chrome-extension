@@ -1,0 +1,6 @@
+{
+	"customBack": true,
+	"playersBorder": [
+		"#pyramid-container-{{player_id}} .player-name-text .text-container"
+	]
+}

@@ -1,0 +1,8 @@
+{
+	"playersBorder": [
+		"#player-board-{{player_id}}"
+	],
+	"sideMenu": {
+		"playerPanel": "player-board-{{player_id}}"
+	}
+}

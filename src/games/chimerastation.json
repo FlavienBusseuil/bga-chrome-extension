@@ -1,0 +1,7 @@
+{
+	"sideMenu": {
+		"playerPanel": "chs_playername_{{player_index_1}}",
+		"boardPanel": "chs_perks_wrap",
+		"boardPanelText": "#chs_perks_header > span"
+	}
+}

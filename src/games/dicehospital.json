@@ -1,0 +1,6 @@
+{
+	"sideMenu": {
+		"playerPanel": "dhi-player_{{player_id}}",
+		"css": " "
+	}
+}

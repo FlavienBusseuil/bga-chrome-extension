@@ -1,0 +1,9 @@
+{
+	"customBack": true,
+	"sideMenu": {
+		"iconBackground": "#bfdef9",
+		"iconBackgroundDark": "#415c71",
+		"playerPanel": "player-area-{{player_id}}",
+		"css": ".desktop_version #all-players { padding-left: 50px; }"
+	}
+}

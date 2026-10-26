@@ -2,8 +2,7 @@ import { useState, useEffect, useMemo, useRef } from "preact/hooks";
 import Markup from 'preact-markup';
 
 import Configuration from "../../../config/configuration";
-import { gamesConfiguration } from "../../../config/darkThemeGames";
-import { gamesWithRecommendedConfig } from "../../../config/darkThemeRecommendedConfig";
+import { getGameConfig } from "../../../config/games";
 import { getExtensionVersion, isMobile } from "../../../utils/browser";
 import { i18n } from "../../../utils/browser/i18n";
 import { setDarkStyle } from "./darkStyleFunctions";
@@ -51,10 +50,12 @@ const MULT = isMobile ? 1.5 : 2;
 const ModeSelector = (props: ModeSelectorProps) => {
   const { config, gameName } = props;
   const popupConfig = config.getPopupConfiguration();
-  const recommandedConfig = gamesWithRecommendedConfig[gameName];
+  // the configuration of the game is loaded before the selector is displayed (see initDarkMode)
+  const gameConfiguration = useMemo(() => getGameConfig(gameName), [gameName]);
+  const recommendedColor = gameConfiguration?.recommendedColor;
   const [darkMode, setDarkMode] = useState<boolean>();
-  const [darkColorHue, setDarkColorHue] = useState(config.getDarkModeColor(gameName, recommandedConfig?.color));
-  const [darkColorSaturation, setDarkColorSaturation] = useState(config.getDarkModeSaturation(gameName, recommandedConfig?.sat));
+  const [darkColorHue, setDarkColorHue] = useState(config.getDarkModeColor(gameName, recommendedColor?.hue));
+  const [darkColorSaturation, setDarkColorSaturation] = useState(config.getDarkModeSaturation(gameName, recommendedColor?.saturation));
   const [darkModeNative, setDarkModeNative] = useState(config.isDarkModeNative());
   const [brightness, setBrightness] = useState(config.getDarkModeBrightness(gameName));
   const [popupVisible, setPopupVisible] = useState(false);
@@ -66,7 +67,6 @@ const ModeSelector = (props: ModeSelectorProps) => {
   const [newMessageVisible, setNewMessageVisible] = useState(!isMobile && !isGeneralMode(gameName) && popupConfig.reportMsg);
   const [resultVisible, setResultVisible] = useState(false);
 
-  const gameConfiguration = useMemo(() => gamesConfiguration[gameName], [gameName]);
   const generalHue = useMemo(() => config.getDarkModeColor("general"), [config]);
   const generalSat = useMemo(() => config.getDarkModeSaturation("general"), [config]);
 
@@ -104,10 +104,10 @@ const ModeSelector = (props: ModeSelectorProps) => {
   }, [darkColorHue, darkColorSaturation]);
 
   useDebouncedSave(() => {
-    if (darkColorHue === recommandedConfig?.color && darkColorSaturation === recommandedConfig?.sat) {
+    if (darkColorHue === recommendedColor?.hue && darkColorSaturation === recommendedColor?.saturation) {
       config.clearDarkModeColor(gameName);
     } else {
-      config.setDarkModeColor(gameName, darkColorHue, darkColorSaturation, Boolean(recommandedConfig));
+      config.setDarkModeColor(gameName, darkColorHue, darkColorSaturation, Boolean(recommendedColor));
     }
   }, [gameName, darkColorHue, darkColorSaturation]);
 
@@ -421,9 +421,9 @@ const ModeSelector = (props: ModeSelectorProps) => {
   }
 
   const setRecommanded = () => {
-    if (recommandedConfig) {
-      setDarkColorHue(recommandedConfig.color);
-      setDarkColorSaturation(recommandedConfig.sat);
+    if (recommendedColor) {
+      setDarkColorHue(recommendedColor.hue);
+      setDarkColorSaturation(recommendedColor.saturation);
     }
   };
 
@@ -502,7 +502,7 @@ const ModeSelector = (props: ModeSelectorProps) => {
     const width = (360 * MULT) + 18;
 
     const displayResetLink = !isGeneralMode(gameName) && generalHue >= 0 && (darkColorHue !== generalHue || darkColorSaturation !== generalSat);
-    const displayRecommandedLink = recommandedConfig && (darkColorHue !== recommandedConfig.color || darkColorSaturation !== recommandedConfig.sat);
+    const displayRecommandedLink = recommendedColor && (darkColorHue !== recommendedColor.hue || darkColorSaturation !== recommendedColor.saturation);
 
     const getLeftLink = () => {
       if (displayResetLink) {

@@ -1,0 +1,5 @@
+{
+	"sideMenu": {
+		"playerPanel": "pl{{player_id}}_area"
+	}
+}

@@ -1,0 +1,14 @@
+{
+	"customBack": true,
+	"playersBorder": [
+		"#house_{{player_id}}",
+		"#hand_grid_{{player_id}}"
+	],
+	"sideMenu": {
+		"playerPanel": "house_{{player_id}}",
+		"iconBackground": "#93daf0",
+		"iconBackgroundDark": "#0f5a70",
+		"iconBorderDark": "#8e8e8e",
+		"css": " "
+	}
+}

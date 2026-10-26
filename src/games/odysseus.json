@@ -1,0 +1,5 @@
+{
+	"playersBorder": [
+		"#player_table_{{player_id}}"
+	]
+}

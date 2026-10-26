@@ -1,0 +1,9 @@
+{
+	"customBack": true,
+	"customPanel": true,
+	"sideMenu": {
+		"playerPanel": "tableau_{{player_id}}",
+		"boardPanel": "tableau_actions",
+		"boardPanelText": "#tableau_actions > h3 > span"
+	}
+}

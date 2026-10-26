@@ -1,0 +1,5 @@
+{
+	"playersBack": [
+		".lrf_progress-bar[style*=\"background-color:#{{player_color}}\"]"
+	]
+}

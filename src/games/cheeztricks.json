@@ -1,0 +1,7 @@
+{
+	"overlay": true,
+	"sideMenu": {
+		"playerPanel": "open_wrap_{{player_id}}",
+		"css": ".desktop_version #game_play_area { padding-left: 30px; }"
+	}
+}

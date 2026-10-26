@@ -1,0 +1,5 @@
+{
+	"playersBorder": [
+		"#bang-player-{{player_id}} .bang-player-container[style^=\"border: 2px\"]"
+	]
+}

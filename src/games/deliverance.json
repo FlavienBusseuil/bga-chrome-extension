@@ -1,0 +1,15 @@
+{
+	"customColors": [
+		"#8b4513",
+		"#ee0000",
+		"#ffd700",
+		"#007f00"
+	],
+	"sideMenu": {
+		"playerPanel": "angel_area_{{player_color}}",
+		"boardPanel": "dlv_darkness_board_wrapper",
+		"boardPanelText": "#bga-jump-to_dlv_darkness_board > span",
+		"bottomPanel": "dlv_demons",
+		"css": "#bga-jump-to_controls, .bga-jump-to_controls { display: none; }"
+	}
+}

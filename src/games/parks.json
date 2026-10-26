@@ -1,0 +1,6 @@
+{
+	"sideMenu": {
+		"boardPanel": "pks-board",
+		"playerPanel": "pks-inv{{player_id}}"
+	}
+}

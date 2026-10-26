@@ -1,0 +1,13 @@
+{
+	"customBack": true,
+	"recommendedColor": {
+		"hue": 169,
+		"saturation": 10
+	},
+	"sideMenu": {
+		"playerPanel": "company_block_{{player_id}}",
+		"iconBackground": "#97a09b",
+		"iconShadow": "transparent",
+		"css": ".cng_topbutton { display: none; } .desktop_version #game_play_area { padding-left: 50px; }"
+	}
+}

@@ -1,0 +1,6 @@
+{
+	"sideMenu": {
+		"playerPanel": "wolves-player-container-{{player_id}}",
+		"boardPanel": "wolves-calendar"
+	}
+}

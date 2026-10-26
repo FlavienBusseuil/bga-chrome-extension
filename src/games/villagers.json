@@ -1,0 +1,6 @@
+{
+	"sideMenu": {
+		"playerPanel": "vil_village_{{player_id}}",
+		"css": ".desktop_version #villages { margin-left: 50px; }"
+	}
+}

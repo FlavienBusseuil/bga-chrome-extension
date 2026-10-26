@@ -1,0 +1,8 @@
+{
+	"overlay": true,
+	"cssVars": {
+		"--back-paris": "img/bg_paris.jpg",
+		"--back-tokyo": "img/bg_tokyo.jpg",
+		"--back-berlin": "img/bg_berlin.jpg"
+	}
+}

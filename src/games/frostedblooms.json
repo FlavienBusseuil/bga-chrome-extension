@@ -1,0 +1,20 @@
+{
+	"customBack": [
+		"thematic_background"
+	],
+	"playersTextColor": [
+		"html player_area_wrapper player_name[color=\"{{player_color}}\"]"
+	],
+	"playersBorder": [
+		"html garden[color=\"{{player_color}}\"]",
+		"#overall_player_board_{{player_id}}"
+	],
+	"cssVars": {
+		"--ext-game-back": "img/background.jpg"
+	},
+	"sideMenu": {
+		"playerPanel": "player_area_wrapper player_name",
+		"playerPanelOffset": 10,
+		"css": "#bga-jump-to_controls, .bga-jump-to_controls { display: none; } .desktop_version #game_play_area { padding-left: 50px; }"
+	}
+}

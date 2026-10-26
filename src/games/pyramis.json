@@ -1,0 +1,7 @@
+{
+	"customBack": true,
+	"sideMenu": {
+		"playerPanel": "player-table-{{player_id}}",
+		"css": " "
+	}
+}

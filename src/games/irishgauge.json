@@ -1,0 +1,9 @@
+{
+	"playersBorder": [
+		"#player-table-{{player_id}}",
+		"#player-table-{{player_id}} .player-table-name"
+	],
+	"playersTextColor": [
+		"#player-table-{{player_id}} .player-table-name"
+	]
+}

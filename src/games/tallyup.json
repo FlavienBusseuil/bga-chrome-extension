@@ -1,0 +1,7 @@
+{
+	"customBack": true,
+	"overlay": true,
+	"playersBorder": [
+		"#tuto_pp{{player_index_1}}"
+	]
+}

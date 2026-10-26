@@ -20,7 +20,7 @@ export const getFile = async (file: string, silentOnFailure: boolean = false) =>
 
   // Safeguard to avoid security warnings
   // Todo: remove this once there are complete game configs
-  const existsInManifest = checkIfResourcePathExists(fullPath);
+  const existsInManifest = await checkIfResourcePathExists(fullPath);
   if (!existsInManifest) {
     if (!silentOnFailure) {
       console.error(`[bga extension] File not found in manifest: ${fullPath}`);

@@ -1,0 +1,9 @@
+{
+	"customBack": true,
+	"sideMenu": {
+		"top": "160px",
+		"iconBackground": "#d3f8fc",
+		"playerPanel": ".BK-player-tableux-name",
+		"playerPanelOffset": 60
+	}
+}

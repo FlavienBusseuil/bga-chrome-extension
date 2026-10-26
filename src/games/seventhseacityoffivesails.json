@@ -1,0 +1,12 @@
+{
+	"customBack": true,
+	"customPanel": true,
+	"overlay": true,
+	"cssVars": {
+		"--scroll": "img/scroll.png"
+	},
+	"recommendedColor": {
+		"hue": 230,
+		"saturation": 20
+	}
+}

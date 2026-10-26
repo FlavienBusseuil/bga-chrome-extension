@@ -1,0 +1,10 @@
+{
+	"customPanel": true,
+	"sideMenu": {
+		"position": "bottom",
+		"playerPanel": "eoc-played{{player_id}}-outer",
+		"boardPanel": "eoc-map-container",
+		"boardPanelText": "#eoc-nav0",
+		"css": "#eoc-nav { display: none; }"
+	}
+}

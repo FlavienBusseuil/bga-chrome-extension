@@ -1,0 +1,10 @@
+{
+	"customBack": true,
+	"overlay": true,
+	"sideMenu": {
+		"playerPanel": ".delphi-opp-name",
+		"iconBackground": "#416071",
+		"iconColor": "#eee",
+		"iconBackgroundDark": "#416071"
+	}
+}

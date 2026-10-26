@@ -1,0 +1,8 @@
+{
+	"sideMenu": {
+		"playerPanel": "player_tableau_wrap_{{player_id}}",
+		"playerPanelOffset": 45,
+		"bottomPanel": "common_tactics",
+		"bottomPanelOffset": 45
+	}
+}

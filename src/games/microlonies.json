@@ -1,0 +1,7 @@
+{
+	"customBack": true,
+	"overlay": true,
+	"playersTextColor": [
+		"#mli-player-zone_{{player_id}} .mli-player-name"
+	]
+}

@@ -1,0 +1,6 @@
+{
+	"sideMenu": {
+		"playerPanel": "stp_playertable_{{player_id}}_wrap",
+		"playerPanelOffset": 10
+	}
+}

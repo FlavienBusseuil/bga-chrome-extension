@@ -1,5 +1,6 @@
 import { bgaUrl } from "../constants";
 import { fetchRequestToken } from "./fetchRequestToken";
+import { parseJsonResponse } from "./fetchFromUrl";
 
 export async function fetchGroupPlayers(groupId: number): Promise<string[]> {
   // force refresh of request token because we get no error with getMembersData.html if the token is invalid
@@ -34,6 +35,6 @@ async function fetchGroupPlayersOffset(requestToken: string, groupId: number, of
     },
     body: rawBody,
   })
-    .then((response) => response.json())
+    .then((response) => parseJsonResponse<any>(url, response))
     .then((json) => ({ count: json.data?.membersCount ?? 0, members: (json.data?.members ?? []).map((m: any) => m.id) }));
 }

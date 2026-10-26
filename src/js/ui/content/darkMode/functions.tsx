@@ -1,6 +1,7 @@
 import { render } from "preact";
 import ModeSelector from "./ModeSelector";
 import type Configuration from "../../../config/configuration";
+import { loadGameConfig } from "../../../config/games";
 
 const isGeneralMode = (gameName: string) => {
   return ["general", "studio"].includes(gameName);
@@ -47,7 +48,8 @@ const initDarkMode = (config: Configuration, gameName: string) => {
       sepElt.className = "ml-1 tablet:ml-6";
       container.parentNode!.insertBefore(sepElt, container);
     }
-    render(<ModeSelector config={config} gameName={gameName} />, darkElt);
+    // the selector applies (and saves) the recommended colors of the game: its configuration must be loaded first
+    loadGameConfig(gameName).then(() => render(<ModeSelector config={config} gameName={gameName} />, darkElt));
   }
 };
 

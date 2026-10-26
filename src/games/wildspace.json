@@ -1,0 +1,10 @@
+{
+	"customBack": true,
+	"overlay": true,
+	"playersTextColor": [
+		"#ws-player-{{player_id}} .pname"
+	],
+	"playersBorder": [
+		"#ws-player-{{player_id}}"
+	]
+}

@@ -1,0 +1,12 @@
+{
+	"customBack": true,
+	"recommendedColor": {
+		"hue": 7,
+		"saturation": 9
+	},
+	"sideMenu": {
+		"playerPanel": "zone_playername_{{player_index_1}}",
+		"iconBackgroundDark": "#524d47",
+		"css": " "
+	}
+}

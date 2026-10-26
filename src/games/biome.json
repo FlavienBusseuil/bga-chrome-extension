@@ -1,0 +1,9 @@
+{
+	"recommendedColor": {
+		"hue": 224,
+		"saturation": 20
+	},
+	"sideMenu": {
+		"playerPanel": "player-table-{{player_id}}"
+	}
+}

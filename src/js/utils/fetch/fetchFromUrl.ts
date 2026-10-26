@@ -20,5 +20,16 @@ export async function fetchFromUrl<D>(url: string, requestToken?: string): Promi
         throw new Error(`Fetching ${url} failed (HTTP ${response.status}). Please try again.`);
     }
 
-    return response.json();
+    return parseJsonResponse(url, response);
+}
+
+// During incidents, BGA may answer HTTP 200 with a body which is not valid JSON (PHP warnings added to the JSON...)
+export async function parseJsonResponse<D>(url: string, response: Response): Promise<D> {
+    const text = await response.text();
+    try {
+        return JSON.parse(text);
+    } catch (error) {
+        console.error(`[bga extension] Invalid response from ${url}`, { error, response: text.substring(0, 500) });
+        throw new Error(`Fetching ${url} failed (invalid response, BGA may be unavailable). Please try again.`);
+    }
 }

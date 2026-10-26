@@ -2,6 +2,7 @@ import { bgPeriodic } from "./js/bgPeriodic";
 import Configuration from "./js/config/configuration";
 import { addChangeListener, isFirefox } from "./js/utils/browser";
 import { updateBadgeAndIcon } from "./js/utils/updateBadgeAndIcon";
+import { clearRemoteGames, isRemoteGamesKey, updateRemoteGames } from "./js/utils/remoteGames";
 
 // Firefox WebExtensions API type support
 declare global {
@@ -116,6 +117,8 @@ const doInit = async () => {
 
   // set alarm to run update every minute
   await createAlarmIfMissing("bgPeriodic", { delayInMinutes: 1, periodInMinutes: 1 });
+  // check every hour if the games CSS and configurations have been updated
+  await createAlarmIfMissing("remoteGames", { delayInMinutes: 60, periodInMinutes: 60 });
   bgPeriodic(config);
 
   if (isFirefox) {
@@ -138,11 +141,13 @@ const doInit = async () => {
 chrome.runtime.onInstalled.addListener(() => {
   console.log("[bga extension] Service worker installed");
   init();
+  clearRemoteGames().then(updateRemoteGames);
 });
 
 chrome.runtime.onStartup.addListener(() => {
   console.log("[bga extension] Service worker started");
   init();
+  updateRemoteGames();
 });
 
 const sendSidePanelStatusToAllTabs = async (status: string) => {
@@ -214,9 +219,17 @@ chrome.alarms.onAlarm.addListener((evt) => {
   if (evt.name === "bgPeriodic" && config.initialized) {
     bgPeriodic(config);
   }
+
+  if (evt.name === "remoteGames") {
+    updateRemoteGames();
+  }
 });
 
 addChangeListener((changes) => {
+  if (Object.keys(changes).every(isRemoteGamesKey)) {
+    return;
+  }
+
   console.log("[bga extension] Changes detected", changes);
 
   init();

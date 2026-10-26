@@ -1,0 +1,11 @@
+{
+	"customBack": true,
+	"playersBorder": [
+		"#plrevealzone_{{player_id}} .plboard_top",
+		"#plboard_{{player_id}} .plboard_top "
+	],
+	"recommendedColor": {
+		"hue": 40,
+		"saturation": 16
+	}
+}

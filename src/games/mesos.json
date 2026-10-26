@@ -1,0 +1,16 @@
+{
+	"customBack": true,
+	"customPanel": true,
+	"recommendedColor": {
+		"hue": 0,
+		"saturation": 20
+	},
+	"sideMenu": {
+		"playerPanel": "player-board-{{player_id}}",
+		"playerPanelOffset": 20,
+		"iconBackground": "#bf1135",
+		"iconColor": "#eee",
+		"iconBackgroundDark": "#952c15",
+		"iconColorDark": "#eee"
+	}
+}

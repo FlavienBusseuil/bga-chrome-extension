@@ -1,0 +1,6 @@
+{
+	"sideMenu": {
+		"playerPanel": "#other_players_board .whiteblock",
+		"myPanel": "#personal_info_wrapper"
+	}
+}

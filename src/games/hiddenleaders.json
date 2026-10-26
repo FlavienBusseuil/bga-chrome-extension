@@ -1,0 +1,7 @@
+{
+	"sideMenu": {
+		"playerPanel": "player-head-{{player_id}}",
+		"css": "#bga-jump-to_controls, .bga-jump-to_controls { display: none; } .desktop_version #game_play_area { padding-left: 50px; } #tabs-container { margin-left: -60px; }",
+		"position": "bottom"
+	}
+}

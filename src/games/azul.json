@@ -1,0 +1,21 @@
+{
+	"customBack": true,
+	"overlay": true,
+	"cssVars": {
+		"--back-classic": "img/background.jpg",
+		"--back-chocolatier": "img/chocolatier/background.jpg",
+		"--back-classic-dark": "img/background2.jpg",
+		"--back-chocolatier-dark": "img/chocolatier/background2.jpg"
+	},
+	"sideMenu": {
+		"position": "bottom",
+		"playerPanel": "player-hand-{{player_id}}",
+		"iconBackground": "#36697c",
+		"iconBackgroundDark": "#36697c",
+		"iconColor": "#eee",
+		"iconColorDark": "#eee",
+		"iconShadow": "#000",
+		"iconShadowDark": "#000",
+		"css": " "
+	}
+}

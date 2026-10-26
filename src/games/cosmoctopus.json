@@ -1,0 +1,9 @@
+{
+	"customColors": [
+		"#20134b"
+	],
+	"sideMenu": {
+		"playerPanel": "csm-player{{player_id}}-cards-title",
+		"boardPanel": "csm-main"
+	}
+}

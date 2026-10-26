@@ -1,0 +1,8 @@
+{
+	"customBack": true,
+	"overlay": true,
+	"playersTextColor": [
+		"#player-table-{{player_id}} h3",
+		"[style=\"--player-color: #{{player_color}};\"]"
+	]
+}

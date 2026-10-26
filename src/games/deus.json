@@ -1,0 +1,6 @@
+{
+	"sideMenu": {
+		"playerPanel": "deus_playerboard_{{player_id}}",
+		"bottomPanel": "deus_common_components"
+	}
+}

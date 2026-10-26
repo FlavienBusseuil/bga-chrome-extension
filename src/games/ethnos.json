@@ -1,0 +1,5 @@
+{
+	"sideMenu": {
+		"playerPanel": "player_cardboard_{{player_id}}"
+	}
+}

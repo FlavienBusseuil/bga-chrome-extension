@@ -1,0 +1,7 @@
+{
+	"customBack": true,
+	"overlay": true,
+	"playersBack": [
+		"#daleofmerchants-play-area-{{player_id}} .daleofmerchants-play-area-title"
+	]
+}

@@ -1,0 +1,9 @@
+{
+	"customBack": true,
+	"customColors": [
+		"#024573"
+	],
+	"playersBorder": [
+		"[style*=\"border-top: 2px solid #{{player_color}};\"]"
+	]
+}

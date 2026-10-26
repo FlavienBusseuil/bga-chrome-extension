@@ -1,0 +1,7 @@
+{
+	"sideMenu": {
+		"playerPanel": "playerArea_{{player_id}}",
+		"bottomPanel": "bottom_panel",
+		"css": ".desktop_version #game_play_area { margin-left: 50px; }"
+	}
+}

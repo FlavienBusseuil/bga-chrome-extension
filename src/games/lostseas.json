@@ -1,0 +1,13 @@
+{
+	"customBack": true,
+	"recommendedColor": {
+		"hue": 195,
+		"saturation": 22
+	},
+	"sideMenu": {
+		"iconBackground": "#8ddefc",
+		"iconBackgroundDark": "#325a67",
+		"playerPanel": "#ls_main .ls_playertitle",
+		"playerPanelOffset": 50
+	}
+}

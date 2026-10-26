@@ -1,0 +1,7 @@
+{
+	"sideMenu": {
+		"playerPanel": "player_board_{{player_id}}",
+		"iconBackground": "#7a99b8",
+		"iconBackgroundDark": "#364c63"
+	}
+}

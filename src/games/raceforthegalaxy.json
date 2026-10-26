@@ -1,0 +1,7 @@
+{
+	"customBack": true,
+	"sideMenu": {
+		"playerPanel": "tableau_panel_{{player_id}}",
+		"iconBackground": "#a3adb7"
+	}
+}

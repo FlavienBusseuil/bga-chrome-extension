@@ -1,0 +1,7 @@
+{
+	"sideMenu": {
+		"iconBackground": "#fff",
+		"playerPanel": "player-table-{{player_id}}",
+		"css": "#jump-controls, .bga-jump-to_controls { display: none; } .desktop_version #game_play_area { padding-left: 50px; }"
+	}
+}

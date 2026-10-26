@@ -1,0 +1,11 @@
+{
+	"customBack": true,
+	"overlay": true,
+	"cssVars": {
+		"--ext-game-back": "img/map.jpg"
+	},
+	"recommendedColor": {
+		"hue": 30,
+		"saturation": 20
+	}
+}

@@ -1,0 +1,5 @@
+{
+	"sideMenu": {
+		"playerPanel": "cbsr_playername_{{player_id}}"
+	}
+}

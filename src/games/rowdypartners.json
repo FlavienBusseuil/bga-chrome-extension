@@ -1,0 +1,5 @@
+{
+	"playersTextColor": [
+		"[style=\"--player-color: #{{player_color}}\";]"
+	]
+}
