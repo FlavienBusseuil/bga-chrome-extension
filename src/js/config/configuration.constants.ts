@@ -290,6 +290,7 @@ html[data-theme="dark"] .bgaext_overlay{
 }
 .bgaext_game #bgaext-side-panel,
 .bgaext_tableview #bgaext-side-panel,
+.bgaext_tablereplay #bgaext-side-panel,
 .bgaext_sidepanel_opened #bgaext-side-panel,
 .bgaext_forum_visible #bgaext-side-panel {
     display: none;
@@ -308,7 +309,8 @@ export const ARCHIVE_FLOATING_MENU_CSS = `
   z-index: 1;
   cursor: grab;
 }
-.bgaext_archive_floating_menu.bgaext_dark #archivecontrol_editmode {
+.bgaext_archive_floating_menu.bgaext_dark #archivecontrol_editmode,
+.bgaext_archive_floating_menu.dark #archivecontrol_editmode {
   background: var(--dark-10);
   border: 1px solid var(--light-50);
 }

@@ -25,9 +25,10 @@ import {
 } from './js/ui/content/functions';
 import { getGameConfig as getGameFileConfig, loadGameConfig as loadGameFileConfig } from "./js/config/games";
 
-// The script is injected in every frame: in an iframe, only a game (like #gameIframe of the table view) needs it
+// The script is injected in every frame: in an iframe, only a game (like #gameIframe of the table view)
+// or a replay (/archive/archive/frame.html in the replay page) needs it
 const isTopFrame = window.self === window.top;
-const isGameFrame = !isTopFrame && /^\/\d+\/[^/]+/.test(window.location.pathname);
+const isGameFrame = !isTopFrame && /^\/(\d+\/[^/]+|archive\/)/.test(window.location.pathname);
 
 const config = new ConfigurationWithGames();
 let currentObserver: MutationObserver | null = null;
@@ -121,59 +122,62 @@ const initGame = (gameName: string, mode: 'game' | 'archive') => {
 	});
 
 	if (!isMobile && mode === 'archive') {
-		const el = document.getElementById('archivecontrol_editmode');
+		// in the replay page (/tablereplay), the controls are created after the initialization of the frame
+		waitForObj('#archivecontrol_editmode').then((elt) => {
+			const el = elt as HTMLElement;
 
-		// the page can be initialized several times: create the button and its listeners once
-		if (el && !el.querySelector(':scope > .fa-window-restore')) {
-			const fa = document.createElement('i');
-			fa.className = 'fa fa-window-restore';
-			fa.onclick = () => document.documentElement.classList.add('bgaext_archive_floating_menu');
+			// the page can be initialized several times: create the button and its listeners once
+			if (!el.querySelector(':scope > .fa-window-restore')) {
+				const fa = document.createElement('i');
+				fa.className = 'fa fa-window-restore';
+				fa.onclick = () => document.documentElement.classList.add('bgaext_archive_floating_menu');
 
-			let isDragging = false;
-			let startX: number, startY: number, initialLeft: number, initialTop: number;
+				let isDragging = false;
+				let startX: number, startY: number, initialLeft: number, initialTop: number;
 
-			el.addEventListener('mousedown', (e: any) => {
-				// the menu can only be moved once it is floating
-				if (e.target.tagName === 'A' || !document.documentElement.classList.contains('bgaext_archive_floating_menu')) {
-					return;
-				}
+				el.addEventListener('mousedown', (e: any) => {
+					// the menu can only be moved once it is floating
+					if (e.target.tagName === 'A' || !document.documentElement.classList.contains('bgaext_archive_floating_menu')) {
+						return;
+					}
 
-				e.preventDefault();
+					e.preventDefault();
 
-				isDragging = true;
+					isDragging = true;
 
-				startX = e.clientX;
-				startY = e.clientY;
+					startX = e.clientX;
+					startY = e.clientY;
 
-				const rect = el.getBoundingClientRect();
-				initialLeft = rect.left;
-				initialTop = rect.top;
+					const rect = el.getBoundingClientRect();
+					initialLeft = rect.left;
+					initialTop = rect.top;
 
-				el.style.cursor = 'grabbing';
-			});
+					el.style.cursor = 'grabbing';
+				});
 
-			document.addEventListener('mousemove', (e) => {
-				if (!isDragging) return;
+				document.addEventListener('mousemove', (e) => {
+					if (!isDragging) return;
 
-				const deltaX = e.clientX - startX;
-				const deltaY = e.clientY - startY;
-				const left = Math.max(initialLeft + deltaX, 0);
-				const top = Math.max(initialTop + deltaY, 0);
+					const deltaX = e.clientX - startX;
+					const deltaY = e.clientY - startY;
+					const left = Math.max(initialLeft + deltaX, 0);
+					const top = Math.max(initialTop + deltaY, 0);
 
-				el.style.left = `${left}px`;
-				el.style.top = `${top}px`;
-				el.style.bottom = 'auto';
-				el.style.right = 'auto';
-			});
+					el.style.left = `${left}px`;
+					el.style.top = `${top}px`;
+					el.style.bottom = 'auto';
+					el.style.right = 'auto';
+				});
 
-			document.addEventListener('mouseup', () => {
-				if (isDragging) {
-					isDragging = false;
-					el.style.cursor = 'grab';
-				}
-			});
-			el.prepend(fa);
-		}
+				document.addEventListener('mouseup', () => {
+					if (isDragging) {
+						isDragging = false;
+						el.style.cursor = 'grab';
+					}
+				});
+				el.prepend(fa);
+			}
+		});
 	}
 
 	initDarkMode(config, gameName);
@@ -444,7 +448,7 @@ const initPage = () => {
 	});
 
 	waitForObj('body').then(() => {
-		if (pageType === 'general') {
+		if (pageType === 'general' && isTopFrame) {
 			setTimeout(() => displayInformationPopup(config), 2000);
 		}
 

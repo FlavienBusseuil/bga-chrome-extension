@@ -29,7 +29,8 @@ if (pageInfo.length >= 2 && isNumber(pageInfo[0] as string)) {
   cssList = ["native_theme/general.css", "dark_theme/background.css", "dark_theme/common.css", "dark_theme/chat.css", "dark_theme/icons.css", "dark_theme/general.css"];
 }
 
-const isHtmlPage = pageInfo[pageInfo.length - 1]?.endsWith('.html');
+// the replays are displayed in an html page (/archive/archive/frame.html in the iframe of /tablereplay)
+const isHtmlPage = mode !== "archive" && pageInfo[pageInfo.length - 1]?.endsWith('.html');
 
 const _injectGamePageScript = async () => {
   // must be done as soon as possible to be executed before the game script
