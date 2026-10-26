@@ -31,8 +31,9 @@ html[data-theme=dark].bgaext_dark {
 		background-color: #0e0e3f;
 	}
 
-	.dijitTooltipContainer [style="color: blue"],
-	#logs [style="color:blue"] {
+	[style="color: blue"],
+	[style="color:blue"],
+	[style="color: blue;"] {
 		color: #6666ff !important;
 	}
 
@@ -40,13 +41,32 @@ html[data-theme=dark].bgaext_dark {
 		background-color: #6666ff !important;
 	}
 
-	.dijitTooltipContainer [style="color: purple"],
-	#logs [style="color:purple"] {
+	[style="color: purple"],
+	[style="color:purple"],
+	[style="color: purple;"] {
 		color: #cc00cc !important;
 	}
 
 	.dijitTooltipContainer [style*="background-color: purple;"] {
 		background-color: #cc00cc !important;
+	}
+
+	[style="color: red"],
+	[style="color:red"],
+	[style="color: red;"] {
+		color: var(--red-80) !important;
+	}
+
+	[style="color: green"],
+	[style="color:green"],
+	[style="color: green;"] {
+		color: var(--green-80) !important;
+	}
+
+	[style="color: black"],
+	[style="color:black"],
+	[style="color:black;"] {
+		text-shadow: var(--text-w-shadow);
 	}
 
 	.abs-tooltip-leviathan table td,
@@ -56,5 +76,15 @@ html[data-theme=dark].bgaext_dark {
 
 	#conspiracy-help-button {
 		color: #000;
+	}
+
+	#gameplay-options,
+	#faction-panel {
+		background-color: #0e0e3f;
+		color: var(--light-80);
+	}
+
+	#council-panel .council-panel-header p {
+		color: var(--light-50);
 	}
 }
