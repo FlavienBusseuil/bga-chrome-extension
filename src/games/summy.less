@@ -1,0 +1,19 @@
+html[data-theme=dark].bgaext_bright {
+	.bga-cards_card>.bga-cards_card-sides {
+		filter: var(--ext-bright);
+	}
+}
+
+html[data-theme=dark].bgaext_dark {
+	[style="background-color: bisque;"] {
+		background-color: #663800 !important;
+	}
+
+	.sum-token {
+		border-color: #663800;
+	}
+
+	.card-stock.deck[data-empty=true] {
+		background: var(--dark-back);
+	}
+}
