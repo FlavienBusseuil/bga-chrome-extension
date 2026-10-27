@@ -1,0 +1,143 @@
+html[data-theme=dark] {
+	.revive-fly-card {
+		z-index: 920;
+	}
+
+	.prophet-temp-card {
+		z-index: 930;
+	}
+
+	.impermanence-victory-fly-card {
+		z-index: 940;
+	}
+
+	#generalactions,
+	#pagemaintitle_wrap {
+		z-index: 950;
+	}
+
+	.spy-modal-overlay,
+	.faith-war-log-overlay {
+		z-index: 970;
+	}
+
+	#page-title {
+		z-index: 980;
+	}
+
+	.dijitTooltip {
+		z-index: 1000 !important;
+	}
+}
+
+html[data-theme=dark].bgaext_bright {
+	#mybelievercards .stockitem.believer-card-waiting {
+		filter: var(--hand-disabled-filter) var(--ext-bright);
+	}
+
+	.card-action,
+	.card-back-action,
+	.card-believer,
+	.card-back-believer,
+	.card-skill,
+	.card-skill-back,
+	.sect_badge_icon,
+	#mybelievercards .stockitem.believer-card-ready {
+		filter: var(--ext-bright);
+	}
+}
+
+html[data-theme=dark].bgaext_dark {
+	--hof-ui-panel-bg: var(--dark-back);
+
+	body {
+		background: #574129;
+	}
+
+	#overall-content {
+		color: var(--light-80);
+	}
+
+	#game_play_area,
+	#game_play_area:before {
+		background-color: #5d4d3c;
+		background-blend-mode: multiply;
+	}
+
+	#central_arena:has(>:is(.faith-war-board, .aoe-combat-layout, .game-end-summary-wrap)):after {
+		background: var(--dark-20);
+	}
+
+	#central_arena .aoe-left-owner-label,
+	#central_arena .aoe-left-owner-player,
+	#central_arena .aoe-owner-player,
+	#central_arena .aoe-owner-sect,
+	#central_arena .combat-owner-player,
+	#central_arena .combat-owner-sect,
+	#central_arena .combat-result-label {
+		text-shadow: none;
+	}
+
+	.deck_counter {
+		color: var(--light-80);
+		text-shadow: none;
+	}
+
+	.hegemony_player_panel .panel-counter-text,
+	.role-inline {
+		color: var(--light-60);
+	}
+
+	.hegemony_player_panel {
+		background-color: var(--dark-30);
+	}
+
+	.role_label,
+	.hegemony_player_panel .actions_label {
+		color: var(--blue-50);
+	}
+
+	.hegemony_player_panel .believers_label,
+	.combat-result-item.is-winner .combat-result-label,
+	.initial-skill-draft-title,
+	.faith-war-log-row .result.win,
+	.impermanence-victory-title,
+	.faith-war-banner,
+	.spy-modal-action-count,
+	.spy-modal-believer-count {
+		color: var(--red-80);
+	}
+
+	.hand-count-badge {
+		background-color: var(--dark-10);
+		border-color: var(--light-70);
+		color: var(--light-70);
+	}
+
+	.spy-modal {
+		background: var(--dark-10);
+		border-color: var(--dark-40);
+	}
+
+	.faith-war-log-modal-list,
+	.mobile-card-tooltip-content,
+	.spy-modal,
+	.spy-modal-section,
+	.spy-modal-section h4,
+	.spy-modal-title,
+	.faith-war-log-title {
+		color: var(--light-60);
+	}
+
+	.faith-war-log-row {
+		color: var(--light-50);
+	}
+
+	.faith-war-log-panel {
+		background: var(--dark-back);
+	}
+
+	.hegemony_player_panel .panel-skill-active.is-exhausted {
+		color: #9f7060;
+	}
+}

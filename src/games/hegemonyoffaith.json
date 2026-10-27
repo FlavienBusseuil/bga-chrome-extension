@@ -1,0 +1,13 @@
+{
+	"customBack": true,
+	"playersTextColor": [
+		"#playertable_{{player_id}} .playertablename"
+	],
+	"playersBorder": [
+		"#playertable_{{player_id}}"
+	],
+	"recommendedColor": {
+		"hue": 0,
+		"saturation": 16
+	}
+}
