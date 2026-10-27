@@ -1,6 +1,7 @@
 // Builds the file of the games CSS and configurations updated since the last release, downloaded by the extension
 // (see src/js/utils/remoteGames.ts)
-// Usage: node scripts/buildRemoteGames.js <release src folder> <current src folder> <version> <output file>
+// Usage: node scripts/buildRemoteGames.js <release src folder> <current src folder> <version> <publication date> <output file>
+// The publication date (a timestamp) lets the extension ignore an older file served by a mirror
 const fs = require('fs');
 const path = require('path');
 const less = require('less');
@@ -101,10 +102,10 @@ const validateConfigs = (configs) => {
 };
 
 const main = async () => {
-	const [releasePath, currentPath, version, outputPath] = process.argv.slice(2);
+	const [releasePath, currentPath, version, published, outputPath] = process.argv.slice(2);
 
-	if (!releasePath || !currentPath || !version || !outputPath) {
-		throw new Error('Usage: node scripts/buildRemoteGames.js <release src folder> <current src folder> <version> <output file>');
+	if (!releasePath || !currentPath || !version || !Number(published) || !outputPath) {
+		throw new Error('Usage: node scripts/buildRemoteGames.js <release src folder> <current src folder> <version> <publication date> <output file>');
 	}
 
 	const [releaseCss, currentCss] = await Promise.all([compileGames(releasePath), compileGames(currentPath)]);
@@ -129,7 +130,7 @@ const main = async () => {
 	}
 
 	fs.mkdirSync(path.dirname(outputPath), { recursive: true });
-	fs.writeFileSync(outputPath, JSON.stringify({ version, games }));
+	fs.writeFileSync(outputPath, JSON.stringify({ version, published: Number(published), games }));
 
 	const describe = ([game, { css, config }]) => `${game} (${[css !== undefined && 'css', config !== undefined && 'config'].filter(Boolean).join(' + ')})`;
 	console.log(`${Object.keys(games).length} game(s) updated since v${version}: ${Object.entries(games).map(describe).join(', ') || '-'}`);
