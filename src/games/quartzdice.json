@@ -1,0 +1,5 @@
+{
+	"playersTextColor": [
+		"#mining-cart-{{player_id}} .quartz-mining-cart-title>span"
+	]
+}
