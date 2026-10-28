@@ -1,5 +1,10 @@
 {
+	"customBack": true,
 	"playersTextColor": [
 		"#mining-cart-{{player_id}} .quartz-mining-cart-title>span"
-	]
+	],
+	"recommendedColor": {
+		"hue": 270,
+		"saturation": 16
+	}
 }
