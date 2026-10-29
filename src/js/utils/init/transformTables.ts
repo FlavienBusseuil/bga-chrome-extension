@@ -82,7 +82,8 @@ export function transformTable({
 		hasArenaMode: options["201"] === "2",
 		hasTrainingMode: options["201"] === "1",
 		isOpenForPlayers: ["asyncopen", "open"].includes(status),
-		isTurnBased: ["asyncplay", "asyncopen", "asyncinit"].includes(status),
+		// The game speed (option 200) is turn based from 10: the status of a tournament table isn't always "async..."
+		isTurnBased: ["asyncplay", "asyncopen", "asyncinit"].includes(status) || Number(options["200"]) >= 10,
 		isPartOfTournament: castToBoolean(has_tournament),
 		tournamentLink: `${bgaUrl}/tournament?id=${tournamentId}`,
 		link: `${bgaUrl}/${castNumberStringToString(
