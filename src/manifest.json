@@ -2,7 +2,7 @@
   "manifest_version": 3,
   "name": "Board Game Arena (BGA) Chrome Extension - boardgamearena.com",
   "short_name": "BGA Chrome Extension",
-  "version": "2.1.2",
+  "version": "2.1.3",
   "minimum_chrome_version": "116",
   "action": {
     "default_popup": "popup.html",
