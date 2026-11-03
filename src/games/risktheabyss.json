@@ -1,0 +1,6 @@
+{
+	"customBack": true,
+	"playersBorder": [
+		"#rta_player_{{player_id}}"
+	]
+}

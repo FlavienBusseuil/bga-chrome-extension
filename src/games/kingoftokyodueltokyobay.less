@@ -1,0 +1,52 @@
+html[data-theme=dark].bgaext_bright {
+
+	.bga-cards_card,
+	.monster-board,
+	.life-wheel .inner,
+	.life-wheel .outer,
+	.bga-cards_card>.bga-cards_card-sides>.bga-cards_card-side,
+	#table #table-center #board-wrapper {
+		filter: var(--ext-bright);
+	}
+
+	.card-stock .card.bga-cards_disabled-card {
+		filter: var(--ext-bright) contrast(.6);
+	}
+
+	.banned-monster {
+		filter: var(--ext-bright) grayscale(1);
+	}
+}
+
+html[data-theme=dark].bgaext_dark {
+	--ext-overlay-color: #0003;
+
+	#bga-zoom_controls {
+		--bga-zoom-button-color: var(--light-80);
+	}
+
+	.bgaext_overlay {
+		background-color: #c7cbd1 !important;
+	}
+
+	.difficulty-wrapper .difficulty {
+		background: #000;
+	}
+
+	#stickers .sticker {
+		background: var(--dark-20);
+		color: var(--light-80);
+	}
+
+	.icon.skull {
+		filter: invert();
+	}
+
+	#stickers .sticker .sticker-name {
+		background: #971c41;
+	}
+
+	#stickers .sticker:not(.done) .sticker-name {
+		background: #664d55;
+	}
+}
