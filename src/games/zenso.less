@@ -1,0 +1,36 @@
+html[data-theme=dark].bgaext_bright {
+
+	.mf_item_back,
+	.mf_item_front,
+	.mf_log_card>div,
+	.mf_panel_icon>div {
+		filter: var(--ext-bright);
+	}
+}
+
+html[data-theme=dark].bgaext_dark {
+	body:before {
+		filter: invert() hue-rotate(180deg);
+	}
+
+	.mf_label>div {
+		background-color: var(--dark-10);
+		color: var(--light-80);
+	}
+
+	.mf_scoring_container {
+		background-color: var(--dark-back);
+	}
+
+	.mf_scoring_header {
+		border-color: #785457;
+	}
+
+	.mf_scoring {
+		color: #ab878a;
+	}
+
+	.mf_scoring_header_hand {
+		color: var(--light-60)
+	}
+}

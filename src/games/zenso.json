@@ -1,0 +1,6 @@
+{
+	"customBack": true,
+	"sideMenu": {
+		"playerPanel": "mf_zone_player_{{player_index_1}}"
+	}
+}
