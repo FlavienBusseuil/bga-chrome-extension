@@ -76,10 +76,18 @@ p {
   html,
   body {
     width: 100% !important;
-    max-width: max-content !important;
   }
 
   .app {
     max-width: none;
+  }
+
+  /* The popup is opened as a page: the lists use the height of the screen */
+  .max-result {
+    max-height: calc(100dvh - 100px);
+  }
+
+  .view--toolbar .max-result {
+    max-height: calc(100dvh - 90px - var(--toolbar-height, 30px));
   }
 }
