@@ -58,6 +58,79 @@
   flex-basis: auto;
 }
 
+/* List layout: one section per line, they never move when another one is opened */
+.options-list .options-frame.reduced {
+  width: 100%;
+  padding-top: 0.4em;
+  padding-bottom: 0.4em;
+}
+
+/* Lower closed sections: the list holds in the popup with a section opened */
+.options-list .reduced .options-frame-title svg {
+  width: 20px;
+  height: 20px;
+}
+
+/* Display settings at the bottom of the options: same space above (padding of the sections) and below (6px) */
+.view.options-view {
+  gap: 0;
+}
+
+.options-display-bar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0 0.5em 2px;
+  font-size: 11px;
+  /* Same height as the icons: the labels and the icons are centered on the same line */
+  line-height: 18px;
+}
+
+.options-display-group {
+  display: flex;
+  align-items: center;
+  gap: 2px;
+}
+
+.options-display-label {
+  margin-right: 0.25em;
+  opacity: 0.6;
+}
+
+/* Inactive: faded; active: full contrast on a tinted background (currentColor: same rule in light and dark mode) */
+.options-display-button {
+  display: flex;
+  align-items: center;
+  gap: 0.35em;
+  padding: 2px;
+  border: none;
+  border-radius: 4px;
+  background: none;
+  color: inherit;
+  font: inherit;
+  cursor: pointer;
+  opacity: 0.45;
+}
+
+.options-display-button[aria-pressed="true"] {
+  background: color-mix(in srgb, currentColor 18%, transparent);
+  opacity: 1;
+}
+
+.options-display-toggle {
+  padding-right: 0.5em;
+}
+
+.options-display-button:hover,
+.options-display-button:focus-visible {
+  opacity: 1;
+}
+
+.options-display-button svg {
+  width: 18px;
+  height: 18px;
+}
+
 .options-frame-title {
   position: absolute;
   top: -11px;
@@ -77,6 +150,7 @@
   display: flex;
   flex-flow: row;
   justify-content: space-between;
+  align-items: center;
   width: 100%;
 }
 
@@ -153,11 +227,11 @@ html.bgaext-section-transition .options-frame:not(.reduced)>.options-frame-title
 /* Without view transitions (Firefox < 144): the content of the opened section fades in */
 @supports not (view-transition-name: none) {
   @media (prefers-reduced-motion: no-preference) {
-    .options-frame:not(.reduced)>.options-frame-title {
+    .options-container:not(.options-no-animation) .options-frame:not(.reduced)>.options-frame-title {
       animation: options-fade 180ms ease-out both;
     }
 
-    .options-frame:not(.reduced)>:not(.options-frame-title) {
+    .options-container:not(.options-no-animation) .options-frame:not(.reduced)>:not(.options-frame-title) {
       animation: options-reveal 180ms cubic-bezier(0.2, 0.7, 0.2, 1) both;
     }
   }
@@ -176,8 +250,11 @@ html.bgaext-section-transition .options-frame:not(.reduced)>.options-frame-title
   }
 }
 
+/* Beside the last line of the about text (a short thanks), not on its own line */
 .options-version {
-  text-align: right;
+  position: absolute;
+  right: 1.2em;
+  bottom: 1.2em;
 }
 
 .options-twocolumns {

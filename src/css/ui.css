@@ -460,6 +460,12 @@ html.dark .card.table-card:hover {
   --tc-tint: var(--tc-normal);
 }
 
+/* Tables of the player waiting for players: the color of their "open" status, except for arena and friendly tables
+   that keep their own tint (the "looking for players" icon is shown on all of them) */
+.card.table-card.table-card--own-open {
+  --tc-tint: var(--st-invite);
+}
+
 .card.table-card.table-card--arena {
   --tc-tint: var(--ic-arena);
 }
@@ -470,6 +476,19 @@ html.dark .card.table-card:hover {
 
 .card.table-card:not(.tournament-card) {
   background-color: color-mix(in srgb, var(--tc-tint) 10%, #fff);
+}
+
+/* Upcoming tournaments: same color as the tables waiting for players */
+.card.tournament-card--future {
+  background-color: color-mix(in srgb, var(--st-invite) 10%, #fff);
+}
+
+html.dark .card.tournament-card--future {
+  background: color-mix(in srgb, var(--st-invite) 15%, var(--dark-20));
+}
+
+html.dark .card.tournament-card--future:hover {
+  background: color-mix(in srgb, var(--st-invite) 15%, var(--dark-30));
 }
 
 html.dark .card.table-card:not(.tournament-card) {
@@ -676,6 +695,12 @@ html.dark .card.table-card:not(.tournament-card):hover {
   --tb: var(--ic-training-bg);
   color: var(--ic-training);
   background-color: var(--ic-training-bg);
+}
+
+.table-icon--open {
+  --tb: var(--st-invite-bg);
+  color: var(--st-invite);
+  background-color: var(--st-invite-bg);
 }
 
 /* Icon parts: "s" is stroked, "cut" is drawn with the tile background to carve the shape */
@@ -1187,12 +1212,26 @@ html.dark .table-filter--training {
 
 .tournament-date {
   flex-shrink: 0;
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
   padding: 1px 8px;
   border-radius: 999px;
   font-size: 11px;
   font-weight: 600;
   color: var(--st-waiting);
   background-color: var(--st-waiting-bg);
+}
+
+/* Upcoming tournament: calendar before the date, in the color of the open tables */
+.tournament-card--future .tournament-date {
+  color: var(--st-invite);
+  background-color: var(--st-invite-bg);
+}
+
+.tournament-date svg {
+  width: 12px;
+  height: 12px;
 }
 
 .tournament-name {

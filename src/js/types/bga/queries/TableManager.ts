@@ -11,6 +11,8 @@ export type Suggestion = never;
 interface Player {
   id: PlayerId;
   table_status: PlayerTableStatus;
+  // "1" when the table was opened by the automatic search of opponents
+  table_matchmaking?: BooleanString;
   fullname?: string;
   avatar: string;
   rank: number;

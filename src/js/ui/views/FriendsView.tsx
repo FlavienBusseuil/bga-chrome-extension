@@ -149,7 +149,7 @@ export const FriendsView = ({ className, getGroupTables, groups, motionSensitivi
   }
 
   return (
-    <div className={cn(["view", requested && "view--toolbar", className || ''])}>
+    <div className={cn(["view", requested && hasTables && "view--toolbar", className || ''])}>
       {shownTables.length === 0 && noGame()}
 
       {shownTables.length > 0 && (
@@ -227,8 +227,8 @@ export const FriendsView = ({ className, getGroupTables, groups, motionSensitivi
           </CardList>
         </div>
       )}
-      {/* Useless before the first search */}
-      {requested && <div ref={toolbarRef} className="view-toolbar" role="group" aria-label={i18n("table_filters")}>
+      {/* Useless before the first search and without any table, but kept when the filters hide all the tables */}
+      {requested && hasTables && <div ref={toolbarRef} className="view-toolbar" role="group" aria-label={i18n("table_filters")}>
         <div className="mode-switch" role="radiogroup">
           {MODES.map(({ mode: value, label, title, icon }) => (
             <button
@@ -258,7 +258,7 @@ export const FriendsView = ({ className, getGroupTables, groups, motionSensitivi
             </button>
           ))}
         </div>
-        {hasTables && <PlayersDisplaySwitch compact={playersCompact} onChange={updatePlayersCompact} />}
+        <PlayersDisplaySwitch compact={playersCompact} onChange={updatePlayersCompact} />
       </div>}
       <div className="view-actions">
         <select

@@ -43,6 +43,31 @@ export function ArenaIcon() {
 	);
 }
 
+// "user-plus" path from Lucide icons (ISC license)
+export function LookingForPlayersIcon() {
+	return (
+		<svg className="ic" viewBox="0 0 24 24">
+			<g className="s" stroke-width={2}>
+				<path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2" />
+				<circle cx="9" cy="7" r="4" />
+				<path d="M19 8v6M22 11h-6" />
+			</g>
+		</svg>
+	);
+}
+
+// "calendar" path from Lucide icons (ISC license)
+export function CalendarIcon() {
+	return (
+		<svg className="ic" viewBox="0 0 24 24" aria-hidden="true">
+			<g className="s" stroke-width={2}>
+				<path d="M8 2v4M16 2v4M3 10h18" />
+				<rect width="18" height="18" x="3" y="4" rx="2" />
+			</g>
+		</svg>
+	);
+}
+
 // Handshake path from Lucide icons (ISC license)
 export function HandshakeIcon() {
 	return (

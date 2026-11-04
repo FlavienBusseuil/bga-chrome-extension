@@ -15,8 +15,9 @@ export function getTableState({
 	isTurnBased,
 	isWaitingCurrentPlayer,
 }: TableStateProps): TableState {
+	// A real time table waiting for players isn't played yet: shown as open, it doesn't flash
 	if (!isTurnBased) {
-		return "realtime";
+		return isOpenForPlayers ? "open" : "realtime";
 	}
 
 	if (isWaitingCurrentPlayer) {

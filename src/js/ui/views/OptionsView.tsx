@@ -66,6 +66,8 @@ export const OptionsView = ({ config, onChange }: Props) => {
   const [closePopupOnClick, setClosePopupOnClick] = useSyncedState('closePopupOnClick', config.shouldClosePopupOnClick(!isFirefox));
   const [focusOnNewtab, setFocusOnNewTab] = useSyncedState('focusOnNewtab', config.shouldFocusOnNewTab());
   const [popupColorfulTables, setPopupColorfulTables] = useSyncedState('popupColorfulTables', config.isPopupColorfulTables());
+  const [listLayout, setListLayout] = useSyncedState('optionsListLayout', config.isOptionsListLayout());
+  const [animationsDisabled, setAnimationsDisabled] = useSyncedState('optionsAnimationsDisabled', config.areOptionsAnimationsDisabled());
 
   const [advancedHomeConfig, setAdvancedHomeConfig] = useSyncedState<AdvancedHomeConfig>('advancedHomeConfig', config.getAdvancedHomeConfig());
   const [advancedHomeHtml, setAdvancedHomeHtml] = useSyncedState<string>('advancedHomeHtml', advancedHomeConfig.html);
@@ -128,7 +130,7 @@ export const OptionsView = ({ config, onChange }: Props) => {
 
     const reducedMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
 
-    if (!document.startViewTransition || reducedMotion) {
+    if (!document.startViewTransition || reducedMotion || animationsDisabled) {
       // Without view transitions (Firefox < 144), the opened section fades in (see options-common.css)
       setConfigVisible(val);
       return;
@@ -238,6 +240,16 @@ export const OptionsView = ({ config, onChange }: Props) => {
   const updatePopupColorfulTables = (val: boolean) => {
     setPopupColorfulTables(val);
     config.setPopupColorfulTables(val);
+  };
+
+  const updateListLayout = (val: boolean) => {
+    setListLayout(val);
+    config.setOptionsListLayout(val);
+  };
+
+  const updateAnimationsDisabled = (val: boolean) => {
+    setAnimationsDisabled(val);
+    config.setOptionsAnimationsDisabled(val);
   };
 
   const updateMuteWarning = (val: boolean) => {
@@ -439,7 +451,7 @@ export const OptionsView = ({ config, onChange }: Props) => {
   // The arrow has its own view transition: it follows the right edge of its section instead of staying in its snapshot
   const arrow = (id: string) => {
     return (
-      <svg xmlns="http://www.w3.org/2000/svg" style={{ viewTransitionName: `bgaext-section-arrow-${id}` }}>
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" style={{ viewTransitionName: `bgaext-section-arrow-${id}` }}>
         <path fill="currentcolor" d="M12 17.414 3.293 8.707l1.414-1.414L12 14.586l7.293-7.293 1.414 1.414L12 17.414z" />
       </svg>
     );
@@ -818,17 +830,54 @@ export const OptionsView = ({ config, onChange }: Props) => {
     );
   };
 
+  // Discreet display settings of this page: the icons draw the layout of the sections they select
+  const getDisplayBar = () => {
+    return (
+      <div className="options-display-bar">
+        <button className="options-display-button options-display-toggle" aria-pressed={!animationsDisabled} onClick={() => updateAnimationsDisabled(!animationsDisabled)}>
+          <svg viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linejoin="round" aria-hidden="true">
+            <path d="M10 2c.6 4.2 1.8 5.4 6 6-4.2.6-5.4 1.8-6 6-.6-4.2-1.8-5.4-6-6 4.2-.6 5.4-1.8 6-6z" />
+            <path d="M16 13c.3 1.6.8 2.1 2 2.5-1.2.4-1.7.9-2 2.5-.3-1.6-.8-2.1-2-2.5 1.2-.4 1.7-.9 2-2.5z" />
+            {animationsDisabled && <path d="M3 17 17 3" stroke-linecap="round" />}
+          </svg>
+          {i18n("optionsAnimations")}
+        </button>
+        <div className="options-display-group" role="group" aria-label={i18n("optionsLayout")}>
+          <span className="options-display-label" aria-hidden="true">{i18n("optionsLayout")}</span>
+          <button className="options-display-button" aria-pressed={!listLayout} title={i18n("optionsLayoutGrid")} aria-label={i18n("optionsLayoutGrid")} onClick={() => updateListLayout(false)}>
+            <svg viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true">
+              <rect x="2" y="2" width="9" height="3" rx="1" /><rect x="13" y="2" width="5" height="3" rx="1" />
+              <rect x="2" y="7" width="16" height="6" rx="1" />
+              <rect x="2" y="15" width="5" height="3" rx="1" /><rect x="9" y="15" width="9" height="3" rx="1" />
+            </svg>
+          </button>
+          <button className="options-display-button" aria-pressed={listLayout} title={i18n("optionsLayoutList")} aria-label={i18n("optionsLayoutList")} onClick={() => updateListLayout(true)}>
+            <svg viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true">
+              <rect x="2" y="2" width="16" height="3" rx="1" />
+              <rect x="2" y="7" width="16" height="6" rx="1" />
+              <rect x="2" y="15" width="16" height="3" rx="1" />
+            </svg>
+          </button>
+        </div>
+      </div>
+    );
+  };
+
+  // Like the lists of the other tabs, the sections scroll in the popup (max-result): the tabs and the display bar stay visible
   return (
-    <div className="options-container">
-      {getMiscSection()}
-      {getNotificationsSection()}
-      {getGamesSection()}
-      {getHomeSection()}
-      {getInProgressSection()}
-      {getFastStartSection()}
-      {getHiddenGamesSection()}
-      {getHiddenPlayersSection()}
-      {getAboutSection()}
+    <div className="view options-view">
+      <div className={`options-container max-result${listLayout ? " options-list" : ""}${animationsDisabled ? " options-no-animation" : ""}`}>
+        {getMiscSection()}
+        {getNotificationsSection()}
+        {getGamesSection()}
+        {getHomeSection()}
+        {getInProgressSection()}
+        {getFastStartSection()}
+        {getHiddenGamesSection()}
+        {getHiddenPlayersSection()}
+        {getAboutSection()}
+      </div>
+      {getDisplayBar()}
     </div>
   );
 };

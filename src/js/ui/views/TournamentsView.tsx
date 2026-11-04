@@ -11,6 +11,7 @@ import { i18n } from "../../utils/browser/i18n";
 import Configuration from "../../config/configuration";
 import { useSyncedState } from "../hooks/useSyncedState";
 import { TableImg } from "../TableImg";
+import { CalendarIcon } from "../icons";
 
 type Props = {
 	config: Configuration,
@@ -58,7 +59,7 @@ export const TournamentsView = ({ config, className, tournaments, closePopupOnCl
 				<div className="max-result">
 					<CardList>
 						{filteredTournaments.map(
-							({ gameImg, gameBoxImg, championshipName, name, link, date, playerStatus }) => {
+							({ gameImg, gameBoxImg, championshipName, name, link, date, playerStatus, status }) => {
 								const onClickFunc = () => {
 									const sidePanel = document.documentElement.classList.contains('side-panel');
 									const active = focusOnNewTab === undefined ? sidePanel || closePopupOnClick : focusOnNewTab;
@@ -73,13 +74,13 @@ export const TournamentsView = ({ config, className, tournaments, closePopupOnCl
 									}
 								};
 								const isOut = playerStatus === 'eliminated' || playerStatus === 'withdrawn';
-								return <Card key={link} onClick={onClickFunc} className={cn(["table-card", "tournament-card", isOut && "tournament-card--out"])}>
+								return <Card key={link} onClick={onClickFunc} className={cn(["table-card", "tournament-card", isOut && "tournament-card--out", status === "future" && "tournament-card--future"])}>
 									<div className="tournament-main">
 										<TableImg tableImg={gameImg} tableBoxImg={gameBoxImg} />
 										<div className="tournament-text">
 											<div className="tournament-row">
 												<h1 className="table-title" title={championshipName}>{championshipName}</h1>
-												<span className="tournament-date">{date.toLocaleDateString()}</span>
+												<span className="tournament-date">{status === "future" && <CalendarIcon />}{date.toLocaleDateString()}</span>
 											</div>
 											<div className="tournament-name" title={name}>{name}</div>
 										</div>

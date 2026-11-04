@@ -62,6 +62,8 @@ interface CustomConfig {
 	popupFriendsHiddenKinds?: TableKind[];
 	popupFriendsPlayersCompact?: boolean;
 	popupColorfulTables?: boolean;
+	optionsListLayout?: boolean;
+	optionsAnimationsDisabled?: boolean;
 }
 
 // Friends tables of the popup shown by mode: all, realtime only or turn based only
@@ -803,6 +805,24 @@ class Configuration {
 	setPopupColorfulTables(val: boolean) {
 		this._customConfig.popupColorfulTables = val;
 		storageSet({ popupColorfulTables: val });
+	}
+
+	isOptionsListLayout() {
+		return Boolean(this._customConfig.optionsListLayout);
+	}
+
+	setOptionsListLayout(val: boolean) {
+		this._customConfig.optionsListLayout = val;
+		storageSet({ optionsListLayout: val });
+	}
+
+	areOptionsAnimationsDisabled() {
+		return Boolean(this._customConfig.optionsAnimationsDisabled);
+	}
+
+	setOptionsAnimationsDisabled(val: boolean) {
+		this._customConfig.optionsAnimationsDisabled = val;
+		storageSet({ optionsAnimationsDisabled: val });
 	}
 
 	isDarkModeNative() {

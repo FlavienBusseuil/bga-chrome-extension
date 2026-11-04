@@ -65,7 +65,7 @@ export async function fetch(): Output {
 	groups.sort((a, b) => (a.name || '').localeCompare(b.name || ''));
 
 	// Fetch number of waiting tables, global translation, friends and tables
-	const [activityForPlayer, translations, tables, tournaments] = await Promise.all([
+	const [activityForPlayer, translations, playTables, tournaments] = await Promise.all([
 		fetchActivityForPlayer(currentPlayerId, currentPlayerToken),
 		fetchTranslations({
 			assetsUrl,
@@ -75,6 +75,16 @@ export async function fetch(): Output {
 		tablesTask,
 		tournamentsTask,
 	]);
+
+	// The tables waiting for players are not returned with the "play" status, but the page of the games in progress
+	// lists all the tables of the player, in the same format
+	const playerTables = Object.values(globalUserInfos.table_infos?.tables ?? {}) as unknown as Array<Table>;
+	// A table is in both sources when the game is started. The automatic search of opponents can open several tables
+	// for the same game and mode (the filters are relaxed over time): only the last one is kept, as BGA shows one search.
+	const tableKey = (t: Table) => t.players[currentPlayerId]?.table_matchmaking === "1" && ["open", "asyncopen"].includes(t.status)
+		? `matchmaking-${t.game_name}-${t.status}`
+		: String(t.id);
+	const tables = [...new Map([...playerTables, ...playTables].map(t => [tableKey(t), t])).values()];
 
 	const { nbWaitingTables } = activityForPlayer;
 

@@ -11,7 +11,7 @@ import { TableStatus, getTableState } from "./TableStatus";
 import { TableTitle } from "./TableTitle";
 import { Card } from "./base/Card";
 import { ClickableTableIcon } from "./ClickableTableIcon";
-import { ArenaIcon, HandshakeIcon, TrophyIcon } from "./icons";
+import { ArenaIcon, HandshakeIcon, LookingForPlayersIcon, TrophyIcon } from "./icons";
 import { cn } from "./utils/cn";
 
 type Props = {
@@ -55,6 +55,15 @@ export function Table({
 	closePopupOnClick,
 	focusOnNewTab
 }: Props) {
+	const state = getTableState({
+		isInvitePendingForCurrentPlayer,
+		isOpenForPlayers,
+		isTurnBased,
+		isWaitingCurrentPlayer,
+	});
+	// A table of the player waiting for players (not the open tables of the friends view)
+	const isOwnOpen = state === "open" && isCurrentPlayerAtTable;
+
 	// Real time / turn based is shown by the TableMode wedge
 	const renderIcons = [
 		isPartOfTournament ? (
@@ -64,14 +73,11 @@ export function Table({
 		hasTrainingMode ? (
 			<TableIcon className="table-icon--training" title={i18n("friendly_game")}><HandshakeIcon /></TableIcon>
 		) : null,
+		isOwnOpen ? (
+			<TableIcon className="table-icon--open" title={i18n("looking_for_players")}><LookingForPlayersIcon /></TableIcon>
+		) : null,
 	].filter(Boolean);
 
-	const state = getTableState({
-		isInvitePendingForCurrentPlayer,
-		isOpenForPlayers,
-		isTurnBased,
-		isWaitingCurrentPlayer,
-	});
 	// Only the tables where the player is expected flash (as said by the option): a real time table only if the player
 	// is one of its players (present during the whole game), not the open tables of the friends view
 	const pulse = !motionSensitivityEnable
@@ -94,7 +100,7 @@ export function Table({
 	return (
 		<Card
 			onClick={onClickFunc}
-			className={cn(["table-card", `table-card--${state}`, hasArenaMode && "table-card--arena", hasTrainingMode && "table-card--training", pulse && "table-card--pulse"])}
+			className={cn(["table-card", `table-card--${state}`, hasArenaMode && "table-card--arena", hasTrainingMode && "table-card--training", isOwnOpen && "table-card--own-open", pulse && "table-card--pulse"])}
 		>
 			<div className="table-card-main">
 				<TableMode isTurnBased={isTurnBased} />

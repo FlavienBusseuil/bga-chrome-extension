@@ -28,7 +28,8 @@ button.native-button {
 
 .bgext_options_config_area {
 	width: 860px;
-	height: 540px;
+	/* Opened in a tab (open_in_tab): the options use the height of the window */
+	height: 100dvh;
 	display: flex;
 	flex-flow: column;
 	gap: 0.5em;
@@ -108,10 +109,6 @@ textarea.options-textarea {
 
 /* Configuration for Edge */
 @media (max-width: 400px) {
-	.bgext_options_config_area {
-		height: 370px;
-	}
-
 	.bgext_about_container {
 		margin: 0em 1em;
 	}
@@ -126,6 +123,26 @@ textarea.options-textarea {
 	}
 }
 
+/* As in the popup, only the sections scroll: the tabs and the display bar stay visible */
+.bgext_options_config_area .options-view,
+.bgext_options_config_area .options-container {
+	min-height: 0;
+}
+
+.bgext_options_config_area .options-container {
+	overflow: auto;
+}
+
+/* The scrolled sections are cut just above the bar */
+.bgext_options_config_area .options-display-bar {
+	padding-top: 4px;
+}
+
+/* The gap under the tabs is enough: no padding above the first section */
+.bgext_options_config_area .options-container {
+	padding-top: 0;
+}
+
 /* Configuration for Firefox */
 @supports (-moz-appearance:none) {
 	body {
@@ -133,8 +150,14 @@ textarea.options-textarea {
 		font-size: 14px;
 	}
 
+	/* Embedded in about:addons, which takes the height of the content: a fixed height */
+	.bgext_options_config_area {
+		height: 540px;
+	}
+
 	.options-frame.reduced {
-		min-width: 50%;
+		/* Half of the gap between the sections: two of them hold on a line */
+		min-width: calc(50% - 0.25em);
 	}
 }
 
