@@ -1,0 +1,36 @@
+@import "./common";
+
+// The game styles every path (fill: none, stroke-width: 3): restore the arrows of the side menu
+.bgext_avatar path {
+	fill: currentColor;
+	stroke: currentColor;
+	stroke-width: 38.88;
+}
+
+html[data-theme=dark].bgaext_bright {
+	.board-ABC:before {
+		.reduceBrightness();
+	}
+
+	.custom-background-left-A,
+	.custom-background-left-D,
+	.custom-background-right-A,
+	.custom-background-right-D {
+		filter: var(--ext-bright);
+	}
+}
+
+html[data-theme=dark].bgaext_dark {
+	body {
+		background: none;
+	}
+
+	.board-title {
+		background: var(--dark-20);
+	}
+
+	.custom-button.selected,
+	.custom-button:hover {
+		border-color: var(--blue-80);
+	}
+}

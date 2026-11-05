@@ -1,0 +1,34 @@
+html[data-theme=dark].bgaext_bright {
+
+	.mf_item_back,
+	.mf_item_front,
+	.mf_log_card>div {
+		filter: var(--ext-bright);
+	}
+}
+
+html[data-theme=dark].bgaext_dark {
+
+	#page-title,
+	#maingameview_menuheader,
+	#maingameview_menufooter {
+		border: 1px solid var(--dark-40);
+	}
+
+	#maingameview_menuheader {
+		border-top: none;
+		top: -1px;
+	}
+
+	.mf_popup_content {
+		background-color: var(--dark-20);
+	}
+
+	.mf_help {
+		color: var(--light-80);
+	}
+
+	.mf_zone {
+		outline: 1px solid var(--light-50);
+	}
+}

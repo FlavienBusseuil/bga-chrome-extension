@@ -1,5 +1,6 @@
 {
 	"customBack": true,
+	"overlay": true,
 	"customColors": [
 		"#008f9f",
 		"#539c8d",
@@ -13,5 +14,9 @@
 	"recommendedColor": {
 		"hue": 140,
 		"saturation": 15
+	},
+	"sideMenu": {
+		"playerPanel": ".riv_ashak-board-player-name",
+		"css": ".bga-jump-to_controls { display: none; }"
 	}
 }

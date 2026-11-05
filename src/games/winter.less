@@ -1,0 +1,27 @@
+html[data-theme=dark].bgaext_dark.winter_background_blue #winter_overall_background {
+	filter: brightness(0.35) saturate(1.3);
+}
+
+html[data-theme=dark].bgaext_bright {
+
+	.winter_card,
+	.winter_card_back,
+	.winter_card_spot {
+		filter: var(--ext-bright);
+	}
+}
+
+html[data-theme=dark].bgaext_dark {
+	#player_board_config {
+		background-color: var(--dark-20);
+	}
+
+	#player_config #turn_counter_wrapper {
+		background: none;
+		color: var(--light-80);
+	}
+
+	#winter_map_container {
+		outline-color: var(--light-50);
+	}
+}
