@@ -68,6 +68,9 @@ export const OptionsView = ({ config, onChange }: Props) => {
   const [popupColorfulTables, setPopupColorfulTables] = useSyncedState('popupColorfulTables', config.isPopupColorfulTables());
   const [listLayout, setListLayout] = useSyncedState('optionsListLayout', config.isOptionsListLayout());
   const [animationsDisabled, setAnimationsDisabled] = useSyncedState('optionsAnimationsDisabled', config.areOptionsAnimationsDisabled());
+  // On a mobile, the screen is too narrow for two columns: the simplified layout and the animations are always used
+  const listLayoutUsed = isMobile || listLayout;
+  const animationsDisabledUsed = !isMobile && animationsDisabled;
 
   const [advancedHomeConfig, setAdvancedHomeConfig] = useSyncedState<AdvancedHomeConfig>('advancedHomeConfig', config.getAdvancedHomeConfig());
   const [advancedHomeHtml, setAdvancedHomeHtml] = useSyncedState<string>('advancedHomeHtml', advancedHomeConfig.html);
@@ -130,7 +133,7 @@ export const OptionsView = ({ config, onChange }: Props) => {
 
     const reducedMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
 
-    if (!document.startViewTransition || reducedMotion || animationsDisabled) {
+    if (!document.startViewTransition || reducedMotion || animationsDisabledUsed) {
       // Without view transitions (Firefox < 144), the opened section fades in (see options-common.css)
       setConfigVisible(val);
       return;
@@ -866,7 +869,7 @@ export const OptionsView = ({ config, onChange }: Props) => {
   // Like the lists of the other tabs, the sections scroll in the popup (max-result): the tabs and the display bar stay visible
   return (
     <div className="view options-view">
-      <div className={`options-container max-result${listLayout ? " options-list" : ""}${animationsDisabled ? " options-no-animation" : ""}`}>
+      <div className={`options-container max-result${listLayoutUsed ? " options-list" : ""}${animationsDisabledUsed ? " options-no-animation" : ""}`}>
         {getMiscSection()}
         {getNotificationsSection()}
         {getGamesSection()}
@@ -877,7 +880,7 @@ export const OptionsView = ({ config, onChange }: Props) => {
         {getHiddenPlayersSection()}
         {getAboutSection()}
       </div>
-      {getDisplayBar()}
+      {!isMobile && getDisplayBar()}
     </div>
   );
 };

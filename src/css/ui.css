@@ -218,8 +218,10 @@ html.options-page {
   border-width: 0;
 }
 
+/* min-width: the tabs shrink (with an ellipsis) on a narrow screen instead of overflowing */
 .btn.tab--full {
   width: 100%;
+  min-width: 0;
   overflow: hidden;
   text-overflow: ellipsis;
 }

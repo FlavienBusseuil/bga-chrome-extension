@@ -40,28 +40,26 @@ html.side-panel .view--toolbar .max-result {
 
 /* The options use all the height of the popup (600px at most in Chrome) before scrolling, not the limit of the lists:
    the body is limited and the sections shrink between the tabs and the display bar */
-@media not all and (hover: none) and (pointer: coarse) {
-  html.popup body:has(.options-view) {
-    max-height: 600px;
-  }
+html.popup:not(.mobile) body:has(.options-view) {
+  max-height: 600px;
+}
 
-  /* Same in the side panel, with the height of the window */
-  html.side-panel body:has(.options-view) {
-    max-height: 100vh;
-    box-sizing: border-box;
-  }
+/* Same in the side panel, with the height of the window */
+html.side-panel:not(.mobile) body:has(.options-view) {
+  max-height: 100vh;
+  box-sizing: border-box;
+}
 
-  html.popup .options-view,
-  html.side-panel .options-view {
-    width: 100%;
-    min-height: 0;
-  }
+html.popup:not(.mobile) .options-view,
+html.side-panel:not(.mobile) .options-view {
+  width: 100%;
+  min-height: 0;
+}
 
-  html.popup .options-view .options-container,
-  html.side-panel .options-view .options-container {
-    max-height: none;
-    min-height: 0;
-  }
+html.popup:not(.mobile) .options-view .options-container,
+html.side-panel:not(.mobile) .options-view .options-container {
+  max-height: none;
+  min-height: 0;
 }
 
 select {
@@ -91,25 +89,21 @@ p {
   padding-right: 4px;
 }
 
-/* Special style for Android version */
-@media only screen and (hover: none) and (pointer: coarse) {
+/* Special style for mobile versions (class set by popup.tsx) */
+html.popup.mobile,
+html.popup.mobile body {
+  width: 100% !important;
+}
 
-  /* Same specificity as the width of the popup, else its 500px are kept on a smaller screen */
-  html.popup,
-  html.popup body {
-    width: 100% !important;
-  }
+html.mobile .app {
+  max-width: none;
+}
 
-  .app {
-    max-width: none;
-  }
+/* The popup is opened as a page: the lists use the height of the screen */
+html.mobile .max-result {
+  max-height: calc(100dvh - 100px);
+}
 
-  /* The popup is opened as a page: the lists use the height of the screen */
-  .max-result {
-    max-height: calc(100dvh - 100px);
-  }
-
-  .view--toolbar .max-result {
-    max-height: calc(100dvh - 90px - var(--toolbar-height, 30px));
-  }
+html.mobile .view--toolbar .max-result {
+  max-height: calc(100dvh - 90px - var(--toolbar-height, 30px));
 }

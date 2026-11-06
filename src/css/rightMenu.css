@@ -120,4 +120,5 @@ html[data-theme=dark] .desktop_version.logs_on_floating_panel #right-side-second
 #cde-floating-menu-score .fa-star {
 	display: block;
 	visibility: visible;
+	-webkit-text-stroke: 0.6px #8a4b00;
 }

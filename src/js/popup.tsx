@@ -1,6 +1,12 @@
 import { render } from "preact";
 import Configuration from "./config/configuration";
 import { App } from "./ui/App";
+import { isMobile } from "./utils/browser";
+
+// Some mobile browsers (Quetta) don't match the (hover: none) and (pointer: coarse) media query: see popup.css
+if (isMobile) {
+	document.documentElement.classList.add("mobile");
+}
 
 let configInitialized = false;
 let domReady = false;
