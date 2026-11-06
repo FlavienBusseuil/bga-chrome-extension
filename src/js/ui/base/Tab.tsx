@@ -7,6 +7,7 @@ interface TabProps {
   children: ComponentChildren;
   fullWidth: boolean;
   isActive?: boolean;
+  className?: string;
   onClick: (k: string) => void;
 }
 
@@ -15,6 +16,7 @@ export function Tab({
   fullWidth,
   children,
   isActive = false,
+  className,
   onClick,
 }: TabProps) {
   return (
@@ -23,6 +25,7 @@ export function Tab({
         "tab",
         fullWidth && "tab--full",
         !isActive && "tab--inactive",
+        className ?? null,
       ])}
       type="primary"
       text={children as JSX.Element}

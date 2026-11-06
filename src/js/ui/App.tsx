@@ -213,10 +213,11 @@ export const App = ({ config }: Props) => {
 					k="options"
 					fullWidth={isMobile}
 					isActive={activeTab === "options"}
+					className="tab--options"
 					onClick={(k) => setActiveTab(k)}
 				>
 					<span className="icon-prefix">⚙</span>
-					{i18n("options")}
+					<span className="tab-label">{i18n("options")}</span>
 				</Tab>
 			</Tabs>
 

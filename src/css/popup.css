@@ -99,11 +99,35 @@ html.mobile .app {
   max-width: none;
 }
 
-/* The popup is opened as a page: the lists use the height of the screen */
-html.mobile .max-result {
-  max-height: calc(100dvh - 100px);
+/* The popup is opened as a page: the page uses the height of the screen, and the list the space left by the tabs,
+   the filters and the buttons of the view */
+html.mobile body {
+  height: 100dvh;
 }
 
-html.mobile .view--toolbar .max-result {
-  max-height: calc(100dvh - 90px - var(--toolbar-height, 30px));
+html.mobile .view {
+  flex: 1;
+  min-height: 0;
+}
+
+/* Not the one of the friends tables loading, which is centered */
+html.mobile .view > .max-result {
+  flex: 1;
+  min-height: 0;
+  max-height: none;
+}
+
+/* The loadings are centered in the screen: the one of the popup and the one of the friends tables */
+html.mobile body > .loading {
+  margin: auto;
+}
+
+html.mobile .view-loading {
+  flex: 1;
+  align-items: center;
+}
+
+/* The lines of sections keep their height when the options are shorter than the screen */
+html.mobile .options-container {
+  align-content: flex-start;
 }

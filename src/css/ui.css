@@ -226,6 +226,29 @@ html.options-page {
   text-overflow: ellipsis;
 }
 
+/* Small screens: only the gear of the options tab, the other tabs get its space for their texts.
+   The label stays readable by screen readers, the tab keeps a size that can be tapped */
+@media (max-width: 480px) {
+  .btn.tab.tab--options {
+    flex: none;
+    width: auto;
+    min-width: 44px;
+  }
+
+  .tab--options .icon-prefix {
+    margin-right: 0;
+  }
+
+  .tab--options .tab-label {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    overflow: hidden;
+    clip-path: inset(50%);
+    white-space: nowrap;
+  }
+}
+
 .btn.tab--inactive {
   background-color: var(--bga-blue-lighter);
 }
