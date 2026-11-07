@@ -192,7 +192,7 @@ export const initGameListObserver = (config: Configuration, page: string) => {
 			if (but.classList.contains('bgabutton_blue') || but.classList.contains('bga-button--blue')) {
 				const container = but.parentNode as HTMLElement;
 
-				if (config.isHideGameButtonDisplayed() && !but.classList.contains('bgabutton_medium') && but.href.indexOf('#') < 0 && !(container?.lastChild as HTMLElement).classList.contains('bgabutton_red')) {
+				if (config.isHideGameButtonDisplayed() && !but.classList.contains('bgabutton_medium') && but.href.indexOf('#') < 0 && !container.querySelector(':scope > .bgabutton_red')) {
 					but.style.minWidth = "100px";
 					container!.style.boxShadow = "none";
 
@@ -256,7 +256,8 @@ export const initGameListObserver = (config: Configuration, page: string) => {
 		}
 	});
 
-	observer.observe(mainElt, { childList: true, subtree: true });
+	// the game modals (with the "Play" button) are added directly to the body
+	observer.observe(document.body, { childList: true, subtree: true });
 
 	return observer;
 };
