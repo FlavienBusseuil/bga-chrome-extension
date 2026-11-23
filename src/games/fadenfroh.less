@@ -1,0 +1,16 @@
+html[data-theme=dark].bgaext_bright {
+	.fadenfroh_card,
+	.fadenfroh_round_overview_board,
+	.fadenfroh_scoring_card_face {
+		filter: var(--ext-bright);
+	}
+}
+
+html[data-theme=dark].bgaext_dark {
+	--ff-section-bg: #00000060;
+	--palette-main-bg: var(--ext-game-back);
+
+	.fadenfroh_player_display_name {
+		text-shadow: none;
+	}
+}

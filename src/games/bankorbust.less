@@ -1,0 +1,27 @@
+html[data-theme=dark].bgaext_bright {
+	.bga-cards_card>.bga-cards_card-sides>.bga-cards_card-side {
+		filter: var(--ext-bright);
+	}
+}
+
+html[data-theme=dark].bgaext_dark {
+	.player-table {
+		position: relative;
+		isolation: isolate;
+		background-image: none;
+		color: var(--light-80);
+	}
+
+	.player-table::before {
+		content: "";
+		position: absolute;
+		inset: 0;
+		z-index: -1;
+		border-radius: inherit;
+		background-image: var(--back-main);
+		background-size: inherit;
+		background-position: inherit;
+		background-repeat: inherit;
+		filter: invert(1) hue-rotate(180deg);
+	}
+}

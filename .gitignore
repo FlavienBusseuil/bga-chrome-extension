@@ -9,3 +9,5 @@ keys/**
 /local/
 .vs
 dist
+
+/temp/

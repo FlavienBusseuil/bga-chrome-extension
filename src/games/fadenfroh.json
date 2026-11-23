@@ -1,0 +1,6 @@
+{
+	"customBack": true,
+	"rootCssVars": {
+		"--ext-game-back": "../../../img/layout/back-mainb.png"
+	}
+}

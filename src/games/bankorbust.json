@@ -1,0 +1,23 @@
+{
+	"customBack": true,
+	"overlay": true,
+	"cssVars": {
+		"--back-main": "img/backgrounds.webp"
+	},
+	"playersBack": [
+		"#player-name-{{player_id}}"
+	],
+	"playersBorder": [
+		"#player-table-{{player_id}}",
+		"#player-score-{{player_id}}"
+	],
+	"playersOutline": [
+		"#player-name-{{player_id}}"
+	],
+	"sideMenu": {
+		"playerPanel": "player-table-{{player_id}}",
+		"playerPanelOffset": 40,
+		"iconBackground": "#6acbd1",
+		"iconBackgroundDark": "#006a6c"
+	}
+}
