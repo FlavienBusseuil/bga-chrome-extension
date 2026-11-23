@@ -362,6 +362,36 @@ const _setNativeStyle = () => {
 
 let _manageHtmlTagTimeout: any = 0;
 
+// Follow BGA's theme only when the user uses its switch: BGA can also apply its own theme by itself
+// (preference applied at load, preference of another device...) and that must not change the extension's setting.
+// The switch is a <div role="button"> on the website and a <button> in the games: listen to the mouse and the keyboard.
+// The listener runs before BGA's one (capture phase), so it waits for BGA to change the color scheme of the page.
+let _colorSchemeBeforeAction = '';
+const _bgaThemeObserver = new MutationObserver(() => {
+  // the "style" attribute can change for other reasons
+  if (document.documentElement.style.colorScheme === _colorSchemeBeforeAction) {
+    return;
+  }
+  _bgaThemeObserver.disconnect();
+  console.info("[bga extension] The BGA switch has been used to change the theme");
+  (window as any).setDarkStyle?.(document.documentElement.style.colorScheme === 'dark');
+});
+
+const _onBgaTogglerAction = (evt: Event) => {
+  if (evt instanceof KeyboardEvent && evt.key !== 'Enter' && evt.key !== ' ') {
+    return;
+  }
+  if (!(evt.target as Element | null)?.closest?.('.bga-dark-mode-toggler')) {
+    return;
+  }
+  // a new action replaces the previous one if BGA hasn't changed the theme for it
+  _bgaThemeObserver.disconnect();
+  _colorSchemeBeforeAction = document.documentElement.style.colorScheme;
+  _bgaThemeObserver.observe(document.documentElement, { attributeFilter: ['style'] });
+};
+document.addEventListener('click', _onBgaTogglerAction, true);
+document.addEventListener('keydown', _onBgaTogglerAction, true);
+
 const _manageHtmlTag = () => {
   // ensure that the "bgaext_dark" class is well placed for games that used to manage their own dark mode like "Concept"
   // if the game try to remove the class "bgaext_dark", it put it back immediately
@@ -385,15 +415,6 @@ const _manageHtmlTag = () => {
     }
 
     const darkMode = getDarkStyle();
-
-    const bgaNativeDarkThemeSelected = document.documentElement.style.colorScheme === 'dark';
-    const isDarkModeSelected = darkMode === 'on' || darkMode === 'native';
-
-    if (bgaNativeDarkThemeSelected !== isDarkModeSelected && Boolean(document.querySelector('.bga-dark-mode-toggler'))) {
-      console.info("[bga extension] The BGA switch has been used to change the theme");
-      (window as any).setDarkStyle(bgaNativeDarkThemeSelected);
-      return;
-    }
 
     if (darkMode === 'native' || (darkMode === 'on' && config?.customDarkMode?.applyGeneralCss === false)) {
       if (theme !== 'dark') {
