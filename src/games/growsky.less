@@ -1,0 +1,83 @@
+/* the drop shadows of the game are on the parents (.mf_shadow) */
+html[data-theme=dark].bgaext_bright {
+	.mf_item_front,
+	.mf_item_back,
+	.mf_help_dice {
+		filter: var(--ext-bright);
+	}
+
+	.mf_item_front.mf_die_darken,
+	.mf_item_back.mf_die_darken {
+		filter: grayscale(100%) brightness(1.3) var(--ext-bright);
+	}
+
+	.mf_item_front.mf_die_darken.mf_die_darken_3,
+	.mf_item_back.mf_die_darken.mf_die_darken_3 {
+		filter: grayscale(100%) brightness(.9) var(--ext-bright);
+	}
+}
+
+html[data-theme=dark].bgaext_dark {
+	/* background of the game (#b694c5 to silver) with a lower lightness */
+	body {
+		background: linear-gradient(-25deg, hsl(281 30% 18%), hsl(0 0% 20%));
+		background-position: top;
+		background-repeat: repeat;
+		background-size: 100vw;
+	}
+
+	/* zones and title bar, too close to the dark background: an outline (no border, the zones have a fixed size) */
+	.mf_zone:not(.mf_zone_nobg) {
+		outline: 1px solid var(--dark-40);
+	}
+
+	#page-title,
+	#maingameview_menuheader,
+	#maingameview_menufooter {
+		border: 1px solid var(--dark-40);
+	}
+
+	#maingameview_menuheader {
+		border-top: none;
+		top: -1px;
+	}
+
+	/* the player zones have the color of the player (replaced by the generic .mf_zone background of game.less): the colors of the game with a lower lightness */
+	.mf_zone.mf_playerboard_color_1 {
+		background-color: hsl(151 29% 16%);
+	}
+
+	.mf_zone.mf_playerboard_color_2 {
+		background-color: hsl(238 29% 18%);
+	}
+
+	.mf_zone.mf_playerboard_color_3 {
+		background-color: hsl(27 66% 16%);
+	}
+
+	.mf_zone.mf_playerboard_color_4 {
+		background-color: hsl(0 0% 17%);
+	}
+
+	/* reserve of cubes, on the background of the page: default (black) text color */
+	.mf_zone_reserve {
+		color: var(--light-80);
+	}
+
+	/* popups of the game (help): white (90 %) with a lower lightness, and the dark text of the help */
+	.mf_popup_content {
+		background-color: hsla(0, 0%, 15%, .95);
+	}
+
+	/* overflow: scroll in the game: useless horizontal scrollbar */
+	.mf_help {
+		color: var(--light-80);
+		overflow-x: hidden;
+		overflow-y: auto;
+	}
+
+	/* white band of the messages flashed in the middle of the screen */
+	.mf_flashinfo {
+		background: linear-gradient(0deg, hsla(0, 0%, 12%, 0), hsl(0 0% 12%) 25%, hsl(0 0% 12%) 50%, hsl(0 0% 12%) 75%, hsla(0, 0%, 12%, 0));
+	}
+}

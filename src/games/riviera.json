@@ -1,0 +1,15 @@
+{
+	"customBack": true,
+	"playersBack": [
+		"#played-columns-container .a-played-column[data-owner-id=\"{{player_id}}\"] .played-column-stars"
+	],
+	"playersBorder": [
+		"#played-columns-container .a-played-column[data-owner-id=\"{{player_id}}\"]",
+		"#my-hand-container[style*=\"#{{player_color}}\"]"
+	],
+	"playersTextColor": [
+		"#played-columns-container .a-played-column[data-owner-id=\"{{player_id}}\"] .played-column-title",
+		".end-game-score-container th.player-name-cell[player-id=\"{{player_id}}\"] span",
+		"#my-hand-container[style*=\"#{{player_color}}\"] .my-hand-title"
+	]
+}

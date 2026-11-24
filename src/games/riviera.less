@@ -1,0 +1,166 @@
+@import "./common";
+
+html[data-theme=dark].bgaext_bright {
+	.a-card {
+		filter: var(--ext-bright);
+	}
+}
+
+html[data-theme=dark].bgaext_dark {
+	#page-title,
+	#maingameview_menuheader,
+	#maingameview_menufooter {
+		border: 1px solid var(--dark-40);
+	}
+
+	#maingameview_menuheader {
+		border-top: none;
+		top: -1px;
+	}
+
+	/* texts of the logs, dark on the dark background */
+	.log .stop-or-more-row .stop-or-more-stars .stop-or-more-amount,
+	.log.die-modified-power9-log .die-modified-colon,
+	.log.die-modified-power9-log .die-modified-arrow,
+	.log .last-chance-row,
+	.log .last-chance-row .last-chance-arrow,
+	.log .start-token-row,
+	.log .start-token-row .start-token-arrow,
+	.log .grand-slam-row,
+	.log .player-crashed-row,
+	.log .game-end-row,
+	.log .golden-die-row .golden-die-plus {
+		color: var(--light-80);
+	}
+
+	.log .log-arrow {
+		color: var(--light-80);
+		text-shadow: none;
+	}
+
+	/* maroon */
+	.log .player-crashed-row .fa-bomb {
+		color: hsl(0 100% 55%);
+	}
+
+	/* #7a4e00 with a white glow */
+	.log .grand-slam-row .grand-slam-title {
+		color: hsl(38 100% 60%);
+		text-shadow: 0 0 14px rgba(255, 196, 60, .5);
+	}
+
+	/* buttons customized by the game: the closest buttons of common.less (green, yellow #f2c21b)
+	   (the grand slam buttons stay blue: the blue of BGA wins over the yellow of the game, also in light mode) */
+	#stop-button:not(.stop-button-finishing) {
+		.greenButton();
+	}
+
+	#stop-button:not(.stop-button-finishing):hover {
+		.greenButtonOver();
+	}
+
+	#stop-button.stop-button-finishing {
+		.yellowButton();
+		text-shadow: none;
+	}
+
+	#stop-button.stop-button-finishing:hover {
+		.yellowButtonOver();
+	}
+
+	/* tooltips of the game: their colors with a lower lightness (the background color is made transparent by common.less) */
+	.tooltip-wrapper {
+		--bg-gradient-tooltip: linear-gradient(120deg, hsl(203 50% 14%), hsl(198 40% 20%));
+		--bg-gradient-tooltip-connector: linear-gradient(-120deg, hsl(198 40% 20%), hsl(200 50% 14%));
+		color: var(--light-80);
+		outline-color: var(--light-50);
+	}
+
+	/* #13a6ba */
+	.dijitTooltipContainer .tooltip-wrapper.power-reference {
+		background-color: hsl(187 81% 18%) !important;
+		color: var(--light-80);
+
+		.power-reference-entry.highlighted-power-entry {
+			background: hsl(187 60% 25%);
+			border-color: hsl(187 40% 50%);
+		}
+
+		.power-reference-entry.focused-power-entry {
+			background: hsl(187 60% 30%);
+			border-color: var(--light-80);
+		}
+
+		.power-reference-column + .power-reference-column,
+		.power-reference-hint {
+			border-color: var(--light-50);
+		}
+
+		.power-reference-balanced-columns {
+			column-rule-color: var(--light-50);
+		}
+	}
+
+	.tooltip-wrapper.power-reference.status-bar-power-tooltip {
+		background: var(--bg-gradient-tooltip) !important;
+
+		.power-reference-entry.highlighted-power-entry {
+			background: hsl(187 81% 18%);
+			color: var(--light-80);
+		}
+	}
+
+	.tundra .dijitTooltip:has(.tooltip-wrapper) .dijitTooltipConnector {
+		filter: none;
+	}
+
+	.tundra .dijitTooltip:has(.power-reference) .dijitTooltipConnector:after {
+		background: hsl(187 81% 18%);
+	}
+
+	/* white pills of the player spotlights (last chance, crash, grand slam), with the player names */
+	.player-spotlight-overlay .player-spotlight-player,
+	.player-spotlight-overlay .player-spotlight-tile,
+	.player-spotlight-overlay.grand-slam-spotlight .grand-slam-name-pill {
+		background-color: hsla(0, 0%, 15%, .92);
+		color: var(--light-80);
+	}
+
+	/* end of game score table: the colors of the game with a lower lightness */
+	.end-game-score-container {
+		background: linear-gradient(377deg, hsl(207 65% 20%) 27%, hsl(201 70% 35%) 110%);
+
+		table thead th.player-name-cell,
+		table thead th.player-name-cell.jumping-text {
+			background: hsl(197 43% 15%);
+			text-shadow: none;
+		}
+
+		table tbody td {
+			background-color: hsl(41 85% 15% / .6);
+			color: var(--light-80);
+		}
+
+		table tbody tr.total-row td {
+			background-color: hsl(46 82% 18%);
+		}
+
+		table tbody tr.total-row td.row-label-cell {
+			background-color: hsl(45 77% 25%);
+			color: var(--light-80);
+		}
+
+		table tbody td .cell-grand_slam {
+			background: linear-gradient(135deg, hsl(48 100% 25%), hsl(45 77% 25%));
+		}
+
+		/* #a00000 with a higher lightness */
+		table tbody td .cell-crashed .fa-bomb {
+			color: hsl(0 100% 55%);
+		}
+
+		table tbody td .cell-unfinished {
+			color: var(--light-50);
+		}
+	}
+}

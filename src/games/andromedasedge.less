@@ -1,0 +1,75 @@
+/* white squares of the score track */
+html[data-theme=dark].bgaext_bright {
+	#game_play_area #score-section #score-track .score-segment {
+		filter: var(--ext-bright);
+	}
+}
+
+/* the game is already dark: only its light backgrounds behind the light texts of the dark mode, with a lower lightness */
+html[data-theme=dark].bgaext_dark {
+	/* title bar on the dark background of the game */
+	#page-title,
+	#maingameview_menuheader,
+	#maingameview_menufooter {
+		border: 1px solid var(--dark-40);
+	}
+
+	#maingameview_menuheader {
+		border-top: none;
+		top: -1px;
+	}
+
+	#logs .log.notif_gamePhase .roundedbox .game-phase-wrap {
+		--background-color: hsl(0 0% 22%);
+
+		&.section_launch {
+			--background-color: hsl(32 100% 18%);
+		}
+
+		&.section_battle {
+			--background-color: hsl(292 29% 22%);
+		}
+
+		&.section_return_station {
+			--background-color: hsl(97 46% 18%);
+		}
+
+		&.section_final_scoring {
+			--background-color: hsl(350 100% 22%);
+		}
+	}
+
+	/* messages of the game (darkorange, red at the end) with a lower lightness */
+	.tabbed-layout .tabbed-layout_header .tabbed-layout_message {
+		background-color: hsl(33 100% 20%);
+		color: var(--light-80);
+
+		&[data-message-id=end-game-triggered] {
+			background-color: hsl(0 100% 22%);
+		}
+
+		.player-name {
+			background-color: var(--dark-back);
+			border-radius: 6px;
+		}
+	}
+
+	/* settings panel of the game: sized to its content (the selects of the dark mode overflowed it) */
+	.tabbed-layout .tabbed-layout_postTabs #config-panel.open {
+		height: auto;
+		width: auto;
+		max-height: none;
+		max-width: none;
+	}
+
+	/* white button of the game in the BGA menu */
+	#ingame_menu_content #more-preferences {
+		background: var(--dark-20);
+		border-color: var(--light-50);
+		color: var(--light-80);
+	}
+
+	#game_play_area #score_breakdown .grid-item.section-header {
+		background-color: hsl(0 0% 30% / .6);
+	}
+}

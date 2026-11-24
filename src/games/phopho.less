@@ -1,0 +1,23 @@
+@import "./common";
+
+/* the playmat has children (cards, bowl): a layer instead of a filter */
+html[data-theme=dark].bgaext_bright {
+	#pho-line:before {
+		.reduceBrightness();
+	}
+
+	.pho-face,
+	.pho-preview-card {
+		filter: var(--ext-bright);
+	}
+}
+
+html[data-theme=dark].bgaext_dark {
+	/* paper (#fbf5e3) and ink (#3a2a18) of the counters and descriptions, lightness inverted */
+	--paper: hsl(45 74% 15%);
+	--ink: hsl(32 41% 80%);
+
+	.pho-favor-empty {
+		color: var(--light-80);
+	}
+}

@@ -1,0 +1,49 @@
+@import "./common";
+
+/* the cards have children (markers, slots): a layer instead of a filter */
+html[data-theme=dark].bgaext_bright {
+	.student-card-face:before,
+	.turn-track-card:before {
+		.reduceBrightness();
+		border-radius: inherit;
+	}
+
+	.card-list-item,
+	.float-face {
+		filter: var(--ext-bright);
+	}
+}
+
+html[data-theme=dark].bgaext_dark {
+	/* the grey lotus background of the game, darkened */
+	--ext-overall-color: #00000080;
+
+	#page-title,
+	#maingameview_menuheader,
+	#maingameview_menufooter {
+		border: 1px solid var(--dark-40);
+	}
+
+	#maingameview_menuheader {
+		border-top: none;
+		top: -1px;
+	}
+
+	/* #f5f0e1 with a lower lightness */
+	#card-list-popup,
+	#student-info-float {
+		background: hsl(46 55% 15%);
+		color: var(--light-80);
+	}
+
+	/* black heart in the logs, the title bar and the buttons */
+	.log-token-nm {
+		filter: var(--highlight-min);
+	}
+
+	.card-list-header h3,
+	.float-trait-name,
+	.float-trait-desc {
+		color: var(--light-80);
+	}
+}

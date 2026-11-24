@@ -1,0 +1,12 @@
+{
+	"customBack": true,
+	"sideMenu": {
+		"playerPanel": ".mf_zone_player",
+		"iconBackground": "#8a6aa0",
+		"iconBorder": "#e8dff0",
+		"iconColor": "#fff",
+		"iconBackgroundDark": "#4a3558",
+		"iconBorderDark": "#b9a6c6",
+		"iconColorDark": "#eee"
+	}
+}
