@@ -1,0 +1,40 @@
+@import "./common";
+
+/* the filters of the game are on the parents of the card sides: they are kept */
+html[data-theme=dark].bgaext_bright {
+	#game_play_area .bga-cards_card-side {
+		filter: var(--ext-bright);
+	}
+
+	/* the score pad has children: a layer instead of a filter */
+	.bs-pad:before {
+		.reduceBrightness();
+	}
+}
+
+html[data-theme=dark].bgaext_dark {
+	/* the background of the game is kept, with a lower lightness */
+	--ext-overall-color: #00000080;
+
+	#page-title,
+	#maingameview_menuheader,
+	#maingameview_menufooter {
+		border: 1px solid var(--dark-40);
+	}
+
+	#maingameview_menuheader {
+		border-top: none;
+		top: -1px;
+	}
+
+	/* the player color is set by playersTextColor (with the light shadow of the dark colors) */
+	.bs-player-name {
+		text-shadow: none;
+	}
+
+	/* close button of the scores popup: white background, with the light text of the dark mode */
+	.bs-dialog-close {
+		background: var(--dark-20);
+		color: var(--light-80);
+	}
+}

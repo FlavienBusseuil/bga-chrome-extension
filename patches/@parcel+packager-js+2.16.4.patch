@@ -1,0 +1,18 @@
+diff --git a/node_modules/@parcel/packager-js/lib/dev-prelude.js b/node_modules/@parcel/packager-js/lib/dev-prelude.js
+index 419c75d..89b2761 100644
+--- a/node_modules/@parcel/packager-js/lib/dev-prelude.js
++++ b/node_modules/@parcel/packager-js/lib/dev-prelude.js
+@@ -199,12 +199,7 @@
+     // CommonJS
+     if (typeof exports === 'object' && typeof module !== 'undefined') {
+       module.exports = mainExports;
+-
+-      // RequireJS
+-    } else if (typeof define === 'function' && define.amd) {
+-      define(function () {
+-        return mainExports;
+-      });
+     }
++    // no AMD define(): the scripts injected in the BGA pages would collide with the loader of dojo ("multipleDefine")
+   }
+ });

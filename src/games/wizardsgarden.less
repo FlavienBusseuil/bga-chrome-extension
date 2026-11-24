@@ -1,0 +1,34 @@
+/* the drop shadows of the game are kept */
+html[data-theme=dark].bgaext_bright {
+	.wg-seed {
+		filter: drop-shadow(0 5px 5px rgb(0 0 0 / 38%)) var(--ext-bright);
+	}
+
+	.wg-seed--preview {
+		filter: drop-shadow(0 5px 6px rgb(0 0 0 / 45%)) var(--ext-bright);
+	}
+
+	.wg-reserve-seed {
+		filter: drop-shadow(0 1px 2px rgb(0 0 0 / 40%)) var(--ext-bright);
+	}
+
+	.wg-board-color-picker__button {
+		filter: var(--ext-bright);
+	}
+}
+
+html[data-theme=dark].bgaext_dark {
+	/* gradient of the game (#f6f0d8, #d9cda9, #b8a477) with a lower lightness,
+	   on the html tag: the body doesn't always cover the whole page (customBack keeps the light wood of BGA on the html tag) */
+	background: radial-gradient(circle at top, hsl(48 63% 20%) 0, hsl(45 39% 16%) 48%, hsl(42 31% 12%) 100%);
+
+	#ebd-body {
+		background: none;
+	}
+
+	.wg-tome-indicator {
+		background: #3d2f10;
+		color: #f3d98a;
+		box-shadow: none;
+	}
+}

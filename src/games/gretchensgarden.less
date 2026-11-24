@@ -1,0 +1,61 @@
+@import "./common";
+
+/* the filters of the game are kept; the boards with children get a layer instead of a filter (a filter can break the children) */
+html[data-theme=dark].bgaext_bright {
+	#board-container #board:before,
+	#controls:before {
+		.reduceBrightness();
+		border-radius: inherit;
+	}
+
+	#LSU_turnCounter,
+	.card .bga-cards_card-sides .bga-cards_card-side,
+	.token .sides .side,
+	.token.flower {
+		filter: var(--ext-bright);
+	}
+
+	#board-container #water .card .back,
+	#deckplant:after,
+	#deckpot:after,
+	#water:after {
+		filter: grayscale(1) var(--ext-bright);
+	}
+
+	#table .succulents-gamezone .waterCan .bga-cards_card-side.back {
+		filter: contrast(.8) var(--ext-bright);
+	}
+}
+
+html[data-theme=dark].bgaext_dark {
+	#scoreSheet {
+		background-color: var(--dark-20);
+		color: var(--light-80);
+	}
+
+	.score-sheet-background,
+	.score-sheet-background td,
+	.score-sheet-background th {
+		border-color: var(--light-50);
+	}
+
+	.score-sheet-background .entries-Orange,
+	.score-sheet-background .entries-Red,
+	.score-sheet-background .entries-flowers,
+	.score-sheet-background .entries-pot,
+	.score-sheet-background .greyed {
+		background-color: var(--dark-40);
+	}
+
+	/* #a9dae1 with a lower lightness */
+	.score-sheet-background .bga-score-sheet_player-name,
+	.score-sheet-background .bga-score-sheet_player-score-entry.total {
+		background-color: hsl(187 49% 16%);
+		text-shadow: none;
+	}
+
+	/* no outline on the player names */
+	#table .succulents-gamezone .player-board-name {
+		text-shadow: none;
+	}
+}

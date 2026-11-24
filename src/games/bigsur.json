@@ -1,0 +1,22 @@
+{
+	"customBack": true,
+	"recommendedColor": {
+		"hue": 155,
+		"saturation": 20
+	},
+	"playersBorder": [
+		".bs-seat[style*=\"--bs-player:#{{player_color}}\"]"
+	],
+	"playersTextColor": [
+		".bs-player-name[style*=\"color:#{{player_color}}\"]"
+	],
+	"sideMenu": {
+		"playerPanel": "bs-seat-{{player_id}}",
+		"iconBackground": "#2f7d5c",
+		"iconBorder": "#f3efe0",
+		"iconColor": "#fff",
+		"iconBackgroundDark": "#1f4d3b",
+		"iconBorderDark": "#c9c3ad",
+		"iconColorDark": "#eee"
+	}
+}

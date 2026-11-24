@@ -1,0 +1,62 @@
+@import "./common";
+
+/* the filters of the game are kept; the boards with children get a layer instead of a filter (a filter can break the children) */
+html[data-theme=dark].bgaext_bright {
+	.doe-forest:before,
+	.doe-alchilab:before,
+	.doe-score-sheet:before {
+		.reduceBrightness();
+		border-radius: inherit;
+	}
+
+	.doe-recipe-banner {
+		filter: var(--ext-bright);
+	}
+
+	.bga-cards_card-side.doe-tile {
+		filter: var(--ext-bright);
+	}
+
+	.bga-cards_card .bga-cards_card-sides .bga-cards_card-side.doe-unselectable {
+		filter: contrast(var(--bga-cards_card-disabled-contrast, .6)) var(--ext-bright);
+	}
+}
+
+html[data-theme=dark].bgaext_dark {
+	/* the inverted overlay is only for the light background "Parchment" (the "Wood" one is already dark), whatever the background at the loading */
+	&:not([data-doe-background="2"]) .bgaext_overlay {
+		display: none;
+	}
+
+	&[data-doe-background="2"] .bgaext_overlay {
+		background: var(--doe-page-back) !important;
+	}
+
+	/* the "Wood" background is kept, with a lower lightness */
+	&[data-doe-background="1"] {
+		--ext-overall-color: #00000080;
+	}
+
+	#page-title,
+	#maingameview_menuheader,
+	#maingameview_menufooter {
+		border: 1px solid var(--dark-40);
+	}
+
+	#maingameview_menuheader {
+		border-top: none;
+		top: -1px;
+	}
+
+	/* no outline on the player names */
+	.doe-player-table__name,
+	.doe-score-sheet .bga-score-sheet_player-name {
+		text-shadow: none;
+	}
+
+	/* #d5cd72 with a lower lightness */
+	.log.notif_turnOrderUpdated .roundedbox {
+		background-color: hsl(56 55% 25%);
+		color: var(--light-80);
+	}
+}

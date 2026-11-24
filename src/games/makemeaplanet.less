@@ -1,0 +1,27 @@
+/* the game has its own dark mode (html[data-theme=dark]): only the bright tiles are adjusted, keeping the filters of the game */
+html[data-theme=dark].bgaext_bright {
+	.mmp-tile,
+	.mmp-tooltip-tile-lg {
+		filter: var(--ext-bright);
+	}
+
+	#mmp_pool .mmp-tile.mmp-pool-hidden {
+		filter: brightness(.9) var(--ext-bright);
+	}
+}
+
+html[data-theme=dark].bgaext_dark {
+	/* white in the dark mode of the game: the player colors lightened by the dark mode were hard to read */
+	.mmp-score-name-pill,
+	.mmp-planet-switch-name {
+		background: var(--mmp-surface-raised);
+	}
+
+	/* no outline on the player names, on a dark background (light planet) */
+	.mmp-planet-label {
+		text-shadow: none;
+		background: var(--dark-back);
+		border-radius: 6px;
+		padding: 0 6px;
+	}
+}

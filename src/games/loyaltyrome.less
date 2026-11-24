@@ -1,0 +1,39 @@
+@import "./common";
+
+/* the boards with children get a layer instead of a filter (a filter can break the children) */
+html[data-theme=dark].bgaext_bright {
+	#lyr-pantheon:before,
+	#lyr-temple:before {
+		.reduceBrightness();
+		border-radius: inherit;
+	}
+
+	.lyr-favor-front,
+	.lyr-favor-back,
+	.lyr-god-front,
+	.lyr-god-back,
+	.lyr-messenger-front,
+	.lyr-messenger-back {
+		filter: var(--ext-bright);
+	}
+}
+
+html[data-theme=dark].bgaext_dark {
+	.lyr-headered>h1 {
+		color: var(--light-80);
+	}
+
+	/* counters of the supply and of the player areas: default (black) text color, on the dark background */
+	#lyr-supplies [id$="-counter"],
+	#lyr-players [id$="-counter"] {
+		color: var(--light-80);
+	}
+
+	/* the player color is set by playersTextColor (with the light shadow of the dark colors) */
+	.lyr-table-owner .playername {
+		text-shadow: none !important;
+		background-color: var(--dark-back) !important; /* transparent !important on span.playername in game.less */
+		border-radius: 6px;
+		padding: 0 6px;
+	}
+}

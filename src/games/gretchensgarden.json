@@ -1,0 +1,20 @@
+{
+	"playersBack": [
+		"#gamezone-{{player_id}} .player-board-name"
+	],
+	"playersBorder": [
+		"#gamezone-{{player_id}}"
+	],
+	"playersTextColor": [
+		".bga-score-sheet_player-name[style*=\"--player-color: #{{player_color}}\"]"
+	],
+	"sideMenu": {
+		"playerPanel": "gamezone-{{player_id}}",
+		"iconBackground": "#2f8592",
+		"iconBorder": "#f3efe0",
+		"iconColor": "#fff",
+		"iconBackgroundDark": "#1d4f56",
+		"iconBorderDark": "#c9c3ad",
+		"iconColorDark": "#eee"
+	}
+}

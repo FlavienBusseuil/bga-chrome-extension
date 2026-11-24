@@ -1,0 +1,12 @@
+{
+	"recommendedColor": {
+		"hue": 38,
+		"saturation": 20
+	},
+	"playersBorder": [
+		"#lyr-active-slot[style*=\"border-color: #{{player_color}}\"]"
+	],
+	"playersTextColor": [
+		"#lyr-table-owner-{{player_id}} .playername"
+	]
+}
