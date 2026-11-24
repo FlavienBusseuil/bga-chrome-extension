@@ -4,6 +4,9 @@
 	"playersOutline": [
 		"#mf_zone_player_{{player_index_1}}"
 	],
+	"playersTextColor": [
+		"#mf_playertitle_{{player_index_1}} .playername"
+	],
 	"cssVars": {
 		"--sceau": "img/bg-sceau.png"
 	},

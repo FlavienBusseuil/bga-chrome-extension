@@ -1,15 +1,73 @@
 @import "./common";
 
+html[data-theme=dark].bgaext_bright {
+
+	.mf_item_front,
+	.mf_item_back,
+	.mf_log_card>div,
+	.mf_show_discard_card>div,
+	.mf_help_dice {
+		filter: var(--ext-bright);
+	}
+}
+
 html[data-theme=dark].bgaext_dark {
+
+	#page-title,
+	#maingameview_menuheader,
+	#maingameview_menufooter {
+		border: 1px solid var(--dark-40);
+	}
+
+	#maingameview_menuheader {
+		border-top: none;
+		top: -1px;
+	}
 
 	.mf_count_value,
 	.mf_cardsleft_container,
+	.mf_cardsleft_container h2,
 	.mf_playerboard {
 		color: var(--light-80);
 	}
 
+	/* the color is set by playersTextColor, without the light outline of the game */
+	.mf_playerboard .playername {
+		filter: none;
+	}
+
+	/* states of the player zones, lost with the generic .mf_zone: active player lighter (white .8 in light mode),
+	   target red (red .4), out of the round darker (black .4) */
+	.mf_zone.mf_zone_active {
+		background-color: hsl(0 15% 35% / .8);
+	}
+
+	.mf_zone.mf_zone_highlight {
+		background-color: hsl(0 100% 25% / .55);
+	}
+
+	.mf_zone.mf_zone_out_of_round {
+		background-color: #00000099;
+	}
+
+	.mf_zone_play p {
+		background-color: var(--dark-back);
+		color: var(--light-80);
+	}
+
+	/* white band of the messages flashed in the middle of the screen */
+	.mf_flashinfo {
+		background: linear-gradient(0deg, hsla(0, 0%, 12%, 0), hsl(0 0% 12%) 25%, hsl(0 0% 12%) 50%, hsl(0 0% 12%) 75%, hsla(0, 0%, 12%, 0));
+	}
+
+	.mf_help {
+		color: var(--light-80);
+	}
+
+	/* fully black icons */
 	.bg-icon_zoom_in,
-	.bg-icon_zoom_out {
+	.bg-icon_zoom_out,
+	.mf_item_front.bg-icon_spy {
 		filter: invert(0.9);
 	}
 
