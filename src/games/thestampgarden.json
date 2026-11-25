@@ -1,0 +1,5 @@
+{
+	"playersBack": [
+		"#player-table-{{player_id}} strong"
+	]
+}

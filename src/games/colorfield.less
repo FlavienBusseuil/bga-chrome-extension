@@ -1,0 +1,61 @@
+@import "./common";
+
+html[data-theme=dark].bgaext_bright {
+
+	#cf-board {
+		filter: var(--ext-bright);
+	}
+}
+
+html[data-theme=dark].bgaext_dark {
+	--ext-overall-color: #000000a0;
+
+	#page-title,
+	#maingameview_menuheader,
+	#maingameview_menufooter {
+		border: 1px solid var(--dark-40);
+	}
+
+	#maingameview_menuheader {
+		border-top: none;
+		top: -1px;
+	}
+
+	.cf-coord {
+		fill: var(--light-80);
+	}
+
+	/* color badge of the player panels (white .75 in light mode) */
+	.cf-badge {
+		background: var(--dark-40);
+	}
+
+	.cf-zoom-btn {
+		background: var(--dark-20);
+		border-color: var(--dark-40);
+		color: var(--light-80);
+
+		&:hover {
+			background: var(--dark-30);
+		}
+
+		&:active {
+			background: var(--dark-40);
+		}
+
+		&:disabled {
+			background: var(--dark-20);
+		}
+	}
+
+	/* sand background set inline by the game on each container: kept on #overall-content only, under the darkening */
+	#leftright_page_wrapper,
+	#left-side-wrapper,
+	#left-side,
+	#page-content,
+	#pagesection_gameview,
+	#game_play_area_wrap,
+	#game_play_area {
+		background: transparent !important;
+	}
+}

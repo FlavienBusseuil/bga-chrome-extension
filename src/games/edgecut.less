@@ -1,0 +1,17 @@
+@import "./common";
+
+html[data-theme=dark].bgaext_bright {
+
+	#ec-board {
+		filter: var(--ext-bright);
+	}
+}
+
+html[data-theme=dark].bgaext_dark {
+
+	/* yellow badge of the first player (#f6ec14 in light mode) */
+	.ec-panel-first {
+		background: hsl(57 92% 22%);
+		color: var(--light-80);
+	}
+}

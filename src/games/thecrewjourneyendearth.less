@@ -1,0 +1,146 @@
+@import "./common";
+
+html[data-theme=dark].bgaext_bright {
+
+	.player-table .communication-holder .communication-card-holder .communication-card,
+	.crewds-card,
+	.task .task-inner,
+	#popin_stageDetails .stage-path-full {
+		filter: var(--ext-bright);
+	}
+}
+
+html[data-theme=dark].bgaext_dark {
+
+	#page-title,
+	#maingameview_menuheader,
+	#maingameview_menufooter {
+		border: 1px solid var(--dark-40);
+	}
+
+	#maingameview_menuheader {
+		border-top: none;
+		top: -1px;
+	}
+
+	/* map of the game, darkened */
+	#game_play_area_wrap {
+		background-color: #5a5a5a;
+		background-blend-mode: multiply;
+	}
+
+	.player-table,
+	#thecrewjourneyendearth-table>div#table-middle>div,
+	#thecrewjourneyendearth-table #ghost-hand-container #ghost-hand,
+	#discard-container #discard-wrapper,
+	#hand-container {
+		background-color: var(--dark-back);
+	}
+
+	#thecrewjourneyendearth-table>div#table-middle>div {
+		border-color: var(--light-50);
+		color: var(--light-80);
+	}
+
+	.player-table {
+		border-color: var(--dark-40);
+	}
+
+	.player-table.active {
+		background-color: #4f555fbf;
+	}
+
+	.player-table .player-table-name,
+	.player-table .communication-holder .communication-card-holder,
+	.player-table .lucky-guy {
+		background-color: var(--dark-20);
+	}
+
+	#thecrewjourneyendearth-table>div#table-middle #cards-mat #card-mat-bottom div.mat-card-holder,
+	#thecrewjourneyendearth-table>div#table-middle #cards-mat #card-mat-top div.mat-card-holder {
+		border-color: #fff;
+	}
+
+	#thecrewjourneyendearth-table>div#table-middle #card-placement-board .card-placement-slot {
+		background: #ffffff1a;
+		border-color: var(--light-50);
+	}
+
+	#thecrewjourneyendearth-table>div#table-middle #free-allocation table {
+		background-color: var(--dark-back);
+	}
+
+	#thecrewjourneyendearth-table>div#table-middle #free-allocation table th {
+		background: var(--dark-20);
+	}
+
+	#thecrewjourneyendearth-table>div#table-middle #free-allocation .bundle {
+		background: var(--dark-30);
+	}
+
+	/* beige of the stage boxes (#ddcec0 in light mode) */
+	#stage-overview #stage-overview-counter-wrapper,
+	#logs .log.notif_startNewStage .roundedbox {
+		background: hsl(28 22% 25%);
+		color: var(--light-80);
+	}
+
+	#stage-overview .overview-bubble {
+		background-color: var(--dark-10);
+	}
+
+	/* black svg icon (currentColor) of the stage details button */
+	#stage-overview #stage-zoom {
+		color: var(--light-80);
+	}
+
+	#stage-overview #stage-progress {
+		background: var(--dark-30);
+		color: var(--light-80);
+	}
+
+	#stage-overview #stage-zoom:hover {
+		background: var(--dark-40);
+	}
+
+	#popin_stageDetails {
+		background: hsl(40 25% 15%);
+		color: var(--light-80);
+	}
+
+	#local-prefs-container .row-data .row-label,
+	#settings-controls-container .row-data .row-label {
+		color: var(--light-80);
+	}
+
+	#logs span.card-value.black,
+	#maintitlebar_content span.card-value.black,
+	#stage-progress span.card-value.black,
+	.card-description span.card-value.black,
+	.chatwindowtype_tablelog span.card-value.black,
+	.task span.card-value.black {
+		text-shadow: var(--text-w-shadow);
+	}
+
+	#logs span.logicon.black,
+	#maintitlebar_content span.logicon.black,
+	#stage-progress span.logicon.black,
+	.card-description span.logicon.black,
+	.chatwindowtype_tablelog span.logicon.black,
+	.dijitTooltipContents span.logicon.black,
+	.task span.logicon.black {
+		filter: var(--highlight-min);
+	}
+
+	#logs span.card-value.blue,
+	.card-description span.card-value.blue,
+	.chatwindowtype_tablelog span.card-value.blue {
+		color: var(--blue-70);
+	}
+
+	#logs span.card-value.green,
+	.card-description span.card-value.green,
+	.chatwindowtype_tablelog span.card-value.green {
+		color: var(--green-50);
+	}
+}

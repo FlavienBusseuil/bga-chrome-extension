@@ -1,0 +1,44 @@
+@import "./common";
+
+html[data-theme=dark].bgaext_bright {
+
+	.foodCard,
+	.utensilCard,
+	#commandDeck .deck,
+	#commandDeck .commandCard,
+	.log .ljdt_icon:before,
+	.gamelogreview .ljdt_icon:before {
+		filter: var(--ext-bright);
+	}
+}
+
+html[data-theme=dark].bgaext_dark {
+
+	#page-title,
+	#maingameview_menuheader,
+	#maingameview_menufooter {
+		border: 1px solid var(--dark-40);
+	}
+
+	#maingameview_menuheader {
+		border-top: none;
+		top: -1px;
+	}
+
+	/* fully black icons (dish / plant side) */
+	img.icon[src$="icon-dish.svg"],
+	img.icon[src$="icon-plant.svg"] {
+		filter: invert(0.9);
+	}
+
+	.player-grid {
+		background: var(--dark-back-50);
+	}
+
+	/* tabs of the help zones (#eee in light mode) */
+	.helpZone strong {
+		background-color: var(--dark-30);
+		border-color: var(--light-50);
+		color: var(--light-80);
+	}
+}

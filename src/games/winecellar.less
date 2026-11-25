@@ -1,0 +1,60 @@
+@import "./common";
+
+html[data-theme=dark].bgaext_bright {
+
+	.wc-bottle-card,
+	.wc-bid-back,
+	.wc-client-card,
+	.wc-client-art-mini,
+	.wc-log-card,
+	.wc-scorepad-card,
+	.wc-client-preview-card {
+		filter: var(--ext-bright);
+	}
+}
+
+html[data-theme=dark].bgaext_dark {
+
+	#page-title,
+	#maingameview_menuheader,
+	#maingameview_menufooter {
+		border: 1px solid var(--dark-40);
+	}
+
+	#maingameview_menuheader {
+		border-top: none;
+		top: -1px;
+	}
+
+	/* player names on the light label color of the game */
+	.wc-bid-slot-name,
+	.wc-cellar-player,
+	.wc-minigame-results-player span {
+		background: hsl(45 30% 15%);
+	}
+
+	/* counters of the player panels, in the dark ink of the game */
+	.wc-panel-chip-row,
+	.wc-panel-cumulative {
+		color: var(--light-80);
+	}
+
+	/* dark red of the game (#7a1f2b) */
+	.wc-chip-bonus {
+		color: hsl(352 60% 62%);
+	}
+
+	.wc-tooltip {
+		color: var(--light-80);
+	}
+
+	.wc-dialog-card,
+	.wc-dialog-head {
+		background: hsl(45 30% 12%);
+		color: var(--light-80);
+	}
+
+	.wc-dialog-close {
+		color: var(--light-80);
+	}
+}
