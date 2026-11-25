@@ -1,0 +1,60 @@
+@import "./common";
+
+html[data-theme=dark].bgaext_bright {
+
+	.nle-card,
+	.nle-loose-end {
+		filter: var(--ext-bright);
+	}
+}
+
+html[data-theme=dark].bgaext_dark {
+
+	#page-title,
+	#maingameview_menuheader,
+	#maingameview_menufooter {
+		border: 1px solid var(--dark-40);
+	}
+
+	#maingameview_menuheader {
+		border-top: none;
+		top: -1px;
+	}
+
+	/* playmat of the game (brightness .6 in light mode), behind the darkening of the extension */
+	#nle-board:before {
+		filter: blur(1.5px) brightness(.35);
+	}
+
+	/* cornflower blue of the bids (lightness 66 % in light mode) */
+	.nle-zone-bids-section {
+		background: hsl(219 79% 30% / .45);
+	}
+
+	/* white label of the player names */
+	.nle-zone-header {
+		background: hsl(0 0% 15%);
+	}
+
+	/* the color is set by playersTextColor, without the outline of the game */
+	.nle-zone-name {
+		-webkit-text-stroke: 0;
+	}
+
+	.nle-hand-count-num {
+		color: var(--light-80);
+	}
+
+	/* parchment popup (#f5e6c8 in light mode) */
+	#nle-popup-box {
+		background: hsl(40 40% 15%);
+	}
+
+	.nle-popup-title {
+		color: var(--light-80);
+	}
+
+	.nle-popup-hint {
+		color: var(--light-50);
+	}
+}

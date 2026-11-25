@@ -1,0 +1,14 @@
+{
+	"customBack": true,
+	"playersBorder": [
+		"#nle-zone-{{player_id}}",
+		"#nle-zone-{{player_id}} .nle-zone-header"
+	],
+	"playersTextColor": [
+		"#nle-zone-{{player_id}} .nle-player-name"
+	],
+	"recommendedColor": {
+		"hue": 0,
+		"saturation": 20
+	}
+}
