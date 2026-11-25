@@ -1,0 +1,8 @@
+{
+	"sideMenu": {
+		"playerPanel": "sty-player-table_{{player_id}}",
+		"iconBackground": "#6b4fa3",
+		"iconColor": "#eee",
+		"iconBackgroundDark": "#7656b8"
+	}
+}

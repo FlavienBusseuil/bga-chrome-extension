@@ -1,0 +1,69 @@
+@import "./common";
+
+html[data-theme=dark].bgaext_bright {
+
+	.sty-token-face,
+	.sty-card-face,
+	.sty-objective-face,
+	.sty-log-card,
+	.sty-log-objective,
+	.sty-log-token {
+		filter: var(--ext-bright);
+	}
+
+	.sty-board:before {
+		.reduceBrightness();
+		border-radius: inherit;
+	}
+}
+
+html[data-theme=dark].bgaext_dark {
+
+	#page-title,
+	#maingameview_menuheader,
+	#maingameview_menufooter {
+		border: 1px solid var(--dark-40);
+	}
+
+	#maingameview_menuheader {
+		border-top: none;
+		top: -1px;
+	}
+
+	/* white veil of the game (.04) */
+	.sty-player-table {
+		background: var(--dark-back-50);
+	}
+
+	/* solo challenge popup */
+	.sty-challenge__tab {
+		background: var(--dark-20);
+		color: hsl(218 43% 70%);
+	}
+
+	.sty-challenge__tab--active {
+		background: hsl(218 43% 35%);
+		color: var(--light-80);
+	}
+
+	.sty-challenge__table th {
+		background: var(--dark-20);
+	}
+
+	.sty-challenge-panel {
+		border-top-color: var(--light-50);
+	}
+
+	.sty-solo-result {
+		background: hsl(0 0% 15% / .92);
+		color: var(--light-80);
+	}
+
+	.sty-solo-result--win .sty-solo-result__title {
+		color: hsl(123 46% 55%);
+	}
+
+	.sty-solo-result--loss .sty-solo-result__title {
+		color: hsl(0 50% 62%);
+	}
+}

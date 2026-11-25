@@ -1,0 +1,6 @@
+{
+	"customPanel": true,
+	"playersBorder": [
+		"#overall_player_board_{{player_id}}"
+	]
+}

@@ -1,0 +1,115 @@
+@import "./common";
+
+html[data-theme=dark].bgaext_bright {
+
+	.sprite {
+		filter: var(--ext-bright);
+	}
+}
+
+html[data-theme=dark].bgaext_dark {
+	/* blue background of the game, only set in light mode by the game */
+	background-image: var(--ext-game-back);
+	--ext-overall-color: #000000a0;
+
+	#page-title,
+	#maingameview_menuheader,
+	#maingameview_menufooter {
+		border: 1px solid var(--dark-40);
+	}
+
+	#maingameview_menuheader {
+		border-top: none;
+		top: -1px;
+	}
+
+	/* white veils of the game */
+	.fo_cards_score {
+		background-color: var(--dark-back-50);
+	}
+
+	/* player area under the tabs, hardly visible on the dark background */
+	.fo_pan.real {
+		outline: 1px solid var(--light-50);
+	}
+
+	.fo_tabs .fo_player {
+		background-color: var(--dark-back);
+		border-color: var(--light-50);
+	}
+
+	.fo_pan_btn .fo_round,
+	.fo_pan_btn svg,
+	.fo_pan_btn .fo_pan_btn_center svg,
+	.fo_layout_btn {
+		background-color: var(--dark-30);
+		color: var(--light-80);
+		fill: var(--light-80);
+	}
+
+	/* dark blue svg icon of the game (#00008b) */
+	.fo_layout_btn svg {
+		fill: var(--light-80);
+	}
+
+	/* player names without the outline of the game */
+	.fo_cards_score .orange,
+	.fo_cards_score .tan {
+		filter: none;
+	}
+
+	/* separators of the panel counters (black .1 in light mode) */
+	.fo_playerInfo .counter:not(:last-child) {
+		border-right-color: hsl(0 0% 100% / .2);
+	}
+
+	.fo_playerInfo .ba {
+		color: var(--blue-70);
+	}
+
+	.fo_playerInfo .wa {
+		color: var(--green-50);
+	}
+
+	.text-red {
+		color: var(--red-80);
+	}
+
+	.bgabutton_green {
+		.greenButton();
+
+		&:hover {
+			.greenButtonOver();
+		}
+	}
+
+	.bgabutton_yellow {
+		.yellowButton();
+
+		&:hover {
+			.yellowButtonOver();
+		}
+	}
+
+	/* help popup and button */
+	.aal-popup-overlay .aal-popup-content {
+		background: var(--dark-20);
+		color: var(--light-80);
+	}
+
+	.fo_title_help {
+		color: var(--blue-70);
+	}
+
+	.aal-help_popin-button {
+		/* moved away from the outline of the player area (5px in the game) */
+		left: 10px;
+		background-color: var(--dark-30);
+		color: var(--light-80);
+	}
+
+	.logs_custom_highlight {
+		background-color: hsl(60 100% 20%);
+		color: var(--light-80);
+	}
+}

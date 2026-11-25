@@ -1,0 +1,56 @@
+@import "./common";
+
+html[data-theme=dark].bgaext_bright {
+
+	.card-grizzo,
+	.card-village {
+		filter: var(--ext-bright);
+	}
+}
+
+html[data-theme=dark].bgaext_dark {
+
+	#page-title,
+	#maingameview_menuheader,
+	#maingameview_menufooter {
+		border: 1px solid var(--dark-40);
+	}
+
+	#maingameview_menuheader {
+		border-top: none;
+		top: -1px;
+	}
+
+	/* player names on the water of the game, without the white halo */
+	.player-space>div:not(.colored-cards-container) {
+		text-shadow: none;
+		background: var(--dark-back);
+		border-radius: 6px;
+		padding: 0 6px;
+		justify-self: center;
+		width: fit-content;
+		margin: 0 auto;
+	}
+
+	/* card colors of the player panels, darkened */
+	.player-counter-space {
+		--card-color-pink: hsl(332 77% 35%);
+		--card-color-orange: hsl(35 91% 33%);
+		--card-color-yellow: hsl(55 96% 28%);
+		--card-color-green: hsl(150 63% 28%);
+		--card-color-blue: hsl(195 83% 32%);
+
+		[id^=player-counter-points-] {
+			color: var(--light-80);
+			text-shadow: none;
+		}
+
+		[id^=player-counter-amount-] {
+			color: var(--light-80);
+		}
+	}
+
+	#endscore-panel {
+		background: hsl(193 78% 20%);
+	}
+}

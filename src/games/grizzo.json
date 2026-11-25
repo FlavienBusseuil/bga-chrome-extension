@@ -1,0 +1,5 @@
+{
+	"playersBorder": [
+		".player-space:has(#player_display_{{player_id}}_card_container)"
+	]
+}

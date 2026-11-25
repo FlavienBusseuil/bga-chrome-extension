@@ -1,0 +1,8 @@
+{
+	"playersBack": [
+		".rainbow-pile-claiming[style*=\"{{player_color}}\"] .rainbow-claim-badge"
+	],
+	"playersTextColor": [
+		".rainbow-pile-claiming[style*=\"{{player_color}}\"]"
+	]
+}

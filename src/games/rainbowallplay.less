@@ -1,0 +1,83 @@
+@import "./common";
+
+html[data-theme=dark].bgaext_bright {
+
+	.rainbow-card,
+	.rainbow-decor-stripe,
+	.rainbow-decor-cloud,
+	.rainbow-decor-unicorn {
+		filter: var(--ext-bright);
+	}
+}
+
+html[data-theme=dark].bgaext_dark {
+
+	#page-title,
+	#maingameview_menuheader,
+	#maingameview_menufooter {
+		border: 1px solid var(--dark-40);
+	}
+
+	#maingameview_menuheader {
+		border-top: none;
+		top: -1px;
+	}
+
+	/* pastel gradients of the game, darkened */
+	#rainbow-table {
+		background: radial-gradient(ellipse 60% 40% at 15% 0, hsl(345 100% 18% / .55), transparent 70%), radial-gradient(ellipse 55% 35% at 100% 10%, hsl(48 100% 12% / .55), transparent 70%), radial-gradient(ellipse 70% 50% at 50% 100%, hsl(200 100% 15% / .6), transparent 70%), linear-gradient(180deg, hsl(212 50% 12%), hsl(246 30% 14%) 55%, hsl(146 40% 11%));
+		color: var(--light-80);
+	}
+
+	/* light decorations (white clouds) faded into the dark background */
+	.rainbow-decor-stripe,
+	.rainbow-decor-cloud,
+	.rainbow-decor-unicorn {
+		opacity: .5;
+	}
+
+	.rainbow-section-title,
+	#rainbow-table-zone-divider {
+		background: linear-gradient(90deg, hsl(0 94% 35%), hsl(45 96% 30%), hsl(142 70% 25%), hsl(199 92% 30%), hsl(252 90% 40%));
+	}
+
+	.rainbow-section-title {
+		color: var(--light-80);
+	}
+
+	/* white veils of the game */
+	#rainbow-table-zone,
+	.rainbow-pile,
+	.rainbow-play {
+		background: var(--dark-back-50);
+	}
+
+	.rainbow-pile {
+		border-color: var(--light-50);
+	}
+
+	.rainbow-pile.claimable:hover {
+		background: hsl(45 100% 20% / .6);
+	}
+
+	/* the player color (--claim-color) follows the panels through playersTextColor */
+	.rainbow-pile-claiming {
+		background: var(--dark-30);
+		border-color: currentColor;
+		box-shadow: 0 0 0 3px currentColor, 0 10px 24px rgba(15, 23, 42, .25);
+	}
+
+	.rainbow-points-pop {
+		text-shadow: 0 0 3px #000, 0 0 6px #000;
+	}
+
+	.rainbow-panel,
+	.rainbow-empty {
+		color: hsl(215 16% 65%);
+	}
+
+	.rainbow-play-label,
+	#rainbow-combo-hint {
+		color: var(--light-80);
+	}
+}
