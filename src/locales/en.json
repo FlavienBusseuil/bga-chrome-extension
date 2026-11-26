@@ -129,7 +129,7 @@
   "optionsSolidBackgroundOn": "The default background (wooden planks) is replaced by a solid-colored background",
   "optionsSolidBackgroundOff": "The default background (wooden planks) is used",
   "optionsHideSocialMessagesOn": "News feed contains only groups messages",
-  "optionsHideSocialMessagesOff": "News feed contains default informations",
+  "optionsHideSocialMessagesOff": "News feed contains default information",
   "optionsAnimatedTitleOn": "Page title in browser tabs is preceded by an animation when it's your turn to play (default behavior)",
   "optionsAnimatedTitleOff": "Page title in browser tabs is never animated",
   "optionsChatUserNameOn": "User names in chat are always displayed",

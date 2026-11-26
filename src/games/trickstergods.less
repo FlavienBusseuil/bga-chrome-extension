@@ -1,0 +1,59 @@
+@import "./common";
+
+html[data-theme=dark].bgaext_bright {
+
+	.tg_card_sprite {
+		filter: var(--ext-bright);
+
+		&:hover {
+			filter: brightness(1.03) var(--ext-bright);
+		}
+	}
+
+	.tg_eq_non_candidate {
+		filter: grayscale(.2) brightness(.72) var(--ext-bright);
+	}
+
+	.tg_power_card_sprite.tg_used {
+		filter: grayscale(.2) var(--ext-bright);
+	}
+}
+
+html[data-theme=dark].bgaext_dark {
+
+	#page-title,
+	#maingameview_menuheader,
+	#maingameview_menufooter {
+		border: 1px solid var(--dark-40);
+	}
+
+	#maingameview_menuheader {
+		border-top: none;
+		top: -1px;
+	}
+
+	/* player names on the player color (inline styles), the color is set by playersTextColor */
+	.tg_player_label,
+	.tg_trick_label {
+		background-color: var(--dark-20) !important;
+		border-color: var(--dark-40);
+	}
+
+	/* light blue power tokens of the player panels (#e9f1ff in light mode) */
+	.tg_power_card,
+	.tg_power_tiny {
+		background: hsl(217 40% 25%);
+		border-color: var(--dark-40);
+		color: var(--light-80);
+
+		&.tg_used {
+			background: var(--dark-20);
+			color: var(--light-50);
+		}
+	}
+
+	.tg_my_stats_panel {
+		background: var(--dark-20);
+		border-color: var(--dark-40);
+	}
+}

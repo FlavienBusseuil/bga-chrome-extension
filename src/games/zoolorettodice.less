@@ -1,0 +1,52 @@
+@import "./common";
+
+html[data-theme=dark].bgaext_bright {
+
+	.zd-die {
+		filter: var(--ext-bright);
+	}
+
+	#zd-trucks:before,
+	.zd-sheet-body:before {
+		.reduceBrightness();
+		border-radius: inherit;
+	}
+}
+
+html[data-theme=dark].bgaext_dark {
+	--ext-overall-color: #00000080;
+
+	#page-title,
+	#maingameview_menuheader,
+	#maingameview_menufooter {
+		border: 1px solid var(--dark-40);
+	}
+
+	#maingameview_menuheader {
+		border-top: none;
+		top: -1px;
+	}
+
+	#zd-round,
+	.zd-sheet-head,
+	.zd-empty-note {
+		color: var(--light-80);
+	}
+
+	#zd-round strong {
+		color: var(--red-80);
+	}
+
+	#zd-rolled {
+		border-left-color: hsl(0 0% 100% / .2);
+	}
+
+	/* the color is set by playersTextColor, without the outline of the game */
+	.zd-name-light {
+		text-shadow: none;
+	}
+
+	.zd-panel-link:hover {
+		background: hsl(0 0% 100% / .08);
+	}
+}

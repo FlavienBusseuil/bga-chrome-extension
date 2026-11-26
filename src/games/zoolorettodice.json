@@ -1,0 +1,10 @@
+{
+	"customBack": true,
+	"playersTextColor": [
+		"#zd-sheet-{{player_id}} .zd-name"
+	],
+	"recommendedColor": {
+		"hue": 90,
+		"saturation": 20
+	}
+}

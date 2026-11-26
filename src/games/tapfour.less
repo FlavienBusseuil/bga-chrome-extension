@@ -1,0 +1,100 @@
+@import "./common";
+
+html[data-theme=dark].bgaext_bright {
+
+	.t4_token_card .sprite {
+		filter: var(--ext-bright);
+	}
+
+	.grayscale .sprite {
+		filter: grayscale(1) var(--ext-bright);
+	}
+}
+
+html[data-theme=dark].bgaext_dark {
+	--ext-overall-color: #00000080;
+
+	#page-title,
+	#maingameview_menuheader,
+	#maingameview_menufooter {
+		border: 1px solid var(--dark-40);
+	}
+
+	#maingameview_menuheader {
+		border-top: none;
+		top: -1px;
+	}
+
+	/* white veil of the player areas */
+	.t4_playerBoard {
+		background-color: var(--dark-back);
+	}
+
+	.t4_playerBoard .t4_playerBoard_name {
+		text-shadow: none;
+	}
+
+	/* black texts on the dark backgrounds of the game */
+	.t4_stack .t4_stack_announce .value,
+	.aal-popup-overlay .aal-popup-content {
+		color: var(--light-80);
+	}
+
+	/* pure red of the game (number of the stack…) */
+	#myStatusBar_custom .text-red,
+	.aal-popup-overlay .text-red,
+	.dijitTooltip .text-red,
+	.t4_game_container .text-red,
+	.t4_playerInfo .text-red {
+		color: var(--red-80);
+	}
+
+	.t4_stack_label {
+		color: var(--light-80);
+		text-shadow: none;
+	}
+
+	.t4_playerBoard .t4_pile.t4_pile_empty,
+	.t4_stack_cards.t4_stack_empty {
+		background-color: hsl(0 0% 100% / .08);
+	}
+
+	.t4_stack_cards .t4_stack_empty_label {
+		color: var(--light-50);
+	}
+
+	.t4_hand .ca_expand_btn,
+	.t4_hand .t4_pin_btn,
+	.t4_hand .t4_zoom_icon {
+		background-color: var(--dark-back);
+		color: var(--light-80);
+		fill: var(--light-80);
+	}
+
+	.aal-help_popin-button {
+		background-color: var(--dark-20);
+		color: var(--light-80);
+	}
+
+	/* yellow highlight of the logs */
+	.logs_custom_highlight {
+		background-color: hsl(60 100% 18%);
+		color: var(--light-80);
+	}
+
+	.bgabutton_green {
+		.greenButton();
+
+		&:hover {
+			.greenButtonOver();
+		}
+	}
+
+	.bgabutton_yellow {
+		.yellowButton();
+
+		&:hover {
+			.yellowButtonOver();
+		}
+	}
+}

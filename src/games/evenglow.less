@@ -1,0 +1,187 @@
+@import "./common";
+
+html[data-theme=dark].bgaext_bright {
+
+	.eg-card,
+	.eg-potion,
+	.eg-potion-zoom,
+	.eg-mini-card,
+	.eg-mini-potion,
+	.eg-unseen,
+	.eg-draft-board {
+		filter: var(--ext-bright);
+	}
+
+	.eg-potion.eg-used {
+		filter: grayscale(1) brightness(.75) var(--ext-bright);
+	}
+
+	/* veil of the dark mode of the game (under the tiles), with the brightness of the extension */
+	.eg-garden:before {
+		background: linear-gradient(var(--ext-alpha), var(--ext-alpha)), rgba(12, 8, 20, .2);
+	}
+}
+
+html[data-theme=dark].bgaext_dark {
+
+	#page-title,
+	#maingameview_menuheader,
+	#maingameview_menufooter {
+		border: 1px solid var(--dark-40);
+	}
+
+	#maingameview_menuheader {
+		border-top: none;
+		top: -1px;
+	}
+
+	/* purple help button (#5b4a7a in light mode) */
+	.bga-help_popin-button {
+		background-color: hsl(263 25% 32%);
+	}
+
+	/* player names on a light label in the dark mode of the game */
+	.eg-name {
+		background: none !important;
+		box-shadow: none !important;
+		padding: 0 !important;
+	}
+
+	/* winner text under the score sheet, on the background of the page */
+	.eg-sheet-result {
+		color: var(--light-80);
+	}
+
+	.eg-state {
+		color: hsl(115 50% 60%);
+	}
+
+	.eg-draft-name {
+		background: var(--dark-back);
+		box-shadow: none;
+	}
+
+	/* light score sheet inverted, with its highlights (focused row, winner…) */
+	.eg-sheet {
+		filter: invert(1) hue-rotate(180deg);
+
+		/* inverted back: plant icons, trophy, player names (color set by playersTextColor) */
+		.eg-icon,
+		.eg-sheet-name > span,
+		.eg-sheet-total.eg-sheet-winner:after {
+			filter: invert(1) hue-rotate(180deg);
+		}
+
+		.eg-sheet-total.eg-sheet-winner:after {
+			display: inline-block;
+		}
+
+		/* the light yellow glow of the winner becomes a dark halo once inverted */
+		.eg-sheet-cell.eg-sheet-winner {
+			text-shadow: none;
+		}
+
+		.eg-sheet-name > span {
+			background: var(--dark-20);
+			box-shadow: none;
+		}
+	}
+
+	/* white veils over the background of the page */
+	#eg-assign,
+	.eg-ref,
+	.eg-unseen-rows,
+	.eg-margin,
+	#eg-picker {
+		background: var(--dark-back);
+		color: var(--light-80);
+	}
+
+	.eg-row-total {
+		border-top-color: hsl(0 0% 100% / .25);
+	}
+
+	/* pale yellow highlights (#fff3b0) */
+	.eg-row-now {
+		background: hsl(52 60% 22%);
+	}
+
+	.eg-float,
+	.eg-flyer {
+		background: hsl(52 60% 22%);
+		color: var(--light-80);
+	}
+
+	.eg-float-zero {
+		background: var(--dark-back);
+		color: var(--light-50);
+	}
+
+	.eg-turnmark-inline {
+		color: hsl(42 100% 60%);
+	}
+
+	.eg-tip-pts.eg-pos {
+		color: hsl(115 50% 60%);
+	}
+
+	.eg-solo-result {
+		&.eg-win {
+			background: hsl(104 45% 18%);
+		}
+
+		&.eg-loss {
+			background: hsl(0 50% 20%);
+		}
+	}
+
+	/* white buttons of the game */
+	.eg-pick,
+	.eg-mini-btn,
+	.eg-info-btn,
+	.eg-replay-btn,
+	.eg-sheet-btn {
+		background: var(--dark-20) !important;
+		border-color: var(--dark-40) !important;
+		color: var(--light-80) !important;
+
+		/* pale yellow on mouse over (#fff6cf in light mode) */
+		&:hover:not(:disabled) {
+			background: hsl(49 45% 26%) !important;
+		}
+	}
+
+	.eg-pick.eg-selected {
+		border-color: var(--light-80) !important;
+	}
+
+	/* popups of the game */
+	.eg-modal-box,
+	.eg-tileinfo {
+		background: var(--dark-20);
+		color: var(--light-80);
+	}
+
+	.eg-modal-close {
+		background: var(--dark-40);
+		color: var(--light-80);
+	}
+
+	.eg-tabs {
+		border-bottom-color: var(--dark-40);
+
+		.eg-tab {
+			color: var(--light-50);
+
+			&[aria-selected=true] {
+				background: var(--dark-40);
+				border-color: var(--dark-40);
+				color: var(--light-80);
+			}
+		}
+	}
+
+	.eg-harvest-line {
+		border-top-color: hsl(0 0% 100% / .2);
+	}
+}

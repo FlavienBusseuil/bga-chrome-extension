@@ -1,0 +1,10 @@
+{
+	"playersTextColor": [
+		"#tg_player_table_{{player_id}} .tg_player_label",
+		".tg_trick_label[style^=\"background-color: {{player_color_rgb}}\"]"
+	],
+	"recommendedColor": {
+		"hue": 265,
+		"saturation": 30
+	}
+}

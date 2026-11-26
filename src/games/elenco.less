@@ -1,0 +1,25 @@
+@import "./common";
+
+html[data-theme=dark].bgaext_bright {
+
+	.el-card:before {
+		.reduceBrightness();
+		z-index: 6;
+	}
+}
+
+html[data-theme=dark].bgaext_dark {
+	/* already dark felt of the game, replaced by the dark background of BGA (inline style) */
+	background-color: #3b1520 !important;
+
+	#page-title,
+	#maingameview_menuheader,
+	#maingameview_menufooter {
+		border: 1px solid var(--dark-40);
+	}
+
+	#maingameview_menuheader {
+		border-top: none;
+		top: -1px;
+	}
+}
