@@ -1,0 +1,17 @@
+{
+	"customBack": true,
+	"playersTextColor": [
+		"#alc-player-{{player_id}}"
+	],
+	"recommendedColor": {
+		"hue": 20,
+		"saturation": 25
+	},
+	"sideMenu": {
+		"playerPanel": "alc-player-{{player_id}}",
+		"iconBackground": "#a5643f",
+		"iconBackgroundDark": "#6b3f27",
+		"iconColor": "#eee",
+		"iconColorDark": "#eee"
+	}
+}

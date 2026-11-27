@@ -1,0 +1,6 @@
+{
+	"sideMenu": {
+		"playerPanel": "gch_collection-{{player_id}}",
+		"playerPanelOffset": 50
+	}
+}

@@ -1,0 +1,47 @@
+@import "./common";
+
+html[data-theme=dark].bgaext_bright {
+
+	.gch_card .bga-cards_card-side,
+	.gch_toyIcon,
+	.gch_machine,
+	.gch_personalDeckWrap i {
+		filter: var(--ext-bright);
+	}
+}
+
+html[data-theme=dark].bgaext_dark {
+
+	/* white veils of the tricks and collections */
+	.gch_boardContainer,
+	.gch_collectionContainer {
+		background-color: var(--dark-back);
+	}
+
+	.gch_roundWrap {
+		color: var(--light-80);
+	}
+
+	/* color names of the logs: dark named colors of the game, lightened */
+	.gch_colorLog {
+		&[style^="color: blue"] {
+			color: hsl(240 100% 78%) !important;
+		}
+
+		&[style^="color: red"] {
+			color: var(--red-80) !important;
+		}
+
+		&[style^="color: green"] {
+			color: hsl(120 50% 55%) !important;
+		}
+
+		&[style^="color: purple"] {
+			color: hsl(300 55% 70%) !important;
+		}
+
+		&[style^="color: gray"] {
+			color: hsl(0 0% 70%) !important;
+		}
+	}
+}

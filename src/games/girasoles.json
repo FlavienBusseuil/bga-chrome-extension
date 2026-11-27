@@ -1,0 +1,16 @@
+{
+	"recommendedColor": {
+		"hue": 35,
+		"saturation": 25
+	},
+	"playersTextColor": [
+		".final-scores-player-name[style^=\"color: {{player_color_rgb}}\"]"
+	],
+	"sideMenu": {
+		"playerPanel": "player-board-context-{{player_id}}",
+		"iconBackground": "#8a5a2b",
+		"iconBackgroundDark": "#5a3a1c",
+		"iconColor": "#eee",
+		"iconColorDark": "#eee"
+	}
+}

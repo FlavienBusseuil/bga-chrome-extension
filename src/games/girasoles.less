@@ -1,0 +1,149 @@
+@import "./common";
+
+html[data-theme=dark].bgaext_bright {
+
+	/* field and boards with their tiles */
+	#sunflower-field:before,
+	.sunflower-field-mini:before,
+	#girasoles-board .player-board:before {
+		.reduceBrightness();
+	}
+
+	.placed-tile,
+	.hour-card,
+	.objective-card {
+		filter: var(--ext-bright);
+	}
+
+	.hour-card-inactive {
+		filter: saturate(.78) brightness(.94) var(--ext-bright);
+	}
+}
+
+html[data-theme=dark].bgaext_dark {
+
+	#page-title,
+	#maingameview_menuheader,
+	#maingameview_menufooter {
+		border: 1px solid var(--dark-40);
+	}
+
+	#maingameview_menuheader {
+		border-top: none;
+		top: -1px;
+	}
+
+	/* light paper playmat (#c6bca6), darkened with its texture */
+	#girasoles-board {
+		background-color: hsl(41 20% 24%);
+		background-blend-mode: multiply;
+	}
+
+	#objectives-panel h4 {
+		color: var(--light-80);
+	}
+
+	#other-player-boards {
+		border-top-color: hsl(0 0% 100% / .2);
+	}
+
+	/* the color is set by the dark mode, without the outline of the game */
+	.player-board-context h4,
+	.player-board-wrap h4 {
+		text-shadow: none;
+	}
+
+	/* light tooltips of the game */
+	.brush-stack-tooltip,
+	.girasoles-touch-tooltip {
+		background: var(--dark-20);
+		border-color: var(--dark-40);
+		color: var(--light-80);
+	}
+
+	.brush-stack-tooltip-header {
+		border-bottom-color: hsl(0 0% 100% / .2);
+		color: hsl(41 50% 70%);
+	}
+
+	.brush-stack-tooltip-name {
+		color: var(--light-80);
+	}
+
+	.brush-stack-tooltip-arrow {
+		color: var(--light-50);
+	}
+
+	.objective-guide-grid {
+		background: hsl(43 10% 30%);
+	}
+
+	.objective-guide-cell[data-empty="1"] {
+		box-shadow: inset 0 0 0 1px hsl(0 0% 100% / .15);
+	}
+
+	/* final scores */
+	.final-scores-dialog {
+		background: var(--dark-20);
+		border-color: var(--dark-40);
+	}
+
+	.final-scores-close {
+		background: var(--dark-40);
+
+		&:hover {
+			background: hsl(0 0% 35%);
+		}
+	}
+
+	.final-scores-title,
+	.final-scores-total-row .final-scores-label,
+	.final-scores-total-row .final-scores-value {
+		color: var(--light-80);
+	}
+
+	.final-scores-label,
+	.final-scores-value {
+		color: hsl(211 15% 70%);
+	}
+
+	.final-scores-table tbody tr {
+		border-bottom-color: hsl(0 0% 100% / .15);
+	}
+
+	.final-scores-total-row {
+		border-top-color: hsl(0 0% 100% / .3);
+	}
+
+	/* scores revealed at the end */
+	.reveal-spotlight-score,
+	.objective-compare {
+		background: hsl(40 30% 15% / .94);
+	}
+
+	.objective-compare-board {
+		background: hsl(0 0% 100% / .08);
+
+		&[data-best="1"] {
+			background: hsl(106 40% 22%);
+		}
+	}
+
+	.reveal-spotlight-score-name,
+	.objective-compare-name {
+		color: var(--light-80);
+	}
+
+	.objective-compare-title {
+		color: var(--light-50);
+	}
+
+	.reveal-spotlight-score-pts,
+	.objective-compare-pts {
+		color: hsl(113 40% 60%);
+	}
+
+	.reveal-spotlight-score-pts[data-zero="1"] {
+		color: var(--light-50);
+	}
+}
