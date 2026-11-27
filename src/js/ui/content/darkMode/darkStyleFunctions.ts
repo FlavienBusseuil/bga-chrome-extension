@@ -403,7 +403,8 @@ const _manageHtmlTag = () => {
     const classesList = Array.isArray(config?.customBack) ? config.customBack : undefined;
 
     if (classesList) {
-      if (classesList.find(c => document.documentElement.classList.contains(c))) {
+      // "!class": when the html tag doesn't have the class (e.g. a background turned off by a preference of the game)
+      if (classesList.find(c => c.startsWith("!") ? !document.documentElement.classList.contains(c.substring(1)) : document.documentElement.classList.contains(c))) {
         if (!document.documentElement.classList.contains("bgaext_cust_back")) {
           document.documentElement.classList.add("bgaext_cust_back");
         }

@@ -10,16 +10,7 @@ html[data-theme=dark].bgaext_bright {
 
 html[data-theme=dark].bgaext_dark {
 
-	#page-title,
-	#maingameview_menuheader,
-	#maingameview_menufooter {
-		border: 1px solid var(--dark-40);
-	}
-
-	#maingameview_menuheader {
-		border-top: none;
-		top: -1px;
-	}
+	.titleBarBorder();
 
 	/* playmat of the game (brightness .6 in light mode), behind the darkening of the extension */
 	#nle-board:before {

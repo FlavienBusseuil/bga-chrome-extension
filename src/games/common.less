@@ -119,3 +119,17 @@
 	left: 0px;
 	pointer-events: none;
 }
+
+// border of the title bar, on a dark background of the game
+.titleBarBorder(@color: var(--dark-40)) {
+	#page-title,
+	#maingameview_menuheader,
+	#maingameview_menufooter {
+		border: 1px solid @color;
+	}
+
+	#maingameview_menuheader {
+		border-top: none;
+		top: -1px;
+	}
+}

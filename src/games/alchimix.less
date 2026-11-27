@@ -24,19 +24,14 @@ html[data-theme=dark].bgaext_bright {
 	}
 }
 
-html[data-theme=dark].bgaext_dark {
+/* darkening of the image of the game, not of the background of the extension shown when a preference turns it off */
+html[data-theme=dark].bgaext_dark:not(.alc_background_off) {
 	--ext-overall-color: #00000080;
+}
 
-	#page-title,
-	#maingameview_menuheader,
-	#maingameview_menufooter {
-		border: 1px solid var(--dark-40);
-	}
+html[data-theme=dark].bgaext_dark {
 
-	#maingameview_menuheader {
-		border-top: none;
-		top: -1px;
-	}
+	.titleBarBorder();
 
 	/* border with the color of the player (white in the dark mode of the game), set by playersTextColor */
 	.alc-player {

@@ -6,7 +6,7 @@
   "additionalProperties": false,
   "properties": {
     "customBack": {
-      "description": "true: the game has its own dark background. A list of classes: only when the html tag has one of them",
+      "description": "true: the game has its own dark background. A list of classes: only when the html tag has one of them (\"!class\": when it doesn't have the class)",
       "anyOf": [
         {
           "type": "boolean"

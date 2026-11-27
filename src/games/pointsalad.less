@@ -1,3 +1,5 @@
+@import "./common";
+
 html[data-theme=dark].bgaext_bright {
 
 	.card .card-sides .card-side.front,
@@ -9,16 +11,7 @@ html[data-theme=dark].bgaext_bright {
 html[data-theme=dark].bgaext_dark {
 	--ext-overlay-color: #0001;
 
-	#page-title,
-	#maingameview_menuheader,
-	#maingameview_menufooter {
-		border: 1px solid var(--dark-40);
-	}
-
-	#maingameview_menuheader {
-		border-top: none;
-		top: -1px;
-	}
+	.titleBarBorder();
 
 	.player-table .player-name {
 		text-shadow: none;

@@ -1,5 +1,7 @@
 {
-	"customBack": true,
+	"customBack": [
+		"!alc_background_off"
+	],
 	"playersTextColor": [
 		"#alc-player-{{player_id}}"
 	],

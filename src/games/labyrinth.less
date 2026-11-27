@@ -1,3 +1,5 @@
+@import "./common";
+
 	html[data-theme=dark].bgaext_bright {
 
 		tile:before,
@@ -9,16 +11,7 @@
 
 	html[data-theme=dark].bgaext_dark {
 
-		#page-title,
-		#maingameview_menuheader,
-		#maingameview_menufooter {
-			border: 1px solid var(--dark-40);
-		}
-
-		#maingameview_menuheader {
-			border-top: none;
-			top: -1px;
-		}
+		.titleBarBorder();
 
 		arrow[active=true] {
 			background-color: var(--dark-40);

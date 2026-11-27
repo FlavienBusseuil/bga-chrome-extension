@@ -1,3 +1,5 @@
+@import "./common";
+
 html[data-theme=dark].bgaext_bright {
 
 	#front-view,
@@ -21,16 +23,7 @@ html[data-theme=dark].bgaext_dark {
 				#0b111e calc(500px + var(--bg-offset)));
 	}
 
-	#page-title,
-	#maingameview_menuheader,
-	#maingameview_menufooter {
-		border: 1px solid var(--dark-40);
-	}
-
-	#maingameview_menuheader {
-		border-top: none;
-		top: -1px;
-	}
+	.titleBarBorder();
 
 	.bidstock[style*="background-color: rgb(143, 190, 145);"] {
 		background-color: #2f5130 !important;

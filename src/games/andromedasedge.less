@@ -1,3 +1,5 @@
+@import "./common";
+
 /* white squares of the score track */
 html[data-theme=dark].bgaext_bright {
 	#game_play_area #score-section #score-track .score-segment {
@@ -8,16 +10,7 @@ html[data-theme=dark].bgaext_bright {
 /* the game is already dark: only its light backgrounds behind the light texts of the dark mode, with a lower lightness */
 html[data-theme=dark].bgaext_dark {
 	/* title bar on the dark background of the game */
-	#page-title,
-	#maingameview_menuheader,
-	#maingameview_menufooter {
-		border: 1px solid var(--dark-40);
-	}
-
-	#maingameview_menuheader {
-		border-top: none;
-		top: -1px;
-	}
+	.titleBarBorder();
 
 	#logs .log.notif_gamePhase .roundedbox .game-phase-wrap {
 		--background-color: hsl(0 0% 22%);
